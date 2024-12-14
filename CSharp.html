@@ -1,0 +1,903 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>C# # &#8212; Notes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'CSharp';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="CTF" href="CTF.html" />
+    <link rel="prev" title="C++" href="C%2B%2B.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AWS.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BackendEngineering.html">Backend Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">C++</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">C# #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CTF.html">CTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CompTIA.html">CompTIA Cert Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compilers.html">Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerGraphics.html">Computer Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputingSystems.html">Computing Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">ECS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FFmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Helm.html">Helm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Istio.html">Istio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JDBC.html">JDBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MongoDB.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkProgramming.html">Network Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NodeJS.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenAPI.html">OpenAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OperatingSystem.html">Operating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="POSIXThreads.html">POSIX Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PenetrationTesting.html">Penetration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramDesign.html">Program Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectManagement.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prometheus.html">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SFML.html">SFML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StrategicPlanning.html">Strategic Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terraform.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TypeScript.html">TypeScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI/UX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrant.html">Vagrant</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/CSharp.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>C# #</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-c">What is C#?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output">Output</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input">Input</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declare-variables">Declare Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string">String</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numbers">Numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays">Arrays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditionals">Conditionals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exceptions">Exceptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-objects">Classes &amp; Objects</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="c">
+<h1>C# #<a class="headerlink" href="#c" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#what-is-c">What is C#?</a></p></li>
+<li><p><a class="reference internal" href="#basics">Basics</a></p></li>
+</ol>
+<p><a class="reference external" href="#c">back to top</a></p>
+<section id="what-is-c">
+<h2>What is C#?<a class="headerlink" href="#what-is-c" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li></li>
+</ul>
+<p><a class="reference external" href="#c">back to top</a></p>
+</section>
+<section id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Link to this heading">#</a></h2>
+<ul>
+<li><p>basic example program</p>
+<blockquote>
+<div><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Linq</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Text</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Threading.Tasks</span><span class="p">;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">basics</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">Program</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* code execution start from Main()*/</span>
+<span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;hello world&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<section id="output">
+<h3>Output<a class="headerlink" href="#output" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="c1">// print and stay on same line</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">();</span>
+
+<span class="c1">// print and go to new line</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="input">
+<h3>Input<a class="headerlink" href="#input" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="c1">// store input as string</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="declare-variables">
+<h3>Declare Variables<a class="headerlink" href="#declare-variables" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w"> </span><span class="c1">// concatenation</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="data-types">
+<h3>Data Types<a class="headerlink" href="#data-types" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>char, string, int, bool</p></li>
+<li><p>float, double, decimal (most accurate)</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="string">
+<h3>String<a class="headerlink" href="#string" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello world&quot;</span><span class="p">;</span>
+<span class="c1">// x.Length, x.ToUpper(), x.ToLower()</span>
+<span class="c1">// x.Contains(&#39;h&#39;), x[2]</span>
+<span class="c1">// x.IndexOf(&#39;o&#39;), x.IndexOf(&quot;llo&quot;) returns index of starting &#39;l&#39;, -1 if not found</span>
+<span class="c1">// x.Substring(2) start from index 2, inclusive, to end</span>
+<span class="c1">// x.Substring(2, 4) start from index 2 and 3 characters behind</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="numbers">
+<h3>Numbers<a class="headerlink" href="#numbers" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Math.Abs(-40), Math.Pow(2.2, 3), Math.Sqrt(4)</span>
+<span class="c1">// Math.Max(4, 44), Math.Min(23, 12), Math.Round(4.12)</span>
+<span class="c1">// Math.Floor(4.9), Math.Ceiling(4.2)</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Convert</span><span class="p">.</span><span class="n">ToInt32</span><span class="p">(</span><span class="s">&quot;13&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// convert string to int</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="arrays">
+<h3>Arrays<a class="headerlink" href="#arrays" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="c1">// type[] name = {values};</span>
+<span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="p">};</span>
+<span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">string</span><span class="p">[</span><span class="m">10</span><span class="p">];</span><span class="w"> </span><span class="c1">// create empty array with specific number of elements</span>
+</pre></div>
+</div>
+<ul>
+<li><p>2-dimensional array</p>
+<blockquote>
+<div><dl class="simple">
+<dt>int[,] x = {</dt><dd><p>{1, 2},
+{3, 4}</p>
+</dd>
+</dl>
+<p>}</p>
+<p>// declare empty 2D array
+int[,] y = new int[row, col]</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">basics</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">Program</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// method is declared outside Main() and name is capitalized by convention</span>
+<span class="w">        </span><span class="c1">// void: no return</span>
+<span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Hello</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;hello &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// return an integer</span>
+<span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Number</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="m">2</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Hello</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Number</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="conditionals">
+<h3>Conditionals<a class="headerlink" href="#conditionals" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>logical conditions: &lt;, &gt;, &lt;=, &gt;=, ==, !=, &amp;&amp;, ||</p></li>
+</ul>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">condition</span><span class="p">){</span><span class="w"> </span><span class="cm">/* code */</span><span class="p">}</span>
+<span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="p">(</span><span class="n">condition</span><span class="p">){</span><span class="w"> </span><span class="cm">/* code */</span><span class="w"> </span><span class="p">}</span>
+<span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* code */</span><span class="w"> </span><span class="p">}</span>
+
+<span class="n">ternary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">True</span><span class="w"> </span><span class="p">:</span><span class="w">  </span><span class="n">False</span><span class="p">;</span>
+
+<span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">a</span><span class="p">:</span>
+<span class="w">        </span><span class="c1">// code</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">b</span><span class="p">:</span>
+<span class="w">        </span><span class="c1">// code</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">default</span><span class="p">:</span>
+<span class="w">        </span><span class="c1">// code</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="loops">
+<h3>Loops<a class="headerlink" href="#loops" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>while</p>
+<blockquote>
+<div><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// code</span>
+<span class="p">}</span>
+
+<span class="k">do</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// code</span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="p">(</span><span class="n">condition</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>for</p>
+<blockquote>
+<div><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">initial</span><span class="p">;</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span><span class="w"> </span><span class="n">iterate</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// code</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="exceptions">
+<h3>Exceptions<a class="headerlink" href="#exceptions" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p><a href="#id2"><span class="problematic" id="id3">``</span></a>` csharp
+try
+{</p>
+<blockquote>
+<div><p>// code that’ll break</p>
+</div></blockquote>
+<p>}
+catch (exceptionType e)
+{</p>
+<blockquote>
+<div><p>// handle error</p>
+</div></blockquote>
+<p>}
+finally
+{</p>
+<blockquote>
+<div><p>// default handle</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</section>
+<section id="classes-objects">
+<h3>Classes &amp; Objects<a class="headerlink" href="#classes-objects" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>allow to create custom data types based on primitive ones</p></li>
+<li><p>class names are capitalized by convention</p></li>
+<li><p>Objects are instances of a Class</p></li>
+</ul>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="c1">// MyClass.cs</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// attributes</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul>
+<li><dl>
+<dt><strong>constructor</strong></dt><dd><ul class="simple">
+<li><p>special method, called whenever an object is created</p></li>
+<li><p>same name as the class</p></li>
+</ul>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="c1">// MyClass.cs</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// attributes</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">MyClass</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// code</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>object methods</strong></dt><dd><ul class="simple">
+<li><p>methods defined in the class and used by it</p></li>
+</ul>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// attributes</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">MyClass</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">method2</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// can only be called inside the class</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">method1</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// can be called outside of the class</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>getter &amp; setter</strong></dt><dd><ul class="simple">
+<li><p>methods to control access to the attributes, make classes more secure</p></li>
+<li><p>name is capitalized and same as attribute</p></li>
+</ul>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// attributes</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">MyClass</span><span class="p">(</span><span class="n">argument</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// use setter to set attribute value</span>
+<span class="w">        </span><span class="n">Attribute1</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">argument</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Attribute1</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">get</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">attribute1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="k">set</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// validate data, value will be any passed value</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="k">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">someValue</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">attribute1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">value</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">attribute1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">defaultValue</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>static attributes</strong></dt><dd><ul class="simple">
+<li><p>shared by all objects and instances of the class</p></li>
+<li><p>contained on the class and specific to it, instead of each object</p></li>
+<li><p>not unique from object to object</p></li>
+<li><p>can be directly accessed through the class</p></li>
+<li><p>use methods to be accessed by objects</p></li>
+</ul>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// every object&#39;s attribute1 will be 99</span>
+<span class="w">    </span><span class="c1">// can be accessed with MyClass.attribute1</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">attribute1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">99</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">MyClass</span><span class="p">(</span><span class="n">argument</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// can use constructor to modify value everytime an object is created</span>
+<span class="w">        </span><span class="n">attribute1</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// method to be accessed by objects</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getAttribute1</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">attribute1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>static methods</strong></dt><dd><ul class="simple">
+<li><p>belong to the class itself</p></li>
+<li><p>do not need to create object to use the method, e.g <code class="docutils literal notranslate"><span class="pre">Math.Sqrt()</span></code></p></li>
+<li><p>name is capitalized by convention</p></li>
+<li><p>can be directly accessed through the class</p></li>
+</ul>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">MyClass</span><span class="p">(</span><span class="n">argument</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Method1</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// code</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>static classes</strong></dt><dd><ul class="simple">
+<li><p>prevent to create object of the class, e.g <code class="docutils literal notranslate"><span class="pre">Math</span></code> class</p></li>
+</ul>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="c1">// error</span>
+<span class="n">MyClass</span><span class="w"> </span><span class="n">class1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyClass</span><span class="p">();</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>inheritance</strong></dt><dd><ul class="simple">
+<li><p>inherit all attributes and methods of the parent class or classes</p></li>
+<li><p>do not inherit private ones</p></li>
+<li><p>child class can override the parent’s</p></li>
+</ul>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// child can override</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Method1</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MyChildClass</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MyClass</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Method1</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// new code</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#c">back to top</a></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="C%2B%2B.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">C++</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="CTF.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">CTF</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-c">What is C#?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output">Output</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input">Input</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declare-variables">Declare Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string">String</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numbers">Numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays">Arrays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditionals">Conditionals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exceptions">Exceptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-objects">Classes &amp; Objects</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1213 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>JDBC &#8212; Notes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'JDBC';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Java" href="Java.html" />
+    <link rel="prev" title="Istio" href="Istio.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AWS.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BackendEngineering.html">Backend Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSharp.html">C# #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CTF.html">CTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CompTIA.html">CompTIA Cert Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compilers.html">Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerGraphics.html">Computer Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputingSystems.html">Computing Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">ECS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FFmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Helm.html">Helm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Istio.html">Istio</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">JDBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MongoDB.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkProgramming.html">Network Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NodeJS.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenAPI.html">OpenAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OperatingSystem.html">Operating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="POSIXThreads.html">POSIX Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PenetrationTesting.html">Penetration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramDesign.html">Program Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectManagement.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prometheus.html">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SFML.html">SFML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StrategicPlanning.html">Strategic Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terraform.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TypeScript.html">TypeScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI/UX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrant.html">Vagrant</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/JDBC.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>JDBC</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-jdbc">What is JDBC?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#components">Components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drivers">Drivers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jdbc-odbc-bridge-driver">JDBC-ODBC Bridge Driver</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jdbc-native-api">JDBC-Native API</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jdbc-net-pure-java">JDBC-Net pure Java</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pure-java">Pure Java</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-db">Connecting to DB</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statements">Statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statement">Statement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preparedstatement">PreparedStatement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#callablestatement">CallableStatement</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#result-sets">Result Sets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types">Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concurrency">Concurrency</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigate">Navigate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get">Get</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#update">Update</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#null-values">NULL values</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-transactions">Data Transactions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#savepoint">Savepoint</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exceptions">Exceptions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-processing">Batch Processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-syntax">Escape Syntax</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streaming-data">Streaming Data</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="jdbc">
+<h1>JDBC<a class="headerlink" href="#jdbc" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#what-is-jdbc">What is JDBC?</a></p></li>
+<li><p><a class="reference internal" href="#drivers">Drivers</a></p></li>
+<li><p><a class="reference internal" href="#connecting-to-db">Connecting to DB</a></p></li>
+<li><p><a class="reference internal" href="#statements">Statements</a></p></li>
+<li><p><a class="reference internal" href="#result-sets">Result Sets</a></p></li>
+<li><p><a class="reference internal" href="#data-types">Data Types</a></p></li>
+<li><p><a class="reference internal" href="#data-transactions">Data Transactions</a></p></li>
+<li><p><a class="reference internal" href="#exceptions">Exceptions</a></p></li>
+<li><p><a class="reference internal" href="#batch-processing">Batch Processing</a></p></li>
+<li><p><a class="reference internal" href="#escape-syntax">Escape Syntax</a></p></li>
+<li><p><a class="reference internal" href="#streaming-data">Streaming Data</a></p></li>
+</ol>
+<p><a class="reference external" href="#jdbc">back to top</a></p>
+<section id="what-is-jdbc">
+<h2>What is JDBC?<a class="headerlink" href="#what-is-jdbc" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#components">Components</a></p></li>
+<li><p>Java Database Connectivity, a standard Java API to access any tabular data</p></li>
+<li><p>library includes APIs to connect a database, create and execute SQL or MySQL statements and</p></li>
+</ul>
+<p>queries and view and modify records
+* any Java executables can use JDBC driver to access database
+* provides same capabilities as ODBC, and thus allowing database-independent code
+* latest version is 4.0, with <code class="docutils literal notranslate"><span class="pre">java.sql</span></code> and <code class="docutils literal notranslate"><span class="pre">javax.sql</span></code> as primary packages</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>has auto database driver loading</p></li>
+<li><p>improve exception handling, better BLOB/CLOB functionality</p></li>
+<li><p>better connection and statement interface</p></li>
+<li><p>national character set support</p></li>
+<li><p>SQL ROWID acess, SQL 2003 XML data type support</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>support both two-tier and three-tier processing models</p></li>
+<li><p>JDBC API: provide application-to-JDBC Manager connection, use driver manager and</p></li>
+</ul>
+<p>database-specific drivers for transparent connection to heterogeneous databases
+* JDBC Driver API: provide JDBC Manager-to-Driver connection, ensure correct driver is used and
+support multiple concurrent drivers connected to multiple heterogeneous dbs</p>
+<section id="components">
+<h3>Components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>DriverManager</strong></dt><dd><ul>
+<li><p>a class that manages a list of db drivers</p></li>
+<li><p>match connection requests from application with proper db driver using communication
+subprotocol</p></li>
+<li><p>the first driver that recognizes certain subprotocol will be used for db connection</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Driver</strong></dt><dd><ul>
+<li><p>an interface that handles communications with db server</p></li>
+<li><p>DriverManager objects will be used to manage Driver objects</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Connection</strong></dt><dd><ul>
+<li><p>an interface with all methods for contacting a db</p></li>
+<li><p>all communication with db will be through Connection object only</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Statement</strong></dt><dd><ul>
+<li><p>an interface to submit SQL statements</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>ResultSet</strong></dt><dd><ul>
+<li><p>object that holds data retrieved</p></li>
+<li><p>acts as an iterator to move through data</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>SQLException</strong></dt><dd><ul>
+<li><p>a class that handles any errors</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#jdbc">back to top</a></p>
+</section>
+</section>
+<section id="drivers">
+<h2>Drivers<a class="headerlink" href="#drivers" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">java.sql</span></code> package in JDK contains classes with behaviors defined</p></li>
+<li><p>third-party drivers implement the interface in their database driver</p></li>
+<li><p>driver implementations vary depending on operating systems and hardware platforms</p></li>
+</ul>
+<section id="jdbc-odbc-bridge-driver">
+<h3>JDBC-ODBC Bridge Driver<a class="headerlink" href="#jdbc-odbc-bridge-driver" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>JDBC bridge is used to access ODBC drivers installed on machines</p></li>
+<li><p>require to configure DSN to represent target database</p></li>
+<li><p>only recommneded for experimental use</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="jdbc-native-api">
+<h3>JDBC-Native API<a class="headerlink" href="#jdbc-native-api" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>JDBC API calls are converted to native API calls unique to database</p></li>
+<li><p>vendor-specific driver must be installed</p></li>
+<li><p>speed increase as it eliminates ODBC’s overhead</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="jdbc-net-pure-java">
+<h3>JDBC-Net pure Java<a class="headerlink" href="#jdbc-net-pure-java" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>three-tier approach, JDBC-&gt;middleware-&gt;db</p></li>
+<li><p>JDBC client use standard network sockets</p></li>
+<li><p>middleware server translate socket information into required format and forward it to the</p></li>
+</ul>
+<p>db
+* flexible driver as a single driver can provide access to multiple databases</p>
+</div></blockquote>
+</section>
+<section id="pure-java">
+<h3>Pure Java<a class="headerlink" href="#pure-java" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>pure Java-based driver communicate directly with the database through socket connection</p></li>
+<li><p>highest performance driver, usually provided by the vendors</p></li>
+<li><p>extremely flexible and can be downloaded dynamically</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#jdbc">back to top</a></p>
+</section>
+</section>
+<section id="connecting-to-db">
+<h2>Connecting to DB<a class="headerlink" href="#connecting-to-db" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>import required packages, register the driver, create URL to database and create connection</p></li>
+</ul>
+<p>object</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.sql.*</span><span class="p">;</span><span class="w"> </span><span class="c1">// standard JDBC package</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyJDBC</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">DB_URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;jdbc:mysql://HOST:PORT/DBNAME&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">USER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;user&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">PASS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pass&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;SELECT name FROM Table1&quot;</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Statement</span><span class="w"> </span><span class="n">stmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">conn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DriverManager</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(</span><span class="n">DB_URL</span><span class="p">,</span><span class="w"> </span><span class="n">USER</span><span class="p">,</span><span class="w"> </span><span class="n">PASS</span><span class="p">);</span>
+<span class="w">            </span><span class="n">stmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">createStatement</span><span class="p">();</span>
+<span class="w">            </span><span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stmt</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">(</span><span class="n">QUERY</span><span class="p">);</span>
+
+<span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">rs</span><span class="p">.</span><span class="na">next</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Name: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rs</span><span class="p">.</span><span class="na">getInt</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">));</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">stmt</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">stmt</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="w">                </span><span class="p">}</span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">conn</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">conn</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul>
+<li><p>JDBC 4.0 provides feature to auto discover the driver</p></li>
+<li><p>but if necessary, there are different ways to register a driver</p>
+<blockquote>
+<div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// configurable and portable driver registration</span>
+<span class="w">    </span><span class="n">Class</span><span class="p">.</span><span class="na">forName</span><span class="p">(</span><span class="s">&quot;oracle.jdbc.driver.OracleDriver&quot;</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ClassNotFoundException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// OR</span>
+
+<span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// can work around noncompliant JVMs</span>
+<span class="w">    </span><span class="n">Class</span><span class="p">.</span><span class="na">forName</span><span class="p">(</span><span class="s">&quot;oracle.jdbc.driver.OracleDriver&quot;</span><span class="p">).</span><span class="na">newInstance</span><span class="p">();</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ClassNotFoundException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IllegalAccessException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InstantiationException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// OR</span>
+
+<span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// if using non-JDK compliant JVM</span>
+<span class="w">    </span><span class="n">Driver</span><span class="w"> </span><span class="n">myDriver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">oracle</span><span class="p">.</span><span class="na">jdbc</span><span class="p">.</span><span class="na">driver</span><span class="p">.</span><span class="na">OracleDriver</span><span class="p">();</span>
+<span class="w">    </span><span class="n">DriverManager</span><span class="p">.</span><span class="na">registerDriver</span><span class="p">(</span><span class="n">myDriver</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ClassNotFoundException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>can use Properties object to pass username and password</p>
+<blockquote>
+<div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+
+<span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">DB_URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;jdbc:mysql://HOST:PORT/DBNAME&quot;</span><span class="p">;</span>
+<span class="n">Properties</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Properties</span><span class="p">();</span>
+<span class="n">info</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;user&quot;</span><span class="p">);</span>
+<span class="n">info</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;password&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pass&quot;</span><span class="p">);</span>
+
+<span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DriverManager</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(</span><span class="n">DB_URL</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<p><a class="reference external" href="#jdbc">back to top</a></p>
+</section>
+<section id="statements">
+<h2>Statements<a class="headerlink" href="#statements" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#statement">Statement</a>, <a class="reference internal" href="#preparedstatement">PreparedStatement</a>, <a class="reference internal" href="#callablestatement">CallableStatement</a></p></li>
+<li><p>to send PL/SQL commands and receive data from the db</p></li>
+<li><p>all parameters in JDBC are represented by ‘?’ symbol, aka parameter marker</p></li>
+<li><p>values must be supplied for every parameter before executing SQL statement</p></li>
+<li><p>parameter markers start from position 1</p></li>
+</ul>
+<section id="statement">
+<h3>Statement<a class="headerlink" href="#statement" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>interface for general access, when using static SQL statements at runtime</p></li>
+<li><p>does not accept parameters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">execute(String)</span></code>: return true if ResultSet object can be retrieved, use to execute SQL</p></li>
+</ul>
+<p>DDL statements or dynamic SQL
+* <code class="docutils literal notranslate"><span class="pre">executeUpdate(String)</span></code>: return number of rows affected by the execution, use to execute
+INSERT, UPDATE or DELETE
+* <code class="docutils literal notranslate"><span class="pre">executeQuery(String)</span></code>: return ResultSet object, use to execute SELECT
+* creating the Connection object first will close the Statement object, but should
+explicitly close the Statement object for proper cleanup</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// create Statement object</span>
+<span class="n">Statement</span><span class="w"> </span><span class="n">stmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+
+<span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">stmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">createStatement</span><span class="p">();</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">stmt</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">stmt</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="preparedstatement">
+<h3>PreparedStatement<a class="headerlink" href="#preparedstatement" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>when SQL statements will be used many times</p></li>
+<li><p>accept input parameters at runtime</p></li>
+<li><p>extend Statement interface</p></li>
+<li><p>parameter values must be bind before executing</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IN</span></code>: unknown value parameter when SQL statement is created, bind values with set methods</p></li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">PreparedStatement</span><span class="w"> </span><span class="n">pstmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+
+<span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;UPDATE Table1 SET name=? where id=?&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">pstmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">preparedStatement</span><span class="p">(</span><span class="n">SQL</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// &quot;name&quot; of &quot;id&quot; with &quot;102&quot; will be set to &quot;foo&quot;</span>
+<span class="w">    </span><span class="n">pstmt</span><span class="p">.</span><span class="na">setInt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;foo&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">pstmt</span><span class="p">.</span><span class="na">setInt</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">102</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pstmt</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">pstmt</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="callablestatement">
+<h3>CallableStatement<a class="headerlink" href="#callablestatement" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>to access database stored procedures</p></li>
+<li><p>accept input parameters at runtime</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IN</span></code>: unknown value parameter when SQL statement is created, bind values with set methods</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OUT</span></code>: parameter value is supplied by SQL statement it returns, retrieve with get methods</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INOUT</span></code>: provide both input and output values, bind with set methods and retrieve with</p></li>
+</ul>
+<p>get methods
+* parameter values must be bind before executing
+* <code class="docutils literal notranslate"><span class="pre">registerOutParameter()</span></code>: bind JDBC data type to the data type returned by the stored
+procedure, must use with <cite>OUT</cite> and <cite>INOUT</cite> params</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">CallableStatement</span><span class="w"> </span><span class="n">cstmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+
+<span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// &quot;getName&quot; procedure must be created in the database first</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">storedProcedure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;{call getName (?, ?)}&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cstmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">prepareCall</span><span class="p">(</span><span class="n">storedProcedure</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">cstmt</span><span class="p">.</span><span class="na">setInt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span><span class="w"> </span><span class="c1">// set ID</span>
+<span class="w">    </span><span class="n">cstmt</span><span class="p">.</span><span class="na">registerOutParameter</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">sql</span><span class="p">.</span><span class="na">Types</span><span class="p">.</span><span class="na">VARCHAR</span><span class="p">);</span><span class="w"> </span><span class="c1">// register second OUT param</span>
+
+<span class="w">    </span><span class="n">cstmt</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;ID: 100 name is &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cstmt</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cstmt</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">cstmt</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><a class="reference external" href="#jdbc">back to top</a></p>
+</section>
+</section>
+<section id="result-sets">
+<h2>Result Sets<a class="headerlink" href="#result-sets" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#types">Types</a>, <a class="reference internal" href="#concurrency">Concurrency</a>, <a class="reference internal" href="#navigate">Navigate</a>, <a class="reference internal" href="#get">Get</a>, <a class="reference internal" href="#update">Update</a></p></li>
+<li><p>in <code class="docutils literal notranslate"><span class="pre">java.sql.ResultSet</span></code>, returned data from a query</p></li>
+<li><p>ResultSet object has cursor pointing to the current row in the result set</p></li>
+<li><p>result set refers to the row an column data contained in a ResultSet object</p></li>
+<li><dl class="simple">
+<dt>connection methods to create statements with desired ResultSet</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">createStatement(int</span> <span class="pre">RSType,</span> <span class="pre">int</span> <span class="pre">RSConcurrency)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">preparedStatement(String</span> <span class="pre">SQL,</span> <span class="pre">int</span> <span class="pre">RSType,</span> <span class="pre">int</span> <span class="pre">RSConcurrency)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prepareCall(String</span> <span class="pre">SQL,</span> <span class="pre">int</span> <span class="pre">RSType,</span> <span class="pre">int</span> <span class="pre">RSConcurrency)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<section id="types">
+<h3>Types<a class="headerlink" href="#types" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ResultSet.TYPE_FORWARD_ONLY</span></code>: cursor can move only forward, default if ResultSet type is</p></li>
+</ul>
+<p>not specified
+* <code class="docutils literal notranslate"><span class="pre">ResultSet.TYPE_SCROLL_INSENSITIVE</span></code>: cursor can scroll forward and backward, changes made
+by others to the db after the result set was created do not affect it
+* <code class="docutils literal notranslate"><span class="pre">ResultSet.TYPE_SCROLL_SENSITIVE</span></code>: cursor can scroll forward and backward, changes made
+by others to the db after the result set was created affect the it</p>
+</div></blockquote>
+</section>
+<section id="concurrency">
+<h3>Concurrency<a class="headerlink" href="#concurrency" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ResultSet.CONCUR_READ_ONLY</span></code>: create read-only result set, default one</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ResultSet.CONCUR_UPDATABLE</span></code>: create updatable result set</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="navigate">
+<h3>Navigate<a class="headerlink" href="#navigate" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>to move the cursor around</p></li>
+<li><p>all methods throw <code class="docutils literal notranslate"><span class="pre">SQLException</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">beforeFirst()</span></code>: move cursor just before the first row</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">afterLast()</span></code>: move cursor just after the last row</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">first()</span></code>: move cursor to the first row, return true if valid</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">last()</span></code>: move cursor to the last row, return true if valid</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">absolute(int)</span></code>: move cursor to specified row, return true if valid</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">relative(int)</span></code>: move cursor forward or backward specific rows, from where it is</p></li>
+</ul>
+<p>currently pointing, return true on valid
+* <code class="docutils literal notranslate"><span class="pre">previous()</span></code>: move cursor to previous row, return true if valid
+* <code class="docutils literal notranslate"><span class="pre">next()</span></code>: move cursor to next row, return true if valid
+* <code class="docutils literal notranslate"><span class="pre">getRow()</span></code>: return current row number
+* <code class="docutils literal notranslate"><span class="pre">moveToInsertRow()</span></code>: move cursor to special row that can be used to insert new row,
+current cursor location is saved
+* <code class="docutils literal notranslate"><span class="pre">moveToCurrentRow()</span></code>: move cursor back to current row if it is at the insert row</p>
+</div></blockquote>
+</section>
+<section id="get">
+<h3>Get<a class="headerlink" href="#get" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>to view data in the columns of current row pointed by the cursor</p></li>
+<li><p>get methods for possible data types are available, and each get method accepts column</p></li>
+</ul>
+<p>name or column index
+* column index starts at 1
+* e.g use <code class="docutils literal notranslate"><span class="pre">getInt(String)</span></code> or <code class="docutils literal notranslate"><span class="pre">getInt(int)</span></code> to view column that contains an int
+* there are methods for eight primitive data types, common types, such as String, and SQL
+data types, such as <cite>java.sql.Date</cite>, <cite>java.sql.Time</cite>, <cite>java.sql.TimeStamp</cite>, <cite>java.sql.Clob</cite>
+or <cite>java.sql.Blob</cite></p>
+</div></blockquote>
+</section>
+<section id="update">
+<h3>Update<a class="headerlink" href="#update" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>to update data in the columns of current row, and in the underlying db as well</p></li>
+<li><p>tables should have Primary Key set properly for it to be updatable</p></li>
+<li><p>update methods for possible data types are available, and each update method accepts</p></li>
+</ul>
+<p>column name or column index
+* e.g use <code class="docutils literal notranslate"><span class="pre">updateString(String,</span> <span class="pre">String)</span></code> or <code class="docutils literal notranslate"><span class="pre">updateString(int,</span> <span class="pre">String)</span></code> to update column
+that contains String
+* there are methods for eight primitive data types, common types, such as String, Object,
+URL, and SQL data types
+* updating only changes the columns of current row in the ResultSet object, not the
+underlying db
+* additional methods must be invoked to update the changes in the database
+* <code class="docutils literal notranslate"><span class="pre">updateRow()</span></code>: update current row as well as the row in the database
+* <code class="docutils literal notranslate"><span class="pre">deleteRow()</span></code>: delete current row from the db
+* <code class="docutils literal notranslate"><span class="pre">refreshRow()</span></code>: refresh data in the result set to reflect changes in the db
+* <code class="docutils literal notranslate"><span class="pre">cancelRowUpdates()</span></code>: cancel updates made on current row
+* <code class="docutils literal notranslate"><span class="pre">insertRow()</span></code>: insert row into the db, can only be invoked if the cursor is pointing to
+the insert row</p>
+</div></blockquote>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Statement</span><span class="w"> </span><span class="n">stmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">createStatement</span><span class="p">(</span><span class="n">ResultSet</span><span class="p">.</span><span class="na">TYPE_SCROLL_INSENSITIVE</span><span class="p">,</span>
+<span class="w">        </span><span class="n">ResultSet</span><span class="p">.</span><span class="na">CONCUR_READ_ONLY</span><span class="p">);</span>
+<span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stmt</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">(</span><span class="n">QUERY</span><span class="p">);</span>
+<span class="n">rs</span><span class="p">.</span><span class="na">last</span><span class="p">();</span><span class="w"> </span><span class="c1">// move cursor to the last row</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Name: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rs</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">));</span><span class="w"> </span><span class="c1">// view data in the last row</span>
+
+<span class="n">rs</span><span class="p">.</span><span class="na">first</span><span class="p">();</span><span class="w"> </span><span class="c1">// move cursor to the first row</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Name: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rs</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">));</span><span class="w"> </span><span class="c1">// view data in the first row</span>
+
+<span class="n">rs</span><span class="p">.</span><span class="na">next</span><span class="p">();</span><span class="w"> </span><span class="c1">// move cursor to the next row</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Name: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rs</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">));</span><span class="w"> </span><span class="c1">// view data</span>
+
+<span class="c1">// change statement to be updatable</span>
+<span class="n">stmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">createStatement</span><span class="p">(</span><span class="n">ResultSet</span><span class="p">.</span><span class="na">TYPE_SCROLL_INSENSITIVE</span><span class="p">,</span>
+<span class="w">        </span><span class="n">ResultSet</span><span class="p">.</span><span class="na">CONCUR_UPDATABLE</span><span class="p">);</span>
+<span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stmt</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">(</span><span class="n">QUERY</span><span class="p">);</span>
+
+<span class="c1">// making sure to start with the first row</span>
+<span class="n">rs</span><span class="p">.</span><span class="na">beforeFirst</span><span class="p">();</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">rs</span><span class="p">.</span><span class="na">next</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">newID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rs</span><span class="p">.</span><span class="na">getInt</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="n">rs</span><span class="p">.</span><span class="na">updateDouble</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">newID</span><span class="p">);</span>
+<span class="w">    </span><span class="n">rs</span><span class="p">.</span><span class="na">updateRow</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// to insert new row</span>
+<span class="n">rs</span><span class="p">.</span><span class="na">moveToInsertRow</span><span class="p">();</span>
+<span class="n">rs</span><span class="p">.</span><span class="na">updateString</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;foo&quot;</span><span class="p">);</span>
+<span class="n">rs</span><span class="p">.</span><span class="na">updateInt</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">);</span>
+<span class="n">rs</span><span class="p">.</span><span class="na">insertRow</span><span class="p">();</span><span class="w"> </span><span class="c1">// insert the new row into db</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="#jdbc">back to top</a></p>
+</section>
+</section>
+<section id="data-types">
+<h2>Data Types<a class="headerlink" href="#data-types" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Java data type is converted to appropriate JDBC type before being sent to the database</p></li>
+<li><p>default mappings, such as Java int to SQL INTEGER, are used for consistency between drivers</p></li>
+<li><p>e.g VARCHAR -&gt; java.lang.String, BIT -&gt; boolean, INTEGER -&gt; int, BIGINT -&gt; long</p></li>
+<li><p>BINARY -&gt; byte[], TIMESTAMP -&gt; java.sql.Timestamp, BLOB -&gt; java.sql.Blob</p></li>
+<li><p>JDBC 3.0 has support for BLOB, CLOB, ARRAY and REF data types</p></li>
+<li><p>set and update methods, such as <code class="docutils literal notranslate"><span class="pre">setString()</span></code> and <code class="docutils literal notranslate"><span class="pre">updateBLOB()</span></code>, convert Java types to JDBC</p></li>
+</ul>
+<p>data types
+* <code class="docutils literal notranslate"><span class="pre">setObject()</span></code> and <code class="docutils literal notranslate"><span class="pre">updateObject()</span></code> methods map Java type to JDBC data type
+* ResultSet object also provides set and get methods for each data type
+* more information about data types from [Oracle](<a class="reference external" href="https://docs.oracle.com/cd/E19830-01/819-4721/beajw/index.html">https://docs.oracle.com/cd/E19830-01/819-4721/beajw/index.html</a>) and [Tutorials Point](<a class="reference external" href="https://www.tutorialspoint.com/jdbc/jdbc-data-types.htm">https://www.tutorialspoint.com/jdbc/jdbc-data-types.htm</a>)</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Date</span><span class="w"> </span><span class="n">javaDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Date</span><span class="p">();</span>
+<span class="kt">long</span><span class="w"> </span><span class="n">javaTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">javaDate</span><span class="p">.</span><span class="na">getTime</span><span class="p">();</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Java Date: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">javaDate</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+
+<span class="c1">// java.sql.Date maps to SQL DATE type</span>
+<span class="n">java</span><span class="p">.</span><span class="na">sql</span><span class="p">.</span><span class="na">Date</span><span class="w"> </span><span class="n">sqlDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">sql</span><span class="p">.</span><span class="na">Date</span><span class="p">(</span><span class="n">javaTime</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;SQL Date: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sqlDate</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+
+<span class="c1">// java.sql.Time maps to SQL TIME type</span>
+<span class="n">java</span><span class="p">.</span><span class="na">sql</span><span class="p">.</span><span class="na">Time</span><span class="w"> </span><span class="n">sqlTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">sql</span><span class="p">.</span><span class="na">Time</span><span class="p">(</span><span class="n">javaTime</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;SQL Time: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sqlTime</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+
+<span class="c1">// java.sql.Timestamp maps to SQL TIMESTAMP type</span>
+<span class="n">java</span><span class="p">.</span><span class="na">sql</span><span class="p">.</span><span class="na">Timestamp</span><span class="w"> </span><span class="n">sqlTimestamp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">sql</span><span class="p">.</span><span class="na">Timestamp</span><span class="p">(</span><span class="n">javaTime</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;SQL Timestamp: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sqlTimestamp</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+</pre></div>
+</div>
+<section id="null-values">
+<h3>NULL values<a class="headerlink" href="#null-values" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>SQL NULL values must be handled differently, as they are not same as Java’s</p></li>
+<li><p>avoid using get methods that return primitive data types</p></li>
+<li><p>use wrapper classes for primitive data types</p></li>
+<li><p>use ResultSet object’s <code class="docutils literal notranslate"><span class="pre">wasNull()</span></code> to test if the value returned by get methods should be</p></li>
+</ul>
+<p>set to null or appropriate value</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Statement</span><span class="w"> </span><span class="n">stmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">createStatement</span><span class="p">();</span>
+<span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stmt</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">(</span><span class="n">SQL</span><span class="p">);</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rs</span><span class="p">.</span><span class="na">getInt</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rs</span><span class="p">.</span><span class="na">wasNull</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><a class="reference external" href="#jdbc">back to top</a></p>
+</section>
+</section>
+<section id="data-transactions">
+<h2>Data Transactions<a class="headerlink" href="#data-transactions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#savepoint">Savepoint</a></p></li>
+<li><p>every SQL statement is auto committed to the database on completion by default</p></li>
+<li><p>transactions can be managed to increase performance, maintain integrity and use distributed</p></li>
+</ul>
+<p>transactions
+* in a group of SQL statements, if any statement fails, the whole transaction fails
+* use <code class="docutils literal notranslate"><span class="pre">setAutoCommit(false)</span></code> on Connection object to enable manual transaction
+* <code class="docutils literal notranslate"><span class="pre">commit()</span></code> to commit changes and <code class="docutils literal notranslate"><span class="pre">rollback()</span></code> to roll back updates made to the database</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">conn</span><span class="p">.</span><span class="na">setAutoCommit</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="w">    </span><span class="n">stmt</span><span class="p">.</span><span class="na">executeUpdate</span><span class="p">(</span><span class="n">SQL</span><span class="p">);</span>
+<span class="w">    </span><span class="n">conn</span><span class="p">.</span><span class="na">commit</span><span class="p">();</span><span class="w"> </span><span class="c1">// commit changes if no error</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">conn</span><span class="p">.</span><span class="na">rollback</span><span class="p">();</span><span class="w"> </span><span class="c1">// roll back on error</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="savepoint">
+<h3>Savepoint<a class="headerlink" href="#savepoint" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>JDBC 3.0 support Savepoint interface for additional transaction control</p></li>
+<li><p>can rollback to undo all changes or only the ones made after the savepoint</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setSavepoint(String)</span></code>: create new savepoint, return Savepoint object</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releaseSavepoint(Savepoint)</span></code>: delete given Savepoint</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rollback(String</span> <span class="pre">savePointName)</span></code>: roll back to given savepoint</p></li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Savepoint</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">setSavepoint</span><span class="p">(</span><span class="s">&quot;Savepoint1&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">stmt</span><span class="p">.</span><span class="na">executeUpdate</span><span class="p">(</span><span class="n">SQL</span><span class="p">);</span>
+<span class="w">    </span><span class="n">conn</span><span class="p">.</span><span class="na">commit</span><span class="p">();</span><span class="w"> </span><span class="c1">// commit changes if no error</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">conn</span><span class="p">.</span><span class="na">rollback</span><span class="p">(</span><span class="n">s1</span><span class="p">);</span><span class="w"> </span><span class="c1">// roll back to &quot;Savepoint1&quot; on error</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><a class="reference external" href="#jdbc">back to top</a></p>
+</section>
+</section>
+<section id="exceptions">
+<h2>Exceptions<a class="headerlink" href="#exceptions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>most in <code class="docutils literal notranslate"><span class="pre">java.sql.SQLException</span></code>, which can occur in driver and database</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getErrorCode()</span></code>: get error number</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getMessage()</span></code>: get JDBC driver error message, can be a number or message for database error</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getSQLState()</span></code>: get XOPEN SQLstate string, no useful info for JDBC driver error, five-digit</p></li>
+</ul>
+<p>XOPEN SQLstate code for db error, can also return null
+* <code class="docutils literal notranslate"><span class="pre">getNextException()</span></code>: get next Exception object in the exception chain
+* <code class="docutils literal notranslate"><span class="pre">printStackTrace()</span></code>, <code class="docutils literal notranslate"><span class="pre">printStackTrace(PrintStream)</span></code>, <code class="docutils literal notranslate"><span class="pre">printStackTrace(PrintWriter)</span></code>: print
+current exception or throwable and backtrace to std error or given print stream or writer</p>
+<p><a class="reference external" href="#jdbc">back to top</a></p>
+</section>
+<section id="batch-processing">
+<h2>Batch Processing<a class="headerlink" href="#batch-processing" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>group related SQL statements and submit as one call to the database</p></li>
+<li><p>can reduce amount of communication and improve performance</p></li>
+<li><p>JDBC drivers are not required to support batch processing</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatabaseMetaData.supportsBatchUpdates()</span></code>: return true if the database support the feature</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addBatch()</span></code>: add individual statements to the batch</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">executeBatch()</span></code>: execute all grouped statements</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clearBatch()</span></code>: remove all statements added with <code class="docutils literal notranslate"><span class="pre">addBatch()</span></code>, cannot select which to remove</p></li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Statement</span><span class="w"> </span><span class="n">stmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">createStatement</span><span class="p">();</span>
+<span class="n">conn</span><span class="p">.</span><span class="na">setAutoCommit</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+
+<span class="n">stmt</span><span class="p">.</span><span class="na">addBatch</span><span class="p">(</span><span class="n">SQL1</span><span class="p">);</span>
+<span class="n">stmt</span><span class="p">.</span><span class="na">addBatch</span><span class="p">(</span><span class="n">SQL2</span><span class="p">);</span>
+
+<span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stmt</span><span class="p">.</span><span class="na">executeBatch</span><span class="p">();</span><span class="w"> </span><span class="c1">// to hold returned values</span>
+<span class="n">conn</span><span class="p">.</span><span class="na">commit</span><span class="p">();</span><span class="w"> </span><span class="c1">// apply changes</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="#jdbc">back to top</a></p>
+</section>
+<section id="escape-syntax">
+<h2>Escape Syntax<a class="headerlink" href="#escape-syntax" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>allow to use database specific features unavailable when using only standard JDBC methods</p></li>
+<li><p>general SQL escape syntax format: <code class="docutils literal notranslate"><span class="pre">{keyword</span> <span class="pre">'parameters'}</span></code></p></li>
+<li><p>date: <code class="docutils literal notranslate"><span class="pre">{d</span> <span class="pre">'yyyy-mm-dd'}</span></code></p></li>
+<li><p>time: <code class="docutils literal notranslate"><span class="pre">{t</span> <span class="pre">'hh:mm:ss'}</span></code></p></li>
+<li><p>timestamp: <code class="docutils literal notranslate"><span class="pre">{ts</span> <span class="pre">'yyyy-mm-dd</span> <span class="pre">hh:mm:ss'}</span></code></p></li>
+<li><p>escape: <code class="docutils literal notranslate"><span class="pre">{escape</span> <span class="pre">'ESCAPE_WORD'}</span></code></p></li>
+<li><p>scalar functions: <code class="docutils literal notranslate"><span class="pre">{fn</span> <span class="pre">length('foo</span> <span class="pre">bar')}</span></code></p></li>
+<li><p>calling stored procedure: <code class="docutils literal notranslate"><span class="pre">{call</span> <span class="pre">procedure1(?)}</span></code>, procedure with IN param,</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">{?</span> <span class="pre">=</span> <span class="pre">call</span> <span class="pre">procedure1(?)}</span></code>, procedure with IN and return OUT param
+* outer joins: <code class="docutils literal notranslate"><span class="pre">{oj</span> <span class="pre">outer-koin}</span></code></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">SQL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;INSERT INTO Table1 ({d &#39;2000-1-12&#39;})&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// insert date</span>
+<span class="n">SQL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;INSERT INTO Table1 ({t &#39;18:15:30&#39;})&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// insert time</span>
+<span class="n">SQL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;INSERT INTO Table1 ({ts &#39;2000-1-12 18:15:30&#39;})&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// insert timestamp</span>
+<span class="n">SQL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;SELECT symbol FROM MathSymbols WHERE symbol LIKE &#39;\%&#39; {escape &#39;\&#39;}&quot;</span><span class="p">;</span>
+<span class="n">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;SELECT Employees FROM {oj ThisTable RIGHT OUTER JOIN ThatTable on id = &#39;100&#39;}&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="#jdbc">back to top</a></p>
+</section>
+<section id="streaming-data">
+<h2>Streaming Data<a class="headerlink" href="#streaming-data" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>PreparedStatement object can use input and output streams to supply parameter data</p></li>
+<li><p>can place files into database columns that hold large values, such as CLOB and BLOB</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setAsciiStream()</span></code>: to supply large ASCII values</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setCharacterStream()</span></code>: to supply large UNICODE values</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setBinaryStream()</span></code>: to supply large Binary values</p></li>
+<li><p>each method also require file size as parameter</p></li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">PreparedStatement</span><span class="w"> </span><span class="n">pstmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="n">String</span><span class="w"> </span><span class="n">XML_INSERT_QUERY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;INSERT INTO XML_Data VALUES (?,?)&quot;</span><span class="p">;</span>
+<span class="n">String</span><span class="w"> </span><span class="n">XML_DATA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;Employee&gt;&lt;id&gt;100&lt;/id&gt;&lt;name&gt;foo&lt;/name&gt;&lt;/Employee&gt;&quot;</span><span class="p">;</span>
+<span class="n">String</span><span class="w"> </span><span class="n">XML_QUERY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;SELECT Data FROM XML_Data WHERE id=100&quot;</span><span class="p">;</span>
+
+<span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">stmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">createStatement</span><span class="p">();</span>
+<span class="w">    </span><span class="n">pstmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">prepareStatement</span><span class="p">(</span><span class="n">XML_INSERT_QUERY</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">ByteArrayInputStream</span><span class="w"> </span><span class="n">bis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ByteArrayInputStream</span><span class="p">(</span><span class="n">XML_DATA</span><span class="p">.</span><span class="na">getBytes</span><span class="p">());</span>
+<span class="w">    </span><span class="n">pstmt</span><span class="p">.</span><span class="na">setInt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
+<span class="w">    </span><span class="n">pstmt</span><span class="p">.</span><span class="na">setAsciiStream</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">bis</span><span class="p">,</span><span class="w"> </span><span class="n">XML_DATA</span><span class="p">.</span><span class="na">getBytes</span><span class="p">().</span><span class="na">length</span><span class="p">);</span>
+<span class="w">    </span><span class="n">pstmt</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">bis</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stmt</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">(</span><span class="n">XML_QUERY</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rs</span><span class="p">.</span><span class="na">next</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">InputStream</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rs</span><span class="p">.</span><span class="na">getAsciiStream</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">        </span><span class="n">ByteArrayOutputStream</span><span class="w"> </span><span class="n">bos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ByteArrayOutputStream</span><span class="p">();</span>
+
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">is</span><span class="p">.</span><span class="na">read</span><span class="p">())</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">            </span><span class="n">bos</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">bos</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">rs</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="#jdbc">back to top</a></p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Istio.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Istio</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Java.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Java</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-jdbc">What is JDBC?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#components">Components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drivers">Drivers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jdbc-odbc-bridge-driver">JDBC-ODBC Bridge Driver</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jdbc-native-api">JDBC-Native API</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jdbc-net-pure-java">JDBC-Net pure Java</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pure-java">Pure Java</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-db">Connecting to DB</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statements">Statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statement">Statement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preparedstatement">PreparedStatement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#callablestatement">CallableStatement</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#result-sets">Result Sets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types">Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concurrency">Concurrency</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigate">Navigate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get">Get</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#update">Update</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#null-values">NULL values</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-transactions">Data Transactions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#savepoint">Savepoint</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exceptions">Exceptions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-processing">Batch Processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-syntax">Escape Syntax</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streaming-data">Streaming Data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

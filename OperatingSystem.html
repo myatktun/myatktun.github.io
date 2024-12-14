@@ -1,0 +1,589 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Operating System &#8212; Notes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'OperatingSystem';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="POSIX Threads" href="POSIXThreads.html" />
+    <link rel="prev" title="OpenAPI" href="OpenAPI.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AWS.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BackendEngineering.html">Backend Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSharp.html">C# #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CTF.html">CTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CompTIA.html">CompTIA Cert Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compilers.html">Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerGraphics.html">Computer Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputingSystems.html">Computing Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">ECS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FFmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Helm.html">Helm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Istio.html">Istio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JDBC.html">JDBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MongoDB.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkProgramming.html">Network Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NodeJS.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenAPI.html">OpenAPI</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Operating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="POSIXThreads.html">POSIX Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PenetrationTesting.html">Penetration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramDesign.html">Program Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectManagement.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prometheus.html">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SFML.html">SFML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StrategicPlanning.html">Strategic Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terraform.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TypeScript.html">TypeScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI/UX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrant.html">Vagrant</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/OperatingSystem.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Operating System</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-computer-operates">How Computer Operates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage">Storage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-o-structure">I/O Structure</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="operating-system">
+<h1>Operating System<a class="headerlink" href="#operating-system" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#basics">Basics</a></p></li>
+</ol>
+<p><a class="reference external" href="#operating-systems">back to top</a></p>
+<section id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#how-computer-operates">How Computer Operates</a>, <a class="reference internal" href="#storage">Storage</a>, <a class="reference internal" href="#i-o-structure">I/O Structure</a></p></li>
+<li><p>OS is a program that manages computer hardware</p></li>
+<li><p>also acts as intermediary between user and hardware, by providing means for proper use of</p></li>
+</ul>
+<p>resources
+* the kernel, a program running at all time, is part and core of an OS
+* operating system and kernel are sometimes used interchangeably</p>
+<section id="how-computer-operates">
+<h3>How Computer Operates<a class="headerlink" href="#how-computer-operates" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>computer contains one or more CPUs and device controllers that can execute concurrently</p></li>
+<li><p>a common bus provides access to shared memory</p></li>
+<li><p>memory controller ensure orderly access to the shared memory</p></li>
+<li><dl class="simple">
+<dt><strong>Bootstrap Program</strong></dt><dd><ul>
+<li><p>initial program, firmware, that runs when a computer is powered up</p></li>
+<li><p>stored in ROM (read-only memory) or EEPROM (electrically erasable programmable
+read-only memory)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Interrupt</strong></dt><dd><ul>
+<li><p>a signal sent when an event occurs</p></li>
+<li><p>hardware trigger it by sending a signal to CPU</p></li>
+<li><p>software trigger it by executing system call, also called monitor call</p></li>
+<li><p>when CPU receives an interrupt, it stops current execution and immediately transfer
+it to a fixed location</p></li>
+<li><p>interrupted execution resumes when the interrupt service routine completes</p></li>
+<li><p>interrupts must be handled quickly</p></li>
+<li><p>interrupt vector: a table of pointers to interrupt routines, there are only a number
+of predefined interrupts</p></li>
+<li><p>if necessary, interrupt routine must save CPU state and restore it before returning</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="storage">
+<h3>Storage<a class="headerlink" href="#storage" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>most programs are run from rewritable main memory, RAM (random-access memory), which is</p></li>
+</ul>
+<p>usually in the form of DRAM (dynamic random-access memory)
+* only static programs are stored in ROM
+* load instruction moves a word from main memory to internal register in CPU
+* store instruction moves the content of register to main memory
+* <strong>Von Neumann Architecture</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>fetch instruction from memory and store it in instruction register</p></li>
+<li><p>instruction is decoded and may cause to fetch operands from memory</p></li>
+<li><p>after instruction is executed, result may be stored back in memory</p></li>
+<li><p>memory unit sees only a stream of memory, without knowing how they are generated</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>secondary storage: extension of main memory, to hold large data permanently, e.g.</p></li>
+</ul>
+<p>magnetic disk
+* other storage types are also available, such as cache memory, CD-ROM and magnetic tapes
+* various storage systems differ in speed, cost, size and volatility
+* volatile storage lose contents when power is removed
+* <strong>Electronic Disk</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be designed to be volatile or nonvolatile</p></li>
+<li><p>electronic disk stores data in large DRAM array during normal operation</p></li>
+<li><p>most devices contain hidden magnetic hard disk and battery for backup power</p></li>
+<li><p>when external power is interrupted, electronic disk controller copies data from RAM
+to magnetic disk, and vice versa when power is restored</p></li>
+<li><p>flash memory: a form of electronic disk, slower than DRAM but no power required to
+retain contents</p></li>
+<li><p>NVRAM: nonvolatile, DRAM with backup battery</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>register &gt; cache &gt; main memory &gt; electronic disk &gt; magnetic disk &gt; optical disk &gt;</p></li>
+</ul>
+<p>magnetic tape
+* caches can be installed to increase performance</p>
+</div></blockquote>
+</section>
+<section id="i-o-structure">
+<h3>I/O Structure<a class="headerlink" href="#i-o-structure" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>CPUs and device controllers are connected through common bus</p></li>
+<li><dl class="simple">
+<dt><strong>Controllers</strong></dt><dd><ul>
+<li><p>each controller is in charge of specific type of device</p></li>
+<li><p>more than one device may be attached to a controller</p></li>
+<li><p>maintains local buffer storage and special-purpose registers</p></li>
+<li><p>move data between managed devices and its local buffer storage</p></li>
+<li><p>operating systems have a device driver for each device controller</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Example I/O Operation</strong></dt><dd><ul>
+<li><p>driver loads the appropriate registers within controller</p></li>
+<li><p>controller check the contents to determine action to be taken</p></li>
+<li><p>controller transfer data from device to its local buffer</p></li>
+<li><p>controller informs the driver via interrupt upon transfer completion</p></li>
+<li><p>driver returns control to OS, also return data or pointer to data for read operation
+or status information for other operations</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>interrupt-driven I/O is fine for small data, but not for large one, as one interrupt per</p></li>
+</ul>
+<p>byte is generated
+* <strong>DMA (direct memory access)</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>used for bulk data movement</p></li>
+<li><p>controller transfer entire block of data directly to or from its buffer to memory</p></li>
+<li><p>only one interrupt per block</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>CPU can do other work while device controller is performing operations</p></li>
+<li><p>some high-end systems use switch instead of bus, as multiple components can talk to</p></li>
+</ul>
+<p>others concurrently, no need to compete for cycles on shared bus</p>
+</div></blockquote>
+<p><a class="reference external" href="#operating-systems">back to top</a></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="OpenAPI.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">OpenAPI</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="POSIXThreads.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">POSIX Threads</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-computer-operates">How Computer Operates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage">Storage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-o-structure">I/O Structure</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,692 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Helm &#8212; Notes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Helm';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Istio" href="Istio.html" />
+    <link rel="prev" title="Git" href="Git.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AWS.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BackendEngineering.html">Backend Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSharp.html">C# #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CTF.html">CTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CompTIA.html">CompTIA Cert Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compilers.html">Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerGraphics.html">Computer Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputingSystems.html">Computing Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">ECS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FFmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Git.html">Git</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Helm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Istio.html">Istio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JDBC.html">JDBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MongoDB.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkProgramming.html">Network Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NodeJS.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenAPI.html">OpenAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OperatingSystem.html">Operating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="POSIXThreads.html">POSIX Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PenetrationTesting.html">Penetration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramDesign.html">Program Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectManagement.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prometheus.html">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SFML.html">SFML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StrategicPlanning.html">Strategic Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terraform.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TypeScript.html">TypeScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI/UX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrant.html">Vagrant</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Helm.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Helm</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-helm">What is Helm?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#helm-2-vs-3">Helm 2 vs 3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#components">Components</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#charts">Charts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#release">Release</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata">Metadata</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chart-customization">Chart Customization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lifecycle-management">Lifecycle Management</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#helm-charts">Helm Charts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verifying-charts">Verifying Charts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="helm">
+<h1>Helm<a class="headerlink" href="#helm" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#what-is-helm">What is Helm?</a></p></li>
+<li><p><a class="reference internal" href="#components">Components</a></p></li>
+<li><p><a class="reference internal" href="#basics">Basics</a></p></li>
+<li><p><a class="reference internal" href="#helm-charts">Helm Charts</a></p></li>
+</ol>
+<section id="what-is-helm">
+<h2>What is Helm?<a class="headerlink" href="#what-is-helm" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>can be considered as package manager/automation tool for Kubernetes</p></li>
+<li><p>treat Kubernetes objects as an app, as part of a package as a group</p></li>
+<li><p>instead of modifying objects, only need to tell Helm what package to be modified</p></li>
+<li><p>knows which objects to change based on the package name</p></li>
+<li><p>no need to manage each Kubernetes object</p></li>
+<li><p>can install, upgrade, rollback or uninstall with only single command</p></li>
+<li><p>can specify desired values for the package at install time by only editing single file</p></li>
+<li><p>can be downloaded from [official Helm site](<a class="reference external" href="https://helm.sh/docs/intro/install/">https://helm.sh/docs/intro/install/</a>)</p></li>
+</ul>
+<section id="helm-2-vs-3">
+<h3>Helm 2 vs 3<a class="headerlink" href="#helm-2-vs-3" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>extra component, Tiller, has to be installed in the cluster for Helm 2 to communicate</p></li>
+</ul>
+<p>Kubernetes did not have RBAC and CRD at that time
+* as Tiller is run in god mode, there are security concerns for the cluster
+* Tiller is not required anymore after RBAC and CRD
+* Helm 3 is simpler and better designed
+* <strong>3-Way Strategic Merge Patch</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Helm 2 does not create new revision when objects are manually changed from kubectl,
+so rollback is not possible after manual change</p></li>
+<li><p>Helm 3 compares current chart, previous chart and live state, 3-way, for rollbacks</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p><a class="reference external" href="#helm">back to top</a></p>
+</section>
+</section>
+<section id="components">
+<h2>Components<a class="headerlink" href="#components" title="Link to this heading">#</a></h2>
+<section id="charts">
+<h3>Charts<a class="headerlink" href="#charts" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>collection of files that contain instructions to create Kubernetes objects</p></li>
+<li><p>used to install applications into the cluster</p></li>
+<li><p>different charts can be found in public repository like docker images, called</p></li>
+</ul>
+<p>[Helm Hub or Artifact Hub](<a class="reference external" href="https://artifacthub.io/">https://artifacthub.io/</a>)
+* <code class="docutils literal notranslate"><span class="pre">values.yaml</span></code>: store configurable values for the chart
+* <code class="docutils literal notranslate"><span class="pre">chart.yaml</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>store information about the chart, such as chart API Version, app version, name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">apiVersion</span></code> field is added in Helm 3 to differentiate charts built in the past</p></li>
+<li><p>additional fields in Helm 2 will be ignored and can result in unexpected behavior</p></li>
+<li><p>every chart must have its own <code class="docutils literal notranslate"><span class="pre">version</span></code>, not same as <code class="docutils literal notranslate"><span class="pre">appVersion</span></code> field</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type:</span> <span class="pre">application</span></code> is used for deploying applications</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type:</span> <span class="pre">library</span></code> is a chart that provides utilities that help building charts</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Chart Directories</strong></dt><dd><ul>
+<li><p>templates: templates directory</p></li>
+<li><p>values.yaml: configurable values</p></li>
+<li><p>chart.yaml: chart info</p></li>
+<li><p>license: chart license</p></li>
+<li><p>readme: readme file</p></li>
+<li><p>charts: dependency charts</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="release">
+<h3>Release<a class="headerlink" href="#release" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>single installation of app, created when a chart is installed</p></li>
+<li><p>each release can have multiple revisions, snapshots of the app</p></li>
+<li><p>every change create a new revision</p></li>
+<li><p>can install multiple releases based on same chart</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="metadata">
+<h3>Metadata<a class="headerlink" href="#metadata" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>data such as installed release, charts used and revision state</p></li>
+<li><p>saved in the cluster as secrets</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#helm">back to top</a></p>
+</section>
+</section>
+<section id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">search</span> <span class="pre">hub</span> <span class="pre">SEARCH_WORD</span></code>: search chart in the hub or repositories</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">repo</span> <span class="pre">add</span> <span class="pre">REPO_NAME</span> <span class="pre">REPO_URL</span></code>: add repository before installation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">install</span> <span class="pre">NAME</span> <span class="pre">CHART_NAME</span></code>: install chart to cluster</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">list</span></code>: list all releases</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">uninstall</span> <span class="pre">NAME</span></code>: uninstall and delete all objects</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">heml</span> <span class="pre">repo</span> <span class="pre">SUB_COMMAND</span></code>: interact with repositories</p></li>
+</ul>
+<section id="chart-customization">
+<h3>Chart Customization<a class="headerlink" href="#chart-customization" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>charts are installed with default values</p></li>
+<li><dl class="simple">
+<dt>can change values from command line with <code class="docutils literal notranslate"><span class="pre">--set</span></code> flags</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">install</span> <span class="pre">--set</span> <span class="pre">PARAM_1=&quot;VALUE_1&quot;</span> <span class="pre">--set</span> <span class="pre">PARAM_2=&quot;VALUE_2&quot;</span> <span class="pre">NAME</span> <span class="pre">CHART_NAME</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>create new <code class="docutils literal notranslate"><span class="pre">custom-values.yaml</span></code> and use it to override default values</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">install</span> <span class="pre">--values</span> <span class="pre">custom-values.yaml</span> <span class="pre">NAME</span> <span class="pre">CHART_NAME</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>pull the chart first and edit <code class="docutils literal notranslate"><span class="pre">values.yaml</span></code> file</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">pull</span> <span class="pre">CHART_NAME</span></code> or <code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">pull</span> <span class="pre">--untar</span> <span class="pre">CHART_NAME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">install</span> <span class="pre">NAME</span> <span class="pre">LOCAL_CHART_DIR</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="lifecycle-management">
+<h3>Lifecycle Management<a class="headerlink" href="#lifecycle-management" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>helm keep track of releases with revision numbers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">upgrade</span> <span class="pre">NAME</span> <span class="pre">CHART_NAME</span></code>: upgrade app, will create a new revision</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">history</span> <span class="pre">NAME</span></code>: list releases/lifecycle of an app with details</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">rollback</span> <span class="pre">NAME</span> <span class="pre">REVISION_NUMBER</span></code>: rollback to specific revision, create new revision</p></li>
+</ul>
+<p>with similar configuration as given revision
+* some charts require administrative access for upgrade
+* rollbacks do not recover data
+* chart hooks are required to backup and restore data, especially in databases</p>
+</div></blockquote>
+<p><a class="reference external" href="#helm">back to top</a></p>
+</section>
+</section>
+<section id="helm-charts">
+<h2>Helm Charts<a class="headerlink" href="#helm-charts" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>versatile and can automate any kind of Kubernetes package installation</p></li>
+<li><p>similar to installation wizards on Operating Systems</p></li>
+<li><p>can write a chart to do operations any time upgrade/rollback is performed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">create</span> <span class="pre">NAME</span></code>: create skeleton chart directory structure</p></li>
+<li><p>use Go templating language for dynamic chart values, such as <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">.Release.Name</span> <span class="pre">}}-myapp</span></code></p></li>
+<li><p>available objects for template directive: Release, Chart, Capabilities, Values</p></li>
+</ul>
+<section id="verifying-charts">
+<h3>Verifying Charts<a class="headerlink" href="#verifying-charts" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Lint</strong></dt><dd><ul>
+<li><p>validate YAML format</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">lint</span> <span class="pre">LOCAL_CHART_DIR</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Template</strong></dt><dd><ul>
+<li><p>validate templating</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">template</span> <span class="pre">LOCAL_CHART_DIR</span></code> or <code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">template</span> <span class="pre">NAME</span> <span class="pre">LOCAL_CHART_DIR</span></code></p></li>
+<li><p>use with <code class="docutils literal notranslate"><span class="pre">--debug</span></code> to display error in generated YAML file</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Dry Run</strong></dt><dd><ul>
+<li><p>validate chart works with the cluster</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">install</span> <span class="pre">NAME</span> <span class="pre">CHART_NAME</span> <span class="pre">--dry-run</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>transform data from one format to another, <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">FUNCTION</span> <span class="pre">ARGUMENT</span> <span class="pre">}}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">upper</span> <span class="pre">.Values.image.repository</span> <span class="pre">}}</span></code>: convert to upprecase</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">quote</span> <span class="pre">.Values.image.repository</span> <span class="pre">}}</span></code>: add quotes around the text</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">replace</span> <span class="pre">&quot;x&quot;</span> <span class="pre">&quot;y&quot;</span> <span class="pre">.Values.image.repository</span> <span class="pre">}}</span></code>: function with three arguments, replace</p></li>
+</ul>
+<p>‘x’ in the text with ‘y’
+* <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">default</span> <span class="pre">&quot;myimage&quot;</span> <span class="pre">.Values.image.repository</span> <span class="pre">}}</span></code>: default value to be used if not
+provided in the values.yml file
+* arguments not in quote are considered as variables
+* check [official docs](<a class="reference external" href="https://helm.sh/docs/chart_template_guide/function_list/">https://helm.sh/docs/chart_template_guide/function_list/</a>) for more functions</p>
+</div></blockquote>
+<p><a class="reference external" href="#helm">back to top</a></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Git.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Git</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Istio.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Istio</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-helm">What is Helm?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#helm-2-vs-3">Helm 2 vs 3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#components">Components</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#charts">Charts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#release">Release</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata">Metadata</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chart-customization">Chart Customization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lifecycle-management">Lifecycle Management</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#helm-charts">Helm Charts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verifying-charts">Verifying Charts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

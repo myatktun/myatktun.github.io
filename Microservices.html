@@ -1,0 +1,827 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Microservices &#8212; Notes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Microservices';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MongoDB" href="MongoDB.html" />
+    <link rel="prev" title="Machine Learning" href="MachineLearning.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AWS.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BackendEngineering.html">Backend Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSharp.html">C# #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CTF.html">CTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CompTIA.html">CompTIA Cert Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compilers.html">Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerGraphics.html">Computer Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputingSystems.html">Computing Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">ECS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FFmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Helm.html">Helm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Istio.html">Istio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JDBC.html">JDBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MongoDB.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkProgramming.html">Network Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NodeJS.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenAPI.html">OpenAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OperatingSystem.html">Operating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="POSIXThreads.html">POSIX Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PenetrationTesting.html">Penetration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramDesign.html">Program Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectManagement.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prometheus.html">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SFML.html">SFML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StrategicPlanning.html">Strategic Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terraform.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TypeScript.html">TypeScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI/UX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrant.html">Vagrant</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Microservices.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Microservices</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-microservices">What are Microservices?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#microservices-application">Microservices Application</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monolith-vs-microservices">Monolith vs Microservices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-responsibility-principle">single responsibility principle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loose-coupling">loose coupling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#high-cohesion">high cohesion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development">Development</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stateless-cluster">stateless cluster</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#communication">Communication</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#direct-messaging-synchronous-communication">direct messaging (synchronous communication)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indirect-messaging-asynchronous-communication">indirect messaging (asynchronous communication)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rabbitmq">RabbitMQ</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-base">Code Base</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monorepos">Monorepos</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="microservices">
+<h1>Microservices<a class="headerlink" href="#microservices" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#what-are-microservices">What are microservices?</a></p></li>
+<li><p><a href="#id5"><span class="problematic" id="id6">`Principles`_</span></a></p></li>
+<li><p><a class="reference internal" href="#development">Development</a></p></li>
+<li><p><a class="reference internal" href="#communication">Communication</a></p></li>
+<li><p><a class="reference internal" href="#code-base">Code Base</a></p></li>
+</ol>
+<section id="what-are-microservices">
+<h2>What are Microservices?<a class="headerlink" href="#what-are-microservices" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#microservices-application">Microservices Application</a>, <a class="reference internal" href="#monolith-vs-microservices">Monolith vs Microservices</a></p></li>
+<li><p>factors such as easily accessible cloud infrastructure, tools and automation drive toward</p></li>
+</ul>
+<p>microservices
+* microservices enables to manage complexity at granular level
+* a single microservice should be manageable by a single developer or small team
+* each service should run on its own deployment schedule and be able to update independently
+* each developer/team is responsible for development, testing, deployment and operations of
+the service(s) they own
+* individual microservice can be external for customers or only internal, with access to a
+database, file storage or method of state persistence
+* in a well-designed system, services must collaborate with each other to provide features and
+functions of greater application</p>
+<section id="microservices-application">
+<h3>Microservices Application<a class="headerlink" href="#microservices-application" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>a microservices application, distributed application, is a complex adaptive system</p></li>
+</ul>
+<p>because of its constituent parts
+* each component should be small, manageable and easy to understand
+* components are separate processes, with each on physically or virtually separate
+computer, and communicate via network
+* application can be in different forms, flexible and suitable for any situations
+* the services do different jobs, depending on business domain</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>orchestration: automated management of services</p></li>
+</ul>
+</section>
+<section id="monolith-vs-microservices">
+<h3>Monolith vs Microservices<a class="headerlink" href="#monolith-vs-microservices" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Monolith</strong></dt><dd><ul>
+<li><p>a great option for creating a throw-away prototype, to validate business idea first</p></li>
+<li><p>all code runs in same process with no barriers</p></li>
+<li><p>can become a mess as size increases and can be difficult for new developers to
+understand</p></li>
+<li><p>a code change can break the entire application and gives arise to deployment fear</p></li>
+<li><p>testing can be difficult to scale as it consumes resources as entire application and
+becomes more expensive to run</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Microservices</strong></dt><dd><ul>
+<li><p>with the right tools, microservices prototyping can be as easy as with monolith</p></li>
+<li><p>before, microservices were only used where value of solution is more than cost of
+implementation</p></li>
+<li><p>as it became cheaper to replace monolithic apps, components of distributed systems
+reduce to microservices</p></li>
+<li><p>each service can has dedicated resources</p></li>
+<li><p>physical infrastructure can be shared between many services to be cost effective</p></li>
+<li><p>can have fine-grained control, minimize deployment risk and choose own tech stack</p></li>
+<li><p>error when updating a service cannot break the entire application and easier
+rollback as small part of the system rather than the whole</p></li>
+<li><p>faster boot that makes system easier to scale as it can be replicated quickly</p></li>
+<li><p>easier to test and troubleshoot</p></li>
+<li><p>each component should be able to thrown away and be rewritten with different tech
+within weeks</p></li>
+<li><p>multiple tech stacks can work together in the cluster using shared protocols and
+communication mechanism</p></li>
+<li><p>microservices create structure that can be converted to newer tech stacks</p></li>
+<li><p>more difficult and complex to develop, and has steep learning curve</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>microservices as an architectural pattern is a tool that gives many ways to manage complexity</p></li>
+</ul>
+<dl class="simple">
+<dt>and force for <strong>better design</strong></dt><dd><ul class="simple">
+<li><p>do not over design or try to future proof the architecture</p></li>
+<li><p>always start with simple design</p></li>
+<li><p>apply continuous refactoring during development, then a good design will emerge naturally</p></li>
+</ul>
+</dd>
+</dl>
+<ul class="simple">
+<li><p>duplicated code is accepted in microservices, as a trade for higher tolerance</p></li>
+<li><p>process boundaries make more difficult to share code</p></li>
+</ul>
+<p><a class="reference external" href="#microservices">back to top</a></p>
+<p># Principles of Microservices</p>
+</section>
+<section id="single-responsibility-principle">
+<h3>single responsibility principle<a class="headerlink" href="#single-responsibility-principle" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>each microservice should be as small and simple as possible</p></li>
+<li><p>each service should cover only single conceptual area of business</p></li>
+<li><p>updating or adding a service should be easy</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="loose-coupling">
+<h3>loose coupling<a class="headerlink" href="#loose-coupling" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>connections between services should be minimal</p></li>
+<li><p>do not share information unless necessary</p></li>
+<li><p>can help when changing the application into new configurations</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="high-cohesion">
+<h3>high cohesion<a class="headerlink" href="#high-cohesion" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>all the code in a microservice belong together</p></li>
+<li><p>all the code solves problem in the service’s responsible area</p></li>
+<li><p>a service should not solve more than one problem or has larger responsibility area</p></li>
+<li><p>domain driven design works well for microservices</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#microservices">back to top</a></p>
+</section>
+</section>
+<section id="development">
+<h2>Development<a class="headerlink" href="#development" title="Link to this heading">#</a></h2>
+<ul>
+<li><p>start with simplest code and keep it simple as possible</p></li>
+<li><dl class="simple">
+<dt>simple changes are easy to understand, test and integrate</dt><dd><ul class="simple">
+<li><p>test each service independently as restarting a single service is faster</p></li>
+<li><p>integration testing can be difficult when application grows larger</p></li>
+<li><p>mocking: testing technique where dependencies are replaced with simulated alternative</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>use tools, techniques, processes and patterns as the application becomes complex</dt><dd><ul class="simple">
+<li><p>use same versions of systems and tools in development as in production</p></li>
+<li><p>install less in production environment to reduce security issues</p></li>
+<li><p>deploy tools in-cluster or use third-party ones based on business requirements</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>take out as much code as possible to isolate the problem when troubleshooting</p></li>
+<li><p>it’s better for a microservice not to start than operate on wrong configuration</p></li>
+<li><dl>
+<dt>use containers to abstract resources required by a microservice</dt><dd><ul class="simple">
+<li><p>as containers can virtualize OS and hardware, resources can be divided on one computer</p></li>
+</ul>
+<p>among many services
+* build container images, bootable and immutable snapshots of servers including necessary
+assets, for easier and faster deployment
+* containers names should be independent of the underlying technique
+* if possible, run commands at container startup to cache on host OS</p>
+</dd>
+</dl>
+</li>
+<li><p>freedom to effect change in the future without knock-on effects is important</p></li>
+<li><p>control which services should be exposed and which to restrict access</p></li>
+</ul>
+<section id="stateless-cluster">
+<h3>stateless cluster<a class="headerlink" href="#stateless-cluster" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>cluster can be destroyed and rebuilt without loss of data</p></li>
+<li><p>can use blue-green deployment for production rollouts</p></li>
+<li><p>only need to switch DNS record to point to the new version and can be switched back to</p></li>
+</ul>
+<p>the old one if problems occur</p>
+</div></blockquote>
+<ul>
+<li><dl>
+<dt>use one database per microservice if possible</dt><dd><ul class="simple">
+<li><p>sharing databases between services can have architectural and scalability problems</p></li>
+<li><p>restrict data access only to the underlying code so that changes in structure of data</p></li>
+</ul>
+<p>over time can be hidden
+* avoid using a database as integration point or interface between microservices</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>it’s beneficial to go production while the application is still small</dt><dd><ul class="simple">
+<li><p>to get user feedback and adapt and build features</p></li>
+<li><p>building a CD pipeline and deploying is easier</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><a class="reference external" href="#microservices">back to top</a></p>
+</section>
+</section>
+<section id="communication">
+<h2>Communication<a class="headerlink" href="#communication" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>communication is the key between microservices</p></li>
+</ul>
+<section id="direct-messaging-synchronous-communication">
+<h3>direct messaging (synchronous communication)<a class="headerlink" href="#direct-messaging-synchronous-communication" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>messages are sent and responded directly and immediately between services</p></li>
+<li><p>used when a service should be invoked immediately to perform a task</p></li>
+<li><p>also used for triggering a direct action on another microservice</p></li>
+<li><p>one controller microservice can cause to perform a strict series of behaviors across</p></li>
+</ul>
+<p>multiple microservices, but the controller becomes single point of failure
+* recipient service can’t ignore or avoid the incoming message
+* requires tight coupling between microservices
+* useful to coordinate behaviors in explicit way or well-defined order
+* can only target single service at a time
+* not easy to use when a single message should be received by multiple recipients
+* e.g messages sent with HTTP requests</p>
+</div></blockquote>
+</section>
+<section id="indirect-messaging-asynchronous-communication">
+<h3>indirect messaging (asynchronous communication)<a class="headerlink" href="#indirect-messaging-asynchronous-communication" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>has intermediary between services</p></li>
+<li><p>both sender and receiver don’t need to know about each other</p></li>
+<li><p>looser coupling between microservices</p></li>
+<li><p>the sender doesn’t even know if the other service will receive the message</p></li>
+<li><p>the receiver cannot send a direct reply</p></li>
+<li><p>can’t be used when direct response is required</p></li>
+<li><p>used for important events that don’t need a direct response</p></li>
+<li><p>can make architecture more difficult</p></li>
+<li><p>increases security, scalability, extensibility, reliability and performance</p></li>
+<li><p>no single service that orchestrate others</p></li>
+<li><p>allows more complex and resilient networks of behaviors</p></li>
+<li><p>messages won’t be lost even if the microservices fail as the messages aren’t acknowledged</p></li>
+</ul>
+<p>when a service crashes and they will be delivered to another service to be handled
+* e.g RabbitMQ, which uses Advanced Message Queuing Protocol (AMQP)
+* <strong>single-recipient messaging</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>one-to-one indirect messaging between services</p></li>
+<li><p>can have multiple senders and receivers</p></li>
+<li><p>only single service will receive each individual message</p></li>
+<li><p>useful when distributing a job that should be handled only by the first one that is
+capable of dealing with</p></li>
+<li><p>will make sure that a job is done only once within application</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>multiple-recipient messaging</strong></dt><dd><ul>
+<li><p>one-to-many broadcast style, one service sends that message but many others can
+receive</p></li>
+<li><p>mostly used for notifications</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>can use direct or indirect messaging to load balance handling of a message by one of a</p></li>
+</ul>
+<p>collection of services</p>
+</section>
+<section id="rabbitmq">
+<h3>RabbitMQ<a class="headerlink" href="#rabbitmq" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>assert queue</dt><dd><ul>
+<li><p>multiple microservices can assert a queue</p></li>
+<li><p>checking and creating the queue if not exist</p></li>
+<li><p>the queue is created once and shared between all participating services</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>incoming message must be parsed manually as RabbitMQ doesn’t natively support JSON</p></li>
+<li><p>it only sees the message as a blob of binary data</p></li>
+<li><p>can use any efficient binary format for message payload</p></li>
+<li><p>queue should auto deallocate when microservices disconnect to prevent memory leak</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#microservices">back to top</a></p>
+</section>
+</section>
+<section id="code-base">
+<h2>Code Base<a class="headerlink" href="#code-base" title="Link to this heading">#</a></h2>
+<section id="monorepos">
+<h3>Monorepos<a class="headerlink" href="#monorepos" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>related changes in different projects can be in the same pull-request</p></li>
+<li><dl class="simple">
+<dt><strong>Nx</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">npx</span> <span class="pre">create-nx-workspace</span></code>, <code class="docutils literal notranslate"><span class="pre">yarn</span> <span class="pre">create</span> <span class="pre">nx-workspace</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">[target]</span> <span class="pre">[project]</span></code>, targets (serve, build, lint, test, e2e) from <code class="docutils literal notranslate"><span class="pre">project.json</span></code></p></li>
+<li><p>types of libraries: Feature, UI, Data-access, Utility</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">g</span> <span class="pre">lib</span> <span class="pre">feature</span> <span class="pre">--directory</span> <span class="pre">feature1</span> <span class="pre">--appProject</span> <span class="pre">project1</span> <span class="pre">--tags</span> <span class="pre">type:feature</span></code>,
+create library in <code class="docutils literal notranslate"><span class="pre">libs/feature1/feature</span></code>, <code class="docutils literal notranslate"><span class="pre">--appProject</span></code> make the library routable
+inside specified application, <code class="docutils literal notranslate"><span class="pre">--tags</span></code> are add to <code class="docutils literal notranslate"><span class="pre">project.json</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">g</span> <span class="pre">component</span> <span class="pre">GlobalStyles</span> <span class="pre">--project</span> <span class="pre">project1-folder1</span> <span class="pre">--export</span></code>, create component
+in <code class="docutils literal notranslate"><span class="pre">libs/project1/folder1/src/lib/global-styles</span></code>, <code class="docutils literal notranslate"><span class="pre">--project</span></code> specifies as found in
+<code class="docutils literal notranslate"><span class="pre">projects</span></code> section of <code class="docutils literal notranslate"><span class="pre">nx.json</span></code>, <code class="docutils literal notranslate"><span class="pre">--export</span></code> exports the component in <code class="docutils literal notranslate"><span class="pre">index.ts</span></code> file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">g</span> <span class="pre">app</span> <span class="pre">--help</span></code>, <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">g</span> <span class="pre">lib</span> <span class="pre">--help</span></code>, <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">g</span> <span class="pre">component</span> <span class="pre">--help</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;nrwl/nx/enforce-module-boundaries</span></code> define libraries dependencies based on tags,
+even circular dependency is not allowed, need to set <code class="docutils literal notranslate"><span class="pre">allowCircularSelfDependency:</span> <span class="pre">true</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">graph</span></code>, show dependency graph</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">affected:graph</span></code>, show affected graph (uses Git history and compare with main
+branch to determine which projects are affected, specify base with <code class="docutils literal notranslate"><span class="pre">--base</span></code> or
+<code class="docutils literal notranslate"><span class="pre">deafultBase</span></code> in <code class="docutils literal notranslate"><span class="pre">nx.json</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">affected:build</span></code>, build affected apps</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">affected:test</span></code>, test affected projects</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">affected:lint</span></code>, lint affected projects</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">affected:e2e</span></code>, run e2e tests on affected projects</p></li>
+<li><p>projects at the bottom of the dependency run first</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--maxParallel</span></code>, specify parallel tasks (3 by default)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">print-affected</span> <span class="pre">--type=app</span> <span class="pre">--select=projects</span></code>, list affected apps</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">print-affected</span> <span class="pre">--type=lib</span> <span class="pre">--select=projects</span></code>, list affected libraries</p></li>
+<li><p>listing affected projects can be useful in CI</p></li>
+<li><p>Nx uses computation caching to run tasks faster, will replay the same output if
+computation hash is the same (stored in <code class="docutils literal notranslate"><span class="pre">node_modules/.cache/nx</span></code> and can specify under
+<code class="docutils literal notranslate"><span class="pre">tasksRunnerOptions</span></code> in <code class="docutils literal notranslate"><span class="pre">nx.json</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">g</span> <span class="pre">&#64;nrwl/express:app</span> <span class="pre">api</span> <span class="pre">--no-interactive</span> <span class="pre">--frontend-project=frontend</span></code>, generate
+express app boiler plate (<code class="docutils literal notranslate"><span class="pre">--frontend-project</span></code> add proxy configuration)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">run-many</span> <span class="pre">--target=serve</span> <span class="pre">--projects=api,frontend</span></code>, start multiple applications</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">g</span> <span class="pre">&#64;nrwl/node:lib</span> <span class="pre">shared-models</span> <span class="pre">--no-interactive</span></code>, generate utility library</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">format:check</span></code>, <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">format:write</span></code>, checks and formats files with Prettier</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#microservices">back to top</a></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="MachineLearning.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Machine Learning</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="MongoDB.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MongoDB</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-microservices">What are Microservices?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#microservices-application">Microservices Application</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monolith-vs-microservices">Monolith vs Microservices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-responsibility-principle">single responsibility principle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loose-coupling">loose coupling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#high-cohesion">high cohesion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development">Development</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stateless-cluster">stateless cluster</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#communication">Communication</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#direct-messaging-synchronous-communication">direct messaging (synchronous communication)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indirect-messaging-asynchronous-communication">indirect messaging (asynchronous communication)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rabbitmq">RabbitMQ</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-base">Code Base</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monorepos">Monorepos</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,2705 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Backend Engineering &#8212; Notes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'BackendEngineering';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="C" href="C.html" />
+    <link rel="prev" title="Arm Architecture" href="ArmArchitecture.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AWS.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Backend Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSharp.html">C# #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CTF.html">CTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CompTIA.html">CompTIA Cert Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compilers.html">Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerGraphics.html">Computer Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputingSystems.html">Computing Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">ECS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FFmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Helm.html">Helm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Istio.html">Istio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JDBC.html">JDBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MongoDB.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkProgramming.html">Network Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NodeJS.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenAPI.html">OpenAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OperatingSystem.html">Operating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="POSIXThreads.html">POSIX Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PenetrationTesting.html">Penetration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramDesign.html">Program Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectManagement.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prometheus.html">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SFML.html">SFML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StrategicPlanning.html">Strategic Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terraform.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TypeScript.html">TypeScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI/UX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrant.html">Vagrant</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/BackendEngineering.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Backend Engineering</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#communication-patterns">Communication Patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-response">Request &amp; Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronous-asynchronous">Synchronous &amp; Asynchronous</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#push">Push</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polling">Polling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#long-polling">Long Polling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sever-sent-events">Sever-Sent Events</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#publish-subscribe">Publish &amp; Subscribe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplexing-demultiplexing">Multiplexing &amp; Demultiplexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stateful-stateless">Stateful &amp; Stateless</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidecar">Sidecar</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protocols">Protocols</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#osi-model">OSI Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#internet-protocol">Internet Protocol</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#udp">UDP</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tcp">TCP</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tls">TLS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#http-1-1">HTTP/1.1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#http-2">HTTP/2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#http-3">HTTP/3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#websockets">WebSockets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grpc">gRPC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#webrtc">WebRTC</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#https">HTTPS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#over-tcp-with-tls-1-2">Over TCP with TLS 1.2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#over-tcp-with-tls-1-3">Over TCP with TLS 1.3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#over-quic">Over QUIC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#over-tfo-with-tls-1-3">Over TFO with TLS 1.3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#over-tcp-with-tls-1-3-0rtt">Over TCP with TLS 1.3 0RTT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#over-quic-0rtt">Over QUIC 0RTT</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-patterns">Execution Patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-vs-thread">Process vs Thread</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-establishment">Connection Establishment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-writing-data">Reading/Writing Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-listener-single-worker-thread">Single Listener/Single Worker Thread</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-listener-multiple-worker-threads">Single Listener/Multiple Worker Threads</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-listener-multiple-worker-threads-with-load-balancing">Single Listener/Multiple Worker Threads with Load Balancing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-threads-single-socket">Multiple Threads/Single Socket</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-listeners-on-same-port">Multiple Listeners on same Port</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#idempotency">Idempotency</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nagle-s-algorithm">Nagle’s Algorithm</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proxy-vs-reverse-proxy">Proxy vs Reverse Proxy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proxy">Proxy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reverse-proxy">Reverse Proxy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tunnel-proxy">Tunnel Proxy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-balancers">Load Balancers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-4-load-balancer">Layer 4 Load Balancer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-7-load-balancer">Layer 7 Load Balancer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#designing-software">Designing Software</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-document">Workflow Document</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-overview">Design Overview</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#component-design">Component Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-overview-diagram">Design Overview Diagram</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#request-journey">Request Journey</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accept">Accept</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read">Read</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decrypt">Decrypt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parse">Parse</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decode">Decode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process">Process</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="backend-engineering">
+<h1>Backend Engineering<a class="headerlink" href="#backend-engineering" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#communication-patterns">Communication Patterns</a></p></li>
+<li><p><a class="reference internal" href="#protocols">Protocols</a></p></li>
+<li><p><a class="reference internal" href="#https">HTTPS</a></p></li>
+<li><p><a class="reference internal" href="#execution-patterns">Execution Patterns</a></p></li>
+<li><p><a class="reference internal" href="#proxy-vs-reverse-proxy">Proxy vs Reverse Proxy</a></p></li>
+<li><p><a class="reference internal" href="#load-balancers">Load Balancers</a></p></li>
+<li><p><a class="reference internal" href="#designing-software">Designing Software</a></p></li>
+<li><p><a class="reference internal" href="#request-journey">Request Journey</a></p></li>
+</ol>
+<p><a class="reference external" href="#backend-engineering">back to top</a></p>
+<section id="communication-patterns">
+<h2>Communication Patterns<a class="headerlink" href="#communication-patterns" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#request-response">Request &amp; Response</a>, <a class="reference internal" href="#synchronous-asynchronous">Synchronous &amp; Asynchronous</a>, <a class="reference internal" href="#push">Push</a>, <a class="reference internal" href="#polling">Polling</a>, <a class="reference internal" href="#long-polling">Long Polling</a></p></li>
+<li><p><a href="#id9"><span class="problematic" id="id10">`Server-Sent Events`_</span></a>, <a class="reference internal" href="#publish-subscribe">Publish &amp; Subscribe</a>, <a class="reference internal" href="#multiplexing-demultiplexing">Multiplexing &amp; Demultiplexing</a></p></li>
+<li><p><a class="reference internal" href="#stateful-stateless">Stateful &amp; Stateless</a>, <a class="reference internal" href="#sidecar">Sidecar</a></p></li>
+</ul>
+<section id="request-response">
+<h3>Request &amp; Response<a class="headerlink" href="#request-response" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Basic Scenario</strong></dt><dd><ul>
+<li><p>client send a request</p></li>
+<li><p>server need to understand the request, parse it, process it and send a response</p></li>
+<li><p>client parse the response and consume it</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>to know the beginning and the end of a request/response is important</p></li>
+<li><p>the cost of parsing a request is not cheap</p></li>
+<li><p>parsing the request and processing/executing the request is not same</p></li>
+<li><p>parsing XML is more expensive than parsing JSON, but parsing JSON is still slow</p></li>
+<li><p>some use protocol buffers as quick parser</p></li>
+<li><dl class="simple">
+<dt><strong>Usage</strong></dt><dd><ul>
+<li><p>almost everywhere</p></li>
+<li><p>web, HTTP, DNS, SSH, RPC, SQL, Database Protocols, APIs</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Structure</strong></dt><dd><ul>
+<li><p>structure is defined by both client and server</p></li>
+<li><p>has a boundary</p></li>
+<li><p>defined by a protocol and message format</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Sending large files</strong></dt><dd><p>1. simple way is to send a large request with the file, but if fail, the sent data is
+deleted
+2. chunk the file and send a request per chunk, can be resumable if fail</p>
+</dd>
+</dl>
+</li>
+<li><p>some such as notification service or chatting app do not work well with request/response</p></li>
+</ul>
+<p>model, e.g., a request must be sent every interval to see if there is a notification
+* try <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-v</span> <span class="pre">--trace</span> <span class="pre">out.txt</span> <span class="pre">http://google.com</span></code> and check</p>
+</div></blockquote>
+</section>
+<section id="synchronous-asynchronous">
+<h3>Synchronous &amp; Asynchronous<a class="headerlink" href="#synchronous-asynchronous" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Synchronous I/O</strong></dt><dd><ul>
+<li><p>caller send a request and is blocked, caller cannot execute anything</p></li>
+<li><p>context switching: CPU taking out the blocked process and giving time to other
+processes that can execute</p></li>
+<li><p>when receiver responds, the caller is unblocked</p></li>
+<li><p>caller and receiver are in sync</p></li>
+<li><p>e.g., program asking OS to read from the disk</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Asynchronous I/O</strong></dt><dd><ul>
+<li><p>caller send a request and can work until it get a response</p></li>
+<li><p>caller can check if response is ready by epolling</p></li>
+<li><p>or caller knows when the receiver call back when it’s done</p></li>
+<li><p>or caller can create a new thread that gets block and does the work</p></li>
+<li><p>caller and receiver are not necessarily in sync</p></li>
+<li><p>e.g., program create secondary thread that reads from the disk and is blocked by OS,
+main program still run and execute, thread finish and call back the main thread</p></li>
+<li><p>example workloads: async programming such as promises and futures, async backend
+processing, async commits in postgres, async I/O in Linux such as epoll and io_uring,
+async replication, async OS fsync</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>synchronicity is a client property, most modern client libraries are asynchronous</p></li>
+<li><p>synchronous communication: caller waits for response from receiver, e.g., asking a</p></li>
+</ul>
+<p>question in meeting
+* asynchronous communication: response can come at any time, caller and receiver can do
+anything in between, e.g., emailing someone
+* <strong>Asynchronous backend processing</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>when the backend receives a request and need to execute long running process, the
+client moves on, being async, while backend is synchronous, knowing someone is
+waiting for a response, the whole system can be considered synchronous</p></li>
+<li><p>can change to asynchronous by using queues in the backend</p></li>
+<li><p>when client sends a request, the backend will not promise to execute immediately,
+instead put it in a queue and respond with a job ID/promise, as it might be handling
+other requests</p></li>
+<li><p>the client can check back if the job is done or not in various ways such as push,
+poll, publish/subscribe</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="push">
+<h3>Push<a class="headerlink" href="#push" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>one of the famous patterns for fast response, ideal model for real time notification from</p></li>
+</ul>
+<p>backend or chat apps
+* <strong>Basic Scenario</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>client connects to server, server sends data to client</p></li>
+<li><p>client does not need to request anything, only a connection is necessary</p></li>
+<li><p>protocol must be bidirectional</p></li>
+<li><p>e.g., RabbitMQ</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Drawbacks</strong></dt><dd><ul>
+<li><p>client must be connected/online</p></li>
+<li><p>clients might not be able to handle, the server only pushes, it does not know if the
+client can manage the data, client can crash because of multiple pushes</p></li>
+<li><p>requires bidirectional protocol</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>for smaller/lighter clients, polling is preferred</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="polling">
+<h3>Polling<a class="headerlink" href="#polling" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>common, easy to implement and popular pattern, also called short polling</p></li>
+<li><p>ideal for request that takes a long time to process and want it to execute asynchronously</p></li>
+</ul>
+<p>on the backend
+* <strong>Basic Scenario</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>client sends a request, server immediately responds with a handle, usually in the
+form of unique id</p></li>
+<li><p>request may not be processed immediately, server will execute it when it is free</p></li>
+<li><p>client can check the status with the handle, server responds if ready or not</p></li>
+<li><p>multiple short request/response as polls</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>the idea of polling is request/response, but the whole system is based on asynchronous</p></li>
+</ul>
+<p>execution with short polling
+* one big request/response is broken down into multiple request/response as polls
+* server will only send the processed response when it is finished and the client polls, in
+this way client can be disconnected
+* if server send the processed response without client polling, the data may be lost if the
+client is disconnected
+* <strong>Drawbacks</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>multiple requests must be sent to check status</p></li>
+<li><p>does not scale well, increases network bandwidth</p></li>
+<li><p>waste backend resources as it has to check polls, instead can be used to serve</p></li>
+</ul>
+<p>requests</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="long-polling">
+<h3>Long Polling<a class="headerlink" href="#long-polling" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>after sending a request that will take a long time, client polls and wait until server</p></li>
+</ul>
+<p>responds when it’s ready
+* ideal for long processed requests or backend to send notification
+* used by Kafka
+* <strong>Basic Scenario</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>client sends a request, server immediately responds with a handle, usually in the
+form of unique id</p></li>
+<li><p>request may not be processed immediately, server will execute it when it is free</p></li>
+<li><p>client can check the status with the handle and wait</p></li>
+<li><p>server keep the connection open and responds only if it has a response ready</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>client can be disconnected, and does not need to poll very often</p></li>
+<li><p>some long polling variations have timeouts, not to poll forever</p></li>
+<li><dl class="simple">
+<dt><strong>Drawbacks</strong></dt><dd><ul>
+<li><p>may not be real time, if client delay/not polling often, when there is a new
+response from server</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="sever-sent-events">
+<h3>Sever-Sent Events<a class="headerlink" href="#sever-sent-events" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>one request, very very long response</p></li>
+<li><dl class="simple">
+<dt><strong>Basic Scenario</strong></dt><dd><ul>
+<li><p>client sends request, server sends logical events as part of response</p></li>
+<li><p>client keeps getting response/data</p></li>
+<li><p>client is smart enough to understands and parses chunks/streams of response</p></li>
+<li><p>server never writes the end of the response, since response has start and end</p></li>
+<li><p>server responds with special header <code class="docutils literal notranslate"><span class="pre">Content-Type:</span> <span class="pre">text/event-stream</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>ideal for real time notification or where push works but is restrictive</p></li>
+<li><p>SSE works with request/response, any HTTP server supports it</p></li>
+<li><p>can be considered as a request and an unending response</p></li>
+<li><dl class="simple">
+<dt><strong>Drawbacks</strong></dt><dd><ul>
+<li><p>client must be online, as server is always sending an event</p></li>
+<li><p>client may not be able to handle the streams of response</p></li>
+<li><p>for lighter client, polling might be better</p></li>
+<li><p>HTTP/1.1 problem in browser, where only maximum 6 connections are allowed to one
+domain, other requests might starve when all 6 connections are SSE</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="publish-subscribe">
+<h3>Publish &amp; Subscribe<a class="headerlink" href="#publish-subscribe" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>publisher can publish on a server and client/subscriber can consume it</p></li>
+<li><p>design for services to talk to each other, a service mesh</p></li>
+<li><dl class="simple">
+<dt><strong>Basic Scenario</strong></dt><dd><ul>
+<li><p>when a client uploads a file to upload service, the client’s job is done when it is
+finished, no waiting for other services to complete as well, so client is not blocked</p></li>
+<li><p>the upload service then upload/publish the file into a message queue/broker or
+topic for other services/channels to consume</p></li>
+<li><p>other services will subscribe and consume from the queue, and may publish again</p></li>
+<li><p>a consumer can also be a publisher for another</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Topic</strong></dt><dd><ul>
+<li><p>a group of published things consumers can subscribe to</p></li>
+<li><p>main component in pub/sub model</p></li>
+<li><p>how published subjects is delivered to consumers varies, e.g., push or long polling</p></li>
+<li><p>RabbitMQ pushes and Kafka long polls</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>scales well with multiple receivers</p></li>
+<li><p>ideal for microservices as it is loose coupling</p></li>
+<li><p>publisher’s work is done when published, consumer can consume it any time it wants</p></li>
+<li><dl class="simple">
+<dt><strong>Drawbacks</strong></dt><dd><ul>
+<li><p>message delivery issues, message can even be consumed more than once</p></li>
+<li><p>two generals problem: publisher can’t know if consumer/subscriber get the message</p></li>
+<li><p>adding another broker, scaling can be complex</p></li>
+<li><p>can have network congestion between broker and consumers if multiple polls</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="multiplexing-demultiplexing">
+<h3>Multiplexing &amp; Demultiplexing<a class="headerlink" href="#multiplexing-demultiplexing" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Multiplexing</strong></dt><dd><ul>
+<li><p>combining multiple incoming signals into one</p></li>
+<li><p>in HTTP/1.1, incoming requests will be piped individually, e.g., 3 requests 3 pipes</p></li>
+<li><p>in HTTP/2, incoming requests will be multiplexed, e.g., 3 requests multiplexed into
+1 pipe</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Demultiplexing</strong></dt><dd><ul>
+<li><p>splitting single incoming signal into multiple</p></li>
+<li><p>single multiplexed HTTP/2 requests will be demultiplexed into individual connections</p></li>
+<li><p>e.g., single 3 multiplexed requests demultiplexed into 3 pipes</p></li>
+<li><p>HTTP/1.1 in browser can only demultiplex up to 6 connections</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>in demultiplexing, each connection can have its own rule, flow control and congestion</p></li>
+</ul>
+<p>control without affecting each other
+* <strong>Connection Pooling</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>spinning up multiple free connections prior and giving to each incoming requests</p></li>
+<li><p>will have a pool of connections instead of establishing on a request or multiple
+requests competing for one connection</p></li>
+<li><p>can be considered as demultiplexing style</p></li>
+<li><p>a request/connection will be blocked if all connections are busy in the pool</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="stateful-stateless">
+<h3>Stateful &amp; Stateless<a class="headerlink" href="#stateful-stateless" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>whether state is stored in the application/backend or not and does the app depend on it</p></li>
+<li><dl class="simple">
+<dt><strong>Stateful</strong></dt><dd><ul>
+<li><p>stores state about client in memory, or somewhere else</p></li>
+<li><p>depends on the information for the backend to function properly</p></li>
+<li><p>entire system can be stateful but particular application can be stateless, if it is
+read from another application such as database</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Stateless</strong></dt><dd><ul>
+<li><p>client is responsible to transfer the state with every request</p></li>
+<li><p>state may be stored but can also lose it, as backend does not depend on it</p></li>
+<li><p>stateless backend can still store data somewhere else, such as database, as long as
+it’s functionality doesn’t rely on the state being stored in it</p></li>
+<li><p>backend remain stateless but system is stateful</p></li>
+<li><p>can restart whenever, and clients can connect back and finish the remaining work</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Stateful Backend Drawbacks</strong></dt><dd><ul>
+<li><p>if state is stored on the backend and it restarts and lost the data, it will break</p></li>
+<li><p>will not be able to verify client data if it is not stored/rely on database</p></li>
+<li><p>with load balancing, client data such as cookies, cannot be checked as load balancer
+will point to different servers</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Stateful vs Stateless protocols</strong></dt><dd><ul>
+<li><p>protocols can be designed to store state</p></li>
+<li><p>TCP is stateful as information about client and server, such as sequences and
+connection file descriptor, is stored in both the client and the server</p></li>
+<li><p>UDP is stateless, even if it stores file descriptor, it isn’t really necessary</p></li>
+<li><p>DNS send queryID in UDP to identify queries, DNS client server can be considered
+stateful but the protocol isn’t, as it uses UDP</p></li>
+<li><p>QUIC is stateless if it uses UDP, it has to send connectionID in every request to
+identify connection</p></li>
+<li><p>can build a stateless protocol on top of stateful one and vice versa, e.g., HTTP on
+top of TCP, QUIC on top of UDP</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Complete Stateless System</strong></dt><dd><ul>
+<li><p>very rarely seen, state has to be carried with every request</p></li>
+<li><p>complete stateless backend service will have to rely on the input</p></li>
+<li><p>JWT (JSON Web Token) is stateless</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="sidecar">
+<h3>Sidecar<a class="headerlink" href="#sidecar" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>every protocol requires a library, still a library even if it’s built into the language</p></li>
+<li><p>the library parses the request for server to understand</p></li>
+<li><p>mostly app and library should be same language and become entrenched</p></li>
+<li><p>changing or adding features to the library is hard and requires testing and backward</p></li>
+</ul>
+<p>compatibility
+* the idea is to delegate communication to other app, such as proxy which has rich library
+and can talk to any language/protocol, and now the client will have a thin library and a
+sidecar proxy
+* <strong>Sidecar Proxy</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>client-&gt;client sidecar proxy-&gt;server sidecar reverse proxy-&gt;server</p></li>
+<li><p>configure a proxy in the application for all HTTP requests to direct into sidecar</p></li>
+<li><p>called a sidecar as it literally lives within the same machine</p></li>
+<li><p>sidecar proxy will forward the request to another sidecar of the destination</p></li>
+<li><p>the proxy can secure the request, even if the client sends insecure one</p></li>
+<li><p>how proxies communicate is not client’s responsibility</p></li>
+<li><p>sidecar proxies can be upgraded independently, client and server code do not need to
+change</p></li>
+<li><p>used in service meshes such as Envoy, Istio, Linkerd</p></li>
+<li><p>can be sidecar proxy container, must be Layer 7 proxy</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>using sidecar can be language agnostic, upgradable protocol, secure, trace and monitor,</p></li>
+</ul>
+<p>service discovery and cache
+* <strong>Drawbacks</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>system can be complex</p></li>
+<li><p>debugging can be hard</p></li>
+<li><p>have latency as requests need to be rewritten and send</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p><a class="reference external" href="#backend-engineering">back to top</a></p>
+</section>
+</section>
+<section id="protocols">
+<h2>Protocols<a class="headerlink" href="#protocols" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#osi-model">OSI Model</a>, <a class="reference internal" href="#internet-protocol">Internet Protocol</a>, <a class="reference internal" href="#udp">UDP</a>, <a class="reference internal" href="#tcp">TCP</a>, <a class="reference internal" href="#tls">TLS</a></p></li>
+<li><p><a class="reference internal" href="#http-1-1">HTTP/1.1</a>, <a class="reference internal" href="#http-2">HTTP/2</a>, <a class="reference internal" href="#http-3">HTTP/3</a>, <a class="reference internal" href="#websockets">WebSockets</a>, <a class="reference internal" href="#grpc">gRPC</a>, <a class="reference internal" href="#webrtc">WebRTC</a></p></li>
+<li><p>protocol is a system of rules that allows two parties to communicate</p></li>
+<li><dl class="simple">
+<dt>designed with a set of properties based on it’s purpose to solve a problem</dt><dd><ul>
+<li><dl class="simple">
+<dt><strong>Data Format</strong></dt><dd><ul>
+<li><p>human readable text based such as plain text, JSON, XML</p></li>
+<li><p>binary such as protobuf, RESP, h2, h3</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Transfer Mode</strong></dt><dd><ul>
+<li><p>message based, where message has a start and an end, e.g., UDP, HTTP</p></li>
+<li><p>stream of bytes such as TCP, WebRTC</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Addressing System</strong></dt><dd><ul>
+<li><p>DNS, IP, MAC</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Directionality</strong></dt><dd><ul>
+<li><p>bidirectional such as TCP</p></li>
+<li><p>unidirectional such as HTTP</p></li>
+<li><p>full/half duplex</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>State</strong></dt><dd><ul>
+<li><p>stateful such as TCP, gRPC, Apache Thrift</p></li>
+<li><p>stateless such as UDP, HTTP</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Routing</strong></dt><dd><ul>
+<li><p>proxies, gateways</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Flow &amp; Congestion Control</strong></dt><dd><ul>
+<li><p>is it controllable like in TCP</p></li>
+<li><p>no control like UDP</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Error Control</strong></dt><dd><ul>
+<li><p>error code, retries and timeouts</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<section id="osi-model">
+<h3>OSI Model<a class="headerlink" href="#osi-model" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Open Systems Interconnection Model, conceptual 7 layers, with each describing specific</p></li>
+</ul>
+<p>networking component
+* it is important to understand on which layer does the application live, especially when
+the app is a bridge between other apps
+* a communication model is required for applications to be agnostic
+* without standard model</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>apps need to understand all the underlying network to communicate</p></li>
+<li><p>difficult to upgrade physical network equipments</p></li>
+<li><p>not possible to do work in each layer without affecting other parts of the system as
+it is not decoupled</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Layer</span> <span class="pre">7,</span> <span class="pre">Application</span></code>: HTTP, FTP, gRPC, backend engineers do not interact with Layer 7</p></li>
+</ul>
+<p>directly, instead use libraries
+* <code class="docutils literal notranslate"><span class="pre">Layer</span> <span class="pre">6,</span> <span class="pre">Presentation</span></code>: encoding, serialization
+* <code class="docutils literal notranslate"><span class="pre">Layer</span> <span class="pre">5,</span> <span class="pre">Session</span></code>: connection establishment, where state sets place, TLS
+* <code class="docutils literal notranslate"><span class="pre">Layer</span> <span class="pre">4,</span> <span class="pre">Transport</span></code>: datagram, segments, UDP, TCP
+* <code class="docutils literal notranslate"><span class="pre">Layer</span> <span class="pre">3,</span> <span class="pre">Network</span></code>: packets, IP address
+* <code class="docutils literal notranslate"><span class="pre">Layer</span> <span class="pre">2,</span> <span class="pre">Data</span> <span class="pre">Link</span></code>: frames, MAC address, Ethernet
+* <code class="docutils literal notranslate"><span class="pre">Layer</span> <span class="pre">1,</span> <span class="pre">Physical</span></code>: electric signals, fiber, radio waves
+* <strong>Sender (from 7 to 1)</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>7: POST with JSON to HTTPS server</p></li>
+<li><p>6: serialize JSON to flat byte strings</p></li>
+<li><p>5: request to establish TCP connection/TLS</p></li>
+<li><p>4: send SYN request to target port</p></li>
+<li><p>3: add SYN, source and destination IPs to packets</p></li>
+<li><p>2: each packet into a single frame and add source/dest MAC addresses</p></li>
+<li><p>1: each frame becomes string of bits and converted to some physical form</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Receiver (from 1 to 7)</strong></dt><dd><ul>
+<li><p>1: receive signal and convert to bits</p></li>
+<li><p>2: bits into frame</p></li>
+<li><p>3: frames into packet</p></li>
+<li><p>4: packets into segments/datagrams, congestion control, flow control or
+retransmission if TCP, if segment is SYN, no need to go other layers as connection
+request is still processing</p></li>
+<li><p>5: establish/identify connection session, only come this layer when necessary</p></li>
+<li><p>6: deserialize byte strings to JSON for app to consume</p></li>
+<li><p>7: app understands JSON POST and event is triggered</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>for example, switch works at Layer 2, router and VPN at Layer 3, firewall at Layer 4 and</p></li>
+</ul>
+<p>CDN at Layer 7
+* OSI model has too many layers and can be hard to understand
+* TCP/IP model deals with Layers 5, 6 and 7 as one layer, application</p>
+</div></blockquote>
+</section>
+<section id="internet-protocol">
+<h3>Internet Protocol<a class="headerlink" href="#internet-protocol" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><dl class="simple">
+<dt><strong>IP Address</strong></dt><dd><ul class="simple">
+<li><p>Layer 3 property, can be assigned auto or statically</p></li>
+<li><p>has network and host portion, 4 bytes or 32 bits in IPv4</p></li>
+<li><p>e.g., 192.168.100.0/24, first 24 bits are network, 2&lt;sup&gt;24&lt;/sup&gt; networks, and the
+rest are hosts, 32 - 24 = 8, 2&lt;sup&gt;8&lt;/sup&gt; hosts</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Subnet Mask</strong></dt><dd><ul class="simple">
+<li><p>192.168.100.0/24 is also called a subnet and has a mask 255.255.255.0</p></li>
+<li><p>used to determine if an IP is in the same subnet or not</p></li>
+<li><p>if same subnet, can use MAC address to send a packet directly</p></li>
+<li><p>if not same subnet, need to find someone who knows the route, router or gateway</p></li>
+<li><p>e.g., request to a database in different subnet can have delay if the router is
+congested</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Default Gateway</strong></dt><dd><ul class="simple">
+<li><p>most networks have hosts and default gateway</p></li>
+<li><p>gateway has at least two network interfaces</p></li>
+<li><p>hosts in same subnet communicate directly, otherwise talk to gateway</p></li>
+<li><p>gateway has an IP address and each host should know its gateway</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>IP Packet</strong></dt><dd><ul>
+<li><p>has headers, 20 bytes or 60 bytes if available, and data sections, which can be up
+to 65536 bytes</p></li>
+<li><div class="line-block">
+<div class="line">source IP | data | destination IP |</div>
+</div>
+</li>
+<li><p>a packet should fit into a single frame</p></li>
+<li><p>if a packet is larger than MTU, maximum transmission unit, either fail or packet can
+be fragmented, e.g., 1 packet fragmented into 2 frames and sent</p></li>
+<li><p>every packet has a single byte that represents a counter, Time To Live, so that it
+does not travel infinitely</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>ICMP</strong></dt><dd><ul class="simple">
+<li><p>Internet Control Message Protocol, one of the most critical Layer 3 protocols</p></li>
+<li><p>for informational message, such as host/port unreachable, fragmentation required,
+packet expired</p></li>
+<li><p>uses IP directly, e.g., ping, traceroute</p></li>
+<li><p>does not require listeners or ports to be opened</p></li>
+<li><p>some firewalls block ICMP, and ping may not work if blocked</p></li>
+<li><p>disabling ICMP can cause issues with connection establishment, when fragmentation is
+required message cannot be sent back</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>more information at [Datatracker](<a class="reference external" href="https://datatracker.ietf.org/">https://datatracker.ietf.org/</a>)</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="udp">
+<h3>UDP<a class="headerlink" href="#udp" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>User Datagram Protocol, Layer 4 protocol built on top of IP</p></li>
+<li><p>can address processes in a host using ports</p></li>
+<li><p>stateless and prior communication not required, has 8 bytes header</p></li>
+<li><p>usually used to avoid overheads of TCP, such as video streaming, VPN, DNS, WebRTC</p></li>
+<li><p>does not guarantee delivery and some frames can get dropped, useful for sending huge</p></li>
+</ul>
+<p>inconsistent data
+* sender multiplex requests from different apps into UDP and receiver demultiplex
+* require source and destination ports to identify app or process
+* <strong>UDP Datagram</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>8 bytes header in IPv4, ports are 16 bits</p></li>
+<li><p>datagram is added as data into IP packet</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>simple protocol, use less bandwidth as header and datagrams are small</p></li>
+<li><p>stateless, consume less memory and low latency</p></li>
+<li><dl class="simple">
+<dt><strong>Drawbacks</strong></dt><dd><ul>
+<li><p>no acknowledgement, delivery not guaranteed, cannot know if data reaches or not</p></li>
+<li><p>cannot be used for database connections</p></li>
+<li><p>connection less and anyone can send data without prior connection</p></li>
+<li><p>used in DNS flooding attacks, more dangerous than TCP flooding</p></li>
+<li><p>no flow control, although can be built at Layer 7 for it</p></li>
+<li><p>no congestion control, packets are unordered and can easily be spoofed</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="tcp">
+<h3>TCP<a class="headerlink" href="#tcp" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Transmission Control Protocol, Layer 4 protocol</p></li>
+<li><p>can address processes in a host using ports</p></li>
+<li><p>controls the transmission, not like UDP</p></li>
+<li><p>stateful and requires handshake, has 20 or up to 60 bytes header</p></li>
+<li><p>reliable and guarantee deliver, used for remote shell, database connections and any</p></li>
+</ul>
+<p>bidirectional communication
+* <strong>TCP Connection</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Layer 5 agreement between client and server</p></li>
+<li><p>sometimes called socket or file descriptor</p></li>
+<li><p>must create a connection to send data</p></li>
+<li><p>identified by IPs and ports of source and destination</p></li>
+<li><p>OS hashes the identifiers and check against it to verify connection</p></li>
+<li><p>if there is no connection, fail/drop the segment or return ICMP message</p></li>
+<li><p>segments are sequenced, ordered and acknowledged</p></li>
+<li><p>lost segments are retransmitted</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>sender multiplex requests from different apps into TCP segments and receiver demultiplex</p></li>
+<li><dl class="simple">
+<dt><strong>TCP 3-way Handshake</strong></dt><dd><ul>
+<li><p>client sends SYN to server to synchronize sequence numbers</p></li>
+<li><p>server sends SYN/ACK to client to synchronize its sequence numbers</p></li>
+<li><p>client ACKs server’s SYN</p></li>
+<li><p>handshake is complete, both client and server now have file descriptors/state to
+verify connection when data is send</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Sending Data</strong></dt><dd><ul>
+<li><p>data is encapsulated in a segment and sent</p></li>
+<li><p>receiver acknowledges the segment</p></li>
+<li><p>sender can send new segments before ACK of old segment arrives, but there is a limit
+of flow control and congestion control</p></li>
+<li><p>can ACK multiple segments with one ACK</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Closing Connection</strong></dt><dd><ul>
+<li><p>4-way handshake, require to close not to leak memory</p></li>
+<li><p>when client wants to close connection, it sends FIN to server</p></li>
+<li><p>server ACK and sends FIN</p></li>
+<li><p>client ACK and connection is closed</p></li>
+<li><p>server deletes the file descriptor, but client will not</p></li>
+<li><p>time-wait state: client still having closed connection file descriptor to clean
+segments for the connection if they arrive</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>TCP Segment</strong></dt><dd><ul>
+<li><p>20 or up to 60 bytes header, ports are 16 bits</p></li>
+<li><p>segment is added into IP packet as data</p></li>
+<li><p>has 9 bit flags for NS, CWR, ECE, URG, ACK, PSH, RST, SYN and FIN</p></li>
+<li><p>segment size depends on MTU of network, usually 512 bytes and can be up to 1460</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Drawbacks</strong></dt><dd><ul>
+<li><p>memory usage increases with more connections as it stores states</p></li>
+<li><p>hashing to get file descriptors can also increase CPU usage</p></li>
+<li><p>if source and destination IPs and ports are known, can send a fake request to close
+connection</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="tls">
+<h3>TLS<a class="headerlink" href="#tls" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Transport Layer Security, basic fundamental way to encrypt communication</p></li>
+<li><p>used to encrypt data with symmetric key, authenticate server and other extensions</p></li>
+<li><p>symmetric key is faster than asymmetric</p></li>
+<li><p>in HTTPS, handshake is performed first to share a symmetric key on both client and server</p></li>
+<li><dl class="simple">
+<dt><strong>TLS 1.2</strong> &lt;a id=”tls-12”&gt;&lt;/a&gt;</dt><dd><ul>
+<li><p>server has public, which can be shared, and private RSA asymmetric keys</p></li>
+<li><p>after client has opened TCP connection, it will send TLS client hello to request
+encryption</p></li>
+<li><p>server replies with certificate, which has a public key</p></li>
+<li><p>client encrypts a premastered symmetric key with server’s public key and send it
+with change cipher FIN</p></li>
+<li><p>server decrypt with it’s private key to get the symmetric key and replies change
+cipher FIN</p></li>
+<li><p>anyone between the connection cannot decrypt it as they do not have the private key</p></li>
+<li><p>client and server both now have symmetric key and use it to encrypt data</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Diffie Hellman</strong></dt><dd><ul>
+<li><p>require two private keys and one public key to get a symmetric key</p></li>
+<li><p>client and server generate their own private keys, which cannot be shared, but
+public keys can be</p></li>
+<li><p>let g and n be prime number public keys, and x and y be private keys</p></li>
+<li><p>(g&lt;sup&gt;x&lt;/sup&gt; % n) or (g&lt;sup&gt;y&lt;/sup&gt; % n) is unbreakable</p></li>
+<li><p>(g&lt;sup&gt;x&lt;/sup&gt; % n)&lt;sup&gt;y&lt;/sup&gt; will get (g&lt;sup&gt;xy&lt;/sup&gt; % n), which is the symmetric key, similarly for (g&lt;sup&gt;y&lt;/sup&gt; % n)&lt;sup&gt;x&lt;/sup&gt;</p></li>
+<li><p>TLS 1.2 has an option to use Diffie Hellman or Elliptic Curve Diffie Hellman</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>TLS 1.3</strong> &lt;a id=”tls-13”&gt;&lt;/a&gt;</dt><dd><ul>
+<li><p>client generates public and private keys, and encrypts the private key with the
+public key</p></li>
+<li><p>client sends the public and encrypted keys to the server during TLS client hello</p></li>
+<li><p>server generates its own private key with the encrypted key from client</p></li>
+<li><p>server get the symmetric by using its private key and client’s encrypted key</p></li>
+<li><p>server encrypts its private key with client’s public key and sends it</p></li>
+<li><p>client get the symmetric by using its private key and server’s encrypted key</p></li>
+<li><p>client and server both now have symmetric key and use it to encrypt data</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>TLS 1.2 can have stages to negotiate whether to use Diffe Hellman or not, but not in TLS</p></li>
+</ul>
+<p>1.3, which removes the overhead of negotiating, and thus faster</p>
+</div></blockquote>
+</section>
+<section id="http-1-1">
+<h3>HTTP/1.1<a class="headerlink" href="#http-1-1" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>an HTTP request consists of method, path, protocol, headers and body</p></li>
+<li><p>an HTTP response consists of protocol, code, code text, headers and body</p></li>
+<li><p>built on top of TCP</p></li>
+<li><dl class="simple">
+<dt><strong>HTTP</strong></dt><dd><ul>
+<li><p>open connection with 3-way TCP handshake</p></li>
+<li><p>send request and get response</p></li>
+<li><p>keep the connection open or close if not needed anymore</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>HTTPS</strong></dt><dd><ul>
+<li><p>open connection with 3-way TCP handshake</p></li>
+<li><p>TLS handshake with symmetric key</p></li>
+<li><p>send request and get response</p></li>
+<li><p>keep the connection open or close if not needed anymore</p></li>
+<li><p>all data are encrypted</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>HTTP/1.0</strong></dt><dd><ul>
+<li><p>open connection with 3-way TCP handshake</p></li>
+<li><p>send request and get response</p></li>
+<li><p>close connection immediately to save memory</p></li>
+<li><p>need to open and close on every request/response</p></li>
+<li><p>has latency as new connection is required every time</p></li>
+<li><p>buffering, transfer-encoding doesn’t exist</p></li>
+<li><p>has to send the entire response, cannot send in chunks</p></li>
+<li><p>cannot have multi-homed websites, as client does not set host header</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>in HTTP/1.1, client can tell server to keep connection alive to send many requests</p></li>
+<li><p>low latency and CPU usage, streaming with chunked transfer</p></li>
+<li><p>has pipelining, proxying and multi-homed websites</p></li>
+<li><p>header compression is disabled</p></li>
+<li><dl class="simple">
+<dt><strong>HTTP/1.1 Pipelining</strong></dt><dd><ul>
+<li><p>instead of waiting for a response before sending another request, multiple requests
+can be sent altogether</p></li>
+<li><p>server will process all requests and send multiple responses at the same time</p></li>
+<li><p>does not guarantee responses will be in order, as one request might take longer than
+others to process</p></li>
+<li><p>disabled by default</p></li>
+<li><p>can build to have IDs on requests and responses on application level</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>HTTP Request Smuggling</strong></dt><dd><ul>
+<li><p>server getting confused of start and end of a request</p></li>
+<li><p>attackers can add their own content-length and transfer-encoding</p></li>
+<li><p>server can get different requests based on parsing</p></li>
+<li><p>more details at [PortSwigger](<a class="reference external" href="https://portswigger.net/web-security/request-smuggling">https://portswigger.net/web-security/request-smuggling</a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="http-2">
+<h3>HTTP/2<a class="headerlink" href="#http-2" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>invented by Google, used to be called SPDY</p></li>
+<li><dl class="simple">
+<dt><strong>Concurrent Requests</strong></dt><dd><ul>
+<li><p>can send concurrent requests on same TCP connection, instead of creating multiple
+connections like in HTTP/1.1</p></li>
+<li><p>every request is tagged with unique stream ID, odd for client and even for server</p></li>
+<li><p>server can respond multiple responses in same TCP connection, do not need to be in
+order</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>HTTP/2 with Push</strong></dt><dd><ul>
+<li><p>server pushes resources that it thinks client might need, which impacts performance</p></li>
+<li><p>client might not understand why server is pushing resources, and building one is
+complex</p></li>
+<li><p>deprecated as it is not scalable</p></li>
+<li><p>replaced with early hints, which is a header that allows client to fetch more
+information about resources that might be needed</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>support headers and body compression</p></li>
+<li><p>multiplexing over single connection save resources</p></li>
+<li><p>secure by default because of [Protocol Ossification](<a class="reference external" href="https://en.wikipedia.org/wiki/Protocol_ossification">https://en.wikipedia.org/wiki/Protocol_ossification</a>)</p></li>
+<li><p>protocol negotiation during TLS with NPN/ALPN</p></li>
+<li><dl class="simple">
+<dt><strong>Drawbacks</strong></dt><dd><ul>
+<li><p>has [TCP head of line blocking](<a class="reference external" href="https://en.wikipedia.org/wiki/Head-of-line_blocking">https://en.wikipedia.org/wiki/Head-of-line_blocking</a>), cannot innovate at the application layer</p></li>
+<li><p>server push wasn’t practical</p></li>
+<li><p>high CPU usage for parsing streams</p></li>
+<li><p>HTTP/1.1 might be more suitable if multiplexing is not used</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="http-3">
+<h3>HTTP/3<a class="headerlink" href="#http-3" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>replaces TCP with QUIC, which is built on top of UDP</p></li>
+<li><p>has streams and allows multiplexing on same connection</p></li>
+<li><p>if one datagram of a stream is lost and other datagrams are delivered, only the stream</p></li>
+</ul>
+<p>with missing one will fail
+* connection setup and TLS are in one handshake
+* has congestion control at stream level
+* as UDP is stateless and connection ID is sent with every packet, ID can be used to
+migrate connection when IP address changes
+* main reason HTTP/2 over QUIC is not used is because of header compression algorithm
+* <strong>Drawbacks</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>has security limits in connection migration as connection ID is in plain text</p></li>
+<li><p>high CPU usage for parsing streams, connection ID, congestion control, stream window
+sizes etc.,</p></li>
+<li><p>UDP can be blocked</p></li>
+<li><p>IP fragmentation is a problem</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="websockets">
+<h3>WebSockets<a class="headerlink" href="#websockets" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>bidirectional communication on the web, built on top of HTTP to access underlying TCP</p></li>
+<li><dl class="simple">
+<dt><strong>WebSocket Handshake</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ws://</span></code> or <code class="docutils literal notranslate"><span class="pre">wss://</span></code> for websocket secure</p></li>
+<li><p>open a connection, client sends GET 1.1 UPGRADE</p></li>
+<li><p>server responds with 101, Switching Protocols</p></li>
+<li><p>connection is now WebSocket, no longer HTTP</p></li>
+<li><p>client header has <code class="docutils literal notranslate"><span class="pre">Upgrade:</span> <span class="pre">websocket</span></code>, <code class="docutils literal notranslate"><span class="pre">Connection:</span> <span class="pre">Upgrade</span></code> and websocket key,
+protocol and version</p></li>
+<li><p>server header has <code class="docutils literal notranslate"><span class="pre">Upgrade:</span> <span class="pre">websocket</span></code>, <code class="docutils literal notranslate"><span class="pre">Connection:</span> <span class="pre">Upgrade</span></code> and websocket accept
+and protocol</p></li>
+<li><p>client header’s websocket key is used on server to ensure that not anyone can
+upgrade the connection</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>useful for chat apps, live feed, multiplayer gaming and client progress/logging</p></li>
+<li><p>websockets are full-duplex, no polling required, HTTP comaptible, firewall friendly</p></li>
+<li><dl class="simple">
+<dt><strong>Drawbacks</strong></dt><dd><ul>
+<li><p>proxying is complex and Load Balancers have timeouts, as it is Layer 7</p></li>
+<li><p>stateful and difficult to horizontally scale</p></li>
+<li><p>established connection must be used, cannot request to open new one like in HTTP</p></li>
+<li><p>long polling or SSE might be more suitable in some cases, instead of websockets</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="grpc">
+<h3>gRPC<a class="headerlink" href="#grpc" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>communication protocols need a language client library such as SOAP or HTTP client</p></li>
+</ul>
+<p>library
+* it is hard to maintain and patch client libraries for new features, security etc.,
+* gRPC was invented as one client library for popular languages
+* build a protocol buffer definition file and specific stubs for library
+* certain APIs are exposed, use HTTP/2 and protocol buffers as message format
+* <strong>Unary RPC</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>basically request/response</p></li>
+<li><p>client send a request and server send response back</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Server Streaming RPC</strong></dt><dd><ul>
+<li><p>client send a request and server will stream content, such as downloading large
+files, logging and progress of events</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Client Streaming RPC</strong></dt><dd><ul>
+<li><p>client send a stream of messages and server barely talks to it, such as uploading a
+large file</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Bidirectional Streaming RPC</strong></dt><dd><ul>
+<li><p>both client and server send a stream of messages simultaneously</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>fast, compact, one client library, can build many apps through progress feedback, can</p></li>
+</ul>
+<p>cancel HTTP/2 request and protocol buffer is powerful message format
+* <strong>Drawbacks</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>maintaining schemas can be annoying</p></li>
+<li><p>still a thick client library</p></li>
+<li><p>hard to implement proxies</p></li>
+<li><p>no native error handling and browser support</p></li>
+<li><p>can have timeouts during streams</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p>example Todo App gRPC in JavaScript</p>
+<blockquote>
+<div><div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="c1">// todo.proto</span>
+
+<span class="k">syntax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;proto3&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// specify syntax</span>
+
+<span class="kn">package</span><span class="w"> </span><span class="nn">todoPackage</span><span class="p">;</span><span class="w"> </span><span class="c1">// define package name, can include multiple services</span>
+
+<span class="c1">// need to define methods in service</span>
+<span class="kd">service</span><span class="w"> </span><span class="n">Todo</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="k">rpc</span><span class="w"> </span><span class="n">createTodo</span><span class="p">(</span><span class="n">TodoItem</span><span class="p">)</span><span class="w"> </span><span class="k">returns</span><span class="w"> </span><span class="p">(</span><span class="n">TodoItem</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">rpc</span><span class="w"> </span><span class="n">readTodos</span><span class="p">(</span><span class="n">NoParam</span><span class="p">)</span><span class="w"> </span><span class="k">returns</span><span class="w"> </span><span class="p">(</span><span class="n">TodoItems</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">rpc</span><span class="w"> </span><span class="n">readTodosStream</span><span class="p">(</span><span class="n">NoParam</span><span class="p">)</span><span class="w"> </span><span class="k">returns</span><span class="w"> </span><span class="p">(</span><span class="n">stream</span><span class="w"> </span><span class="n">TodoItem</span><span class="p">);</span>
+
+<span class="p">}</span>
+
+<span class="c1">// need to define a void message as methods need to have one parameter</span>
+<span class="kd">message</span><span class="w"> </span><span class="nc">NoParam</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="kd">message</span><span class="w"> </span><span class="nc">TodoItem</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int32</span><span class="w"> </span><span class="na">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="na">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">message</span><span class="w"> </span><span class="nc">TodoItems</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">repeated</span><span class="w"> </span><span class="n">TodoItem</span><span class="w"> </span><span class="na">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// server.js</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">grpc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;grpc&quot;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">protoLoader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;@grpc/proto-loader&quot;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">packageDef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">protoLoader</span><span class="p">.</span><span class="nx">loadSync</span><span class="p">(</span><span class="s2">&quot;todo.proto&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{});</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">grpcObject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">grpc</span><span class="p">.</span><span class="nx">loadPackageDefinition</span><span class="p">(</span><span class="nx">packageDef</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">todoPackage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">grpcObject</span><span class="p">.</span><span class="nx">todoPackage</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">grpc</span><span class="p">.</span><span class="nx">server</span><span class="p">();</span>
+<span class="nx">server</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;0.0.0.0:30000&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">grpc</span><span class="p">.</span><span class="nx">ServerCredentials</span><span class="p">.</span><span class="nx">createInsecure</span><span class="p">());</span>
+<span class="nx">server</span><span class="p">.</span><span class="nx">addService</span><span class="p">(</span><span class="nx">todoPackage</span><span class="p">.</span><span class="nx">Todo</span><span class="p">.</span><span class="nx">service</span><span class="p">,</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;createTodo&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">createTodo</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;readTodos&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">readTodos</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;readTodosStream&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">readTodosStream</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="nx">server</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">todos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">createTodo</span><span class="w"> </span><span class="p">(</span><span class="nx">call</span><span class="p">,</span><span class="w"> </span><span class="nx">callback</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">todoItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">todo</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;text&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">call</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">text</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="nx">todos</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">todoItem</span><span class="p">);</span>
+
+<span class="w">    </span><span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nx">todoItem</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">readTodos</span><span class="w"> </span><span class="p">(</span><span class="nx">call</span><span class="p">,</span><span class="w"> </span><span class="nx">callback</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;items&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">todos</span><span class="p">});</span><span class="w"> </span><span class="c1">// need to match schema</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">readTodosStream</span><span class="w"> </span><span class="p">(</span><span class="nx">call</span><span class="p">,</span><span class="w"> </span><span class="nx">callback</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">todos</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">call</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">t</span><span class="p">));</span>
+<span class="w">    </span><span class="nx">call</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// client.js</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">grpc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;grpc&quot;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">protoLoader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;@grpc/proto-loader&quot;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">packageDef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">protoLoader</span><span class="p">.</span><span class="nx">loadSync</span><span class="p">(</span><span class="s2">&quot;todo.proto&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{});</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">grpcObject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">grpc</span><span class="p">.</span><span class="nx">loadPackageDefinition</span><span class="p">(</span><span class="nx">packageDef</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">todoPackage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">grpcObject</span><span class="p">.</span><span class="nx">todoPackage</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">todoPackage</span><span class="p">.</span><span class="nx">Todo</span><span class="p">(</span><span class="s2">&quot;localhost:30000&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">grpc</span><span class="p">.</span><span class="nx">credentials</span><span class="p">.</span><span class="nx">createInsecure</span><span class="p">());</span>
+
+<span class="nx">client</span><span class="p">.</span><span class="nx">createTodo</span><span class="p">(</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;text&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Do Something&quot;</span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">response</span><span class="p">));</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="nx">client</span><span class="p">.</span><span class="nx">readTodos</span><span class="p">({},</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">response</span><span class="p">));</span>
+<span class="p">});</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">call</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">readTodosStream</span><span class="p">();</span>
+<span class="nx">call</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">item</span><span class="p">));</span>
+<span class="p">});</span>
+<span class="nx">call</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;end&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;server done&quot;</span><span class="p">););</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="webrtc">
+<h3>WebRTC<a class="headerlink" href="#webrtc" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Web Real-Time Communication, peer to peer path to exchange video and audio in efficient</p></li>
+</ul>
+<p>and low latency
+* standardized API that enables rich communications in browsers, mobile and IoT devices
+* <strong>Basic Scenario</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>A wants to connect to B</p></li>
+<li><p>A finds out all possible ways the public can connect to it and B does the same</p></li>
+<li><p>A and B signal the session information in other ways such as QR, WebSockets, HTTP
+Fetch etc.,</p></li>
+<li><p>A connects to B through the optimal path</p></li>
+<li><p>A and B also exchange supported media and security</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><dl class="simple">
+<dt><strong>NAT</strong></dt><dd><ul class="simple">
+<li><p>Network Address Translation</p></li>
+<li><p>when a client does not have public IP and doesn’t know how to directly connect to
+a server, it sends the packet to the gateway or router</p></li>
+<li><p>the router replaces client’s IP with it’s public IP and sends the request</p></li>
+<li><p>the mapping of private/internal IPs and public/external IP is kept on the router</p></li>
+<li><p>when the router receives a response, it remaps to the private IP and forward the
+response to the client</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>One to One NAT</strong></dt><dd><ul class="simple">
+<li><p>Full-Cone NAT</p></li>
+<li><p>packets to external IP:port on the router always maps to internal IP:port without
+exception</p></li>
+<li><p>does not check where the packet is coming from</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Address Restricted NAT</strong></dt><dd><ul class="simple">
+<li><p>packets to external IP:port on the router always maps to internal IP:port as long as
+source address from packet matches the table, regardless of the port</p></li>
+<li><p>checks and allows if communicated with host before</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Port Restricted NAT</strong></dt><dd><ul class="simple">
+<li><p>packets to external IP:port on the router always maps to internal IP:port as long as
+source address and port from packet matches the table</p></li>
+<li><p>checks and allows if communicated with host:port before</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Symmetric NAT</strong></dt><dd><ul class="simple">
+<li><p>packets to external IP:port on the router always maps to internal IP:port as long as
+source address and port from packet matches the table</p></li>
+<li><p>checks and allows only if both external IP:port and host IP:port pair fully matches</p></li>
+<li><p>WebRTC does not work with Symmetric NAT</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>STUN</strong></dt><dd><ul class="simple">
+<li><p>Session Traversal Utilities for NAT</p></li>
+<li><p>can tell public IP and port through NAT</p></li>
+<li><p>works with Full-Cone, Port/Address restricted NAT</p></li>
+<li><p>does not work with Symmetric NAT</p></li>
+<li><p>STUN server usually runs on port 3478 and 5439 for TLS</p></li>
+<li><p>easy to maintain, can be used from light weight docker container</p></li>
+<li><p>client sends a request to STUN server through router, which does NAT and forwards
+the request</p></li>
+<li><p>STUN server puts the NAT public information in a packet and sends it back</p></li>
+<li><p>even though the router does NAT again to forward the response to client, the public
+IP and port is still in the response packet and client can now know it</p></li>
+<li><p>in Full-Cone NAT, two machines can get their public info from STUN and easily
+connect directly</p></li>
+<li><p>in Address/Port restricted NAT, two machines should attempt to establish connection
+with each other first, with the public info from STUN</p></li>
+<li><p>in Symmetric NAT, since each machine only create NAT entry with STUN server, they
+cannot communicate with each other</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>TURN</strong></dt><dd><ul class="simple">
+<li><p>Traversal Using Relays around NAT, just a server that relays packets</p></li>
+<li><p>to work with Symmetric NAT</p></li>
+<li><p>TURN server usually runs on port 3478 and 5439 for TLS</p></li>
+<li><p>expensive to maintain and run</p></li>
+<li><p>in Symmetric NAT, each machine only establish connection with TURN server and
+communicate through it</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>ICE</strong></dt><dd><ul class="simple">
+<li><p>Interactive Connectivity Establishment</p></li>
+<li><p>collects all available ICE candidates such as local IP addresses, reflexive
+addresses/STUN and relayed addresses/TURN</p></li>
+<li><p>collecting candidates takes time</p></li>
+<li><p>collected addresses are sent to remote peer via SDP, Session Description Protocol</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>SDP</strong></dt><dd><ul class="simple">
+<li><p>Session Description Protocol</p></li>
+<li><p>a format that describes ICE candidates, network options, media options, security
+options etc.,</p></li>
+<li><p>most important concept in WebRTC</p></li>
+<li><p>main goal is to send the SDP generated by a user to other party in any way</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>SDP Signaling</strong></dt><dd><ul class="simple">
+<li><p>sending generated SDP to other party to communicate with</p></li>
+<li><p>wait to collect all ICE candidates and necessary data, generate SDP and send it</p></li>
+<li><p>can be done via tweet, QR code, Whatsapp, WebSockets or HTTP</p></li>
+<li><p>the only important thing is to get SDP to the other party, not how it is sent</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>P2P is low latency for high bandwidth content</p></li>
+<li><p>WebRTC provide standardized API and does not need to build new one</p></li>
+<li><dl class="simple">
+<dt><strong>Drawbacks</strong></dt><dd><ul class="simple">
+<li><p>need to maintain STUN and TURN servers</p></li>
+<li><p>P2P can fail when multiple participants involved, as everyone need to be connected
+to everyone</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Some Useful APIs</strong></dt><dd><ul class="simple">
+<li><p>media: <code class="docutils literal notranslate"><span class="pre">getUserMedia</span></code> to access mic, camera, RTCPConnection.addTrack(stream)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onicecandidate</span></code>: maintain connection as candidates change, tells user there is new
+candidate after SDP is created, candidate is signaled and sent to other party</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addicecandidate</span></code>: used by other party to add candidate to SDP</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>can create own STUN and TURN servers with [COTURN](<a class="github reference external" href="https://github.com/coturn/coturn">coturn/coturn</a>)</p></li>
+<li><p>Google also provides public STUN servers</p></li>
+<li><p>example WebRTC in Browser</p>
+<blockquote>
+<div><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// FIRST BROWSER, initiator</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">lc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">RTCPeerConnection</span><span class="p">();</span><span class="w"> </span><span class="c1">// local connection, can have custom config</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">dc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">lc</span><span class="p">.</span><span class="nx">createDataChannel</span><span class="p">(</span><span class="s2">&quot;channel&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// data channel</span>
+
+<span class="nx">dc</span><span class="p">.</span><span class="nx">onmessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Message received: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+
+<span class="nx">dc</span><span class="p">.</span><span class="nx">onopen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Connection opened!&quot;</span><span class="p">);</span>
+
+<span class="nx">lc</span><span class="p">.</span><span class="nx">onicecandidate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;New ICE Candidate! Reprinting SDP &quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">lc</span><span class="p">.</span><span class="nx">localDescription</span><span class="p">));</span>
+
+<span class="nx">lc</span><span class="p">.</span><span class="nx">createOffer</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">o</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">lc</span><span class="p">.</span><span class="nx">setLocalDescription</span><span class="p">(</span><span class="nx">o</span><span class="p">))</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Description set successfully!&quot;</span><span class="p">));</span>
+
+<span class="c1">// after receiving answer from second browser</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;ANSWER FROM SECOND BROWSER&quot;</span><span class="p">};</span>
+
+<span class="nx">lc</span><span class="p">.</span><span class="nx">setRemoteDescription</span><span class="p">(</span><span class="nx">answer</span><span class="p">);</span>
+
+<span class="nx">dc</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;Hello second browser&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// can now communicate</span>
+
+<span class="c1">// SECOND BROWSER, reciever</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">offer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;DESCRIPTION FROM FIRST BROWSER&quot;</span><span class="p">};</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">RTCPeerConnection</span><span class="p">();</span><span class="w"> </span><span class="c1">// remote connection</span>
+
+<span class="nx">rc</span><span class="p">.</span><span class="nx">onicecandidate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;New ICE Candidate! Reprinting SDP &quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">rc</span><span class="p">.</span><span class="nx">localDescription</span><span class="p">));</span>
+
+<span class="nx">rc</span><span class="p">.</span><span class="nx">ondatachannel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">rc</span><span class="p">.</span><span class="nx">dc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">channel</span><span class="p">;</span><span class="w"> </span><span class="c1">// data channel received</span>
+<span class="w">    </span><span class="nx">rc</span><span class="p">.</span><span class="nx">dc</span><span class="p">.</span><span class="nx">onmessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Message from client: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">rc</span><span class="p">.</span><span class="nx">dc</span><span class="p">.</span><span class="nx">onopen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Connection opened!&quot;</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="nx">rc</span><span class="p">.</span><span class="nx">setRemoteDescription</span><span class="p">(</span><span class="nx">offer</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Offer set!&quot;</span><span class="p">));</span>
+
+<span class="nx">rc</span><span class="p">.</span><span class="nx">createAnswer</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">rc</span><span class="p">.</span><span class="nx">setLocalDescription</span><span class="p">(</span><span class="nx">a</span><span class="p">))</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Answer created!&quot;</span><span class="p">));</span>
+
+<span class="nx">rc</span><span class="p">.</span><span class="nx">dc</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;Hello first browser&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// can now communicate</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#backend-engineering">back to top</a></p>
+</section>
+</section>
+<section id="https">
+<h2>HTTPS<a class="headerlink" href="#https" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#over-tcp-with-tls-1-2">Over TCP with TLS 1.2</a>, <a class="reference internal" href="#over-tcp-with-tls-1-3">Over TCP with TLS 1.3</a>, <a class="reference internal" href="#over-quic">Over QUIC</a></p></li>
+<li><p><a class="reference internal" href="#over-tfo-with-tls-1-3">Over TFO with TLS 1.3</a>, <a class="reference internal" href="#over-tcp-with-tls-1-3-0rtt">Over TCP with TLS 1.3 0RTT</a>, <a class="reference internal" href="#over-quic-0rtt">Over QUIC 0RTT</a></p></li>
+<li><p>establish a connection, encryption, send data and close connection when nothing to send more</p></li>
+<li><p>only HTTP/1.1 and HTTP/2 support HTTPS over TCP</p></li>
+</ul>
+<section id="over-tcp-with-tls-1-2">
+<h3>Over TCP with TLS 1.2<a class="headerlink" href="#over-tcp-with-tls-1-2" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>establish connection with TCP 3-way Handshake, SYN, SYN/ACK and ACK</p></li>
+<li><dl class="simple">
+<dt><strong>Connection Encryption</strong></dt><dd><ul>
+<li><p>client and server need to agree on same symmetric key</p></li>
+<li><p>Client Hello sends supported symmetric key encryption and key exchange algorithms</p></li>
+<li><p>Server Hello responds with desired configurations</p></li>
+<li><p>encryption is done after Client FIN and Server FIN</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>connection encryption requires two round trips since [TLS 1.2](#tls-12) is used</p></li>
+<li><p>connection is now encrypted and can send data safely</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="over-tcp-with-tls-1-3">
+<h3>Over TCP with TLS 1.3<a class="headerlink" href="#over-tcp-with-tls-1-3" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>establish connection with TCP 3-way Handshake, SYN, SYN/ACK and ACK</p></li>
+<li><p>connection encryption is done in one round trip, Client Hello and Server Hello, as it is</p></li>
+</ul>
+<p>[TLS 1.3](#tls-13)
+* connection is now encrypted and can send data safely</p>
+</div></blockquote>
+</section>
+<section id="over-quic">
+<h3>Over QUIC<a class="headerlink" href="#over-quic" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>use QUIC, HTTP/3, which is on top of UDP</p></li>
+<li><p>client sends QUIC handshake, server responds it and handshake now ends</p></li>
+<li><p>connection establishment and encryption, TLS handshake, happen in the same round trip</p></li>
+<li><p>connection is now encrypted and can send data safely</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="over-tfo-with-tls-1-3">
+<h3>Over TFO with TLS 1.3<a class="headerlink" href="#over-tfo-with-tls-1-3" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>uses TFO, TCP Fast Open, which uses cookies to resume an existing connection</p></li>
+<li><p>if client has TFO cookie, it sends SYN + TFO and then sends Client Hello</p></li>
+<li><p>server responds with SYN/ACK and then Server Hello</p></li>
+<li><p>client will end the connection establishment and handshake with ACK</p></li>
+<li><p>connection is now encrypted and can send data safely</p></li>
+<li><p>might not be used since TFO is not built for security</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="over-tcp-with-tls-1-3-0rtt">
+<h3>Over TCP with TLS 1.3 0RTT<a class="headerlink" href="#over-tcp-with-tls-1-3-0rtt" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>establish connection with TCP 3-way Handshake, SYN, SYN/ACK and ACK</p></li>
+<li><p>client sends Client Hello with TLS extension pre-shared key and then sends data/request</p></li>
+<li><p>if server accepts the pre-shared key, it responds with Server Hello and encrypted</p></li>
+</ul>
+<p>response
+* Client FIN can be sent
+* no need to wait for TLS encryption round trips before sending requests, as handshake and
+sending request happen same time</p>
+</div></blockquote>
+</section>
+<section id="over-quic-0rtt">
+<h3>Over QUIC 0RTT<a class="headerlink" href="#over-quic-0rtt" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>use QUIC, HTTP/3, which is on top of UDP</p></li>
+<li><p>client sends QUIC handshake, which includes connection establishment and encryption, with</p></li>
+</ul>
+<p>a pre-shared key and then sends data/request
+* if server accepts the pre-shared key, it responds with QUIC handshake and encrypted
+response
+* QUIC handshake now ends
+* hard to implement, [Cloudflare blog](<a class="reference external" href="https://blog.cloudflare.com/even-faster-connection-establishment-with-quic-0-rtt-resumption/">https://blog.cloudflare.com/even-faster-connection-establishment-with-quic-0-rtt-resumption/</a>) for more information</p>
+</div></blockquote>
+<p><a class="reference external" href="#backend-engineering">back to top</a></p>
+</section>
+</section>
+<section id="execution-patterns">
+<h2>Execution Patterns<a class="headerlink" href="#execution-patterns" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#process-vs-thread">Process vs Thread</a>, <a class="reference internal" href="#connection-establishment">Connection Establishment</a>, <a class="reference internal" href="#reading-writing-data">Reading/Writing Data</a></p></li>
+<li><p><a class="reference internal" href="#single-listener-single-worker-thread">Single Listener/Single Worker Thread</a>, <a class="reference internal" href="#single-listener-multiple-worker-threads">Single Listener/Multiple Worker Threads</a></p></li>
+<li><p><a class="reference internal" href="#single-listener-multiple-worker-threads-with-load-balancing">Single Listener/Multiple Worker Threads with Load Balancing</a>, <a class="reference internal" href="#multiple-threads-single-socket">Multiple Threads/Single Socket</a></p></li>
+<li><p><a class="reference internal" href="#multiple-listeners-on-same-port">Multiple Listeners on same Port</a>, <a class="reference internal" href="#idempotency">Idempotency</a>, <a class="reference internal" href="#nagle-s-algorithm">Nagle’s Algorithm</a></p></li>
+</ul>
+<section id="process-vs-thread">
+<h3>Process vs Thread<a class="headerlink" href="#process-vs-thread" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Process</strong></dt><dd><ul>
+<li><p>a set of instructions to be executed serially</p></li>
+<li><p>has isolated memory and PID</p></li>
+<li><p>scheduled in CPU</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Thread</strong></dt><dd><ul>
+<li><p>lightweight process</p></li>
+<li><p>shares memory with the parent process and has a thread ID</p></li>
+<li><p>scheduled in CPU</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Single-Threaded Process</strong></dt><dd><ul>
+<li><p>process with a single thread</p></li>
+<li><p>simple but can be hard to write</p></li>
+<li><p>e.g NodeJS</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Multi-Process</strong></dt><dd><ul>
+<li><p>app with multiple processes</p></li>
+<li><p>each with its own memory, can also have a shared memory pool</p></li>
+<li><p>take advantage of multiple cores</p></li>
+<li><p>use more memory but isolated</p></li>
+<li><p>e.g NGINX, Postgres</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Multi-Threaded</strong></dt><dd><ul>
+<li><p>single process with multiple threads</p></li>
+<li><p>threads compete for shared memory</p></li>
+<li><p>take advantage of multiple cores</p></li>
+<li><p>less memory than multi-process</p></li>
+<li><p>can have race conditions and need locks and latches</p></li>
+<li><p>e.g SQL Server, Apache, Envoy</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>multiple processes/threads on single core CPU will cause context switches, which can be</p></li>
+</ul>
+<p>expensive
+* having same number of cores and processes can be optimal</p>
+</div></blockquote>
+</section>
+<section id="connection-establishment">
+<h3>Connection Establishment<a class="headerlink" href="#connection-establishment" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>server will listen on both port and all network interfaces addresses by default</p></li>
+<li><p>should specify which network interface to listen on, as it might be exposed to public</p></li>
+<li><p>server app tells the kernel the IP and port on which it is listening, and the kernel</p></li>
+</ul>
+<p>creates necessary socket and SYN and Accept queues
+* when a client connects, kernel does the handshake to create a connection</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>client sends SYN, kernel adds it to SYN queue and replies with SYN/ACK</p></li>
+<li><p>client replies with ACK and if it matches the SYN from the queue, kernel finishes
+the connection</p></li>
+<li><p>the connection is moved to the Accept queue and the SYN is removed from the queue</p></li>
+<li><p>backend process calls <code class="docutils literal notranslate"><span class="pre">accept()</span></code> to move the connection from the kernel’s Accept
+queue to its own process</p></li>
+<li><p>file descriptor for the connection is created, which is used for operations</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Problems</strong></dt><dd><ul>
+<li><p>if backend doesn’t accept the connections fast enough, the queues will get full and
+new connections will not be established</p></li>
+<li><p>clients can use SYN flood attack by not sending ACK back, and SYN queue in the
+backend will get full</p></li>
+<li><p>having small back log, SYN and Accept queues sizes, can cause then to be full quick</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="reading-writing-data">
+<h3>Reading/Writing Data<a class="headerlink" href="#reading-writing-data" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Receive Buffer</strong></dt><dd><ul>
+<li><p>created by the kernel for data</p></li>
+<li><p>when client sends data on a connection, the kernel puts it in a receive buffer</p></li>
+<li><p>kernel will ACK when enough data is received</p></li>
+<li><p>if client sends more data than the buffer space, packets will be dropped</p></li>
+<li><p>when data is ready, backend application is notified and will call <code class="docutils literal notranslate"><span class="pre">read()</span></code> to copy
+data into its own process memory</p></li>
+<li><p>copying can be expensive and kernel developers are trying to optimize it</p></li>
+<li><p>copied data, in raw bytes, is handled by the library used in the application</p></li>
+<li><p>the library will use necessary methods to decrypt and parse the data</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Send Buffer</strong></dt><dd><ul>
+<li><p>created by the kernel for data</p></li>
+<li><p>the library in the backend prepares the data and when it is ready, <code class="docutils literal notranslate"><span class="pre">send()</span></code> is
+called and data is copied into send buffer in the form of raw bytes</p></li>
+<li><p>kernel takes over and will send only when it has enough information, such as maximum
+segment size is filled</p></li>
+<li><p>once data is sent, it is ACK and released from the buffer</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Problems</strong></dt><dd><ul>
+<li><p>if backend does not read fast enough, the receive buffer will be full and the kernel
+cannot accept more data</p></li>
+<li><p>packets sent from client will be dropped and thus client suffers</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>Listener: thread/process that calls <code class="docutils literal notranslate"><span class="pre">listen()</span></code>, by passing address and port, and gets back</p></li>
+</ul>
+<p>the socket ID
+* Acceptor: has access to the socket ID and calls <code class="docutils literal notranslate"><span class="pre">accept()</span></code> on it, to get descriptors for
+connections
+* Reader: reads/writes the connection for requests</p>
+</section>
+<section id="single-listener-single-worker-thread">
+<h3>Single Listener/Single Worker Thread<a class="headerlink" href="#single-listener-single-worker-thread" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>single listener, acceptor and reader</p></li>
+<li><p>single threaded applications such as NodeJS</p></li>
+<li><p>single process is responsible for listening, accepting connections and reading from</p></li>
+</ul>
+<p>connections asynchronously, as in NodeJS using epoll
+* simple architecture as one process do all the jobs
+* <strong>Problems</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>process might not be able to handle massive multiple connections optimally</p></li>
+<li><p>the queues in the kernel may become full as the process cannot keep up</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>can spin up multiple simple processes, instead of handling multiple threads</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="single-listener-multiple-worker-threads">
+<h3>Single Listener/Multiple Worker Threads<a class="headerlink" href="#single-listener-multiple-worker-threads" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>single listener and acceptor, and multiple readers</p></li>
+<li><p>single process both listens and accepts, and spins up multiple threads to read</p></li>
+<li><p>multi-threaded applications such as Memcached</p></li>
+<li><p>threads will be assigned connections to read by the main process, load balancing may be</p></li>
+</ul>
+<p>used
+* reader threads can become worker threads to handle the request or spin new threads to
+handle it
+* <strong>Problems</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>one thread might be given heavy processing connection and others lightweight
+connections</p></li>
+<li><p>there is no true load balancing</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="single-listener-multiple-worker-threads-with-load-balancing">
+<h3>Single Listener/Multiple Worker Threads with Load Balancing<a class="headerlink" href="#single-listener-multiple-worker-threads-with-load-balancing" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>single listener, acceptor, and reader</p></li>
+<li><p>single process listens, accepts and read, but spins up multiple threads to handle</p></li>
+</ul>
+<p>requests, with load balancing
+* multi-threaded applications such as RAMCloud
+* threads are given actual requests to process, instead of raw connections
+* main process handles everything and passes the requests to the threads for execution
+* requests can now be load balanced before given to the threads
+* <strong>Problems</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>single point of failure as one process handles everything</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="multiple-threads-single-socket">
+<h3>Multiple Threads/Single Socket<a class="headerlink" href="#multiple-threads-single-socket" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>single listener and multiple acceptors and readers, such as NGINX</p></li>
+<li><p>single listener as main worker process with actual socket</p></li>
+<li><p>multiple acceptor and reader threads have access to the socket object on the main process</p></li>
+<li><p>each thread call <code class="docutils literal notranslate"><span class="pre">accept()</span></code> on the same socket object, with mutex being handled</p></li>
+<li><p>a thread that accepts a connection owns it</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="multiple-listeners-on-same-port">
+<h3>Multiple Listeners on same Port<a class="headerlink" href="#multiple-listeners-on-same-port" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>socket reuse option, <code class="docutils literal notranslate"><span class="pre">SO_REUSEPORT</span></code>, can be used to share a socket between multiple</p></li>
+</ul>
+<p>processes
+* OS will create multiple necessary queues for each process and load balance connections to
+each queues
+* can spin up multiple threads, with each being listener, acceptor and reader
+* each thread gets unique socket ID, with own sets of queues, and no conflict will occur
+* default in applications such NGINX, Envoy, HAProxy
+* also called socket sharding
+* <strong>Problems</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>a process/thread can use <code class="docutils literal notranslate"><span class="pre">SO_REUSEPORT</span></code> options to hijack the port</p></li>
+<li><p>a thread can get heavy processing connection as there is no true load balancing</p></li>
+<li><p>architecture can become powerful but complex</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>OS can prevent port hijacking if a key is specified</p></li>
+<li><p>can spin up worker threads only just for reading, and thus load balancing can be achieved</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="idempotency">
+<h3>Idempotency<a class="headerlink" href="#idempotency" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>resending the request without changing the state of the backend</p></li>
+<li><dl class="simple">
+<dt><strong>Basic Scenario</strong></dt><dd><ul>
+<li><p>client lost the connection when sending a request</p></li>
+<li><p>the request is sent and processed at the backend</p></li>
+<li><p>client might attempt to send it again without knowing it has reached the backend</p></li>
+<li><p>multiple same requests may be sent again</p></li>
+<li><p>the backend is not idempotent if the same request is processed again</p></li>
+<li><p>e.g multiple same payments might happen</p></li>
+<li><p>need to identify the request uniquely and do not execute if it is replayed, in
+certain cases</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Idempotency Token</strong></dt><dd><ul>
+<li><p>easiest implementation is to attach a request ID, usually UUID, with each request</p></li>
+<li><p>skip if the request ID has been processed</p></li>
+<li><p>can be expensive as IDs have to be stored and searched</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>GET requests are idempotent by default, as it doesn’t change state with multiple GETs</p></li>
+<li><p>browsers and proxies treat GET as idempotent, and will send/retry without notice</p></li>
+<li><p>never use GET to change state, as browsers might send the request multiple times</p></li>
+<li><p>POST is not idempotent, but can be made</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="nagle-s-algorithm">
+<h3>Nagle’s Algorithm<a class="headerlink" href="#nagle-s-algorithm" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>client delayed to reach MSS, instead of sending a few bytes of data, plus 40 bytes header</p></li>
+<li><dl class="simple">
+<dt><strong>Basic Scenario</strong></dt><dd><ul>
+<li><p>MSS is 1460 bytes, and client sends 500 bytes</p></li>
+<li><p>client is delayed to fill the segment</p></li>
+<li><p>client sends another 960 bytes</p></li>
+<li><p>the segment is now filled and sent</p></li>
+<li><p>the delay only happens if the data needs to be ACK</p></li>
+<li><p>the first 500 bytes will be send immediately if the data doesn’t need to be ACK</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Problems</strong></dt><dd><ul>
+<li><p>sending large data causes delay</p></li>
+<li><p>after segmenting large data, the segment that doesn’t reach MSS will not be sent</p></li>
+<li><p>the segment will be sent only when ACK is received</p></li>
+<li><p>there will be a delay as the segment waits for the ACK</p></li>
+<li><p>either disable the algorithm or fill the segment with data, which is hard to do</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>most clients today disable Nagle’s Algorithm, by enabling <code class="docutils literal notranslate"><span class="pre">TCP_NODELAY</span></code></p></li>
+<li><p>curl disables it by default because TLS handshake slows down</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#backend-engineering">back to top</a></p>
+</section>
+</section>
+<section id="proxy-vs-reverse-proxy">
+<h2>Proxy vs Reverse Proxy<a class="headerlink" href="#proxy-vs-reverse-proxy" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#proxy">Proxy</a>, <a class="reference internal" href="#reverse-proxy">Reverse Proxy</a>, <a class="reference internal" href="#tunnel-proxy">Tunnel Proxy</a></p></li>
+</ul>
+<section id="proxy">
+<h3>Proxy<a class="headerlink" href="#proxy" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>server that makes requests on client’s behalf</p></li>
+<li><p>TCP connection is established with the proxy, not the destination</p></li>
+<li><p>the proxy establish new connection between itself and the destination</p></li>
+<li><p>the destination only knows the IP of the proxy, not the client</p></li>
+<li><p>content transmitted from client is completely rewritten by the proxy</p></li>
+<li><p>some proxies add headers, such as <code class="docutils literal notranslate"><span class="pre">X-Forwarded-For</span></code>, and client can be known from layer seven</p></li>
+<li><p>usually in proxy configuration, client knows the server but not vice versa</p></li>
+<li><p>proxies can provide anonymity, caching, logging, blocking sites, microservices, debugging</p></li>
+<li><p>most HTTPS proxies sometimes decrypt the traffic</p></li>
+<li><p>from Layer 4, proxy is the final destination for client</p></li>
+<li><p>from Layer 7, client knows the true final destination</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="reverse-proxy">
+<h3>Reverse Proxy<a class="headerlink" href="#reverse-proxy" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>client doesn’t know the final destination server</p></li>
+<li><p>acts like the true destination, but sends requests to actual backend server</p></li>
+<li><p>reverse proxy server is also called front-end server or edge server</p></li>
+<li><p>load balancer is reverse proxy, but not all reverse proxies are load balancers</p></li>
+<li><p>TCP connection between client and destination, which is reverse proxy, and another TCP</p></li>
+</ul>
+<p>connection between reverse proxy and the actual destination
+* used for caching, load balancing, ingress, canary deployment, microservices
+* both from Layer 4 and 7, client only knows the reverse proxy as true final destination</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>proxy and reverse proxy can be used at the same time, but client will only know it as a proxy</p></li>
+<li><p>not recommended to use proxy instead of VPN for anonymity, as VPN operates at Layer 3, and</p></li>
+</ul>
+<p>proxy operates at Layer 4 and above
+* HTTP proxy is the most popular</p>
+</section>
+<section id="tunnel-proxy">
+<h3>Tunnel Proxy<a class="headerlink" href="#tunnel-proxy" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>HTTP proxy, where client can ask the proxy to open connection to certain server</p></li>
+<li><p>the proxy becomes a pipe, it cannot see the content</p></li>
+<li><p>can do TLS connection in end to end fashion</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#backend-engineering">back to top</a></p>
+</section>
+</section>
+<section id="load-balancers">
+<h2>Load Balancers<a class="headerlink" href="#load-balancers" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#layer-4-load-balancer">Layer 4 Load Balancer</a>, <a class="reference internal" href="#layer-7-load-balancer">Layer 7 Load Balancer</a></p></li>
+<li><p>also known as fault tolerance system</p></li>
+<li><p>can replace load balancers with reverse proxy, which does not have balancing logic</p></li>
+<li><p>load balancer is reverse proxy, but not all reverse proxies are load balancers</p></li>
+</ul>
+<section id="layer-4-load-balancer">
+<h3>Layer 4 Load Balancer<a class="headerlink" href="#layer-4-load-balancer" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>warm up by opening TCP connections to the backend servers</p></li>
+<li><p>when client connects, it needs to choose one server</p></li>
+<li><p>load balancer will tag a state, as Layer 4 is stateful, to only one connection to the</p></li>
+</ul>
+<p>backend
+* all segments from client will only have to go to one connection
+* load balancer has connection to clinet and to backend server
+* <strong>Rewrite Mode</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>segments from client connection have to be rewritten to the backend connection</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>NAT Mode</strong></dt><dd><ul>
+<li><p>makes into single TCP connection</p></li>
+<li><p>the load balancer acts like a router, becomes gateway of client</p></li>
+<li><p>only changes the destination IP to the backend server</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Pros</strong></dt><dd><ul>
+<li><p>simple load balancing, efficient as it doesn’t lookup data</p></li>
+<li><p>more secure, works with any protocol</p></li>
+<li><p>work with one TCP connection in NAT mode</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Cons</strong></dt><dd><ul>
+<li><p>no smart load balancing, cannot apply to microservices</p></li>
+<li><p>no load balancing per connection, no caching</p></li>
+<li><p>protocol unaware and can by pass rules</p></li>
+<li><p>reserved connection cannot be used for other clients</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="layer-7-load-balancer">
+<h3>Layer 7 Load Balancer<a class="headerlink" href="#layer-7-load-balancer" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>warm up by opening TCP connections to the backend servers</p></li>
+<li><p>when client connects, it becomes protocol specific</p></li>
+<li><p>logical requests are forwarded to new backend server</p></li>
+<li><p>read and buffer the data, need to decrypt data if encrypted</p></li>
+<li><p>need to have secure connection to decrypt data</p></li>
+<li><dl class="simple">
+<dt><strong>Pros</strong></dt><dd><ul>
+<li><p>smart load balancing, caching, applicable to microservices</p></li>
+<li><p>API gateway logic, authentication available</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Cons</strong></dt><dd><ul>
+<li><p>expensive as data lookup is done, terminate TLS for decryption</p></li>
+<li><p>use two TCP connections, must share TLS certificate</p></li>
+<li><p>need to buffer and understand protocol</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#backend-engineering">back to top</a></p>
+</section>
+</section>
+<section id="designing-software">
+<h2>Designing Software<a class="headerlink" href="#designing-software" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#workflow-document">Workflow Document</a>, <a class="reference internal" href="#design-overview">Design Overview</a>, <a class="reference internal" href="#component-design">Component Design</a>, <a class="reference internal" href="#design-overview-diagram">Design Overview Diagram</a></p></li>
+<li><p>code-first approach: can be lost when viewing the code later, can forget things about system</p></li>
+<li><p>diagram-first approach: can be too many detailed ones or too high level, may need companion</p></li>
+</ul>
+<p>documents
+* the real way to design software is to spec it out all in writings
+* keep away distractions. e.g email, notification
+* use clutter-free text editors, e.g VIM, go dark mode if necessary
+* produce collection of documents for each type of stake-holder, can be high level or technical</p>
+<section id="workflow-document">
+<h3>Workflow Document<a class="headerlink" href="#workflow-document" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>do not add a feature if there is no use case, might be fine for personal projects but</p></li>
+</ul>
+<p>commercial software must be approached pragmatically
+* workflow and use cases can help minimize scope and link back to customer requirement
+* write a workflow of how the software will be use in detail
+* finalize the workflow step by using the questions raised, if any
+* final workflow will be available for non-technical people who are interested
+* workflow document must be clear, can be creative, use UI elements and explain in high
+level
+* anyone reading the workflow document must know what and who the software if for</p>
+</div></blockquote>
+</section>
+<section id="design-overview">
+<h3>Design Overview<a class="headerlink" href="#design-overview" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>explain how user will interact, technical representation of the workflow</p></li>
+<li><p>write about different components of the software and how they interact with each other</p></li>
+<li><p>reference the workflow document if applicable</p></li>
+<li><p>do not link back non-functional requirements to workflow, e.g. async jobs, health checks</p></li>
+</ul>
+<p>that does not require direct user input
+* include any technical problems that might occur, e.g. protocol, database, reverse proxy,
+scaling
+* review it with technical stake-holders</p>
+</div></blockquote>
+</section>
+<section id="component-design">
+<h3>Component Design<a class="headerlink" href="#component-design" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>make document per component if require</p></li>
+<li><p>can go in details, e.g what the component is, its interface, computation, output</p></li>
+<li><p>be technical as if reading the design is like reading the actual source code</p></li>
+<li><p>some components can be described entirely in the design overview</p></li>
+<li><p>writing component design will give insight of each, may find some so big that they can be</p></li>
+</ul>
+<p>their own projects</p>
+</div></blockquote>
+</section>
+<section id="design-overview-diagram">
+<h3>Design Overview Diagram<a class="headerlink" href="#design-overview-diagram" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>diagram to show how components communicate with each other</p></li>
+<li><p>can use simple tools to design it</p></li>
+<li><p>can have multiple diagrams for each component based on complexity</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>it takes time to make documents and keep them up to date</p></li>
+<li><p>if owner leaves, next designer might not use same approach</p></li>
+<li><p>as there are many documents and diagrams, can be hard to understand for participants who are</p></li>
+</ul>
+<p>not familiar with</p>
+<p><a class="reference external" href="#backend-engineering">back to top</a></p>
+</section>
+</section>
+<section id="request-journey">
+<h2>Request Journey<a class="headerlink" href="#request-journey" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#accept">Accept</a>, <a class="reference internal" href="#read">Read</a>, <a class="reference internal" href="#decrypt">Decrypt</a>, <a class="reference internal" href="#decode">Decode</a>, <a class="reference internal" href="#process">Process</a></p></li>
+<li><p>understanding the steps of request before processed allows to make appropriate designs</p></li>
+<li><p>need to make sure each step does not become a bottleneck</p></li>
+<li><p>can use only one thread, a thread or each step, combine steps or split a step further</p></li>
+</ul>
+<section id="accept">
+<h3>Accept<a class="headerlink" href="#accept" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>requests are sent on connections, which are needed to be accepted by the backend</p></li>
+<li><p>accept queue: listener queue where connection is placed after performing 3 way handshake</p></li>
+</ul>
+<p>by server kernel when client connects to it
+* backend is responsible to invoke <code class="docutils literal notranslate"><span class="pre">accept()</span></code> syscall on listener socket to create file
+descriptor that represents the connection
+* Accept step can be a bottleneck if backend is slow in accepting connections
+* backlog: parameter to specify the size of accept queue when listening on port
+* for speed, most backend assign one thread only to accept connections
+* can use multi-thread for accepting connections, but threads block each other when
+accepting on same socket
+* use <code class="docutils literal notranslate"><span class="pre">SO_REUSEPORT</span></code> option to create multiple listener sockets, multiple accept queues,
+on the same port with each thread owning a socket queue, e.g NGINX, HAProxy</p>
+</div></blockquote>
+</section>
+<section id="read">
+<h3>Read<a class="headerlink" href="#read" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>client can send requests to the backend after connection is established</p></li>
+<li><p>a request is just a series of bytes with clear start and end defined by the protocol used</p></li>
+<li><p>client and backend must agree on the protocol, mostly HTTP</p></li>
+<li><p>client can encrypt the request if TLS is used, compress the body if request compression</p></li>
+</ul>
+<p>is supported and serialize data type, such as JSON/protobuff, and write the raw bytes
+* bytes sent from client go to NIC, OS kernel and into connection receive queue
+* packets remain in receive queue until backend application invoke <code class="docutils literal notranslate"><span class="pre">read()</span></code> or <code class="docutils literal notranslate"><span class="pre">rcv()</span></code>,
+which move data from receive queue to process user space memory
+* reading of the raw bytes can be done in own thread or in the same thread as accept</p>
+</div></blockquote>
+</section>
+<section id="decrypt">
+<h3>Decrypt<a class="headerlink" href="#decrypt" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>as the bytes received are decrypted, SSL library is invoked to encrypt</p></li>
+<li><p>only after decryption, content such as headers and other metadata are available</p></li>
+<li><p>decryption is CPU bound operation</p></li>
+<li><p>can be done in own thread or same thread as read and accept</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="parse">
+<h3>Parse<a class="headerlink" href="#parse" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>plain text readable bytes are parsed by the library used, based on the protocol agreed</p></li>
+<li><p>in HTTP/1.1, read plaint text and look for start and end of request based on definition</p></li>
+</ul>
+<p>of HTTP spec, e.g content-length, transfer encoding
+* in HTTP/2 or HTTP/3, more work is done to parse as there are more metadata
+* parsing is CPU bound, and can bottleneck the backend if not used properly
+* can be done in own thread or same thread as others
+* can be a hidden expensive step if not careful</p>
+</div></blockquote>
+</section>
+<section id="decode">
+<h3>Decode<a class="headerlink" href="#decode" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>request using JSON or protobuf is deserialized</p></li>
+<li><p>turning raw bytes into language structures has cost and memory footprint</p></li>
+<li><p>even in JavaScript, need to <code class="docutils literal notranslate"><span class="pre">JSON.parse()</span></code>, cannot just read a JSON string</p></li>
+<li><p>bytes of text encoded in UTF8 also need to be decoded, as UTF8 use up to 4 bytes to</p></li>
+</ul>
+<p>represent some characters
+* if necessary, need to do request decompression, some large POST request body are sent
+compressed</p>
+</div></blockquote>
+</section>
+<section id="process">
+<h3>Process<a class="headerlink" href="#process" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be processed once the request is fully understood</p></li>
+<li><p>may require database query, reading from disk or other computations</p></li>
+<li><p>can be done in the same thread as others</p></li>
+<li><p>recommended to have dedicated worker for processing, worker pool pattern is suitable</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#backend-engineering">back to top</a></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ArmArchitecture.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Arm Architecture</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="C.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">C</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#communication-patterns">Communication Patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-response">Request &amp; Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronous-asynchronous">Synchronous &amp; Asynchronous</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#push">Push</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polling">Polling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#long-polling">Long Polling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sever-sent-events">Sever-Sent Events</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#publish-subscribe">Publish &amp; Subscribe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplexing-demultiplexing">Multiplexing &amp; Demultiplexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stateful-stateless">Stateful &amp; Stateless</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidecar">Sidecar</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protocols">Protocols</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#osi-model">OSI Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#internet-protocol">Internet Protocol</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#udp">UDP</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tcp">TCP</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tls">TLS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#http-1-1">HTTP/1.1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#http-2">HTTP/2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#http-3">HTTP/3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#websockets">WebSockets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grpc">gRPC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#webrtc">WebRTC</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#https">HTTPS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#over-tcp-with-tls-1-2">Over TCP with TLS 1.2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#over-tcp-with-tls-1-3">Over TCP with TLS 1.3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#over-quic">Over QUIC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#over-tfo-with-tls-1-3">Over TFO with TLS 1.3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#over-tcp-with-tls-1-3-0rtt">Over TCP with TLS 1.3 0RTT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#over-quic-0rtt">Over QUIC 0RTT</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-patterns">Execution Patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-vs-thread">Process vs Thread</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-establishment">Connection Establishment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-writing-data">Reading/Writing Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-listener-single-worker-thread">Single Listener/Single Worker Thread</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-listener-multiple-worker-threads">Single Listener/Multiple Worker Threads</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-listener-multiple-worker-threads-with-load-balancing">Single Listener/Multiple Worker Threads with Load Balancing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-threads-single-socket">Multiple Threads/Single Socket</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-listeners-on-same-port">Multiple Listeners on same Port</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#idempotency">Idempotency</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nagle-s-algorithm">Nagle’s Algorithm</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proxy-vs-reverse-proxy">Proxy vs Reverse Proxy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proxy">Proxy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reverse-proxy">Reverse Proxy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tunnel-proxy">Tunnel Proxy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-balancers">Load Balancers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-4-load-balancer">Layer 4 Load Balancer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-7-load-balancer">Layer 7 Load Balancer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#designing-software">Designing Software</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-document">Workflow Document</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-overview">Design Overview</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#component-design">Component Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-overview-diagram">Design Overview Diagram</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#request-journey">Request Journey</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accept">Accept</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read">Read</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decrypt">Decrypt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parse">Parse</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decode">Decode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process">Process</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

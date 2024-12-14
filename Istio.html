@@ -1,0 +1,790 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Istio &#8212; Notes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Istio';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="JDBC" href="JDBC.html" />
+    <link rel="prev" title="Helm" href="Helm.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AWS.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BackendEngineering.html">Backend Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSharp.html">C# #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CTF.html">CTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CompTIA.html">CompTIA Cert Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compilers.html">Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerGraphics.html">Computer Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputingSystems.html">Computing Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">ECS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FFmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Helm.html">Helm</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Istio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JDBC.html">JDBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MongoDB.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkProgramming.html">Network Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NodeJS.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenAPI.html">OpenAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OperatingSystem.html">Operating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="POSIXThreads.html">POSIX Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PenetrationTesting.html">Penetration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramDesign.html">Program Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectManagement.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prometheus.html">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SFML.html">SFML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StrategicPlanning.html">Strategic Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terraform.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TypeScript.html">TypeScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI/UX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrant.html">Vagrant</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Istio.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Istio</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-istio">What is Istio?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#service-mesh">Service Mesh</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#istiod">Istiod</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#istio-agent">Istio Agent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#traffic-management">Traffic Management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#istio-gateways">Istio Gateways</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-services">Virtual Services</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#destination-rules">Destination Rules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fault-injection">Fault Injection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timeouts">Timeouts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retries">Retries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#circuit-breaking">Circuit Breaking</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#security">Security</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication">Authentication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authorization">Authorization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#certificate-management">Certificate Management</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observability">Observability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kiali">Kiali</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring">Monitoring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distributed-tracing">Distributed Tracing</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="istio">
+<h1>Istio<a class="headerlink" href="#istio" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#what-is-istio">What is Istio?</a></p></li>
+<li><p><a class="reference internal" href="#basics">Basics</a></p></li>
+<li><p><a class="reference internal" href="#traffic-management">Traffic Management</a></p></li>
+<li><p><a class="reference internal" href="#security">Security</a></p></li>
+<li><p><a class="reference internal" href="#observability">Observability</a></p></li>
+</ol>
+<section id="what-is-istio">
+<h2>What is Istio?<a class="headerlink" href="#what-is-istio" title="Link to this heading">#</a></h2>
+<section id="service-mesh">
+<h3>Service Mesh<a class="headerlink" href="#service-mesh" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>infrastructure layer for handling communication between services without changing the</p></li>
+</ul>
+<dl class="simple">
+<dt>code in microservice architecture</dt><dd><ul class="simple">
+<li><p>replace all requirements, other than business logic, with proxy as sidecar container</p></li>
+<li><p>proxies communicate with each other through data plane and communicate to server
+side component, control plane, which manages all traffic into and out of services via
+proxies</p></li>
+</ul>
+</dd>
+</dl>
+<ul class="simple">
+<li><p>can dynamically change how services communicate</p></li>
+<li><dl class="simple">
+<dt><strong>Control Plane</strong></dt><dd><ul>
+<li><p>citadel: manage certificate generation</p></li>
+<li><p>pilot: service discovery</p></li>
+<li><p>galley: validate configuration files</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>Istio is a free and open-source service mesh</p></li>
+<li><p>works with Kubernetes and traditional workloads</p></li>
+<li><p>provides universal traffic management, telemetry and security</p></li>
+<li><p>Istio implements proxies using Envoy, an open-source proxy</p></li>
+</ul>
+</section>
+<section id="istiod">
+<h3>Istiod<a class="headerlink" href="#istiod" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>daemon of combination of citadel, pilot and galley of control plane</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="istio-agent">
+<h3>Istio Agent<a class="headerlink" href="#istio-agent" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Envoy proxy responsible for passing configuration secrets to other proxies</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Istioctl</strong></dt><dd><ul>
+<li><p>download from <a class="reference external" href="https://istio.io/latest/docs/setup/getting-started/#download">https://istio.io/latest/docs/setup/getting-started/#download</a>  and run
+<code class="docutils literal notranslate"><span class="pre">istioctl</span> <span class="pre">install</span> <span class="pre">--set</span> <span class="pre">profile=demo</span> <span class="pre">-y</span></code>, other profiles also available</p></li>
+<li><p>Istio will be deployed as deployment in the cluster as istiod, in the namespace
+istio-system</p></li>
+<li><p>also deploys istio-ingressgateway and istio-egressgateway services, and other
+necessary service objects</p></li>
+<li><p>verify installation with <code class="docutils literal notranslate"><span class="pre">istioctl</span> <span class="pre">verify-install</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Istio Operator</strong></p></li>
+<li><p><strong>Using Helm</strong></p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#istio">back to top</a></p>
+</section>
+</section>
+<section id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">istioctl</span> <span class="pre">install</span></code>: install Istio on cluster</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">istioctl</span> <span class="pre">verify-install</span></code>: verify Istio installation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">istioctl</span> <span class="pre">analyze</span></code>: analyze and validate configuration</p></li>
+<li><p>need to explicitly enable Istio sidecar injection at namespace level for applications to have</p></li>
+</ul>
+<dl class="simple">
+<dt>proxy services</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">label</span> <span class="pre">namespace</span> <span class="pre">default</span> <span class="pre">istio-injection=enabled</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<p><a class="reference external" href="#istio">back to top</a></p>
+</section>
+<section id="traffic-management">
+<h2>Traffic Management<a class="headerlink" href="#traffic-management" title="Link to this heading">#</a></h2>
+<section id="istio-gateways">
+<h3>Istio Gateways<a class="headerlink" href="#istio-gateways" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>load balancers that sit on the edge of the mesh</p></li>
+<li><p>main configuration that manage inbound, by istio-ingressgateway, and outbound, by</p></li>
+</ul>
+<p>istio-egressgateway traffic to service mesh
+* recommended approach other than using Kubernetes ingress
+* ingress and egress gateways are standalone Envoy proxies, not sidecars
+* can also have custom gateway controllers</p>
+</div></blockquote>
+</section>
+<section id="virtual-services">
+<h3>Virtual Services<a class="headerlink" href="#virtual-services" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>define a set of routing rules for traffic coming from ingress gateway</p></li>
+<li><p>can specify traffic behaviour for one or more hostname</p></li>
+<li><p>can manage traffic within different versions of a service</p></li>
+<li><p>support standard and regex pass</p></li>
+<li><p>when virtual service is created, Istio control plane apply the new configuration to all</p></li>
+</ul>
+<p>Envoy sidecar proxies
+* can configure for A/B testing</p>
+</div></blockquote>
+</section>
+<section id="destination-rules">
+<h3>Destination Rules<a class="headerlink" href="#destination-rules" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>apply router policies after traffic is routed to a service</p></li>
+<li><p>Envoy load balances traffic in round-robin by default, and it can be customized through</p></li>
+</ul>
+<p>destination rules by specifying traffic policy of load balancer, such as passthrough,
+round-robin, least conn, random
+* when using short domain names, Istio will interpret the short name based on the rules
+namespace, not the services actual name space
+* using fully qualified domain names is recommended</p>
+</div></blockquote>
+</section>
+<section id="fault-injection">
+<h3>Fault Injection<a class="headerlink" href="#fault-injection" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>testing approach to check if error handling mechanisms are working</p></li>
+<li><p>can verify if policies run efficiently</p></li>
+<li><p>can inject errors in virtual services, delays and aborts</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="timeouts">
+<h3>Timeouts<a class="headerlink" href="#timeouts" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>if a service is taking too much time to respond, it must not keep the dependent service</p></li>
+</ul>
+<p>waiting forever, but must fail after a period of time and return error message
+* can be tested with fault injection
+* can use timeouts when services are dependent on each other and to make clear definitions
+between the dependencies
+* specified on virtual service level</p>
+</div></blockquote>
+</section>
+<section id="retries">
+<h3>Retries<a class="headerlink" href="#retries" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>configuring virtual service to attempt request again if a service cannot be reached</p></li>
+<li><p>no need to handle the retries in the application code</p></li>
+<li><p>Istio by default has 25ms+ intervals after first fail and 2 retires before returning an</p></li>
+</ul>
+<p>error
+* specified on virtual service level</p>
+</div></blockquote>
+</section>
+<section id="circuit-breaking">
+<h3>Circuit Breaking<a class="headerlink" href="#circuit-breaking" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>marking the requests as failed immediately when a service breaks or slows down</p></li>
+<li><p>to prevent delay of dependent service from waiting of the down one</p></li>
+<li><p>allow to create resilient microservice application that limit the impact of failures or</p></li>
+</ul>
+<p>network-related issues
+* can also be used to limit number of requests coming into a service
+* configured in destination rules</p>
+</div></blockquote>
+<p><a class="reference external" href="#istio">back to top</a></p>
+</section>
+</section>
+<section id="security">
+<h2>Security<a class="headerlink" href="#security" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>traffic between services need to be encrypted and some services need to implement access</p></li>
+</ul>
+<p>control restrictions
+* Istio support mutual TLS, access policies and audit logs
+* more details of [Istio Security Architecture](<a class="reference external" href="https://istio.io/latest/docs/concepts/security/">https://istio.io/latest/docs/concepts/security/</a>)
+* API server configuration distributes all authentication, authorization and secure naming
+policies to the proxies
+* sidecar and ingress/egress proxies work as Policy Enforcement Points and certificate, keys,
+authentication, authorization and secure naming policies are sent to them at all times
+* security at depth: every point having security checks, not just certain entry point to the
+network</p>
+<section id="authentication">
+<h3>Authentication<a class="headerlink" href="#authentication" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>traffic between peers/services must be hardened by using verification options such as</p></li>
+</ul>
+<p>mTLS and JSON web tokens
+* with mTLS, each service gets its own identity, using certificate key pairs
+* certificates are generated and distributed automatically by istiod
+* end users’ access to services can be authenticated using JSON web token or OpenID Connect
+providers
+* can have policies of workload-specific, namespace-wide or mesh-wide, by setting namespace
+to istio-system</p>
+</div></blockquote>
+</section>
+<section id="authorization">
+<h3>Authorization<a class="headerlink" href="#authorization" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>to access control for inbound traffic</p></li>
+<li><p>can control which service can reach which service, east-west traffic using authorization</p></li>
+</ul>
+<p>configuration
+* can define policies to allow or deny requests based on criteria
+* implemented by Envoy proxies authorization engine in runtime
+* when a request comes to a proxy, the engine evaluate the request context against current
+authorization polices and returns the result
+* supported actions: allow, deny, custom (allows an extension to handle the request)
+* authorization policies can also be configured to audit requests</p>
+</div></blockquote>
+</section>
+<section id="certificate-management">
+<h3>Certificate Management<a class="headerlink" href="#certificate-management" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>a service needs to identify itself to the mesh control plane when it is started and</p></li>
+</ul>
+<p>retrieve a certificate to serve traffic
+* istio agent creates a private key and certificate signing request and send it to istiod
+* certificate authority in istiod validates the credentials, signs the CSR and generate a
+certificate
+* istio agent then sends the certificate and private key to envoy
+* istio agent monitor the expiration of the certificate
+* production clusters should use production-ready CA such as HashiCorp Vault</p>
+</div></blockquote>
+<p><a class="reference external" href="#istio">back to top</a></p>
+</section>
+</section>
+<section id="observability">
+<h2>Observability<a class="headerlink" href="#observability" title="Link to this heading">#</a></h2>
+<section id="kiali">
+<h3>Kiali<a class="headerlink" href="#kiali" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>to visualize, manage, define and validate connections and microservices of service mesh</p></li>
+<li><p>has a web-based GUI and provides visibility for features such as request routing, circuit</p></li>
+</ul>
+<p>breakers, request rates and latency
+* provides wizards to apply common traffic patterns and can auto generate Istio configuration
+* <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">-n</span> <span class="pre">istio-system</span> <span class="pre">get</span> <span class="pre">svc</span> <span class="pre">kiali</span></code>: check if Kiali is deployed
+* <code class="docutils literal notranslate"><span class="pre">istioctl</span> <span class="pre">dashboard</span> <span class="pre">kiali</span></code>: open Kiali dashboard, default port 20001</p>
+</div></blockquote>
+</section>
+<section id="monitoring">
+<h3>Monitoring<a class="headerlink" href="#monitoring" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>standard Istio metrics are exported to Prometheus by default and can be visualized with</p></li>
+</ul>
+<p>Grafana
+* <code class="docutils literal notranslate"><span class="pre">istioctl</span> <span class="pre">dashboard</span> <span class="pre">prometheus</span></code>: open Prometheus dashboard, default port 9090
+* <code class="docutils literal notranslate"><span class="pre">istioctl</span> <span class="pre">dashboard</span> <span class="pre">grafana</span></code>: open Grafana dashboard, default port 3000</p>
+</div></blockquote>
+</section>
+<section id="distributed-tracing">
+<h3>Distributed Tracing<a class="headerlink" href="#distributed-tracing" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>monitoring individual requests as a flow through a mesh</p></li>
+<li><p>service dependencies and sources of latency within the service mesh can be observed by</p></li>
+</ul>
+<p>tracing
+* Istio enables distributed tracing through Envoy proxies and support Zipkin, Jaeger,
+Lightstep and DataDog
+* <code class="docutils literal notranslate"><span class="pre">istioctl</span> <span class="pre">dashboard</span> <span class="pre">jaeger</span></code>: open Jaeger dashboard, default port 16686</p>
+</div></blockquote>
+<p><a class="reference external" href="#istio">back to top</a></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Helm.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Helm</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="JDBC.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">JDBC</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-istio">What is Istio?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#service-mesh">Service Mesh</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#istiod">Istiod</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#istio-agent">Istio Agent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#traffic-management">Traffic Management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#istio-gateways">Istio Gateways</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-services">Virtual Services</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#destination-rules">Destination Rules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fault-injection">Fault Injection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timeouts">Timeouts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retries">Retries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#circuit-breaking">Circuit Breaking</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#security">Security</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication">Authentication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authorization">Authorization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#certificate-management">Certificate Management</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observability">Observability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kiali">Kiali</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring">Monitoring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distributed-tracing">Distributed Tracing</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

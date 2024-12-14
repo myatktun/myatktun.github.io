@@ -1,0 +1,3695 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>AWS &#8212; Notes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'AWS';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Arm Architecture" href="ArmArchitecture.html" />
+    <link rel="prev" title="Notes" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BackendEngineering.html">Backend Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSharp.html">C# #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CTF.html">CTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CompTIA.html">CompTIA Cert Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compilers.html">Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerGraphics.html">Computer Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputingSystems.html">Computing Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">ECS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FFmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Helm.html">Helm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Istio.html">Istio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JDBC.html">JDBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MongoDB.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkProgramming.html">Network Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NodeJS.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenAPI.html">OpenAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OperatingSystem.html">Operating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="POSIXThreads.html">POSIX Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PenetrationTesting.html">Penetration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramDesign.html">Program Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectManagement.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prometheus.html">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SFML.html">SFML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StrategicPlanning.html">Strategic Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terraform.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TypeScript.html">TypeScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI/UX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrant.html">Vagrant</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/AWS.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>AWS</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-roles">Job Roles</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classic-it-job-roles">Classic IT Job Roles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-job-roles">Cloud Job Roles</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#management-with-iac">Management with IaC</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#devops">DevOPs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-models">Cloud Models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-deployment-models">Cloud Deployment Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-cloud-computing-models">Main Cloud Computing Models</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#well-architected">Well-Architected</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-design-principles">General design principles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operational-excellence">Operational Excellence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#security">Security</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reliability">Reliability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-efficiency">Performance Efficiency</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cost-optimization">Cost Optimization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sustainability">Sustainability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#well-architected-tool">Well-Architected Tool</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-global-infrastructure">AWS Global Infrastructure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regions">Regions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#availability-zones-azs">Availability Zones (AZs)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edge-locations">Edge locations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#everything-is-an-api-call">everything is an API call</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pricing-support">Pricing &amp; Support</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#free-tier">Free Tier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pricing">Pricing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pricing-calculator">Pricing Calculator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#billing-dashboard">Billing Dashboard</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consolidated-billing">Consolidated Billing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-free-support">Basic free support</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#developer-support">Developer support</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#business-support">Business support</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-support">Enterprise support</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edp-enterprise-discount-program">EDP (Enterprise Discount Program)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caf-cloud-adoption-framework">CAF (Cloud Adoption Framework)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#r-s-migration-strategies">6 R’s (migration strategies)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rehosting">Rehosting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replatforming">Replatforming</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refactoring-re-architecting">Refactoring/re-architecting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repurchasing">Repurchasing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retaining">Retaining</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retiring">Retiring</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-acquisition">Cloud Acquisition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procurement">Procurement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#legal">Legal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Security</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#governance">Governance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finance">Finance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compliance">Compliance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-partner-network-apn">AWS Partner Network (APN)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-integration">Application Integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sns-simple-notification-service">SNS (Simple Notification Service)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sqs-simple-queue-service">SQS (Simple Queue Service)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute">Compute</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ec2-elastic-compute-cloud">EC2 (Elastic Compute Cloud)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elb-elastic-load-balancing">ELB (Elastic Load Balancing)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda">Lambda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elastic-beanstalk">Elastic Beanstalk</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outposts">Outposts</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#containers">Containers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecs-elastic-container-service">ECS (Elastic Container Service)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eks-elastic-kubernetes-service">EKS (Elastic Kubernetes Service)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fargate">Fargate</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cost-management">Cost Management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#budgets">Budgets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cost-explorer">Cost Explorer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marketplace">Marketplace</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#database">Database</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rds-relational-database-service">RDS (Relational Database Service)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamodb">DynamoDB</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#redshift">Redshift</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dms-database-migration-service">DMS (Database Migration Service)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentdb">DocumentDB</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neptune">Neptune</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#managed-blockchain">Managed Blockchain</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qldb-quantum-ledger-database">QLDB (Quantum Ledger Database)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elasticache">ElastiCache</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artificial-intelligence">Artificial Intelligence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a2i-augmented-ai">A2I (Augmented AI)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comprehend">Comprehend</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deepracer">DeepRacer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fraud-detector">Fraud Detector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lex">Lex</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sagemaker">SageMaker</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#textract">Textract</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transcribe">Transcribe</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#management-governance">Management &amp; Governance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-scaling">Auto Scaling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloudformation">CloudFormation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloudtrail">CloudTrail</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloudwatch">CloudWatch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#config">Config</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#organizations">Organizations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#systems-manager">Systems Manager</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trusted-advisor">Trusted Advisor</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#migration-transfer">Migration &amp; Transfer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snow-family">Snow Family</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#networking-content-delivery">Networking &amp; Content Delivery</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloudfront">CloudFront</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#direct-connect">Direct Connect</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#route-53">Route 53</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vpc-virtual-private-cloud">VPC (Virtual Private Cloud)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-accelerator">Global Accelerator</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#security-compliance">Security &amp; Compliance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shared-responsibility-model">Shared Responsibility Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iam-identity-and-access-management">IAM (Identity and Access Management)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#artifact">Artifact</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cognito">Cognito</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guardduty">GuardDuty</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspector">Inspector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kms-key-management-service">KMS (Key Management Service)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#waf-shield">WAF &amp; Shield</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storage">Storage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instance-stores">Instance stores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ebs-elastic-block-store">EBS (Elastic Block Store)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#s3-simple-storage-service">S3 (Simple Storage Service)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#efs-elastic-file-system">EFS (Elastic File System)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exam-guides">Exam Guides</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-practitioner">Cloud Practitioner</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="aws">
+<h1>AWS<a class="headerlink" href="#aws" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#job-roles">Job Roles</a></p></li>
+<li><p><a class="reference internal" href="#management-with-iac">Management with IaC</a></p></li>
+<li><p><a class="reference internal" href="#cloud-models">Cloud Models</a></p></li>
+<li><p><a class="reference internal" href="#well-architected">Well-Architected</a></p></li>
+<li><p><a class="reference internal" href="#aws-global-infrastructure">AWS Global Infrastructure</a></p></li>
+<li><p><a class="reference internal" href="#pricing-support">Pricing &amp; Support</a></p></li>
+<li><p><a href="#id23"><span class="problematic" id="id24">`CAF`_</span></a></p></li>
+<li><p><a href="#id25"><span class="problematic" id="id26">`6 R's`_</span></a></p></li>
+<li><p><a class="reference internal" href="#cloud-acquisition">Cloud Acquisition</a></p></li>
+<li><p><a class="reference internal" href="#application-integration">Application Integration</a></p></li>
+<li><p><a class="reference internal" href="#compute">Compute</a></p></li>
+<li><p><a class="reference internal" href="#containers">Containers</a></p></li>
+<li><p><a class="reference internal" href="#cost-management">Cost Management</a></p></li>
+<li><p><a class="reference internal" href="#database">Database</a></p></li>
+<li><p><a class="reference internal" href="#artificial-intelligence">Artificial Intelligence</a></p></li>
+<li><p><a class="reference internal" href="#management-governance">Management &amp; Governance</a></p></li>
+<li><p><a class="reference internal" href="#migration-transfer">Migration &amp; Transfer</a></p></li>
+<li><p><a class="reference internal" href="#networking-content-delivery">Networking &amp; Content Delivery</a></p></li>
+<li><p><a class="reference internal" href="#security-compliance">Security &amp; Compliance</a></p></li>
+<li><p><a class="reference internal" href="#storage">Storage</a></p></li>
+<li><p><a class="reference internal" href="#exam-guides">Exam Guides</a></p></li>
+<li><p><a class="reference internal" href="#additional-resources">Additional Resources</a></p></li>
+</ol>
+<section id="job-roles">
+<h2>Job Roles<a class="headerlink" href="#job-roles" title="Link to this heading">#</a></h2>
+<section id="classic-it-job-roles">
+<h3>Classic IT Job Roles<a class="headerlink" href="#classic-it-job-roles" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Architect</strong></dt><dd><ul>
+<li><p>design based on business requirements</p></li>
+<li><p>Enterprise or System architect
++ translate business requirements into technical architecture
++ manage teams of designers and engineers</p></li>
+<li><p>Application architect</p></li>
+<li><p>Storage architect</p></li>
+<li><p>Network architect</p></li>
+<li><p>Security architect</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>System Administrator</strong></dt><dd><ul>
+<li><p>install, support and maintain systems and servers</p></li>
+<li><p>monitor performance and network</p></li>
+<li><p>manage users and access control</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Application Administrator</strong></dt><dd><ul>
+<li><p>install, update and maintain apps</p></li>
+<li><p>works closely with development and technical teams</p></li>
+<li><p>manages documentation of the app</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Database Administrator</strong></dt><dd><ul>
+<li><p>design, create and maintain databases</p></li>
+<li><p>train employees to use dbs</p></li>
+<li><p>Operations DBA: manages dbs</p></li>
+<li><p>Development DBA: design db architectures</p></li>
+<li><p>Data admin: manage access</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Network Administrator</strong></dt><dd><ul>
+<li><p>design, install/configure and maintain LAN and WAN</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Storage Administrator</strong></dt><dd><ul>
+<li><p>install, maintain/test and backup/recover storage systems</p></li>
+<li><p>monitor environment and manage capacity</p></li>
+<li><p>works with other technical teams such as application team</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Security Administrator</strong></dt><dd><ul>
+<li><p>install and administrate security solutions</p></li>
+<li><p>analyze and implement security policies</p></li>
+<li><p>monitor network traffic and unauthorized access</p></li>
+<li><p>manage tools and perform tests</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="cloud-job-roles">
+<h3>Cloud Job Roles<a class="headerlink" href="#cloud-job-roles" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Enterprise Architect</strong></dt><dd><ul>
+<li><p>works in business management, infrastructure, security and application infrastructure</p></li>
+<li><p>responsible for delivering cloud services for business
++ obtain business requirements
++ design solution-independent architectures and  present different models
++ validate, refine, expand, manage, monitor and update architectures</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Program Manager</strong></dt><dd><ul>
+<li><p>ensure that the cloud is managed appropriately</p></li>
+<li><p>manage operational teams</p></li>
+<li><p>monitor cloud metrics, manage service reports</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Financial manager</strong></dt><dd><ul>
+<li><p>perform cost coding and cost optimization</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Infrastructure Architect</strong></dt><dd><ul>
+<li><p>design/validate/expand solution-dependent architectures and requirements</p></li>
+<li><p>develop and maintain plans, collaborate with others</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Security Architect</strong></dt><dd><ul>
+<li><p>specify, design and maintain security requirements</p></li>
+<li><p>design and maintain risk assessment plans and incident response plans</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Application Architect</strong></dt><dd><ul>
+<li><p>design/validate/expand solution-dependent architectures and requirements</p></li>
+<li><p>perform capacity and scalability requirements</p></li>
+<li><p>provide deep software knowledge</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Application Developer</strong></dt><dd><ul>
+<li><p>build infrastructure/application, manage app documentation</p></li>
+<li><p>provide training and support to users</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>DevOps Engineer</strong></dt><dd><ul>
+<li><p>build and manage fast and scalable workflows, design automation solutions</p></li>
+<li><p>review and recommend operational improvements</p></li>
+<li><p>develop and maintain change management processes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Operations Engineer</strong></dt><dd><ul>
+<li><p>build, monitor and manage cloud infrastructure and shared services</p></li>
+<li><p>collaborate with cloud infrastructure architect</p></li>
+<li><p>ensure that service requirements are met</p></li>
+<li><p>Management
++ OS management, patch and update, manage templates, document changes, tag and review
+cloud infrastructure
++ manage capacity, manage virtual networks, manage app resiliency</p></li>
+<li><p>Support
++ provide through monitoring, which also includes compliance programs
++ perform performance tuning and root cause analysis
++ document reviews</p></li>
+<li><p>Security
++ manage, monitor and enforce security
++ implement security policies
++ perform vulnerability testing and risk analysis</p></li>
+<li><p>Infrastructure
++ build infrastructure/application</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#aws">back to top</a></p>
+</section>
+</section>
+<section id="management-with-iac">
+<h2>Management with IaC<a class="headerlink" href="#management-with-iac" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>can also manually manage through AWS management console, AWS cli or AWS apis</p></li>
+<li><p>managing with Infrastructure as Code provides reusable, maintainable, extensible and</p></li>
+</ul>
+<p>testable infrastructure using versioning control and continuous integration and delivery</p>
+<section id="devops">
+<h3>DevOPs<a class="headerlink" href="#devops" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>first design solution-independent architecture (by enterprise architect)</p></li>
+<li><dl class="simple">
+<dt><strong>Dev</strong></dt><dd><ul>
+<li><p>design cloud optimized application architecture (by security and application
+architect)</p></li>
+<li><p>write the code (by security operations and app developer)</p></li>
+<li><p>build and compile, test and package application and infrastructure code (by
+devops engineer)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>OPs</strong></dt><dd><ul>
+<li><p>design solution-dependent cloud infrastructure architecture (by infrastructure
+and security architect)</p></li>
+<li><p>build and manage infrastructure code (by operations engineer)</p></li>
+<li><p>build workflows, validate and automate deployments (by devops engineer)</p></li>
+<li><p>application can then be deployed to test or production environment</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>using automation/devops depends on security, application sensitivity, organization</p></li>
+</ul>
+<p>history, staffs skills and experience, adopted technologies, business goals and other
+factors</p>
+<p><a class="reference external" href="#aws">back to top</a></p>
+</section>
+</section>
+<section id="cloud-models">
+<h2>Cloud Models<a class="headerlink" href="#cloud-models" title="Link to this heading">#</a></h2>
+<section id="cloud-deployment-models">
+<h3>Cloud Deployment Models<a class="headerlink" href="#cloud-deployment-models" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Cloud-based</strong></dt><dd><ul>
+<li><p>run all, migrate existing or design and build new applications in the cloud</p></li>
+<li><p>can build using low or high level services</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>On-premises</strong></dt><dd><ul>
+<li><p>deploy and increase resources by using virtualization and resource management tools</p></li>
+<li><p>also known as private cloud deployment</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Hybrid</strong></dt><dd><ul>
+<li><p>connect cloud-based resources to on-premises infrastructure</p></li>
+<li><p>use when there are legacy applications or regulations that require to keep certain
+records on premises</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>upfront expense: physical resources that need to be invested before using</p></li>
+<li><p>variable expense: only pay for computing resources consumed</p></li>
+<li><dl class="simple">
+<dt>benefits of cloud computing</dt><dd><ul>
+<li><p>trade upfront expense for variable expense</p></li>
+<li><p>benefit from massive economies of scale (the higher economies of scale, the lower
+pay-as-you-go prices)</p></li>
+<li><p>stop guessing capacity (no need to predict how much infrastructure capacity will be
+needed)</p></li>
+<li><p>increase speed and agility (flexible and fast to access new resources)</p></li>
+<li><p>stop spending money running and maintaining data centers (focus less on spending
+money and time managing infrastructure)</p></li>
+<li><p>go global in minutes (can deploy global infrastructure)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="main-cloud-computing-models">
+<h3>Main Cloud Computing Models<a class="headerlink" href="#main-cloud-computing-models" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>IaaS (Infrastructure as a Service)</strong></dt><dd><ul>
+<li><p>contains basics for cloud (networking, computers and storage space)</p></li>
+<li><p>highest level of flexibility and control over resources</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>PaaS (Platform as a Service)</strong></dt><dd><ul>
+<li><p>no need to manage underlying infrastructure</p></li>
+<li><p>focus on deployment and management of applications</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>SaaS (Software as a Service)</strong></dt><dd><ul>
+<li><p>everything is managed by service provider</p></li>
+<li><p>most refer SaaS to end-user applications (e.g web-based email)</p></li>
+<li><p>only think about how the software will be used</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#aws">back to top</a></p>
+</section>
+</section>
+<section id="well-architected">
+<h2>Well-Architected<a class="headerlink" href="#well-architected" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>helps cloud architects build secure infrastructure</p></li>
+<li><dl class="simple">
+<dt>framework was created to</dt><dd><ul>
+<li><p>provide consistent approach to evaluating architectures</p></li>
+<li><p>ensure that customers are thinking cloud natively</p></li>
+<li><p>ensure that customers are thinking about the foundational areas that are often neglected</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>components of framework: questions, design principles and pillars</p></li>
+</ul>
+<section id="general-design-principles">
+<h3>General design principles<a class="headerlink" href="#general-design-principles" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>traditional environment</strong></dt><dd><ul>
+<li><p>had to guess infrastructure needs</p></li>
+<li><p>could not afford to test at scale</p></li>
+<li><p>had a fear of change</p></li>
+<li><p>could not justify experiments</p></li>
+<li><p>face frozen architecture</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>cloud environment</strong></dt><dd><ul>
+<li><p>stop guessing capacity needs</p></li>
+<li><p>test systems at production scale</p></li>
+<li><p>automate to make architectural experimentation easier</p></li>
+<li><p>allow for evolutionary architectures</p></li>
+<li><p>drive architectures using data</p></li>
+<li><p>improve through game days</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>built around six pillars</p></li>
+</ul>
+</section>
+<section id="operational-excellence">
+<h3>Operational Excellence<a class="headerlink" href="#operational-excellence" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>focuses on running and monitoring systems</p></li>
+<li><p>automating changes, responding to events and defining standards to manage operations</p></li>
+<li><dl class="simple">
+<dt>in traditional environment</dt><dd><ul>
+<li><p>manual changes, batch changes</p></li>
+<li><p>rarely run game days</p></li>
+<li><p>no time to learn from mistakes, stale documentation</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>in cloud environment</dt><dd><ul>
+<li><p>perform operations as code</p></li>
+<li><p>make frequent, small, reversible changes</p></li>
+<li><p>refine operations procedures frequently</p></li>
+<li><p>anticipate failure and learn from all operational failures</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>organization</dt><dd><ul>
+<li><p>operational priorities, operating models, organizational culture</p></li>
+<li><p>involve business and development teams in setting operational priorities</p></li>
+<li><p>consider internal and external compliance requirements</p></li>
+<li><p>consider trade-offs among priorities and make informed decisions</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>prepare</dt><dd><ul>
+<li><p>design telemetry, improve flow, mitigate deployment risks, understand operational
+readiness</p></li>
+<li><p>provide developers with individual sandboxes and environments</p></li>
+<li><p>use infrastructure as code and configuration management systems</p></li>
+<li><p>increase controls as environments approach production</p></li>
+<li><p>turn off when environments are not in use</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>operate</dt><dd><ul>
+<li><p>understand workload and operations health</p></li>
+<li><p>events: observation of interest</p></li>
+<li><p>incident: an event that requires a response</p></li>
+<li><p>problem: an incident that either recurs or cannot currently be resolved</p></li>
+<li><p>runbooks and playbooks should define what causes an issue and the process for the
+issue,and identify owners for each action</p></li>
+<li><p>users should be notified when services are impacted and when return to normal</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>evolve</dt><dd><ul>
+<li><p>learn from experience, make improvements and share learning</p></li>
+<li><p>have feedback loops</p></li>
+<li><p>identify ares for improvements and prioritize and drive them where needed</p></li>
+<li><p>begin on operations activities, customer experience and business and development
+teams and recognize improvement</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="security">
+<h3>Security<a class="headerlink" href="#security" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>focuses on protecting information and systems</p></li>
+<li><p>integrity of data, managing users and controls to detect security events</p></li>
+<li><dl class="simple">
+<dt>in cloud environment</dt><dd><ul>
+<li><p>implement strong identity foundation</p></li>
+<li><p>use fine-grained access controls</p></li>
+<li><p>apply security at all layers</p></li>
+<li><p>prepare for security events and automation</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>use AWS Accounts, Organizations, Control Tower</p></li>
+<li><dl class="simple">
+<dt>identity and access management</dt><dd><ul>
+<li><p>use AWS IAM and have strong sign-in mechanisms</p></li>
+<li><p>centralized identity provider and secure secrets</p></li>
+<li><p>define access requirements and grant least privilege</p></li>
+<li><p>limit public and cross-account access and reduce permissions continuously</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>detection</dt><dd><ul>
+<li><p>lifecycle controls to establish baseline</p></li>
+<li><p>internal auditing and automated alerting</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>infrastructure protection</dt><dd><ul>
+<li><p>have trust boundaries, system security configuration, OS authentication and policy
+enforcement points</p></li>
+<li><p>use edge services such as CloudFront and WAF</p></li>
+<li><p>divide VPC into layers using subnets and use all controls available</p></li>
+<li><p>use AWS managed services to focus on securing the workload</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>data protection</dt><dd><ul>
+<li><p>classify data, keep people away from data and use CI/CD</p></li>
+<li><p>protect data in transit and at rest</p></li>
+<li><p>provide a dashboard instead of direct query of data</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>incident response</dt><dd><ul>
+<li><p>have right tools pre-deployed and conduct game days regularly</p></li>
+<li><p>create new trusted environment to conduct investigations</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="reliability">
+<h3>Reliability<a class="headerlink" href="#reliability" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>focuses on workloads performance and recovery from failures</p></li>
+<li><p>distributed system design, recovery planning and adapting to changing requirements</p></li>
+<li><dl class="simple">
+<dt>in traditional environment</dt><dd><ul>
+<li><p>manual recover from failure, rare test recovery procedures</p></li>
+<li><p>multiple single points of failure, need to guess capacity</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>in cloud environment</dt><dd><ul>
+<li><p>automatic recovery, test recovery procedures</p></li>
+<li><p>scale horizontally, stop guessing capacity, manage change in automation</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>foundations</dt><dd><ul>
+<li><p>scope extends beyond single workload or project</p></li>
+<li><p>have sufficient network topology and understand service quota</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>workload architecture</dt><dd><ul>
+<li><p>use microservices or service-oriented architecture (SOA)</p></li>
+<li><p>design to prevent and mitigate failures</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>change management</dt><dd><ul>
+<li><p>monitor behavior, automate response and review</p></li>
+<li><p>auto scale to meet demands</p></li>
+<li><p>integrate testing as part of deployment and use immutable infrastructure</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>failure management</dt><dd><ul>
+<li><p>automate, analyze, backup data and recover</p></li>
+<li><p>use multiple AZs or Regions as needed</p></li>
+<li><p>bulkhead architecture (partitions or shards: bulkhead for data, cells: bulkhead for
+services)</p></li>
+<li><p>have periodic recovery testing and reviews</p></li>
+<li><p>test function and performance with playbooks and use chaos engineering</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="performance-efficiency">
+<h3>Performance Efficiency<a class="headerlink" href="#performance-efficiency" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>focuses on structured allocation of computing resources</p></li>
+<li><p>selecting resource types, monitoring performance and maintaining efficiency</p></li>
+<li><dl class="simple">
+<dt>in traditional environment</dt><dd><ul>
+<li><p>use of same technology and local</p></li>
+<li><p>use servers with people to manage and hard to experiment</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>in cloud environment</dt><dd><ul>
+<li><p>try new technologies, go global in minutes</p></li>
+<li><p>use serverless and experiment more often</p></li>
+<li><p>consider mechanical sympathy</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>selection</dt><dd><ul>
+<li><p>select appropriate resource types</p></li>
+<li><p>benchmark and load test and monitor performance</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>review</dt><dd><ul>
+<li><p>review selections as new resources are innovated</p></li>
+<li><p>experiment with features in low-risk way</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>monitoring</dt><dd><ul>
+<li><p>use alerts and automation to work around performance issues (CloudWatch, Kinesis,
+SQS, Lambda)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>trade-offs</dt><dd><ul>
+<li><p>optimize resource position, add read-only replicas and measure impact</p></li>
+<li><p>use CDN, database caching, proactive monitoring and notification</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="cost-optimization">
+<h3>Cost Optimization<a class="headerlink" href="#cost-optimization" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>focuses on avoiding unnecessary costs</p></li>
+<li><p>controlling fund allocation, selecting right resources and scaling without</p></li>
+</ul>
+<p>overspending
+* in traditional environment</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>centralize cost, labor to maintain servers</p></li>
+<li><p>pay upfront, no benefit from economies of scale</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>in cloud environment</dt><dd><ul>
+<li><p>adopt consumption model, measure overall efficiency</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>practice cloud financial management</dt><dd><ul>
+<li><p>stop spending money on heavy lifting, analyze and attribute expenditure</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>expenditure and usage awareness</dt><dd><ul>
+<li><p>tag resources, track applications</p></li>
+<li><p>monitor usage and spend (Cost Explorer, partner tools)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>cost-effective resources</dt><dd><ul>
+<li><p>on-demand, savings plans, reserved and spot instances</p></li>
+<li><p>analyze available services and take advantage</p></li>
+<li><p>consider application-level services and automation</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>manage demand and supply resources</dt><dd><ul>
+<li><p>resource provisioning, monitoring tools and benchmark</p></li>
+<li><p>manage demand with queue or buffer and supply through auto scaling (demand based or
+time based)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>optimize over time</dt><dd><ul>
+<li><p>decommission resources or services</p></li>
+<li><p>stay up to date on new services and features</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="sustainability">
+<h3>Sustainability<a class="headerlink" href="#sustainability" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>focuses on minimizing environmental impacts of running workloads</p></li>
+<li><p>shared responsibility, understanding impact and maximize utilization and minimize</p></li>
+</ul>
+<p>required resources</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>framework includes domain-specific lenses and AWS Well-Architected Tool, a tool to</p></li>
+</ul>
+<p>evaluate workloads
+* terms</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>component: code, configuration and resources</p></li>
+<li><p>workload: a set of components that deliver business value</p></li>
+<li><p>architecture: how components work together in a workload</p></li>
+<li><p>milestones: key changes in architecture as it evolves</p></li>
+<li><p>technology portfolio: collection of workloads that are required for the business</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>trade-offs will be made between pillars based on the business context</p></li>
+<li><p>security and operational excellence are generally not traded-off against others</p></li>
+<li><dl class="simple">
+<dt>common uses of framework</dt><dd><ul>
+<li><p>learn how to build cloud-native architecture</p></li>
+<li><p>build a backlog</p></li>
+<li><p>use as a gating mechanism before launch</p></li>
+<li><p>compare maturity of different teams</p></li>
+<li><p>perform due diligence for acquisitions</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="well-architected-tool">
+<h3>Well-Architected Tool<a class="headerlink" href="#well-architected-tool" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>main features</dt><dd><ul>
+<li><p>define workloads and perform reviews</p></li>
+<li><p>locate helpful resources, save milestones</p></li>
+<li><p>use dashboard, generate pdf reports</p></li>
+<li><p>assign priorities to pillars, create improvement plan</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#aws">back to top</a></p>
+</section>
+</section>
+<section id="aws-global-infrastructure">
+<h2>AWS Global Infrastructure<a class="headerlink" href="#aws-global-infrastructure" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>built closest to adhere business demands</p></li>
+</ul>
+<section id="regions">
+<h3>Regions<a class="headerlink" href="#regions" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>geographical area that contains AWS resources</p></li>
+<li><p>each Region has multiple data centers</p></li>
+<li><p>each Region can be connected to another through high speed fiber network</p></li>
+<li><p>each Region is isolated from every other</p></li>
+<li><p>data can only move from Region to Region if permission is explicitly granted</p></li>
+<li><dl class="simple">
+<dt><strong>choosing a Region</strong></dt><dd><ol class="arabic simple">
+<li><p>compliance requirements</p></li>
+<li><p>proximity to customers</p></li>
+<li><p>feature availability</p></li>
+<li><p>pricing</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="availability-zones-azs">
+<h3>Availability Zones (AZs)<a class="headerlink" href="#availability-zones-azs" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>each AZ is one or more discrete data centers within a Region</p></li>
+<li><p>each Region consists of isolated and physically separated AZs</p></li>
+<li><p>high availability and disaster recovery</p></li>
+<li><p>run services across at least two AZs in a Region</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>may of the AWS services run at the Region level, running synchronously across multiple AZs</p></li>
+</ul>
+</section>
+<section id="edge-locations">
+<h3>Edge locations<a class="headerlink" href="#edge-locations" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>CDNs (Content Delivery Networks): caching copies of data closer to the customers</p></li>
+<li><p>separate from Regions</p></li>
+<li><p>can push content from inside a Region to collection of Edge locations</p></li>
+<li><p>cache a copy locally at an edge location</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="everything-is-an-api-call">
+<h3>everything is an API call<a class="headerlink" href="#everything-is-an-api-call" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>invoke APIs to configure and manages AWS resources</p></li>
+<li><dl class="simple">
+<dt><strong>AWS Management Console</strong></dt><dd><ul>
+<li><p>web-based to manage resources visually</p></li>
+<li><p>to test environments, view bills and monitoring</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>AWS CLI</strong></dt><dd><ul>
+<li><p>make API calls using terminal</p></li>
+<li><p>actions can be scripted and repeated</p></li>
+<li><p>less human error</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>AWS SDKs</strong></dt><dd><ul>
+<li><p>interact with AWS resources through various programming languages</p></li>
+<li><p>without using low-level APIs</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#aws">back to top</a></p>
+</section>
+</section>
+<section id="pricing-support">
+<h2>Pricing &amp; Support<a class="headerlink" href="#pricing-support" title="Link to this heading">#</a></h2>
+<section id="free-tier">
+<h3>Free Tier<a class="headerlink" href="#free-tier" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Always free</strong></dt><dd><ul>
+<li><p>Lambda allows for 1 million free invocations and up to 3.2 million seconds
+of compute time per month</p></li>
+<li><p>DynamoDB allows 25GB of free storage per month</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>12 months free</strong></dt><dd><ul>
+<li><p>following the initial sign up</p></li>
+<li><p>S3 up to 5GB of standard storage</p></li>
+<li><p>thresholds for monthly hours of EC2 compute time</p></li>
+<li><p>CloudFront data transfer out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Trials</strong></dt><dd><ul>
+<li><p>Lightsail offers 1 month trial of up to 750 hours of usage</p></li>
+<li><p>Inspector offers 90-day free trial</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>SageMaker, Comprehend Medical, DynamoDB, SNS, Cognito, [etc.](<a class="reference external" href="https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&amp;all-free-tier.sort-order=asc&amp;awsf.Free%20Tier%20Types=*all&amp;awsf.Free%20Tier%20Categories=*all">https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&amp;all-free-tier.sort-order=asc&amp;awsf.Free%20Tier%20Types=*all&amp;awsf.Free%20Tier%20Categories=*all</a>)</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="pricing">
+<h3>Pricing<a class="headerlink" href="#pricing" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>pay for what you use</dt><dd><ul>
+<li><p>pay for exactly the amount of resources used without long-term contracts</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>pay less when you reserve</dt><dd><ul>
+<li><p>get discounts with reservations compared to On-Demand pricing</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>pay less with volume-based discounts when you use more</dt><dd><ul>
+<li><p>per-unit cost gets lower with increased usage</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Lambda</dt><dd><ul>
+<li><p>charged based on number of re*uests for functions and time taken for them to run</p></li>
+<li><p>can save cost by signing up for Compute Savings Plans, consistent usage over 1 or 3
+year term</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>EC2</dt><dd><ul>
+<li><p>charge based on compute time while instances are running</p></li>
+<li><p>can significantly reduce costs by using Spot Instances</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>S3</dt><dd><ul>
+<li><p>storage: charged based on objects’ sizes, storage classes and stored duration of
+each object</p></li>
+<li><p>requests and data retrievals: pay for requests made to S3 objects and buckets</p></li>
+<li><p>data transfer
++ no cost to transfer data between S3 buckets or from S3 to other services within
+same Region
++ no cost to transfer into S3 from the internet or out to CloudFront
++ no cost to transfer out to EC2 instance in the same Region</p></li>
+<li><p>management and replication: pay for storage management features enabled (Inventory,
+analytics, object tagging)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="pricing-calculator">
+<h3>Pricing Calculator<a class="headerlink" href="#pricing-calculator" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>explore services and create estimate for the cost of use case</p></li>
+<li><p>organize estimates by groups</p></li>
+<li><p>can share an estimate with others through generated link</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="billing-dashboard">
+<h3>Billing Dashboard<a class="headerlink" href="#billing-dashboard" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>pay bills, monitor usage and analyze costs</p></li>
+<li><p>compare current and previous month balance and get a forecast</p></li>
+<li><p>view Free Tier usage by service</p></li>
+<li><p>purchase and manage Savings Plans</p></li>
+<li><p>publish Cost and Usage Reports</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="consolidated-billing">
+<h3>Consolidated Billing<a class="headerlink" href="#consolidated-billing" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>free [AWS Organizations](#organizations) feature for single billing of multiple accounts</p></li>
+<li><p>can get bulk discount pricing, share Savings Plans and Reserved Instances across all</p></li>
+</ul>
+<p>accounts in the organization
+* default maximum accounts allowed for an organization is 4
+* can contact AWS Support to increase quota</p>
+</div></blockquote>
+</section>
+<section id="basic-free-support">
+<h3>Basic free support<a class="headerlink" href="#basic-free-support" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>24/7 customer service, Documentations, Whitepapers, Support forums</p></li>
+<li><p>[AWS Trusted Advisor](#trusted-advisor), AWS Health Dashboard</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="developer-support">
+<h3>Developer support<a class="headerlink" href="#developer-support" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Basic support, email access to customer support</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="business-support">
+<h3>Business support<a class="headerlink" href="#business-support" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Basic and Developer support</p></li>
+<li><p>[Trusted Advisor](#trusted-advisor) provides full set of checks</p></li>
+<li><p>direct phone access to cloud support engineers</p></li>
+<li><p>access to infrastructure event management</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="enterprise-support">
+<h3>Enterprise support<a class="headerlink" href="#enterprise-support" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Basic, Developer and Business support</p></li>
+<li><p>15-minute SLA for critical workloads</p></li>
+<li><p>dedicated TAM (Technical Account Manager), who provides expertise across full range</p></li>
+</ul>
+<p>of services</p>
+</div></blockquote>
+</section>
+<section id="edp-enterprise-discount-program">
+<h3>EDP (Enterprise Discount Program)<a class="headerlink" href="#edp-enterprise-discount-program" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>for large enterprises with significant AWS consumption spend</p></li>
+<li><p>get discounted pricing for enterprise level consumption commitments</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#aws">back to top</a></p>
+</section>
+</section>
+<section id="caf-cloud-adoption-framework">
+<h2>CAF (Cloud Adoption Framework)<a class="headerlink" href="#caf-cloud-adoption-framework" title="Link to this heading">#</a></h2>
+<ul>
+<li><p>to enable quick and smooth migration to AWS, focuses on six perspectives</p></li>
+<li><p>business, people and governance perspectives focus on business capabilities</p></li>
+<li><dl>
+<dt>platform, security and operations perspectives focus on technical capabilities</dt><dd><ul>
+<li><dl class="simple">
+<dt><strong>Business</strong></dt><dd><ul class="simple">
+<li><p>to create strong business case for cloud adoption and prioritize cloud adoption
+initiatives</p></li>
+<li><p>ensure business strategies and goals align with IT</p></li>
+<li><p>roles: business managers, finance managers, budget owners, strategy stakeholders</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>People</strong></dt><dd><ul class="simple">
+<li><p>to evaluate organizational structures and roles, new skill and process requirements,
+and identify gaps</p></li>
+<li><p>prioritize training, staffing and organizational changes</p></li>
+<li><p>roles: HR, staffing, people managers</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Governance</strong></dt><dd><ul class="simple">
+<li><p>to understand how to update the staff skills and processes to align IT strategy with
+business strategy</p></li>
+<li><p>manage and measure cloud investments to evaluate business outcomes</p></li>
+<li><p>roles: CIO, program managers, enterprise architects, business analysts, portfolio</p></li>
+</ul>
+<p>managers</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Platform</strong></dt><dd><ul class="simple">
+<li><p>to understand and communicate structure of IT systems and their relationships</p></li>
+<li><p>includes principles and patterns for implementing new solutions on the cloud and
+migrating on-premises workloads to the cloud</p></li>
+<li><p>describe the architecture of the target state environment in detail</p></li>
+<li><p>roles: CTO, IT managers, solutions architect</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Security</strong></dt><dd><ul class="simple">
+<li><p>to structure the selection and implementation of security controls for visibility,
+auditability, control and agility that meet the organization’s needs</p></li>
+<li><p>roles: CISO, IT security managers, IT security analysts</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Operations</strong></dt><dd><ul class="simple">
+<li><p>to enable, run, use, operate and recover IT workloads to the level agreed upon with
+business stakeholders</p></li>
+<li><p>define current operating procedures and identify the process changes and training
+needed to implement successful cloud adoption</p></li>
+<li><p>roles: IT operation managers, IT support managers</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>CAF Action Plan</dt><dd><ul class="simple">
+<li><p>each perspective is used to uncover gaps in skills and processes, which are recorded as inputs</p></li>
+<li><p>inputs are used to create CAF Action Plan</p></li>
+<li><p>helps guide organization for cloud migration</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><a class="reference external" href="#aws">back to top</a></p>
+</section>
+<section id="r-s-migration-strategies">
+<h2>6 R’s (migration strategies)<a class="headerlink" href="#r-s-migration-strategies" title="Link to this heading">#</a></h2>
+<section id="rehosting">
+<h3>Rehosting<a class="headerlink" href="#rehosting" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>lift and shift, not changing anything</p></li>
+<li><p>move applications as is into AWS, may not be optimized at first</p></li>
+<li><p>for large legacy migration</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="replatforming">
+<h3>Replatforming<a class="headerlink" href="#replatforming" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>lift, tinker and shift</p></li>
+<li><p>make few optimizations, but not changing core architecture of the application</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="refactoring-re-architecting">
+<h3>Refactoring/re-architecting<a class="headerlink" href="#refactoring-re-architecting" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>changing application architecture and develop by using cloud-native features</p></li>
+<li><p>driven by strong business needs to add features, scale or performance that is hard</p></li>
+</ul>
+<p>to achieve in existing environment</p>
+</div></blockquote>
+</section>
+<section id="repurchasing">
+<h3>Repurchasing<a class="headerlink" href="#repurchasing" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>moving from traditional license to a software-as-a-service model</p></li>
+<li><p>abandon legacy vendors and move to cloud-native ones</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="retaining">
+<h3>Retaining<a class="headerlink" href="#retaining" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>keeping applications critical for the business</p></li>
+<li><p>include applications that require major refactoring before migrated</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="retiring">
+<h3>Retiring<a class="headerlink" href="#retiring" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>removing applications that are no longer needed</p></li>
+<li><p>to save cost and effort</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#aws">back to top</a></p>
+</section>
+</section>
+<section id="cloud-acquisition">
+<h2>Cloud Acquisition<a class="headerlink" href="#cloud-acquisition" title="Link to this heading">#</a></h2>
+<section id="procurement">
+<h3>Procurement<a class="headerlink" href="#procurement" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>buying cloud technologies is paying for access to standardized compute, storage and other</p></li>
+</ul>
+<p>IT services that run in a cloud service provider (CSP) data centers
+* different from traditional on-premises hardware as only pay for the resources used
+* reevaluate existing procurement strategies
+* create flexible acquisition process
+* successful cloud procurement strategies extract full benefits of the cloud</p>
+</div></blockquote>
+</section>
+<section id="legal">
+<h3>Legal<a class="headerlink" href="#legal" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>engage CSPs early to get best fit and resolve differences</p></li>
+<li><p>avoid traditional IT terms and conditions as the basis for contract</p></li>
+<li><p>use the CSP’s terms as possible to avoid misalignment</p></li>
+<li><p>recognize different terms and conditions among CSPs, cloud-managed service providers</p></li>
+</ul>
+<p>and resellers</p>
+</div></blockquote>
+</section>
+<section id="id8">
+<h3>Security<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>research existing industry best practice</p></li>
+<li><p>use third-party auditing to evaluate CSPs to prevent overly burdensome processes</p></li>
+<li><p>ask whether CSP is certified for specific third-party accreditation</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="governance">
+<h3>Governance<a class="headerlink" href="#governance" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>shared responsibility between CSP and customers</p></li>
+<li><p>ensure that the contract can be used effectively or operationalized</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="finance">
+<h3>Finance<a class="headerlink" href="#finance" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>think beyond fixed-price contracting</p></li>
+<li><p>account for fluctuating demand with pay-as-you-go model</p></li>
+<li><p>cloud pricing fluctuates based on market pricing</p></li>
+<li><p>allow for flexibility in procurement strategy</p></li>
+<li><p>evaluate different CSPs based on publicly available pricing and tools</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="compliance">
+<h3>Compliance<a class="headerlink" href="#compliance" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>compliance requirements differ based on geographical location</p></li>
+<li><p>ask CSPs and Partners about how they comply and what tools are supported</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>engage all <strong>stakeholders</strong> early and often</dt><dd><ul>
+<li><p>help them understand how cloud will affect their area</p></li>
+<li><p>understand how they will need to change and adapt internal skills and processes</p></li>
+<li><dl class="simple">
+<dt>security professionals</dt><dd><ul>
+<li><p>consider how to get security assurance through third-party audits</p></li>
+<li><p>consider skills and capability needed</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>HR</dt><dd><ul>
+<li><p>think about training or retraining staff to use new systems</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>finance</dt><dd><ul>
+<li><p>consider internal spend controls and use tools to predict, manage and control costs</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>program managers</dt><dd><ul>
+<li><p>think about shared responsibility model</p></li>
+<li><p>think about ways to deploy new programs to exploit visibility and control in cloud
+environment</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>buying the cloud</dt><dd><ul>
+<li><dl class="simple">
+<dt>Direct</dt><dd><ul>
+<li><p>purchase as a commercial item without labor hours</p></li>
+<li><p>accept the [AWS Agreement](<a class="reference external" href="https://aws.amazon.com/agreement/">https://aws.amazon.com/agreement/</a>) (online customer/AWS Enterprise) with standard terms and conditions</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Indirect</dt><dd><ul>
+<li><p>purchase from CSP partner/reseller</p></li>
+<li><p>negotiate customized agreement with the CSP</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>separate technology provided by CSP from hands-on services and labor</p></li>
+<li><p>CSPs operate at massive one-to-many scale to offer services</p></li>
+<li><p>key aspects of procurement: pricing, security, governance, terms &amp; conditions</p></li>
+<li><p>data sovereignty: ownership over data</p></li>
+<li><p>data residency: requirement that all processed and stored content remain within specific</p></li>
+</ul>
+<p>country’s borders
+* <a href="#id27"><span class="problematic" id="id28">`Vendor selection guide`_</span></a>, <a href="#id29"><span class="problematic" id="id30">`Buying Cloud Services guide`_</span></a></p>
+</section>
+<section id="aws-partner-network-apn">
+<h3>AWS Partner Network (APN)<a class="headerlink" href="#aws-partner-network-apn" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>helps identify and choose high-quality AWS Partners with deep AWS expertise</p></li>
+<li><p>consulting partners: provide customers with professional services</p></li>
+<li><p>technology partners: provide customers with software solutions</p></li>
+<li><p>AWS offers Partners solution provider program, managed service provider (MSP) program,</p></li>
+</ul>
+<p>competency program, service delivery program</p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>AWS programs</dt><dd><ul>
+<li><dl class="simple">
+<dt>AWS re/Start</dt><dd><ul>
+<li><p>12-week program for disadvantaged people and members of armed forces community</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>AWS Educate</dt><dd><ul>
+<li><p>free cloud curriculum content for recognized educational institutions</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>AWS Startup Day</dt><dd><ul>
+<li><p>free full-day events to deliver education, networking opportunities and experiences
+of start-up founders</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>AWS Lofts</dt><dd><ul>
+<li><p>a place where start-ups and developers can meet at no cost</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>AWS Activate</dt><dd><ul>
+<li><p>to provide start-ups with resources to test and grow</p></li>
+<li><p>can be applied direct or through a participating accelerator, incubator, seed or VC
+fund or other start-up enabling organizations</p></li>
+<li><p>3 tiers providing up to $100,000 of free platform credits, training and support</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>can query AWS prices with The Price List Service API (Query API, JSON) and AWS Price List API</p></li>
+</ul>
+<p>(Bulk API, HTML)
+* can subscribe to Amazon SNS to get alerts when prices change
+* prices change periodically when AWS cuts prices, new instance types are launched or new
+services are introduced
+* different ways for cloud migration</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>Agile approach</dt><dd><ul>
+<li><p>to accelerate cloud migrations at scale</p></li>
+<li><p>epics: work that can be broken down into specific tasks</p></li>
+<li><p>use epics for defined workstreams in the readiness and planning phase</p></li>
+<li><p>structure work in the form of epics and stories to be able to respond to change</p></li>
+<li><p>produce well-prioritized backlog, report progress</p></li>
+<li><p>build migration roadmap to tie business stakeholder needs to technology initiatives</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Sprints</dt><dd><ul>
+<li><p>for migration planning and implementation</p></li>
+<li><p>align, enable and mobilize workforce and resources</p></li>
+<li><p>start small, create early success and build to full migration</p></li>
+<li><p>capture outputs, best practices and lessons learned</p></li>
+<li><p>create blueprints of agile delivery for scaling migrations based on Wave 1 ( the
+initial wave of migrations with 10 to 30 applications)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>can scale teams to support initial wave of migrations after agile and sprints to build</p></li>
+</ul>
+<p>migration factory process
+* AWS Incentives</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>AWS Cloud Adoption Framework (AWS CAF), AWS Professional Services (ProServe)</p></li>
+<li><p>AWS Cloud Adoption Readiness Tool (CART) helps customers develop efficient and
+effective plans</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>AWS Migration Partners</dt><dd><ul>
+<li><p>can help through every stage of migration</p></li>
+<li><p>accelerate results by providing personnel, tools and education</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><a href="#id31"><span class="problematic" id="id32">`AWS Cloud Adoption Readiness`_</span></a>, <a href="#id33"><span class="problematic" id="id34">`Ten Considerations for a Cloud Procurement`_</span></a></p></li>
+</ul>
+<p><a class="reference external" href="#aws">back to top</a></p>
+</section>
+</section>
+<section id="application-integration">
+<h2>Application Integration<a class="headerlink" href="#application-integration" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href="#id35"><span class="problematic" id="id36">`SNS`_</span></a>, <a href="#id37"><span class="problematic" id="id38">`SQS`_</span></a></p></li>
+</ul>
+<section id="sns-simple-notification-service">
+<h3>SNS (Simple Notification Service)<a class="headerlink" href="#sns-simple-notification-service" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>send notifications to end users in publish/subscribe model using mobile</p></li>
+</ul>
+<p>push, SMS and email
+* SNS topic: channel for messages to be delivered
+* sending a message to a topic will go out to all subscribers of that channel
+* subscribers can also be endpoints such as SQS queues, Lambda functions, HTTPS or
+HTTP web hooks</p>
+</div></blockquote>
+</section>
+<section id="sqs-simple-queue-service">
+<h3>SQS (Simple Queue Service)<a class="headerlink" href="#sqs-simple-queue-service" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>send, store and receive messages between software components at any volume</p></li>
+<li><p>payload: data within the message which is protected until delivery</p></li>
+<li><p>messages are sent into a queue and retrieved from it and deleted after processed</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#aws">back to top</a></p>
+</section>
+</section>
+<section id="compute">
+<h2>Compute<a class="headerlink" href="#compute" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[EC2](#ec2), [ELB](#elb), [Lambda](#lambda), [Elastic Beanstalk](#elastic-beanstalk), [Outposts](#outposts)</p></li>
+</ul>
+<section id="ec2-elastic-compute-cloud">
+<h3>EC2 (Elastic Compute Cloud)<a class="headerlink" href="#ec2-elastic-compute-cloud" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Compute as a Service Model</p></li>
+<li><p>each instance is a virtual machine</p></li>
+<li><p>multitenancy: sharing underlying hardware between VMs</p></li>
+<li><p>hyper visor is responsible for multitenancy and isolating the VMs</p></li>
+<li><p>one instance is not aware of another on the same host</p></li>
+<li><p>pay only for the compute time when an instance is running</p></li>
+<li><p>can choose OS and specific hardware configuration</p></li>
+<li><p>flexible and resizable/vertical scaling</p></li>
+<li><dl class="simple">
+<dt><strong>Instance types</strong></dt><dd><ul>
+<li><p><strong>General purpose</strong>
++ balance of compute, memory and networking resources</p></li>
+<li><p><strong>Compute optimized</strong>
++ compute intensive tasks
++ e.g gaming servers, HPC, scientific modeling, batch processing workloads</p></li>
+<li><p><strong>Memory optimized</strong>
++ for workloads to process large datasets in memory
++ e.g high-performance database, perform real-time processing of unstructured data</p></li>
+<li><p><strong>Accelerated computing</strong>
++ use hardware accelerators or coprocessors
++ e.g floating point calculations, graphics processing, data pattern matching</p></li>
+<li><p><strong>Storage optimized</strong>
++ for high, sequential read and write access to large datasets on local storage
++ suitable for high IOPS requirement
++ e.g distributed file systems, data warehousing apps, OLTP systems</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Pricing</strong></dt><dd><ul>
+<li><p><strong>On-Demand</strong>
++ for short-term, irregular, uninterruptible workloads
++ instances run continuously until stopped
++ pay only for compute time used
++ e.g developing and testing apps, running apps that have unpredictable usage
+patterns</p></li>
+<li><p><strong>Savings Plans</strong>
++ commit consistent amount of compute usage for 1 or 3-year term
++ measured in $/hour, more flexible than Reserved Instances
++ usage beyond commitment is charged at regular On-Demand rates
++ payment options: all upfront, partial upfront or no upfront
++ Compute savings plans: up to 66% over On-Demand cost
++ EC2 Instance savings plans: up to 72% for commitment to usage of individual
+instance families in a Region
++ SageMaker savings plans: 64% savings</p></li>
+<li><p><strong>Reserved</strong>
++ Standard (up to 72%) or Convertible reserved (up to 66%) for 1 or 3-year term
++ Scheduled reserved for recurring schedule can pay by $/hour
++ no, partial or all upfront
++ charged with On-Demand rates at the end of term until terminated or purchase new
+Reserved instance that matches</p></li>
+<li><p><strong>Spot</strong>
++ for workloads that can have interruptions
++ use unused/spare EC2 capacity and savings up to 90% off of On-Demand prices
++ Spot request is unsuccessful until capacity is available
++ AWS can reclaim if needed giving a two-minute warning to save state
++ e.g batch workloads</p></li>
+<li><p><strong>Dedicated Hosts</strong>
++ physical servers with EC2 instances
++ can use existing software licenses
++ On-Demand Dedicated Hosts (hourly) and Dedicated Hosts Reservations (up to 70%
+off the On-Demand price)
++ most expensive type</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>can be auto scaled</p></li>
+<li><dl class="simple">
+<dt><strong>Security Groups</strong></dt><dd><ul>
+<li><p>for instance level access</p></li>
+<li><p>every instance launched comes with security group</p></li>
+<li><p>does not allow any traffic into the instance by default</p></li>
+<li><p>check traffic on the way in but all traffics are allowed to go out of the instance</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="elb-elastic-load-balancing">
+<h3>ELB (Elastic Load Balancing)<a class="headerlink" href="#elb-elastic-load-balancing" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>auto distributes incoming traffic across multiple resources</p></li>
+<li><p>acts as a single point of contact for all traffic to Auto Scaling group</p></li>
+<li><p>EC2 instances can be added or removed without disruption</p></li>
+<li><p>ELB and Auto Scaling can work together even though they are separate services</p></li>
+<li><p>regional construct: run at the Region level rather than on individual EC2 instances,</p></li>
+</ul>
+<p>therefore, is highly available
+* can also be used for internal traffic in decoupled architecture
+* e.g front-end and back-end stay separated with ELB between, distributing all
+all traffics to back-end instances</p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>tightly coupled architecture (Monolithic)</dt><dd><ul>
+<li><p>applications communicate directly</p></li>
+<li><p>if single component fails or changes, it may cause issues to entire application</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>loosely coupled architecture (Microservices)</dt><dd><ul>
+<li><p>a buffer is between applications to communicate</p></li>
+<li><p>the buffer holds the message until it is processed</p></li>
+<li><p>messages can still be sent to buffer even if the other application is down</p></li>
+<li><p>prevents entire application from failing</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="lambda">
+<h3>Lambda<a class="headerlink" href="#lambda" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>do not need to provision servers</p></li>
+<li><p>flexibility to auto scale serverless applications by modifying units of consumptions</p></li>
+</ul>
+<p>such as throughput and memory
+* upload code to Lambda, set code to trigger from an event source, code runs only when
+triggered, pay only for compute time used
+* default metrics provided on CloudWatch</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Invocation metrics, Performance metrics, Concurrency metrics</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>maximum 10GB storage and 15 minute execution for running a lambda function</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="elastic-beanstalk">
+<h3>Elastic Beanstalk<a class="headerlink" href="#elastic-beanstalk" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>helps provision EC2-based environments</p></li>
+<li><p>builds environment from provided application code and configurations</p></li>
+<li><p>makes it easy to save environment configurations to be deployed again</p></li>
+<li><p>focus on business application, not the infrastructure</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="outposts">
+<h3>Outposts<a class="headerlink" href="#outposts" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>fully operational mini Region on-premises</p></li>
+<li><p>owned and operated by AWS</p></li>
+<li><p>isolated within building with AWS services</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#aws">back to top</a></p>
+</section>
+</section>
+<section id="containers">
+<h2>Containers<a class="headerlink" href="#containers" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href="#id39"><span class="problematic" id="id40">`ECS`_</span></a>, <a href="#id41"><span class="problematic" id="id42">`EKS`_</span></a>, <a class="reference internal" href="#fargate">Fargate</a></p></li>
+</ul>
+<section id="ecs-elastic-container-service">
+<h3>ECS (Elastic Container Service)<a class="headerlink" href="#ecs-elastic-container-service" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>containers: package application’s code and dependencies into single object</p></li>
+<li><p>run and scale containerized applications</p></li>
+<li><p>supports Docker containers (Community and Enterprise Editions)</p></li>
+<li><p>can use API calls to launch and stop applications</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="eks-elastic-kubernetes-service">
+<h3>EKS (Elastic Kubernetes Service)<a class="headerlink" href="#eks-elastic-kubernetes-service" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>deploy and manage containerized applications at scale</p></li>
+<li><p>new features from K8s community can be easily applied to applications on EKS</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>both ECS and EKS can run on top of EC2, both are container orchestration tools</p></li>
+</ul>
+</section>
+<section id="fargate">
+<h3>Fargate<a class="headerlink" href="#fargate" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>serverless compute engine for containers</p></li>
+<li><p>works with both ECS and EKS</p></li>
+<li><p>pay only for resources used to run containers</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#aws">back to top</a></p>
+</section>
+</section>
+<section id="cost-management">
+<h2>Cost Management<a class="headerlink" href="#cost-management" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#budgets">Budgets</a>, <a class="reference internal" href="#cost-explorer">Cost Explorer</a>, <a class="reference internal" href="#marketplace">Marketplace</a></p></li>
+</ul>
+<section id="budgets">
+<h3>Budgets<a class="headerlink" href="#budgets" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>set custom budgets to plan service usage, costs and instance reservations</p></li>
+<li><p>information is updated three times a day</p></li>
+<li><p>set alerts if usage exceeds the limit</p></li>
+<li><p>send emails up to 10 addresses, integrate with AWS Chatbot to receive alerts through</p></li>
+</ul>
+<p>Slack and Amazon Chime
+* can compare current/forecasted vs budgeted</p>
+</div></blockquote>
+</section>
+<section id="cost-explorer">
+<h3>Cost Explorer<a class="headerlink" href="#cost-explorer" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>console based service to visualize and analyze cost usage</p></li>
+<li><p>gives 12 months of data to track</p></li>
+<li><p>has default report of costs and usage for top five cost-accruing services</p></li>
+<li><p>can create custom reports</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="marketplace">
+<h3>Marketplace<a class="headerlink" href="#marketplace" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can choose third-party software with different payment options</p></li>
+<li><p>can use one-click deployment</p></li>
+<li><p>most vendors allow already owned licenses to use for AWS deployment and offer</p></li>
+</ul>
+<p>pay-as-you-go pricing
+* many vendors offer free trials or quick start plans
+* enterprise focused features</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>custom terms and pricing</p></li>
+<li><p>private marketplace</p></li>
+<li><p>integration into procurement systems</p></li>
+<li><p>cost management tools</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p><a class="reference external" href="#aws">back to top</a></p>
+</section>
+</section>
+<section id="database">
+<h2>Database<a class="headerlink" href="#database" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href="#id43"><span class="problematic" id="id44">`RDS`_</span></a>, <a class="reference internal" href="#dynamodb">DynamoDB</a>, <a class="reference internal" href="#redshift">Redshift</a>, <a href="#id45"><span class="problematic" id="id46">`DMS`_</span></a>, <a class="reference internal" href="#documentdb">DocumentDB</a>, <a class="reference internal" href="#neptune">Neptune</a>, <a class="reference internal" href="#managed-blockchain">Managed Blockchain</a>, <a href="#id47"><span class="problematic" id="id48">`QLDB`_</span></a>, <a class="reference internal" href="#elasticache">ElastiCache</a></p></li>
+<li><dl class="simple">
+<dt>relational databases</dt><dd><ul>
+<li><p>data is stored in a way that relates it to other pieces of data</p></li>
+<li><p>uses SQL to store and query data</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<section id="rds-relational-database-service">
+<h3>RDS (Relational Database Service)<a class="headerlink" href="#rds-relational-database-service" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>enables to run relational databases in the AWS Cloud</p></li>
+<li><p>supported database engines: Aurora, PostgreSQL, MySQL, MariaDB, Oracle, Microsoft SQL</p></li>
+<li><p>AWS manages automated patching, backups, redundancy, failover, disaster recovery</p></li>
+<li><p>offer encryption at rest and encryption in transit</p></li>
+<li><dl class="simple">
+<dt><strong>Aurora</strong></dt><dd><ul>
+<li><p>fully managed enterprise-class relational database engine</p></li>
+<li><p>compatible with MySQL and PostgreSQL</p></li>
+<li><p>1/10th the cost of commercial databases by reducing unnecessary I/O</p></li>
+<li><p>replicates six copies of data and up to 15 read replicas</p></li>
+<li><p>continuous backup to S3 and point-in-time recovery</p></li>
+<li><p>for workloads that require high availability</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>nonrelational databases</dt><dd><ul>
+<li><p>use key-value (item-attribute) pairs rather than rows and columns</p></li>
+<li><p>not every item in the table has to have the same attributes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="dynamodb">
+<h3>DynamoDB<a class="headerlink" href="#dynamodb" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>serverless NoSQL database</p></li>
+<li><p>create tables to store data</p></li>
+<li><p>data is organized into items which have attributes</p></li>
+<li><p>stores data across multiple AZs and mirrors data across multiple drives</p></li>
+<li><p>has single-digit millisecond response time</p></li>
+<li><dl class="simple">
+<dt><strong>DAX (DynamoDB Accelerator)</strong></dt><dd><ul>
+<li><p>native caching layer</p></li>
+<li><p>improve response times from single-digit milliseconds to microseconds</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="redshift">
+<h3>Redshift<a class="headerlink" href="#redshift" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>data warehousing as a service, ideal for business intelligence (BI) workloads and data</p></li>
+</ul>
+<p>analytics
+* can collect data from many sources
+* can directly run single SQL query against exabytes of unstructured data
+* up to 10 times higher performance than traditional databases</p>
+</div></blockquote>
+</section>
+<section id="dms-database-migration-service">
+<h3>DMS (Database Migration Service)<a class="headerlink" href="#dms-database-migration-service" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>migrate existing databases (source) onto AWS (target)</p></li>
+<li><p>source database remains fully operational during the migration</p></li>
+<li><p>source and target don’t have to be of same type</p></li>
+<li><dl class="simple">
+<dt>homogenous migration</dt><dd><ul>
+<li><p>from MySQL to RDS MySQL</p></li>
+<li><p>schema, data types and database code are compatible between source and target</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>heterogeneous migration</dt><dd><ul>
+<li><p>schema, data types and database code are different between source and target</p></li>
+<li><p>2-step process</p></li>
+<li><p>first use AWS Schema Conversion Tool and use DMS to migrate</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>useful for development and test database migrations, database consolidation, continuous</p></li>
+</ul>
+<p>database replication</p>
+</div></blockquote>
+</section>
+<section id="documentdb">
+<h3>DocumentDB<a class="headerlink" href="#documentdb" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>for content management, catalogs, user profiles</p></li>
+<li><p>supports MongoDB workloads</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="neptune">
+<h3>Neptune<a class="headerlink" href="#neptune" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>graph database</p></li>
+<li><p>for social networking, recommendation engines and fraud detection</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="managed-blockchain">
+<h3>Managed Blockchain<a class="headerlink" href="#managed-blockchain" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>to create and manage blockchain networks with open-source frameworks</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="qldb-quantum-ledger-database">
+<h3>QLDB (Quantum Ledger Database)<a class="headerlink" href="#qldb-quantum-ledger-database" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>ledger database service</p></li>
+<li><p>immutable system of record</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="elasticache">
+<h3>ElastiCache<a class="headerlink" href="#elasticache" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>provide caching layers without worrying about underlying</p></li>
+<li><p>supports Memcached and Redis</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#aws">back to top</a></p>
+</section>
+</section>
+<section id="artificial-intelligence">
+<h2>Artificial Intelligence<a class="headerlink" href="#artificial-intelligence" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href="#id49"><span class="problematic" id="id50">`A2I`_</span></a>, <a class="reference internal" href="#comprehend">Comprehend</a>, <a class="reference internal" href="#deepracer">DeepRacer</a>, <a class="reference internal" href="#fraud-detector">Fraud Detector</a>, <a class="reference internal" href="#lex">Lex</a>, <a class="reference internal" href="#sagemaker">SageMaker</a>, <a class="reference internal" href="#textract">Textract</a>, <a class="reference internal" href="#transcribe">Transcribe</a></p></li>
+</ul>
+<section id="a2i-augmented-ai">
+<h3>A2I (Augmented AI)<a class="headerlink" href="#a2i-augmented-ai" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>provides built-in human review workflows for common machine learning use cases</p></li>
+<li><p>can also create own workflows for machine learning models built on SageMaker or others</p></li>
+<li><p>e.g content moderation, text extraction from documents</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="comprehend">
+<h3>Comprehend<a class="headerlink" href="#comprehend" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>discover patterns in text</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="deepracer">
+<h3>DeepRacer<a class="headerlink" href="#deepracer" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>autonomous 1/18 scale race car to test reinforcement learning models</p></li>
+<li><p>train the car to drive around the track as fast as possible</p></li>
+<li><p>use PPO and SAC to train stochastic policies, have over 20 parameters for use</p></li>
+<li><dl class="simple">
+<dt><strong>Reward Function</strong></dt><dd><ul>
+<li><p>code that uses the input parameters for calculations on input and output a reward</p></li>
+<li><p>in Python <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">reward_function(params)</span></code>, [Available Parameters](<a class="reference external" href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-reward-function-input.html">https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-reward-function-input.html</a>)</p></li>
+<li><p>Example Parameters: <code class="docutils literal notranslate"><span class="pre">track_width</span></code>, <code class="docutils literal notranslate"><span class="pre">distance_from_center</span></code>, <code class="docutils literal notranslate"><span class="pre">steering_angle</span></code></p></li>
+<li><p>more complex reward function does not mean better results</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Components</strong></dt><dd><ul>
+<li><p>onboard computer with Wi-Fi and Intel Atom processor running Ubuntu Linux</p></li>
+<li><p>can equip up to two single-lens cameras and LIDAR sensor</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>need to achieve efficient inference with limited resources of the car, by making sure the</p></li>
+</ul>
+<p>machine learning model is appropriate for the inference engine
+* <strong>OpenVINO</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Open Visual Inferencing and Neural Network Optimiser</p></li>
+<li><p>Intel developer toolkit for machine learning inference used with DeepRacer</p></li>
+<li><p>helps to improve inference performance of models on Intel hardware</p></li>
+<li><p>contain Deep Learning Deployment Toolkit with model optimiser, Inference engine, and
+pre-trained models</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Optimisation</strong></dt><dd><ul>
+<li><p>model optimiser generate Intermediate Representation (IR) files for OpenVINO to use</p></li>
+<li><p>optimisation is done automatically when the model is exported from DeepRacer console</p></li>
+<li><p>can use benchmarking and accuracy checker tools to refine and optimise</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Post-Training Optimisation Toolkit</strong></dt><dd><ul>
+<li><p>POT, OpenVINO tool to make the model more efficient</p></li>
+<li><p>can reduce precision by sacrificing some accuracy to get extra performance</p></li>
+<li><p>some Intel processors has accelerators to turbo charge performance of lower
+precision models</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="fraud-detector">
+<h3>Fraud Detector<a class="headerlink" href="#fraud-detector" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>identify potentially fraudulent online activities</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="lex">
+<h3>Lex<a class="headerlink" href="#lex" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>build voice and text chatbots</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="sagemaker">
+<h3>SageMaker<a class="headerlink" href="#sagemaker" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>remove difficult work from the process to build, train and deploy ML models quickly</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="textract">
+<h3>Textract<a class="headerlink" href="#textract" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>automatically extracts text and data from scanned documents</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="transcribe">
+<h3>Transcribe<a class="headerlink" href="#transcribe" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>convert speech to text</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#aws">back to top</a></p>
+</section>
+</section>
+<section id="management-governance">
+<h2>Management &amp; Governance<a class="headerlink" href="#management-governance" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#auto-scaling">Auto Scaling</a>, <a class="reference internal" href="#cloudformation">CloudFormation</a>, <a class="reference internal" href="#cloudtrail">CloudTrail</a>, <a class="reference internal" href="#cloudwatch">CloudWatch</a>, <a class="reference internal" href="#config">Config</a></p></li>
+<li><p><a class="reference internal" href="#organizations">Organizations</a>, <a class="reference internal" href="#systems-manager">Systems Manager</a>, <a class="reference internal" href="#trusted-advisor">Trusted Advisor</a></p></li>
+</ul>
+<section id="auto-scaling">
+<h3>Auto Scaling<a class="headerlink" href="#auto-scaling" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>begin with only resources needed and auto respond to changing demand by scaling</p></li>
+</ul>
+<p>out or in
+* <strong>dynamic scaling</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>responds to changing demand</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>predictive scaling</strong></dt><dd><ul>
+<li><p>auto schedule number of instances based on predicted demand</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>can use both methods together to scale faster</p></li>
+<li><dl class="simple">
+<dt><strong>auto scaling group</strong></dt><dd><ul>
+<li><p>minimum capacity: launched immediately after the group is created</p></li>
+<li><p>desired capacity: can be set or defaults to minimum capacity if not set</p></li>
+<li><p>maximum capacity: max when scaling out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>vertical scaling: resizing an instance to add more power</p></li>
+<li><p>horizontal scaling: launching new instances (EC2 Auto Scaling)</p></li>
+<li><p>uses public-key cryptography to encrypt and decrypt login information</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="cloudformation">
+<h3>CloudFormation<a class="headerlink" href="#cloudformation" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>IaC tool</p></li>
+<li><p>provisions and configures resources using a template file, JSON or YAML format</p></li>
+<li><p>no additional charge, only pay for resources created</p></li>
+<li><p>support many resources, not just EC2-based</p></li>
+<li><p><em>CloudFormation Engine</em> calls the APIs and build everything</p></li>
+<li><dl class="simple">
+<dt><strong>CloudFormation Designer</strong></dt><dd><ul>
+<li><p>graphic tool for creating, viewing, and modifying AWS CloudFormation templates</p></li>
+<li><p>make template using drag-and-drop</p></li>
+<li><p>shows relationship between template resources</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>allows duplication of environments to recreate and analyze errors</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="cloudtrail">
+<h3>CloudTrail<a class="headerlink" href="#cloudtrail" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>track user activity and API usage across AWS Regions and accounts</p></li>
+<li><p>every request gets logged in the CloudTrail engine</p></li>
+<li><p>monitor activity events and generate audit reports</p></li>
+<li><p>detect unauthorized access in CloudTrail Events and respond</p></li>
+<li><p>monitor API usage history using ML models</p></li>
+<li><p>logs can be stored in S3 buckets</p></li>
+<li><p>events are updated within 15 minutes after an API call</p></li>
+<li><p>CloudTrail Insights: auto detect unusual API activities</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="cloudwatch">
+<h3>CloudWatch<a class="headerlink" href="#cloudwatch" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>monitoring and observability service</p></li>
+<li><p>collects data in the from of logs, metrics and events to monitor, respond and optimize</p></li>
+</ul>
+<p>across all resources on single platform
+* can be used to detect anomalous behavior, set alarms and take automated actions
+* reduce MTTR (mean time to resolution) and improve TCO (total cost of ownership)</p>
+</div></blockquote>
+</section>
+<section id="config">
+<h3>Config<a class="headerlink" href="#config" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>to record resource configuration changes and evaluate against rules</p></li>
+<li><p>configure rules coupled with automated remediation</p></li>
+<li><p>automate response to misconfigurations</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="organizations">
+<h3>Organizations<a class="headerlink" href="#organizations" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>central location to manage multiple accounts</p></li>
+<li><p>consolidated billing and hierarchical groupings of accounts</p></li>
+<li><p>can group accounts into organizational units (OUs)</p></li>
+<li><p>services and API actions access control with SCPs (Service control policies) to</p></li>
+</ul>
+<p>organization root, individual member accounts or OUs</p>
+</div></blockquote>
+</section>
+<section id="systems-manager">
+<h3>Systems Manager<a class="headerlink" href="#systems-manager" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>collection of features that enable IT Operations</p></li>
+<li><dl class="simple">
+<dt>pre-requisites for resources to be managed with Systems Manager</dt><dd><ul>
+<li><p>must use supported OS (Windows, Amazon Linux, Ubuntu, RHEL, CentOS)</p></li>
+<li><p>SSM Agent must be installed (Windows requires PowerShell 3.0 or later)
++ installed by default on Amazon Linux base AMIs dated 2017.09 and later
++ Windows Server 2016 instances
++ instances created from Windows Server 2003-2012 R2 AMIs from November 2016 or
+later</p></li>
+<li><p>EC2 instances must have outbound internet access</p></li>
+<li><p>access Systems Manager in supported region</p></li>
+<li><p>requires IAM roles for instances that will process commands and for users executing
+commands</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>no additional charge, only pay for resources created</p></li>
+<li><dl class="simple">
+<dt><strong>Inventory</strong></dt><dd><ul>
+<li><p>collect operating system (OS), application, and instance metadata from EC2 instances
+and on-premises servers or virtual machines (VMs) in hybrid environment</p></li>
+<li><p>query metadata to quickly understand which instances are running the software and
+configurations required by software policy, and which instances need to be updated.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>State Manager</strong></dt><dd><ul>
+<li><p>association
++ defines the state to apply to a set of targets
++ includes document that defines the state, targets, schedule and optional runtime
+parameters</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Compliance</strong></dt><dd><ul>
+<li><p>scan the fleet of managed instances for patch compliance and configuration
+inconsistencies</p></li>
+<li><p>collect and aggregate data from multiple AWS accounts and Regions</p></li>
+<li><p>displays compliance data about Patch Manager patching and State Manager associations
+by default</p></li>
+<li><p>can also port data to Amazon Athena and Amazon QuickSight to generate fleet-wide
+reports</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Patch Manager</strong></dt><dd><ul>
+<li><p>automates process of patching managed instances with security related updates</p></li>
+<li><p>can also install non-security updates fro Linux-based instances</p></li>
+<li><p>patch fleets of EC2 instances</p></li>
+<li><p>scan instances to see only a report of missing patches or auto install missing ones</p></li>
+<li><p>target instances individually or in large groups by using Amazon EC2 tags</p></li>
+<li><p>always test patches thoroughly before deploying to production environments</p></li>
+<li><p>patch baselines
++ include rules for auto-approving patches within days of release</p></li>
+<li><p>integrate with IAM, CloudTrail and CloudWatch Events</p></li>
+<li><p>patch group
++ can create by using EC2 tags
++ groups must be defined with the tag key, which is case sensitive
++ an instance can only be in one patch group</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Documents</strong></dt><dd><ul>
+<li><p>defines the actions that Systems Manager performs on managed instances</p></li>
+<li><p>us JSON or YAML notation</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Run Command</strong></dt><dd><ul>
+<li><p>remotely and securely manage configuration of managed instances</p></li>
+<li><p>enables to automate common administrative tasks</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Maintenance Windows</strong></dt><dd><ul>
+<li><p>define a schedule to perform disruptive actions on instances</p></li>
+<li><p>each Window has a schedule, duration, set of registered targets and tasks</p></li>
+<li><p>can install apps, update patches, execute PowerShell commands and Linux shell
+scripts by using Run Command, build AMIs, execute Lambda functions, run AWS Step
+Function state machines</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>OpsCenter</strong></dt><dd><ul>
+<li><p>can be created to track events and understand the current status of an event</p></li>
+<li><p>can help answer questions such as - level of severity, affected resources, status of
+the event and similar events</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="trusted-advisor">
+<h3>Trusted Advisor<a class="headerlink" href="#trusted-advisor" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>auto evaluate resources against five pillars (cost optimization, performance, security,</p></li>
+</ul>
+<p>fault tolerance, service limits)
+* has free checks and others based on support plan
+* green: no problems, orange: recommended investigations, red: recommended actions</p>
+</div></blockquote>
+<p><a class="reference external" href="#aws">back to top</a></p>
+</section>
+</section>
+<section id="migration-transfer">
+<h2>Migration &amp; Transfer<a class="headerlink" href="#migration-transfer" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#snow-family">Snow Family</a></p></li>
+</ul>
+<section id="snow-family">
+<h3>Snow Family<a class="headerlink" href="#snow-family" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>physical devices for faster migration of exabytes of data into and out of AWS</p></li>
+<li><p>hardware and software are cryptographically signed and data stored is auto encrypted</p></li>
+<li><p>can use KMS to manage keys</p></li>
+<li><dl class="simple">
+<dt><strong>Snowcone</strong></dt><dd><ul>
+<li><p>2 CPUs, 4 GB of memory and 8 TB of data and contains edge computing (EC2 and IoT Greengrass)</p></li>
+<li><p>order via Management Console, copy data and ship it back to AWS</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Snowball</strong></dt><dd><ul>
+<li><p><strong>edge compute optimized</strong>
++ for machine learning, full motion video analysis, analytics and local computing
++ 42 TB HDD for S3 compatible or EBS compatible, 7.68 TB of NVMe SSD for EBS
+compatible
++ 52 vCPUs, 208 GiB of memory and optional NVIDIA Tesla V100 GPU
++ run EC2 sbe-c and sbe-g instances (equal to C5, M5a, G3 and P3)</p></li>
+<li><p><strong>edge storage optimized</strong>
++ for large-scale data migrations
++ 80 TB of HDD for block volumes and S3 compatible, 1 TB of SATA SSD for block
+volumes
++ 40 vCPUs and 80 GiB of memory to support EC2 sbe1 instances (equal to C5)</p></li>
+<li><p>fit into existing server racks</p></li>
+<li><p>can run Lambda functions, EC2-compatible AMI or IoT Greengrass</p></li>
+<li><p>usually for remote locations</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Snowmobile</strong></dt><dd><ul>
+<li><p>up to 100 petabytes of data per snowmobile</p></li>
+<li><p>ideal for largest migrations and data center shutdowns</p></li>
+<li><p>45-foot long ruggedized shipping container, pulled by semi trailer truck</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#aws">back to top</a></p>
+</section>
+</section>
+<section id="networking-content-delivery">
+<h2>Networking &amp; Content Delivery<a class="headerlink" href="#networking-content-delivery" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#cloudfront">CloudFront</a>, <a class="reference internal" href="#direct-connect">Direct Connect</a>, <a class="reference internal" href="#route-53">Route 53</a>, <a href="#id51"><span class="problematic" id="id52">`VPC`_</span></a>, <a class="reference internal" href="#global-accelerator">Global Accelerator</a></p></li>
+</ul>
+<section id="cloudfront">
+<h3>CloudFront<a class="headerlink" href="#cloudfront" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>deliver data to customers around the world with low latency</p></li>
+<li><p>uses <em>Edge locations</em></p></li>
+<li><p>retrieves data from origin, the cache in edge location and delivers to customers</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="direct-connect">
+<h3>Direct Connect<a class="headerlink" href="#direct-connect" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>private, dedicated, low latency physical fiber connection from on-premises to AWS</p></li>
+<li><p>need to work with Direct Connect Partner to establish the connection</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="route-53">
+<h3>Route 53<a class="headerlink" href="#route-53" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>DNS with low latency</p></li>
+<li><p>uses <em>Edge locations</em></p></li>
+<li><p>can direct traffic to different endpoints using routing policies (latency-based,</p></li>
+</ul>
+<p>geolocation, geoproximity, weighted round robin)
+* can register domain names</p>
+</div></blockquote>
+</section>
+<section id="vpc-virtual-private-cloud">
+<h3>VPC (Virtual Private Cloud)<a class="headerlink" href="#vpc-virtual-private-cloud" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>to create logically isolated networks</p></li>
+<li><dl class="simple">
+<dt>manage resources within ip ranges of the network</dt><dd><ul>
+<li><p>recommended range (RFC1918): 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>usually for back-end services like databases or application servers</p></li>
+<li><dl class="simple">
+<dt><strong>Subnets</strong></dt><dd><ul>
+<li><p>allow to group resources and make them public or private</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>can control what traffic gets into VPCs</p></li>
+<li><dl class="simple">
+<dt><strong>Route Tables</strong></dt><dd><ul>
+<li><p>rules for which packets go where</p></li>
+<li><p>VPC has default route table</p></li>
+<li><p>different subnets can be assigned different route tables</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>IGW (Internet Gateway)</strong></dt><dd><ul>
+<li><p>to allow public traffic into public subnet of VPC</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>NAT Gateway</strong></dt><dd><ul>
+<li><p>allow data from private subnet of VPC to go outside the Internet, outbound internet</p></li>
+<li><p>one way gateway, only responses of requests from AWS resources are allowed</p></li>
+<li><p>requests from the Internet are not allowed to go through</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Security Groups</strong></dt><dd><ul>
+<li><p>works at AWS network-level, distributed firewall</p></li>
+<li><p>all ports are blocked by default</p></li>
+<li><p>modify the group to allow specific types of traffic into instances</p></li>
+<li><p>instance level and support allow rules only</p></li>
+<li><p>check traffic on the way in but all traffics are allowed to go out</p></li>
+<li><p><em>stateful</em>: recognizes the packet from before and will not check again if it returns</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Network ACLs (Access Control Lists)</strong></dt><dd><ul>
+<li><p>virtual firewall to check packets having permissions or not to enter or leave the
+subnet</p></li>
+<li><p>subnet level, support allow and deny rules</p></li>
+<li><p>doesn’t evaluate if a packet can reach a specific internal instance or not</p></li>
+<li><p>allow all inbound and outbound traffics by default</p></li>
+<li><p><em>stateless</em>: does not recognizes the packet from before and will check again if it
+returns</p></li>
+<li><p>should only have short and simple rules, use security groups for complex ones</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Flow Logs</strong></dt><dd><ul>
+<li><p>works at VPC, subnet or instance level</p></li>
+<li><p>output can be directed to S3 bucket or CloudWatch</p></li>
+<li><p>useful for visibility, troubleshoot and analyze traffic flow</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>DNS</strong></dt><dd><ul>
+<li><p>DNS services are enabled by default</p></li>
+<li><p>provide DNS resolution and able to assign DNS names</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>VPC peering</strong></dt><dd><ul>
+<li><p>connecting two VPCs for communication</p></li>
+<li><p>only one-to-one relationship between connection</p></li>
+<li><p>can be in different regions or accounts, CIDR ranges must no overlap</p></li>
+<li><p>need to update route table for traffic to flow</p></li>
+<li><p>maximum 125 peerings, cost per data transfer</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Transit Gateway</strong></dt><dd><ul>
+<li><p>distributed managed routing service deployed in a region</p></li>
+<li><p>has its own routing table for connected VPCs</p></li>
+<li><p>VPCs can be in different accounts</p></li>
+<li><p>VPC and Transit Gateway must be in same region</p></li>
+<li><p>maximum 5000 attachments, 50Gbps per VPC attachment</p></li>
+<li><p>cost per data transfer and attachment</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Virtual Private Gateway</strong></dt><dd><ul>
+<li><p>to allow traffic from approved network</p></li>
+<li><p>allows to create VPN connection from other private network, on-premises internal
+resources, to VPC</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>one VPC can have multiple types of gateways attached</p></li>
+<li><dl class="simple">
+<dt><strong>VPC Sharing</strong></dt><dd><ul>
+<li><p>subnets can be shared between multiple accounts</p></li>
+<li><p>resources can be created inside the VPC from different account</p></li>
+<li><p>use fewer IPv4 CIDRs, no VPC peering required, VPC management can be centralized</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>VPC endpoints</strong></dt><dd><ul>
+<li><p>Gateway endpoints: only for S3 and DynamoDB, for private connection without using
+public IPs</p></li>
+<li><p>Interface endpoints: for all services inside VPC</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="global-accelerator">
+<h3>Global Accelerator<a class="headerlink" href="#global-accelerator" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>network layer service, deployed in front of Internet facing apps to optimize performance</p></li>
+<li><p>can cover any type of application running on TCP or UDP</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#aws">back to top</a></p>
+</section>
+</section>
+<section id="security-compliance">
+<h2>Security &amp; Compliance<a class="headerlink" href="#security-compliance" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#shared-responsibility-model">Shared Responsibility Model</a>, <a href="#id53"><span class="problematic" id="id54">`IAM`_</span></a>, <a class="reference internal" href="#artifact">Artifact</a>, <a class="reference internal" href="#cognito">Cognito</a>, <a class="reference internal" href="#guardduty">GuardDuty</a>, <a class="reference internal" href="#inspector">Inspector</a>, <a href="#id55"><span class="problematic" id="id56">`KMS`_</span></a>, <a class="reference internal" href="#waf-shield">WAF &amp; Shield</a></p></li>
+</ul>
+<section id="shared-responsibility-model">
+<h3>Shared Responsibility Model<a class="headerlink" href="#shared-responsibility-model" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>shared responsibility between AWS and customer</p></li>
+<li><dl class="simple">
+<dt>Security of the cloud (AWS)</dt><dd><ul>
+<li><p>protect the infrastructure that runs all the services in the AWS</p></li>
+<li><p>hardware, software, networking and all facilities</p></li>
+<li><p>AWS manages the host OS and virtualization layer down to the physical security</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Security in the cloud (customer)</dt><dd><ul>
+<li><p>determined by services that customer selects</p></li>
+<li><p>for EC2, customer has to perform security configuration and management tasks,
+management of the guest OS and software installed and AWS-provided firewall</p></li>
+<li><p>for abstracted services, S3 and DynamoDB, customers are responsible for managing
+data, encrypting, classifying assets and using IAM tools to apply permissions</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>inherited controls</strong></dt><dd><ul>
+<li><p>controls customers inherit from AWS</p></li>
+<li><p>physical and environmental controls</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>shared controls</strong></dt><dd><ul>
+<li><p>both infrastructure and customer layers, but in separate contexts or perspectives</p></li>
+<li><p>AWS provides requirements for infrastructure and customers must provide own control
+implementation to the use of services (guest OS, databases, applications)</p></li>
+<li><p>patch management, configuration management</p></li>
+<li><p>awareness &amp; training: AWS trains AWS employees, customers train their own employees</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>customer specific</strong></dt><dd><ul>
+<li><p>customer’s responsibility based on the application deployed within AWS services</p></li>
+<li><p>service and communications protection</p></li>
+<li><p>zone security to route data within specific security environment</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>applying the Model in practice</dt><dd><ul>
+<li><p>determine external and internal security and compliance requirements (NIST CSF, ISO)</p></li>
+<li><p>consider employing AWS CAF and Well-Architected practices</p></li>
+<li><p>review security and configuration options</p></li>
+<li><p>evaluate AWS security, identity and compliance services</p></li>
+<li><p>review third-party documents</p></li>
+<li><p>explore solutions in the AWS Marketplace</p></li>
+<li><p>explore AWS security competency partners</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="iam-identity-and-access-management">
+<h3>IAM (Identity and Access Management)<a class="headerlink" href="#iam-identity-and-access-management" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>authentication and authorization as a service</p></li>
+<li><p>can specify who or what can access services and resources in AWS</p></li>
+<li><p>create permissions based on department, job role or team name</p></li>
+<li><p>manage per-account or use IAM Identity Center to provide multi-account access</p></li>
+<li><dl class="simple">
+<dt>IAM policies</dt><dd><ul>
+<li><p>json documents which can be attached to users or groups</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>IAM roles</dt><dd><ul>
+<li><p>access to temporary permissions, no username or password</p></li>
+<li><p>when an identity assumes a role, it abandons all of the previous permissions and
+assumes the permissions of that role</p></li>
+<li><p>can map corporate identities to IAM roles</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>recommended to create IAM user with admin permissions to use for everyday tasks</p></li>
+<li><dl class="simple">
+<dt><strong>Root user</strong></dt><dd><ul>
+<li><p>account owner, created when AWS account is created</p></li>
+<li><p><strong>credentials</strong>
++ full access to all resources in the account
++ cannot use IAM policies to deny root user access to resources
++ can only use AWS Organizations SCP to limit permissions of the root user
++ only root user can close the account</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>IAM user</strong></dt><dd><ul>
+<li><p>Identity and Access Management user</p></li>
+<li><p>created by root user or IAM admin</p></li>
+<li><p>least privilege principle: user is granted access only to what they need</p></li>
+<li><p>no permissions associated by default</p></li>
+<li><p><strong>credentials</strong>
++ securely control access to AWS services and resources for users in the account
++ can create unique credentials for each user and define who has access to which
+resources
++ do not need to share credentials
++ can create IAM users with read-only access to resources and distribute those
+credentials to users</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>tasks that require to be signed in as the root user</dt><dd><ul>
+<li><p>change account settings</p></li>
+<li><p>restore IAM user permissions</p></li>
+<li><p>activate IAM access to the Billing and Cost Management console</p></li>
+<li><p>view certain tax invoices</p></li>
+<li><p>close AWS account</p></li>
+<li><p>change or cancel AWS support plan</p></li>
+<li><p>register as seller in Reserved Instance Marketplace</p></li>
+<li><p>configure MFA delete for S3 bucket</p></li>
+<li><p>edit or delete S3 bucket policy</p></li>
+<li><p>sign up for GovCloud</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="artifact">
+<h3>Artifact<a class="headerlink" href="#artifact" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>access to security and compliance reports and select online agreements</p></li>
+<li><p>show compliance enabled services and documentations</p></li>
+<li><p>AWS will not replicate data across Regions if certain Regions do not allow to get data</p></li>
+</ul>
+<p>outside of that Region
+* <strong>Artifact Agreements</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>can review, accept and manage agreements for an account or all accounts in OUs</p></li>
+<li><p>e.g HIPAA</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Artifact Reports</strong></dt><dd><ul>
+<li><p>provide compliance reports from third-party auditors</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="cognito">
+<h3>Cognito<a class="headerlink" href="#cognito" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>support multiple login providers</p></li>
+<li><p>unique users/devices and helps implement security best practices</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="guardduty">
+<h3>GuardDuty<a class="headerlink" href="#guardduty" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>analyze continuous streams of metadata generated from the account and network activity</p></li>
+</ul>
+<p>found in CloudTrail events, VPC Flow Logs and DNS Logs
+* uses integrated threat intelligence
+* runs independently from other AWS services
+* will not affect performance of existing workloads</p>
+</div></blockquote>
+</section>
+<section id="inspector">
+<h3>Inspector<a class="headerlink" href="#inspector" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>run automated security assessment against infrastructure</p></li>
+<li><p>e.g exposure of EC2 instances and vulnerabilities</p></li>
+<li><p>network configuration reachability piece</p></li>
+<li><p>Amazon agent: can installed on EC2 instances</p></li>
+<li><p>security assessment service</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="kms-key-management-service">
+<h3>KMS (Key Management Service)<a class="headerlink" href="#kms-key-management-service" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>create and manage encryption keys that is used to encrypt database tables</p></li>
+<li><p>can choose specific levels of access control for keys</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="waf-shield">
+<h3>WAF &amp; Shield<a class="headerlink" href="#waf-shield" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>protects applications against DDoS attacks</p></li>
+<li><p>extensive machine learning capabilities</p></li>
+<li><dl class="simple">
+<dt><strong>Shield Standard</strong></dt><dd><ul>
+<li><p>auto protects all customers at no cost</p></li>
+<li><p>protects resources from most common, frequently occurring types of DDoS attacks</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Shield Advanced</strong></dt><dd><ul>
+<li><p>paid service that provides detailed attack diagnostics</p></li>
+<li><p>integrates with services such as CloudFront, Route 53, ELB</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>WAF uses web application firewall to filter incoming traffic using web ACLs</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#aws">back to top</a></p>
+</section>
+</section>
+<section id="storage">
+<h2>Storage<a class="headerlink" href="#storage" title="Link to this heading">#</a></h2>
+<ul>
+<li><p><a class="reference internal" href="#instance-stores">Instance stores</a>, <a href="#id57"><span class="problematic" id="id58">`EBS`_</span></a>, <a href="#id59"><span class="problematic" id="id60">`S3`_</span></a>, <a href="#id61"><span class="problematic" id="id62">`EFS`_</span></a></p></li>
+<li><dl>
+<dt>block storage</dt><dd><ul class="simple">
+<li><p>when a file is updated, only the piece that changed is updated instead of overwriting</p></li>
+</ul>
+<p>whole series of blocks
+* e.g hard drive on computer
+* for uploading video files that get edited frequently
+* useful for complex read, write, change functions</p>
+</dd>
+</dl>
+</li>
+</ul>
+<section id="instance-stores">
+<h3>Instance stores<a class="headerlink" href="#instance-stores" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>local storage of EC2, temporary block-level storage</p></li>
+<li><p>physically attached to EC2 host</p></li>
+<li><p>all data will be deleted if the instance is stopped or terminated</p></li>
+<li><p>when restarting the instance, the underlying host might change where the previous volume</p></li>
+</ul>
+<p>does not exist
+* only useful for temp data or data that can be easily recreated</p>
+</div></blockquote>
+</section>
+<section id="ebs-elastic-block-store">
+<h3>EBS (Elastic Block Store)<a class="headerlink" href="#ebs-elastic-block-store" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>EBS volumes: virtual hard drives that can be attached to EC2 instances</p></li>
+<li><p>separate drives from local instance store volumes and not tied directly to the host</p></li>
+<li><p>data written will persist between stops and starts of EC2 instance</p></li>
+<li><p>define configurations (volume and type) and provision it</p></li>
+<li><p>size up to 16 TiB</p></li>
+<li><p>SSD by default</p></li>
+<li><p>store data in single AZ</p></li>
+<li><p>AZ-level resource, EC2 and EBS need to be in same AZ</p></li>
+<li><dl class="simple">
+<dt><strong>EBS snapshots</strong></dt><dd><ul>
+<li><p>incremental backups of data</p></li>
+<li><p>only blocks of data that have changed since the most recent snapshot are saved</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>object storage</dt><dd><ul>
+<li><p>each object consists of data, metadata and a key</p></li>
+<li><p>entire object is updated when a file in object storage is modified</p></li>
+<li><p>for documents, images, video files that get uploaded and consumed as entire objects</p></li>
+<li><p>useful for complete objects or only occasional changes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="s3-simple-storage-service">
+<h3>S3 (Simple Storage Service)<a class="headerlink" href="#s3-simple-storage-service" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>storage and retrieve unlimited amount of data</p></li>
+<li><p>data is stored as objects in buckets instead of file directory</p></li>
+<li><p>maximum individual object size of 5TB</p></li>
+<li><p>objects can be versioned, unversioned by default</p></li>
+<li><p>every object has a URL</p></li>
+<li><p>serverless, no EC2 instance required</p></li>
+<li><p>create multiple buckets and store across different classes</p></li>
+<li><p>useful for static website hosting</p></li>
+<li><p>when choosing S3 storage class, consider how often data will be retrieved and how</p></li>
+</ul>
+<p>available the data need to be
+* <strong>Standard</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>for frequently accessed data</p></li>
+<li><p>11 nines % of durability</p></li>
+<li><p>data is stored in at least three AZs</p></li>
+<li><p>higher cost than other classes</p></li>
+<li><p>e.g websites, content distribution, data analytics</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Standard-Infrequent Access (S3 Standard-IA)</strong></dt><dd><ul>
+<li><p>for data that is accessed less frequently but requires rapid access when needed</p></li>
+<li><p>good to store backups  or objects that require long-term storage</p></li>
+<li><p>lower storage and higher retrieval prices</p></li>
+<li><p>data is stored in at least three AZs</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>One Zone-Infrequent Access (S3 One Zone-IA)</strong></dt><dd><ul>
+<li><p>data is stored in at single AZ</p></li>
+<li><p>lower storage price than Standard-IA</p></li>
+<li><p>to save costs on storage and to reproduce data when failure</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Intelligent-Tiering</strong></dt><dd><ul>
+<li><p>for data with unkown or changing access patterns</p></li>
+<li><p>small monthly monitoring and automation fee per object</p></li>
+<li><p>object not accessed for 30 consecutive days is moved into Standard-IA</p></li>
+<li><p>if object from Standard-IA is accessed, it is automatically moved into Standard</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Glacier</strong></dt><dd><ul>
+<li><p>for data that needs to be retained several years for auditing and don’t need rapid
+retrieval</p></li>
+<li><p>able to retrieve objects within few minutes to hours</p></li>
+<li><p>simply move data or create vaults and populate them with <em>archives</em></p></li>
+<li><p>can create policy (WORM, write once/read many) and lock the vault</p></li>
+<li><p>once locked, the policy cannot be changed</p></li>
+<li><p>three options of retrieval and can upload data directly or use S3 Lifecycle policies</p></li>
+<li><p>Lifecycle policies: can move data automatically between S3 tiers</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Glacier Deep Archive</strong></dt><dd><ul>
+<li><p>lowest-cost storage class for archiving</p></li>
+<li><p>able to retrieve objects within 12 hours</p></li>
+<li><p>consider data retrieval time when choosing Glacier and Glacier Deep Archive</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<ul>
+<li><dl>
+<dt>file storage</dt><dd><ul class="simple">
+<li><p>for use cases in which a large number of services and resources need to access the same</p></li>
+</ul>
+<p>data at the same time</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="efs-elastic-file-system">
+<h3>EFS (Elastic File System)<a class="headerlink" href="#efs-elastic-file-system" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>AWS handles the scaling and replication of files</p></li>
+<li><p>multiple instances can access the data in EFS at the same time</p></li>
+<li><p>Linux file system</p></li>
+<li><p>store data in and across multiple AZs</p></li>
+<li><p>Regional resource, any EC2 instance in the region can write to the EFS</p></li>
+<li><p>on-premises servers can access EFS using AWS Direct Connect</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#aws">back to top</a></p>
+</section>
+</section>
+<section id="exam-guides">
+<h2>Exam Guides<a class="headerlink" href="#exam-guides" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#cloud-practitioner">Cloud Practitioner</a></p></li>
+</ul>
+<section id="cloud-practitioner">
+<h3>Cloud Practitioner<a class="headerlink" href="#cloud-practitioner" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>[official exam guide](<a class="reference external" href="https://d1.awsstatic.com/training-and-certification/docs-cloud-practitioner/AWS-Certified-Cloud-Practitioner_Exam-Guide.pdf">https://d1.awsstatic.com/training-and-certification/docs-cloud-practitioner/AWS-Certified-Cloud-Practitioner_Exam-Guide.pdf</a>)</p></li>
+<li><p>includes four domains</p></li>
+<li><p><strong>Cloud Concepts (26%)</strong></p></li>
+<li><p><strong>Security and Compliance (25%)</strong></p></li>
+<li><p><strong>Technology (33%)</strong></p></li>
+<li><p><strong>Billing and Pricing (16%)</strong></p></li>
+<li><p>always read the full question, try to predict answer before looking at choices, eliminate</p></li>
+</ul>
+<p>incorrect choices</p>
+</div></blockquote>
+<p><a class="reference external" href="#aws">back to top</a></p>
+</section>
+</section>
+<section id="additional-resources">
+<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href="#id63"><span class="problematic" id="id64">`Getting Started`_</span></a></p></li>
+<li><p><a href="#id65"><span class="problematic" id="id66">`Glossary`_</span></a>, <a href="#id67"><span class="problematic" id="id68">`Overview`_</span></a>, <a href="#id69"><span class="problematic" id="id70">`Fundamentals`_</span></a>, <a href="#id71"><span class="problematic" id="id72">`Blogs`_</span></a></p></li>
+<li><p><a class="reference internal" href="#compute">Compute</a>, <a class="reference internal" href="#well-architected">Well-Architected</a></p></li>
+<li><p><a href="#id73"><span class="problematic" id="id74">`Databases`_</span></a>, <a class="reference internal" href="#storage">Storage</a></p></li>
+<li><p><a href="#id75"><span class="problematic" id="id76">`Security`_</span></a>, <a class="reference internal" href="#management-governance">Management &amp; Governance</a></p></li>
+<li><p><a href="#id77"><span class="problematic" id="id78">`Support Plans`_</span></a>, <a class="reference internal" href="#marketplace">Marketplace</a>, <a class="reference internal" href="#pricing">Pricing</a>, <a class="reference internal" href="#cost-management">Cost Management</a></p></li>
+<li><p><a href="#id79"><span class="problematic" id="id80">`Whitepapers &amp; Guides`_</span></a>, <a href="#id81"><span class="problematic" id="id82">`Workshops`_</span></a></p></li>
+<li><p><a href="#id83"><span class="problematic" id="id84">`Migration`_</span></a>, <a href="#id85"><span class="problematic" id="id86">`Mass Migration`_</span></a>, <a href="#id87"><span class="problematic" id="id88">`Migration tools`_</span></a></p></li>
+<li><p><a href="#id89"><span class="problematic" id="id90">`APN`_</span></a>, <a href="#id91"><span class="problematic" id="id92">`How to Buy for Public Sector`_</span></a></p></li>
+<li><p><a href="#id93"><span class="problematic" id="id94">`Cloud Ping`_</span></a></p></li>
+</ul>
+<p><a class="reference external" href="#aws">back to top</a></p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Notes</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ArmArchitecture.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Arm Architecture</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-roles">Job Roles</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classic-it-job-roles">Classic IT Job Roles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-job-roles">Cloud Job Roles</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#management-with-iac">Management with IaC</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#devops">DevOPs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-models">Cloud Models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-deployment-models">Cloud Deployment Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-cloud-computing-models">Main Cloud Computing Models</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#well-architected">Well-Architected</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-design-principles">General design principles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operational-excellence">Operational Excellence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#security">Security</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reliability">Reliability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-efficiency">Performance Efficiency</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cost-optimization">Cost Optimization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sustainability">Sustainability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#well-architected-tool">Well-Architected Tool</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-global-infrastructure">AWS Global Infrastructure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regions">Regions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#availability-zones-azs">Availability Zones (AZs)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edge-locations">Edge locations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#everything-is-an-api-call">everything is an API call</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pricing-support">Pricing &amp; Support</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#free-tier">Free Tier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pricing">Pricing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pricing-calculator">Pricing Calculator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#billing-dashboard">Billing Dashboard</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consolidated-billing">Consolidated Billing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-free-support">Basic free support</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#developer-support">Developer support</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#business-support">Business support</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-support">Enterprise support</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edp-enterprise-discount-program">EDP (Enterprise Discount Program)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caf-cloud-adoption-framework">CAF (Cloud Adoption Framework)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#r-s-migration-strategies">6 R’s (migration strategies)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rehosting">Rehosting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replatforming">Replatforming</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refactoring-re-architecting">Refactoring/re-architecting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repurchasing">Repurchasing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retaining">Retaining</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retiring">Retiring</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-acquisition">Cloud Acquisition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procurement">Procurement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#legal">Legal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Security</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#governance">Governance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finance">Finance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compliance">Compliance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-partner-network-apn">AWS Partner Network (APN)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-integration">Application Integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sns-simple-notification-service">SNS (Simple Notification Service)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sqs-simple-queue-service">SQS (Simple Queue Service)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute">Compute</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ec2-elastic-compute-cloud">EC2 (Elastic Compute Cloud)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elb-elastic-load-balancing">ELB (Elastic Load Balancing)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda">Lambda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elastic-beanstalk">Elastic Beanstalk</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outposts">Outposts</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#containers">Containers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecs-elastic-container-service">ECS (Elastic Container Service)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eks-elastic-kubernetes-service">EKS (Elastic Kubernetes Service)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fargate">Fargate</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cost-management">Cost Management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#budgets">Budgets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cost-explorer">Cost Explorer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marketplace">Marketplace</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#database">Database</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rds-relational-database-service">RDS (Relational Database Service)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamodb">DynamoDB</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#redshift">Redshift</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dms-database-migration-service">DMS (Database Migration Service)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentdb">DocumentDB</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neptune">Neptune</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#managed-blockchain">Managed Blockchain</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qldb-quantum-ledger-database">QLDB (Quantum Ledger Database)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elasticache">ElastiCache</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artificial-intelligence">Artificial Intelligence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a2i-augmented-ai">A2I (Augmented AI)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comprehend">Comprehend</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deepracer">DeepRacer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fraud-detector">Fraud Detector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lex">Lex</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sagemaker">SageMaker</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#textract">Textract</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transcribe">Transcribe</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#management-governance">Management &amp; Governance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-scaling">Auto Scaling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloudformation">CloudFormation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloudtrail">CloudTrail</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloudwatch">CloudWatch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#config">Config</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#organizations">Organizations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#systems-manager">Systems Manager</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trusted-advisor">Trusted Advisor</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#migration-transfer">Migration &amp; Transfer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snow-family">Snow Family</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#networking-content-delivery">Networking &amp; Content Delivery</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloudfront">CloudFront</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#direct-connect">Direct Connect</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#route-53">Route 53</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vpc-virtual-private-cloud">VPC (Virtual Private Cloud)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-accelerator">Global Accelerator</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#security-compliance">Security &amp; Compliance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shared-responsibility-model">Shared Responsibility Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iam-identity-and-access-management">IAM (Identity and Access Management)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#artifact">Artifact</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cognito">Cognito</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guardduty">GuardDuty</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspector">Inspector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kms-key-management-service">KMS (Key Management Service)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#waf-shield">WAF &amp; Shield</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storage">Storage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instance-stores">Instance stores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ebs-elastic-block-store">EBS (Elastic Block Store)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#s3-simple-storage-service">S3 (Simple Storage Service)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#efs-elastic-file-system">EFS (Elastic File System)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exam-guides">Exam Guides</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-practitioner">Cloud Practitioner</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

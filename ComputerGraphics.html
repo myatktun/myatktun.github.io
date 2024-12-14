@@ -1,0 +1,923 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Computer Graphics &#8212; Notes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ComputerGraphics';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Computing Systems" href="ComputingSystems.html" />
+    <link rel="prev" title="Compilers" href="Compilers.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AWS.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BackendEngineering.html">Backend Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSharp.html">C# #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CTF.html">CTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CompTIA.html">CompTIA Cert Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compilers.html">Compilers</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Computer Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputingSystems.html">Computing Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">ECS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FFmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Helm.html">Helm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Istio.html">Istio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JDBC.html">JDBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MongoDB.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkProgramming.html">Network Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NodeJS.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenAPI.html">OpenAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OperatingSystem.html">Operating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="POSIXThreads.html">POSIX Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PenetrationTesting.html">Penetration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramDesign.html">Program Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectManagement.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prometheus.html">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SFML.html">SFML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StrategicPlanning.html">Strategic Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terraform.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TypeScript.html">TypeScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI/UX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrant.html">Vagrant</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ComputerGraphics.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Computer Graphics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graphics-api">Graphics API</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-code-fast">Making Code Fast</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#designing-graphics-programs">Designing Graphics Programs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphics-pipeline">Graphics Pipeline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-operation">Basic Operation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-coordinate-space">4D Coordinate Space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-of-detail">Level of Detail</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rasterization">Rasterization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maths">Maths</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iee-floating-point">IEE Floating Point</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-positions">2D Positions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectors">Vectors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-number">Random Number</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="computer-graphics">
+<h1>Computer Graphics<a class="headerlink" href="#computer-graphics" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#basics">Basics</a></p></li>
+<li><p><a class="reference internal" href="#graphics-pipeline">Graphics Pipeline</a></p></li>
+<li><p><a class="reference internal" href="#maths">Maths</a></p></li>
+</ol>
+<p><a class="reference external" href="#computer-graphics">back to top</a></p>
+<section id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#graphics-api">Graphics API</a>, <a class="reference internal" href="#making-code-fast">Making Code Fast</a>, <a class="reference internal" href="#designing-graphics-programs">Designing Graphics Programs</a></p></li>
+<li><dl class="simple">
+<dt>computer graphics is mainly used in areas such as</dt><dd><ul>
+<li><p>modeling, rendering, animation, user interfacing, virtual reality, visualization</p></li>
+<li><p>image processing, 3-D scanning, computational photography, visual effects</p></li>
+<li><p>video games, cartoons, animated films, CAD/CAM, simulation, medical imaging</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>every display and graphics are 2D array of pixels, Picture Element, and every pixel has a
+color</p></li>
+<li><p>3D graphics is just pixels colored to look 2D image like a 3D world</p></li>
+<li><p>rendering: the process of converting 3D world into 2D image</p></li>
+</ul>
+<section id="graphics-api">
+<h3>Graphics API<a class="headerlink" href="#graphics-api" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>API (Application Programming Interface): standard collection of functions</p></li>
+<li><p>graphics API: for visual output</p></li>
+<li><p>user-interface API: to get input from user</p></li>
+<li><dl class="simple">
+<dt><strong>Integrate Paradigm APIs</strong></dt><dd><ul>
+<li><p>such as in Java, where toolkits are integrated and portable packages</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Library Paradigm APIs</strong></dt><dd><ul>
+<li><p>such as in Direct3D and OpenGL, where drawing commands are part of software library</p></li>
+<li><p>user-interface software is independent and might vary from system to system</p></li>
+<li><p>can be problematic to write portable code, but possible to use portable library
+layer</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="making-code-fast">
+<h3>Making Code Fast<a class="headerlink" href="#making-code-fast" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>write code in most straightforward way</p></li>
+<li><p>compile in optimized mode</p></li>
+<li><p>use profiling tools to find bottlenecks</p></li>
+<li><p>review data structures to improve locality</p></li>
+<li><p>make data unit sizes match the cache/page size if possible</p></li>
+<li><p>examine assembly code to improve if needed</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="designing-graphics-programs">
+<h3>Designing Graphics Programs<a class="headerlink" href="#designing-graphics-programs" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>have good classes or routines for geometric entities such as vectors and metrices</p></li>
+<li><dl class="simple">
+<dt><strong>Basic Classes</strong></dt><dd><ul>
+<li><p>vector2, vector3: 2D and 3D vectorss to store x and y components, should have
+operations for vector addition, subtraction, dot product, cross product, scalar
+multiplication and division</p></li>
+<li><p>hvector: homogeneous vector with four components</p></li>
+<li><p>rgb: to store RGB, three color components, should have operations for RGB addition,
+RGB subtraction, RGB multiplication, scalar multiplication and division</p></li>
+<li><p>transform: 4x4 matrix for transformations, should have matrix multiply, functions
+to apply to locations, directions and surface normal vectors</p></li>
+<li><p>image: 2D array of RGB pixels with output operation</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>best to keep memory usage down and maintain coherent memory access</p></li>
+<li><p>consider tradeoffs between using single-precision data and double-precision arithmetic</p></li>
+<li><p>use doubles for geometric computation and floats for color computation</p></li>
+<li><p>for memory heavy data such as triangle meshes, store float data, but convert to double
+when data are accessed through member functions</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#computer-graphics">back to top</a></p>
+</section>
+</section>
+<section id="graphics-pipeline">
+<h2>Graphics Pipeline<a class="headerlink" href="#graphics-pipeline" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#basic-operation">Basic Operation</a>, <a class="reference internal" href="#d-coordinate-space">4D Coordinate Space</a>, <a class="reference internal" href="#level-of-detail">Level of Detail</a></p></li>
+<li><p><a class="reference internal" href="#rasterization">Rasterization</a></p></li>
+<li><p>special software/hardware subsystem to draw 3D primitives</p></li>
+<li><p>optimized for processing 3D triangles with shared vertices</p></li>
+</ul>
+<section id="basic-operation">
+<h3>Basic Operation<a class="headerlink" href="#basic-operation" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>map 3D vertex locations to 2D screen positions</p></li>
+<li><p>shade the triangles to look realistic and appear in proper back-to-front order, usually
+using the z-buffer</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="d-coordinate-space">
+<h3>4D Coordinate Space<a class="headerlink" href="#d-coordinate-space" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>composed of three traditional geometric coordinates and a fourth homogeneous coordinate
+that helps with perspective viewing</p></li>
+<li><p>4D coordinates are manipulated using 4x4 matrices and 4 vectors</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>image generation speed strongly depends on the number of triangles being drawn</p></li>
+</ul>
+</section>
+<section id="level-of-detail">
+<h3>Level of Detail<a class="headerlink" href="#level-of-detail" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>it is useful to represent a model with varying level of detail, LOD</p></li>
+<li><p>fewer triangles are needed when a model is viewed in the distance</p></li>
+<li><p>more triangles are needed when a model is viewed in from closer distance</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="rasterization">
+<h3>Rasterization<a class="headerlink" href="#rasterization" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>rasterizer: rendering system that uses rasterization</p></li>
+<li><p>all objects are empty shells, which are made of triangles</p></li>
+<li><p>more triangles are generated for objects that are closer or larger</p></li>
+<li><p>planar quadrilaterals: four-sided objects, where all points lie in the same plane, used
+by some rasterizers</p></li>
+<li><p>hardware-based rasterizers used triangles as all lines of a triangle are guaranteed to be
+in the same plane</p></li>
+<li><p>geometry/model/mesh: series of triangles that define outer surface of an object</p></li>
+<li><p>rasterization has several phases, ordered into a pipeline, and is also amenable to
+hardware acceleration</p></li>
+<li><p>the order of triangles and meshes submitted to the rasterizer can affect its output</p></li>
+<li><p>OpenGL: API for accessing hardware-based rasterizer</p></li>
+<li><dl class="simple">
+<dt><strong>Clip Space Transformation</strong></dt><dd><ul>
+<li><p>first phase of rasterization</p></li>
+<li><p>transform vertices of each triangle into certain region of space</p></li>
+<li><p>only things within the volume will be rendered to the output image</p></li>
+<li><p>clip space: the transformed triangle volume</p></li>
+<li><p>clip coordinates: positions of triangle’s vertices in clip space, has four
+coordinates, (X, Y, Z, W), W is range of clip space for the vertex, [-W, W]</p></li>
+<li><p>clip space can be different for different vertices within a triangle</p></li>
+<li><p>as each vertex can have independent W, each vertex of a triangle exists in its own
+clip space</p></li>
+<li><p>positive X is to the right, positive Y is up, and positive Z is away from viewer</p></li>
+<li><p>triangles partially outside of clip space undergo a process called clipping</p></li>
+<li><p>clipping: break the triangle apart into number of smaller triangles, such that
+smaller ones are all entirely within clip space</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Normalized Device Coordinates</strong></dt><dd><ul>
+<li><p>more reasonable coordinate space from transforming clip space</p></li>
+<li><p>obtained by dividing X, Y, Z of each vertex is with W</p></li>
+<li><p>space of normalized device coordinates is just clip space, with range of X, Y, Z
+being [-1, 1]</p></li>
+<li><p>directions are same as clip space</p></li>
+<li><p>division by W is important in projecting 3D triangles onto 2D images</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Window Transformation</strong></dt><dd><ul>
+<li><p>convert normalized device coordinates to window coordinates</p></li>
+<li><p>still 3D coordinates with same direction as clip space, still floating-point values</p></li>
+<li><p>but bounds depend on the viewable window, with Z having [0, 1]</p></li>
+<li><p>have bottom-left as (0, 0) origin point, but can transform to top-left if needed</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Scan Conversion</strong></dt><dd><ul>
+<li><p>takes a triangle and breaks it up based on the arrangement of window pixels over the
+output image that the triangle covers</p></li>
+<li><p>sample: center of pixel, discrete location within the area of a pixel</p></li>
+<li><p>triangle will produce a fragment for every pixel sample within the 2D area</p></li>
+<li><p>as triangles are rendered with shared edges, if shared edge vertex positions are
+identical, there will be no sample gaps during scan conversion</p></li>
+<li><p>invariance guarantee: identical output when passing same input vertex data through
+same vertex processor</p></li>
+<li><p>gap-less scan conversion depends on the user to use same input vertices</p></li>
+<li><p>as scan conversion is 2D operation, it only uses X and Y of triangle in window
+coordinates to generate fragments</p></li>
+<li><p>Z value is used to determine the depth of the fragment</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Fragment Processing</strong></dt><dd><ul>
+<li><p>transform a fragment from scan converted triangle to one or more color values and
+single depth value</p></li>
+<li><p>all fragments from one triangle must be processed before another triangle</p></li>
+<li><p>Direct3D calls this stage pixel processing or pixel shading</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Fragment Writing</strong></dt><dd><ul>
+<li><p>fragment with colors and depth values is written to the destination image</p></li>
+<li><p>combining the color and depth with the colors that are currently in the image can be
+a lot of computations</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Colors</strong></dt><dd><ul>
+<li><p>a color is usually a series of number with range [0, 1], each number defining
+intensity of particular reference color</p></li>
+<li><p>color space: set of reference colors, e.g. RGB, CMYK</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Shader</strong></dt><dd><ul>
+<li><p>program designed to be run on a renderer, as part of rendering operation</p></li>
+<li><p>can only be execute at certain points in the rendering process</p></li>
+<li><p>shader stages: hooks to add algorithms to create specific visual effect</p></li>
+<li><p>various shading languages available to various APIs, e.g. OpenGL Shading Language or
+GLSL</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#computer-graphics">back to top</a></p>
+</section>
+</section>
+<section id="maths">
+<h2>Maths<a class="headerlink" href="#maths" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#iee-floating-point">IEE Floating Point</a>, <a class="reference internal" href="#d-positions">2D Positions</a>, <a class="reference internal" href="#vectors">Vectors</a>, <a class="reference internal" href="#random-number">Random Number</a></p></li>
+</ul>
+<section id="iee-floating-point">
+<h3>IEE Floating Point<a class="headerlink" href="#iee-floating-point" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>infinity, minus infinity, NaN (not a number), positive zero, negative zero</p></li>
+<li><dl class="simple">
+<dt><strong>Example Behaviors</strong></dt><dd><ul>
+<li><p>-a/(+&amp;infin;) = -0, +a/(-&amp;infin;) = -0, -a/(-&amp;infin;) = +0</p></li>
+<li><p>&amp;infin;-&amp;infin; = NaN, &amp;infin;/&amp;infin; = NaN, &amp;infin;/0 = &amp;infin;, 0/0 = NaN</p></li>
+<li><p>-&amp;infin; &lt; all finite valid numbers &lt; +&amp;infin;</p></li>
+<li><p>-&amp;infin; &lt; +&amp;infin;</p></li>
+<li><p>any arithmetic expression that includes NaN results in NaN</p></li>
+<li><p>any boolean expression involving NaN is false</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Divide by Zero</strong></dt><dd><ul>
+<li><p>+a/+0 = +&amp;infin;, -a/+0 = &amp;infin;</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>false: NaN &gt; 0, -&amp;infin; &gt; 0</p></li>
+<li><p>true: +&amp;infin; &gt; 0</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="d-positions">
+<h3>2D Positions<a class="headerlink" href="#d-positions" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>system display is a pixel grid in two dimensions with (x, y) for positions</p></li>
+<li><p>can use Euclidean plane to visualize</p></li>
+<li><p>most APIs have (0, 0) in top-left</p></li>
+<li><p>can represent a 2D value as a vector, <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">(4,</span> <span class="pre">2),</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">(6,</span> <span class="pre">7)</span></code></p></li>
+<li><p>subtraction: Destination - Start = Distance, b(6, 7) - a(4, 2) = c(2, 5)</p></li>
+<li><p>addition: Start + Distance = Destination</p></li>
+<li><dl class="simple">
+<dt><strong>Trigonometry</strong></dt><dd><ul>
+<li><p>SOH: sin&amp;Theta; = Opposite / Hypotenuse</p></li>
+<li><p>CAH: cos&amp;Theta; = Adjacent / Hypotenuse</p></li>
+<li><p>TOA: tan&amp;Theta; = Opposite / Adjacent</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Circle Collisions</strong></dt><dd><ul>
+<li><p>c1(x1, y1, r1), c2(x2, y2, r2)</p></li>
+<li><p>Vector D = (x2 - x1, y2 - y1), Dist = sqrt(D.x&lt;sup&gt;2&lt;/sup&gt; + D.y&lt;sup&gt;2&lt;/sup&gt;)</p></li>
+<li><p>collision = Dist &lt; Radius Sum = Dist &lt; r1 + r2</p></li>
+<li><p>since sqrt is expensive, can optimize by squaring both sides</p></li>
+<li><p>DistSq = D.x&lt;sup&gt;2&lt;/sup&gt; + D.y&lt;sup&gt;2&lt;/sup&gt;, collision = DistSq &lt; (r1 + r2)&lt;sup&gt;2&lt;/sup&gt;</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="vectors">
+<h3>Vectors<a class="headerlink" href="#vectors" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Dimensionality</strong></dt><dd><ul>
+<li><p>represents the number of dimensions a vector has</p></li>
+<li><p>e.g two-dimensional vector is in single plane and three-dimensional vector in
+physical space</p></li>
+<li><p>can have higher dimensions, but generally deal with dimensions between 2 and 4</p></li>
+<li><p>a vector with only one dimension is called a scalar</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Geometrical</strong></dt><dd><ul>
+<li><p>a vector can represent a position or a direction within a space</p></li>
+<li><p>direction vectors do not have an origin, simply specify a direction in space</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Numerical</strong></dt><dd><ul>
+<li><p>a vector can be a sequence of numbers</p></li>
+<li><p>two-dimensional vector has two numbers, three-dimensional vector has three numbers</p></li>
+<li><p>scalars are just single number</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Components</strong></dt><dd><ul>
+<li><p>numbers within a vector</p></li>
+<li><p>e.g 3D vector of (0, 2, 4) has x = 0, y = 2, z = 4</p></li>
+<li><p>component-wise operation: any operation performed on each component of a vector,
+requires vectors to have same dimensionality</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Addition</strong></dt><dd><ul>
+<li><p>vector directions can be shifted around without changing values</p></li>
+<li><p>if two vectors are put head to tail, vector sum is the direction from the tail of
+the first vector to the head of the last</p></li>
+<li><p>numerical sum of two vectors is the sum of corresponding components</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Negation &amp; Subtraction</strong></dt><dd><ul>
+<li><p>negation reverses the direction of a vector, negate each component of the vector</p></li>
+<li><p>subtraction is the same as addition with a negated second vector</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Multiplication</strong></dt><dd><ul>
+<li><p>no real geometric equivalent, but numerical equivalent is useful</p></li>
+<li><p>two vectors are multiplied component-wise, like addition</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Vector/Scalar Operations</strong></dt><dd><ul>
+<li><p>vectors can be operated on by scalar values</p></li>
+<li><p>magnifies or shrinks vector length, depending on the scalar value</p></li>
+<li><p>scaling: component-wise, each component of vector is multiplied with a scalar</p></li>
+<li><p>addition: component-wise, each component of vector is added with a scalar</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Vector Algebra</strong></dt><dd><ul>
+<li><p>vector addition and multiplication, and vector/scalar operations are commutative,
+associative and distributive</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Length</strong></dt><dd><ul>
+<li><p>distance from starting point to ending point</p></li>
+<li><p>use Pythagorean theorem to compute any arbitrary dimensions</p></li>
+<li><p>e.g. &amp;Sqrt;x&lt;sup&gt;2&lt;/sup&gt; + y&lt;sup&gt;2&lt;/sup&gt; + z&lt;sup&gt;2&lt;/sup&gt;</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Normalization</strong></dt><dd><ul>
+<li><p>unit vector: vector with length one, represents pure direction with unit length</p></li>
+<li><p>normalization maintains its angle, but changes its length to 1, converted to unit
+vector</p></li>
+<li><p>normalize a vector by dividing with its length, or multiplying with reciprocal of
+the length, N = Vec2(V.x / L, V.y / L)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="random-number">
+<h3>Random Number<a class="headerlink" href="#random-number" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Inclusive Range</strong></dt><dd><ul>
+<li><p>given range [min, max], range_size = 1 + max - min</p></li>
+<li><p>r = rand() % range_size, r is in range [0, range_size - 1]</p></li>
+<li><p>r = r + min, add back min to get proper range</p></li>
+<li><p>r = min + (rand() % (1 + max - min))</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#computer-graphics">back to top</a></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Compilers.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Compilers</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ComputingSystems.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Computing Systems</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graphics-api">Graphics API</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-code-fast">Making Code Fast</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#designing-graphics-programs">Designing Graphics Programs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphics-pipeline">Graphics Pipeline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-operation">Basic Operation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-coordinate-space">4D Coordinate Space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-of-detail">Level of Detail</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rasterization">Rasterization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maths">Maths</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iee-floating-point">IEE Floating Point</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-positions">2D Positions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectors">Vectors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-number">Random Number</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

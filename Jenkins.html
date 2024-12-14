@@ -1,0 +1,923 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Jenkins &#8212; Notes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Jenkins';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Kubernetes" href="Kubernetes.html" />
+    <link rel="prev" title="Java" href="Java.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AWS.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BackendEngineering.html">Backend Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSharp.html">C# #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CTF.html">CTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CompTIA.html">CompTIA Cert Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compilers.html">Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerGraphics.html">Computer Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputingSystems.html">Computing Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">ECS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FFmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Helm.html">Helm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Istio.html">Istio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JDBC.html">JDBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MongoDB.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkProgramming.html">Network Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NodeJS.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenAPI.html">OpenAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OperatingSystem.html">Operating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="POSIXThreads.html">POSIX Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PenetrationTesting.html">Penetration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramDesign.html">Program Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectManagement.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prometheus.html">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SFML.html">SFML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StrategicPlanning.html">Strategic Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terraform.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TypeScript.html">TypeScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI/UX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrant.html">Vagrant</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Jenkins.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Jenkins</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ci-continuous-integration">CI (Continuous Integration)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cd-continuous-delivery-deployment">CD (Continuous Delivery/Deployment)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-jenkins">What is Jenkins?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jenkins-cli">Jenkins CLI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plugins">Plugins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#administration">Administration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-users">Manage Users</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-system">Configure System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-global-security">Configure Global Security</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline">Pipeline</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jenkinsfile">Jenkinsfile</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-agents">Build Agents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blue-ocean">Blue Ocean</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="jenkins">
+<h1>Jenkins<a class="headerlink" href="#jenkins" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#what-is-jenkins">What is Jenkins?</a></p></li>
+<li><p><a class="reference internal" href="#jenkins-cli">Jenkins CLI</a></p></li>
+<li><p><a class="reference internal" href="#plugins">Plugins</a></p></li>
+<li><p><a class="reference internal" href="#administration">Administration</a></p></li>
+<li><p><a class="reference internal" href="#pipeline">Pipeline</a></p></li>
+<li><p><a class="reference internal" href="#build-agents">Build Agents</a></p></li>
+<li><p><a class="reference internal" href="#blue-ocean">Blue Ocean</a></p></li>
+</ol>
+<section id="ci-continuous-integration">
+<h2>CI (Continuous Integration)<a class="headerlink" href="#ci-continuous-integration" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>package the code, run tests (unit/integration) and security checks</p></li>
+<li><p>send it to CD if everything is success</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="cd-continuous-delivery-deployment">
+<h2>CD (Continuous Delivery/Deployment)<a class="headerlink" href="#cd-continuous-delivery-deployment" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>deploy the application to a system</p></li>
+<li><dl class="simple">
+<dt>Delivery</dt><dd><ul>
+<li><p>consists manual intervention (such as button clicks)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Deployment</dt><dd><ul>
+<li><p>code is auto deployed to a system</p></li>
+<li><p>no manual intervention</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>has to be authenticated, run test against the system to be deployed on</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#jenkins">back to top</a></p>
+<section id="what-is-jenkins">
+<h3>What is Jenkins?<a class="headerlink" href="#what-is-jenkins" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>open-source CI/CD suite with multiple plugins</p></li>
+<li><p>free or paid enterprise SaaS</p></li>
+<li><p>can host on any system, VM or containers</p></li>
+<li><p>need Java as prerequisite</p></li>
+</ul>
+<p><a class="reference external" href="#jenkins">back to top</a></p>
+</section>
+<section id="jenkins-cli">
+<h3>Jenkins CLI<a class="headerlink" href="#jenkins-cli" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>built-in cli that can be connected via curl/ssh</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>java<span class="w"> </span>-jar<span class="w"> </span>jenkins-cli.jar<span class="w"> </span>-s<span class="w"> </span>http://<span class="w"> </span>-auth<span class="w"> </span><span class="s1">&#39;user:API_TOKEN&#39;</span><span class="w"> </span>-webSocket<span class="w"> </span>COMMAND
+
+<span class="c1"># safely restart jenkins</span>
+java<span class="w"> </span>-jar<span class="w"> </span>jenkins-cli.jar<span class="w"> </span>-s<span class="w"> </span>http://<span class="w"> </span>-auth<span class="w"> </span><span class="s1">&#39;user:API_TOKEN&#39;</span><span class="w"> </span>-webSocket<span class="w"> </span>safe-restart
+</pre></div>
+</div>
+<p><a class="reference external" href="#jenkins">back to top</a></p>
+</section>
+<section id="plugins">
+<h3>Plugins<a class="headerlink" href="#plugins" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>enhance Jenkins functionality</p></li>
+<li><p>can be installed from webUI or cli</p></li>
+<li><p>some plugins required Jenkins to be restarted after install</p></li>
+<li><p>plugins allow certain commands to be used in pipeline scripts</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># list plugins</span>
+java<span class="w"> </span>-jar<span class="w"> </span>jenkins-cli.jar<span class="w"> </span>-s<span class="w"> </span>http://<span class="w"> </span>-auth<span class="w"> </span><span class="s1">&#39;user:API_TOKEN&#39;</span><span class="w"> </span>-webSocket<span class="w"> </span>list-plugins
+
+<span class="c1"># install &amp; update plugins</span>
+java<span class="w"> </span>-jar<span class="w"> </span>jenkins-cli.jar<span class="w"> </span>-s<span class="w"> </span>http://<span class="w"> </span>-auth<span class="w"> </span><span class="s1">&#39;user:API_TOKEN&#39;</span><span class="w"> </span>-webSocket<span class="w"> </span>install-plugin
+
+java<span class="w"> </span>-jar<span class="w"> </span>jenkins-cli.jar<span class="w"> </span>-s<span class="w"> </span>http://<span class="w"> </span>-auth<span class="w"> </span><span class="s1">&#39;user:API_TOKEN&#39;</span><span class="w"> </span>-webSocket<span class="w"> </span>disable-plugin
+</pre></div>
+</div>
+<p><a class="reference external" href="#jenkins">back to top</a></p>
+</section>
+<section id="administration">
+<h3>Administration<a class="headerlink" href="#administration" title="Link to this heading">#</a></h3>
+<ul>
+<li><dl>
+<dt>security</dt><dd><ul class="simple">
+<li><p>has to secure the server that Jenkins is running on</p></li>
+<li><p>authenticate users in security realm</p></li>
+<li><p>authorize each user with different permissions</p></li>
+<li><p>use plugins for extra security features</p></li>
+<li><p>by default, Jenkins run builds on the built-in node</p></li>
+<li><p>any builds running on the built-in node have the same level of access to the controller</p></li>
+</ul>
+<p>file system as the Jenkins process
+* set the number of Executors to 0 on the built-in node
+* an agent process can ask the controller process for information available to it and even
+to have the controller run certain commands when requested by the agent
+* Agent → Controller Access Control system prevents agent processes from being able to send
+malicious commands to the Jenkins controller
+* Jenkins recommend [Build Pipeline](<a class="reference external" href="https://plugins.jenkins.io/build-pipeline-plugin/">https://plugins.jenkins.io/build-pipeline-plugin/</a>) plugin for proper access when running builds on
+multiple agents</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+</section>
+<section id="manage-users">
+<h2>Manage Users<a class="headerlink" href="#manage-users" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>create, delete, modify users</p></li>
+<li><p>need [Role-based Authorization Strategy](<a class="reference external" href="https://plugins.jenkins.io/role-strategy/">https://plugins.jenkins.io/role-strategy/</a>) plugin for role-based management</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="configure-system">
+<h2>Configure System<a class="headerlink" href="#configure-system" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>show Jenkins home, location, add GitHub server, email notification</p></li>
+<li><p>change any global configurations</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="configure-global-security">
+<h2>Configure Global Security<a class="headerlink" href="#configure-global-security" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>security realm, authorization modes, agent protocols, disable API Token</p></li>
+<li><p>Matrix-based security Authorization allow more in-depth security controls</p></li>
+<li><p>users should have Overall/Read permission to see UI</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><dl class="simple">
+<dt>backup and restore</dt><dd><ul class="simple">
+<li><p>make sure to backup JENKINS_HOME folder, which contains config.xml, jobs</p></li>
+<li><p>can use snapshots, plugins (e.g ThinBackup) or shell script to backup</p></li>
+<li><p>ThinBackup can restore based on time stamps</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>monitoring</dt><dd><ul>
+<li><p>can use Datadog, Prometheus and Grafana, JavaMelody and other plugins</p></li>
+<li><p>setting jenkins server as target in prometheus</p>
+<blockquote>
+<div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Jenkins&#39;</span>
+<span class="w">    </span><span class="nt">metrics_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/prometheus/</span>
+<span class="w">    </span><span class="nt">static_configs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">targets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;localhost:8085&#39;</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><a class="reference external" href="#jenkins">back to top</a></p>
+<section id="pipeline">
+<h3>Pipeline<a class="headerlink" href="#pipeline" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="jenkinsfile">
+<h2>Jenkinsfile<a class="headerlink" href="#jenkinsfile" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>text file that contains definitions, tells pipeline what to do</p></li>
+<li><p>can have one stage per file or multi-stage pipeline by defining stages in one single file</p></li>
+<li><p>if one stage fails in multi-stage, the pipeline will stop at that stage</p></li>
+</ul>
+<dl>
+<dt>pipeline {</dt><dd><p>agent any</p>
+<dl>
+<dt>stages {</dt><dd><dl>
+<dt>stage(‘Build’) {</dt><dd><dl class="simple">
+<dt>steps {</dt><dd><p>echo ‘Building…’</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}
+stage(‘Test’) {</p>
+<blockquote>
+<div><dl class="simple">
+<dt>steps {</dt><dd><p>echo ‘Testing…’</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<ul>
+<li><p>by default, all pipelines are in <code class="docutils literal notranslate"><span class="pre">/var/lib/jenkins/workspace/</span></code></p></li>
+<li><p>example Go pipeline</p>
+<blockquote>
+<div><dl>
+<dt>pipeline {</dt><dd><p>agent any
+tools {</p>
+<blockquote>
+<div><p>go ‘go-version’</p>
+</div></blockquote>
+<p>}</p>
+<dl class="simple">
+<dt>environment {</dt><dd><p>GO11MODULE=’on’</p>
+</dd>
+</dl>
+<p>}</p>
+<dl>
+<dt>stages {</dt><dd><dl>
+<dt>stage(‘Test’) {</dt><dd><dl class="simple">
+<dt>steps {</dt><dd><p>git ‘my-go-app.git’
+sh ‘go test ./…’</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+<dl>
+<dt>stage(‘Build docker image’) {</dt><dd><dl>
+<dt>steps {</dt><dd><dl class="simple">
+<dt>script {</dt><dd><p>app = docker.build(‘username/my-go-app’)</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+<li><p>example multi-stage Go pipeline with different nodes</p>
+<blockquote>
+<div><dl>
+<dt>pipeline {</dt><dd><p>agent none
+stages {</p>
+<blockquote>
+<div><p>//DEV
+stage(‘Build Dev’) {</p>
+<blockquote>
+<div><dl>
+<dt>agent {</dt><dd><dl class="simple">
+<dt>label {</dt><dd><p>label ‘dev’
+customWorkspace “/opt/go-app”</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}
+steps {</p>
+<blockquote>
+<div><p>sh ‘git pull’</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>}
+stage(‘Test Dev’) {</p>
+<blockquote>
+<div><dl>
+<dt>agent {</dt><dd><dl class="simple">
+<dt>label {</dt><dd><p>label ‘dev’
+customWorkspace “/opt/go-app”</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}
+steps {</p>
+<blockquote>
+<div><p>sh ‘go test ./…’</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>}
+stage(‘Deploy Dev’) {</p>
+<blockquote>
+<div><dl>
+<dt>agent {</dt><dd><dl class="simple">
+<dt>label {</dt><dd><p>label ‘dev’
+customWorkspace “/opt/go-app”</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}
+steps {</p>
+<blockquote>
+<div><dl>
+<dt>script {</dt><dd><dl class="simple">
+<dt>withEnv ( [‘JENKINS_NODE_COOKIE=do_not_kill’] ) {</dt><dd><p>sh ‘go run main.go &amp;’
+}</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>}
+//PROD
+stage(‘Build Prod’) {</p>
+<blockquote>
+<div><dl>
+<dt>agent {</dt><dd><dl class="simple">
+<dt>label {</dt><dd><p>label ‘prod’
+customWorkspace “/opt/go-app”</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}
+steps {</p>
+<blockquote>
+<div><p>sh ‘git pull’</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>}
+stage(‘Test Prod’) {</p>
+<blockquote>
+<div><dl>
+<dt>agent {</dt><dd><dl class="simple">
+<dt>label {</dt><dd><p>label ‘prod’
+customWorkspace “/opt/go-app”</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}
+steps {</p>
+<blockquote>
+<div><p>sh ‘go test ./…’</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>}
+stage(‘Deploy Prod’) {</p>
+<blockquote>
+<div><dl>
+<dt>agent {</dt><dd><dl class="simple">
+<dt>label {</dt><dd><p>label ‘prod’
+customWorkspace “/opt/go-app”</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}
+steps {</p>
+<blockquote>
+<div><dl>
+<dt>script {</dt><dd><dl class="simple">
+<dt>withEnv ( [‘JENKINS_NODE_COOKIE=do_not_kill’] ) {</dt><dd><p>sh ‘go run main.go &amp;’
+}</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+</ul>
+<p><a class="reference external" href="#jenkins">back to top</a></p>
+<section id="build-agents">
+<h3>Build Agents<a class="headerlink" href="#build-agents" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>systems that run entire CI/CD pipeline workload</p></li>
+<li><p>can have agents anywhere, on separate machine or as container, but must be able to run java</p></li>
+<li><p>e.g Windows, Linux, macOS, Docker</p></li>
+<li><p>running builds on same Jenkins server is not recommended</p></li>
+<li><p>should have a dedicated server to run build agent</p></li>
+<li><dl class="simple">
+<dt>using Ubuntu server as build agent</dt><dd><ul class="simple">
+<li><p>install Jenkins as the main Jenkins server</p></li>
+<li><p>add new user: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">adduser</span> <span class="pre">newuser</span></code></p></li>
+<li><p>add new user to sudo group: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">usermod</span> <span class="pre">-aG</span> <span class="pre">sudo</span> <span class="pre">newuser</span></code></p></li>
+<li><p>add new credentials for ‘newuser’ in Jenkins server</p></li>
+<li><p>create new node in Jenkins server</p></li>
+<li><p>restrict the pipeline or project to only run in the build agent</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>using Docker container as build agent</dt><dd><ul class="simple">
+<li><p>set docker image in <code class="docutils literal notranslate"><span class="pre">agent</span></code></p></li>
+</ul>
+<dl>
+<dt>pipeline {</dt><dd><dl class="simple">
+<dt>agent {</dt><dd><p>docker { image ‘golang:latest’}</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p><a class="reference external" href="#jenkins">back to top</a></p>
+</section>
+<section id="blue-ocean">
+<h3>Blue Ocean<a class="headerlink" href="#blue-ocean" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>just a new UI with easier to use, sophisticated visualizations</p></li>
+<li><p>intuitive pipeline status, pipeline editor, personalization</p></li>
+<li><p>pinpoint precision and native integration for branch and pull requests</p></li>
+<li><p>not installed by default, can be installed as plugin</p></li>
+</ul>
+<p><a class="reference external" href="#jenkins">back to top</a></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Java.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Java</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Kubernetes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Kubernetes</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ci-continuous-integration">CI (Continuous Integration)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cd-continuous-delivery-deployment">CD (Continuous Delivery/Deployment)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-jenkins">What is Jenkins?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jenkins-cli">Jenkins CLI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plugins">Plugins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#administration">Administration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-users">Manage Users</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-system">Configure System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-global-security">Configure Global Security</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline">Pipeline</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jenkinsfile">Jenkinsfile</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-agents">Build Agents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blue-ocean">Blue Ocean</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,2028 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Prometheus &#8212; Notes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Prometheus';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Python" href="Python.html" />
+    <link rel="prev" title="Project Management" href="ProjectManagement.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AWS.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BackendEngineering.html">Backend Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSharp.html">C# #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CTF.html">CTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CompTIA.html">CompTIA Cert Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compilers.html">Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerGraphics.html">Computer Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputingSystems.html">Computing Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">ECS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FFmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Helm.html">Helm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Istio.html">Istio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JDBC.html">JDBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MongoDB.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkProgramming.html">Network Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NodeJS.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenAPI.html">OpenAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OperatingSystem.html">Operating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="POSIXThreads.html">POSIX Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PenetrationTesting.html">Penetration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramDesign.html">Program Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectManagement.html">Project Management</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SFML.html">SFML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StrategicPlanning.html">Strategic Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terraform.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TypeScript.html">TypeScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI/UX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrant.html">Vagrant</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Prometheus.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Prometheus</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-prometheus">What is Prometheus?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obervability">Obervability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages">Advantages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages">Disadvantages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sli">SLI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slo">SLO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sla">SLA</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#architecture">Architecture</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prometheus-server">Prometheus server</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#targets">targets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metrics">metrics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collecting-metrics-data-from-targets">collecting metrics data from targets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exporter">exporter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring-systems">monitoring systems</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#as-systemd-service">As systemd service</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#as-docker-container">As Docker container</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-metrics">Docker metrics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cadvisor-metrics">cAdvisor metrics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#security">Security</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encryption">Encryption</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication">Authentication</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">Properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series">Time series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">Attributes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relabeling">ReLabeling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#promtools">Promtools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alertmanager">Alertmanager</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alertmanager-architecture">Alertmanager Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alertmanager-configuration">Alertmanager Configuration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-storage">Data Storage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#promql">PromQL</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types">Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#label-selectors-matchers">Label Selectors &amp; Matchers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifiers">Modifiers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operators">Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-matching">Vector Matching</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subquery">Subquery</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram">Histogram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recording-rules">Recording Rules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#http-api">HTTP API</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expression-browser">Expression Browser</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#console-templates">Console Templates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring">Monitoring</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#client-libraries">Client Libraries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring-kubernetes">Monitoring Kubernetes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#service-discovery">Service Discovery</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-service-discovery">File Service Discovery</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aws">AWS</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pushgateway">Pushgateway</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="prometheus">
+<h1>Prometheus<a class="headerlink" href="#prometheus" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#what-is-prometheus">What is Prometheus?</a></p></li>
+<li><p><a class="reference internal" href="#architecture">Architecture</a></p></li>
+<li><p><a class="reference internal" href="#installation">Installation</a></p></li>
+<li><p><a class="reference internal" href="#configuration">Configuration</a></p></li>
+<li><p><a class="reference internal" href="#security">Security</a></p></li>
+<li><p><a href="#id15"><span class="problematic" id="id16">`Metrics`_</span></a></p></li>
+<li><p><a class="reference internal" href="#promtools">Promtools</a></p></li>
+<li><p><a class="reference internal" href="#alertmanager">Alertmanager</a></p></li>
+<li><p><a class="reference internal" href="#data-storage">Data Storage</a></p></li>
+<li><p><a class="reference internal" href="#promql">PromQL</a></p></li>
+<li><p><a class="reference internal" href="#visualization">Visualization</a></p></li>
+<li><p><a class="reference internal" href="#monitoring">Monitoring</a></p></li>
+<li><p><a class="reference internal" href="#service-discovery">Service Discovery</a></p></li>
+<li><p><a class="reference internal" href="#pushgateway">Pushgateway</a></p></li>
+</ol>
+<section id="what-is-prometheus">
+<h2>What is Prometheus?<a class="headerlink" href="#what-is-prometheus" title="Link to this heading">#</a></h2>
+<section id="obervability">
+<h3>Obervability<a class="headerlink" href="#obervability" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>to understand and measure the state of a system based on data generated</p></li>
+<li><p>perform actions depending on the data</p></li>
+<li><p>give better insights of the system to troubleshoot and monitor performance</p></li>
+<li><dl class="simple">
+<dt>logs</dt><dd><ul>
+<li><p>records of event with timestamp and information</p></li>
+<li><p>output can be difficult to understand</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>traces</dt><dd><ul>
+<li><p>follow operations flow through systems</p></li>
+<li><p>help understand how systems work together</p></li>
+<li><p>each trace has a trace ID</p></li>
+<li><p>span: individual events forming a trace, track start time, duration and parent ID</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>metrics</dt><dd><ul>
+<li><p>information about system’s state using numerical values</p></li>
+<li><p>can visualize data collected</p></li>
+<li><p>contain metric name, dimensions, value and timestamp</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>open source monitoring tool for highly dynamic container environments, only handles <strong>metrics</strong></p></li>
+<li><p>can also be used in non-container infrastructure</p></li>
+<li><p>constantly monitor all the services and alert when crash or identify problems ahead</p></li>
+<li><p>e.g., check memory usage and notify admin when near limit</p></li>
+</ul>
+</section>
+<section id="advantages">
+<h3>Advantages<a class="headerlink" href="#advantages" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>reliable, stand-alone and self-containing</p></li>
+<li><p>doesn’t depend on network storage or other remote services</p></li>
+<li><p>works even if other parts of infrastructure are broken</p></li>
+<li><p>don’t need to setup extensive infrastructure to use</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="disadvantages">
+<h3>Disadvantages<a class="headerlink" href="#disadvantages" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>deep learning curve to correctly configure and query metrics as it’s not well-documented</p></li>
+<li><p>difficult to scale</p></li>
+<li><p>single node is less complex but limits on number of metrics that can be monitored</p></li>
+<li><p>need to increase Prometheus server capacity or limit number of metrics</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p>compatible with both docker and K8s</p></li>
+<li><p>can be easily deployed in K8s or other container environments</p></li>
+<li><dl>
+<dt>provide <strong>cluster node resource monitoring</strong> out of the box</dt><dd><ul class="simple">
+<li><p>once deployed on K8s, starts gathering metrics data on each K8s node server without extra</p></li>
+</ul>
+<p>configuration</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="sli">
+<h3>SLI<a class="headerlink" href="#sli" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Service Level Indicator</p></li>
+<li><p>metrics to measure quality of the service provided</p></li>
+<li><p>e.g latency, error rate, throughput, availability</p></li>
+<li><p>not accurate enough to measure user’s experience</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="slo">
+<h3>SLO<a class="headerlink" href="#slo" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Service Level Object</p></li>
+<li><p>target value or range for SLI</p></li>
+<li><p>e.g latency &lt; 100ms, 99.9% availability</p></li>
+<li><p>directly related to user experience</p></li>
+<li><p>cannot achieve perfection but be reliable</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="sla">
+<h3>SLA<a class="headerlink" href="#sla" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Service Level Agreement</p></li>
+<li><p>contract between vendor and user</p></li>
+<li><p>guarantee certain SLO</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#prometheus">back to top</a></p>
+</section>
+</section>
+<section id="architecture">
+<h2>Architecture<a class="headerlink" href="#architecture" title="Link to this heading">#</a></h2>
+<section id="prometheus-server">
+<h3>Prometheus server<a class="headerlink" href="#prometheus-server" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>main component that does the actual monitoring</p></li>
+<li><p>exposed at default port 9090</p></li>
+<li><p><em>storage</em>: time series database that stores metrics data</p></li>
+<li><p><em>retrieval</em>: data retrieval worker responsible for getting metrics from resources</p></li>
+<li><p><em>http server</em>: api that accepts queries for the stored data and used to visualize data</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="targets">
+<h3>targets<a class="headerlink" href="#targets" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>resources that Prometheus monitors</p></li>
+<li><p>e.g., Linux/Windows server, Apache server, single app, services like databases</p></li>
+<li><p>each target has units of monitoring</p></li>
+<li><p>Linux server: CPU status, memory/disk usage</p></li>
+<li><p>application: exceptions count, requests count, request duration</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="metrics">
+<h3>metrics<a class="headerlink" href="#metrics" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>unit to monitor for a specific target</p></li>
+<li><p>saved into Prometheus database component</p></li>
+<li><p>defined in human readable text-based format</p></li>
+<li><p>metrics entries has <em>TYPE</em> and <em>HELP</em> attributes</p></li>
+<li><p>Counter TYPE: how many times x happened?</p></li>
+<li><p>Gauche TYPE: metrics that can go up and down, what is the current value of x now?</p></li>
+<li><p>Histogram TYPE: how long or how big for size of request?</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="collecting-metrics-data-from-targets">
+<h3>collecting metrics data from targets<a class="headerlink" href="#collecting-metrics-data-from-targets" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>pull metrics data from targets from HTTP endpoint (e.g., hostaddress/metrics)</p></li>
+<li><p>targets must expose ‘/metrics’ endpoint</p></li>
+<li><p>data available at endpoint must be in format</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="exporter">
+<h3>exporter<a class="headerlink" href="#exporter" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>extra component for services that don’t have native Prometheus endpoint</p></li>
+<li><p>exposed at default port 9100</p></li>
+<li><p>script or service that fetches metrics from target</p></li>
+<li><p>converts the data to correct Prometheus format</p></li>
+<li><p>exposes the converted data at its own ‘/metrics’ endpoint</p></li>
+<li><p>e.g. MySQL elasticsearch, Linux server build tools/ node exporters, Apache, HAProxy</p></li>
+<li><p>also available as docker images and as Prometheus client libraries for monitoring</p></li>
+</ul>
+<p>applications</p>
+</div></blockquote>
+</section>
+<section id="monitoring-systems">
+<h3>monitoring systems<a class="headerlink" href="#monitoring-systems" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>pull system</strong></dt><dd><ul>
+<li><p>Prometheus default model</p></li>
+<li><p>multiple Prometheus instances can pull metrics data</p></li>
+<li><p>can detect if service is up and running</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>push system</strong></dt><dd><ul>
+<li><p>apps and servers are responsible for pushing metrics data to centralized collection
+platform (e.g., Amazon Cloud Watch, Relic)</p></li>
+<li><p>can cause high load of network traffic as services constantly push data</p></li>
+<li><p>service not pushing metrics can be caused by many reasons other than service not
+running</p></li>
+<li><p>can’t have insight what is happening to the service</p></li>
+<li><p>usually used in event-based systems</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>pushgateway</strong></dt><dd><ul>
+<li><p>for a target that runs only for a short time</p></li>
+<li><p>e.g., batch job or scheduled job that cleans up data</p></li>
+<li><p>using pushgateway in Prometheus should be an exception</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#prometheus">back to top</a></p>
+</section>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<section id="as-systemd-service">
+<h3>As systemd service<a class="headerlink" href="#as-systemd-service" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p><strong>Prometheus</strong></p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># create user to only start prometheus, user cannot log in</span>
+sudo<span class="w"> </span>useradd<span class="w"> </span>--no-create-home<span class="w"> </span>--shell<span class="w"> </span>/bin/false<span class="w"> </span>prometheus
+
+<span class="c1"># to store prometheus.yml</span>
+sudo<span class="w"> </span>mkdir<span class="w"> </span>/etc/prometheus
+
+<span class="c1"># to store data</span>
+sudo<span class="w"> </span>mkdir<span class="w"> </span>/var/lib/prometheus
+
+<span class="c1"># update owner</span>
+sudo<span class="w"> </span>chown<span class="w"> </span>prometheus:prometheus<span class="w"> </span>/etc/prometheus
+sudo<span class="w"> </span>chown<span class="w"> </span>prometheus:prometheus<span class="w"> </span>/var/lib/prometheus
+
+<span class="c1"># download and move binaries to PATH</span>
+<span class="c1"># move consoles and console_libraries to /etc/prometheus</span>
+<span class="c1"># update owner to all folders and binaries</span>
+<span class="c1"># also update owner for prometheus.yml file</span>
+
+<span class="c1"># start as prometheus user</span>
+sudo<span class="w"> </span>-u<span class="w"> </span>prometheus<span class="w"> </span>/usr/local/bin/prometheus<span class="w"> </span><span class="se">\</span>
+--config.file<span class="w"> </span>/etc/prometheus/prometheus.yml<span class="w"> </span><span class="se">\</span>
+--storage.tsdb.path<span class="w"> </span>/var/lib/prometheus<span class="w"> </span><span class="se">\</span>
+--web.console.templates<span class="o">=</span>/etc/prometheus/consoles<span class="w"> </span><span class="se">\</span>
+--web.console.libraries<span class="o">=</span>/etc/prometheus/console_libraries
+
+<span class="c1"># create service file</span>
+sudo<span class="w"> </span>vi<span class="w"> </span>/etc/systemd/system/prometheus.service
+
+<span class="c1"># start and enable as service</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>prometheus
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>prometheus
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># example prometheus.service file</span>
+
+<span class="o">[</span>Unit<span class="o">]</span>
+<span class="nv">Description</span><span class="o">=</span>Prometheus
+<span class="nv">Wants</span><span class="o">=</span>network-online.target
+<span class="nv">After</span><span class="o">=</span>network-online.target
+
+<span class="o">[</span>Service<span class="o">]</span>
+<span class="nv">User</span><span class="o">=</span>prometheus
+<span class="nv">Group</span><span class="o">=</span>prometheus
+<span class="nv">Type</span><span class="o">=</span>simple
+<span class="nv">ExecStart</span><span class="o">=</span>/usr/local/bin/prometheus<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--config.file<span class="w"> </span>/etc/prometheus/prometheus.yml<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--storage.tsdb.path<span class="w"> </span>/var/lib/prometheus<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--web.console.templates<span class="o">=</span>/etc/prometheus/consoles<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--web.console.libraries<span class="o">=</span>/etc/prometheus/console_libraries
+
+<span class="o">[</span>Install<span class="o">]</span>
+<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Node Exporter</strong></p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># move binary to PATH</span>
+
+<span class="c1"># create user</span>
+sudo<span class="w"> </span>useradd<span class="w"> </span>--no-create-home<span class="w"> </span>--shell<span class="w"> </span>/bin/false<span class="w"> </span>node_exporter
+
+<span class="c1"># update owner to binary</span>
+
+<span class="c1"># create service file</span>
+sudo<span class="w"> </span>vi<span class="w"> </span>/etc/systemd/system/node_exporter.service
+
+<span class="c1"># start and enable as service</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>node_exporter
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>node_exporter
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># example node_exporter.service file</span>
+<span class="o">[</span>Unit<span class="o">]</span>
+<span class="nv">Description</span><span class="o">=</span>Node<span class="w"> </span>Exporter
+<span class="nv">Wants</span><span class="o">=</span>network-online.target
+<span class="nv">After</span><span class="o">=</span>network-online.target
+
+<span class="o">[</span>Service<span class="o">]</span>
+<span class="nv">User</span><span class="o">=</span>node_exporter
+<span class="nv">Group</span><span class="o">=</span>node_exporter
+<span class="nv">Type</span><span class="o">=</span>simple
+<span class="nv">ExecStart</span><span class="o">=</span>/usr/local/bin/node_exporter
+
+<span class="o">[</span>Install<span class="o">]</span>
+<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="as-docker-container">
+<h3>As Docker container<a class="headerlink" href="#as-docker-container" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p><strong>Prometheus</strong></p>
+<blockquote>
+<div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span>
+
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">prometheus</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prom/prometheus:latest</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prometheus</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;9090:9090&quot;</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/config/path/:/etc/prometheus/</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Node Exporter</strong></p>
+<blockquote>
+<div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span>
+
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">node_exporter</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prom/node-exporter:latest</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node_exporter</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--path.rootfs=/host&quot;</span>
+<span class="w">    </span><span class="nt">network_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host</span>
+<span class="w">    </span><span class="nt">pid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/:/host:ro,rslave&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#prometheus">back to top</a></p>
+</section>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>configured in <strong>promethus.yml</strong> file</dt><dd><ul>
+<li><p>define which target at what interval</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Prometheus uses service discovery mechanism to find the target endpoints</p></li>
+<li><p>configured to monitor itself by default</p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># default config file</span>
+
+<span class="c1"># how often, default parameters</span>
+<span class="nt">global</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">scrape_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15s</span>
+<span class="w">  </span><span class="nt">evaluation_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15s</span><span class="w">  </span><span class="c1"># how often to evaluate rules</span>
+
+<span class="c1"># what resources to monitor</span>
+<span class="nt">scrape_configs</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prometheus</span><span class="w">  </span><span class="c1"># monitor itself as Prometheus has /metrics exposed</span>
+<span class="w">    </span><span class="nt">scrape_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10s</span><span class="w">  </span><span class="c1"># override default value</span>
+<span class="w">    </span><span class="nt">scheme</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https</span><span class="w"> </span><span class="c1"># default is http</span>
+<span class="w">    </span><span class="nt">metrics_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/custom/path</span>
+<span class="w">    </span><span class="nt">static_configs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">targets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;localhost:9090&#39;</span><span class="p p-Indicator">]</span>
+
+<span class="c1"># AlertManager configuration</span>
+<span class="nt">alerting</span><span class="p">:</span>
+
+<span class="c1"># aggregate metric values or create alerts</span>
+<span class="nt">rule_files</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># - &quot;first.rules&quot;</span>
+<span class="w">  </span><span class="c1"># - &quot;second.rules&quot;</span>
+
+<span class="c1"># remote read/write feature</span>
+<span class="nt">remote_read</span><span class="p">:</span>
+<span class="nt">remote_write</span><span class="p">:</span>
+
+<span class="c1"># storage</span>
+<span class="nt">storage</span><span class="p">:</span>
+</pre></div>
+</div>
+<section id="docker-metrics">
+<h3>Docker metrics<a class="headerlink" href="#docker-metrics" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>only docker engine metrics, no container metrics</p></li>
+<li><p>create /etc/docker/daemon.json and reload service</p></li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;metrics-addr&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;127.0.0.1:9323&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;experimental&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="cadvisor-metrics">
+<h3>cAdvisor metrics<a class="headerlink" href="#cadvisor-metrics" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>give container metrics</p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">cadvisor</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gcr.io/cadvisor/cadvisor:latest</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cadvisor</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080:8080</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/:/rootfs:ro</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run:/var/run:rw</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/sys:/sys:ro</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/lib/docker/:/var/lib/docker:ro</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><a class="reference external" href="#prometheus">back to top</a></p>
+</section>
+</section>
+<section id="security">
+<h2>Security<a class="headerlink" href="#security" title="Link to this heading">#</a></h2>
+<section id="encryption">
+<h3>Encryption<a class="headerlink" href="#encryption" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>data is not encrypted by default</p></li>
+<li><p>exporters should use TLS</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-newkey<span class="w"> </span>rsa:2048<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-nodes<span class="w"> </span>-x509<span class="w"> </span><span class="se">\</span>
+-keyout<span class="w"> </span>node_exporter.key<span class="w"> </span>-out<span class="w"> </span>node_exporter.crt<span class="w"> </span><span class="se">\</span>
+-subj<span class="w"> </span><span class="s2">&quot;/C=US/ST=California/L=Oakland/O=MyOrg/CN=localhost&quot;</span><span class="w"> </span><span class="se">\</span>
+-addext<span class="w"> </span><span class="s2">&quot;subjectAltName = DNS:localhost&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>exporter config.yml</p>
+<blockquote>
+<div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">tls_server_config</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">cert_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node_exporter.crt</span>
+<span class="w">    </span><span class="nt">key_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node_exporter.key</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>start exporter with TLS config: <code class="docutils literal notranslate"><span class="pre">./node_exporter</span> <span class="pre">--web.config=config.yml</span></code></p></li>
+<li><p>copy <code class="docutils literal notranslate"><span class="pre">node_exporter.crt</span></code> file to <code class="docutils literal notranslate"><span class="pre">/etc/prometheus</span></code> and update config</p>
+<blockquote>
+<div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scrape_configs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;node&quot;</span>
+<span class="w">      </span><span class="nt">scheme</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https</span>
+<span class="w">      </span><span class="nt">tls_config</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">ca_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/prometheus/node_exporter.crt</span>
+<span class="w">        </span><span class="nt">insecure_skip_verify</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1"># for self-signed certs</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="authentication">
+<h3>Authentication<a class="headerlink" href="#authentication" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>anyone can scrape metrics without authentication</p></li>
+<li><p>need to create hash of the password, can use apache2-utils, httpd-tools or any language</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># using apache2-utils</span>
+htpasswd<span class="w"> </span>-nBC<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;:\n&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>update node_exporter <code class="docutils literal notranslate"><span class="pre">config.yml</span></code></p>
+<blockquote>
+<div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">basic_auth_users</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">USER_NAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HASHED_PASSWORD</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>update <code class="docutils literal notranslate"><span class="pre">prometheus.yml</span></code></p>
+<blockquote>
+<div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scrape_configs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;node&quot;</span>
+<span class="w">      </span><span class="nt">basic_auth</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">USER_NAME</span>
+<span class="w">        </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PLAIN_TEXT_PASSWORD</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#prometheus">back to top</a></p>
+</section>
+</section>
+<section id="id5">
+<h2>Metrics<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<section id="properties">
+<h3>Properties<a class="headerlink" href="#properties" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>Name</dt><dd><ul>
+<li><p>can contain ASCII letters, numbers, underscores and colons</p></li>
+<li><p>colons are reserved for recording rules</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Labels</dt><dd><ul>
+<li><p>key-value pairs, can have more than one label</p></li>
+<li><p>provide information and allow to split metric by criteria</p></li>
+<li><p>can contain ASCII letters, numbers and underscores</p></li>
+<li><p>metric name is also a label, <code class="docutils literal notranslate"><span class="pre">__name__=metric_name</span></code></p></li>
+<li><p>labels with two underscores are internal labels</p></li>
+<li><p>every metric is assigned 2 labels by default, instance and job</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Value</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>also store timestamp, in unix timestamp</p></li>
+</ul>
+</section>
+<section id="time-series">
+<h3>Time series<a class="headerlink" href="#time-series" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>stream of timestamped values sharing same metric and labels</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>Type</dt><dd><ul>
+<li><p>type of prometheus metrics</p></li>
+<li><p>counter: how many times did X happen, only increase</p></li>
+<li><p>gauge: current value of X, can go up or down</p></li>
+<li><p>histogram: total of metrics, allow to group observations based on ranges</p></li>
+<li><p>summary: similar to histogram, do not need to define quantiles ahead of time</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Help</dt><dd><ul>
+<li><p>description of metrics</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="relabeling">
+<h3>ReLabeling<a class="headerlink" href="#relabeling" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>to classify/filter targets and metrics by rewriting their label set</p></li>
+<li><p>relabel_configs: occurs before scrape and only has access to labels added by service</p></li>
+</ul>
+<p>discovery
+* metric_relabel_configs: occurs after scrape and has access to all metrics and labels
+scraped, configuration is same as relabel_configs
+* keep: scrape target if it has source_labels, targets that do not match will be dropped,
+use to keep one or two labels and drop everything else
+* drop: not scrape target, use to drop one or two labels and keep everything else
+* all labels beginning with __ will not be shown as target labels and discarded at the end
+of relabeling
+* labelmap: to keep one or more of labels beginning with __ and only modifies the label
+name, not the value</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scrape_configs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EC2</span>
+<span class="w">      </span><span class="nt">relabel_configs</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">source_labels</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">l1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">l2</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1"># array of labels to match on</span>
+<span class="w">          </span><span class="nt">regex</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1;v2</span><span class="w"> </span><span class="c1"># to match specific value, will match l1=v1 and l2=v2</span>
+<span class="w">          </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keep|drop|replace</span>
+<span class="w">          </span><span class="nt">separator</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;-&quot;</span><span class="w"> </span><span class="c1"># can use regex of &quot;v1-v2&quot; instead of semicolon</span>
+
+<span class="c1"># convert {__address__=1.1.1.1:80} to {ip=1.1.1.1}</span>
+<span class="nt">scrape_configs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EC2</span>
+<span class="w">      </span><span class="nt">relabel_configs</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">source_labels</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">__address__</span><span class="p p-Indicator">]</span>
+<span class="w">          </span><span class="nt">regex</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">(.*):.*</span><span class="w"> </span><span class="c1"># assign everything before : into group</span>
+<span class="w">          </span><span class="nt">target_label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ip</span><span class="w"> </span><span class="c1"># name of new label</span>
+<span class="w">          </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replace</span>
+<span class="w">          </span><span class="nt">replacement</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$1</span><span class="w"> </span><span class="c1"># referenced the first group from regex</span>
+
+<span class="c1"># drop a label</span>
+<span class="nt">scrape_configs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EC2</span>
+<span class="w">      </span><span class="nt">relabel_configs</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">regex</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">__meta_ec2_owner_id</span>
+<span class="w">          </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">labeldrop</span>
+
+<span class="c1"># keep a label, opposite of drop, labels that don&#39;t match will be dropped</span>
+<span class="nt">scrape_configs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EC2</span>
+<span class="w">      </span><span class="nt">relabel_configs</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">regex</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">instance|job</span><span class="w"> </span><span class="c1"># only instance and job labels will be kept</span>
+<span class="w">          </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">labelkeep</span>
+
+<span class="c1"># convert {__meta_ec2_owner_id=&quot;123&quot;} to {ec2_owner_id=&quot;123&quot;} and others as well</span>
+<span class="nt">scrape_configs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EC2</span>
+<span class="w">      </span><span class="nt">relabel_configs</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">regex</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">__meta_ec2_(.*)</span>
+<span class="w">          </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">labelmap</span>
+<span class="w">          </span><span class="nt">replacement</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ec2_$1</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><a class="reference external" href="#prometheus">back to top</a></p>
+</section>
+</section>
+<section id="promtools">
+<h2>Promtools<a class="headerlink" href="#promtools" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>utility tool to validate configuration, rules, metrics format</p></li>
+<li><p>perform queries and debug Prometheus server, and perform uni tests on rules</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># check config</span>
+promtool<span class="w"> </span>check<span class="w"> </span>config<span class="w"> </span>/etc/prometheus/prometheus.yml
+</pre></div>
+</div>
+<p><a class="reference external" href="#prometheus">back to top</a></p>
+</section>
+<section id="alertmanager">
+<h2>Alertmanager<a class="headerlink" href="#alertmanager" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>responsible for alerting via different channels (e.g., email, slack)</p></li>
+<li><p>alerts get fired when the rules are met, which are defined as standard PromQL expressions</p></li>
+<li><p>Prometheus servers only trigger alerts, Alertmanager is responsible for sending notifications</p></li>
+<li><p>one Alertmanager support multiple Prometheus servers</p></li>
+<li><p>alerting rules are similar to recording rules</p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">groups</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node</span>
+<span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15s</span>
+<span class="w">      </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">record</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LowMemory</span>
+<span class="w">          </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node_memory_memFree_percent &lt; 20</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NodeDown</span>
+<span class="w">          </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">up{job=&quot;node&quot;} == 0</span><span class="w"> </span><span class="c1"># only works for targets with job=node lables</span>
+<span class="w">          </span><span class="nt">for</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5m</span><span class="w"> </span><span class="c1"># expression must be true for given period before firing alert</span>
+</pre></div>
+</div>
+<ul>
+<li><p>Inactive: expression has not returned any results</p></li>
+<li><p>Pending: expression returned results, but not long enough</p></li>
+<li><p>Firing: active for more than the defined for clauses</p></li>
+<li><p>can add labels to classify and match specific alerts</p>
+<blockquote>
+<div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">groups</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node</span>
+<span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15s</span>
+<span class="w">      </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LowMemory</span>
+<span class="w">          </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node_memory_memFree_percent &lt; 20</span>
+<span class="w">          </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">KEY</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VALUE</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><dl>
+<dt>can have annotations to only provide additional information</dt><dd><ul class="simple">
+<li><p>templated using Go templating language</p></li>
+<li><p>alert labels: <code class="docutils literal notranslate"><span class="pre">{{.Labels}}</span></code></p></li>
+<li><p>instance labels: <code class="docutils literal notranslate"><span class="pre">{{.Labels.instance}}</span></code></p></li>
+<li><p>firing sample value: <code class="docutils literal notranslate"><span class="pre">{{.Value}}</span></code></p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">groups</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node</span>
+<span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15s</span>
+<span class="w">      </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LowMemory</span>
+<span class="w">          </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100 * node_filesystem_free_bytes &lt; 70</span>
+<span class="w">          </span><span class="nt">annotations</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;filesystem</span><span class="nv"> </span><span class="s">{{.Labels.device}}</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">{{.Labels.instance}}</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">low,</span>
+<span class="s">current</span><span class="nv"> </span><span class="s">available</span><span class="nv"> </span><span class="s">space</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">{{.Value}}&quot;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+<section id="alertmanager-architecture">
+<h3>Alertmanager Architecture<a class="headerlink" href="#alertmanager-architecture" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>dispatcher-&gt;inhibition-&gt;silencing-&gt;routing-&gt;notifications&lt;-&gt;receivers</p></li>
+<li><p>dispatching group first receive the alerts</p></li>
+<li><p>inhibition node allows to suppress certain alerts if others exist</p></li>
+<li><p>silencer allows to mute alerts at specific moments, e.g., when maintaining servers</p></li>
+<li><p>routing decides what alerts get sent to who through what integration</p></li>
+<li><p>notifications is responsible for having third-party integrations and sending to users</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p>exposed on default port 9093</p>
+<blockquote>
+<div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">alerting</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">alertmanagers</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">static_configs</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">targets</span><span class="p">:</span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alertmanager1:9093</span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alertmanager2:9093</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="alertmanager-configuration">
+<h3>Alertmanager Configuration<a class="headerlink" href="#alertmanager-configuration" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>global: global config for all sections</p></li>
+<li><p>route: set of rules to match alerts and receivers, can have sub-routes, will default to</p></li>
+</ul>
+<p>parent route if sub-routes do not match
+* receivers: notifiers to forward alerts to users
+* to update config, must restart, send SIGHUP or send HTTP POST to /-/reload endpoint
+* <strong>Notification Templates</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>messages from notifiers can be configured with Go templating system</p></li>
+<li><p>GroupLabels, CommonLabels, CommonAnnotations, ExternalURL, Status, resolved,
+Receiver, Alerts (Labels, Annotations, status, StartsAt, EndsAt)</p></li>
+</ul>
+</div></blockquote>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">global</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">smtp_smarthost</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;mail.example.com&#39;</span>
+<span class="w">    </span><span class="nt">smtp_from</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;test@example.com&#39;</span>
+
+<span class="nt">route</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">receiver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">staff</span><span class="w"> </span><span class="c1"># default/fallback route</span>
+<span class="w">    </span><span class="nt">group_by</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;alertname&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;job&#39;</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">routes</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match_re</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">(node|windows)</span>
+<span class="w">          </span><span class="nt">receiver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">email</span>
+<span class="w">          </span><span class="nt">continue</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1"># will continue down to see if it matches</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchers</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes</span>
+<span class="w">          </span><span class="nt">receiver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">slack</span>
+
+<span class="nt">receivers</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;slack&#39;</span>
+<span class="w">      </span><span class="nt">slack_configs</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://hooks.slack.com/test</span>
+<span class="w">          </span><span class="nt">channel</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;#alerts&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><a class="reference external" href="#prometheus">back to top</a></p>
+</section>
+</section>
+<section id="data-storage">
+<h2>Data Storage<a class="headerlink" href="#data-storage" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>stores data locally or optionally on remote storage system</p></li>
+<li><p>data is stored in custom time series format</p></li>
+<li><p>Prometheus data cannot be written to a relational database</p></li>
+<li><p>data can be queried through server api using PromQL Query Language</p></li>
+<li><p>can use dashboard UI to view status of target from Prometheus server via PromQL</p></li>
+<li><p>can also use data visualization tools like Grafana that also uses PromQL</p></li>
+</ul>
+<p><a class="reference external" href="#prometheus">back to top</a></p>
+</section>
+<section id="promql">
+<h2>PromQL<a class="headerlink" href="#promql" title="Link to this heading">#</a></h2>
+<ul>
+<li><p>Prometheus Query Language, to query metrics within Prometheus</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>http_requests_total<span class="o">{</span>status!~<span class="s2">&quot;4..&quot;</span><span class="o">}</span><span class="w"> </span><span class="c1"># query all HTTP status codes execpt 4xx</span>
+rate<span class="o">(</span>http_requests_total<span class="o">[</span>5m<span class="o">])[</span>30m:<span class="o">]</span><span class="w"> </span><span class="c1"># 5min rate of http_requests_total metric for past 30mins</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<section id="types">
+<h3>Types<a class="headerlink" href="#types" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>string</dt><dd><ul>
+<li><p>currently unused</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>scalar</dt><dd><ul>
+<li><p>numeric floating point value</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>instant vector</dt><dd><ul>
+<li><p>set of time series containing single sample for each series, all share same
+timestamp</p></li>
+<li><p>e.g query of <code class="docutils literal notranslate"><span class="pre">METRICS</span></code> returning multiple <code class="docutils literal notranslate"><span class="pre">METRICS{LABELS}</span> <span class="pre">VALUE</span></code> with same
+<code class="docutils literal notranslate"><span class="pre">TIMESTAMP</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>range vector</dt><dd><ul>
+<li><p>set of time series containing range of data points over time for each time series</p></li>
+<li><p>e.g query of <code class="docutils literal notranslate"><span class="pre">METRICS[time]</span></code> returning multiple <code class="docutils literal notranslate"><span class="pre">METRICS{LABELS}</span> <span class="pre">VALUE</span></code> with
+different <code class="docutils literal notranslate"><span class="pre">TIMESTAMP</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="label-selectors-matchers">
+<h3>Label Selectors &amp; Matchers<a class="headerlink" href="#label-selectors-matchers" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Matchers</strong></dt><dd><ul>
+<li><p>to match specific labels</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">=</span></code>: equal, <code class="docutils literal notranslate"><span class="pre">!=</span></code>: not equal, <code class="docutils literal notranslate"><span class="pre">=~</span></code>: regex match, <code class="docutils literal notranslate"><span class="pre">!~</span></code>: negate regex match</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Selectors</strong></dt><dd><ul>
+<li><p>can use multiple selectors by separating with comma</p></li>
+<li><p>e.g <code class="docutils literal notranslate"><span class="pre">node_filesystem_avail_bytes{instance=&quot;node1&quot;,</span> <span class="pre">device!=&quot;tmpfs&quot;}</span></code></p></li>
+<li><p>e.g <code class="docutils literal notranslate"><span class="pre">node_filesystem_avail_bytes{instance=&quot;node1&quot;,</span> <span class="pre">device!=&quot;tmpfs&quot;}[3m]</span></code>, using
+range vectors</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="modifiers">
+<h3>Modifiers<a class="headerlink" href="#modifiers" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>a query returns most recent value by default</p></li>
+<li><p>can use modifier to get past data</p></li>
+<li><p>e.g offset modifier: <code class="docutils literal notranslate"><span class="pre">node_filesystem_avail_bytes{instance=&quot;node1&quot;}</span> <span class="pre">offset</span> <span class="pre">5m</span></code></p></li>
+<li><dl class="simple">
+<dt>to specific point in time</dt><dd><ul>
+<li><p>e.g &#64; modifier: <code class="docutils literal notranslate"><span class="pre">node_filesystem_avail_bytes{instance=&quot;node1&quot;}</span> <span class="pre">&#64;2132151523</span></code>, unix
+timestamp</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>can combine multiple modifiers</dt><dd><ul>
+<li><p>modifiers order does not matter</p></li>
+<li><p>e.g <code class="docutils literal notranslate"><span class="pre">node_filesystem_avail_bytes{instance=&quot;node1&quot;}</span> <span class="pre">&#64;2132151523</span> <span class="pre">offset</span> <span class="pre">3m</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>can combine with range vectors</dt><dd><ul>
+<li><p>e.g <code class="docutils literal notranslate"><span class="pre">node_filesystem_avail_bytes{instance=&quot;node1&quot;}[2m]</span> <span class="pre">&#64;2132151523</span> <span class="pre">offset</span> <span class="pre">3m</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="operators">
+<h3>Operators<a class="headerlink" href="#operators" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>metric name is removed from output when it is modified</dt><dd><ul>
+<li><p>e.g <code class="docutils literal notranslate"><span class="pre">node_filesystem_avail_bytes{instance=&quot;node1&quot;}</span> <span class="pre">+</span> <span class="pre">10</span></code> will output
+<code class="docutils literal notranslate"><span class="pre">{instance=&quot;node1&quot;}</span> <span class="pre">VALUE</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Arithmetic: +, -, *, /, %, ^</p></li>
+<li><p>Comparison: ==, !==, &gt;, &lt;, &gt;=, &lt;=, bool (return 1 or 0, mostly used for alerts)</p></li>
+<li><p>Logical: or, and, unless</p></li>
+<li><dl class="simple">
+<dt>Aggregation</dt><dd><ul>
+<li><p>take an instant vector and aggregate its elements, and result in new instant vector</p></li>
+<li><p>sum, min, max, avg, group, stddev, stdvar, count, count_values, bottomk, topk,
+quantile (determine how many values in distribution are above or below certain limit,
+90% quantile = at what value is 90% of the data less than)</p></li>
+<li><p>can use <code class="docutils literal notranslate"><span class="pre">by</span></code> to group labels and aggregate</p></li>
+<li><p>e.g <code class="docutils literal notranslate"><span class="pre">sum</span> <span class="pre">by(path)</span> <span class="pre">(http_requests)</span></code></p></li>
+<li><p>can use <code class="docutils literal notranslate"><span class="pre">without</span></code> to ignore labels and aggregate</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="vector-matching">
+<h3>Vector Matching<a class="headerlink" href="#vector-matching" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>vectors with exact same labels get matched and performed operations</dt><dd><ul>
+<li><p>can use <code class="docutils literal notranslate"><span class="pre">ignoring</span></code> to ensure a match between vectors</p></li>
+<li><p>e.g <code class="docutils literal notranslate"><span class="pre">http_errors</span> <span class="pre">/</span> <span class="pre">ignoring(code)</span> <span class="pre">http_requests</span></code></p></li>
+<li><p>can use <code class="docutils literal notranslate"><span class="pre">on</span></code> to specify exact list of labels to match</p></li>
+<li><p>e.g <code class="docutils literal notranslate"><span class="pre">http_errors</span> <span class="pre">/</span> <span class="pre">on(method)</span> <span class="pre">http_requests</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>one-to-one</dt><dd><ul>
+<li><p>every element on the left vector try to find single matching element on the right</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>one-to-many</dt><dd><ul>
+<li><p>elements on the one side can match with multiple elements on the other/many side</p></li>
+<li><p>e.g <code class="docutils literal notranslate"><span class="pre">http_errors</span> <span class="pre">+</span> <span class="pre">on(method)</span> <span class="pre">group_left</span> <span class="pre">http_requests</span></code>, http_errors become many
+side</p></li>
+<li><p>e.g <code class="docutils literal notranslate"><span class="pre">http_requests</span> <span class="pre">+</span> <span class="pre">on(method)</span> <span class="pre">group_right</span> <span class="pre">http_errors</span></code>, http_errors become many
+side</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>math</dt><dd><ul>
+<li><p>e.g ceil, floor, abs, round</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>date &amp; time</dt><dd><ul>
+<li><p>time (returns current time), minute, hour, day_of_week, day_of_month, days_in_month,
+month, year</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>vector</dt><dd><ul>
+<li><p>take scalar and return instant vector</p></li>
+<li><p>e.g <code class="docutils literal notranslate"><span class="pre">vector(4)</span></code> output <code class="docutils literal notranslate"><span class="pre">{}4</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>scalar</dt><dd><ul>
+<li><p>take vector and return scalar, vector must have exactly one element</p></li>
+<li><p>return <code class="docutils literal notranslate"><span class="pre">NaN</span></code> if vector has more than one element</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>sort</dt><dd><ul>
+<li><p>ascending by default</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sort_desc()</span></code> to sort in descending order</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>rate</dt><dd><ul>
+<li><p>return per second average rate of change</p></li>
+<li><p>rate: takes last and first value, an average rate over the range, mostly used for
+slow moving counters and alert rules</p></li>
+<li><p>e.g <code class="docutils literal notranslate"><span class="pre">rate(http_errors[1m])</span></code>, group values in 1m interval, (last - first)/60s and
+return the calculated value</p></li>
+<li><p>irate: takes last and value before last, instant rate, mostly used to graph volatile
+counters</p></li>
+<li><p>e.g <code class="docutils literal notranslate"><span class="pre">irate(http_errors[1m])</span></code>, group values in 1m interval, (last - before_last)/15s
+and return the calculated value, 15s is the interval between last two values</p></li>
+<li><p>should at least have 4 samples in a range to calculate rate and irate</p></li>
+<li><p>e.g 15s scrape interval 60s window give 4 samples</p></li>
+<li><p>always use rate function first when combining with aggregate</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="subquery">
+<h3>Subquery<a class="headerlink" href="#subquery" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>format: <code class="docutils literal notranslate"><span class="pre">&lt;instant</span> <span class="pre">query&gt;</span> <span class="pre">[&lt;range&gt;:&lt;resolution&gt;]</span> <span class="pre">[offset</span> <span class="pre">&lt;duration&gt;]</span></code></p></li>
+<li><dl class="simple">
+<dt>e.g <code class="docutils literal notranslate"><span class="pre">max_over_time(rate(http_requests_total[1m])</span> <span class="pre">[5m:30s])</span></code></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">rate(http_requests_total[1m])</span> <span class="pre">[5m:30s]</span></code>, return range vector with 1m sample range,
+data from last 5m and 30s gap between each query</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="histogram">
+<h3>Histogram<a class="headerlink" href="#histogram" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>have 3 sub metrics: count, sum, bucket</p></li>
+<li><dl class="simple">
+<dt>histogram_quantile</dt><dd><ul>
+<li><p>allow to calculate quantiles easily</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">histogram_quantile(&lt;percentile&gt;,</span> <span class="pre">&lt;histogram</span> <span class="pre">metric&gt;)</span></code></p></li>
+<li><p>e.g <code class="docutils literal notranslate"><span class="pre">histogram_quantile(0.75,</span> <span class="pre">request_latency_seconds_bucket)</span></code>, 75% of all requests
+had a latency of VALUE or less</p></li>
+<li><p>can be used to measure SLO, but only approximation as the function use linear
+interpolation</p></li>
+<li><p>for accurate SLO, make sure one bucket has the specific SLO value</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>each histogram bucket is stored as separate time series</p></li>
+<li><p>having too many buckets can result in high cardinality, high memory usage and disk space,</p></li>
+</ul>
+<p>and slower database insertion
+* can pick bucket sizes, less taxing on client libraries, can select any quantile,
+Prometheus server must calculate quantiles</p>
+</div></blockquote>
+</section>
+<section id="summary">
+<h3>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>similar to histogram, work with percentages by default</p></li>
+<li><p>have 3 sub metrics: count, sum, quantile</p></li>
+<li><p>must define quantiles, more taxing on client libraries, only predefined quantiles in</p></li>
+</ul>
+<p>client can be used, less server-side cost</p>
+</div></blockquote>
+</section>
+<section id="recording-rules">
+<h3>Recording Rules<a class="headerlink" href="#recording-rules" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>allow Prometheus to periodically evaluate PromQL expression and store the result</p></li>
+<li><p>provide aggregate results to be used by others, such as Grafana</p></li>
+<li><p>define in separate file, can use globs to match files, <code class="docutils literal notranslate"><span class="pre">/etc/Prometheus/rules/*.yml</span></code></p></li>
+<li><p>changes in rule file require Prometheus server restart</p></li>
+<li><p>rules in a group are evaluated sequentially, one rule can reference previous rules</p></li>
+<li><p>groups run in parallel</p></li>
+<li><dl class="simple">
+<dt>naming practices</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">level:metric_name:operations</span></code></p></li>
+<li><p>level: aggregation level of the metric by the labels</p></li>
+<li><p>operations: list of functions applied to the metric</p></li>
+<li><p>e.g for http_errors with labels of “method” and “path”,
+expr: <code class="docutils literal notranslate"><span class="pre">sum</span> <span class="pre">without(instance)</span> <span class="pre">(rate(http_errors{job=&quot;api&quot;}[5m]))</span></code>,
+record: <code class="docutils literal notranslate"><span class="pre">job_method_path:http_errors:rate5m</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>all rules for a specific job should be in a single group</p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># prometheus.yml</span>
+<span class="nt">global</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">scrape_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10s</span>
+<span class="w">    </span><span class="nt">evaluation_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10s</span>
+<span class="nt">rule_files</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rules.yml</span>
+
+<span class="c1"># rules.yml</span>
+<span class="nt">groups</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GROUP_NAME</span>
+<span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">INTERVAL</span><span class="w"> </span><span class="c1"># inherit global by default</span>
+<span class="w">      </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">record</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RULE_NAME</span><span class="w"> </span><span class="c1"># will be used to perform query</span>
+<span class="w">          </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PROMQL_EXPRESSION</span>
+<span class="w">          </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">LABEL_NAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LABEL_VALUE</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="http-api">
+<h3>HTTP API<a class="headerlink" href="#http-api" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>used to integrate with 3rd party tools</p></li>
+<li><dl class="simple">
+<dt>send POST request to <code class="docutils literal notranslate"><span class="pre">http://PROMETHEUS_IP/api/v1/query</span></code></dt><dd><ul>
+<li><p>e.g <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">http://PROMETHEUS_IP/api/v1/query</span> <span class="pre">--data</span> <span class="pre">'query=PROMQL_EXPRESSION'</span></code></p></li>
+<li><p>e.g <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">http://PROMETHEUS_IP/api/v1/query</span> <span class="pre">--data</span> <span class="pre">'time=TIME_STAMP'</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#prometheus">back to top</a></p>
+</section>
+</section>
+<section id="visualization">
+<h2>Visualization<a class="headerlink" href="#visualization" title="Link to this heading">#</a></h2>
+<section id="expression-browser">
+<h3>Expression Browser<a class="headerlink" href="#expression-browser" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>built-in web UI to execute queries and graphs</p></li>
+<li><p>limited functions and should only be used when necessary</p></li>
+<li><p>cannot build custom dashboards</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="console-templates">
+<h3>Console Templates<a class="headerlink" href="#console-templates" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>allow to create custom html pages using Go templating language</p></li>
+<li><p>can embed Prometheus metrics, queries and charts in the templates</p></li>
+<li><p>prebuilt templates in <code class="docutils literal notranslate"><span class="pre">/etc/prometheus/consoles</span></code></p></li>
+<li><p>can view at <code class="docutils literal notranslate"><span class="pre">http://PROMETHEUS_IP/consoles/TEMPLATE_NAME</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#prometheus">back to top</a></p>
+</section>
+</section>
+<section id="monitoring">
+<h2>Monitoring<a class="headerlink" href="#monitoring" title="Link to this heading">#</a></h2>
+<section id="client-libraries">
+<h3>Client Libraries<a class="headerlink" href="#client-libraries" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>to add instrumentation to application to track and expose metrics for Prometheus</p></li>
+<li><p>expose metrics via “/metrics” path</p></li>
+<li><p>official: Go, Java/Scala, Python, Ruby, Rust</p></li>
+<li><p>other languages are unofficial third-party client libraries</p></li>
+<li><p>can write own client library</p></li>
+<li><p>use labels when defining metrics for application</p></li>
+<li><dl class="simple">
+<dt>naming convention</dt><dd><ul>
+<li><p>use snake case, <code class="docutils literal notranslate"><span class="pre">library_name_unit_suffix</span></code></p></li>
+<li><p>library: app/library the metric is used for</p></li>
+<li><p>name: description of the metric, can use more than one word</p></li>
+<li><p>unit: use unprefixed base units</p></li>
+<li><p>suffix: avoid count, sum and bucket, total can be used for counter metrics</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>what to instrument</dt><dd><ul>
+<li><p>online app: number of requests, errors, latency, in-progress requests</p></li>
+<li><p>offline app: amount of queued work, in-progress work, rate of processing, errors</p></li>
+<li><p>batch job (require pushgateway): process time for each stage, overall runtime, last
+completed job time</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="monitoring-kubernetes">
+<h3>Monitoring Kubernetes<a class="headerlink" href="#monitoring-kubernetes" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>it is better to install Prometheus instance on the cluster itself, instead of a separate</p></li>
+</ul>
+<p>server
+* deploying Prometheus as close to target as possible and can use pre-existng kubernetes
+architecture
+* can monitor applications on the cluster and the cluster itself, such as control-plane
+components, kubelet, kube-state-metrics and node-exporter
+* cluster-level metrics cannot be collected by default
+* must deploy kube-state-metrics container in the cluster for Prometheus to access metrics
+* use daemonSet with node-exporter process for nodes/hosts to expose metrics
+* Prometheus can use Kubernetes API for service discovery
+* manual deployment of Prometheus on Kubernetes can be complex
+* using [Helm chart](<a class="github reference external" href="https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack">prometheus-community/helm-charts</a>) can be easier, which makes use of [Prometheus Operator](<a class="github reference external" href="https://github.com/prometheus-operator/prometheus-operator">prometheus-operator/prometheus-operator</a>)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>helm repo add prometheus-community <a class="reference external" href="https://prometheus-community.github.io/helm-charts">https://prometheus-community.github.io/helm-charts</a></p></li>
+<li><p>helm repo update</p></li>
+<li><p>helm install prometheus prometheus-community/kube-prometheus-stack</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Components installed from Helm chart</strong></dt><dd><ul>
+<li><p>stateful sets: Prometheus server, Alertmanager</p></li>
+<li><p>deployments and replica sets: Grafana, Prometheus Operator, kube-state-metrics</p></li>
+<li><p>daemon set: node-exporter</p></li>
+<li><p>all services are ClusterIP</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>can discover targets such as node, service, pod, endpoints</p></li>
+<li><p>using endpoints for service discovery can get any targets in the cluster</p></li>
+<li><dl class="simple">
+<dt><strong>Service monitors</strong></dt><dd><ul>
+<li><p>define a set of targets for Prometheus to monitor and scrape</p></li>
+<li><p>allow to avoid modifying Prometheus configs directly</p></li>
+<li><p>give declarative Kubernetes syntax to define targets</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Applying scrape configs</strong></dt><dd><p>1. modifying Helm chart values of additionalScrapeConfigs
+2. more optimal way of using ServiceMonitor by providing endpoints to scrape, need to
+have same serviceMonitorSelector.matchLabels from Prometheus CRD for Prometheus to
+dynamically discover the ServiceMonitor</p>
+</dd>
+</dl>
+</li>
+<li><p>use PrometheusRule CRD to add rules, need to have same ruleSelector.matchLabels</p></li>
+<li><dl class="simple">
+<dt>use AlertmanagerConfig CRD to add Alertmanager rules</dt><dd><ul>
+<li><p>rule files for Kubernetes use camelCase</p></li>
+<li><p>need to add custom Helm value for alertmanagerConfigSelector.matchLabels, and have
+same label in AlertManager rule file</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#prometheus">back to top</a></p>
+</section>
+</section>
+<section id="service-discovery">
+<h2>Service Discovery<a class="headerlink" href="#service-discovery" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>populate a list of dynamically updated endpoints to scrape</p></li>
+<li><p>Prometheus has built-in support for several service discovery mechanisms</p></li>
+</ul>
+<section id="file-service-discovery">
+<h3>File Service Discovery<a class="headerlink" href="#file-service-discovery" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can import a list of jobs/targets from a file</p></li>
+<li><p>can integrate with service discovery systems Prometheus doesn’t support out of the box</p></li>
+<li><p>support json and yaml files</p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scrape_configs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file-example</span>
+<span class="w">      </span><span class="nt">file_sd_configs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">files</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;file-sd.json&#39;</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;*.json&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;targets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;node1:2000&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;node2:2100&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;labels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;team&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;job&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;node&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;targets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;localhost:5000&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;labels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;team&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;monitoring&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;job&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;prometheus&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="aws">
+<h3>AWS<a class="headerlink" href="#aws" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>need to provide region, access key and secret key for EC2</p></li>
+<li><p>credentials should be setup with IAM user with <code class="docutils literal notranslate"><span class="pre">AmazonEC2ReadOnlyAccess</span></code> policy</p></li>
+<li><p>can extract metadata such as tag name, instance type, vpc id, private ip, etc.</p></li>
+<li><p>use private ip as default instance label</p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scrape_configs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EC2</span>
+<span class="w">      </span><span class="nt">ec2_sd_configs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">r1</span>
+<span class="w">        </span><span class="nt">access_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">key1</span>
+<span class="w">        </span><span class="nt">secret_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">key2</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><a class="reference external" href="#prometheus">back to top</a></p>
+</section>
+</section>
+<section id="pushgateway">
+<h2>Pushgateway<a class="headerlink" href="#pushgateway" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>act as middleman between batch job and Prometheus server</p></li>
+<li><p>batch job push metrics to the push gateway before exiting and Prometheus scrape from the push</p></li>
+</ul>
+<p>gateway like other instances
+* can install on any server or same server as Prometheus
+* exposed at default port 9091
+* configuration is same as others, with extra <code class="docutils literal notranslate"><span class="pre">honor_labels</span></code>, which allows the metrics to
+specify custom labels for the jobs and instance labels, instead of having all labels as
+pushgateway</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scrape_configs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pushgateway</span>
+<span class="w">      </span><span class="nt">honor_labels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">static_configs</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">targets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;IP:9091&quot;</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<ul>
+<li><dl>
+<dt>metrics can be pushed to it using</dt><dd><ul>
+<li><dl class="simple">
+<dt>HTTP requests</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">http://IP:PORT/metrics/job/JOB_NAME/LABEL1/VALUE1/LBAEL2/VALUE2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LABEL/VALUE</span></code> is used as a grouping key, to group metrics together and update
+multiple metrics at once</p></li>
+<li><p>POST: only metrics with same name as newly pushed metrics are replaced</p></li>
+<li><p>PUT: all metrics within specific group are replaced by new ones</p></li>
+<li><p>DELETE: delete all metrics within a group</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Prometheus Client Libraries</dt><dd><ul class="simple">
+<li><p>push: existing metrics for the job are removed and pushed ones are added, same as
+HTTP PUT</p></li>
+<li><p>pushadd: pushed metrics override existing same ones, others remain unchanged, same
+as HTTP POST</p></li>
+<li><p>delete: delete all metrics for a group</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">prometheus_client</span> <span class="kn">import</span> <span class="n">CollectorRegistry</span><span class="p">,</span> <span class="n">Gauge</span><span class="p">,</span> <span class="n">pushadd_to_gateway</span>
+
+<span class="n">registry</span> <span class="o">=</span> <span class="n">CollectorRegistry</span><span class="p">()</span>
+<span class="n">test_metric</span> <span class="o">=</span> <span class="n">Gauge</span><span class="p">(</span><span class="s1">&#39;test_metric&#39;</span><span class="p">,</span> <span class="s1">&#39;Example metric&#39;</span><span class="p">,</span> <span class="n">registry</span><span class="o">=</span><span class="n">registry</span><span class="p">)</span>
+
+<span class="n">test_metric</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+
+<span class="n">pushadd_to_gateway</span><span class="p">(</span><span class="s1">&#39;IP:9091&#39;</span><span class="p">,</span> <span class="n">job</span><span class="o">=</span><span class="s1">&#39;batch&#39;</span><span class="p">,</span> <span class="n">registry</span><span class="o">=</span><span class="n">registry</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><a class="reference external" href="#prometheus">back to top</a></p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ProjectManagement.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Project Management</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Python.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-prometheus">What is Prometheus?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obervability">Obervability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages">Advantages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages">Disadvantages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sli">SLI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slo">SLO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sla">SLA</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#architecture">Architecture</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prometheus-server">Prometheus server</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#targets">targets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metrics">metrics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collecting-metrics-data-from-targets">collecting metrics data from targets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exporter">exporter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring-systems">monitoring systems</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#as-systemd-service">As systemd service</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#as-docker-container">As Docker container</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-metrics">Docker metrics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cadvisor-metrics">cAdvisor metrics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#security">Security</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encryption">Encryption</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication">Authentication</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">Properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series">Time series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">Attributes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relabeling">ReLabeling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#promtools">Promtools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alertmanager">Alertmanager</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alertmanager-architecture">Alertmanager Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alertmanager-configuration">Alertmanager Configuration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-storage">Data Storage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#promql">PromQL</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types">Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#label-selectors-matchers">Label Selectors &amp; Matchers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifiers">Modifiers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operators">Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-matching">Vector Matching</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subquery">Subquery</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram">Histogram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recording-rules">Recording Rules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#http-api">HTTP API</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expression-browser">Expression Browser</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#console-templates">Console Templates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring">Monitoring</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#client-libraries">Client Libraries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring-kubernetes">Monitoring Kubernetes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#service-discovery">Service Discovery</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-service-discovery">File Service Discovery</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aws">AWS</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pushgateway">Pushgateway</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

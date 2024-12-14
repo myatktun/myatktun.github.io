@@ -1,0 +1,901 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Machine Learning &#8212; Notes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'MachineLearning';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Microservices" href="Microservices.html" />
+    <link rel="prev" title="Linux" href="Linux.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AWS.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BackendEngineering.html">Backend Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSharp.html">C# #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CTF.html">CTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CompTIA.html">CompTIA Cert Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compilers.html">Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerGraphics.html">Computer Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputingSystems.html">Computing Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">ECS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FFmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Helm.html">Helm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Istio.html">Istio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JDBC.html">JDBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MongoDB.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkProgramming.html">Network Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NodeJS.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenAPI.html">OpenAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OperatingSystem.html">Operating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="POSIXThreads.html">POSIX Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PenetrationTesting.html">Penetration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramDesign.html">Program Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectManagement.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prometheus.html">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SFML.html">SFML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StrategicPlanning.html">Strategic Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terraform.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TypeScript.html">TypeScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI/UX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrant.html">Vagrant</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/MachineLearning.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Machine Learning</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-learning">Supervised Learning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unsupervised-learning">Unsupervised Learning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reinforcement-learning">Reinforcement Learning</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ml-models">ML Models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-models">Linear Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tree-based-models">Tree-based Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning-models">Deep Learning Models</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-problem">Defining Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-dataset">Building Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-training">Model Training</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">Model Evaluation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-inference">Model Inference</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="machine-learning">
+<h1>Machine Learning<a class="headerlink" href="#machine-learning" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#basics">Basics</a></p></li>
+<li><p><a class="reference internal" href="#ml-models">ML Models</a></p></li>
+<li><p><a class="reference internal" href="#workflow">Workflow</a></p></li>
+</ol>
+<p><a class="reference external" href="#machine-learning">back to top</a></p>
+<section id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#supervised-learning">Supervised Learning</a>, <a class="reference internal" href="#unsupervised-learning">Unsupervised Learning</a>, <a class="reference internal" href="#reinforcement-learning">Reinforcement Learning</a></p></li>
+<li><p>AI: capabilities of machines with human like intelligence</p></li>
+<li><p>machine learning is a type of AI</p></li>
+<li><p>allow computers to automatically learn and improve from experience without explicitly</p></li>
+</ul>
+<p>programmed
+* computers learn from data to discover patterns and make predictions</p>
+<section id="supervised-learning">
+<h3>Supervised Learning<a class="headerlink" href="#supervised-learning" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>type of ML technique</p></li>
+<li><p>every training sample from the dataset has corresponding label or output value</p></li>
+<li><p>the algorithm learns to predict labels</p></li>
+<li><p>e.g. predict sales price or classify object in an image</p></li>
+<li><p>discrete: term from statistics referring to an outcome that takes only a finite number of</p></li>
+</ul>
+<p>values
+* label: data that already contains the solution
+* <strong>Categorical Label</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>has a discrete set of possible values</p></li>
+<li><p>performing a classification task</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Continuous Label</strong></dt><dd><ul>
+<li><p>does not have a discrete set of possible values, potentially unlimited number of
+possibilities</p></li>
+<li><p>performing a regression task</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="unsupervised-learning">
+<h3>Unsupervised Learning<a class="headerlink" href="#unsupervised-learning" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>type of ML technique, no labels for training data</p></li>
+<li><p>algorithm tries to learn underlying patterns or data distribution</p></li>
+<li><p>unlabeled data: do not provide the model with any kind of label or solution while the</p></li>
+</ul>
+<p>model is being trained
+* <strong>Clustering</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>to determine if there are any naturally occurring groupings in the data</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<ul class="simple">
+<li><p>in Supervised and Unsupervised learning, models inspect data to discover patterns and humans</p></li>
+</ul>
+<p>use the patterns learnt by the model to gain new understandings or make predictions</p>
+</section>
+<section id="reinforcement-learning">
+<h3>Reinforcement Learning<a class="headerlink" href="#reinforcement-learning" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>learning what actions to take in a situation to maximize reward</p></li>
+<li><p>learns through consequences of actions in an environment</p></li>
+<li><p>Agent: entity being trained</p></li>
+<li><p>Environment: the world where agent perform certain actions</p></li>
+<li><p>Rewards: given to agent for performing good actions</p></li>
+<li><p>e.g. traffic signaling, self-driving cars</p></li>
+<li><p>can give reward for good actions, punish for poor actions, or combine both approaches</p></li>
+<li><p>rewarding a good action will increase the probability of doing it again, and punishing a</p></li>
+</ul>
+<p>poor action, such as removing it, will ensure it won’t do it again
+* Policy: define actions an agent should take for a given state
+* <strong>Deterministic Policy</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>direct relationship between action and state</p></li>
+<li><p>use when agent has a full understanding of the environment</p></li>
+<li><p>will always perform the same action for a given state</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Stochastic Policy</strong></dt><dd><ul>
+<li><p>range of possible actions with probabilities for a state</p></li>
+<li><p>an action for a state is selected based on the probability distribution</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Value Function</strong></dt><dd><ul>
+<li><p>determine possible future rewards given the current policy</p></li>
+<li><p>adjust to encourage desirable actions while discouraging others, also called policy
+update</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>PPO</strong></dt><dd><ul>
+<li><p>Proximal Policy Optimisation, uses on-policy learning</p></li>
+<li><p>learn only from observations made by current policy, most recent and relevant data</p></li>
+<li><p>need more data as it does not consider historical data</p></li>
+<li><p>can produce more stable model in short-term</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>SAC</strong></dt><dd><ul>
+<li><p>Soft Actor Critic, uses off-policy learning</p></li>
+<li><p>use observations from previous policies, old data</p></li>
+<li><p>data efficient, need less new data as it consider historical data</p></li>
+<li><p>can produce less stable model in short-term</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>traditional programming requires humans to make a program for solving a problem</p></li>
+<li><p>machine learning is created using statistics, applied math, and computer science, but each</p></li>
+</ul>
+<p>fields might use different formal definitions
+* machine learning has a flexible component called the model
+* ML model is as a block of code or framework, that can be modified to solve different but
+related problems, based on provided data</p>
+<p><a class="reference external" href="#machine-learning">back to top</a></p>
+</section>
+</section>
+<section id="ml-models">
+<h2>ML Models<a class="headerlink" href="#ml-models" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#linear-models">Linear Models</a>, <a class="reference internal" href="#tree-based-models">Tree-based Models</a>, <a class="reference internal" href="#deep-learning-models">Deep Learning Models</a></p></li>
+<li><p>a generic program made specific by data used to train it</p></li>
+<li><p>scikit-learn for classical models, and mxnet, tensorflow and pytorch for deep learning are</p></li>
+</ul>
+<p>most common libraries</p>
+<section id="linear-models">
+<h3>Linear Models<a class="headerlink" href="#linear-models" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>simply describe the relationship between a set of inputs to outputs through a linear</p></li>
+</ul>
+<p>function
+* classification tasks often use a strongly related logistic model, which adds an
+additional transformation mapping the output of the linear function to the range [0, 1]
+* fast to train and give a great baseline against which to compare more complex models
+* it is better to start with a simple model for most new problems</p>
+</div></blockquote>
+</section>
+<section id="tree-based-models">
+<h3>Tree-based Models<a class="headerlink" href="#tree-based-models" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>learn to categorize or regress by building an extremely large structure of nested if/else</p></li>
+</ul>
+<p>blocks
+* split the world into different regions at each if/else block
+* training determine where the splits happen and what value is assigned at each leaf region
+* e.g XGBoost is commonly used as an off-the-shelf implementation
+* try tree-based models to quickly get a baseline before moving to more complex ones</p>
+</div></blockquote>
+</section>
+<section id="deep-learning-models">
+<h3>Deep Learning Models<a class="headerlink" href="#deep-learning-models" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>popular and powerful, also called neural networks</p></li>
+<li><p>composed of collections of neurons, simple computational units/models, connected together</p></li>
+</ul>
+<p>by weights
+* weights: mathematical representations of how much information is allowed to flow from one
+neuron to the next
+* training involves finding values for each weight
+* <strong>FFNN</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Feed Forward Neural Network, most straightforward way of structuring neural network</p></li>
+<li><p>structures neurons in a series of layers</p></li>
+<li><p>each neuron in a layer contain weights to all neurons in the previous layer</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>CNN</strong></dt><dd><ul>
+<li><p>Convolutional Neural Network</p></li>
+<li><p>represent nested filters over grid-organized data</p></li>
+<li><p>most commonly used type of model when processing images</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>RNN/LSTM</strong></dt><dd><ul>
+<li><p>Recurrent Neural Networks and the related Long Short-Term Memory</p></li>
+<li><p>to effectively represent for loops in traditional computing, collecting state while
+iterating over some object</p></li>
+<li><p>can be used for processing sequences of data</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Transformer</strong></dt><dd><ul>
+<li><p>more modern replacement for RNN/LSTMs</p></li>
+<li><p>enables training over larger datasets involving sequences of data</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#machine-learning">back to top</a></p>
+</section>
+</section>
+<section id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#defining-problem">Defining Problem</a>, <a class="reference internal" href="#building-dataset">Building Dataset</a>, <a class="reference internal" href="#model-training">Model Training</a>, <a class="reference internal" href="#model-evaluation">Model Evaluation</a>, <a class="reference internal" href="#model-inference">Model Inference</a></p></li>
+<li><p>Evaluate the Model, Use the Model</p></li>
+</ul>
+<section id="defining-problem">
+<h3>Defining Problem<a class="headerlink" href="#defining-problem" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>define a specific task</p></li>
+<li><p>identify the ML task to use to solve the problem, as it helps understand the data needed</p></li>
+</ul>
+<p>better
+* <strong>Machine Learning Tasks</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>output of a task can be different and classified into different groups based on the
+task</p></li>
+<li><p>characteristics of the input data can help to define which ML task to be used</p></li>
+<li><p>Supervised and Unsupervised learning are two common tasks</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="building-dataset">
+<h3>Building Dataset<a class="headerlink" href="#building-dataset" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>working with data is the most important step</p></li>
+<li><p>ML practitioners spend 80% of the time preparing the data</p></li>
+<li><p>understanding the data helps select better models and algorithms to have effective ML</p></li>
+</ul>
+<p>solutions
+* good, high-quality data is essential for any kind of machine learning project
+* impute: common term referring to different statistical tools that can be used to
+calculate missing values from dataset
+* outliers: data points that are significantly different from other data in the same sample
+* <strong>Data Collection</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>collect data related to the problem defined</p></li>
+<li><p>search and use publicly available data in early exploration</p></li>
+<li><p>the format of data, labeled or unlabeled, and availability of data will determine
+the ML task</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Data Inspection</strong></dt><dd><ul>
+<li><p>inspect the integrity of the data, not all data found are high quality</p></li>
+<li><p>quality of the data has a massive impact of how well the model performs</p></li>
+<li><p>identify anything that are outside the norm</p></li>
+<li><p>look for missing or incomplete data</p></li>
+<li><p>transform or pre-process the dataset to correct format to be used by the model</p></li>
+<li><p>stop words: punctuation and words that don’t have useful meaning, e.g. a, the</p></li>
+<li><p>data vectorisation: convert non-numeric data, usually text, into numbers</p></li>
+<li><p>bag of words: count how many times a word appears in a document</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Summary Statistics</strong></dt><dd><ul>
+<li><p>helps understand what the data is communicating or in line with the underlying
+assumptions of the ML model</p></li>
+<li><p>allows to see insights such as scope, scale and shape of the data</p></li>
+<li><p>there are many tools to calculate things such as mean, IQR (inner-quartile range)
+and standard deviation</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Data Visualization</strong></dt><dd><ul>
+<li><p>communicate the findings, such as outliers and trends, to project stakeholders</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="model-training">
+<h3>Model Training<a class="headerlink" href="#model-training" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>procedure to use data to shape a model</p></li>
+<li><p>uses the model to process data, compares the result against the goal</p></li>
+<li><p>determine what changes are required and makes small changes to the model parameters</p></li>
+<li><p>the steps are repeated to bring the model closer to achieving the goal</p></li>
+<li><p>model training algorithm adjusts the model to real-world data</p></li>
+<li><p>the trained model can be used to predict outcomes which are not part of training dataset</p></li>
+<li><dl class="simple">
+<dt><strong>Splitting Dataset</strong></dt><dd><ul>
+<li><p>randomly split the dataset before training</p></li>
+<li><p>majority of the data is in training dataset, usually 80%</p></li>
+<li><p>test dataset is withheld from training and used later to evaluate the model before
+production</p></li>
+<li><p>test the data against the bias-variance trade-off and how well the model will
+generalize to new data</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>feed the training data into the model, compute the loss function on the results, and</p></li>
+</ul>
+<blockquote>
+<div><p>iteratively updating model parameters to minimize some loss function</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>models are trained by slowly changing model parameters to move it closer to some goal</p></li>
+<li><dl class="simple">
+<dt><strong>Model Parameters</strong></dt><dd><ul>
+<li><p>settings, knobs, configurations, weights or biases that are updated to change how
+the model behaves</p></li>
+<li><p>weights are values that change as the model learns, specific to neural networks</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Loss Function</strong></dt><dd><ul>
+<li><p>measure how close the model is to its goal</p></li>
+<li><p>used to codify the model’s distance from a goal</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>only implement model training algorithms from scratch when developing new ones</p></li>
+<li><p>often use the existing frameworks that have working implementations</p></li>
+<li><p>model selection: to determine which model to use, try different types while solving a</p></li>
+</ul>
+<p>problem
+* <strong>Hyperparameters</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>not changed during model training</p></li>
+<li><p>can affect how quickly and reliably the model trains</p></li>
+<li><p>e.g number clusters to identify</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="model-evaluation">
+<h3>Model Evaluation<a class="headerlink" href="#model-evaluation" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>use statistical metrics to evaluate a model, e.g. accuracy, recall, precision, log loss,</p></li>
+</ul>
+<p>mean absolute error, hinge loss, quantile loss, $R^2$, KL Divergence, F1 Score
+* <strong>Metrics</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>accuracy: how often the model predicts correctly</p></li>
+<li><p>log loss: to understand model’s uncertainty about a given prediction, how strongly
+the model believes its prediction is accurate</p></li>
+<li><p>silhouette coefficient: shows how well the data is clustered by the model, score
+near 0 show overlapping clusters, score &lt; 0 show data points assigned to incorrect
+clusters, and score near 1 show successful identification</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="model-inference">
+<h3>Model Inference<a class="headerlink" href="#model-inference" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>using a trained model to generate predictions and solve a problem</p></li>
+<li><p>make sure to monitor the results produced</p></li>
+<li><p>may need to reinvestigate the data, modify parameters in training algorithm, or change</p></li>
+</ul>
+<p>the model type for training
+* <strong>Inference Rate</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>number of inferences per second, need to maximise</p></li>
+<li><p>depend on performances such as CPU, GPU, RAM, and machine learning framework</p></li>
+<li><p>cost-effective to centralise in one place, where data is fed from edge devices to a
+central server for processing</p></li>
+<li><p>inference at edge, performing inference locally is crucial for real-time devices</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Inference Time/Latency</strong></dt><dd><ul>
+<li><p>time taken to run a single inference</p></li>
+<li><p>inference at edge reduces latency as data does not need to travel to the server for
+processing</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#machine-learning">back to top</a></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Linux.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Linux</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Microservices.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Microservices</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-learning">Supervised Learning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unsupervised-learning">Unsupervised Learning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reinforcement-learning">Reinforcement Learning</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ml-models">ML Models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-models">Linear Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tree-based-models">Tree-based Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning-models">Deep Learning Models</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-problem">Defining Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-dataset">Building Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-training">Model Training</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">Model Evaluation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-inference">Model Inference</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

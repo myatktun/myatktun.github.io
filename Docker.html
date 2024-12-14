@@ -1,0 +1,1316 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Docker &#8212; Notes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Docker';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ECS" href="ECS.html" />
+    <link rel="prev" title="Design Patterns" href="DesignPatterns.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AWS.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BackendEngineering.html">Backend Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSharp.html">C# #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CTF.html">CTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CompTIA.html">CompTIA Cert Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compilers.html">Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerGraphics.html">Computer Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputingSystems.html">Computing Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">ECS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FFmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Helm.html">Helm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Istio.html">Istio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JDBC.html">JDBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MongoDB.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkProgramming.html">Network Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NodeJS.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenAPI.html">OpenAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OperatingSystem.html">Operating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="POSIXThreads.html">POSIX Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PenetrationTesting.html">Penetration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramDesign.html">Program Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectManagement.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prometheus.html">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SFML.html">SFML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StrategicPlanning.html">Strategic Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terraform.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TypeScript.html">TypeScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI/UX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrant.html">Vagrant</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Docker.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Docker</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-docker">What is Docker?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-file-system">Storage &amp; File System</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#env-variables">ENV variables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-architecture">Docker Architecture</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-daemon">Docker Daemon</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rest-api">REST API</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-cli">Docker CLI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-engine">Docker Engine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-on-windows">Docker on Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-on-mac">Docker on Mac</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dockerfile">Dockerfile</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dockerignore">.dockerignore</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-registry">docker registry</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compose">Compose</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#separate-config-for-dev-prod">separate config for dev &amp; prod</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#network">Network</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bridge">bridge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#host">host</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#none">none</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-from-scratch">Docker from Scratch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-swarm">Docker Swarm</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="docker">
+<h1>Docker<a class="headerlink" href="#docker" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#what-is-docker">What is Docker?</a></p></li>
+<li><p><a class="reference internal" href="#docker-architecture">Docker Architecture</a></p></li>
+<li><p><a class="reference internal" href="#dockerfile">Dockerfile</a></p></li>
+<li><p><a class="reference internal" href="#compose">Compose</a></p></li>
+<li><p><a class="reference internal" href="#network">Network</a></p></li>
+<li><p><a class="reference internal" href="#docker-from-scratch">Docker from Scratch</a></p></li>
+<li><p><a class="reference internal" href="#docker-swarm">Docker Swarm</a></p></li>
+</ol>
+<p><a class="reference external" href="#docker">back to top</a></p>
+<section id="what-is-docker">
+<h2>What is Docker?<a class="headerlink" href="#what-is-docker" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>it’s not a VM</p></li>
+<li><dl class="simple">
+<dt>Image</dt><dd><ul>
+<li><p>your starting point</p></li>
+<li><p>what you produce as an output</p></li>
+<li><p>great for experimenting</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Container</dt><dd><ul>
+<li><p>a running image</p></li>
+<li><p>isolated process</p></li>
+<li><p>has it’s own file system, permissions</p></li>
+<li><p>OS specific</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Host</dt><dd><ul>
+<li><p>the machine docker is installed on</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Community Edition: set of free docker products</p></li>
+<li><p>Enterprise Edition: certified and supported container platform with enterprise addons (e.g.
+image management, image security, universal control plane to manage and orchestrate container
+runtime)</p></li>
+<li><p>unlike VMs, containers are not meant to host an OS  but a specific process or task</p></li>
+<li><p>once a task is complete, container will exit</p></li>
+<li><p>container only lives as long as the process inside it is alive</p></li>
+<li><p>by default, container does not listen to standard input unless “-it” provided</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># run container from an image (with interactive, tty, auto remove when exits)</span>
+<span class="c1"># will download if image not found locally</span>
+docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>ubuntu<span class="w"> </span>/bin/bash
+
+<span class="c1"># download an image, but not run</span>
+docker<span class="w"> </span>pull<span class="w"> </span>ubuntu
+
+<span class="c1"># list all running containers</span>
+docker<span class="w"> </span>ps
+
+<span class="c1"># list all containers</span>
+docker<span class="w"> </span>ps<span class="w"> </span>-a
+
+<span class="c1"># run the container, ID can be minimum as long as its unique</span>
+docker<span class="w"> </span>start<span class="w"> </span>CONTAINER_ID
+
+<span class="c1"># attach to the running container by ID, CTRL-p CTRL-q to detach from current</span>
+docker<span class="w"> </span>attach<span class="w"> </span>CONTAINER_ID
+
+<span class="c1"># detach from current container</span>
+docker<span class="w"> </span>detach<span class="w"> </span>CONTAINER_ID
+
+<span class="c1"># send exit signal to the running container</span>
+docker<span class="w"> </span>stop<span class="w"> </span>CONTAINER_ID
+
+<span class="c1"># remove the container</span>
+docker<span class="w"> </span>rm<span class="w"> </span>CONTAINER_ID
+
+<span class="c1"># force remove the container and the volume</span>
+docker<span class="w"> </span>rm<span class="w"> </span>-fv<span class="w"> </span>CONTAINER_ID
+</pre></div>
+</div>
+<ul>
+<li><p>can make multiple containers based off of the same image</p></li>
+<li><dl>
+<dt>containers are isolated</dt><dd><ul class="simple">
+<li><p>they don’t know each other, they don’t talk to each other, they don’t share a file system</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># run and detach (run in background)</span>
+docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-d<span class="w"> </span>--rm<span class="w"> </span>--name<span class="w"> </span>ubuntu1<span class="w"> </span>ubuntu<span class="w"> </span>/bin/bash
+docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-d<span class="w"> </span>--rm<span class="w"> </span>--name<span class="w"> </span>ubuntu2<span class="w"> </span>ubuntu<span class="w"> </span>/bin/bash
+docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-d<span class="w"> </span>--rm<span class="w"> </span>--name<span class="w"> </span>ubuntu3<span class="w"> </span>ubuntu<span class="w"> </span>/bin/bash
+
+<span class="c1"># attach to running container by name</span>
+docker<span class="w"> </span>attach<span class="w"> </span>NAME
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+<section id="storage-file-system">
+<h3>Storage &amp; File System<a class="headerlink" href="#storage-file-system" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>/var/lib/docker</dt><dd><ul>
+<li><p>storage drivers (aufs, zfs, btrfs, device mapper, overlay, overlay2)</p></li>
+<li><p>containers</p></li>
+<li><p>image</p></li>
+<li><p>volumes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>“docker run” creates writable Container Layer on top of Image Layer, which is read only</p></li>
+<li><p>Container Layer only lives as long as the container</p></li>
+<li><p>docker uses COPY-ON-WRITE mechanism</p></li>
+<li><p>containers are transient, if removed, files cannot be recovered</p></li>
+<li><p>Volume creates mount point between the host and the container</p></li>
+<li><p>use bind mount only in development</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>HOST_DIR:CONTAINER_DIR
+
+<span class="c1"># volume mounting</span>
+<span class="c1"># create volume under /var/lib/docker/volumes/</span>
+docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>my_volume
+<span class="c1"># docker will auto create volume if mount without creating volume first</span>
+docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>my_volume:/tmp/new_dir<span class="w"> </span>ubuntu<span class="w"> </span>/bin/bash
+
+<span class="c1"># bind mounting</span>
+<span class="c1"># mount current directory</span>
+docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/tmp/new_dir<span class="w"> </span>ubuntu<span class="w"> </span>/bin/bash
+
+<span class="c1"># bind mount read only, container cannot change files</span>
+docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/tmp/new_dir:ro<span class="w"> </span>ubuntu<span class="w"> </span>/bin/bash
+
+<span class="c1"># to prevent overwriting the folder in container (anonymous volume)</span>
+<span class="c1"># removing node_modules in host will not affect the folder in container</span>
+docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/tmp/new_dir<span class="w"> </span>-v<span class="w"> </span>/new_dir/node_modules<span class="w"> </span>ubuntu<span class="w"> </span>/bin/bash
+
+<span class="c1"># verbose method</span>
+docker<span class="w"> </span>run<span class="w"> </span>--mount<span class="w"> </span><span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>,target<span class="o">=</span>/tmp/new_dir<span class="w"> </span>ubuntu<span class="w"> </span>/bin/basah
+
+<span class="c1"># -w set the working directory for the process that&#39;s being executed</span>
+<span class="c1"># this command runs the container and app, but doesn&#39;t bound any ports to the host</span>
+docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>--name<span class="w"> </span>node<span class="w"> </span>-d<span class="w"> </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/src<span class="w"> </span>-w<span class="w"> </span>/src<span class="w"> </span>node:16-alpine<span class="w"> </span>node<span class="w"> </span>app.js
+
+<span class="c1"># can verify that app is running by logging</span>
+docker<span class="w"> </span>logs<span class="w"> </span>NAMES<span class="w"> </span>-f
+</pre></div>
+</div>
+</div></blockquote>
+<ul>
+<li><p>PORT mapping</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ports of NetworkSettings is empty since no port binding is made</span>
+docker<span class="w"> </span>inspect<span class="w"> </span>CONTAINER_ID
+
+<span class="c1"># port binding, omitting HOST_PORT will randomly choose one</span>
+docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span>HOST_PORT:CONTAINER_PORT
+
+<span class="c1"># bind port to host&#39;s 8080</span>
+docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>--name<span class="w"> </span>node<span class="w"> </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/src<span class="w"> </span>-w<span class="w"> </span>/src<span class="w"> </span>-dp<span class="w"> </span><span class="m">8080</span>:3000<span class="w"> </span>node:16-alpine<span class="w"> </span>node<span class="w"> </span>app.js
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="env-variables">
+<h3>ENV variables<a class="headerlink" href="#env-variables" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can find variables with inspect command, under “Config”:{“Env”}</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># pass env variable manually</span>
+docker<span class="w"> </span>run<span class="w"> </span>-e<span class="w"> </span><span class="nv">VARIABLE</span><span class="o">=</span>value<span class="w"> </span>CONTAINER
+
+<span class="c1"># use env variables from .env file</span>
+docker<span class="w"> </span>run<span class="w"> </span>--env-file<span class="w"> </span>./.env
+</pre></div>
+</div>
+</div></blockquote>
+<p><a class="reference external" href="#docker">back to top</a></p>
+</section>
+</section>
+<section id="docker-architecture">
+<h2>Docker Architecture<a class="headerlink" href="#docker-architecture" title="Link to this heading">#</a></h2>
+<section id="docker-daemon">
+<h3>Docker Daemon<a class="headerlink" href="#docker-daemon" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>responsible for pulling images and starting containers</p></li>
+<li><p>manage volumes, networks, and DNS</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="rest-api">
+<h3>REST API<a class="headerlink" href="#rest-api" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>provides access to the daemon</p></li>
+<li><p>available locally at /var/run/docker.sock</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>curl<span class="w"> </span>--unix-socket<span class="w"> </span>/var/run/docker.sock<span class="w"> </span>http://docker/v1.41/containers/json<span class="w"> </span>-v<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="docker-cli">
+<h3>Docker CLI<a class="headerlink" href="#docker-cli" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>client, simply making API requests</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="docker-engine">
+<h3>Docker Engine<a class="headerlink" href="#docker-engine" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Docker CLI: uses REST API to talk to Docker Daemon, can be on another system</p></li>
+<li><p>REST API: to talk to daemon</p></li>
+<li><p>Docker Daemon: manage docker objects such as images, containers, volumes, networks</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># using docker cli from different system</span>
+docker<span class="w"> </span>-H<span class="o">=</span>remote-docker-engine-IP:2375<span class="w"> </span>run<span class="w"> </span>nginx
+</pre></div>
+</div>
+<ul>
+<li><dl class="simple">
+<dt>processes are running on the same host but separated into own containers using namespace</dt><dd><ul class="simple">
+<li><p>nginx.service might have PID 123 on host, but PID 1 on container</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>no restriction of how much resources a container can use</dt><dd><ul class="simple">
+<li><p>docker uses cgroups to restrict resources</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># container does not take more than 50% CPU of host</span>
+docker<span class="w"> </span>run<span class="w"> </span>--cpus<span class="o">=</span>.5<span class="w"> </span>ubuntu
+
+<span class="c1"># max memory 100MB</span>
+docker<span class="w"> </span>run<span class="w"> </span>--memory<span class="o">=</span>100m<span class="w"> </span>ubuntu
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="docker-on-windows">
+<h3>Docker on Windows<a class="headerlink" href="#docker-on-windows" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Docker Toolbox</strong></dt><dd><ul>
+<li><p>original support for legacy machines</p></li>
+<li><p>contains Virtualbox, Docker Engine, Docker Machine, Docker Compose, Kitematic GUI</p></li>
+<li><p>requires 64bit, Windows 7 or higher, Virtualization is enabeld</p></li>
+<li><p>purely runs linux containers</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Docker Desktop for Windows</strong></dt><dd><ul>
+<li><p>use Hyper-V instead of Oracle Virtualbox</p></li>
+<li><p>auto create Linux system and run docker on that system</p></li>
+<li><p>only support Windows 10 Enterprise/Pro Editions or Windows Server 2016</p></li>
+<li><p>default to Linux Containers</p></li>
+<li><p>must set if want to use Windows Containers</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Windows Container Types</strong></dt><dd><ul>
+<li><p>Windows Server: works like Linux Containers, kernel is shared</p></li>
+<li><p>Hyper-V Isolation: each container is run within optimized VM for kernal isolation,
+Windows 10 Pro/Enterprise Editions only support this type</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>base images</strong></dt><dd><ul>
+<li><p>Windows Server Core</p></li>
+<li><p>Nano Server: headless deployment for Windows Server, like alpine</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Virtualbox and Hyper-V cannot coexist on the same host</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="docker-on-mac">
+<h3>Docker on Mac<a class="headerlink" href="#docker-on-mac" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Docker toolbox: same as Windows, macOS 10.8 or newer</p></li>
+<li><dl class="simple">
+<dt>Docker Desktop for Mac</dt><dd><ul>
+<li><p>uses HyperKit</p></li>
+<li><p>requires macOS 10.12 or newer, hardware must be 2010 or newer</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>no Mac based images or containers</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#docker">back to top</a></p>
+</section>
+</section>
+<section id="dockerfile">
+<h2>Dockerfile<a class="headerlink" href="#dockerfile" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>an instruction set to create image and run commands</p></li>
+<li><p>always start with <em>FROM</em> instruction</p></li>
+<li><p>build in layered architecture, allows to restart from particular layer if fails</p></li>
+<li><p>each layer only stores the changes from previous layer</p></li>
+<li><p>all layers are cached, helps rebuild faster</p></li>
+<li><p>once a layer changes, all following layers are re-created as well</p></li>
+</ul>
+<div class="highlight-Dockerfile notranslate"><div class="highlight"><pre><span></span><span class="c"># example Dockerfile</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">node:16-alpine</span>
+
+<span class="c"># create environment variable</span>
+<span class="k">ENV</span><span class="w"> </span>PORT<span class="w"> </span><span class="m">3000</span>
+<span class="c"># EXPOSE doesn&#39;t affect building container</span>
+<span class="k">EXPOSE</span><span class="w"> </span><span class="s">$PORT</span>
+
+<span class="c"># set the working directory, can use &quot;RUN mkdir&quot;</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/src</span>
+
+<span class="c"># installing packages first is good for optimization with cache when rebuilding image</span>
+<span class="k">COPY</span><span class="w"> </span>package.json<span class="w"> </span>.
+<span class="k">RUN</span><span class="w"> </span>yarn<span class="w"> </span>install
+
+<span class="c"># use copy instead of volume mounting</span>
+<span class="c"># when rebuilding, usually only this step changes so building wil be faster</span>
+<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>/src
+
+<span class="c"># command instruction, anything specified on the cmd line will append to ENTRYPOINT</span>
+<span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;node&quot;</span><span class="p">]</span>
+
+<span class="c"># will execute this when container starts</span>
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;node&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;app.js&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># cannot use &#39;docker run&#39;</span>
+docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>TAG_NAME<span class="w"> </span>PATH
+
+<span class="c1"># view build history</span>
+docker<span class="w"> </span><span class="nb">history</span><span class="w"> </span>IMAGE_NAME
+
+<span class="c1"># &quot;hello.js&quot; will be appended to ENTRYPOINT, thus &quot;node hello.js&quot; will execute</span>
+<span class="c1"># default from CMD will be used if &quot;hello.js&quot; is omitted</span>
+docker<span class="w"> </span>run<span class="w"> </span>IMAGE_NAME<span class="w"> </span>hello.js
+
+<span class="c1"># overwrite ENTRYPOINT command from node to nodemon</span>
+docker<span class="w"> </span>run<span class="w"> </span>--entrypoint<span class="w"> </span>nodemon<span class="w"> </span>IMAGE_NAME
+</pre></div>
+</div>
+<ul>
+<li><dl>
+<dt>using <strong>multi-stage</strong> build</dt><dd><ul class="simple">
+<li><p>each “FROM” instruction starts a new build stage</p></li>
+<li><p>can selectively copy artifacts from one stage to another</p></li>
+<li><p>all files and tools used in first stage will be discarded once completed</p></li>
+<li><p>final image is created only in the last stage and will be smaller</p></li>
+<li><p>only last commands are the image layers</p></li>
+</ul>
+<div class="highlight-Dockerfile notranslate"><div class="highlight"><pre><span></span><span class="c"># Build stage (1st stage)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">maven</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">build</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<span class="k">COPY</span><span class="w"> </span>myapp<span class="w"> </span>/app
+<span class="k">RUN</span><span class="w"> </span>mvn<span class="w"> </span>package
+
+<span class="c"># Run stage (2nd stage)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">tomcat</span>
+<span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>build<span class="w"> </span>/app/target/file.war<span class="w"> </span>/usr/local/tomcat/webapps
+<span class="k">EXPOSE</span><span class="w"> </span><span class="s">8080</span>
+<span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;java&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-jar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/usr/local/lib/demo.jar&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+<section id="dockerignore">
+<h3>.dockerignore<a class="headerlink" href="#dockerignore" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>like .gitignore file, ignore files when COPY in building image</p></li>
+<li><dl class="simple">
+<dt>example files and folders to ignore</dt><dd><ul>
+<li><p>node_modules, build, .dockerignore, .gitignore, .git, Dockerfile, creds, <em>.env, charts/</em>,
+*.yml, *.log, **/coverage</p></li>
+<li><p>also add Documentation, Dependencies, Tests</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>identify the files needed for build context, add everything else to .dockerignore</p></li>
+<li><p>use smaller base images for containers, use multi-stage builds</p></li>
+<li><p>decouple Dockerfile from env variables, reduce as much as possible</p></li>
+<li><p>use separate images for development and deployment, keep images simple</p></li>
+<li><p>keep it transparent and understandable, no shame in copying the good parts</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><dl>
+<dt>sharing on dockerhub repo</dt><dd><ul class="simple">
+<li><p>can test repo on [playwithdocker](<a class="reference external" href="https://labs.play-with-docker.com/">https://labs.play-with-docker.com/</a>)</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># tag exisiting image to push</span>
+docker<span class="w"> </span>tag<span class="w"> </span>IMAGE_NAME<span class="w"> </span>USER_NAME/REPO_NAME
+<span class="c1"># tag when build</span>
+docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>USER_NAME/REPO_NAME
+
+docker<span class="w"> </span>push<span class="w"> </span>USER_NAME/REPO_NAME
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="docker-registry">
+<h3>docker registry<a class="headerlink" href="#docker-registry" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>default is docker hub (image: Registry/USER_ACCOUNT/IMAGE_REPO)</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># image: docker.io/nginx/nginx</span>
+docker<span class="w"> </span>run<span class="w"> </span>nginx
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>can use private registry, cloud services provide private by default</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>login<span class="w"> </span>private-registry.io
+docker<span class="w"> </span>run<span class="w"> </span>private-registry.io/apps/myapp
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>deploy own private registry</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># image exposes its API on 5000</span>
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">5000</span>:5000<span class="w"> </span>--name<span class="w"> </span>registry<span class="w"> </span>registry:2
+
+<span class="c1"># to push own image, first tag with private registry url</span>
+docker<span class="w"> </span>image<span class="w"> </span>tag<span class="w"> </span>my-image<span class="w"> </span>localhost:5000/my-image
+docker<span class="w"> </span>push<span class="w"> </span>localhost:5000/my-image
+
+<span class="c1"># can noww pull from local</span>
+docker<span class="w"> </span>pull<span class="w"> </span>localhost:5000/my-image
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p>linking containers (<strong>deprecated</strong>)</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># will create an entry in /etc/hosts files in webapp container (with hostname &amp; internal IP)</span>
+docker<span class="w"> </span>run<span class="w"> </span>--link<span class="w"> </span>CONTAINER_NAME:HOST<span class="w"> </span>webapp
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<p><a class="reference external" href="#docker">back to top</a></p>
+</section>
+</section>
+<section id="compose">
+<h2>Compose<a class="headerlink" href="#compose" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>higher abstraction tool, handles multiple containers at a time</p></li>
+<li><p>can be version controlled, open specification</p></li>
+<li><p>represents environments, not production-ready tool, just for development</p></li>
+<li><p>yml file to describe an environment that we want to run</p></li>
+<li><p>only applicable for running on single docker host</p></li>
+<li><p>services: containers that are going to start with inside of the dockerfile</p></li>
+<li><p>networks: for isolation</p></li>
+<li><p>version 1: cannot specify different network and startup order, no “services”</p></li>
+<li><p>version 2: use “services”, must specify version number at the top of file, auto create
+dedicated network, no need to use “links”, introduce “depends_on” feature</p></li>
+<li><p>version 3: similar to version 2, support docker swarm</p></li>
+<li><p>“depends_on” only handles boot order, docker doesn’t know if the container is up and
+running everything</p></li>
+<li><p>can use “compose up” without stopping if docker-compose.yml file is changed</p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># example docker-compose file</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span>
+
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">node</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node:16-alpine</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5000:3000&quot;</span>
+<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">webnet</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">      </span><span class="c1"># specify Dockerfile to build</span>
+<span class="w">      </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">      </span><span class="nt">dockerfile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dockerfile</span>
+<span class="nt">networks</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">webnet</span><span class="p">:</span>
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># stand up particular node service inside of the compose file, omit node to stand all services</span>
+docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>./docker-compose.yml<span class="w"> </span>up<span class="w"> </span>node
+
+<span class="c1"># force build before starting containers</span>
+dokcer<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--build
+
+docker<span class="w"> </span>compose<span class="w"> </span>rm<span class="w"> </span>-f
+
+<span class="c1"># remove anonymous volumes</span>
+docker<span class="w"> </span>compose<span class="w"> </span>rm<span class="w"> </span>-v
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>don’t build container every changes</p></li>
+<li><p>mount source code into a dev container if possible</p></li>
+</ul>
+<section id="separate-config-for-dev-prod">
+<h3>separate config for dev &amp; prod<a class="headerlink" href="#separate-config-for-dev-prod" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>can separate yml files for dev and prod with one Dockerfile</p>
+<blockquote>
+<div><div class="highlight-Dockerfile notranslate"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="w"> </span><span class="s">node:16</span>
+
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<span class="k">COPY</span><span class="w"> </span>package.json<span class="w"> </span>.
+
+<span class="k">ARG</span><span class="w"> </span>NODE_ENV
+<span class="k">RUN</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$NODE_ENV</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;development&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span><span class="k">then</span><span class="w"> </span>yarn<span class="w"> </span>install<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span>yarn<span class="w"> </span>install<span class="w"> </span>--production<span class="o">=</span>true<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span><span class="k">fi</span>
+
+<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
+
+<span class="k">ENV</span><span class="w"> </span>PORT<span class="w"> </span><span class="m">3000</span>
+<span class="k">EXPOSE</span><span class="w"> </span><span class="s">$PORT</span>
+
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;node&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;index.js&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>make files docker-compose.yml, docker-compose.dev.yml, docker-compose.prod.yml</p>
+<blockquote>
+<div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># docker-compose.yml file</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span>
+
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">node-app</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;3000:3000&quot;</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PORT=3000</span>
+<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mongodb</span>
+
+<span class="w">  </span><span class="nt">mongodb</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mongo</span>
+
+<span class="c1"># docker-compose.dev.yml file</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span>
+
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">node-app</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">      </span><span class="nt">args</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">NODE_ENV</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">development</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./:/app:ro</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/app/node_modules</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NODE_ENV=development</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yarn dev</span>
+
+<span class="c1"># docker-compose.prod.yml file</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span>
+
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">node-app</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">      </span><span class="nt">args</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">NODE_ENV</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">production</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NODE_ENV=production</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node index.js</span>
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># compose up each file with -f flag</span>
+docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.yml<span class="w"> </span>-f<span class="w"> </span>docker-compose.dev.yml<span class="w"> </span>up<span class="w"> </span>-d
+<span class="c1"># rebuild for production</span>
+docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.yml<span class="w"> </span>-f<span class="w"> </span>docker-compose.prod.yml<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--build
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p>using multi-stage in Compose</p>
+<blockquote>
+<div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># example docker-compose file</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span>
+
+<span class="nt">services</span><span class="p">:</span>
+<span class="nt">node</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dev</span>
+<span class="w">  </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5000:3000&quot;</span>
+<span class="w">  </span><span class="nt">networks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">webnet</span>
+<span class="nt">networks</span><span class="p">:</span>
+<span class="nt">webnet</span><span class="p">:</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><dl>
+<dt>configuring local dev</dt><dd><ul class="simple">
+<li><p>create files for each of the configuration options</p></li>
+<li><p>mount the files into container</p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># example docker-compose file</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span>
+
+<span class="nt">services</span><span class="p">:</span>
+<span class="nt">mysql</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql</span>
+<span class="w">  </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./config:/config</span>
+<span class="w">  </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">MYSQL_USER_FILE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/config/MYSQL_USER</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">MYSQL_PASSWORD_FILE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/config/MYSQL_PASSWORD</span>
+<span class="nt">networks</span><span class="p">:</span>
+<span class="nt">webnet</span><span class="p">:</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>running end-to-end tests</dt><dd><ul>
+<li><p>create containers that bundle test tools together</p></li>
+<li><p>e.g. Selenium has images with bundled Firefox/Chrome browsers</p></li>
+<li><p>‘–exit-code-from’ flag will tell compose to watch one service, tear the stack down when it
+exits, and pass along the exit code</p></li>
+<li><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</li>
+</ul>
+<blockquote>
+<div><p>docker compose -f docker-compose-test.yml -p tests up –exit-code-from tests</p>
+</div></blockquote>
+</dd>
+</dl>
+</li>
+</ul>
+<p><a class="reference external" href="#docker">back to top</a></p>
+</section>
+</section>
+<section id="network">
+<h2>Network<a class="headerlink" href="#network" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>anything on the network can talk to others on that network but not those that aren’t there</p></li>
+<li><p>docker auto creates 3 networks: bridge, none, host</p></li>
+</ul>
+<section id="bridge">
+<h3>bridge<a class="headerlink" href="#bridge" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>private internal network created by docker host, only one bridge created</p></li>
+<li><p>all containers attach to this by default and get internal IP of 172.17.x.x</p></li>
+<li><p>containers use this internal IP if required</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="host">
+<h3>host<a class="headerlink" href="#host" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>attach to host to access containers externally</p></li>
+<li><p>will remove network isolation between docker host and container</p></li>
+<li><p>do not require port mapping if attach to host</p></li>
+<li><p>will not be able to run multiple containers on the same port</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="none">
+<h3>none<a class="headerlink" href="#none" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>isolated, not attach to any network and cannot be accessed</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>refer to the service name to talk to one container from another as DNS is built into
+docker (but does not work with default bridge network)</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>network<span class="w"> </span>ls
+docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>--network<span class="w"> </span>NETWORK_NAME<span class="w"> </span>IMAGE
+
+<span class="c1"># create custom bridge network</span>
+docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>--driver<span class="w"> </span>bridge<span class="w"> </span>--subnet<span class="w"> </span><span class="m">182</span>.18.0.0/16<span class="w"> </span>NETWORK_NAME
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>docker has built-in DNS server</p></li>
+<li><p>containers can reach each other using CONTAINER_NAME</p></li>
+<li><p>docker uses network namespaces to create separate namespace for each container</p></li>
+<li><p>uses virtual ethernet pairs to connect containers</p></li>
+</ul>
+<p><a class="reference external" href="#docker">back to top</a></p>
+</section>
+</section>
+<section id="docker-from-scratch">
+<h2>Docker from Scratch<a class="headerlink" href="#docker-from-scratch" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>the most basic base image that you start from</p></li>
+<li><p>bare bones as much about running a single process</p></li>
+<li><p>doesn’t even have shell</p></li>
+<li><p>only useful for executing a lightweight native process</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># build go app in scratch</span>
+docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/src:/src<span class="w"> </span>-w<span class="w"> </span>/src<span class="w"> </span>golang:1.18.0-alpine3.15<span class="w"> </span>go<span class="w"> </span>build<span class="w"> </span>-v<span class="w"> </span>-o<span class="w"> </span>app
+
+<span class="c1"># create image</span>
+docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>dfs-scratch<span class="w"> </span>-f<span class="w"> </span>Dockerfile<span class="w"> </span>.
+
+<span class="c1"># run container</span>
+docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>dfs-scratch
+docker<span class="w"> </span>rmi<span class="w"> </span>dfs-scratch
+</pre></div>
+</div>
+<p><a class="reference external" href="#docker">back to top</a></p>
+</section>
+<section id="docker-swarm">
+<h2>Docker Swarm<a class="headerlink" href="#docker-swarm" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>lacks auto scaling</p></li>
+<li><p>combines multiple docker machines into single cluster and helps take care of high
+availability and load balancing</p></li>
+<li><p>designate one of multiple hosts to be Swarm Manager or master</p></li>
+<li><p>key component is the Docker service: one or more instances of single app or service that
+run across the nodes in the cluster</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># run on Swarm Manager</span>
+docker<span class="w"> </span>swarm<span class="w"> </span>init<span class="w"> </span>--advertise-addr<span class="w"> </span>IP
+<span class="c1"># must be run on Manager, like &quot;docker run&quot;</span>
+docker<span class="w"> </span>service<span class="w"> </span>create<span class="w"> </span>--replicas<span class="o">=</span><span class="m">3</span><span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span>my-app
+
+<span class="c1"># run on worker nodes</span>
+docker<span class="w"> </span>swarm<span class="w"> </span>join<span class="w"> </span>--token<span class="w"> </span>&lt;token&gt;
+
+<span class="c1"># list nodes within swarm</span>
+docker<span class="w"> </span>node<span class="w"> </span>ls
+
+<span class="c1"># list stacks</span>
+docker<span class="w"> </span>stack<span class="w"> </span>ls
+
+<span class="c1"># list services in a stack</span>
+docker<span class="w"> </span>stack<span class="w"> </span>services<span class="w"> </span>STACK_NAME
+
+<span class="c1"># list services from all stacks</span>
+docker<span class="w"> </span>service<span class="w"> </span>ls
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># docker-compose.prod.yml file</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span>
+
+<span class="nt">services</span><span class="p">:</span>
+<span class="nt">node-app</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># swarm related configs</span>
+<span class="w">  </span><span class="nt">deploy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8</span>
+<span class="w">    </span><span class="nt">restart_policy</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">any</span>
+<span class="w">    </span><span class="nt">update_config</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">parallelism</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">      </span><span class="nt">delay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15s</span>
+<span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">    </span><span class="nt">args</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">NODE_ENV</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">production</span>
+<span class="w">  </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NODE_ENV=production</span>
+<span class="w">  </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node index.js</span>
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># deploy using docker swarm</span>
+docker<span class="w"> </span>stack<span class="w"> </span>deploy<span class="w"> </span>-c<span class="w"> </span>docker-compose.prod.yml<span class="w"> </span>STACK_NAME
+</pre></div>
+</div>
+<p><a class="reference external" href="#docker">back to top</a></p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="DesignPatterns.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Design Patterns</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ECS.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">ECS</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-docker">What is Docker?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-file-system">Storage &amp; File System</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#env-variables">ENV variables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-architecture">Docker Architecture</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-daemon">Docker Daemon</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rest-api">REST API</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-cli">Docker CLI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-engine">Docker Engine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-on-windows">Docker on Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-on-mac">Docker on Mac</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dockerfile">Dockerfile</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dockerignore">.dockerignore</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-registry">docker registry</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compose">Compose</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#separate-config-for-dev-prod">separate config for dev &amp; prod</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#network">Network</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bridge">bridge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#host">host</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#none">none</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-from-scratch">Docker from Scratch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-swarm">Docker Swarm</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

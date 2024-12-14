@@ -1,0 +1,1305 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>POSIX Threads &#8212; Notes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'POSIXThreads';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Penetration Testing" href="PenetrationTesting.html" />
+    <link rel="prev" title="Operating System" href="OperatingSystem.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AWS.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BackendEngineering.html">Backend Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSharp.html">C# #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CTF.html">CTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CompTIA.html">CompTIA Cert Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compilers.html">Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerGraphics.html">Computer Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputingSystems.html">Computing Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">ECS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FFmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Helm.html">Helm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Istio.html">Istio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JDBC.html">JDBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MongoDB.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkProgramming.html">Network Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NodeJS.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenAPI.html">OpenAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OperatingSystem.html">Operating System</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">POSIX Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PenetrationTesting.html">Penetration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramDesign.html">Program Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectManagement.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prometheus.html">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SFML.html">SFML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StrategicPlanning.html">Strategic Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terraform.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TypeScript.html">TypeScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI/UX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrant.html">Vagrant</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/POSIXThreads.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>POSIX Threads</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#threads">Threads</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concurrency">Concurrency</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parallelism">Parallelism</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thread-safety">Thread Safety</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asynchrony">Asynchrony</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thread-evaporation">Thread Evaporation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#invariants">Invariants</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-sections">Critical Sections</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thread-life-cycle">Thread Life Cycle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#states">States</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creation">Creation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#startup">Startup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#termination">Termination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recycling">Recycling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mutex">Mutex</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-destroy">Create &amp; Destroy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lock-unlock">Lock &amp; Unlock</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-blocking-mutex-lock">Non-blocking Mutex Lock</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mutex-size-scope">Mutex Size/Scope</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-variables">Condition Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-wait">Condition Wait</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rules-for-condition-variables">Rules for Condition Variables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deadlock">Deadlock</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lock-hierarchy">Lock Hierarchy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backoff">Backoff</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lock-chaining">Lock Chaining</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pthreads-api">Pthreads API</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-t">pthread_t</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-create">pthread_create</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-detach">pthread_detach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-equal">pthread_equal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-exit">pthread_exit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-join">pthread_join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-self">pthread_self</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-mutex-destroy">pthread_mutex_destroy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-mutex-init">pthread_mutex_init</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-mutex-lock">pthread_mutex_lock</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-mutex-trylock">pthread_mutex_trylock</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-mutex-unlock">pthread_mutex_unlock</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-sources">Reference Sources</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="posix-threads">
+<h1>POSIX Threads<a class="headerlink" href="#posix-threads" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#basics">Basics</a></p></li>
+<li><p><a class="reference internal" href="#thread-life-cycle">Thread Life Cycle</a></p></li>
+<li><p><a href="#id8"><span class="problematic" id="id9">`Thread Synchronisation`_</span></a></p></li>
+<li><p><a class="reference internal" href="#mutex">Mutex</a></p></li>
+<li><p><a class="reference internal" href="#condition-variables">Condition Variables</a></p></li>
+<li><p><a class="reference internal" href="#deadlock">Deadlock</a></p></li>
+<li><p><a class="reference internal" href="#pthreads-api">Pthreads API</a></p></li>
+<li><p><a class="reference internal" href="#reference-sources">Reference Sources</a></p></li>
+</ol>
+<p><a class="reference external" href="#posix-threads">back to top</a></p>
+<section id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#threads">Threads</a>, <a class="reference internal" href="#concurrency">Concurrency</a>, <a class="reference internal" href="#parallelism">Parallelism</a>, <a class="reference internal" href="#thread-safety">Thread Safety</a>, <a class="reference internal" href="#asynchrony">Asynchrony</a></p></li>
+<li><p><a class="reference internal" href="#thread-evaporation">Thread Evaporation</a>, <a class="reference internal" href="#invariants">Invariants</a>, <a class="reference internal" href="#critical-sections">Critical Sections</a></p></li>
+</ul>
+<section id="threads">
+<h3>Threads<a class="headerlink" href="#threads" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be thought as a lightweight process, smaller and faster than traditional process</p></li>
+<li><p>can be used to utilise resources more efficiently on multiprocessors, asynchronously</p></li>
+<li><p>asynchronous: two operations proceeding independently of each other, but concurrently</p></li>
+<li><p>mutex: primary synchronisation object</p></li>
+<li><p>condition variables: used to signal or broadcast to indicate shared data state changes</p></li>
+<li><p>no threads per process limit, but a limit on total number of processes on the system</p></li>
+<li><p>threads force to think about and plan for synchronisation requirements</p></li>
+<li><p>threaded programming model isolates loosely couple functional execution streams, with</p></li>
+</ul>
+<p>each function having explicit synchronisation for dependencies
+* threads execute independently, but share address space and file descriptors
+* each thread can read and write variables in shared memory
+* data race: threads simultaneously read and write the same data
+* <strong>Cons</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be less efficient by using synchronisation too much</p></li>
+<li><p>threads writing to the same memory locations may spend more time synchronising the
+memory on processors with read/write ordering</p></li>
+<li><p>adding threads to remove a bottleneck can give rise to another</p></li>
+<li><p>performance decrease when using too many compute-bound threads</p></li>
+<li><p>a bug might not occur if one thread runs slower than another due to debugger trap</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>When to use</strong></dt><dd><ul>
+<li><p>for code parallelizable into multiple threads, and written for multiprocessor</p></li>
+<li><p>to perform I/O which can be overlapped, e.g. distributed server applications</p></li>
+<li><p>one thread manager can control, and divide work among worker threads</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>Uniprocessor: single execution unit, even if it has vector processors or I/O coprocessors</p></li>
+<li><p>Multiprocessor: more than one processor sharing instruction set and physical memory</p></li>
+</ul>
+</section>
+<section id="concurrency">
+<h3>Concurrency<a class="headerlink" href="#concurrency" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>describes the behaviour of threads or processes on uniprocessor system</p></li>
+<li><p>appear to happen at the same time, but may occur serially</p></li>
+<li><p>does not imply that tasks proceed simultaneously, but rather correctly executed</p></li>
+</ul>
+<p>alternatively
+* allows a program to take advantage of asynchrony, progressing even when certain
+tasks are blocked
+* e.g. during waiting for I/O, the system can switch to another task
+* can be achieved on both uniprocessor and multiprocessor systems
+* execution context, scheduling, and synchronisation are important for any concurrent
+system
+* <strong>Execution Context</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>state of concurrent entity, must be able to create and delete it, and maintain state
+independently</p></li>
+<li><p>must be able to save the state of one context and dispatch to another at various
+times</p></li>
+<li><p>must be able to continue a context from the last execution, with same register
+contents</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Scheduling</strong></dt><dd><ul>
+<li><p>determine which context should be executed, switches between contexts when necessary</p></li>
+<li><p>may allow each thread to run until block, round-robin, class scheduler or other
+scheduling policies</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Synchronisation</strong></dt><dd><ul>
+<li><p>threads cooperating to accomplish a task</p></li>
+<li><p>a way to coordinate shared resources usage of concurrent execution contexts</p></li>
+<li><p>common forms are mutexes, condition variables, semaphores, events, UNIX pipes,
+sockets, POSIX message queues, or other communication protocols between asynchronous
+processes</p></li>
+<li><p>any form of communication protocol contains some form of synchronisation</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="parallelism">
+<h3>Parallelism<a class="headerlink" href="#parallelism" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>tasks are executed at the same time, multiple CPU cores can run instructions</p></li>
+</ul>
+<p>simultaneously
+* software parallelism is the same as the word “concurrency” meaning, but different
+from software concurrency
+* true parallelism can only occur on a multiprocessor system
+* even without hardware parallelism, fast enough concurrency can make the tasks look like
+executing at the same time
+* e.g. RUBY MRI and CPython use global interpreter lock (GIL) to limit threading
+* <strong>Scaling</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>overhead of creating the extra threads and performing synchronisation</p></li>
+<li><p>e.g. dual core may be 1.95 times faster than single core, quad core 3.8 times faster
+than triple core</p></li>
+<li><p>scaling falls off as the number of processors increases, due to more chance of lock
+and memory collisions</p></li>
+<li><p>Amdahl’s law: $Speedup = frac{1}{(1 - p) + frac{p}{n}}$,
+(p = $frac{Parallelizable Code}{Total Execution Time}$, n = number of processors)</p></li>
+<li><p>Amdahl’s law shows parallelism is limited by the amount of serialisation needed</p></li>
+<li><p>with more synchronisation, parallelism has less benefit</p></li>
+<li><p>better scaling with independent activities than highly dependent ones</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Barrier</strong></dt><dd><ul>
+<li><p>synchronisation mechanism that blocks each thread until a certain number has reached</p></li>
+<li><p>e.g. keep any thread from executing a parallel code until all threads are ready</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="thread-safety">
+<h3>Thread Safety<a class="headerlink" href="#thread-safety" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>code can be called safely, but does not require to run efficiently on multiple threads</p></li>
+<li><p>can use mutexes, condition variables, and thread-specific data to make existing functions</p></li>
+</ul>
+<p>thread-safe
+* <strong>Serialised Function</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>to make a function that doesn’t need persistent context thread-safe</p></li>
+<li><p>e.g locking a mutex on entry and unlocking before return</p></li>
+<li><p>can be called in multiple threads, but only one thread can truly perform at a time</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><dl>
+<dt><strong>Example Thread-Safe Function</strong></dt><dd><ul class="simple">
+<li><p>multiple invocations can safely be run concurrently</p></li>
+<li><p>granularity: amount of data that a mutex protects</p></li>
+<li><p>inefficient way is to give a function its own mutex and lock it right away to make
+it thread-safe</p></li>
+<li><p>multi-threaded programs usually add a mutex as member variable to data structures,
+to associate the lock with its data</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">pthread_mutex_t</span><span class="w"> </span><span class="n">foo_mtx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PTHREAD_MUTEX_INITIALIZER</span><span class="p">;</span>
+<span class="c1">// takes a global lock, and no two thread can run it at once</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">foo_mtx</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// safe but inefficient execution</span>
+
+<span class="w">    </span><span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">foo_mtx</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Reentrancy</strong></dt><dd><ul class="simple">
+<li><p>efficient thread-safe code with more sophisticated measures</p></li>
+<li><p>often necessary to change the function interface to make it reentrant</p></li>
+<li><p>should avoid relying on static data and any form of thread synchronisation</p></li>
+<li><p>save state in a context structure controlled by the caller, which is responsible for
+synchronisation of the data</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="asynchrony">
+<h3>Asynchrony<a class="headerlink" href="#asynchrony" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>processes execute asynchronously with respect to each other in UNIX</p></li>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">|</span> <span class="pre">less</span></code> have synchronisation by data dependency, <code class="docutils literal notranslate"><span class="pre">less</span></code> cannot be ahead of <code class="docutils literal notranslate"><span class="pre">ls</span></code></p></li>
+<li><p>asynchronous process needs state to enable the OS to switch between them</p></li>
+<li><p>UNIX processes has all required information to execute code, and additional state</p></li>
+</ul>
+<p>that is not directly related to execution context, e.g. address space, file descriptors
+* a thread has a program counter, a pointer to it’s current instruction, pointer to
+the top of it’s stack, general registers, and floating-point or address registers
+* a thread does not have most of the state associated with a process
+* all threads in a process share files, and memory
+* switching between two threads within a process is faster than switching between
+processes
+* threads of the same process share virtual address space and all other process data
+* non-blocking I/O is not same as async I/O
+* non-blocking I/O: allow the program to delay I/O operation until it can complete
+without blocking
+* async I/O: can proceed while the program does other things, context required for
+operation is cheaper than a thread</p>
+</div></blockquote>
+</section>
+<section id="thread-evaporation">
+<h3>Thread Evaporation<a class="headerlink" href="#thread-evaporation" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Initial Thread</strong></dt><dd><ul>
+<li><p>execution of main() in a C program, also called main thread</p></li>
+<li><p>can do anything like other threads, e.g. get thread ID with <code class="docutils literal notranslate"><span class="pre">pthread_self()</span></code></p></li>
+<li><p>if ID is accessible, another thread can wait or detach the initial thread</p></li>
+<li><p>when <code class="docutils literal notranslate"><span class="pre">main()</span></code> returns, the process terminates without allowing other threads to
+complete</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Evaporation: threads state released when the process exits</p></li>
+<li><p>detaching a running thread only informs the system to reclaim resources when it</p></li>
+</ul>
+<p>terminates
+* as the process usually outlives the created threads, always detach each thread when
+finished to make resources used by terminated threads available to the process
+* terminated but not detached threads may retain virtual memory, stacks, and other
+resources
+* can use <code class="docutils literal notranslate"><span class="pre">attribute</span></code> to create a thread that will not be controlled</p>
+</div></blockquote>
+</section>
+<section id="invariants">
+<h3>Invariants<a class="headerlink" href="#invariants" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>assumptions made by program about relationships between variables</p></li>
+<li><p>e.g. relationship between each element in a queue through a pointer to next element</p></li>
+<li><p>invariants usually break, and  make incorrect results or fail the program</p></li>
+<li><p>make sure to fix broken invariants before other code encounter them</p></li>
+<li><p>synchronisation protects the program from broken invariants</p></li>
+<li><p>predicate: logical expression describing the state of invariants, may be a boolean,</p></li>
+</ul>
+<p>pointer NULL test result, more complicated expression, or return value from a function</p>
+</div></blockquote>
+</section>
+<section id="critical-sections">
+<h3>Critical Sections<a class="headerlink" href="#critical-sections" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>also called serial regions, areas of code that affect a shared state</p></li>
+<li><p>can almost always be translated into a data invariant, and vice versa</p></li>
+<li><p>e.g. code section that removes a queue element</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#posix-threads">back to top</a></p>
+</section>
+</section>
+<section id="thread-life-cycle">
+<h2>Thread Life Cycle<a class="headerlink" href="#thread-life-cycle" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#states">States</a>, <a class="reference internal" href="#creation">Creation</a>, <a class="reference internal" href="#startup">Startup</a>, <a class="reference internal" href="#termination">Termination</a>, <a class="reference internal" href="#recycling">Recycling</a></p></li>
+</ul>
+<section id="states">
+<h3>States<a class="headerlink" href="#states" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Ready</strong></dt><dd><ul>
+<li><p>thread able to run, but waiting for the processor</p></li>
+<li><p>may have just started, unblocked, or preempted by other thread</p></li>
+<li><p>timesliced: preempted for running too long</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Running</strong></dt><dd><ul>
+<li><p>currently running, can be more than one thread on multiprocessor system</p></li>
+<li><p>was ready, and selected by processor for execution</p></li>
+<li><p>one thread running usually means the other was blocked, or preempted</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Blocked</strong> &lt;a id=”blocked”&gt;&lt;/a&gt;</dt><dd><ul>
+<li><p>not able to run as it is waiting, e.g. condition variable, mutex, I/O to complete,</p></li>
+<li><p>can also be blocked when it calls <code class="docutils literal notranslate"><span class="pre">sigwait</span></code> for a signal that is not currently
+pending, or system operations such as page fault</p></li>
+<li><p>becomes ready again when it is unblocked</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Terminated</strong></dt><dd><ul>
+<li><p>terminated by calling <code class="docutils literal notranslate"><span class="pre">pthread_exit()</span></code> and return, or cancelled and handle cleanup</p></li>
+<li><p>stays in terminated state until detached or joined</p></li>
+<li><p>will be immediately recycled once detached</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>threads sleep when it’s blocked, resource not available, or when preempted, the system</p></li>
+</ul>
+<p>reassign the processor on which it is running
+* a thread spends most time in Ready, Running and Blocked states</p>
+</div></blockquote>
+</section>
+<section id="creation">
+<h3>Creation<a class="headerlink" href="#creation" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>initial thread is created when the process is created</p></li>
+<li><p>on systems that support threaded programming, cannot execute any code without a thread</p></li>
+<li><p>can also create a thread when a process receives POSIX signal if the process signal</p></li>
+</ul>
+<p>notify mechanism is set to <cite>SIGEV_THREAD</cite>
+* threads can be created using <code class="docutils literal notranslate"><span class="pre">pthread_create()</span></code>, or other non-standard mechanisms
+* a thread is in ready state once created, and may remain in it before executing
+* no synchronisation between creation and <code class="docutils literal notranslate"><span class="pre">pthread_create()</span></code> return
+* thread may start, and even complete and terminate, before the function returns</p>
+</div></blockquote>
+</section>
+<section id="startup">
+<h3>Startup<a class="headerlink" href="#startup" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>once created, will begin executing the thread start function with arguments given in</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">pthread_create()</span></code>
+* for initial thread, <code class="docutils literal notranslate"><span class="pre">main()</span></code> is called from outside the program with <code class="docutils literal notranslate"><span class="pre">argc</span></code> and <code class="docutils literal notranslate"><span class="pre">argv</span></code>,
+instead of single <cite>void*</cite>
+* most UNIX systems link the program with <code class="docutils literal notranslate"><span class="pre">crt0.o</span></code>, that initialises the process and calls
+<code class="docutils literal notranslate"><span class="pre">main()</span></code>
+* only when the initial thread returns, the process is terminated
+* call <code class="docutils literal notranslate"><span class="pre">pthread_exit()</span></code> instead of returning from <code class="docutils literal notranslate"><span class="pre">main()</span></code> to terminate the initial thread,
+and allow other threads to continue running
+* initial thread runs on the default process stack
+* if a thread overflows its stack, program will fail with a segmentation fault or bus error</p>
+</div></blockquote>
+</section>
+<section id="termination">
+<h3>Termination<a class="headerlink" href="#termination" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>usually terminate by returning from its start function</p></li>
+<li><p>using <code class="docutils literal notranslate"><span class="pre">pthread_exit()</span></code> or <code class="docutils literal notranslate"><span class="pre">pthread_cancel()</span></code> terminate after calling each cleanup handler</p></li>
+</ul>
+<p>registered with <cite>pthread_cleanup_push()</cite>
+* non-NULL thread-specific data is cleared by calling associated destructors
+* threads in terminated state remain available for another thread to join
+* terminated thread keeps <code class="docutils literal notranslate"><span class="pre">pthread_t</span></code> value, and the <code class="docutils literal notranslate"><span class="pre">void*</span></code> return value
+* different from terminated with <code class="docutils literal notranslate"><span class="pre">pthread_exit()</span></code>, cancelled thread return value is always
+<code class="docutils literal notranslate"><span class="pre">PTHREAD_CANCELLED</span></code>
+* if the terminated thread is detached by <code class="docutils literal notranslate"><span class="pre">pthread_join()</span></code>, it may be recycled before
+<code class="docutils literal notranslate"><span class="pre">pthread_join()</span></code> returns
+* return value should never be a stack address related with the terminated thread’s stack</p>
+</div></blockquote>
+</section>
+<section id="recycling">
+<h3>Recycling<a class="headerlink" href="#recycling" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>if the thread is created with <code class="docutils literal notranslate"><span class="pre">PTHREAD_CREATE_DETACHED</span></code>, or other threads call</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">pthread_detach()</span></code>, it is immediately recycled when it becomes terminated
+* when <code class="docutils literal notranslate"><span class="pre">pthread_join()</span></code> or <code class="docutils literal notranslate"><span class="pre">pthread_detach()</span></code> returns, the thread cannot be accessed again
+* resources that remain at termination are released when recycled</p>
+</div></blockquote>
+<p><a class="reference external" href="#posix-threads">back to top</a></p>
+</section>
+</section>
+<section id="mutex">
+<h2>Mutex<a class="headerlink" href="#mutex" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#create-destroy">Create &amp; Destroy</a>, <a class="reference internal" href="#lock-unlock">Lock &amp; Unlock</a>, <a class="reference internal" href="#non-blocking-mutex-lock">Non-blocking Mutex Lock</a>, <a class="reference internal" href="#mutex-size-scope">Mutex Size/Scope</a></p></li>
+<li><p>mutual exclusion: only one thread is allowed to write at a time</p></li>
+<li><p>a type of semaphore, easier to use than other semaphore types</p></li>
+<li><p>used to modify and read data written by another thread</p></li>
+<li><p>must be used if the data written order matters</p></li>
+<li><p>by locking a mutex, only one thread will be able to enter the code section</p></li>
+<li><p>using a copied mutex is undefined, use a copy of pointer to a mutex</p></li>
+<li><p>perform an atomic operation while a mutex is locked</p></li>
+<li><p>threads sensitive to the invariant must use the same mutex before modifying the state of it</p></li>
+</ul>
+<section id="create-destroy">
+<h3>Create &amp; Destroy<a class="headerlink" href="#create-destroy" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>usually declared using <code class="docutils literal notranslate"><span class="pre">extern</span></code> or <code class="docutils literal notranslate"><span class="pre">static</span></code></p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">PTHREAD_MUTEX_INITIALIZER</span></code> for static mutex with default attributes</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">my_struct_tag</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">pthread_mutex_t</span><span class="w"> </span><span class="n">mutex</span><span class="p">;</span><span class="w"> </span><span class="c1">// protect access to value</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="c1">// access protected by mutex</span>
+<span class="p">}</span><span class="w"> </span><span class="n">my_struct_t</span><span class="p">;</span>
+
+<span class="n">my_struct_t</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">PTHREAD_MUTEX_INITIALIZER</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">pthread_mutex_init()</span></code> when using <code class="docutils literal notranslate"><span class="pre">malloc()</span></code> to create a structure with mutex</p></li>
+<li><p>must use dynamic initialisation for a mutex with non-default attributes, and destroy with</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">pthread_mutex_destroy()</span></code></p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">my_struct_t</span><span class="w"> </span><span class="o">*</span><span class="n">data</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">status</span><span class="p">;</span>
+
+<span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">my_struct_t</span><span class="p">));</span>
+
+<span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pthread_mutex_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">data</span><span class="o">-&gt;</span><span class="n">mutex</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+
+<span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pthread_mutex_destroy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">data</span><span class="o">-&gt;</span><span class="n">mutex</span><span class="p">);</span>
+
+<span class="n">free</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><p>if possible, associate a mutex with the data it protects</p></li>
+<li><p>can destroy a mutex when no threads are blocked on it, and no additional threads will try</p></li>
+</ul>
+<p>to lock it
+* if in heap, unlock and destroy the mutex before freeing the storage of mutex</p>
+</div></blockquote>
+</section>
+<section id="lock-unlock">
+<h3>Lock &amp; Unlock<a class="headerlink" href="#lock-unlock" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>lock with <code class="docutils literal notranslate"><span class="pre">pthread_mutex_lock()</span></code> or <code class="docutils literal notranslate"><span class="pre">pthread_mutex_trylock()</span></code>, and unlock with</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">pthread_mutex_unlock()</span></code>
+* need to lock around any code that read or write variables
+* error or self-deadlock when trying to lock a mutex that the calling thread already has</p>
+</div></blockquote>
+</section>
+<section id="non-blocking-mutex-lock">
+<h3>Non-blocking Mutex Lock<a class="headerlink" href="#non-blocking-mutex-lock" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>use <code class="docutils literal notranslate"><span class="pre">pthread_mutex_trylock()</span></code>, return error status instead of blocking the caller if the</p></li>
+</ul>
+<p>mutex is already locked
+* unlock only if the function return with success
+* unlocking with error can unlock the mutex while other thread is relying on it locked</p>
+</div></blockquote>
+</section>
+<section id="mutex-size-scope">
+<h3>Mutex Size/Scope<a class="headerlink" href="#mutex-size-scope" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>the scope/size of mutex protection can be as big as necessary</p></li>
+<li><p>e.g. when protecting two shared variables, each variable can have a small mutex, or a</p></li>
+</ul>
+<p>larger mutex can protect both
+* as it takes time to lock and unlock mutexes, code that locks fewer mutexes will usually
+run faster
+* in some situations, instead of threads waiting on one big mutex, splitting it into
+smaller ones can be effective
+* it is best to apply two separate mutexes to independent data</p>
+</div></blockquote>
+<p><a class="reference external" href="#posix-threads">back to top</a></p>
+</section>
+</section>
+<section id="condition-variables">
+<h2>Condition Variables<a class="headerlink" href="#condition-variables" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#condition-wait">Condition Wait</a>, <a class="reference internal" href="#rules-for-condition-variables">Rules for Condition Variables</a></p></li>
+<li><p>wait for a predicate to become true, and communicate to other threads</p></li>
+<li><p>condition variables are not for mutual exclusion</p></li>
+<li><p>mutexes are used separately, and it is common for one mutex to have more than one condition</p></li>
+</ul>
+<p>variables</p>
+<section id="condition-wait">
+<h3>Condition Wait<a class="headerlink" href="#condition-wait" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>automatically release the associated mutex, and wait until another thread signal or</p></li>
+</ul>
+<p>broadcast the condition variable
+* mutex must always be locked when waiting on a condition variable
+* when a thread wake up from condition wait, it always resume with the mutex locked</p>
+</div></blockquote>
+</section>
+<section id="rules-for-condition-variables">
+<h3>Rules for Condition Variables<a class="headerlink" href="#rules-for-condition-variables" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>one variable to one predicate if possible, using one-to-many or many-to-one can cause</p></li>
+</ul>
+<p>deadlock or race problems
+* when sharing a condition variable between multiple predicates, always broadcast although
+signal is more efficient
+* both the condition variable and predicate are shared data in the program, and always
+controlled using the same mutex
+* it is safer to signal or broadcast a condition variable with mutex locked</p>
+</div></blockquote>
+<p><a class="reference external" href="#posix-threads">back to top</a></p>
+</section>
+</section>
+<section id="deadlock">
+<h2>Deadlock<a class="headerlink" href="#deadlock" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#lock-hierarchy">Lock Hierarchy</a>, <a class="reference internal" href="#backoff">Backoff</a>, <a class="reference internal" href="#lock-chaining">Lock Chaining</a></p></li>
+<li><p>threads waiting each others’ locks, but none unlocks for any other</p></li>
+<li><p>threads lock resources in different orders, and refuse to give locks up</p></li>
+<li><p>livelock: threads fight for access to the locks</p></li>
+<li><p>common solutions for deadlock are lock hierarchy and backoff</p></li>
+</ul>
+<section id="lock-hierarchy">
+<h3>Lock Hierarchy<a class="headerlink" href="#lock-hierarchy" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>if there is no clear hierarchical order, make an arbitrary order for locks, and always</p></li>
+</ul>
+<p>take earlier locks before later ones
+* e.g. if <code class="docutils literal notranslate"><span class="pre">thread_1</span></code> and <code class="docutils literal notranslate"><span class="pre">thread_2</span></code> need both <code class="docutils literal notranslate"><span class="pre">mutex_a</span></code> and <code class="docutils literal notranslate"><span class="pre">mutex_b</span></code>, they must always lock
+<code class="docutils literal notranslate"><span class="pre">mutex_a</span></code> first and then <code class="docutils literal notranslate"><span class="pre">mutex_b</span></code>
+* most efficient way to prevent deadlock, but not always easy to design
+* can create coupling between different parts of the program
+* <strong>Creating Lock Hierarchy</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>sort a list of mutexes in ID address order and lock them</p></li>
+<li><p>can also name mutexes, and lock in alphabetical or numerical order</p></li>
+<li><p>code with functional locking hierarchy will lock mutexes in proper order</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="backoff">
+<h3>Backoff<a class="headerlink" href="#backoff" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>take a lock, check other locks with <code class="docutils literal notranslate"><span class="pre">pthread_mutex_trylock()</span></code>, and if it fails, release</p></li>
+</ul>
+<p>all locks in reverse order and try again from the start
+* unlocking in reverse order lower the chance that another thread will need to backoff
+* less efficient than lock hierarchy as it can make waste calls to lock and unlock
+* but flexible as there is no strict lock hierarchy
+* need to use <code class="docutils literal notranslate"><span class="pre">sched_yield()</span></code> to put the calling thread to sleep and at the back of the
+scheduler’s run queue</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>can use lock hierarchy for well-defined code, and backoff for functions that need flexibility</p></li>
+</ul>
+</section>
+<section id="lock-chaining">
+<h3>Lock Chaining<a class="headerlink" href="#lock-chaining" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>special case of lock hierarchy, and compatible</p></li>
+<li><p>lock the first mutex, after the second mutex is locked successfully, the first is no</p></li>
+</ul>
+<p>longer needed and released
+* useful in traversing data structures such as trees or linked lists
+* e.g. use lock hierarchy when balancing or pruning a tree, and chaining when searching
+* without any purpose, chaining can waste time locking and unlocking
+* use only when threads will always be active within different parts of the hierarchy</p>
+</div></blockquote>
+<p><a class="reference external" href="#posix-threads">back to top</a></p>
+</section>
+</section>
+<section id="pthreads-api">
+<h2>Pthreads API<a class="headerlink" href="#pthreads-api" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#pthread-t">pthread_t</a>, <a class="reference internal" href="#pthread-create">pthread_create</a>, <a class="reference internal" href="#pthread-detach">pthread_detach</a>, <a class="reference internal" href="#pthread-equal">pthread_equal</a>, <a class="reference internal" href="#pthread-exit">pthread_exit</a></p></li>
+<li><p><a class="reference internal" href="#pthread-join">pthread_join</a>, <a class="reference internal" href="#pthread-self">pthread_self</a>, <a class="reference internal" href="#pthread-mutex-destroy">pthread_mutex_destroy</a>, <a class="reference internal" href="#pthread-mutex-init">pthread_mutex_init</a></p></li>
+<li><p><a class="reference internal" href="#pthread-mutex-lock">pthread_mutex_lock</a>, <a class="reference internal" href="#pthread-mutex-trylock">pthread_mutex_trylock</a>, <a class="reference internal" href="#pthread-mutex-unlock">pthread_mutex_unlock</a></p></li>
+<li><p>primary Pthreads synchronisation model uses mutexes for protection, and condition variables</p></li>
+</ul>
+<p>for communication
+* functions return an error code from <code class="docutils literal notranslate"><span class="pre">&lt;errno.h&gt;</span></code>, per-thread <code class="docutils literal notranslate"><span class="pre">errno</span></code> also available, but
+setting or reading it has overhead</p>
+<section id="pthread-t">
+<h3>pthread_t<a class="headerlink" href="#pthread-t" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>to hold ID returned by <code class="docutils literal notranslate"><span class="pre">pthread_create()</span></code></p></li>
+<li><p>can declare with <code class="docutils literal notranslate"><span class="pre">auto</span></code> if ID is required only in a function, but mostly with <code class="docutils literal notranslate"><span class="pre">static</span></code></p></li>
+</ul>
+<p>or <cite>extern</cite></p>
+</div></blockquote>
+</section>
+<section id="pthread-create">
+<h3>pthread_create<a class="headerlink" href="#pthread-create" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">pthread_create(thread,</span> <span class="pre">attr,</span> <span class="pre">thread_function,</span> <span class="pre">arg)</span></code></p></li>
+<li><p>create a new thread executing the third argument, thread function’s address</p></li>
+<li><p>return 0 on success and stores the ID of new thread in the buffer pointed to by the</p></li>
+</ul>
+<p>thread, otherwise return error number on failure
+* can specify scheduling parameters at creation time or later while the thread is running
+* Thread Function: only expect single argument of type <code class="docutils literal notranslate"><span class="pre">void*</span></code>, and return same type
+* cannot find the thread ID unless the creator or the thread itself stores it somewhere</p>
+</div></blockquote>
+</section>
+<section id="pthread-detach">
+<h3>pthread_detach<a class="headerlink" href="#pthread-detach" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">pthread_detach(thread)</span></code></p></li>
+<li><p>mark the specified thread as detached, and release resources as soon as it terminates</p></li>
+<li><p>return 0 on success, otherwise error number</p></li>
+<li><p>if not detach, Pthreads can hold the thread’s resources for another thread to determine</p></li>
+</ul>
+<p>it has exited, and retrieve a final result
+* detached thread cannot be joined or made joinable again
+* a thread can detach itself, or other thread that knows its ID can detach it
+* <code class="docutils literal notranslate"><span class="pre">EINVAL</span></code>: not joinable thread
+* <code class="docutils literal notranslate"><span class="pre">ESRCH</span></code>: invalid thread ID</p>
+</div></blockquote>
+</section>
+<section id="pthread-equal">
+<h3>pthread_equal<a class="headerlink" href="#pthread-equal" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">pthread_equal(t1,</span> <span class="pre">t2)</span></code></p></li>
+<li><p>compare two thread IDs for equality</p></li>
+<li><p>greater than or less than compare is not needed, as there is no ordering between threads</p></li>
+<li><p>return nonzero value if equal, otherwise return 0</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="pthread-exit">
+<h3>pthread_exit<a class="headerlink" href="#pthread-exit" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">pthread_exit(retval)</span></code></p></li>
+<li><p>terminate the calling thread</p></li>
+<li><p>no return value, always succeed</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="pthread-join">
+<h3>pthread_join<a class="headerlink" href="#pthread-join" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">pthread_join(thread,</span> <span class="pre">retval)</span></code></p></li>
+<li><p>waits for the specified joinable thread to terminate, and detach automatically</p></li>
+<li><p>can check the thread’s return value or completion status</p></li>
+<li><p>return 0 on success, otherwise error number</p></li>
+<li><p>will block the caller until the specified thread is terminated</p></li>
+<li><p>if the calling thread is canceled, the target thread will not be detached and remain</p></li>
+</ul>
+<p>joinable
+* if multiple threads need to know for termination, wait on a condition variable instead of
+calling <cite>pthread_join()</cite>
+* <code class="docutils literal notranslate"><span class="pre">EDEADLK</span></code>: deadlock detected, or specified thread is the calling thread, thread may hang
+* <code class="docutils literal notranslate"><span class="pre">EINVAL</span></code>: not joinable thread, or another thread already waiting to join
+* <code class="docutils literal notranslate"><span class="pre">ESRCH</span></code>: invalid thread ID</p>
+</div></blockquote>
+</section>
+<section id="pthread-self">
+<h3>pthread_self<a class="headerlink" href="#pthread-self" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pthread_t</span> <span class="pre">pthread_self()</span></code></p></li>
+<li><p>get ID of the calling thread</p></li>
+<li><p>return thread ID, and always succeed</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="pthread-mutex-destroy">
+<h3>pthread_mutex_destroy<a class="headerlink" href="#pthread-mutex-destroy" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">pthread_mutex_destroy(mutex)</span></code></p></li>
+<li><p>destroy the mutex object, setting it to an invalid value</p></li>
+<li><p>return 0 on success, otherwise an error number</p></li>
+<li><p>destroyed mutex can be reinitialised with <code class="docutils literal notranslate"><span class="pre">pthread_mutex_init()</span></code></p></li>
+<li><p>only safe to destroy an initialised mutex that is unlock</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="pthread-mutex-init">
+<h3>pthread_mutex_init<a class="headerlink" href="#pthread-mutex-init" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">pthread_mutex_init(mutex,</span> <span class="pre">attr)</span></code></p></li>
+<li><p>initialised the mutex with attributes, default attributes are used for <code class="docutils literal notranslate"><span class="pre">NULL</span></code></p></li>
+<li><p>return 0 on success, otherwise an error number</p></li>
+<li><p>after successful initialisation, mutex state becomes initialised and unlocked</p></li>
+<li><p>can also use <code class="docutils literal notranslate"><span class="pre">PTHREAD_MUTEX_INITIALIZER</span></code> macro for default attributes</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="pthread-mutex-lock">
+<h3>pthread_mutex_lock<a class="headerlink" href="#pthread-mutex-lock" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">pthread_mutex_lock(mutex)</span></code></p></li>
+<li><p>lock the given referenced mutex object</p></li>
+<li><p>return 0 on success, otherwise error number is returned</p></li>
+<li><p>the caller is blocked if the mutex is already locked by another thread</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="pthread-mutex-trylock">
+<h3>pthread_mutex_trylock<a class="headerlink" href="#pthread-mutex-trylock" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">pthread_mutex_trylock(mutex)</span></code></p></li>
+<li><p>same as <code class="docutils literal notranslate"><span class="pre">pthread_mutex_lock()</span></code>, but return immediately, and the caller is not blocked if</p></li>
+</ul>
+<p>the mutex is already locked by another thread
+* return 0 on success, otherwise error number is returned
+* <code class="docutils literal notranslate"><span class="pre">EBUSY</span></code>: mutex already locked</p>
+</div></blockquote>
+</section>
+<section id="pthread-mutex-unlock">
+<h3>pthread_mutex_unlock<a class="headerlink" href="#pthread-mutex-unlock" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">pthread_mutex_unlock(mutex)</span></code></p></li>
+<li><p>release the given referenced mutex object</p></li>
+<li><p>return 0 on success, otherwise error number is returned</p></li>
+<li><p>if threads are blocked on the mutex, scheduling policy determine which thread will get it</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#posix-threads">back to top</a></p>
+</section>
+</section>
+<section id="reference-sources">
+<h2>Reference Sources<a class="headerlink" href="#reference-sources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>begriffs. (2020). Concurrent programming, with examples [online].</p></li>
+</ul>
+<p>Available at: [<a class="reference external" href="https://begriffs.com/posts/2020-03-23-concurrent-programming.html](https://begriffs.com/posts/2020-03-23-concurrent-programming.html">https://begriffs.com/posts/2020-03-23-concurrent-programming.html](https://begriffs.com/posts/2020-03-23-concurrent-programming.html</a>)
+* Butenhof, David R. (1997). Programming with POSIX Threads. Reading, Massachusetts:
+Addison-Wesley.</p>
+<p><a class="reference external" href="#posix-threads">back to top</a></p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="OperatingSystem.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Operating System</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="PenetrationTesting.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Penetration Testing</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#threads">Threads</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concurrency">Concurrency</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parallelism">Parallelism</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thread-safety">Thread Safety</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asynchrony">Asynchrony</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thread-evaporation">Thread Evaporation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#invariants">Invariants</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-sections">Critical Sections</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thread-life-cycle">Thread Life Cycle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#states">States</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creation">Creation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#startup">Startup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#termination">Termination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recycling">Recycling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mutex">Mutex</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-destroy">Create &amp; Destroy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lock-unlock">Lock &amp; Unlock</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-blocking-mutex-lock">Non-blocking Mutex Lock</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mutex-size-scope">Mutex Size/Scope</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-variables">Condition Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-wait">Condition Wait</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rules-for-condition-variables">Rules for Condition Variables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deadlock">Deadlock</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lock-hierarchy">Lock Hierarchy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backoff">Backoff</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lock-chaining">Lock Chaining</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pthreads-api">Pthreads API</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-t">pthread_t</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-create">pthread_create</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-detach">pthread_detach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-equal">pthread_equal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-exit">pthread_exit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-join">pthread_join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-self">pthread_self</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-mutex-destroy">pthread_mutex_destroy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-mutex-init">pthread_mutex_init</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-mutex-lock">pthread_mutex_lock</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-mutex-trylock">pthread_mutex_trylock</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pthread-mutex-unlock">pthread_mutex_unlock</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-sources">Reference Sources</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

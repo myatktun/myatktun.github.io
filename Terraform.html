@@ -1,0 +1,1671 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Terraform &#8212; Notes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Terraform';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="TypeScript" href="TypeScript.html" />
+    <link rel="prev" title="Strategic Planning" href="StrategicPlanning.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AWS.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BackendEngineering.html">Backend Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSharp.html">C# #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CTF.html">CTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CompTIA.html">CompTIA Cert Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compilers.html">Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerGraphics.html">Computer Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputingSystems.html">Computing Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">ECS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FFmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Helm.html">Helm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Istio.html">Istio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JDBC.html">JDBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MongoDB.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkProgramming.html">Network Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NodeJS.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenAPI.html">OpenAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OperatingSystem.html">Operating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="POSIXThreads.html">POSIX Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PenetrationTesting.html">Penetration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramDesign.html">Program Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectManagement.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prometheus.html">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SFML.html">SFML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StrategicPlanning.html">Strategic Planning</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TypeScript.html">TypeScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI/UX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrant.html">Vagrant</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Terraform.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Terraform</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-terraform">What is Terraform?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#providers">Providers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aws">AWS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#migrate-existing-infrastructure">Migrate existing infrastructure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshoot">Troubleshoot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Additional Resources</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-output">Input/Output</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-variables">Input variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output-values">Output values</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data Sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies">Dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-functions">Built-in Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#templatefile"><code class="docutils literal notranslate"><span class="pre">templatefile</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lookup"><code class="docutils literal notranslate"><span class="pre">lookup</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file"><code class="docutils literal notranslate"><span class="pre">file</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#state">State</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modules">Modules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-of-modules">benefits of modules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#root-module">root module</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remote-module">remote module</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">best practices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">Additional Resources</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#secrets">Secrets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id35">Additional Resources</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terraform-cloud">Terraform Cloud</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-setup">example setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workspaces">Workspaces</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflows">Workflows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#destroy">Destroy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sentinel">Sentinel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id38">Additional Resources</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automation">Automation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">workflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-environment-deployment">multi-environment deployment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-terraform-cloud">using Terraform Cloud</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="terraform">
+<h1>Terraform<a class="headerlink" href="#terraform" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#what-is-terraform">What is Terraform?</a></p></li>
+<li><p><a class="reference internal" href="#providers">Providers</a></p></li>
+<li><p><a class="reference internal" href="#configuration">Configuration</a></p></li>
+<li><p><a class="reference internal" href="#input-output">Input/Output</a></p></li>
+<li><p><a class="reference internal" href="#data-sources">Data Sources</a></p></li>
+<li><p><a class="reference internal" href="#dependencies">Dependencies</a></p></li>
+<li><p><a class="reference internal" href="#built-in-functions">Built-in Functions</a></p></li>
+<li><p><a class="reference internal" href="#state">State</a></p></li>
+<li><p><a class="reference internal" href="#modules">Modules</a></p></li>
+<li><p><a class="reference internal" href="#secrets">Secrets</a></p></li>
+<li><p><a class="reference internal" href="#terraform-cloud">Terraform Cloud</a></p></li>
+<li><p><a class="reference internal" href="#automation">Automation</a></p></li>
+</ol>
+<p><a class="reference external" href="#terraform">back to top</a></p>
+<section id="what-is-terraform">
+<h2>What is Terraform?<a class="headerlink" href="#what-is-terraform" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>IaC (Infrastructure as code) provisioning tool, developed by HashiCorp, to manage</p></li>
+</ul>
+<p>infrastructure with configuration files instead of GUI
+* produces executable documentation for describing and building infrastructure
+* can manage infrastructure by defining resource configurations in human-readable declarative
+files that can be versioned, reused and shared
+* can be automated to scale without increasing manual workload
+* can manage on multiple cloud platforms and track resources changes in deployments
+* providers plugins allow Terraform to interact with cloud platforms and other services via
+APIs
+* can even write own custom provider
+* declarative configuration language describes the desired end-state for infrastructure, not
+step-by-step instructions
+* define infrastructure scope for project, write the configuration, initialize to install the
+plugins, plan to preview changes that will be made and apply the changes to deploy
+infrastructure
+* Terraform keeps track of real infrastructure in a state file and uses it to determine changes
+* can share state with teammates using Terraform Cloud or connect it to VCSs to manage through
+version control</p>
+<p><a class="reference external" href="#terraform">back to top</a></p>
+</section>
+<section id="providers">
+<h2>Providers<a class="headerlink" href="#providers" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>define individual units of infrastructure as resources</p></li>
+<li><p>can put different providers’ resources into reusable configurations called modules</p></li>
+<li><p>most providers have been written by HashiCorp and the Terraform community and can be found in</p></li>
+</ul>
+<p>[Terraform Registry](<a class="reference external" href="https://registry.terraform.io/browse/providers">https://registry.terraform.io/browse/providers</a>)
+* providers auto calculate dependencies between resources to create or destroy them in correct
+order
+* providers manage resources by communicating between Terraform and target APIs
+* multiple users running the same Terraform configuration should all use same versions of
+required providers
+* can manage versions by specifying constraints in <code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">{}</span></code> block or using dependency
+lock file</p>
+<section id="aws">
+<h3>AWS<a class="headerlink" href="#aws" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><dl>
+<dt>terraform {</dt><dd><dl>
+<dt>required_providers {</dt><dd><dl class="simple">
+<dt>aws = {</dt><dd><p>source  = “hashicorp/aws”
+version = “~&gt; 4.16”</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}
+required_version = “&gt;= 1.2.0”</p>
+</dd>
+</dl>
+<p>}</p>
+<dl class="simple">
+<dt>provider “aws” {</dt><dd><p>region = “example-region”</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</section>
+<section id="docker">
+<h3>Docker<a class="headerlink" href="#docker" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><dl>
+<dt>terraform {</dt><dd><dl>
+<dt>required_providers {</dt><dd><dl class="simple">
+<dt>docker = {</dt><dd><p>source  = “kreuzwerker/docker”
+version = “2.23.1”</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+<dl class="simple">
+<dt>provider “docker” {</dt><dd><p>host = “unix:///var/run/docker.sock”</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</section>
+<section id="additional-resources">
+<h3>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>[Official Providers Documents](<a class="reference external" href="https://developer.hashicorp.com/terraform/language/providers">https://developer.hashicorp.com/terraform/language/providers</a>)</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#terraform">back to top</a></p>
+</section>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">#</a></h2>
+<ul>
+<li><p>example configuration file to launch AWS EC2 instance</p>
+<blockquote>
+<div><blockquote>
+<div><p>/* main.tf <a href="#id3"><span class="problematic" id="id4">*</span></a>/
+resource “aws_instance” “app_server” {</p>
+<blockquote>
+<div><p>ami           = “ami-07651f0c4c315a529”
+instance_type = “t2.micro”</p>
+<dl class="simple">
+<dt>tags = {</dt><dd><p>Name = “ExampleAppServerInstance”</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">{}</span></code></dt><dd><ul>
+<li><p>contains Terraform settings such as required providers that will be used</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">source</span></code> of each provider defines optional hostname, namespace and provider type</p></li>
+<li><p>providers are installed from Terraform Registry by default,
+<code class="docutils literal notranslate"><span class="pre">registry.terraform.io/hashicorp/aws</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">version</span></code> attribute is optional, but recommended to use to have provider version
+that works well with the configuration, most recent version is downloaded if not
+specified</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">provider</span> <span class="pre">&quot;PROVIDER_NAME&quot;</span> <span class="pre">{}</span></code></dt><dd><ul>
+<li><p>configure the specified provider</p></li>
+<li><p>can use multiple provider blocks to manage resources from different providers</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">resource</span> <span class="pre">&quot;RESOURCE_TYPE&quot;</span> <span class="pre">&quot;RESOURCE_NAME&quot;</span> <span class="pre">{}</span></code></dt><dd><ul>
+<li><p>define components of infrastructure, can be physical, virtual or logical resource</p></li>
+<li><p>prefix of the <code class="docutils literal notranslate"><span class="pre">TYPE</span></code> maps to the name of the provider</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RESORUCE_TYPE</span></code> and <code class="docutils literal notranslate"><span class="pre">RESOURCE_NAME</span></code> form a unique ID for the resource, e.g
+<code class="docutils literal notranslate"><span class="pre">aws_instance.app_server</span></code></p></li>
+<li><p>the block contains arguments to configure the resource, such as machine size, disk
+image names or VPC IDs</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">init</span></code></dt><dd><ul class="simple">
+<li><p>to initialize and install required providers in <code class="docutils literal notranslate"><span class="pre">.terraform</span></code> folder</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.terraform.lock.hcl</span></code> file is created to specify exact provider versions used</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">init</span> <span class="pre">-upgrade</span></code> to upgrade a provider</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">fmt</span></code></dt><dd><ul class="simple">
+<li><p>format the configuration file for readability</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">validate</span></code></dt><dd><ul class="simple">
+<li><p>validate the configuration file syntax</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">plan</span></code></dt><dd><ul class="simple">
+<li><p>view actions Terraform will carry out to provision the resource</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">apply</span></code></dt><dd><ul class="simple">
+<li><p>output the changes and apply the configuration if approved</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(known</span> <span class="pre">after</span> <span class="pre">apply)</span></code> values in output means that value will not be known until the</p></li>
+</ul>
+<p>resource is created, such as AWS ARN for EC2 instance
+* use <code class="docutils literal notranslate"><span class="pre">-auto-approve</span></code> not to prompt
+* <code class="docutils literal notranslate"><span class="pre">-/+</span></code> means resource will be destroyed and recreated
+* <code class="docutils literal notranslate"><span class="pre">~</span></code> means resource will be updated in-place</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">destroy</span></code></dt><dd><ul class="simple">
+<li><p>terminate resources specified in Terraform state</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<section id="migrate-existing-infrastructure">
+<h3>Migrate existing infrastructure<a class="headerlink" href="#migrate-existing-infrastructure" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>can migrate existing infrastructure to Terraform management</p></li>
+<li><p>configuration file for imported resource will not be generated</p></li>
+<li><p>need to write configuration that matches the imported infrastructure</p></li>
+<li><p>importing infrastructure could leave existing Terraform projects in an invalid state</p></li>
+<li><p>make sure to backup <code class="docutils literal notranslate"><span class="pre">terraform.tfstate</span></code> and <code class="docutils literal notranslate"><span class="pre">.terraform/</span></code> before using import</p></li>
+<li><p>example importing local docker container</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>terraform<span class="w"> </span>import<span class="w"> </span>docker_container.nginx<span class="w"> </span>CONTAINER_ID
+<span class="c1">#or</span>
+terraform<span class="w"> </span>import<span class="w"> </span>docker_container.nginx<span class="w"> </span><span class="k">$(</span>docker<span class="w"> </span>inspect<span class="w"> </span>--format<span class="o">=</span><span class="s2">&quot;{{.ID}}&quot;</span><span class="w"> </span>CONTAINER<span class="k">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>check provider documentation when importing for error handling and plan step</p></li>
+<li><p>know if it is safe to apply the configuration to the resource</p></li>
+<li><p>update configuration using current state and modify as necessary</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>terraform<span class="w"> </span>state<span class="w"> </span>show<span class="w"> </span>docker_container.nginx<span class="w"> </span>&gt;<span class="w"> </span>main.tf
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>resources defined by single unique ID or tag can be imported without using <code class="docutils literal notranslate"><span class="pre">import</span></code></p></li>
+</ul>
+<dl class="simple">
+<dt>command</dt><dd><ul class="simple">
+<li><p>such as docker images (<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">image</span> <span class="pre">inspect</span> <span class="pre">sha256:ID</span> <span class="pre">-f</span> <span class="pre">{{.RepoTags}}</span></code>)</p></li>
+<li><p>create <code class="docutils literal notranslate"><span class="pre">docker_image</span></code> resource first and update the <code class="docutils literal notranslate"><span class="pre">image</span></code> attribute in
+<code class="docutils literal notranslate"><span class="pre">docker_container</span></code> resource to avoid recreating</p></li>
+</ul>
+</dd>
+</dl>
+<ul class="simple">
+<li><p>import only knows the current state as reported by the provider</p></li>
+<li><p>importing can be error prone due to manual steps and doesn’t generate relationships</p></li>
+</ul>
+<p>between infrastructure
+* import doesn’t detect default attributes and not all providers support it
+* imported infrastructure can be dependent on other unmanaged configuration
+* may need to set environment variables
+* import command always runs locally, does not have access to the remote backend</p>
+</div></blockquote>
+</section>
+<section id="troubleshoot">
+<h3>Troubleshoot<a class="headerlink" href="#troubleshoot" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Language</strong></dt><dd><ul>
+<li><p>HCL syntax error in configuration file</p></li>
+<li><p>will print out line numbers and description of error</p></li>
+<li><p>check with <code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">fmt</span></code> and <code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">validate</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">validate</span></code> command stops once it catches an error</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>State</strong></dt><dd><ul>
+<li><p>state out of sync, may destroy or change existing resources</p></li>
+<li><p>after fixing configuration errors, always review the state</p></li>
+<li><p>ensure state is in sync by refreshing, importing or replacing resources</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Core</strong></dt><dd><ul>
+<li><p>Terraform core erros can be bugs</p></li>
+<li><p>open GitHub issue if necessary</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Provider</strong></dt><dd><ul>
+<li><p>authentication, API calls and mapping resources to services errors</p></li>
+<li><p>open GitHub issue for provider development team if necessary</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>opening GitHub issue</strong></dt><dd><ul>
+<li><p>confirm Terraform and providers version with <code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">version</span></code></p></li>
+<li><p>enable logging by setting environment variables <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">TF_LOG_COR=TRACE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">TF_LOG_PROVIDER=TRACE</span></code>, <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">TF_LOG_PATH=logs.txt</span></code> and run a command such
+as <code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">refresh</span></code> to generate log file, unset the environment variables to
+disable logging</p></li>
+<li><p>can submit issue as forum topic before opening in the repository</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="id5">
+<h3>Additional Resources<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>[Immutabel Infrastructure](<a class="reference external" href="https://www.hashicorp.com/resources/what-is-mutable-vs-immutable-infrastructure/">https://www.hashicorp.com/resources/what-is-mutable-vs-immutable-infrastructure/</a>)</p></li>
+<li><p>[Terraformer](<a class="github reference external" href="https://github.com/GoogleCloudPlatform/terraformer">GoogleCloudPlatform/terraformer</a>)</p></li>
+<li><p>[Forum](<a class="reference external" href="https://discuss.hashicorp.com/c/terraform-core/27">https://discuss.hashicorp.com/c/terraform-core/27</a>), [Official Repository](<a class="github reference external" href="https://github.com/hashicorp/terraform">hashicorp/terraform</a>), [Community Guidelines](<a class="reference external" href="https://www.hashicorp.com/community-guidelines">https://www.hashicorp.com/community-guidelines</a>)</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#terraform">back to top</a></p>
+</section>
+</section>
+<section id="input-output">
+<h2>Input/Output<a class="headerlink" href="#input-output" title="Link to this heading">#</a></h2>
+<section id="input-variables">
+<h3>Input variables<a class="headerlink" href="#input-variables" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>variables allow to write flexible and easier to re-use configuration</p></li>
+<li><p>variables do not change values during Terraform commands</p></li>
+<li><p>set description and type for all variables and default value when practical</p></li>
+<li><p>unassigned variables are not supported</p></li>
+<li><p>values will be converted to correct type if possible, use most appropriate type in</p></li>
+</ul>
+<p>definitions
+* <strong>variable types</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>string: string value</p></li>
+<li><p>bool: true or false</p></li>
+<li><p>number: numeric value</p></li>
+<li><p>list: values of same type (start from index 0, can use functions on it,
+slice(var.LIST_VAR, start, end_exclusive)</p></li>
+<li><p>map: key/values of same type</p></li>
+<li><p>null: absence or omission</p></li>
+<li><p>set: unordered collection of unique values of same type</p></li>
+<li><p>tuple: fixed-length values of specified types</p></li>
+<li><p>object: fixed set of keys/values of specified types</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p><strong>defining input variables</strong></p>
+<blockquote>
+<div><p>/* variables.tf <a href="#id7"><span class="problematic" id="id8">*</span></a>/
+variable “instance_name” {</p>
+<blockquote>
+<div><p>description = “Value of the Name tag for the EC2 instance”
+type        = string
+default     = “ExampleAppServerInstance”</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</li>
+<li><p><strong>using input variables</strong></p>
+<blockquote>
+<div><p>/* main.tf <a href="#id9"><span class="problematic" id="id10">*</span></a>/
+resource “aws_instance” “app_server” {</p>
+<blockquote>
+<div><p>ami           = “ami-07651f0c4c315a529”
+instance_type = “t2.micro”</p>
+<dl class="simple">
+<dt>tags = {</dt><dd><p>Name = var.instance_name</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</li>
+<li><p>override variable from command-line, variable value will not be saved</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>terraform<span class="w"> </span>apply<span class="w"> </span>-var<span class="w"> </span><span class="s2">&quot;instance_name=newName&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>assign values with <code class="docutils literal notranslate"><span class="pre">terraform.tfvars</span></code> or <code class="docutils literal notranslate"><span class="pre">*.auto.tfvars</span></code> without setting default</p>
+<blockquote>
+<div><p>/* variables.tf <a href="#id11"><span class="problematic" id="id12">*</span></a>/
+variable “instance_name” {</p>
+<blockquote>
+<div><p>description = “Value of the Name tag for the EC2 instance”
+type        = string</p>
+</div></blockquote>
+<p>}</p>
+<p>/* terraform.tfvars <a href="#id13"><span class="problematic" id="id14">*</span></a>/
+instance_name     = “ExampleAppServerInstance”</p>
+</div></blockquote>
+</li>
+<li><p><strong>validate variables</strong></p>
+<blockquote>
+<div><dl>
+<dt>variable “instance_name” {</dt><dd><p>description = “Value of the Name tag for the EC2 instance”
+type        = string
+default = “1234”</p>
+<dl class="simple">
+<dt>validation {</dt><dd><p>condition = length(var.instance_name) &lt;= 4
+error_message = “EC2 instance name length cannot be more than 4 characters”</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="output-values">
+<h3>Output values<a class="headerlink" href="#output-values" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>must apply configuration before using the output values as output values are stored in</p></li>
+</ul>
+<p>the state file</p>
+<p>/* outputs.tf <a href="#id15"><span class="problematic" id="id16">*</span></a>/
+output “instance_id” {</p>
+<blockquote>
+<div><p>description = “ID of EC2 instance”
+value       = aws_instance.app_server.id</p>
+</div></blockquote>
+<p>}</p>
+<dl class="simple">
+<dt>output “instance_public_ip” {</dt><dd><p>description = “Public IP address of EC2 instance”
+value       = aws_instance.app_server.public_ip</p>
+</dd>
+</dl>
+<p>}</p>
+<ul class="simple">
+<li><p>setting outputs to sensitive will avoid printing them out to the console</p></li>
+<li><p>use sensitive outputs to share data from configuration with other modules or tools</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">output</span></code></dt><dd><ul>
+<li><p>query the output values, will not show sensitive values by default</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">output</span> <span class="pre">OUTPUT_1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-json</span></code> for JSON-formatted output, sensitive outputs will be shown</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>outputs can be used to connect Terraform projects with other parts of infrastructure or</p></li>
+</ul>
+<p>other Terraform projects</p>
+</div></blockquote>
+<p><a class="reference external" href="#terraform">back to top</a></p>
+</section>
+</section>
+<section id="data-sources">
+<h2>Data Sources<a class="headerlink" href="#data-sources" title="Link to this heading">#</a></h2>
+<ul>
+<li><p>to fetch data from APIs or other Terraform state backends</p></li>
+<li><p>allow to reference values from other configurations</p></li>
+<li><p>data sources values can be used like any other Terraform values</p></li>
+<li><p>list AWS availability zones of current region</p>
+<blockquote>
+<div><dl>
+<dt>data “aws_availability_zones” “available” {</dt><dd><p>state = “available”
+filter {</p>
+<blockquote>
+<div><p>name   = “zone-type”
+values = [“availability-zone”]</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+<dl class="simple">
+<dt>output “azs” {</dt><dd><p>value = data.aws_availability_zones.available.names</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+<li><p>get correct AWS AMI ID for current region</p>
+<blockquote>
+<div><dl>
+<dt>data “aws_ami” “server_ami” {</dt><dd><p>most_recent = true
+owners      = [“amazon”]</p>
+<dl class="simple">
+<dt>filter {</dt><dd><p>name   = “name”
+values = [“ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-<a href="#id18"><span class="problematic" id="id19">*</span></a>”]</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+<li><dl>
+<dt>using remote state data source</dt><dd><ul class="simple">
+<li><p>can only load root-level output values</p></li>
+<li><p>cannot directly access resources or modules, need to add necessary outputs</p></li>
+</ul>
+<dl>
+<dt>data “terraform_remote_state” “local_state” {</dt><dd><p>backend = “local”</p>
+<dl class="simple">
+<dt>config = {</dt><dd><p>path = “./terraform.tfstate”</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+<dl class="simple">
+<dt>output “local_state” {</dt><dd><p>value = data.terraform_remote_state.local_state.outputs</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p><a class="reference external" href="#terraform">back to top</a></p>
+</section>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading">#</a></h2>
+<ul>
+<li><p>Terraform auto infers dependencies between resources in same configuration</p></li>
+<li><p>resources are created or destroyed in dependency order</p></li>
+<li><p>order declared in configuration files has no effect on the create or destroy order</p></li>
+<li><p>dependencies between different parts of infrastructure must be created explicitly</p>
+<blockquote>
+<div><p>resource “aws_s3_bucket” “bucket” {}</p>
+<dl class="simple">
+<dt>resource “aws_instance” “instance” {</dt><dd><p>depends_on = [aws_s3_bucket.bucket]</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+</ul>
+<p><a class="reference external" href="#terraform">back to top</a></p>
+</section>
+<section id="built-in-functions">
+<h2>Built-in Functions<a class="headerlink" href="#built-in-functions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Terraform configuration language has built-in functions</p></li>
+</ul>
+<section id="templatefile">
+<h3><code class="docutils literal notranslate"><span class="pre">templatefile</span></code><a class="headerlink" href="#templatefile" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>create resource from user data script</p></li>
+</ul>
+<p># user_data.tftpl
+#!/bin/bash</p>
+<p>export USER=${name}</p>
+<p>/* variables.tf <a href="#id22"><span class="problematic" id="id23">*</span></a>/
+variable “user_name” {</p>
+<blockquote>
+<div><p>default = “terraform”</p>
+</div></blockquote>
+<p>}</p>
+<p>/* main.tf <a href="#id24"><span class="problematic" id="id25">*</span></a>/
+resource “aws_instance” “instance” {</p>
+<blockquote>
+<div><p>user_data = templatefile(“user_data.tftpl”, {name = var.user_name})</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</section>
+<section id="lookup">
+<h3><code class="docutils literal notranslate"><span class="pre">lookup</span></code><a class="headerlink" href="#lookup" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>reference values from a map</p></li>
+</ul>
+<p>/* variables.tf <a href="#id26"><span class="problematic" id="id27">*</span></a>/
+variable “aws_amis” {</p>
+<blockquote>
+<div><p>type = map
+default = {</p>
+<blockquote>
+<div><p>“us-east-1” = “ami-0739f8cdb239fe9ae”
+“us-west-2” = “ami-008b09448b998a562”
+“us-east-2” = “ami-0ebc8f6f580a04647”</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>}</p>
+<p>/* main.tf <a href="#id28"><span class="problematic" id="id29">*</span></a>/
+resource “aws_instance” “instance” {</p>
+<blockquote>
+<div><p>ami = lookup(var.aws_amis, “us-east-2”, “default-if-key-not-exist”)</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</section>
+<section id="file">
+<h3><code class="docutils literal notranslate"><span class="pre">file</span></code><a class="headerlink" href="#file" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>read contents of a file</p></li>
+<li><p>should only use with files that do not need modification</p></li>
+</ul>
+<p>/* mian.tf <a href="#id30"><span class="problematic" id="id31">*</span></a>/
+resource “aws_key_pair” “ssh_key” {</p>
+<blockquote>
+<div><p>key_name = “ssh_key”
+public_key = file(“~/.ssh/ssh_key.pub”)</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p><a class="reference external" href="#terraform">back to top</a></p>
+</section>
+</section>
+<section id="state">
+<h2>State<a class="headerlink" href="#state" title="Link to this heading">#</a></h2>
+<ul>
+<li><p>the state file tracks and maps resources created</p></li>
+<li><p>do not manually modify the state file</p></li>
+<li><p>example <code class="docutils literal notranslate"><span class="pre">terraform.tfstate</span></code></p>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;resources&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;type of resource created (e.g managed, data)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;resource type (e.g aws_ami, aws_instance)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;instances&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="nt">&quot;data of the resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;e.g schema_version, attributes, dependencies&quot;</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">show</span></code></dt><dd><ul class="simple">
+<li><p>inspect current state</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">state</span> <span class="pre">list</span></code></dt><dd><ul class="simple">
+<li><p>list resources in project’s state</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>resources can be replaced from CLI</dt><dd><ul class="simple">
+<li><p>useful when system malfunction</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">plan</span> <span class="pre">-replace=&quot;aws_instance.example&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">apply</span> <span class="pre">-replace=&quot;aws_instance.example&quot;</span></code></p></li>
+<li><p>using <code class="docutils literal notranslate"><span class="pre">-replace</span></code> is recommended for managing resources without manually editing the state</p></li>
+</ul>
+<p>file</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">state</span> <span class="pre">mv</span></code></dt><dd><ul class="simple">
+<li><p>move resources from one state file to another or rename resources</p></li>
+<li><p>resources will be updated in state file but not in configuration file</p></li>
+<li><p>useful when combining modules or resources from other states without recreating the</p></li>
+</ul>
+<p>infrastructure
+* resource names must be unique in the destination state file</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>terraform<span class="w"> </span>state<span class="w"> </span>mv<span class="w"> </span>-state-out<span class="o">=</span>../terraform.tfstate<span class="w"> </span><span class="se">\</span>
+aws_instance.example_new<span class="w"> </span>aws_instance.example_new
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Terraform will try to destroy since the configuration file is not the same as the state</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">state</span> <span class="pre">rm</span></code></dt><dd><ul class="simple">
+<li><p>remove resources from the state file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">state</span> <span class="pre">rm</span> <span class="pre">aws_instance.example_new</span></code></p></li>
+<li><p>removing the state will not delete the output values</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">import</span></code></dt><dd><ul class="simple">
+<li><p>bring the resource into the state file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">import</span> <span class="pre">aws_instance.example_new</span> <span class="pre">$(terraform</span> <span class="pre">output</span> <span class="pre">-raw</span> <span class="pre">instance_name)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">refresh</span></code></dt><dd><ul class="simple">
+<li><p>update the state file when physical resources change outside of Terraform workflow</p></li>
+<li><p>does not update the configuration file</p></li>
+<li><p>refresh is auto performed during <code class="docutils literal notranslate"><span class="pre">plan</span></code>, <code class="docutils literal notranslate"><span class="pre">apply</span></code> and <code class="docutils literal notranslate"><span class="pre">destroy</span></code></p></li>
+<li><p>not recommended to use the command</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">plan</span> <span class="pre">-refresh-only</span></code></dt><dd><ul class="simple">
+<li><p>out of sync or drift state will cause unintentional destroy or recreate</p></li>
+<li><p>use to inspect changes without modifying the infrastructure to match the configuration</p></li>
+<li><p>recommended over <code class="docutils literal notranslate"><span class="pre">refresh</span></code> command</p></li>
+<li><p>use the <code class="docutils literal notranslate"><span class="pre">-refresh-only</span></code> and <code class="docutils literal notranslate"><span class="pre">import</span></code> commands to reconcile the state file</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><a class="reference external" href="#terraform">back to top</a></p>
+</section>
+<section id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Link to this heading">#</a></h2>
+<section id="benefits-of-modules">
+<h3>benefits of modules<a class="headerlink" href="#benefits-of-modules" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>make configuration easier to understand and organized</p></li>
+<li><p>make reusable and encapsulated configuration by separating into distinct logical</p></li>
+</ul>
+<p>components
+* provide consistency in configurations and make easier for other teams to use
+* updating a module will also be applied to all those that use it</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>a module is a set of Terraform configuration files in a single directory, even if it is only</p></li>
+</ul>
+<p>one file</p>
+</section>
+<section id="root-module">
+<h3>root module<a class="headerlink" href="#root-module" title="Link to this heading">#</a></h3>
+</section>
+<section id="remote-module">
+<h3>remote module<a class="headerlink" href="#remote-module" title="Link to this heading">#</a></h3>
+<p>Terraform Cloud or Enterprise private module registries
+* real-world configurations should always use modules</p>
+</section>
+<section id="best-practices">
+<h3>best practices<a class="headerlink" href="#best-practices" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>name the provider <code class="docutils literal notranslate"><span class="pre">terraform-&lt;PROVIDER&gt;-&lt;NAME&gt;</span></code></p></li>
+<li><p>always start writing configuration with modules in mind</p></li>
+<li><p>use local modules to organize and encapsulate the code</p></li>
+<li><p>use public Terraform Registry to find useful modules</p></li>
+<li><p>publish and share modules with the team</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p>example AWS VPC module</p>
+<blockquote>
+<div><dl class="simple">
+<dt>module “vpc” {</dt><dd><p>source  = “terraform-aws-modules/vpc/aws”
+version = “3.18.1”</p>
+</dd>
+</dl>
+<p>}</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">source</span></code> is required when using a module</dt><dd><ul>
+<li><p>given value will be searched in the Terraform Registry</p></li>
+<li><p>can also be URL or local module</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">version</span></code> is optional</dt><dd><ul>
+<li><p>recommended to include so others will also use same version</p></li>
+<li><p>latest version will be loaded if not provided</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>using variables is similar to any Terraform configuration</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="id34">
+<h3>Additional Resources<a class="headerlink" href="#id34" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>[Publishing Modules to Terraform Cloud](<a class="reference external" href="https://developer.hashicorp.com/terraform/cloud-docs/registry/publish-modules">https://developer.hashicorp.com/terraform/cloud-docs/registry/publish-modules</a>), [Public Modules Registry](<a class="reference external" href="https://registry.terraform.io/browse/modules">https://registry.terraform.io/browse/modules</a>)</p></li>
+<li><p>[Modules Documentation](<a class="reference external" href="https://developer.hashicorp.com/terraform/language/modules">https://developer.hashicorp.com/terraform/language/modules</a>)</p></li>
+</ul>
+</div></blockquote>
+<p>[#####](#####) [back to top](#terraform)</p>
+</section>
+</section>
+<section id="secrets">
+<h2>Secrets<a class="headerlink" href="#secrets" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>can store long-live credentials, such as AWS credentials, in HashiCorp’s Vault</p></li>
+<li><p>use Terraform’s Valut provider to generate appropriately scope and shot-lived credentials to</p></li>
+</ul>
+<p>be used by Terraform
+* operators (Vault Admin) can avoid managing static, long-lived secrets with varying scope
+* developers (Terraform Operator) can provision resources without direct access to the secrets
+* generated token is only valid for its default <code class="docutils literal notranslate"><span class="pre">TTL</span></code> and in large multi-resource
+configurations, the apply process may exceed the <cite>TTL</cite> and fail</p>
+<section id="id35">
+<h3>Additional Resources<a class="headerlink" href="#id35" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>[Vault](<a class="reference external" href="https://www.vaultproject.io/">https://www.vaultproject.io/</a>)</p></li>
+</ul>
+</div></blockquote>
+<p>[#####](#####) [back to top](#terraform)</p>
+</section>
+</section>
+<section id="terraform-cloud">
+<h2>Terraform Cloud<a class="headerlink" href="#terraform-cloud" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>allow to run Terraform in a remote environment with shared access to state</p></li>
+<li><p>teams can collaborate on infrastructure changes and securely store variables</p></li>
+<li><p>provide safe and stable environment for long-running Terraform processes</p></li>
+</ul>
+<section id="example-setup">
+<h3>example setup<a class="headerlink" href="#example-setup" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cloud</span> <span class="pre">{}</span></code> can only be used in version 1.1.0 or higher</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">organization</span></code> needs to be setup in the account first</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">workspaces</span></code> will be created if necessary, existing workspaces must not have any states</p></li>
+<li><p>cloud workspaces differ form CLI/normal workspaces, contain everything needed and</p></li>
+</ul>
+<p>function like separate working directories</p>
+<p>/* main.tf <a href="#id36"><span class="problematic" id="id37">*</span></a>/
+terraform {</p>
+<blockquote>
+<div><dl>
+<dt>cloud {</dt><dd><p>organization = “organization-name”
+workspaces {</p>
+<blockquote>
+<div><p>name = “my-workspace”</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+<dl>
+<dt>required_providers {</dt><dd><dl class="simple">
+<dt>aws = {</dt><dd><p>source  = “hashicorp/aws”
+version = “~&gt; 4.16”</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}
+required_version = “&gt;= 1.2.0”</p>
+</div></blockquote>
+<p>}</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">login</span></code>: log into Terraform Cloud account</p></li>
+<li><p>to migrate the state file to Cloud, must reinitialize the configuration with</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">init</span></code>
+* after migration, local <code class="docutils literal notranslate"><span class="pre">terraform.tfstate</span></code> file can be removed</p>
+</div></blockquote>
+</section>
+<section id="workspaces">
+<h3>Workspaces<a class="headerlink" href="#workspaces" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>resources are oragnized by workspaces and operations occur in a workspace</p></li>
+<li><p>CLI/normal workspaces allow multiple state files to exist within single directory</p></li>
+<li><p>can use one configuration for multiple environments</p></li>
+<li><p>can share data between workspaces</p></li>
+<li><p>workspaces must be destroyed in order of dependency</p></li>
+<li><p>can lock workspaces to prevent runs</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="workflows">
+<h3>Workflows<a class="headerlink" href="#workflows" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>CLI-driven</dt><dd><ul>
+<li><p>initiate operations in the terminal and run Terraform remotely or locally</p></li>
+<li><p>using local execution will execute Terraform on local machine and remotely store the
+state file in the Cloud</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">init</span></code> will create workspace defined in <code class="docutils literal notranslate"><span class="pre">cloud{}</span></code> if needed</p></li>
+<li><p>remote execution can be confirmed from UI or API</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>VCS-driven</dt><dd><ul>
+<li><p>changes pushed trigger runs in the workspace</p></li>
+<li><p>must configure VCS access, create workspace and associate it with a repository</p></li>
+<li><p>Speculative plans: non-destructive, plan-only runs that show the changes if a PR is
+created and runs will not show in Cloud logs, can only access from direct link attached
+to a PR</p></li>
+<li><p>speculative plans can only be applied by merging to main branch</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>API-driven</dt><dd><ul>
+<li><p>create tools to interact with [Terraform Cloud API](<a class="reference external" href="https://developer.hashicorp.com/terraform/cloud-docs/api-docs">https://developer.hashicorp.com/terraform/cloud-docs/api-docs</a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>remote state storage keeps state and secret information off the local disk</p></li>
+<li><p>remote state is loaded only in memory when used</p></li>
+</ul>
+</section>
+<section id="variables">
+<h3>Variables<a class="headerlink" href="#variables" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can define workspace-specific or reusable sets of input, for configuration, and</p></li>
+</ul>
+<p>environment variables, usually for provider credentials
+* variable sets help avoid redefining same variables across workspaces
+* variables passed with <code class="docutils literal notranslate"><span class="pre">-var</span></code> will override workspace-specific ones, but will not be saved</p>
+</div></blockquote>
+</section>
+<section id="destroy">
+<h3>Destroy<a class="headerlink" href="#destroy" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Queue destroy plan</strong></dt><dd><ul>
+<li><p>destroy all infrastructure managed by the workspace</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Delete from Terraform Cloud</strong></dt><dd><ul>
+<li><p>delete the workspace without destroying the infrastructure</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="sentinel">
+<h3>Sentinel<a class="headerlink" href="#sentinel" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Policy-as-Code product, by HashiCorp, to enable granular policy control of infrastructure</p></li>
+<li><p>language and policy framework that restricts Terraform actions to allowed behaviors</p></li>
+<li><p>can be extended to use information from external sources</p></li>
+<li><p>policy authors manage Sentinel policies with policy sets, named grouping of policies and</p></li>
+</ul>
+<p>enforcement levels
+* available in Team &amp; Governance and Enterprise tier
+* organization owners can applyl policy sets to entire organization or specific workspaces
+* enables to treat governance requirements as applications
+* need a VCS repository to host policy configuration ([example](<a class="github reference external" href="https://github.com/hashicorp/learn-terraform-enforce-policies">hashicorp/learn-terraform-enforce-policies</a>))
+* Sentinel CLI validates and tests rules to develop policies
+* to run a policy, it needs data to test the policy against
+* <strong>enforcement levels</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>hard-mandatory: policy needs to be passed, run is halted if fails</p></li>
+<li><p>soft-mandatory: similar to hard-mandatory, but allow admin to override policy
+failures</p></li>
+<li><p>advisory: never interrupt the run, only show policy failures as information</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>file must follow the naming convention of <code class="docutils literal notranslate"><span class="pre">&lt;policy-name&gt;.sentinel</span></code></p></li>
+<li><p>policy set names within an organization must be unique</p></li>
+<li><p>policy pass will return a value of <code class="docutils literal notranslate"><span class="pre">true</span></code> in Terraform versions 1.1.0 and above</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>in Team &amp; Governance and Enterprise tier, Cloud estimates hourly and monthly costs for</p></li>
+</ul>
+<p>resources and policies can be applied for cost ([example](<a class="github reference external" href="https://github.com/hashicorp/learn-terraform-cost-estimation">hashicorp/learn-terraform-cost-estimation</a>))</p>
+</section>
+<section id="id38">
+<h3>Additional Resources<a class="headerlink" href="#id38" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>[Sentinel](<a class="reference external" href="https://docs.hashicorp.com/sentinel/">https://docs.hashicorp.com/sentinel/</a>)</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#terraform">back to top</a></p>
+</section>
+</section>
+<section id="automation">
+<h2>Automation<a class="headerlink" href="#automation" title="Link to this heading">#</a></h2>
+<section id="workflow">
+<h3>workflow<a class="headerlink" href="#workflow" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>initialize the Terraform working directory</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">init</span> <span class="pre">-input=false</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-input=false</span></code> makes Terraform not to prompt for input as all necessary values will
+provided</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>make a plan to match current configuration</dt><dd><ul>
+<li><p>save the plan to local file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">plan</span> <span class="pre">-out-tfplan</span> <span class="pre">-input=false</span></code></p></li>
+<li><p>use additional flags such as <code class="docutils literal notranslate"><span class="pre">-var</span></code> or <code class="docutils literal notranslate"><span class="pre">-var-file</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>let operator review the plan</p></li>
+<li><dl class="simple">
+<dt>apply the changes</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">apply</span> <span class="pre">-input=false</span> <span class="pre">tfplan</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p>recommended to use a backend for remote state</p></li>
+<li><p>set environment variable <code class="docutils literal notranslate"><span class="pre">TF_IN_AUTOMATION</span></code> to any non-empty value to make output adjustments</p></li>
+<li><dl>
+<dt>running <code class="docutils literal notranslate"><span class="pre">plan</span></code> and <code class="docutils literal notranslate"><span class="pre">apply</span></code> in different machines</dt><dd><ul class="simple">
+<li><p>after <code class="docutils literal notranslate"><span class="pre">plan</span></code> completes, archive entire working directory, including <code class="docutils literal notranslate"><span class="pre">.terraform</span></code> and save</p></li>
+</ul>
+<p>or archive it to be accessible, usually as build artifact
+* to run <code class="docutils literal notranslate"><span class="pre">apply</span></code>, obtain the archive and extract at the same absolute path
+* <code class="docutils literal notranslate"><span class="pre">plan</span></code> and <code class="docutils literal notranslate"><span class="pre">apply</span></code> must be applied on same OS and CPU architecture
+* plugins must not be upgraded between two stages
+* Terraform will not detect if credentials used are different
+* plan file should be protected if it contains sensitive data
+* use environment variables for provider credentials as they are not included in the plan
+* allow and apply only one plan at a time, other existing plans must be recomputed</p>
+</dd>
+</dl>
+</li>
+<li><p>use automatic approval, <code class="docutils literal notranslate"><span class="pre">-auto-approve</span></code>, only with non-critical infrastructure</p></li>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">plan</span></code> can be used for pull requests</dt><dd><ul class="simple">
+<li><p>verify configuration without affecting real infrastructure and use hooks to trigger</p></li>
+</ul>
+<p>orchestration tools
+* passing sensitive data to Terraform via variables or environment variables let those who
+submit PR to see the values</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="multi-environment-deployment">
+<h3>multi-environment deployment<a class="headerlink" href="#multi-environment-deployment" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>use <code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">workspace</span></code> to safely switch between multiple states for same config in</p></li>
+</ul>
+<p>single backend
+* recommended to use single backend configuration for all environments
+* setting <code class="docutils literal notranslate"><span class="pre">TF_WORKSPACE</span></code> environment variable will override any selection made from
+<code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">workspace</span> <span class="pre">select</span></code> command (recommended only for non-interactive usage)
+* <code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">init</span> <span class="pre">-backend-config</span></code> to use different credentials or endpoints</p>
+</div></blockquote>
+<ul>
+<li><dl>
+<dt>using only fixed set of plugins</dt><dd><ul class="simple">
+<li><p>running <code class="docutils literal notranslate"><span class="pre">init</span></code> in automation can be overhead as plugins are downloaded every time</p></li>
+<li><p>let the admin control which plugins are available in the environment</p></li>
+<li><p>create a directory where Terraform will run and place the plugin executable files</p></li>
+<li><p>plugin release archives can be download on [releases.hashicorp.com](<a class="reference external" href="https://releases.hashicorp.com/">https://releases.hashicorp.com/</a>), version number on</p></li>
+</ul>
+<p>filenames is important
+* use <code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">init</span> <span class="pre">-plugin-dir=/custom-plugins</span></code> or place in <code class="docutils literal notranslate"><span class="pre">terraform.d/plugins/OS_ARCH</span></code>
+* can use <code class="docutils literal notranslate"><span class="pre">-get-plugins=false</span></code> to prevent downloading additional plugins</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="using-terraform-cloud">
+<h3>using Terraform Cloud<a class="headerlink" href="#using-terraform-cloud" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>direct integration with VCS, pland an apply lifecycle orchestration, remote state storage</p></li>
+<li><p>environments for operations, RBAC, UI for reviewing and approving plans</p></li>
+<li><p>can use remote executions instead of running in the pipeline</p></li>
+<li><p>make sure no one change infrastructure outside of the build pipeline to avoid drift and</p></li>
+</ul>
+<p>approve runs promptly not to let configuration stale
+* variables used in <code class="docutils literal notranslate"><span class="pre">cloud{}</span></code> block: <code class="docutils literal notranslate"><span class="pre">TF_CLOUD_ORGANIZATION</span></code>, <code class="docutils literal notranslate"><span class="pre">TF_CLOUD_HOSTNAME</span></code>,
+<code class="docutils literal notranslate"><span class="pre">TF_WORKSPACE</span></code>, <code class="docutils literal notranslate"><span class="pre">TF_TOKEN_&lt;hostname&gt;</span></code></p>
+</div></blockquote>
+<p><a class="reference external" href="#terraform">back to top</a></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="StrategicPlanning.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Strategic Planning</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="TypeScript.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">TypeScript</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-terraform">What is Terraform?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#providers">Providers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aws">AWS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#migrate-existing-infrastructure">Migrate existing infrastructure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshoot">Troubleshoot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Additional Resources</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-output">Input/Output</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-variables">Input variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output-values">Output values</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data Sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies">Dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-functions">Built-in Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#templatefile"><code class="docutils literal notranslate"><span class="pre">templatefile</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lookup"><code class="docutils literal notranslate"><span class="pre">lookup</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file"><code class="docutils literal notranslate"><span class="pre">file</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#state">State</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modules">Modules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-of-modules">benefits of modules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#root-module">root module</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remote-module">remote module</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">best practices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">Additional Resources</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#secrets">Secrets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id35">Additional Resources</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terraform-cloud">Terraform Cloud</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-setup">example setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workspaces">Workspaces</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflows">Workflows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#destroy">Destroy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sentinel">Sentinel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id38">Additional Resources</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automation">Automation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">workflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-environment-deployment">multi-environment deployment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-terraform-cloud">using Terraform Cloud</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

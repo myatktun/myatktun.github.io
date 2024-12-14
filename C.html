@@ -1,0 +1,1194 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>C &#8212; Notes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'C';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="C++" href="C%2B%2B.html" />
+    <link rel="prev" title="Backend Engineering" href="BackendEngineering.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AWS.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BackendEngineering.html">Backend Engineering</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSharp.html">C# #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CTF.html">CTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CompTIA.html">CompTIA Cert Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compilers.html">Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerGraphics.html">Computer Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputingSystems.html">Computing Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">ECS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FFmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Helm.html">Helm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Istio.html">Istio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JDBC.html">JDBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MongoDB.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkProgramming.html">Network Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NodeJS.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenAPI.html">OpenAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OperatingSystem.html">Operating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="POSIXThreads.html">POSIX Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PenetrationTesting.html">Penetration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramDesign.html">Program Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectManagement.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prometheus.html">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SFML.html">SFML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StrategicPlanning.html">Strategic Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terraform.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TypeScript.html">TypeScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI/UX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrant.html">Vagrant</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/C.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>C</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-output">Input &amp; Output</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#date-types">Date Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic">Arithmetic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-constants">Symbolic Constants</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays">Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#character-array">Character Array</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-by-value">Call by Value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-by-reference">Call by Reference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scopes">Scopes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bit-masking">Bit Masking</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bit-shifting">Bit Shifting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-bits">Extract Bits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-bits">Set Bits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clear-bits">Clear Bits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toggle-bits">Toggle Bits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flip-bits">Flip Bits</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gcc">GCC</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">Attributes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gdb">GDB</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gdb-commands">GDB Commands</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-sources">Reference Sources</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="c">
+<h1>C<a class="headerlink" href="#c" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#basics">Basics</a></p></li>
+<li><p><a class="reference internal" href="#arrays">Arrays</a></p></li>
+<li><p><a class="reference internal" href="#functions">Functions</a></p></li>
+<li><p><a class="reference internal" href="#bit-masking">Bit Masking</a></p></li>
+<li><p><a class="reference internal" href="#gcc">GCC</a></p></li>
+<li><p><a class="reference internal" href="#gdb">GDB</a></p></li>
+<li><p><a class="reference internal" href="#reference-sources">Reference Sources</a></p></li>
+</ol>
+<p><a class="reference external" href="#c">back to top</a></p>
+<section id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#input-output">Input &amp; Output</a>, <a href="#id8"><span class="problematic" id="id9">`Data Types`_</span></a>, <a class="reference internal" href="#arithmetic">Arithmetic</a>, <a class="reference internal" href="#loops">Loops</a>, <a class="reference internal" href="#symbolic-constants">Symbolic Constants</a></p></li>
+<li><p>a C program contains functions and variables</p></li>
+<li><p>function contains statements to specify operations</p></li>
+<li><p>variables store values used during computation</p></li>
+<li><p>program execute at the beginning of <code class="docutils literal notranslate"><span class="pre">main()</span></code>, and every program must have it</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// this is single-line comment</span>
+<span class="w">    </span><span class="cm">/* this is</span>
+<span class="cm">    multi-line comment</span>
+<span class="cm">    */</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="input-output">
+<h3>Input &amp; Output<a class="headerlink" href="#input-output" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>text input or output is dealt with as streams of characters</p></li>
+<li><p>text stream: sequence of characters divided into lines</p></li>
+<li><dl class="simple">
+<dt><strong>getchar</strong></dt><dd><ul>
+<li><p>simple read one character at a time</p></li>
+<li><p>reads the next input character from text stream and returns it</p></li>
+<li><p>if no more input, return <code class="docutils literal notranslate"><span class="pre">EOF</span></code>, end of file, integer defined in <code class="docutils literal notranslate"><span class="pre">&lt;stdio.h&gt;</span></code></p></li>
+<li><p>variable must be big enough to hold <code class="docutils literal notranslate"><span class="pre">EOF</span></code> and any possible value returned</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>putchar</strong></dt><dd><ul>
+<li><p>simple write one character at a time</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">putchar()</span></code> prints character each time called</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>printf</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">printf()</span></code> is not part of C, as there is no input or output defined in C itself</p></li>
+<li><p>a function from the standard library of functions</p></li>
+<li><p>never auto supply newline character</p></li>
+<li><p>each % indicate argument and its form to be substituted, e.g. <code class="docutils literal notranslate"><span class="pre">%d</span></code> for integer, <code class="docutils literal notranslate"><span class="pre">%f</span></code>
+for both float and double</p></li>
+<li><p>can specify width and precision for better output</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">printf(&quot;%7d</span> <span class="pre">%3d&quot;,</span> <span class="pre">10,</span> <span class="pre">20);</span></code>, and <code class="docutils literal notranslate"><span class="pre">printf(&quot;%7.2f&quot;,</span> <span class="pre">10.12345673);</span></code> with at least 7
+characters wide and 2 digits after decimal point</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>escape sequence: <code class="docutils literal notranslate"><span class="pre">\n</span></code>, <code class="docutils literal notranslate"><span class="pre">\t</span></code>, <code class="docutils literal notranslate"><span class="pre">\b</span></code>, <code class="docutils literal notranslate"><span class="pre">\&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">\\</span></code>, provide mechanism to represent hard-to-type or</p></li>
+</ul>
+<p>invisible characters
+* all variables must be declared before use</p>
+</section>
+<section id="date-types">
+<h3>Date Types<a class="headerlink" href="#date-types" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>int, float, char, short, long, double</p></li>
+<li><p>size of data types are machine dependent</p></li>
+<li><p>float is usually 32 bit, with at least six significant digits and between 10&lt;sup&gt;-38&lt;/sup&gt;</p></li>
+</ul>
+<p>and 10&lt;sup&gt;38&lt;/sup&gt; magnitude</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>compilers do not care about how the program looks, but proper indentation and spacing are</p></li>
+</ul>
+<dl class="simple">
+<dt>critical for readability</dt><dd><ul class="simple">
+<li><p>write only one statement per line</p></li>
+<li><p>use blanks around operators to clarify grouping</p></li>
+<li><p>always indent statements controlled by the loop by one tab stop or four spaces</p></li>
+<li><p>pick a style and use it consistently</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="arithmetic">
+<h3>Arithmetic<a class="headerlink" href="#arithmetic" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>integer division truncates, fractional part is discarded</p></li>
+<li><p>for integer operands, integer operation is performed</p></li>
+<li><p>if operator has one integer and one float, integer will be converted to float</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="loops">
+<h3>Loops<a class="headerlink" href="#loops" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><dl>
+<dt><strong>while</strong></dt><dd><ul class="simple">
+<li><p>condition in parentheses is tested</p></li>
+<li><p>if true, body of the loop is executed, and loop ends when the test is false</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">++</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello world</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>for</strong></dt><dd><ul class="simple">
+<li><p>has initialization, testing condition and increment step</p></li>
+<li><p>initialization and increment can be any expressions</p></li>
+<li><p>appropriate for loops in which initialization and increment are single statements
+and logically related</p></li>
+<li><p>can have null statement as body</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// with null statement</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">nc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">getchar</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EOF</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">nc</span><span class="p">)</span>
+<span class="w">  </span><span class="p">;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="symbolic-constants">
+<h3>Symbolic Constants<a class="headerlink" href="#symbolic-constants" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>bad practice to bury magic numbers, as they give little or no information</p></li>
+<li><p>give them meaningful names by defining as symbolic name or symbolic constant</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">name</span> <span class="pre">replacement_list</span></code>: any occurrence of <code class="docutils literal notranslate"><span class="pre">name</span></code> will be replaced with <code class="docutils literal notranslate"><span class="pre">replacement</span></code></p></li>
+<li><p>symbolic constants are not variables and do not appear in declarations</p></li>
+<li><p>always write in upper case</p></li>
+<li><p>no semicolon at the end of the line</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define MY_CONSTANT 99</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><p>do no mistake condition checking <code class="docutils literal notranslate"><span class="pre">==</span></code> with assign <code class="docutils literal notranslate"><span class="pre">=</span></code>, as it will give no warning if misused</p></li>
+</ul>
+<p><a class="reference external" href="#c">back to top</a></p>
+</section>
+</section>
+<section id="arrays">
+<h2>Arrays<a class="headerlink" href="#arrays" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#character-array">Character Array</a></p></li>
+</ul>
+<section id="character-array">
+<h3>Character Array<a class="headerlink" href="#character-array" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>the most common type of array</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm">    while (another line)</span>
+<span class="cm">        if (longer than previous longest)</span>
+<span class="cm">            (save it)</span>
+<span class="cm">            (save its length)</span>
+<span class="cm">    print longest line</span>
+<span class="cm">*/</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#define MAXLINE 1000</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">getline</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lim</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">to</span><span class="p">[],</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">from</span><span class="p">[]);</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">line</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">longest</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>
+<span class="w">    </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getline</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="n">MAXLINE</span><span class="p">))</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">len</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">len</span><span class="p">;</span>
+<span class="w">            </span><span class="n">copy</span><span class="p">(</span><span class="n">longest</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">max</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">longest</span><span class="p">);</span><span class="w"> </span><span class="c1">// &#39;%s&#39; expect argument to be in &quot;hello\n\0&quot; form</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">getline</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lim</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">lim</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getchar</span><span class="p">())</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EOF</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">        </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">        </span><span class="o">++</span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// void return type, states that no value is returned</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">to</span><span class="p">[],</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">from</span><span class="p">[])</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">to</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">from</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="o">++</span><span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><a class="reference external" href="#c">back to top</a></p>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#call-by-value">Call by Value</a>, <a class="reference internal" href="#call-by-reference">Call by Reference</a>, <a class="reference internal" href="#scopes">Scopes</a></p></li>
+<li><p>provide convenient way to encapsulate computation</p></li>
+<li><p>can use a function without worrying about its implementation</p></li>
+<li><p>function definition can be in any order, in one source file or several</p></li>
+<li><p>parameter names are local to the function, not visible to others and they can use the</p></li>
+</ul>
+<p>same names
+* not necessary to return a value
+* caller can ignore the return value
+* <code class="docutils literal notranslate"><span class="pre">main()</span></code> return a value to its caller, the environment in which program was executed, 0
+for normal termination and non-zero for error condition</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* return-type function-name(parameter declarations) {</span>
+<span class="cm">    declarations</span>
+<span class="cm">    statements</span>
+<span class="cm">} */</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">hello</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;world</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul>
+<li><p>function prototype: declaration before definition, parameter names are optional</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">hello</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">hello</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">hello</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<section id="call-by-value">
+<h3>Call by Value<a class="headerlink" href="#call-by-value" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>all function arguments are passed by value</p></li>
+<li><p>called function is given temporary variables, not the originals</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">power</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">base</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">    </span><span class="cm">/* &#39;n&#39; is used as temporary, no need to use &#39;i&#39; for loop, and &#39;n&#39; is only modified</span>
+<span class="cm">        inside the function</span>
+<span class="cm">    */</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="o">--</span><span class="n">n</span><span class="p">)</span>
+<span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">base</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="call-by-reference">
+<h3>Call by Reference<a class="headerlink" href="#call-by-reference" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can make a function modify variable</p></li>
+<li><p>caller must provide the address of the variable, a pointer</p></li>
+<li><p>function must also declare the parameter to be a pointer, to access the variable</p></li>
+</ul>
+<p>indirectly through it
+* when array is used as argument, value passed to the function is the address of the
+beginning of the array, and there is no copying of elements</p>
+</div></blockquote>
+</section>
+<section id="scopes">
+<h3>Scopes<a class="headerlink" href="#scopes" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><dl class="simple">
+<dt><strong>Automatic Variables</strong></dt><dd><ul class="simple">
+<li><p>local variable in function created only when the function is called, and disappear
+when the function exit</p></li>
+<li><p>do not retain values from one call to the next</p></li>
+<li><p>must be explicitly set on each entry, and will contain garbage if not set</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>External Variables</strong></dt><dd><ul class="simple">
+<li><p>variables that can be accessed by name by any function, globally accessible</p></li>
+<li><p>can used instead of argument lists to communicate data between functions</p></li>
+<li><p>definition: the place where the variable is created or assigned storage</p></li>
+<li><p>declaration: the place where variable is stated but no storage is allocated</p></li>
+<li><p>must be defined exactly once, outside of any function</p></li>
+<li><p>must be declared in each function to access it</p></li>
+<li><p>declaration can be explicit <code class="docutils literal notranslate"><span class="pre">extern</span></code> or implicit</p></li>
+<li><p>sometimes <code class="docutils literal notranslate"><span class="pre">extern</span></code> can be omitted, if the definition of variable occurs in the
+source file before its use in a function</p></li>
+<li><p>common practice to place definitions of all external variables at the beginning of
+the source file, and omit all <code class="docutils literal notranslate"><span class="pre">extern</span></code> declarations</p></li>
+<li><p>if variable is defined and used in separate files, <code class="docutils literal notranslate"><span class="pre">extern</span></code> is required</p></li>
+<li><p>better to collect <code class="docutils literal notranslate"><span class="pre">extern</span></code> declarations in a header file</p></li>
+<li><p>relying heavily on external variables is dangerous, as they can be changed
+unexpectedly, and make program hard to modify</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#define MAXLINE 1000</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="p">;</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">line</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">longest</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>
+
+<span class="c1">// only use &#39;void&#39; in argument for backward compatibility</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">getline</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// &#39;extern&#39; can be omitted</span>
+<span class="w">    </span><span class="k">extern</span><span class="w"> </span><span class="n">max</span><span class="p">;</span>
+<span class="w">    </span><span class="k">extern</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">longest</span><span class="p">[];</span>
+<span class="w">    </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getline</span><span class="p">())</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">len</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">len</span><span class="p">;</span>
+<span class="w">            </span><span class="n">copy</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">max</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">longest</span><span class="p">);</span><span class="w"> </span><span class="c1">// &#39;%s&#39; expect argument to be in &quot;hello\n\0&quot; form</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">getline</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="k">extern</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">line</span><span class="p">[];</span><span class="w"> </span><span class="c1">// &#39;extern&#39; can be omitted</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MAXLINE</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getchar</span><span class="p">())</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EOF</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">        </span><span class="n">line</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">line</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">        </span><span class="o">++</span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">line</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// void return type, states that no value is returned</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">copy</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">extern</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">line</span><span class="p">[],</span><span class="w"> </span><span class="n">longest</span><span class="p">[];</span><span class="w"> </span><span class="c1">// &#39;extern&#39; can be omitted</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">longest</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">line</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="o">++</span><span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#c">back to top</a></p>
+</section>
+</section>
+<section id="bit-masking">
+<h2>Bit Masking<a class="headerlink" href="#bit-masking" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#bit-shifting">Bit Shifting</a>, <a class="reference internal" href="#extract-bits">Extract Bits</a>, <a class="reference internal" href="#set-bits">Set Bits</a>, <a class="reference internal" href="#clear-bits">Clear Bits</a>, <a class="reference internal" href="#toggle-bits">Toggle Bits</a>, <a class="reference internal" href="#flip-bits">Flip Bits</a></p></li>
+<li><p>manipulate specific bits within a data structures, by using bitwise operations to extract,</p></li>
+</ul>
+<p>set, clear, or toggle individual bits or groups of bits</p>
+<section id="bit-shifting">
+<h3>Bit Shifting<a class="headerlink" href="#bit-shifting" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Shift Left (&lt;&lt;)</strong></dt><dd><ul>
+<li><p>shift all bits to the left by a specified number of positions, filling with zeros
+on the right</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">&lt;&lt;</span> <span class="pre">n</span></code></p></li>
+<li><p>left shifting a number by 1 bit is same as multiplying by 2, <code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">&lt;&lt;</span> <span class="pre">1</span> <span class="pre">==</span> <span class="pre">num</span> <span class="pre">*</span> <span class="pre">2</span></code></p></li>
+<li><p>can use left shifting to calculate power of 2, e.g. <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&lt;&lt;</span> <span class="pre">num</span> <span class="pre">==</span> <span class="pre">2^num</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Shift Right (&gt;&gt;)</strong></dt><dd><ul>
+<li><p>shift all bits to the right by a specified number of positions, filling with the
+sign bit or zeros on the left</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">&gt;&gt;</span> <span class="pre">n</span></code></p></li>
+<li><p>right shifting a positive number by 1 bit is same as diving by 2, and same for
+negative number when using arithmetic shift, <code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">&gt;&gt;</span> <span class="pre">1</span> <span class="pre">==</span> <span class="pre">num</span> <span class="pre">/</span> <span class="pre">2</span></code></p></li>
+<li><p>can use right shift to divide the number by power of 2, <code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">&gt;&gt;</span> <span class="pre">n</span> <span class="pre">==</span> <span class="pre">num</span> <span class="pre">/</span> <span class="pre">(2^n)</span></code> or
+<code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">&gt;&gt;</span> <span class="pre">n</span> <span class="pre">==</span> <span class="pre">num</span> <span class="pre">/</span> <span class="pre">(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">n)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="extract-bits">
+<h3>Extract Bits<a class="headerlink" href="#extract-bits" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>extract specific bits by using AND bitwise operation with a mask with 1s in the position</p></li>
+</ul>
+<p>to extract
+* e.g. <code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">&amp;</span> <span class="pre">0x0f</span></code> extract the lower 4 bits, <code class="docutils literal notranslate"><span class="pre">(num</span> <span class="pre">&gt;&gt;</span> <span class="pre">n)</span> <span class="pre">&amp;</span> <span class="pre">1</span></code> extract the bit at (n + 1)
+position</p>
+</div></blockquote>
+</section>
+<section id="set-bits">
+<h3>Set Bits<a class="headerlink" href="#set-bits" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>set specific bits to 1 by using OR bitwise operation with a mask with 1s in the positions</p></li>
+</ul>
+<p>to set
+* e.g. <code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">|</span> <span class="pre">0x0f</span></code> set the lower 4 bits to 1</p>
+</div></blockquote>
+</section>
+<section id="clear-bits">
+<h3>Clear Bits<a class="headerlink" href="#clear-bits" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>clear specific bits, set to 0, by using AND bitwise operation with a mask with 0s in the</p></li>
+</ul>
+<p>positions to clear
+* e.g. <code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">&amp;</span> <span class="pre">~0x0f</span></code> or <code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">&amp;</span> <span class="pre">0xf0</span></code> clear the lower 4 bits
+* to clear a specific bit, flip, bitwise OR with a mask with 1 at that position, and flip
+again
+* e.g. <code class="docutils literal notranslate"><span class="pre">~(~num</span> <span class="pre">|</span> <span class="pre">(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">(n</span> <span class="pre">-</span> <span class="pre">1)))</span></code>, clear 3rd bit in 15, <code class="docutils literal notranslate"><span class="pre">~(~15</span> <span class="pre">|</span> <span class="pre">(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">2))</span> <span class="pre">=</span> <span class="pre">11</span></code>
+* can also use bitwise AND to clear a specific bit
+* e.g. <code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">&amp;</span> <span class="pre">~(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">(n</span> <span class="pre">-</span> <span class="pre">1))</span></code>, clear 3rd bit in 15, <code class="docutils literal notranslate"><span class="pre">15</span> <span class="pre">&amp;</span> <span class="pre">~(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">2)</span> <span class="pre">=</span> <span class="pre">11</span></code></p>
+</div></blockquote>
+</section>
+<section id="toggle-bits">
+<h3>Toggle Bits<a class="headerlink" href="#toggle-bits" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>toggle/invert specific bits by using XOR bitwise operation with a mask with 1s in the</p></li>
+</ul>
+<p>positions to toggle
+* e.g. <code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">^</span> <span class="pre">0x0f</span></code> toggle the lower 4 bits</p>
+</div></blockquote>
+</section>
+<section id="flip-bits">
+<h3>Flip Bits<a class="headerlink" href="#flip-bits" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>flip all bits by using NOT bitwise operation, no mask required</p></li>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">~num</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#c">back to top</a></p>
+</section>
+</section>
+<section id="gcc">
+<h2>GCC<a class="headerlink" href="#gcc" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#attributes">Attributes</a></p></li>
+</ul>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#c">back to top</a></p>
+</section>
+</section>
+<section id="gdb">
+<h2>GDB<a class="headerlink" href="#gdb" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#gdb-commands">GDB Commands</a></p></li>
+<li><p>GNU Project Debugger</p></li>
+<li><p>break down a compiled program for details, e.g. step through lines, list variables and stack</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">-g</span></code> flag when compiling to get debugging information, and <code class="docutils literal notranslate"><span class="pre">gdb</span> <span class="pre">./program</span></code> to start</p></li>
+<li><p>code printed is not executed yet</p></li>
+</ul>
+<section id="gdb-commands">
+<h3>GDB Commands<a class="headerlink" href="#gdb-commands" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>commands can be shorten to the first few letters</p></li>
+<li><dl class="simple">
+<dt><strong>run</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">run</span></code> or <code class="docutils literal notranslate"><span class="pre">r</span></code>, runs the program</p></li>
+<li><p>stops if there are any current execution, and starts a new instance</p></li>
+<li><p>like bash commands, can give arguments, input redirection, etc.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>break</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">break</span> <span class="pre">LINE</span></code> or <code class="docutils literal notranslate"><span class="pre">br</span> <span class="pre">FUNC_NAME</span></code>, set breakpoint at specific line</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>next</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">next</span></code> or <code class="docutils literal notranslate"><span class="pre">n</span></code>, run the code, but will not go into the function line by line</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>list</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code> or <code class="docutils literal notranslate"><span class="pre">l</span> <span class="pre">LINE_NUM</span></code>, print code around current or given line</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>print</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">print</span> <span class="pre">VAR</span></code> or <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">VAR</span></code>, print the value of the given variable</p></li>
+<li><p>can use C and C++ syntax to evaluate expressions, e.g. <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">(VAR</span> <span class="pre">*</span> <span class="pre">10)</span> <span class="pre">+</span> <span class="pre">5</span></code>, <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">*ptr</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>quit</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">quit</span></code> or <code class="docutils literal notranslate"><span class="pre">q</span></code>, quit GDB instance</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>up/down</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">up</span></code>, <code class="docutils literal notranslate"><span class="pre">down</span></code>, navigate through the call stack one at a time</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>display/undisplay</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">VAR</span></code>, display the value of given variable at every command</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">undisplay</span> <span class="pre">DISPLAY_ID</span></code>, stop displaying at every command, need to give ID instead of
+variable name</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>backtrace</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">backtrace</span></code> or <code class="docutils literal notranslate"><span class="pre">bt</span></code>, print the current entire call stack</p></li>
+<li><p>useful to isolate parts of the code</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>step</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">step</span></code> or <code class="docutils literal notranslate"><span class="pre">s</span></code>, execute one line of code</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>continue</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">continue</span></code> or <code class="docutils literal notranslate"><span class="pre">c</span></code>, run from current line until breakpoint</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>finish</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">finish</span></code> or <code class="docutils literal notranslate"><span class="pre">fin</span></code>, run the current function call and stop once finished</p></li>
+<li><p>useful for checking only the return value, ignoring what the function does</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>watch</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">watch</span> <span class="pre">VAR</span></code>, set watchpoint on the given variable and report if it changes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>info</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">info</span> <span class="pre">SUB_COMMAND</span></code>, display information on given subcommands</p></li>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">info</span> <span class="pre">br</span></code> will show current breakpoints</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>delete</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">delete</span></code> or <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">ID</span></code>, delete all or given breakpoints, watchpoints, tracepoints, and
+catchpoints</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>whatis</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">whatis</span> <span class="pre">VAR</span></code> or <code class="docutils literal notranslate"><span class="pre">what</span> <span class="pre">EXP</span></code>, print data type of given variable or expression</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>target record-full</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">target</span> <span class="pre">record-full</span></code>, record everything from current point and on</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>reverse-next</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">reverse-next</span></code> or <code class="docutils literal notranslate"><span class="pre">rn</span></code>, go back to the previous step</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>set</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">var</span> <span class="pre">VAR=VALUE</span></code>, set variable value before executing</p></li>
+<li><p>useful for testing behaviour changes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#c">back to top</a></p>
+</section>
+</section>
+<section id="reference-sources">
+<h2>Reference Sources<a class="headerlink" href="#reference-sources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Learn Learn Scratch Tutorials (2021). Bitwise Operations &amp; Bit Masking. Available at:</p></li>
+</ul>
+<p>[<a class="reference external" href="https://youtu.be/ffPOA7UUDAs?si=0zu6dPhu34mjgdoZ](https://youtu.be/ffPOA7UUDAs">https://youtu.be/ffPOA7UUDAs?si=0zu6dPhu34mjgdoZ](https://youtu.be/ffPOA7UUDAs</a>?si=0zu6dPhu34mjgdoZ)
+* CS 246 (2019). GDB Tutorial. Available at: [<a class="reference external" href="https://youtu.be/svG6OPyKsrw?si=QwG4LyTX9zV2Qiqw](https://youtu.be/svG6OPyKsrw">https://youtu.be/svG6OPyKsrw?si=QwG4LyTX9zV2Qiqw](https://youtu.be/svG6OPyKsrw</a>?si=QwG4LyTX9zV2Qiqw)</p>
+<p><a class="reference external" href="#c">back to top</a></p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="BackendEngineering.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Backend Engineering</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="C%2B%2B.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">C++</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-output">Input &amp; Output</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#date-types">Date Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic">Arithmetic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-constants">Symbolic Constants</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays">Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#character-array">Character Array</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-by-value">Call by Value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-by-reference">Call by Reference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scopes">Scopes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bit-masking">Bit Masking</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bit-shifting">Bit Shifting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-bits">Extract Bits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-bits">Set Bits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clear-bits">Clear Bits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toggle-bits">Toggle Bits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flip-bits">Flip Bits</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gcc">GCC</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">Attributes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gdb">GDB</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gdb-commands">GDB Commands</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-sources">Reference Sources</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

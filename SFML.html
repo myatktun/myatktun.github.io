@@ -1,0 +1,1282 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SFML &#8212; Notes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'SFML';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="SQL" href="SQL.html" />
+    <link rel="prev" title="Redis" href="Redis.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AWS.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BackendEngineering.html">Backend Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSharp.html">C# #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CTF.html">CTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CompTIA.html">CompTIA Cert Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compilers.html">Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerGraphics.html">Computer Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputingSystems.html">Computing Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">ECS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FFmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Helm.html">Helm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Istio.html">Istio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JDBC.html">JDBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MongoDB.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkProgramming.html">Network Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NodeJS.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenAPI.html">OpenAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OperatingSystem.html">Operating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="POSIXThreads.html">POSIX Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PenetrationTesting.html">Penetration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramDesign.html">Program Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectManagement.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prometheus.html">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">SFML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StrategicPlanning.html">Strategic Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terraform.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TypeScript.html">TypeScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI/UX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrant.html">Vagrant</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/SFML.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>SFML</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometry">Geometry</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#window">Window</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphics">Graphics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing">Drawing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sprites-textures">Sprites &amp; Textures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#text-fonts">Text &amp; Fonts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shapes">Shapes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transforming">Transforming</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="sfml">
+<h1>SFML<a class="headerlink" href="#sfml" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#basics">Basics</a></p></li>
+<li><p><a class="reference internal" href="#window">Window</a></p></li>
+<li><p><a class="reference internal" href="#graphics">Graphics</a></p></li>
+</ol>
+<p><a class="reference external" href="#sfml">back to top</a></p>
+<section id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#geometry">Geometry</a></p></li>
+</ul>
+<section id="geometry">
+<h3>Geometry<a class="headerlink" href="#geometry" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>window is a 2D object, top left corner is (0, 0)</p></li>
+<li><p>x increases to right, y increases to bottom</p></li>
+<li><p>objects in a window also have top left corner as (0, 0)</p></li>
+<li><p>circle object position is determined by it’s bounding rectangle</p></li>
+<li><p>other shapes position is also determined by the bounding box</p></li>
+<li><p>coordinates of circle’s bounding box corners: top left (x, y), top right (x + 2r, y),</p></li>
+</ul>
+<p>bottom right (x + 2r, y + 2r), bottom left (x, y + 2r)</p>
+</div></blockquote>
+<p><a class="reference external" href="#sfml">back to top</a></p>
+</section>
+</section>
+<section id="window">
+<h2>Window<a class="headerlink" href="#window" title="Link to this heading">#</a></h2>
+<ul>
+<li><p>define by [<code class="docutils literal notranslate"><span class="pre">sf::Window</span></code>](<a class="reference external" href="https://www.sfml-dev.org/documentation/2.5.1/classsf_1_1Window.php">https://www.sfml-dev.org/documentation/2.5.1/classsf_1_1Window.php</a>) class</p></li>
+<li><p>can be created and opened directly upon construction</p>
+<blockquote>
+<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;SFML/Window.hpp&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// 800 x 600 is size without title bar and borders</span>
+<span class="w">    </span><span class="n">sf</span><span class="o">::</span><span class="n">Window</span><span class="w"> </span><span class="n">window</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">VideoMode</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span><span class="w"> </span><span class="mi">600</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;My window&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><dl>
+<dt>constructor accepts third argument for style</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sf::Style::None</span></code>: cannot be combined with other styles</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sf::Style::Titlebar</span></code>: window has titlebar</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sf::Style::Resize</span></code>: can resize and has maximize button</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sf::Style::Close</span></code>: has close button</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sf::Style::Fullscreen</span></code>: open in fullscreen mode, cannot combine with others,</p></li>
+</ul>
+<p>require valid video mode
+* <code class="docutils literal notranslate"><span class="pre">sf::Style::Default</span></code>: default, combine Titlebar, Resize and Close</p>
+</dd>
+</dl>
+</li>
+<li><p>constructor accepts fourth argument for OpenGL specific options</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">create()</span></code> to create window after construction</p>
+<blockquote>
+<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;SFML/Window.hpp&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">sf</span><span class="o">::</span><span class="n">Window</span><span class="w"> </span><span class="n">window</span><span class="p">;</span>
+<span class="w">    </span><span class="n">window</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">VideoMode</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span><span class="w"> </span><span class="mi">600</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;My window&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><dl>
+<dt>need event handling to make window alive, adding infinite loop won’t work</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pollEvent()</span></code> returns true if event was pending</p></li>
+<li><p>without event loop, window will become unresponsive</p></li>
+<li><p>event loop provides events to the user and gives the window a chance process</p></li>
+</ul>
+<p>internal events</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;SFML/Window.hpp&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">sf</span><span class="o">::</span><span class="n">Window</span><span class="w"> </span><span class="n">window</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">VideoMode</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span><span class="w"> </span><span class="mi">600</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;My window&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// main/game loop to ensure application will be refreshed/updated</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">window</span><span class="p">.</span><span class="n">isOpen</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">sf</span><span class="o">::</span><span class="n">Event</span><span class="w"> </span><span class="n">event</span><span class="p">;</span>
+<span class="w">        </span><span class="c1">// use while event loop to process all pending events</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">window</span><span class="p">.</span><span class="n">pollEvent</span><span class="p">(</span><span class="n">event</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// check event type and act accordingly</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">Event</span><span class="o">::</span><span class="n">Closed</span><span class="p">)</span>
+<span class="w">                </span><span class="c1">// can do other things before closing window</span>
+<span class="w">                </span><span class="n">window</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p>use OpenGL directly or sfml-graphics module to draw stuff, it is not the responsibility</p></li>
+</ul>
+<p>of sfml-window module
+* <code class="docutils literal notranslate"><span class="pre">sf::Window</span></code> internally creates OpenGL context and can accept OpenGL calls
+* SFML windows are only meant to provide environment for OpenGL or SFML drawing
+* only has basic window operations, no advanced features like dedicated GUI libraries such
+as Qt or wxWidgets
+* some example functions</p>
+<blockquote>
+<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// change the position of the window (relatively to the desktop)</span>
+<span class="n">window</span><span class="p">.</span><span class="n">setPosition</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2i</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">));</span>
+
+<span class="n">window</span><span class="p">.</span><span class="n">setSize</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2u</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span><span class="w"> </span><span class="mi">480</span><span class="p">));</span><span class="w"> </span><span class="c1">// change the size of the window</span>
+
+<span class="n">window</span><span class="p">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s">&quot;SFML window&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// change the title of the window</span>
+
+<span class="c1">// get the size of the window</span>
+<span class="n">sf</span><span class="o">::</span><span class="n">Vector2u</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">window</span><span class="p">.</span><span class="n">getSize</span><span class="p">();</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">focus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">window</span><span class="p">.</span><span class="n">hasFocus</span><span class="p">();</span><span class="w"> </span><span class="c1">// check whether the window has the focus</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ul>
+<li><dl>
+<dt>can create window with another library and embed SFML into it</dt><dd><ul class="simple">
+<li><p>use other constructor or <code class="docutils literal notranslate"><span class="pre">create()</span></code> of <code class="docutils literal notranslate"><span class="pre">sf::Window</span></code> that takes OS-specific handle</p></li>
+<li><p>SFML will create drawing context inside the given window and catch events without</p></li>
+</ul>
+<p>interfering with parent window</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sf</span><span class="o">::</span><span class="n">WindowHandle</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/*specific things for the library used*/</span><span class="p">;</span>
+<span class="n">sf</span><span class="o">::</span><span class="n">Window</span><span class="w"> </span><span class="nf">window</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span>
+
+<span class="n">sf</span><span class="o">::</span><span class="n">Window</span><span class="w"> </span><span class="n">window</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">VideoMode</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span><span class="w"> </span><span class="mi">600</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;My Window&quot;</span><span class="p">);</span>
+<span class="c1">// use the handle with OS-specific functions</span>
+<span class="n">sf</span><span class="o">::</span><span class="n">WindowHandle</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">window</span><span class="p">.</span><span class="n">getSystemHandle</span><span class="p">();</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>can activate vertical synchronization to reduce tearing</dt><dd><ul class="simple">
+<li><p>tearing: application’s refresh rate no synchronize with vertical frequency of</p></li>
+</ul>
+<p>monitor and bottom of previous frame is mixed with the top of the next one
+* vertical synchronization is auto handled by the graphics card
+* <code class="docutils literal notranslate"><span class="pre">setVerticalSyncEnabled()</span></code> will not work if vertical synchronization is forced to
+off in graphics driver’s settings
+* can also limit to specific frame rate with <code class="docutils literal notranslate"><span class="pre">setFramerateLimit()</span></code>, which is
+implemented by SFML itself, using <cite>sf::Clock</cite> and <cite>sf::sleep</cite>
+* <code class="docutils literal notranslate"><span class="pre">setFramerateLimit()</span></code> is not 100% reliable, especially for high framerates as
+<code class="docutils literal notranslate"><span class="pre">sf::sleep</span></code> resolution depends on underlying operating system and hardware and can be
+high as 10 or 15ms
+* do not use <code class="docutils literal notranslate"><span class="pre">setFramerateLimit()</span></code> to implement precise timing
+* never use <code class="docutils literal notranslate"><span class="pre">setVerticalSyncEnabled()</span></code> and <code class="docutils literal notranslate"><span class="pre">setFramerateLimit()</span></code> at the same time</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// only call once after creating the window</span>
+<span class="n">window</span><span class="p">.</span><span class="n">setVerticalSyncEnabled</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span><span class="w"> </span><span class="c1">// will run at same frequency of monitor&#39;s</span>
+
+<span class="n">window</span><span class="p">.</span><span class="n">setFramerateLimit</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span><span class="w"> </span><span class="c1">// run at 60fps</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p>can create multiple windows and handle all in the main thread or each in its own thread,</p></li>
+</ul>
+<p>but each require an event loop
+* cannot manage multiple monitors yet
+* cannot choose which monitor a window appears on yet
+* cannot create more than one fullscreen window yet
+* event loop, <code class="docutils literal notranslate"><span class="pre">pollEvent()</span></code> or <code class="docutils literal notranslate"><span class="pre">waitEvent()</span></code>, must be called in the same thread that
+created the window
+* if necessary, it is better to keep event handling in the main thread and move the rest,
+such as rendering, physics, to a separate thread
+* on macOS, windows and events must be manged in the main thread
+* on Windows, window bigger than than the desktop will not behave correctly</p>
+<p><a class="reference external" href="#sfml">back to top</a></p>
+</section>
+<section id="graphics">
+<h2>Graphics<a class="headerlink" href="#graphics" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#drawing">Drawing</a>, <a class="reference internal" href="#sprites-textures">Sprites &amp; Textures</a>, <a class="reference internal" href="#text-fonts">Text &amp; Fonts</a>, <a class="reference internal" href="#shapes">Shapes</a>, <a class="reference internal" href="#transforming">Transforming</a></p></li>
+</ul>
+<section id="drawing">
+<h3>Drawing<a class="headerlink" href="#drawing" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>must use [<code class="docutils literal notranslate"><span class="pre">sf::RenderWindow</span></code>](<a class="reference external" href="https://www.sfml-dev.org/documentation/2.5.1/classsf_1_1RenderWindow.php">https://www.sfml-dev.org/documentation/2.5.1/classsf_1_1RenderWindow.php</a>) class, which is derived from <code class="docutils literal notranslate"><span class="pre">sf::Window</span></code></p></li>
+<li><p>adds high-level functions to help draw easily</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">clear()</span></code></dt><dd><ul>
+<li><p>clears the whole window</p></li>
+<li><p>calling it before drawing anything is mandatory</p></li>
+<li><p>without clearing, contents from previous frames will be present</p></li>
+<li><p>can cover entire window with drawing and not call <code class="docutils literal notranslate"><span class="pre">clear()</span></code>, but will have
+performance impact</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">draw()</span></code>: draws any object passed to it</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">display()</span></code></dt><dd><ul>
+<li><p>calling it is mandatory</p></li>
+<li><p>takes what was drawn since the last call to <code class="docutils literal notranslate"><span class="pre">display()</span></code> and displays it on window</p></li>
+<li><p>objects are not drawn directly to the window, but to a hidden buffer</p></li>
+<li><p>double-buffering: hidden buffer is copied to the window when <code class="docutils literal notranslate"><span class="pre">display()</span></code> is called</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>always use clear/draw/display cycle</p></li>
+<li><p>keeping previous frames, erasing pixels or drawing once and calling <code class="docutils literal notranslate"><span class="pre">display()</span></code> multiple</p></li>
+</ul>
+<p>times will get strange results due to double-buffering</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;SFML/Graphics.hpp&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">sf</span><span class="o">::</span><span class="n">RenderWindow</span><span class="w"> </span><span class="n">window</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">VideoMode</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span><span class="w"> </span><span class="mi">600</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;My Window&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">window</span><span class="p">.</span><span class="n">isOpen</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">sf</span><span class="o">::</span><span class="n">Event</span><span class="w"> </span><span class="n">event</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">window</span><span class="p">.</span><span class="n">pollEvent</span><span class="p">(</span><span class="n">event</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">Event</span><span class="o">::</span><span class="n">Closed</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">window</span><span class="p">.</span><span class="n">close</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">window</span><span class="p">.</span><span class="n">clear</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Color</span><span class="o">::</span><span class="n">Blue</span><span class="p">);</span><span class="w"> </span><span class="c1">// clear window with black color</span>
+<span class="w">        </span><span class="c1">// draw objects</span>
+<span class="w">        </span><span class="n">window</span><span class="p">.</span><span class="n">display</span><span class="p">();</span><span class="w"> </span><span class="c1">// end current frame</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul>
+<li><dl>
+<dt>can use <code class="docutils literal notranslate"><span class="pre">sf::RenderTexture</span></code> to draw a texture instead of directly to a window</dt><dd><ul class="simple">
+<li><p>has same functions as <code class="docutils literal notranslate"><span class="pre">sf::RenderWindow</span></code> to handle views and OpenGL</p></li>
+<li><p>can request creation of depth buffer with <code class="docutils literal notranslate"><span class="pre">texture.create(500,</span> <span class="pre">500,</span> <span class="pre">true)</span></code></p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;SFML/Graphics.hpp&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">sf</span><span class="o">::</span><span class="n">RenderWindow</span><span class="w"> </span><span class="n">window</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">VideoMode</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span><span class="w"> </span><span class="mi">600</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;My Window&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">sf</span><span class="o">::</span><span class="n">RenderTexture</span><span class="w"> </span><span class="n">texture</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">texture</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// &#39;getTexture()&#39; returns read-only texture</span>
+<span class="w">    </span><span class="c1">// can copy own &#39;sf::Texture&#39; instance to modify it</span>
+<span class="w">    </span><span class="n">sf</span><span class="o">::</span><span class="n">Sprite</span><span class="w"> </span><span class="n">sprite</span><span class="p">(</span><span class="n">texture</span><span class="p">.</span><span class="n">getTexture</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">window</span><span class="p">.</span><span class="n">isOpen</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">sf</span><span class="o">::</span><span class="n">Event</span><span class="w"> </span><span class="n">event</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">window</span><span class="p">.</span><span class="n">pollEvent</span><span class="p">(</span><span class="n">event</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">Event</span><span class="o">::</span><span class="n">Closed</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">window</span><span class="p">.</span><span class="n">close</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">texture</span><span class="p">.</span><span class="n">clear</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Color</span><span class="o">::</span><span class="n">Red</span><span class="p">);</span>
+<span class="w">        </span><span class="n">texture</span><span class="p">.</span><span class="n">draw</span><span class="p">(</span><span class="n">sprite</span><span class="p">);</span>
+<span class="w">        </span><span class="n">texture</span><span class="p">.</span><span class="n">display</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">window</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">        </span><span class="n">window</span><span class="p">.</span><span class="n">draw</span><span class="p">(</span><span class="n">sprite</span><span class="p">);</span>
+<span class="w">        </span><span class="n">window</span><span class="p">.</span><span class="n">display</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>SFML supports multi-threaded drawing</dt><dd><ul class="simple">
+<li><p>need to deactivate a window before using it in another thread, as OpenGL context
+cannot be active in more than one thread at the same time</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;SFML/Graphics.hpp&gt;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">renderingThread</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">RenderWindow</span><span class="o">*</span><span class="w"> </span><span class="n">window</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">window</span><span class="o">-&gt;</span><span class="n">setActive</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span><span class="w"> </span><span class="c1">// activate the window&#39;s context</span>
+
+<span class="w">    </span><span class="c1">// the rendering loop</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">window</span><span class="o">-&gt;</span><span class="n">isOpen</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// draw...</span>
+<span class="w">        </span><span class="n">window</span><span class="o">-&gt;</span><span class="n">display</span><span class="p">();</span><span class="w"> </span><span class="c1">// end the current frame</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">sf</span><span class="o">::</span><span class="n">RenderWindow</span><span class="w"> </span><span class="n">window</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">VideoMode</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span><span class="w"> </span><span class="mi">600</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;OpenGL&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">window</span><span class="p">.</span><span class="n">setActive</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span><span class="w"> </span><span class="c1">// deactivate its OpenGL context</span>
+
+<span class="w">    </span><span class="c1">// launch the rendering thread</span>
+<span class="w">    </span><span class="n">sf</span><span class="o">::</span><span class="n">Thread</span><span class="w"> </span><span class="kr">thread</span><span class="p">(</span><span class="o">&amp;</span><span class="n">renderingThread</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">window</span><span class="p">);</span>
+<span class="w">    </span><span class="kr">thread</span><span class="p">.</span><span class="n">launch</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">window</span><span class="p">.</span><span class="n">isOpen</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// events &amp; logic</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="sprites-textures">
+<h3>Sprites &amp; Textures<a class="headerlink" href="#sprites-textures" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>texture: image that is loaded and mapped to a 2D entity</p></li>
+<li><p>sprite: a textured rectangle</p></li>
+<li><dl>
+<dt>use <code class="docutils literal notranslate"><span class="pre">sf::Texture</span></code> to create a valid texture, which is required for a sprite</dt><dd><ul class="simple">
+<li><p>most functions of a texture are about loading and updating</p></li>
+<li><p>make sure to check stdout as <code class="docutils literal notranslate"><span class="pre">loadFromFile()</span></code> can fail with no obvious reason</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loadFromMemory()</span></code>: load image file from memory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loadFromStream()</span></code>: load image file from custom input stream</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loadFromImage()</span></code>: load from already loaded image, which loads the texture from
+<code class="docutils literal notranslate"><span class="pre">sf::Image</span></code></p></li>
+<li><p>pixels of <code class="docutils literal notranslate"><span class="pre">sf::Image</span></code> stay in system memory and operations are as fast as possible</p></li>
+<li><p>pixels of texture in video memory are slow to retrieve but fast to draw</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sf</span><span class="o">::</span><span class="n">Texture</span><span class="w"> </span><span class="n">texture</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">texture</span><span class="p">.</span><span class="n">loadFromFile</span><span class="p">(</span><span class="s">&quot;image.png&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// error</span>
+<span class="p">}</span>
+
+<span class="c1">// load a 32x32 rectangle that starts at (10, 10)</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">texture</span><span class="p">.</span><span class="n">loadFromFile</span><span class="p">(</span><span class="s">&quot;image.png&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">IntRect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// error</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p>can create empty texture and update pixels later</p>
+<blockquote>
+<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// create an empty 200x200 texture, need to update pixels</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">texture</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// error...</span>
+<span class="p">}</span>
+<span class="c1">// update a texture from an array of pixels</span>
+<span class="n">sf</span><span class="o">::</span><span class="n">Uint8</span><span class="o">*</span><span class="w"> </span><span class="n">pixels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">Uint8</span><span class="p">[</span><span class="n">width</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">4</span><span class="p">];</span><span class="w"> </span><span class="c1">// * 4 because pixels have 4 components (RGBA)</span>
+<span class="n">texture</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">pixels</span><span class="p">);</span>
+
+<span class="c1">// update a texture from a sf::Image</span>
+<span class="n">sf</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">image</span><span class="p">;</span>
+<span class="n">texture</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">image</span><span class="p">);</span>
+
+<span class="c1">// update the texture from the current contents of the window</span>
+<span class="n">sf</span><span class="o">::</span><span class="n">RenderWindow</span><span class="w"> </span><span class="n">window</span><span class="p">;</span>
+<span class="n">texture</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>can also specify coordinates and update only a part of texture</p></li>
+<li><dl class="simple">
+<dt>texture has two properties that change how it is rendered</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">texture.setSmooth(true)</span></code>: smooth texture that makes pixel boundaries less visible,
+but blur the image a little</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">texture.setRepeated(true)</span></code>: allow texture to be repeatedly tiled within a single
+sprite, only works if sprite is configured to show a rectangle larger than the texture</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>after creating texture, can create a sprite</dt><dd><ul class="simple">
+<li><p>color of sprite is modulated/multiplied with its texture, and can be used to change
+global transparency, alpha, of sprite</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sf</span><span class="o">::</span><span class="n">Sprite</span><span class="w"> </span><span class="n">sprite</span><span class="p">;</span>
+<span class="n">sprite</span><span class="p">.</span><span class="n">setTexture</span><span class="p">(</span><span class="n">texture</span><span class="p">);</span>
+
+<span class="n">window</span><span class="p">.</span><span class="n">draw</span><span class="p">(</span><span class="n">sprite</span><span class="p">);</span><span class="w"> </span><span class="c1">// draw a sprite</span>
+
+<span class="n">sprite</span><span class="p">.</span><span class="n">setTextureRect</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">IntRect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">));</span><span class="w"> </span><span class="c1">// not using entire texture</span>
+
+<span class="c1">// change color of sprite</span>
+<span class="n">sprite</span><span class="p">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Color</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span><span class="w"> </span><span class="c1">// green</span>
+<span class="n">sprite</span><span class="p">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Color</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">));</span><span class="w"> </span><span class="c1">// half transparent</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>sprites can be transformed, as they have position, orientation and scale</dt><dd><ul class="simple">
+<li><p>origin is the top left of the sprite, but can set it to a different point</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// position</span>
+<span class="n">sprite</span><span class="p">.</span><span class="n">setPosition</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="p">(</span><span class="mf">10.f</span><span class="p">,</span><span class="w"> </span><span class="mf">50.f</span><span class="p">));</span><span class="w"> </span><span class="c1">// absolute position</span>
+<span class="n">sprite</span><span class="p">.</span><span class="n">move</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="p">(</span><span class="mf">5.f</span><span class="p">,</span><span class="w"> </span><span class="mf">10.f</span><span class="p">));</span><span class="w"> </span><span class="c1">// offset relative to the current position</span>
+
+<span class="c1">// rotation</span>
+<span class="n">sprite</span><span class="p">.</span><span class="n">setRotation</span><span class="p">(</span><span class="mf">90.f</span><span class="p">);</span><span class="w"> </span><span class="c1">// absolute angle</span>
+<span class="n">sprite</span><span class="p">.</span><span class="n">rotate</span><span class="p">(</span><span class="mf">15.f</span><span class="p">);</span><span class="w"> </span><span class="c1">// offset relative to the current angle</span>
+
+<span class="c1">// scale</span>
+<span class="n">sprite</span><span class="p">.</span><span class="n">setScale</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="p">(</span><span class="mf">0.5f</span><span class="p">,</span><span class="w"> </span><span class="mf">2.f</span><span class="p">));</span><span class="w"> </span><span class="c1">// absolute scale factor</span>
+<span class="n">sprite</span><span class="p">.</span><span class="n">scale</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="p">(</span><span class="mf">1.5f</span><span class="p">,</span><span class="w"> </span><span class="mf">3.f</span><span class="p">));</span><span class="w"> </span><span class="c1">// factor relative to the current scale</span>
+
+<span class="c1">// set origin to different point of sprite</span>
+<span class="n">sprite</span><span class="p">.</span><span class="n">setOrigin</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="p">(</span><span class="mf">25.f</span><span class="p">,</span><span class="w"> </span><span class="mf">25.f</span><span class="p">));</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>if texture is destroyed or move in memory, sprite ends up with invalid texture pointer</dt><dd><ul class="simple">
+<li><p>when texture of a sprite is set, it internally stores a pointer to the texture
+instance</p></li>
+<li><p>invalid texture pointer causes to show only a white square</p></li>
+<li><p>must correctly manage the lifetime of texture to be as long as the sprite using it</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sf</span><span class="o">::</span><span class="n">Sprite</span><span class="w"> </span><span class="nf">loadSprite</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">filename</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">sf</span><span class="o">::</span><span class="n">Texture</span><span class="w"> </span><span class="n">texture</span><span class="p">;</span>
+<span class="w">    </span><span class="n">texture</span><span class="p">.</span><span class="n">loadFromFile</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">Sprite</span><span class="p">(</span><span class="n">texture</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="c1">// error: the texture is destroyed here</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p>use few textures as possible, as changing current texture is expensive for graphics card</p></li>
+<li><p>drawing many sprites that use the same texture is optimal</p></li>
+<li><p>use single texture that allows to group static geometry into single entity will be much</p></li>
+</ul>
+<p>faster, as can only use one texture per draw call
+* can use <code class="docutils literal notranslate"><span class="pre">sf::Texture</span></code> as wrapper around OpenGL texture</p>
+<blockquote>
+<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sf</span><span class="o">::</span><span class="n">Texture</span><span class="w"> </span><span class="n">texture</span><span class="p">;</span>
+<span class="n">sf</span><span class="o">::</span><span class="n">Texture</span><span class="o">::</span><span class="n">bind</span><span class="p">(</span><span class="o">&amp;</span><span class="n">texture</span><span class="p">);</span><span class="w"> </span><span class="c1">// bind texture</span>
+
+<span class="c1">// draw textured OpenGL entity...</span>
+
+<span class="n">sf</span><span class="o">::</span><span class="n">Texture</span><span class="o">::</span><span class="n">bind</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span><span class="w"> </span><span class="c1">// bind no texture</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="text-fonts">
+<h3>Text &amp; Fonts<a class="headerlink" href="#text-fonts" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>need a font to draw text</p></li>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">sf::Font</span></code> provides loading a font, getting glyphs and reading its attributes</dt><dd><ul class="simple">
+<li><p>only need to load a font for most of the time</p></li>
+<li><p>SFML will not load system fonts automatically</p></li>
+<li><p>need to include the font file with application</p></li>
+<li><p>make sure to check stdout as <code class="docutils literal notranslate"><span class="pre">loadFromFile()</span></code> can fail with no obvious reason</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loadFromMemory()</span></code>: load font file from memory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loadFromStream()</span></code>: load font file from custom input stream</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sf</span><span class="o">::</span><span class="n">Font</span><span class="w"> </span><span class="n">font</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">font</span><span class="p">.</span><span class="n">loadFromFile</span><span class="p">(</span><span class="s">&quot;arial.ttf&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// error</span>
+<span class="p">}</span>
+
+<span class="c1">// can get font&#39;s other metrics</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">lineSpacing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">font</span><span class="p">.</span><span class="n">getLineSpacing</span><span class="p">(</span><span class="n">characterSize</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">kerning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">font</span><span class="p">.</span><span class="n">getKerning</span><span class="p">(</span><span class="n">char1</span><span class="p">,</span><span class="w"> </span><span class="n">char2</span><span class="p">,</span><span class="w"> </span><span class="n">characterSize</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p>once font is loaded, text can be drawn by using <code class="docutils literal notranslate"><span class="pre">sf::Text</span></code></p>
+<blockquote>
+<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sf</span><span class="o">::</span><span class="n">Text</span><span class="w"> </span><span class="n">text</span><span class="p">;</span>
+
+<span class="n">text</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">font</span><span class="p">);</span><span class="w"> </span><span class="c1">// select the font, font is a sf::Font</span>
+
+<span class="n">text</span><span class="p">.</span><span class="n">setString</span><span class="p">(</span><span class="s">&quot;Hello world&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// set the string to display</span>
+
+<span class="n">text</span><span class="p">.</span><span class="n">setCharacterSize</span><span class="p">(</span><span class="mi">24</span><span class="p">);</span><span class="w"> </span><span class="c1">// set the character size in pixels, not points</span>
+
+<span class="n">text</span><span class="p">.</span><span class="n">setFillColor</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Color</span><span class="o">::</span><span class="n">Red</span><span class="p">);</span><span class="w"> </span><span class="c1">// set the color</span>
+
+<span class="n">text</span><span class="p">.</span><span class="n">setStyle</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Text</span><span class="o">::</span><span class="n">Bold</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">Text</span><span class="o">::</span><span class="n">Underlined</span><span class="p">);</span><span class="w"> </span><span class="c1">// set the text style</span>
+
+<span class="c1">// inside the main loop, between window.clear() and window.display()</span>
+<span class="n">window</span><span class="p">.</span><span class="n">draw</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>text can be transformed, as they have position, orientation and scale</p></li>
+<li><dl class="simple">
+<dt><strong>Wide Strings</strong></dt><dd><ul class="simple">
+<li><p>handling non-ASCII characters is tricky, as it require understanding of encodings</p></li>
+<li><p>use wide literal strings to avoid bothering with encodings</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text.setString(L&quot;יטאח&quot;)</span></code>, the prefix <code class="docutils literal notranslate"><span class="pre">L</span></code> tells the compiler to produce wide string</p></li>
+<li><p>on most platforms, wide strings produce Unicode strings, which SFML can handle
+correctly</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Custom Text Class</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sf::Font</span></code> provides feature to retrieve texture that contains pre-rendered glyphs of
+certain size</p></li>
+<li><p>glyphs are added to the texture when they are requested</p></li>
+<li><p>characters that can be generated when font is loaded are rendered on the fly when
+<code class="docutils literal notranslate"><span class="pre">getGlyph()</span></code> is called</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">Texture</span><span class="o">&amp;</span><span class="w"> </span><span class="n">texture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">font</span><span class="p">.</span><span class="n">getTexture</span><span class="p">(</span><span class="n">characterSize</span><span class="p">);</span>
+
+<span class="c1">// to do something with font texture, need to get texture coordinates of glyphs</span>
+<span class="c1">// character is UTF-32 code</span>
+<span class="n">sf</span><span class="o">::</span><span class="n">Glyph</span><span class="w"> </span><span class="n">glyph</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">font</span><span class="p">.</span><span class="n">getGlyph</span><span class="p">(</span><span class="n">character</span><span class="p">,</span><span class="w"> </span><span class="n">characterSize</span><span class="p">,</span><span class="w"> </span><span class="n">bold</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">sf::Glyph</span></code> members</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">textureRect</span></code>: contains texture coordinates of glyph within texture</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bounds</span></code>: contains bounding rectangle of glyph, which helps position it relative to
+baseline of text</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">advance</span></code>: horizontal offset to apply to get starting position of the next glyph in
+the text</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="shapes">
+<h3>Shapes<a class="headerlink" href="#shapes" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>each type of shape is separate class, but has same base class</p></li>
+<li><p>all shapes has transformation properties of position, rotation, scale</p></li>
+<li><p>can change the color of a shape</p>
+<blockquote>
+<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sf</span><span class="o">::</span><span class="n">CircleShape</span><span class="w"> </span><span class="nf">shape</span><span class="p">(</span><span class="mf">50.f</span><span class="p">);</span>
+<span class="n">shape</span><span class="p">.</span><span class="n">setFillColor</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Color</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">250</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">));</span>
+
+<span class="n">window</span><span class="p">.</span><span class="n">draw</span><span class="p">(</span><span class="n">shape</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><dl>
+<dt>shapes can have outline</dt><dd><ul class="simple">
+<li><p>outline is extruded outwards by default, e.g. circle radius 10 and outline thickness
+5 will make total circle radius of 15</p></li>
+<li><p>set negative thickness to extrude towards the center of the shape</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sf</span><span class="o">::</span><span class="n">CircleShape</span><span class="w"> </span><span class="nf">shape</span><span class="p">(</span><span class="mf">50.f</span><span class="p">);</span>
+<span class="n">shape</span><span class="p">.</span><span class="n">setFillColor</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Color</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">250</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">));</span>
+<span class="n">shape</span><span class="p">.</span><span class="n">setOutlineThickness</span><span class="p">(</span><span class="mf">10.f</span><span class="p">);</span><span class="w"> </span><span class="c1">// outline extrude outwards</span>
+<span class="n">shape</span><span class="p">.</span><span class="n">setOUtlineColor</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Color</span><span class="o">::</span><span class="n">Red</span><span class="p">);</span>
+
+<span class="n">shape</span><span class="p">.</span><span class="n">setOutlineThickness</span><span class="p">(</span><span class="mf">-10.f</span><span class="p">);</span><span class="w"> </span><span class="c1">// outline extrude inwards</span>
+
+<span class="n">shape</span><span class="p">.</span><span class="n">setOutlineThickness</span><span class="p">(</span><span class="mf">0.f</span><span class="p">);</span><span class="w"> </span><span class="c1">// remove outline</span>
+
+<span class="c1">// only show outline</span>
+<span class="n">shape</span><span class="p">.</span><span class="n">setFillColor</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Color</span><span class="o">::</span><span class="n">Transparent</span><span class="p">);</span>
+<span class="n">shape</span><span class="p">.</span><span class="n">setOutlineThickness</span><span class="p">(</span><span class="mf">10.f</span><span class="p">);</span>
+<span class="n">shape</span><span class="p">.</span><span class="n">setOUtlineColor</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Color</span><span class="o">::</span><span class="n">Red</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>shapes can also be textured like sprites</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">setTextureRect()</span></code>: map the texture rectangle to the bounding rectangle of shape,
+not maximum flexibility, but easier than individually setting texture coordinates of
+each point of the shape</p></li>
+<li><p>outline is not textured</p></li>
+<li><p>texture is modulated/multiplied with shape’s fill color</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sf::Color::White</span></code> will cause texture appear unmodified</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">setTexture(NULL)</span></code> to disable texturing</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// map 100x100 textured rectangle to shape</span>
+<span class="n">shape</span><span class="p">.</span><span class="n">setTexture</span><span class="p">(</span><span class="o">&amp;</span><span class="n">texture</span><span class="p">);</span><span class="w"> </span><span class="c1">// must be of &#39;sf::Texture&#39;</span>
+<span class="n">shape</span><span class="p">.</span><span class="n">setTextureRect</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">IntRect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">));</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Rectangle</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sf::RectangleShape</span></code>, has size attribute</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sf</span><span class="o">::</span><span class="n">RectangleShape</span><span class="w"> </span><span class="nf">rectangle</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="p">(</span><span class="mf">120.f</span><span class="p">,</span><span class="w"> </span><span class="mf">50.f</span><span class="p">));</span><span class="w"> </span><span class="c1">// 120x50</span>
+<span class="n">rectangle</span><span class="p">.</span><span class="n">setSize</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="p">(</span><span class="mf">100.f</span><span class="p">,</span><span class="w"> </span><span class="mf">100.f</span><span class="p">));</span><span class="w"> </span><span class="c1">// change size to 100x100</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Circle</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sf::CircleShape</span></code>, has radius and number of sides attributes</p></li>
+<li><p>number of sides: optional, to adjust quality of the circle as circles have to be
+approximated by polygons with many sides</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">circle</span><span class="p">.</span><span class="n">setRadius</span><span class="p">(</span><span class="mf">50.f</span><span class="p">);</span><span class="w"> </span><span class="c1">// change radius</span>
+<span class="n">circle</span><span class="p">.</span><span class="n">setPointCount</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span><span class="w"> </span><span class="c1">// change number of sides</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Regular Ploygons</strong></dt><dd><ul class="simple">
+<li><p>no dedicated class</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">sf::CircleShape</span></code> with specific number of sides, as circles are approximated by
+polygons with many sides</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sf</span><span class="o">::</span><span class="n">CircleShape</span><span class="w"> </span><span class="nf">triangle</span><span class="p">(</span><span class="mf">50.f</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="n">sf</span><span class="o">::</span><span class="n">CircleShape</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="mf">50.f</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+<span class="n">sf</span><span class="o">::</span><span class="n">CircleShape</span><span class="w"> </span><span class="nf">octagon</span><span class="p">(</span><span class="mf">50.f</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Convex Shapes</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sf::ConvexShape</span></code>, allows to define any convex shape</p></li>
+<li><p>need to set number points and define them</p></li>
+<li><p>SFML cannot draw concave shapes</p></li>
+<li><p>combine multiple convex polygons to draw a concave shape</p></li>
+<li><p>convex shapes are auto constructed using triangle fans</p></li>
+<li><p>can draw stars using <code class="docutils literal notranslate"><span class="pre">sf::ConvexShape</span></code></p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sf</span><span class="o">::</span><span class="n">ConvexShape</span><span class="w"> </span><span class="n">convex</span><span class="p">;</span>
+<span class="n">convex</span><span class="p">.</span><span class="n">setPointCount</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="n">convex</span><span class="p">.</span><span class="n">setPoint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="p">(</span><span class="mf">0.f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.f</span><span class="p">));</span>
+<span class="n">convex</span><span class="p">.</span><span class="n">setPoint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="p">(</span><span class="mf">150.f</span><span class="p">,</span><span class="w"> </span><span class="mf">10.f</span><span class="p">));</span>
+<span class="n">convex</span><span class="p">.</span><span class="n">setPoint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="p">(</span><span class="mf">120.f</span><span class="p">,</span><span class="w"> </span><span class="mf">90.f</span><span class="p">));</span>
+<span class="n">convex</span><span class="p">.</span><span class="n">setPoint</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="p">(</span><span class="mf">30.f</span><span class="p">,</span><span class="w"> </span><span class="mf">100.f</span><span class="p">));</span>
+<span class="n">convex</span><span class="p">.</span><span class="n">setPoint</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="p">(</span><span class="mf">0.f</span><span class="p">,</span><span class="w"> </span><span class="mf">50.f</span><span class="p">));</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Lines</strong></dt><dd><ul class="simple">
+<li><p>no dedicated class</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">sf::RectangleShape</span></code> or line primitive</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sf</span><span class="o">::</span><span class="n">RectangleShape</span><span class="w"> </span><span class="nf">line</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="p">(</span><span class="mf">150.f</span><span class="p">,</span><span class="w"> </span><span class="mf">5.f</span><span class="p">));</span><span class="w"> </span><span class="c1">// line with thickness</span>
+<span class="n">line</span><span class="p">.</span><span class="n">rotate</span><span class="p">(</span><span class="mf">45.f</span><span class="p">);</span>
+
+<span class="c1">// line without thickness using line primitive</span>
+<span class="n">sf</span><span class="o">::</span><span class="n">Vertex</span><span class="w"> </span><span class="n">line2</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">sf</span><span class="o">::</span><span class="n">Vertex</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="p">(</span><span class="mf">10.f</span><span class="p">,</span><span class="w"> </span><span class="mf">10.f</span><span class="p">)),</span>
+<span class="w">                      </span><span class="n">sf</span><span class="o">::</span><span class="n">Vertex</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="p">(</span><span class="mf">150.f</span><span class="p">,</span><span class="w"> </span><span class="mf">150.f</span><span class="p">))};</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Custom Shapes</strong></dt><dd><ul class="simple">
+<li><p>extend <code class="docutils literal notranslate"><span class="pre">sf::Shape</span></code> and override <code class="docutils literal notranslate"><span class="pre">getPointCount()</span></code> and <code class="docutils literal notranslate"><span class="pre">getPoint()</span></code></p></li>
+<li><p>call protected <code class="docutils literal notranslate"><span class="pre">update()</span></code> whenever any point in the shape changes, so that the base
+class is informed and can update its internal geometry</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">EllipseShape</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">Shape</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">EllipseShape</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="o">&amp;</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="p">(</span><span class="mf">0.f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.f</span><span class="p">))</span>
+<span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">m_radius</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">update</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">setRadius</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="o">&amp;</span><span class="w"> </span><span class="n">radius</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span>
+<span class="w">        </span><span class="n">update</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="o">&amp;</span><span class="w"> </span><span class="n">getRadius</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">m_radius</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">getPointCount</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w"> </span><span class="c1">// fixed, but could be an attribute of the class if needed</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="w"> </span><span class="n">getPoint</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.141592654f</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">angle</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">getPointCount</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m_radius</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">y</span><span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m_radius</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="p">(</span><span class="n">m_radius</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">m_radius</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="w"> </span><span class="n">m_radius</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Antialiasing</strong></dt><dd><ul class="simple">
+<li><p>cannot anti-alias, smooth edges, single shape</p></li>
+<li><p>need to enable anti-aliasing globally when creating the window, with
+<code class="docutils literal notranslate"><span class="pre">sf::ContextSettings</span></code></p></li>
+<li><p>anti-aliasing availability depends on GPU, or might be disabled in GPU settings</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sf</span><span class="o">::</span><span class="n">ContextSettings</span><span class="w"> </span><span class="n">settings</span><span class="p">;</span>
+<span class="n">settings</span><span class="p">.</span><span class="n">antialiasingLevel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="n">sf</span><span class="o">::</span><span class="n">RenderWindow</span><span class="w"> </span><span class="n">window</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">VideoMode</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span><span class="w"> </span><span class="mi">600</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;My Window&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">sf</span><span class="o">::</span><span class="n">Style</span><span class="o">::</span><span class="n">Default</span><span class="p">,</span><span class="w"> </span><span class="n">settings</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="transforming">
+<h3>Transforming<a class="headerlink" href="#transforming" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>all SFML classes use <code class="docutils literal notranslate"><span class="pre">sf::Transformable</span></code> for transformations</p></li>
+<li><p>the class defines position, rotation, scale and origin</p></li>
+<li><dl>
+<dt><strong>Position</strong></dt><dd><ul class="simple">
+<li><p>entities are positioned relative to their top-left corner by default, but can change
+by setting origin</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">entity</span><span class="p">.</span><span class="n">setPosition</span><span class="p">(</span><span class="mf">10.f</span><span class="p">,</span><span class="w"> </span><span class="mf">5.f</span><span class="p">);</span><span class="w"> </span><span class="c1">// set absolute position</span>
+<span class="n">entity</span><span class="p">.</span><span class="n">move</span><span class="p">(</span><span class="mf">5.f</span><span class="p">,</span><span class="w"> </span><span class="mf">5.f</span><span class="p">);</span><span class="w"> </span><span class="c1">// move relative to current position</span>
+<span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="w"> </span><span class="n">position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entity</span><span class="p">.</span><span class="n">getPosition</span><span class="p">();</span><span class="w"> </span><span class="c1">// get absolute position</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Rotation</strong></dt><dd><ul class="simple">
+<li><p>orientation defined in degrees</p></li>
+<li><p>in clockwise order, as Y axis is pointing down</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getRotation()</span></code> returns angle in range [0, 360)</p></li>
+<li><p>rotation is performed around the top-left corner by default, but can change by
+setting origin</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">entity</span><span class="p">.</span><span class="n">setRotation</span><span class="p">(</span><span class="mf">5.f</span><span class="p">);</span><span class="w"> </span><span class="c1">// set absolute rotation</span>
+<span class="n">entity</span><span class="p">.</span><span class="n">rotate</span><span class="p">(</span><span class="mf">5.f</span><span class="p">);</span><span class="w"> </span><span class="c1">// rotate relative to current orientation</span>
+<span class="kt">float</span><span class="w"> </span><span class="n">rotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entity</span><span class="p">.</span><span class="n">getRotation</span><span class="p">();</span><span class="w"> </span><span class="c1">// get absolute rotation</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Scale</strong></dt><dd><ul class="simple">
+<li><p>resize entity, default scale is 1, smaller if less than 1, bigger if greater than 1</p></li>
+<li><p>negative scale values are allowed, to mirror the entity</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">entity</span><span class="p">.</span><span class="n">setScale</span><span class="p">(</span><span class="mf">4.f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.6f</span><span class="p">);</span><span class="w"> </span><span class="c1">// set absolute scale</span>
+<span class="n">entity</span><span class="p">.</span><span class="n">scale</span><span class="p">(</span><span class="mf">0.5f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5f</span><span class="p">);</span><span class="w"> </span><span class="c1">// scale relative to current scale</span>
+<span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="w"> </span><span class="n">rotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entity</span><span class="p">.</span><span class="n">getScale</span><span class="p">();</span><span class="w"> </span><span class="c1">// get absolute scale</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Origin</strong></dt><dd><ul class="simple">
+<li><p>center point of three other transformations</p></li>
+<li><p>entity’s position is the position of its origin, rotation is performed around the
+origin, scale is applied relative to the origin</p></li>
+<li><p>origin is top-left corner by default, can set it to center or any other corner</p></li>
+<li><p>only single origin for all three transformations, cannot position relative to
+top-left corner and rotate around the center</p></li>
+<li><p>changing the origin also changes where the entity is drawn on screen</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">entity</span><span class="p">.</span><span class="n">setOrigin</span><span class="p">(</span><span class="mf">10.f</span><span class="p">,</span><span class="w"> </span><span class="mf">20.f</span><span class="p">);</span>
+<span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entity</span><span class="p">.</span><span class="n">getOrigin</span><span class="p">();</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#sfml">back to top</a></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Redis.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Redis</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="SQL.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">SQL</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometry">Geometry</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#window">Window</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphics">Graphics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing">Drawing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sprites-textures">Sprites &amp; Textures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#text-fonts">Text &amp; Fonts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shapes">Shapes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transforming">Transforming</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

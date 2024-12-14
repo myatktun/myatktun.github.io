@@ -1,0 +1,1692 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Computing Systems &#8212; Notes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ComputingSystems';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Cyber Security" href="CyberSecurity.html" />
+    <link rel="prev" title="Computer Graphics" href="ComputerGraphics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AWS.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BackendEngineering.html">Backend Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSharp.html">C# #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CTF.html">CTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CompTIA.html">CompTIA Cert Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compilers.html">Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerGraphics.html">Computer Graphics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Computing Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">ECS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FFmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Helm.html">Helm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Istio.html">Istio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JDBC.html">JDBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MongoDB.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkProgramming.html">Network Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NodeJS.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenAPI.html">OpenAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OperatingSystem.html">Operating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="POSIXThreads.html">POSIX Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PenetrationTesting.html">Penetration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramDesign.html">Program Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectManagement.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prometheus.html">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SFML.html">SFML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StrategicPlanning.html">Strategic Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terraform.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TypeScript.html">TypeScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI/UX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrant.html">Vagrant</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ComputingSystems.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Computing Systems</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compilation">Compilation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware">Hardware</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abstraction">Abstraction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-logic">Boolean Logic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-algebra">Boolean Algebra</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-identities">Boolean Identities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-addition">Binary Addition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-numbers">Negative Numbers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logic-gates">Logic Gates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composite-gates">Composite Gates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nand">NAND</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not">NOT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#and">AND</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#or">OR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xor">XOR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplexor">Multiplexor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demultiplexor">Demultiplexor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-bit-not">Multi-Bit NOT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-bit-and">Multi-Bit AND</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-bit-or">Multi-Bit OR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-bit-multiplexor">Multi-Bit Multiplexor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-way-or">Multi-Way OR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-way-multi-bit-multiplexor">Multi-Way/Multi-Bit Multiplexor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-way-multi-bit-demultiplexor">Multi-Way/Multi-Bit Demultiplexor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-based-on-nand">Implementing based on NAND</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#half-adder">Half Adder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#full-adder">Full Adder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alu">ALU</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nand2tetris-hdl">Nand2Tetris HDL</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hdl">HDL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-simulation">Hardware Simulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-bit-buses">Multi-Bit Buses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-chips">Built-In Chips</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-chips">Sequential Chips</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-chips">Visualizing Chips</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xor-hdl">XOR HDL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-hdl-programs">Example HDL Programs</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="computing-systems">
+<h1>Computing Systems<a class="headerlink" href="#computing-systems" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#basics">Basics</a></p></li>
+<li><p><a class="reference internal" href="#boolean-logic">Boolean Logic</a></p></li>
+<li><p><a class="reference internal" href="#logic-gates">Logic Gates</a></p></li>
+<li><p><a class="reference internal" href="#nand2tetris-hdl">Nand2Tetris HDL</a></p></li>
+</ol>
+<p><a class="reference external" href="#computing-systems">back to top</a></p>
+<section id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#compilation">Compilation</a>, <a class="reference internal" href="#hardware">Hardware</a>, <a class="reference internal" href="#abstraction">Abstraction</a></p></li>
+<li><p>a program is just a bunch of characters stored in a text file</p></li>
+</ul>
+<section id="compilation">
+<h3>Compilation<a class="headerlink" href="#compilation" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>parse text, uncover semantics and express in low-level language understood by computer</p></li>
+<li><p>analysed text is kept in a parse tree data structure</p></li>
+<li><p>consist of a compiler, virtual machine, if necessary, and assembler</p></li>
+<li><p>result is a text file containing machine-level code</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="hardware">
+<h3>Hardware<a class="headerlink" href="#hardware" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>a hardware architecture must know how to read machine-level code</p></li>
+<li><p>architecture is implemented by certain chip set, such as registers, memory units, ALU</p></li>
+<li><p>each hardware device is constructed from integrated elementary logic gates</p></li>
+<li><p>each logic gate can be built from primitive gates like NAND and NOR</p></li>
+<li><p>primitive gates consist of several switching devices, implemented by transistors</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="abstraction">
+<h3>Abstraction<a class="headerlink" href="#abstraction" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>only define what the entity does, ignore the details of how it does it</p></li>
+<li><p>description must contain all that need to be known to use the entity’s services</p></li>
+<li><p>all implementations must be concealed from client as they are irrelevant</p></li>
+<li><p>top-down: high-level abstractions reduced or expressed by simpler ones</p></li>
+<li><p>bottom-up: low-level abstractions used to construct more complex ones</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#computing-systems">back to top</a></p>
+</section>
+</section>
+<section id="boolean-logic">
+<h2>Boolean Logic<a class="headerlink" href="#boolean-logic" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#boolean-algebra">Boolean Algebra</a>, <a class="reference internal" href="#boolean-identities">Boolean Identities</a>, <a class="reference internal" href="#binary-addition">Binary Addition</a>, <a class="reference internal" href="#negative-numbers">Negative Numbers</a></p></li>
+<li><p>all chips in digital devices are made from elementary logic gates</p></li>
+<li><p>logic gates can be physically implemented in different materials and fabrications, but</p></li>
+</ul>
+<p>behaviour is  consistent across all components</p>
+<section id="boolean-algebra">
+<h3>Boolean Algebra<a class="headerlink" href="#boolean-algebra" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>deals with binary values labelled as true/false, 1/0, yes/no or on/off</p></li>
+<li><p>boolean function operates on binary inputs and return binary outputs</p></li>
+<li><p>boolean functions are centre of specification, construction and optimization of hardware</p></li>
+</ul>
+<p>architectures
+* <strong>Truth Table</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>specify boolean function by enumerating all possible values of inputs and outputs
+| x | y | z | f(x, y, z) |
+<a href="#id5"><span class="problematic" id="id6">|---|</span></a>—<a href="#id7"><span class="problematic" id="id8">|---|</span></a>————|
+| 0 | 0 | 0 |     0      |
+| 0 | 0 | 1 |     0      |
+| 0 | 1 | 0 |     1      |
+| 0 | 1 | 1 |     0      |
+| 1 | 0 | 0 |     1      |
+| 1 | 0 | 1 |     0      |
+| 1 | 1 | 0 |     1      |
+| 1 | 1 | 1 |     0      |</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Boolean Expression</strong></dt><dd><ul>
+<li><p>specify boolean function by operating over inputs</p></li>
+<li><p>basic operators are AND (x.y), OR (x + y), NOT (!x)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Canonical Representation</strong></dt><dd><ul>
+<li><p>every boolean function can be expressed using AND, OR, NOT</p></li>
+<li><p>for each row with output 1, construct a term created by AND-ing together literals
+(variables or their negations) that fix the values of all row’s inputs</p></li>
+<li><p>x = 0, y = 1, z = 0 produce the term !xy!z</p></li>
+<li><p>x = 1, y = 0, z = 0 produce the term x!y!z</p></li>
+<li><p>x = 1, y = 1, z = 0 produce the term xy!z</p></li>
+<li><p>apply OR on terms of rows with output 1 and the result expression is equivalent to
+truth table, (!xy!z + x!y!z + xy!z)</p></li>
+<li><p>NP-hard problem to find the shortest expression equivalent to the given one</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>constant 0 = 0, AND = xy, x AND NOT y = x!y, x = x, NOT x AND y = !xy, y = y</p></li>
+<li><p>XOR = x!y + !xy, OR = x + y, NOR = !(x + y), Equivalence = xy + !x!y, NOT y = !y</p></li>
+<li><p>If y then x (y implies x) = x + !y, NOT x = !x, If x then y (x implies y) = !x + y</p></li>
+<li><p>NAND = !(xy), constant 1 = 1</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="boolean-identities">
+<h3>Boolean Identities<a class="headerlink" href="#boolean-identities" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Identity</strong></dt><dd><ul>
+<li><p>x AND 1 = x</p></li>
+<li><p>x OR 0 = x</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Null/Domination</strong></dt><dd><ul>
+<li><p>x AND 0 = 0</p></li>
+<li><p>x OR 1= 1</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Idempotence</strong></dt><dd><ul>
+<li><p>NOT(x) AND NOT(x) = NOT(x)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Double Negation</strong></dt><dd><ul>
+<li><p>NOT(NOT(x)) = x</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Inverse</strong></dt><dd><ul>
+<li><p>x AND NOT(x) = 0, Zero property</p></li>
+<li><p>x OR NOT(x) = 1, Unit Property</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Commutative</strong></dt><dd><ul>
+<li><p>x AND y = y AND x</p></li>
+<li><p>x OR y = y OR x</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Associative</strong></dt><dd><ul>
+<li><p>(x AND (y AND z)) = ((x AND y) AND z)</p></li>
+<li><p>(x OR (y OR z)) = ((x OR y) OR z)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Distributive</strong></dt><dd><ul>
+<li><p>(x AND (y OR z)) = ((x AND y) OR (x AND z))</p></li>
+<li><p>(x OR (y AND z)) = ((x OR y) AND (x OR z))</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Absorption</strong></dt><dd><ul>
+<li><p>x AND (x OR y) = x</p></li>
+<li><p>x OR (x AND y) = x</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>De Morgan’s</strong></dt><dd><ul>
+<li><p>NOT(x AND y) = NOT(x) OR NOT(y)</p></li>
+<li><p>NOT(x OR y) = NOT(x) AND NOT(y)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>maximum decimal number with k bits = 2&lt;sup&gt;k&lt;/sup&gt; - 1</p></li>
+<li><p>binary -&gt; decimal = &amp;sum; b&lt;sub&gt;i&lt;/sub&gt;2&lt;sup&gt;i&lt;/sup&gt;</p></li>
+</ul>
+</section>
+<section id="binary-addition">
+<h3>Binary Addition<a class="headerlink" href="#binary-addition" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>01 + 01 = 10, extra 1 is carried to the next position</p></li>
+<li><p>011+ 001 = 100, 011 + 011 = 110</p></li>
+<li><dl class="simple">
+<dt><strong>Overflow</strong></dt><dd><ul>
+<li><p>any carry bit that does not fit is ignored, 1 + 1 = 0</p></li>
+<li><p>the result is not the true integer result of addition</p></li>
+<li><p>only get the truncated result</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="negative-numbers">
+<h3>Negative Numbers<a class="headerlink" href="#negative-numbers" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>2’s Complement, represent -x using positive number 2&lt;sup&gt;n&lt;/sup&gt; - x = 1 + (2&lt;sup&gt;n&lt;/sup&gt; - 1) - x</p></li>
+<li><p>2&lt;sup&gt;n&lt;/sup&gt; - 1 in binary is all 1s</p></li>
+<li><p>one’s complement: flip the bits, two’s complement: flip the bits from right to left, stop</p></li>
+</ul>
+<p>the first time 0 is flipped
+* positive numbers in range 0 to 2&lt;sup&gt;n-1&lt;/sup&gt; - 1 and negative numbers in range -1 to -2&lt;sup&gt;n-1&lt;/sup&gt;
+* <strong>Example 2’s Complement</strong></p>
+<blockquote>
+<div><p>input: 4, output: -4
+4 = 0100
+one’s complement: 1111 - 0100 = 1011
+two’s complement: 1011 + 1 = 1100</p>
+</div></blockquote>
+</div></blockquote>
+<p><a class="reference external" href="#computing-systems">back to top</a></p>
+</section>
+</section>
+<section id="logic-gates">
+<h2>Logic Gates<a class="headerlink" href="#logic-gates" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#composite-gates">Composite Gates</a>, <a class="reference internal" href="#nand">NAND</a>, <a class="reference internal" href="#not">NOT</a>, <a class="reference internal" href="#and">AND</a>, <a class="reference internal" href="#or">OR</a>, <a class="reference internal" href="#xor">XOR</a>, <a class="reference internal" href="#multiplexor">Multiplexor</a>, <a class="reference internal" href="#demultiplexor">Demultiplexor</a></p></li>
+<li><p><a class="reference internal" href="#multi-bit-not">Multi-Bit NOT</a>, <a class="reference internal" href="#multi-bit-and">Multi-Bit AND</a>, <a class="reference internal" href="#multi-bit-or">Multi-Bit OR</a>, <a class="reference internal" href="#multi-bit-multiplexor">Multi-Bit Multiplexor</a></p></li>
+<li><p><a class="reference internal" href="#multi-way-or">Multi-Way OR</a>, <a class="reference internal" href="#multi-way-multi-bit-multiplexor">Multi-Way/Multi-Bit Multiplexor</a>, <a class="reference internal" href="#multi-way-multi-bit-demultiplexor">Multi-Way/Multi-Bit Demultiplexor</a></p></li>
+<li><p><a class="reference internal" href="#implementing-based-on-nand">Implementing based on NAND</a>, <a class="reference internal" href="#half-adder">Half Adder</a>, <a class="reference internal" href="#full-adder">Full Adder</a>, <a class="reference internal" href="#alu">ALU</a></p></li>
+<li><p>physical device that implements boolean function</p></li>
+<li><p>if function has n inputs and m outputs, the gate will have n input pins and m output pins</p></li>
+<li><p>simplest gates are made from tiny switching devices called transistors</p></li>
+<li><p>most gates are implemented as transistors etched in silicon, packaged as chips</p></li>
+<li><p>primitive gate can be viewed as black box device with elementary logical operation</p></li>
+</ul>
+<section id="composite-gates">
+<h3>Composite Gates<a class="headerlink" href="#composite-gates" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>designed by interconnecting primitive ones</p></li>
+<li><p>3-way AND(a, b, c) = AND(AND(a, b), c)</p></li>
+<li><p>XOR(a, b) = OR(AND(a, NOT(b)), AND(NOT(a), b))</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>functional: gate implementation will realize its stated interface, in one way or another</p></li>
+<li><p>efficiency: do more with less, use as few gates as possible</p></li>
+<li><p>usually, given a gate specification/interface, find an efficient way to implement using</p></li>
+</ul>
+<p>already implemented ones</p>
+</section>
+<section id="nand">
+<h3>NAND<a class="headerlink" href="#nand" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>one of AND, OR, NOT can be constructed from NAND</dt><dd><ul>
+<li><p>NOT(x) = x NAND x</p></li>
+<li><p>x AND y = NOT(x NAND y)</p></li>
+<li><p>x OR y = (x NAND x) NAND (y NAND y)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>since every function can be constructed using the three, all functions can be constructed</p></li>
+</ul>
+<p>from NAND operations alone
+* <strong>NAND Truth Table</strong></p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">a | b | NAND(a, b) |</div>
+</div>
+<p><a href="#id9"><span class="problematic" id="id10">|---|</span></a>—<a href="#id11"><span class="problematic" id="id12">|------------|</span></a>
+| 0 | 0 |     1      |
+| 0 | 1 |     1      |
+| 1 | 0 |     1      |
+| 1 | 1 |     0      |</p>
+</div></blockquote>
+<ul>
+<li><p><strong>NAND API</strong></p>
+<blockquote>
+<div><p>Chip name: Nand
+Inputs:    a, b
+Outputs:   out
+Function:  If a=b=1 then out=0 else out=1.
+Comment:   This gate is considered primitive and no need to implement it.</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="not">
+<h3>NOT<a class="headerlink" href="#not" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>also called converter, negates its single input</p></li>
+<li><p><strong>NOT API</strong></p>
+<blockquote>
+<div><p>Chip name: Not
+Inputs:    in
+Outputs:   out
+Function:  If in=0 then out=1 else out=0.</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="and">
+<h3>AND<a class="headerlink" href="#and" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>return 1 when both inputs are 1, 0 otherwise</p></li>
+<li><p><strong>AND API</strong></p>
+<blockquote>
+<div><p>Chip name: And
+Inputs:    a, b
+Outputs:   out
+Function:  If a=b=1 then out=1 else out=0.</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="or">
+<h3>OR<a class="headerlink" href="#or" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>return 1 when at least one of the inputs is 1, 0 otherwise</p></li>
+<li><p><strong>OR API</strong></p>
+<blockquote>
+<div><p>Chip name: Or
+Inputs:    a, b
+Outputs:   out
+Function:  If a=b=0 then out=0 else out=1.</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="xor">
+<h3>XOR<a class="headerlink" href="#xor" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>also called exclusive or, return 1 when two inputs are opposite, 0 when same or sum of</p></li>
+</ul>
+<p>input bits is even
+* <strong>XOR API</strong></p>
+<blockquote>
+<div><p>Chip name: Xor
+Inputs:    a, b
+Outputs:   out
+Function:  If a!=b then out=1 else out=0.</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="multiplexor">
+<h3>Multiplexor<a class="headerlink" href="#multiplexor" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>three-input gate, use one input, selection bit, to select and output one of the other</p></li>
+</ul>
+<p>two inputs, data bits
+* the name was adopted from communications systems, where similar devices are used to
+serialize/multiplex several input signals over single output wire
+* <strong>Multiplexor Truth Table</strong></p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">sel | out |</div>
+</div>
+<p><a href="#id13"><span class="problematic" id="id14">|-----|</span></a>—–|
+| 0   | a   |
+| 1   | b   |</p>
+</div></blockquote>
+<ul>
+<li><p><strong>Multiplexor API</strong></p>
+<blockquote>
+<div><p>Chip name: Mux
+Inputs:    a, b, sel
+Outputs:   out
+Function:  If sel=0 then out=a else out=b.</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="demultiplexor">
+<h3>Demultiplexor<a class="headerlink" href="#demultiplexor" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>opposite of multiplexor, take single input and channel it to one of two outputs according</p></li>
+</ul>
+<p>to selector bit
+* <strong>Demultiplexor Truth Table</strong></p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">sel | a  | b  |</div>
+</div>
+<p><a href="#id15"><span class="problematic" id="id16">|-----|</span></a>—-<a href="#id17"><span class="problematic" id="id18">|----|</span></a>
+| 0   | in | 0  |
+| 1   | 0  | in |</p>
+</div></blockquote>
+<ul>
+<li><p><strong>Demultiplexor API</strong></p>
+<blockquote>
+<div><p>Chip name: DMux
+Inputs:    in, sel
+Outputs:   a, b
+Function:  If sel=0 then {a=in, b=0} else {a=0, b=in}</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>hardware is designed to operate on multi-bit arrays, buses</p></li>
+<li><p>basic requirement of 32-bit computer is to be able to compute AND on two 32-bit buses</p></li>
+</ul>
+</section>
+<section id="multi-bit-not">
+<h3>Multi-Bit NOT<a class="headerlink" href="#multi-bit-not" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>NOT to every bits in its n-bit input bus</p></li>
+<li><p><strong>Multi-Bit NOT API</strong></p>
+<blockquote>
+<div><p>Chip name: Not16
+Inputs:    in[16]   // 16-bit pin
+Outputs:   out[16]
+Function:  For i=0..15 out[i]=Not(in[i]).</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="multi-bit-and">
+<h3>Multi-Bit AND<a class="headerlink" href="#multi-bit-and" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>AND to every n bit-pairs in its two n-bit input buses</p></li>
+<li><p><strong>Multi-Bit AND API</strong></p>
+<blockquote>
+<div><p>Chip name: And16
+Inputs:    a[16], b[16]
+Outputs:   out[16]
+Function:  For i=0..15 out[i]=And(a[i], b[i]).</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="multi-bit-or">
+<h3>Multi-Bit OR<a class="headerlink" href="#multi-bit-or" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>OR to every n bit-pairs in its two n-bit input buses</p></li>
+<li><p><strong>Multi-Bit OR API</strong></p>
+<blockquote>
+<div><p>Chip name: Or16
+Inputs:    a[16], b[16]
+Outputs:   out[16]
+Function:  For i=0..15 out[i]=Or(a[i], b[i]).</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="multi-bit-multiplexor">
+<h3>Multi-Bit Multiplexor<a class="headerlink" href="#multi-bit-multiplexor" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>same as binary multiplexor, selector is single bit</p></li>
+<li><p>except two inputs are each n-bit wide</p></li>
+<li><p><strong>Multi-Bit Multiplexor API</strong></p>
+<blockquote>
+<div><p>Chip name: Mux16
+Inputs:    a[16], b[16], sel
+Outputs:   out[16]
+Funciton:  If sel=0 then for i=0..15 out[i]=a[i]</p>
+<blockquote>
+<div><p>else for i=0..15 out[i]=b[i].</p>
+</div></blockquote>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>two-input logic gates can be generalised to multi-way gates that accept arbitrary number of</p></li>
+</ul>
+<p>inputs</p>
+</section>
+<section id="multi-way-or">
+<h3>Multi-Way OR<a class="headerlink" href="#multi-way-or" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>outputs 1 when at least one of n bit inputs is 1, 0 otherwise</p></li>
+<li><p><strong>8-Way OR API</strong></p>
+<blockquote>
+<div><p>Chip name: Or8Way
+Inputs:    in[8]
+Outputs:   out
+Function:  out=Or(in[0],in[1],…,in[7]);</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="multi-way-multi-bit-multiplexor">
+<h3>Multi-Way/Multi-Bit Multiplexor<a class="headerlink" href="#multi-way-multi-bit-multiplexor" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>m-way n-bit multiplexor select one of m n-bit input buses and outputs it to a single</p></li>
+</ul>
+<p>n-bit output bus
+* selection is specified by a set of k control bits, where k = log&lt;sub&gt;2&lt;/sub&gt;m
+* <strong>4-Way 16-Bit Multiplexor API</strong></p>
+<blockquote>
+<div><p>Chip name: Mux4Way16
+Inputs:    a[16], b[16], c[16], d[16], sel[2]
+Outputs:   out[16]
+Funciton:  If sel=00 then out=a else if sel=01 then out=b</p>
+<blockquote>
+<div><p>else if sel=10 then out=c else if sel=11 then out=d.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Comment:   The assignment operations mentioned above are all 16-bit.</dt><dd><p>For example, “out=a” means “for i=0..15 out[i]=a[i]”.</p>
+</dd>
+</dl>
+</div></blockquote>
+<ul>
+<li><p><strong>8-Way 16-Bit Multiplexor API</strong></p>
+<blockquote>
+<div><p>Chip name: Mux8Way16
+Inputs:    a[16], b[16], c[16], d[16],</p>
+<blockquote>
+<div><p>e[16], f[16], g[16], h[16], sel[3]</p>
+</div></blockquote>
+<p>Outputs:   out[16]
+Funciton:  If sel=000 then out=a else if sel=001 then out=b</p>
+<blockquote>
+<div><p>else if sel=010 then out=c else if sel=011 then out=d
+else if sel=100 then out=e else if sel=101 then out=f
+else if sel=110 then out=g else if sel=111 then out=h.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Comment:   The assignment operations mentioned above are all 16-bit.</dt><dd><p>For example, “out=a” means “for i=0..15 out[i]=a[i]”.</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="multi-way-multi-bit-demultiplexor">
+<h3>Multi-Way/Multi-Bit Demultiplexor<a class="headerlink" href="#multi-way-multi-bit-demultiplexor" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>m-way n-bit demultiplexor channel single n-bit input into one of m possible n-bit outputs</p></li>
+<li><p>selection is specified by a set of k control bits, where k = log&lt;sub&gt;2&lt;/sub&gt;m</p></li>
+<li><p><strong>4-Way 1-Bit Demultiplexor API</strong></p>
+<blockquote>
+<div><p>Chip name: DMux4Way
+Inputs:    in, sel[2]
+Outputs:   a, b, c, d
+Funciton:  If sel=00 then      {a=in, b=c=d=0}</p>
+<blockquote>
+<div><p>else if sel=01 then {b=in, a=c=d=0}
+else if sel=10 then {c=in, a=b=d=0}
+else if sel=11 then {d=in, a=b=c=0}.</p>
+</div></blockquote>
+</div></blockquote>
+</li>
+<li><p><strong>8-Way 1-Bit Demultiplexor API</strong></p>
+<blockquote>
+<div><p>Chip name: DMux8Way
+Inputs:    in, sel[3]
+Outputs:   a, b, c, d, e, f, g, h
+Funciton:  If sel=000 then      {a=in, b=c=d=e=f=g=h=0}</p>
+<blockquote>
+<div><p>else if sel=001 then {b=in, a=c=d=e=f=g=h=0}
+else if sel=010 then {c=in, a=b=d=e=f=g=h=0}
+else if sel=011 then {d=in, a=b=c=e=f=g=h=0}
+else if sel=100 then {e=in, a=b=c=d=f=g=h=0}
+else if sel=101 then {f=in, a=b=c=d=e=g=h=0}
+else if sel=110 then {g=in, a=b=c=d=e=f=h=0}
+else if sel=111 then {h=in, a=b=c=d=e=f=g=0}</p>
+</div></blockquote>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="implementing-based-on-nand">
+<h3>Implementing based on NAND<a class="headerlink" href="#implementing-based-on-nand" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>primitive gates can be used to make other gates and chips without worrying about their</p></li>
+</ul>
+<p>internal design
+* each gate can be implemented in more than one way, the simpler the implementation, the
+better
+* use NAND as base of all hardware
+* ############################################ EDIT THIS #################################
+* NOT: think positive
+* AND: think negative
+* OR/XOR: use simple boolean manipulations
+* Multiplexor/Demultiplexor: use previously built
+* Multi-Bit NOT/AND/OR: construct arrays of n elementary gates, each gate operate
+separately on inputs
+* Multi-Bit Multiplexor: feed same selection bit to every one of n binary multiplexors
+* Multi-Way Gates: think forks
+* ############################################ EDIT THIS #################################</p>
+</div></blockquote>
+</section>
+<section id="half-adder">
+<h3>Half Adder<a class="headerlink" href="#half-adder" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>add two bits, sum: XOR, carry: AND</p></li>
+<li><p><strong>Half Adder Truth Table</strong></p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">a | b | sum | carry |</div>
+</div>
+<p><a href="#id19"><span class="problematic" id="id20">|---|</span></a>—<a href="#id21"><span class="problematic" id="id22">|-----|</span></a>——-|
+| 0 | 0 |  0  |   0   |
+| 0 | 1 |  1  |   0   |
+| 1 | 0 |  1  |   0   |
+| 1 | 1 |  0  |   1   |</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="full-adder">
+<h3>Full Adder<a class="headerlink" href="#full-adder" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>add three bits, generally can be built using two half adders</p></li>
+<li><p>when building an adder using full adders, use carry look ahead for optimization</p></li>
+<li><p><strong>Full Adder Truth Table</strong></p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">a | b | c | sum | carry |</div>
+</div>
+<p><a href="#id23"><span class="problematic" id="id24">|---|</span></a>—<a href="#id25"><span class="problematic" id="id26">|---|</span></a>—–<a href="#id27"><span class="problematic" id="id28">|-------|</span></a>
+| 0 | 0 | 0 |  0  |   0   |
+| 0 | 0 | 1 |  1  |   0   |
+| 0 | 1 | 0 |  1  |   0   |
+| 0 | 1 | 1 |  0  |   1   |
+| 1 | 0 | 0 |  1  |   0   |
+| 1 | 0 | 1 |  0  |   1   |
+| 1 | 1 | 0 |  0  |   1   |
+| 1 | 1 | 1 |  1  |   1   |</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="alu">
+<h3>ALU<a class="headerlink" href="#alu" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Arithmetic Logic Unit, computes a function on two inputs and outputs the result</p></li>
+<li><dl class="simple">
+<dt><strong>Trade-Offs</strong></dt><dd><ul>
+<li><p>has hardware/software trade-off when implementing ALU</p></li>
+<li><p>deciding which operations are allowed to perform</p></li>
+<li><p>as operations are abstracted from a programmer, to output the correct result is the
+only concern</p></li>
+<li><p>when an operation is designed in hardware, it is faster, but complex and costly</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Example ALU Control Bits</strong></dt><dd><ul>
+<li><p>control bits are sequential</p></li>
+<li><p>zx: if zx then x=0</p></li>
+<li><p>nx: if nx then x=!x</p></li>
+<li><p>zy: if zy then y=0</p></li>
+<li><p>ny: if ny then y=!y</p></li>
+<li><p>f : if f then out=x+y, else out=x&amp;y</p></li>
+<li><p>no: if no then out=!out</p></li>
+<li><p>zr: if out=0 then zr=1, else zr=0</p></li>
+<li><p>ng: if out&lt;0 then ng=1, else ng=0</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#computing-systems">back to top</a></p>
+</section>
+</section>
+<section id="nand2tetris-hdl">
+<h2>Nand2Tetris HDL<a class="headerlink" href="#nand2tetris-hdl" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#hdl">HDL</a>, <a class="reference internal" href="#hardware-simulation">Hardware Simulation</a>, <a class="reference internal" href="#testing">Testing</a>, <a class="reference internal" href="#multi-bit-buses">Multi-Bit Buses</a>, <a class="reference internal" href="#built-in-chips">Built-In Chips</a>, <a class="reference internal" href="#sequential-chips">Sequential Chips</a></p></li>
+<li><p><a class="reference internal" href="#visualizing-chips">Visualizing Chips</a>, <a class="reference internal" href="#xor-hdl">XOR HDL</a>, <a class="reference internal" href="#example-hdl-programs">Example HDL Programs</a></p></li>
+</ul>
+<section id="hdl">
+<h3>HDL<a class="headerlink" href="#hdl" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Hardware Description Language, famous ones are VHDL (Virtual HDL) and Verilog</p></li>
+<li><p>functional and declarative specification language</p></li>
+<li><p>can write HDL statements in any order, but conventional to describe from left to right</p></li>
+<li><p>as long as the parts are connected correctly, the chip will function as stated</p></li>
+<li><p>case sensitive, keywords are written in uppercase letters</p></li>
+<li><p>space, newline and comments are ignored</p></li>
+<li><p>used by hardware designers to plan and optimize chip architecture</p></li>
+<li><p>designer specifies the chip structure by writing HDL program, and test it, which is carried</p></li>
+</ul>
+<p>out using simulation
+* hardware simulator take the HDL program as input and build an image of the modeled chip
+* designer can test the virtual chip on various sets of inputs and outputs are compared to the
+desired results
+* other parameters such as speed of computation, energy consumption and overall cost is also
+measured
+* final optimized HDL program is used as a blueprint for mass production through chip
+fabrication companies
+* <strong>Naming Conventions</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>names may be any sequence of letters and digits, but cannot start with a digit</p></li>
+<li><p>can include uppercase letters, e.g FullAdder</p></li>
+<li><p>programs are stored in .hdl files</p></li>
+<li><p>chip name declared in HDL statement “CHIP Xxx” must be same as file name “Xxx.hdl”</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><dl class="simple">
+<dt><strong>Statment</strong></dt><dd><ul class="simple">
+<li><p>specify each part of its name and connection to other parts</p></li>
+<li><p>to write a statement, need to know a complete documentation of underlying parts’
+interfaces</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Pins</strong></dt><dd><ul class="simple">
+<li><p>by default single-bit, multi-bit bus pins can also be declared and used</p></li>
+<li><p>internal pins: create and connect to describe inter-part connections, can be created
+and named at will</p></li>
+<li><p>output pins: names cannot be controlled by programmer, supplied by chips’ architects
+and documented in given API</p></li>
+<li><p>pins have fan-in 1 and unlimited fan-out</p></li>
+</ul>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="w"> </span><span class="n">internal</span><span class="w"> </span><span class="n">pin</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="n">simultaneously</span><span class="w"> </span><span class="n">feeds</span><span class="w"> </span><span class="n">three</span><span class="w"> </span><span class="n">input</span>
+
+<span class="n">chipPart1</span><span class="p">(...,</span><span class="w"> </span><span class="k">out</span><span class="o">=</span><span class="n">v</span><span class="p">,...);</span>
+<span class="n">chipPart2</span><span class="p">(...,</span><span class="w"> </span><span class="k">in</span><span class="o">=</span><span class="n">v</span><span class="p">,...);</span>
+<span class="n">chipPart3</span><span class="p">(...,</span><span class="w"> </span><span class="n">in1</span><span class="o">=</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">int2</span><span class="o">=</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Program Structure</strong></dt><dd><ul class="simple">
+<li><p>interface: chip’s API documentation, chip name and names of input and output pins</p></li>
+<li><p>implementation: statements below PARTS keyword, describe names and topology of all
+lower-level parts from which the chip is constructed</p></li>
+</ul>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="w"> </span><span class="n">Comment</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nc">line</span>
+<span class="err">/*</span><span class="w"> </span><span class="nc">Comment</span><span class="w"> </span><span class="k">until</span><span class="w"> </span><span class="nc">closing</span><span class="w"> </span><span class="err">*/</span>
+<span class="err">/**</span><span class="w"> </span><span class="nc">API</span><span class="w"> </span><span class="nc">documentation</span><span class="w"> </span><span class="nc">comment</span><span class="w"> </span><span class="err">*/</span>
+
+<span class="nc">CHIP</span><span class="w"> </span><span class="nc">ChipName</span><span class="w"> </span><span class="err">{</span>
+<span class="w">    </span><span class="k">IN</span><span class="w"> </span><span class="nc">inputPin1</span><span class="err">,</span><span class="w"> </span><span class="nc">inputPin2</span><span class="err">,...</span><span class="p">;</span>
+<span class="w">    </span><span class="k">OUT</span><span class="w"> </span><span class="n">outputPin1</span><span class="p">,</span><span class="w"> </span><span class="n">outputPin2</span><span class="p">,...;</span>
+
+<span class="w">    </span><span class="n">PARTS</span><span class="o">:</span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">Implementation</span><span class="w"> </span><span class="n">statements</span>
+<span class="err">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="hardware-simulation">
+<h3>Hardware Simulation<a class="headerlink" href="#hardware-simulation" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>process of writing HDL programs is similar to software development</p></li>
+<li><p>instead of using a compiler, hardware simulator is used</p></li>
+<li><p>hardware simulator can parse, interpret HDL code, convert into executable representation</p></li>
+</ul>
+<p>and test it
+* hardware simulators differ in cost, complexity and ease of use</p>
+</div></blockquote>
+</section>
+<section id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>chips must be tested in specific, replicable, and well-documented fashion</p></li>
+<li><p>hardware simulators can run test scripts, written in some scripting language</p></li>
+<li><p>the script instruct the simulator to use certain inputs to compute outputs and record the</p></li>
+</ul>
+<p>test results in a file
+* for simple gates, it is easy to write test script to enumerate all possible input values</p>
+</div></blockquote>
+</section>
+<section id="multi-bit-buses">
+<h3>Multi-Bit Buses<a class="headerlink" href="#multi-bit-buses" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><dl class="simple">
+<dt><strong>I/O Bus Pins</strong></dt><dd><ul class="simple">
+<li><p>bit-widths are specified during declaration, x[n]</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Internal Bus Pins</strong></dt><dd><ul class="simple">
+<li><p>bit-widths are deduced implicitly from the bindings in declaration</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chipPart1(...,</span> <span class="pre">x[i]=u,</span> <span class="pre">...);</span></code> defines <code class="docutils literal notranslate"><span class="pre">u</span></code> as single-bit internal pin and has value
+x[i]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chipPart1(...,</span> <span class="pre">x[i..j]=v,</span> <span class="pre">...);</span></code> defines <code class="docutils literal notranslate"><span class="pre">v</span></code> as internal pin of width <code class="docutils literal notranslate"><span class="pre">j-i+1</span></code> bits
+and has values indexed <code class="docutils literal notranslate"><span class="pre">i</span></code> to <code class="docutils literal notranslate"><span class="pre">j</span></code> (inclusive) of bus-pin <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p>internal pins cannot be subscripted, e.g. u[i] is not allowed</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>True/False Buses</strong></dt><dd><ul class="simple">
+<li><p>constants true, 1, and false, 0, can be sued to define buses</p></li>
+<li><p>if <code class="docutils literal notranslate"><span class="pre">x</span></code> is 8-bit bus-pin, <code class="docutils literal notranslate"><span class="pre">chipPart(...,</span> <span class="pre">x[0..2]=true,</span> <span class="pre">...,</span> <span class="pre">x[6..7]=true,</span> <span class="pre">...);</span></code> sets
+<code class="docutils literal notranslate"><span class="pre">x</span></code> to the value 11000111</p></li>
+<li><p>unaffected bits are set to false, 0, by default</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Indexing Internal Bus Pins Workaround</strong></p>
+<blockquote>
+<div><div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">CHIP</span><span class="w"> </span><span class="n">Foo</span><span class="w"> </span><span class="err">{</span>
+<span class="w">    </span><span class="k">IN</span><span class="w"> </span><span class="k">in</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
+<span class="w">    </span><span class="k">OUT</span><span class="w"> </span><span class="k">out</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">PARTS</span><span class="o">:</span>
+<span class="w">    </span><span class="n">Not16</span><span class="w">  </span><span class="p">(</span><span class="k">in</span><span class="o">=</span><span class="k">in</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="p">[</span><span class="mi">4</span><span class="p">..</span><span class="mi">11</span><span class="p">]</span><span class="o">=</span><span class="n">notIn</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Or8Way</span><span class="w"> </span><span class="p">(</span><span class="k">in</span><span class="o">=</span><span class="n">notIn</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="o">=</span><span class="k">out</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Not16  (in=in, out=notIn);</span>
+<span class="cm">       Or8Way (in=notIn[4..11], out=out); will Error */</span>
+<span class="err">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Multiple Outputs</strong></p>
+<blockquote>
+<div><div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="w"> </span><span class="n">Splitting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="n">value</span>
+<span class="n">CHIP</span><span class="w"> </span><span class="n">Foo</span><span class="w"> </span><span class="err">{</span>
+<span class="w">    </span><span class="k">IN</span><span class="w"> </span><span class="k">in</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
+<span class="w">    </span><span class="k">OUT</span><span class="w"> </span><span class="k">out</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+
+<span class="w">    </span><span class="n">PARTS</span><span class="o">:</span>
+<span class="w">    </span><span class="n">Not16</span><span class="w">  </span><span class="p">(</span><span class="k">in</span><span class="o">=</span><span class="k">in</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="p">[</span><span class="mi">0</span><span class="p">..</span><span class="mi">7</span><span class="p">]</span><span class="o">=</span><span class="n">low8</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="p">[</span><span class="mi">8</span><span class="p">..</span><span class="mi">15</span><span class="p">]</span><span class="o">=</span><span class="n">high8</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Bar8Bit</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">low8</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">high8</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="o">=</span><span class="k">out</span><span class="p">);</span>
+<span class="err">}</span>
+
+<span class="o">//</span><span class="w"> </span><span class="n">Feeding</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">Parts</span>
+<span class="n">CHIP</span><span class="w"> </span><span class="n">Foo</span><span class="w"> </span><span class="err">{</span>
+<span class="w">    </span><span class="k">IN</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">    </span><span class="k">OUT</span><span class="w"> </span><span class="n">out1</span><span class="p">,</span><span class="w"> </span><span class="n">out2</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">PARTS</span><span class="o">:</span>
+<span class="w">    </span><span class="n">Bar</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="o">=</span><span class="n">out1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Baz</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="o">=</span><span class="n">out2</span><span class="p">);</span>
+<span class="err">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="built-in-chips">
+<h3>Built-In Chips<a class="headerlink" href="#built-in-chips" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>native implementation: written in HDL</p></li>
+<li><p>built-in implementation: supplied by executable module written in high-level programming</p></li>
+</ul>
+<p>language</p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">CHIP</span><span class="w"> </span><span class="n">And16</span><span class="w"> </span><span class="err">{</span>
+<span class="w">    </span><span class="n">BUILTIN</span><span class="w"> </span><span class="n">And16</span><span class="p">;</span>
+<span class="err">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Foundation</strong></dt><dd><ul>
+<li><p>built-in chips provide supplied implementations of given or primitive chips</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Efficiency</strong></dt><dd><ul>
+<li><p>when using complex chips, hardware simulator has to evaluate all lower-level chips
+recursively, and it can be slow and inefficient</p></li>
+<li><p>using built-in chip-parts instead of regular HDL-based chips can speed up the
+simulation</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Unit Testing</strong></dt><dd><ul>
+<li><p>when building a new chip, it is recommended to use built-in chip parts</p></li>
+<li><p>improves efficiency and minimizes errors</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Visualization</strong></dt><dd><ul>
+<li><p>built-in chips that features a GUI will be displayed whenever it is loaded into the
+simulator</p></li>
+<li><p>chips with GUI can be used just like any other chip</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Extension</strong></dt><dd><ul>
+<li><p>built-in chips can support to implement new I/O device or hardware platform</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="sequential-chips">
+<h3>Sequential Chips<a class="headerlink" href="#sequential-chips" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>combinational chips: time-independent, when value of input changes, output change</p></li>
+</ul>
+<p>instantaneously, all chips are combinational by default
+* sequential chips: time-dependent, also called clocked
+* when input is changed, output of chip may change only at the beginning of the next time
+unit, also called cycle
+* hardware simulator affects the progression of time unit using a simulated clock
+* <strong>Clock</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>simulator’s 2-phase clock emits infinite series of values denoted 0, 0+, 1, 1+, etc.</p></li>
+<li><p>progression of the series is controlled by simulator commands, tick and tock</p></li>
+<li><p>tick moves the value from t to t+, and tock from t+ to t+1</p></li>
+<li><p>simulated time can be fully controlled by the user or a test script</p></li>
+<li><p>in first phase, tick, inputs of each sequential chip affect the chip’s internal
+state</p></li>
+<li><p>in second phase, tock, chip outputs are set to new values</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><dl class="simple">
+<dt><strong>Controlling the clock</strong></dt><dd><ul class="simple">
+<li><p>when a sequential chip is loaded, GUI enables a clock-shaped button</p></li>
+<li><p>one click on the button, a tick, end the first phase of the clock cycle, and a
+subsequent click, a tock, ends the second phase</p></li>
+<li><p>scripting commands <code class="docutils literal notranslate"><span class="pre">repeat</span> <span class="pre">n</span> <span class="pre">{tick,</span> <span class="pre">tock,</span> <span class="pre">output;}</span></code> advance the clock <code class="docutils literal notranslate"><span class="pre">n</span></code> time units
+, and print some values</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Sequential Built-In Chips</strong></dt><dd><ul class="simple">
+<li><p>only built-in chip can depend on the clock explicitly, <code class="docutils literal notranslate"><span class="pre">CLOCKED</span> <span class="pre">pin,...,</span> <span class="pre">pin;</span></code></p></li>
+<li><p>each pin is one of the chip’s input or output pins</p></li>
+<li><p>if input pin x is in <code class="docutils literal notranslate"><span class="pre">CLOCKED</span></code> list, changes to it should affect outputs only at the
+beginning of the next time unit</p></li>
+<li><p>if output pin x is in <code class="docutils literal notranslate"><span class="pre">CLOCKET</span></code> list, changes to any inputs should affect only at the
+beginning of the next time unit</p></li>
+<li><p>when only some of I/O pins are declared as clocked, changes in the non-clocked input
+pins affect the non-clocked output pins instantaneously, e.g. address pins in RAM
+units, addressing logic is combinational, and independent of the clock</p></li>
+<li><p>if <code class="docutils literal notranslate"><span class="pre">CLOCKED</span></code> keyword is with empty list, the chip mah change its internal state
+depending on the clock, but I/O will be combinational and independent of the clock</p></li>
+</ul>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="cm">/** D-Flip-Flop gate(DFF):</span>
+<span class="cm">out[t] = in[t - 1] where t is current cycle, or time-unit. */</span>
+
+<span class="n">CHIP</span><span class="w"> </span><span class="n">DFF</span><span class="w"> </span><span class="err">{</span>
+<span class="w">    </span><span class="k">IN</span><span class="w"> </span><span class="k">in</span><span class="p">;</span>
+<span class="w">    </span><span class="k">OUT</span><span class="w"> </span><span class="k">out</span><span class="p">;</span>
+<span class="w">    </span><span class="n">BUILTIN</span><span class="w"> </span><span class="n">DFF</span><span class="p">;</span>
+<span class="w">    </span><span class="n">CLOCKED</span><span class="w"> </span><span class="k">in</span><span class="p">;</span>
+<span class="err">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Sequential Regular Chips</strong></dt><dd><ul class="simple">
+<li><p>if the chip is not built-in, it is clocked when one or more of its chip-parts is
+clocked</p></li>
+<li><p>clocked property is checked recursively</p></li>
+<li><p>if a built-in chip is explicitly clocked, every chip that depends on it is clocked</p></li>
+<li><p>if a chip is not built-in, there is no way to tell from its HDL code whether it is
+sequential or not</p></li>
+<li><p>chip architect should provide the necessary information in the chip API</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Feedback Loops</strong></dt><dd><ul class="simple">
+<li><p>feedback loop: input of a chip feeds from one of the outputs, directly or through
+path of dependencies</p></li>
+<li><p>data race: instantaneous and uncontrolled dependency between <code class="docutils literal notranslate"><span class="pre">in</span></code> and <code class="docutils literal notranslate"><span class="pre">out</span></code></p></li>
+<li><p>for each loop, simulator checks if the loop goes through a clocked pin</p></li>
+<li><p>if the loop does not go through a clocked pin, simulator stops processing and error
+to prevent uncontrolled data races</p></li>
+</ul>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="cm">/** Not is combinational, DFF is sequential.</span>
+<span class="cm">    loop1 creates data race.</span>
+<span class="cm">    in-out dependency by loop2 is delayed by the clock, since in input of DFF</span>
+<span class="cm">    is declared clocked. out(t) is a function of in(t-1). */</span>
+
+<span class="k">Not</span><span class="p">(</span><span class="n">int</span><span class="o">=</span><span class="n">loop1</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="o">=</span><span class="n">loop1</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="n">Invalid</span><span class="w"> </span><span class="n">feedback</span><span class="w"> </span><span class="k">loop</span>
+<span class="n">DFF</span><span class="p">(</span><span class="n">int</span><span class="o">=</span><span class="n">loop2</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="o">=</span><span class="n">loop2</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="n">Valid</span><span class="w"> </span><span class="n">feedback</span><span class="w"> </span><span class="k">loop</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="visualizing-chips">
+<h3>Visualizing Chips<a class="headerlink" href="#visualizing-chips" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>built-in chips with GUI can animate some operations, may include interactive elements</p></li>
+<li><p>user can inspect or change the chip’s current state</p></li>
+<li><p>ALU: display Hack ALU’s inputs, output and current computed function</p></li>
+<li><p>Registers: display ARegister, DRegister and PC content, user can modify</p></li>
+<li><p>RAM: display scrollable, array-like image showing contents of all memory locations, user</p></li>
+</ul>
+<p>can modify, GUI is updated if contents change
+* ROM: show array-like image of ROM32K, and icon to enable machine language program from
+external text file
+* Screen: show 256x512 window simulating physical screen, continuous refresh loop is
+embedded to show updated pixels
+* Keyboard: show keyboard icon to connect real keyboard, binary code for pressed key is
+shown in RAM_resident keyboard memory map, keyboard is restored if mouse focus is lost</p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">CHIP</span><span class="w"> </span><span class="n">GUIDemo</span><span class="w"> </span><span class="err">{</span>
+<span class="w">    </span><span class="k">IN</span><span class="w"> </span><span class="k">in</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span><span class="w"> </span><span class="n">load</span><span class="p">,</span><span class="w"> </span><span class="n">address</span><span class="p">[</span><span class="mi">15</span><span class="p">];</span>
+<span class="w">    </span><span class="k">OUT</span><span class="w"> </span><span class="k">out</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
+
+<span class="w">    </span><span class="n">PARTS</span><span class="o">:</span>
+<span class="w">    </span><span class="n">RAM16K</span><span class="w">  </span><span class="p">(</span><span class="k">in</span><span class="o">=</span><span class="k">in</span><span class="p">,</span><span class="w"> </span><span class="n">load</span><span class="o">=</span><span class="n">load</span><span class="p">,</span><span class="w"> </span><span class="n">address</span><span class="o">=</span><span class="n">address</span><span class="p">[</span><span class="mi">0</span><span class="p">..</span><span class="mi">13</span><span class="p">],</span><span class="w"> </span><span class="k">out</span><span class="o">=</span><span class="n">a</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Screen</span><span class="w">  </span><span class="p">(</span><span class="k">in</span><span class="o">=</span><span class="k">in</span><span class="p">,</span><span class="w"> </span><span class="n">load</span><span class="o">=</span><span class="n">load</span><span class="p">,</span><span class="w"> </span><span class="n">address</span><span class="o">=</span><span class="n">address</span><span class="p">[</span><span class="mi">0</span><span class="p">..</span><span class="mi">12</span><span class="p">],</span><span class="w"> </span><span class="k">out</span><span class="o">=</span><span class="n">b</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Keyboard</span><span class="p">(</span><span class="k">out</span><span class="o">=</span><span class="n">c</span><span class="p">);</span>
+<span class="err">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="xor-hdl">
+<h3>XOR HDL<a class="headerlink" href="#xor-hdl" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p><strong>HDL Program</strong></p>
+<blockquote>
+<div><div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="cm">/* XOR gate:</span>
+<span class="cm">   If a&lt;&gt;b out=1 else out=0. */</span>
+
+<span class="n">CHIP</span><span class="w"> </span><span class="k">Xor</span><span class="w"> </span><span class="err">{</span>
+<span class="w">    </span><span class="k">IN</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="k">OUT</span><span class="w"> </span><span class="k">out</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">PARTS</span><span class="o">:</span>
+<span class="w">    </span><span class="k">Not</span><span class="p">(</span><span class="k">in</span><span class="o">=</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="o">=</span><span class="n">nota</span><span class="p">);</span>
+<span class="w">    </span><span class="k">Not</span><span class="p">(</span><span class="k">in</span><span class="o">=</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="o">=</span><span class="n">notb</span><span class="p">);</span>
+<span class="w">    </span><span class="k">And</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">notb</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="o">=</span><span class="n">w1</span><span class="p">);</span>
+<span class="w">    </span><span class="k">And</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">nota</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="o">=</span><span class="n">w2</span><span class="p">);</span>
+<span class="w">    </span><span class="k">Or</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">w1</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">w2</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="o">=</span><span class="k">out</span><span class="p">);</span>
+<span class="err">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Test Script</strong></p>
+<blockquote>
+<div><div class="highlight-tst notranslate"><div class="highlight"><pre><span></span>load Xor.hdl
+output-list a, b, out;
+set a 0, set b 0,
+eval, output;
+set a 0, set b 1,
+eval, output;
+set a 1, set b 0,
+eval, output;
+set a 1, set b 1,
+eval, output;
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="example-hdl-programs">
+<h3>Example HDL Programs<a class="headerlink" href="#example-hdl-programs" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p><strong>3-way Equality</strong></p>
+<blockquote>
+<div><div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="cm">/** check three 1-bit variables</span>
+<span class="cm">    if all three are equal, output is 1, otherwise 0 */</span>
+
+<span class="n">CHIP</span><span class="w"> </span><span class="n">Eq3</span><span class="w"> </span><span class="err">{</span>
+<span class="w">    </span><span class="k">IN</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">    </span><span class="k">OUT</span><span class="w"> </span><span class="k">out</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">PARTS</span><span class="o">:</span>
+<span class="w">    </span><span class="k">Xor</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="o">=</span><span class="n">neq1</span><span class="p">);</span>
+<span class="w">    </span><span class="k">Xor</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="o">=</span><span class="n">neq2</span><span class="p">);</span>
+<span class="w">    </span><span class="k">Or</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">neq1</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">neq2</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="o">=</span><span class="n">outOr</span><span class="p">);</span>
+<span class="w">    </span><span class="k">Not</span><span class="p">(</span><span class="k">in</span><span class="o">=</span><span class="n">outOr</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="o">=</span><span class="k">out</span><span class="p">);</span>
+<span class="err">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#computing-systems">back to top</a></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ComputerGraphics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Computer Graphics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="CyberSecurity.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Cyber Security</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compilation">Compilation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware">Hardware</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abstraction">Abstraction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-logic">Boolean Logic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-algebra">Boolean Algebra</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-identities">Boolean Identities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-addition">Binary Addition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-numbers">Negative Numbers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logic-gates">Logic Gates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composite-gates">Composite Gates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nand">NAND</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not">NOT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#and">AND</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#or">OR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xor">XOR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplexor">Multiplexor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demultiplexor">Demultiplexor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-bit-not">Multi-Bit NOT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-bit-and">Multi-Bit AND</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-bit-or">Multi-Bit OR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-bit-multiplexor">Multi-Bit Multiplexor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-way-or">Multi-Way OR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-way-multi-bit-multiplexor">Multi-Way/Multi-Bit Multiplexor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-way-multi-bit-demultiplexor">Multi-Way/Multi-Bit Demultiplexor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-based-on-nand">Implementing based on NAND</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#half-adder">Half Adder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#full-adder">Full Adder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alu">ALU</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nand2tetris-hdl">Nand2Tetris HDL</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hdl">HDL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-simulation">Hardware Simulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-bit-buses">Multi-Bit Buses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-chips">Built-In Chips</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-chips">Sequential Chips</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-chips">Visualizing Chips</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xor-hdl">XOR HDL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-hdl-programs">Example HDL Programs</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

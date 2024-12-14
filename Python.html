@@ -1,0 +1,2049 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Python &#8212; Notes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Python';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="React" href="React.html" />
+    <link rel="prev" title="Prometheus" href="Prometheus.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AWS.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BackendEngineering.html">Backend Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSharp.html">C# #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CTF.html">CTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CompTIA.html">CompTIA Cert Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compilers.html">Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerGraphics.html">Computer Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputingSystems.html">Computing Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">ECS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FFmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Helm.html">Helm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Istio.html">Istio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JDBC.html">JDBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MongoDB.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkProgramming.html">Network Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NodeJS.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenAPI.html">OpenAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OperatingSystem.html">Operating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="POSIXThreads.html">POSIX Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PenetrationTesting.html">Penetration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramDesign.html">Program Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectManagement.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prometheus.html">Prometheus</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SFML.html">SFML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StrategicPlanning.html">Strategic Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terraform.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TypeScript.html">TypeScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI/UX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrant.html">Vagrant</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Python.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argparse">Argparse</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positional-arguments">Positional Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-arguments">Optional Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mutually-exclusive-group">Mutually Exclusive Group</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subprocess">Subprocess</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checkoutput">checkoutput</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shell">shell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pipe">PIPE</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiprocessing">Multiprocessing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process">Process</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-synchronization">Process Synchronization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#communication">Communication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sharing-state">Sharing State</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#worker-pool">Worker Pool</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#socket">Socket</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#server">Server</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#client">Client</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">NumPy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-data-types">NumPy Data Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorization">Vectorization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">Broadcasting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ndarray">ndarray</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strides">Strides</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-arrays">NumPy Arrays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-random">NumPy Random</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-ufunc">NumPy UFunc</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-source-code">NumPy Source Code</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch">PyTorch</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensors">Tensors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-basic-functions">PyTorch Basic Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-dataset">PyTorch Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nn-module">nn Module</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-dot-product">Matrix Dot Product</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tkinter">Tkinter</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frame">Frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widgets">Widgets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#event-loop">Event Loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-tkinter-code">Example Tkinter Code</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="python">
+<h1>Python<a class="headerlink" href="#python" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#argparse">Argparse</a></p></li>
+<li><p><a class="reference internal" href="#subprocess">Subprocess</a></p></li>
+<li><p><a class="reference internal" href="#multiprocessing">Multiprocessing</a></p></li>
+<li><p><a class="reference internal" href="#socket">Socket</a></p></li>
+<li><p><a class="reference internal" href="#numpy">NumPy</a></p></li>
+<li><p><a class="reference internal" href="#pytorch">PyTorch</a></p></li>
+<li><p><a class="reference internal" href="#tkinter">Tkinter</a></p></li>
+</ol>
+<p><a class="reference external" href="#python">back to top</a></p>
+<section id="argparse">
+<h2>Argparse<a class="headerlink" href="#argparse" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#positional-arguments">Positional Arguments</a>, <a class="reference internal" href="#optional-arguments">Optional Arguments</a>, <a class="reference internal" href="#mutually-exclusive-group">Mutually Exclusive Group</a></p></li>
+<li><p>recommended command-line parsing module</p></li>
+<li><p>has <code class="docutils literal notranslate"><span class="pre">--help</span></code> or <code class="docutils literal notranslate"><span class="pre">-h</span></code> option by default</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="c1"># OR</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Explains what the program does&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>options given are strings by default</p></li>
+<li><p>specify command-line options with <code class="docutils literal notranslate"><span class="pre">add_argument()</span></code></p></li>
+<li><p>can specify description about what each argument does and it’s data type</p></li>
+<li><p>can just use <code class="docutils literal notranslate"><span class="pre">argparse.ArgumentParser()</span></code> instance for most options</p></li>
+</ul>
+<section id="positional-arguments">
+<h3>Positional Arguments<a class="headerlink" href="#positional-arguments" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>required when calling the program</p></li>
+<li><p>not providing the argument will error</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+
+<span class="c1"># calling program requires to specify option</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;explains what foo does&quot;</span><span class="p">)</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span> <span class="c1"># parse_args() returns data from specified options</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">foo</span><span class="p">)</span> <span class="c1"># value of foo is string</span>
+
+<span class="c1"># python main.py bar (foo&#39;s value is bar)</span>
+
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">foo</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># can do integer operations</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="optional-arguments">
+<h3>Optional Arguments<a class="headerlink" href="#optional-arguments" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>optional when calling the program</p></li>
+<li><p>optional arguments have value <code class="docutils literal notranslate"><span class="pre">None</span></code> by default</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+
+<span class="c1"># argument is optional</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--foo&quot;</span><span class="p">)</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">foo</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">foo</span><span class="p">)</span>
+
+<span class="c1"># python main.py (no error)</span>
+<span class="c1"># python main.py --foo (not providing value will error)</span>
+
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-f&quot;</span><span class="p">,</span> <span class="s2">&quot;--foo&quot;</span><span class="p">)</span> <span class="c1"># can also specify short options for argument</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>with <code class="docutils literal notranslate"><span class="pre">action=&quot;store_true&quot;</span></code>, argument is treated as boolean and no need to specify value</p></li>
+</ul>
+<p>if used</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--foo&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">)</span> <span class="c1"># args.foo is False by default</span>
+<span class="c1"># python main.py --foo (args.foo is True)</span>
+<span class="c1"># python main.py --foo bar (error if value specified)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ul>
+<li><p>can limit the values optional argument can accept</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--foo&quot;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;baz&quot;</span><span class="p">])</span> <span class="c1"># providing other values will error</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">action=&quot;count&quot;</span></code> will count the number times the argument is provided</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-f&quot;</span><span class="p">,</span> <span class="s2">&quot;--foo&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">foo</span><span class="p">)</span>
+
+<span class="c1"># python main.py -fff (prints 3)</span>
+<span class="c1"># python main.py --foo --foo (prints 2)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>can specify default value with <code class="docutils literal notranslate"><span class="pre">default=VALUE</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--foo&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span> <span class="c1"># foo&#39;s default value is bar</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">foo</span><span class="p">)</span>
+
+<span class="c1"># python main.py (prints bar)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="mutually-exclusive-group">
+<h3>Mutually Exclusive Group<a class="headerlink" href="#mutually-exclusive-group" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">parser.add_mutually_exclusive_group()</span></code> allow to specify conflicting options</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argpars</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">group</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_mutually_exclusive_group</span><span class="p">()</span>
+<span class="n">group</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--foo&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">)</span>
+<span class="n">group</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--bar&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">)</span>
+
+<span class="c1"># python main.py --foo (ok)</span>
+<span class="c1"># python main.py --bar (ok)</span>
+<span class="c1"># python main.py --foo --bar (error)</span>
+<span class="c1"># python main.py --bar --foo (error)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><a class="reference external" href="#python">back to top</a></p>
+</section>
+</section>
+<section id="subprocess">
+<h2>Subprocess<a class="headerlink" href="#subprocess" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#checkoutput">checkoutput</a>, <a class="reference internal" href="#shell">shell</a>, <a class="reference internal" href="#pipe">PIPE</a></p></li>
+<li><p>not available in WebAssemply platforms</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">run()</span></code> is recommended for most cases</p></li>
+<li><p>can use <code class="docutils literal notranslate"><span class="pre">Popen()</span></code> interface for advance cases</p></li>
+<li><p>returns a <code class="docutils literal notranslate"><span class="pre">CompletedProcess</span></code> instance when command completes</p></li>
+<li><p>can specify input, capture stdin and stderr, set timeouts, etc.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">])</span> <span class="c1"># output not captured</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># set both stdout=PIPE, stderr=PIPE</span>
+
+<span class="c1"># cannot set stdout and stderr with capture_output at same time</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">STDOUT</span><span class="p">)</span> <span class="c1"># combine both streams</span>
+
+<span class="c1"># input must be byte sequence or string if encoding provided or text is True</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;sudo&quot;</span><span class="p">,</span> <span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">],</span> <span class="nb">input</span><span class="o">=</span><span class="s2">&quot;PASSWORD&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># save output to variable</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="checkoutput">
+<h3>checkoutput<a class="headerlink" href="#checkoutput" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>command returns output in bytes, decoding is required</p></li>
+<li><p>raises <code class="docutils literal notranslate"><span class="pre">CalledProcessError</span></code> for non-zero return code</p></li>
+<li><p>command is same as <code class="docutils literal notranslate"><span class="pre">run(...,</span> <span class="pre">check=True,</span> <span class="pre">stdout=PIPE).stdout</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">input=None</span></code> will be same as <code class="docutils literal notranslate"><span class="pre">input=b''</span></code></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span> <span class="c1"># in bytes</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span> <span class="c1"># in string</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="shell">
+<h3>shell<a class="headerlink" href="#shell" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>when <code class="docutils literal notranslate"><span class="pre">shell=True</span></code>, command is executed through the shell</p></li>
+<li><p>can access other shell features such as shell pipes, filename wildcard, environment</p></li>
+</ul>
+<p>variable expansions, etc.
+* <strong>For security</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>must ensure whitespace and metacharacters are quoted properly</p></li>
+<li><p>can be vulnerable to shell injection</p></li>
+</ul>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">subprocess</span><span class="o">.</span><span class="n">checkoutput</span><span class="p">(</span><span class="s2">&quot;dmesg | grep hda&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># can use shell pipe feature</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="pipe">
+<h3>PIPE<a class="headerlink" href="#pipe" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>instead of using <code class="docutils literal notranslate"><span class="pre">shell=True</span></code> to use shell pipe feature, use <code class="docutils literal notranslate"><span class="pre">stdout</span></code> and <code class="docutils literal notranslate"><span class="pre">stdin</span></code> to pass</p></li>
+</ul>
+<p>output between commands</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">([</span><span class="s2">&quot;dmesg&quot;</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">([</span><span class="s2">&quot;grep&quot;</span><span class="p">,</span> <span class="s2">&quot;hda&quot;</span><span class="p">],</span> <span class="n">stdin</span><span class="o">=</span><span class="n">p1</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">)</span> <span class="c1"># use p1&#39;s stdout as input</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">p2</span><span class="o">.</span><span class="n">communicate</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># output in bytes</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><a class="reference external" href="#python">back to top</a></p>
+</section>
+</section>
+<section id="multiprocessing">
+<h2>Multiprocessing<a class="headerlink" href="#multiprocessing" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#process">Process</a>, <a class="reference internal" href="#process-synchronization">Process Synchronization</a>, <a class="reference internal" href="#communication">Communication</a>, <a class="reference internal" href="#sharing-state">Sharing State</a>, <a class="reference internal" href="#worker-pool">Worker Pool</a></p></li>
+<li><p>not available in WebAssemply platforms</p></li>
+<li><p>supports local and remote concurrency by using subprocesses instead of threads</p></li>
+<li><p>the package mostly replicates API of <code class="docutils literal notranslate"><span class="pre">threading</span></code> module</p></li>
+</ul>
+<section id="process">
+<h3>Process<a class="headerlink" href="#process" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>object created to spawn a process, multiple <code class="docutils literal notranslate"><span class="pre">Process</span></code> objects for multiple processes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start()</span></code> is called after creating the object</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">p1</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,))</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,))</span>
+
+    <span class="n">p1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">p2</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="n">p1</span><span class="o">.</span><span class="n">join</span><span class="p">()</span> <span class="c1"># wait for p1 to finish</span>
+    <span class="n">p2</span><span class="o">.</span><span class="n">join</span><span class="p">()</span> <span class="c1"># wait for p2 to finish</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>three ways to start a process depending on the platform: spawn, fort, forkserver</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">spawn</span></code></dt><dd><ul>
+<li><p>parent process starts fresh Python interpreter process</p></li>
+<li><p>child only inherit necessary resources to run object’s <code class="docutils literal notranslate"><span class="pre">run()</span></code></p></li>
+<li><p>this method is slower than others</p></li>
+<li><p>available on POSIX and Windows</p></li>
+<li><p>default on Windows and macOS</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">fork</span></code></dt><dd><ul>
+<li><p>parent uses <code class="docutils literal notranslate"><span class="pre">os.fork()</span></code> to fork Python interpreter</p></li>
+<li><p>child process is identical to parent, all resources inherited</p></li>
+<li><p>safely forking a multithreaded process is problematic</p></li>
+<li><p>available on POSIX</p></li>
+<li><p>default on POSIX except macOS</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">forkserver</span></code></dt><dd><ul>
+<li><p>spawn server process, single threaded unless side-effects spawn threads</p></li>
+<li><p>parent process request the server to fork a new process if needed</p></li>
+<li><p>no unnecessary resources are inherited</p></li>
+<li><p>available on POSX that support passing file descriptors over Unix pipes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">multiprocessing</span> <span class="k">as</span> <span class="nn">mp</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">mp</span><span class="o">.</span><span class="n">set_start_method</span><span class="p">(</span><span class="s1">&#39;spawn&#39;</span><span class="p">)</span> <span class="c1"># should not be used more than once</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="process-synchronization">
+<h3>Process Synchronization<a class="headerlink" href="#process-synchronization" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can use lock to ensure only one process access resource at a time</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span><span class="p">,</span> <span class="n">Lock</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">lock</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+    <span class="n">lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">lock</span> <span class="o">=</span> <span class="n">Lock</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">lock</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="communication">
+<h3>Communication<a class="headerlink" href="#communication" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><dl>
+<dt><strong>Queue</strong></dt><dd><ul class="simple">
+<li><p>near clone of <code class="docutils literal notranslate"><span class="pre">queue.Queue</span></code></p></li>
+<li><p>thread and process safe</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span><span class="p">,</span> <span class="n">Queue</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">q</span><span class="p">):</span>
+    <span class="n">q</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">=</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">q</span><span class="p">,))</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">get</span><span class="p">())</span> <span class="c1"># print &quot;hello&quot;</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Pipe</strong></dt><dd><ul class="simple">
+<li><p>returns a pair of connection objects connected by duplex pipe</p></li>
+<li><p>two connection objects returned represent two ends of the pipe</p></li>
+<li><p>each connection object has <code class="docutils literal notranslate"><span class="pre">send()</span></code>, <code class="docutils literal notranslate"><span class="pre">recv()</span></code> and other methods</p></li>
+<li><p>data in pipe can be corrupted if two processes try to read or write to same pipe end
+at same time</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span><span class="p">,</span> <span class="n">Pipe</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">conn</span><span class="p">):</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">=</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">parent_conn</span><span class="p">,</span> <span class="n">child_conn</span> <span class="o">=</span> <span class="n">Pipe</span><span class="p">()</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">child_conn</span><span class="p">,))</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">parent_conn</span><span class="o">.</span><span class="n">recv</span><span class="p">())</span> <span class="c1"># print &quot;hello&quot;</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="sharing-state">
+<h3>Sharing State<a class="headerlink" href="#sharing-state" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>avoid shared state in concurrent programming if possible</p></li>
+<li><dl>
+<dt><strong>Share Memory</strong></dt><dd><ul class="simple">
+<li><p>can store data in a shared memory map using <code class="docutils literal notranslate"><span class="pre">Value</span></code> or <code class="docutils literal notranslate"><span class="pre">Array</span></code></p></li>
+<li><p>shared objects are process and thread-safe</p></li>
+<li><p>can also use <code class="docutils literal notranslate"><span class="pre">multiprocessing.sharedctypes</span></code> module</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span><span class="p">,</span> <span class="n">Value</span><span class="p">,</span> <span class="n">Array</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+    <span class="n">n</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mf">2.0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)):</span>
+        <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># &#39;d&#39; and &#39;i&#39; are typecodes</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">Value</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="c1"># float</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span> <span class="c1"># integer</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">arr</span><span class="p">))</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">[:])</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Manager Object</strong></dt><dd><ul class="simple">
+<li><p>returned by <code class="docutils literal notranslate"><span class="pre">Manager()</span></code> and controls a server process</p></li>
+<li><p>holds Python objects and allows other processes to manipulate them using proxies</p></li>
+<li><p>support types list, dict, Namespace, Lock, RLock, Semaphore, BoundedSemaphore,
+Condition, Event, Barrier, Queue, Value and Array</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span><span class="p">,</span> <span class="n">Manager</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+    <span class="n">d</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span>
+    <span class="n">d</span><span class="p">[</span><span class="s1">&#39;2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">l</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Manager</span><span class="p">()</span> <span class="k">as</span> <span class="n">manager</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+
+        <span class="n">p</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">l</span><span class="p">))</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="worker-pool">
+<h3>Worker Pool<a class="headerlink" href="#worker-pool" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Pool</span></code>, object to parallelize execution of function across multiple input values</p></li>
+<li><p>distribute the input data across processes, data parallelism</p></li>
+<li><p>has methods to offload tasks to the worker processes in different ways</p></li>
+<li><p>methods of pool should only be used by the process which created it</p></li>
+<li><p>require <code class="docutils literal notranslate"><span class="pre">__main__</span></code> module be importable by the children and some will not work in</p></li>
+</ul>
+<p>interactive interpreter</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="k">as</span> <span class="n">p</span><span class="p">:</span>  <span class="c1"># 5 worker processes</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>  <span class="c1"># [1, 4, 9]</span>
+
+        <span class="c1"># print in arbitary order</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">imap_unordered</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+        <span class="c1"># f(3) in async</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,))</span>  <span class="c1"># runs in only one process</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># 9</span>
+
+        <span class="n">res</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">,</span> <span class="p">())</span>  <span class="c1"># runs in only one process</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># PID of the process</span>
+
+        <span class="c1"># multiple aysnc may use more processes</span>
+        <span class="n">multiple</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">,</span> <span class="p">())</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span>
+        <span class="nb">print</span><span class="p">([</span><span class="n">res</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">multiple</span><span class="p">])</span>
+
+        <span class="n">res</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,))</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># will get TimeoutError</span>
+        <span class="k">except</span> <span class="ne">TimeoutError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;multiprocessing.TimeoutError&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pool is closed now&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><a class="reference external" href="#python">back to top</a></p>
+</section>
+</section>
+<section id="socket">
+<h2>Socket<a class="headerlink" href="#socket" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#server">Server</a>, <a class="reference internal" href="#client">Client</a></p></li>
+<li><p>provide access to BSD socket interface, which is available on most platforms</p></li>
+<li><p>not available in WebAssemply platforms</p></li>
+</ul>
+<section id="server">
+<h3>Server<a class="headerlink" href="#server" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>usual workflow is socket-&gt;bind-&gt;listen-&gt;accept</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">socket.accept()</span></code>: return a pair (client_socket, client_address), client_socket can be</p></li>
+</ul>
+<p>used to send and receive data, client_address is the address bound to the socket on the
+other end</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">socket</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">BACKLOG</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">HOST</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span>
+    <span class="n">PORT</span> <span class="o">=</span> <span class="mi">8080</span>
+    <span class="c1"># address family: a pair of (host, port) for AF_INET</span>
+    <span class="n">addr</span> <span class="o">=</span> <span class="p">(</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">)</span>
+
+    <span class="n">server_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+
+    <span class="c1"># set socket to be reusable</span>
+    <span class="n">server_socket</span><span class="o">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SOL_SOCKET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SO_REUSEADDR</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">server_socket</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
+
+    <span class="n">server_socket</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">BACKLOG</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Server listening on port </span><span class="si">{</span><span class="n">PORT</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">client_socket</span><span class="p">,</span> <span class="n">client_addr</span><span class="p">)</span> <span class="o">=</span> <span class="n">server_socket</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Got connection from </span><span class="si">{</span><span class="n">client_addr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">buf</span> <span class="o">=</span> <span class="n">client_socket</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Client </span><span class="si">{</span><span class="n">client_socket</span><span class="o">.</span><span class="n">fileno</span><span class="p">()</span><span class="si">}</span><span class="s2"> send: </span><span class="si">{</span><span class="n">buf</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="client">
+<h3>Client<a class="headerlink" href="#client" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>usual workflow is socket-&gt;connect-&gt;send</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">socket</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">HOST</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span>
+    <span class="n">PORT</span> <span class="o">=</span> <span class="mi">8080</span>
+    <span class="c1"># address family: a pair of (host, port) for AF_INET</span>
+    <span class="n">addr</span> <span class="o">=</span> <span class="p">(</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">)</span>
+
+    <span class="n">client_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+
+    <span class="n">client_socket</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connected to </span><span class="si">{</span><span class="n">HOST</span><span class="si">}</span><span class="s2"> on port </span><span class="si">{</span><span class="n">PORT</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">client_socket</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><a class="reference external" href="#python">back to top</a></p>
+</section>
+</section>
+<section id="numpy">
+<h2>NumPy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#numpy-data-types">NumPy Data Types</a>, <a class="reference internal" href="#vectorization">Vectorization</a>, <a class="reference internal" href="#broadcasting">Broadcasting</a>, <a class="reference internal" href="#ndarray">ndarray</a>, <a class="reference internal" href="#strides">Strides</a></p></li>
+<li><p><a class="reference internal" href="#numpy-arrays">NumPy Arrays</a>, <a class="reference internal" href="#numpy-random">NumPy Random</a>, <a class="reference internal" href="#numpy-ufunc">NumPy UFunc</a>, <a class="reference internal" href="#numpy-source-code">NumPy Source Code</a></p></li>
+<li><p>fundamental package for scientific computing</p></li>
+<li><p>provides multidimensional array object and routines for fast operations on arrays</p></li>
+<li><p>supports object-oriented approach</p></li>
+</ul>
+<section id="numpy-data-types">
+<h3>NumPy Data Types<a class="headerlink" href="#numpy-data-types" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><dl>
+<dt><strong>Scalar Types</strong></dt><dd><ul class="simple">
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">np.float64</span></code>, <code class="docutils literal notranslate"><span class="pre">np.int32</span></code></p></li>
+<li><p>used to build data types, which are attached to NumPy arrays</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">newbyteorder</span><span class="p">(</span><span class="s1">&#39;&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p>all NumPy arrays have the same type of ndarray</p></li>
+<li><dl class="simple">
+<dt><strong>Array Scalars</strong></dt><dd><ul class="simple">
+<li><p>array scalar is a bridge between scalar numbers and NumPy arrays</p></li>
+<li><p>each array scalar has its own type and an attached <code class="docutils literal notranslate"><span class="pre">dtype</span></code>, e.g. x[0]</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="vectorization">
+<h3>Vectorization<a class="headerlink" href="#vectorization" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>absence of any explicit looping in the code, but operates in optimized, pre-compiled C</p></li>
+</ul>
+<p>code
+* vectorized code is more concise and easier to read, more Pythonic code
+* fewer lines and fewer bugs, closer to standard mathematical notation</p>
+</div></blockquote>
+</section>
+<section id="broadcasting">
+<h3>Broadcasting<a class="headerlink" href="#broadcasting" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>implicit element-by-element behaviour of operations</p></li>
+<li><p>allows to combine arrays of different shapes sensibly</p></li>
+<li><p>in NumPy, all operations broadcast</p></li>
+<li><dl>
+<dt>when combining two arrays of different shapes, shapes are matched from right to left</dt><dd><ul class="simple">
+<li><p>match when dimensions are equal, and one dimension is either None or 1</p></li>
+<li><p>(5, 10) + (3, 5, 10) = (3, 5, 10)</p></li>
+<li><p>(5, 10) + (6, 10) = cannot combine</p></li>
+<li><p>(5, 10, 1) + (10, 5) = (5, 10, 5)</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">8</span><span class="p">,))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span>    <span class="c1"># error, cannot broadcast</span>
+
+<span class="c1"># change x to match y</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="c1"># take all dimensions and add new axis at the end, same as above</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="c1"># same as above</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span>    <span class="c1"># (3, 5, 1) * (8) = (3, 5, 8)</span>
+
+<span class="c1"># or change y to match x</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span>    <span class="c1"># (3, 5) * (8, 1, 1) = (8, 3, 5)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p>best to avoid <code class="docutils literal notranslate"><span class="pre">:</span></code> and <code class="docutils literal notranslate"><span class="pre">...</span></code> in broadcasting, as output shape is sometimes hard to predict</p></li>
+<li><dl>
+<dt>can also use broadcasting inside of indexing</dt><dd><ul class="simple">
+<li><p>takes the indexing arrays and broadcast them against one another</p></li>
+<li><p>the result matrix contains coordinates that are used to index the NumPy array</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="n">ix0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ix1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_arrays</span><span class="p">(</span><span class="n">ix0</span><span class="p">,</span> <span class="n">ix1</span><span class="p">)</span> <span class="c1"># (1, 4) + (2, 1) = (2, 4), used to index x</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">ix0</span><span class="p">,</span> <span class="n">ix1</span><span class="p">]</span> <span class="c1"># x becomes (2, 4)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="ndarray">
+<h3>ndarray<a class="headerlink" href="#ndarray" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>n-dimensional arrays of homogeneous data types</p></li>
+<li><p>fixed size at creation, changing the size will create a new array and delete the original</p></li>
+<li><p>exception: can have arrays of objects, thus allowing different sized elements</p></li>
+<li><p>efficient mathematical operations, in compiled code, on large numbers of data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy.array</span></code> is not same as Standard Python Library class <code class="docutils literal notranslate"><span class="pre">array.array</span></code></p></li>
+<li><p>element-by-element operations are default mode</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a, b, c are Python lists</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)):</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>   <span class="c1"># inefficient when large</span>
+
+<span class="c1"># a, b, c are ndarray</span>
+<span class="c1"># vectorization and broadcasting</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>   <span class="c1"># same as above, but at near-C speed</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>dimensions are called axes</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># one axis and length of 3</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># 2 axes, first axis has length 2 and second axis has length 3</span>
+<span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+ <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ndarray.ndim</span></code>: number of axes/dimensions of the array</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ndarray.shape</span></code>: tuple of integers with size of the array in each dimension, e.g. shape</p></li>
+</ul>
+<p>n x m matrix is (n, m), length of the <cite>shape</cite> tuple is the number of axes, <cite>ndim</cite>
+* <code class="docutils literal notranslate"><span class="pre">ndarray.size</span></code>: total number of elements, equal to the product of the elements of <code class="docutils literal notranslate"><span class="pre">shape</span></code>
+* <code class="docutils literal notranslate"><span class="pre">ndarray.dtype</span></code>: object describing type of elements, can specify <code class="docutils literal notranslate"><span class="pre">dtype</span></code> using Python types
+or NumPy types, e.g. <cite>numpy.int32</cite>, <cite>numpy.int16</cite>, <cite>numpy.float64</cite>
+* <code class="docutils literal notranslate"><span class="pre">ndarray.itemsize</span></code>: size in bytes of each element, equal to <code class="docutils literal notranslate"><span class="pre">ndarray.dtype.itemsize</span></code>,
+e.g. <cite>float64</cite> has <cite>itemsize</cite> of 8 bytes
+* <code class="docutils literal notranslate"><span class="pre">ndarray.data</span></code>: buffer containing the actual elements, do not need to use normally</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">itemsize</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="strides">
+<h3>Strides<a class="headerlink" href="#strides" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>data pointer: shows where in memory the data is stored</p></li>
+<li><p>stride tells how many bytes to skip in memory to move forward in any single dimension of</p></li>
+</ul>
+<p>the array
+* e.g. strid(6, 2): need to skip 6 bytes to get to next row, and 2 bytes to the next column
+* strides allow NumPy to do operations without copying data
+* by only flipping the strides, the array can be transposed</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># dtype:uint8, stride(3, 1)</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+       <span class="p">]</span>
+
+<span class="c1"># changing stride to (1, 3)</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+       <span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="numpy-arrays">
+<h3>NumPy Arrays<a class="headerlink" href="#numpy-arrays" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><dl class="simple">
+<dt>NumPy arrays are printed in similar way to nested lists</dt><dd><ul class="simple">
+<li><p>the last axis is printed from left to right</p></li>
+<li><p>the second-to-last is printed from top to bottom</p></li>
+<li><p>the rest are printed from top to bottom, with each slice separated from the next by
+an empty line</p></li>
+<li><p>one-dimensional arrays are printed as rows, bi-dimensional as matrix and
+tri-dimensional as lists of matrices</p></li>
+<li><p>if array is too large, central part is skipped, and only corners are printed</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">np.set_printoptions(threshold=sys.maxsize)</span></code> to print the entire array</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>numpy.array</strong></dt><dd><ul class="simple">
+<li><p>function to create array form python list or tuple</p></li>
+<li><p>can transform sequences of sequences into 2-dimensional arrays, and so on</p></li>
+<li><p>can specify type of array at creation time</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p>has several functions to create arrays with initial placeholder content to minimize the</p></li>
+</ul>
+<p>necessity of growing arrays, <cite>dtype</cite> is <cite>float64</cite> by default
+* <strong>numpy.zeros</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>creates an array full of zeros</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy.zeros_like</span></code>: return an array of zeros with same shape and type as given array</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>    <span class="c1"># dtype float64</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>    <span class="c1"># b has shape of (2, 3)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ul>
+<li><dl>
+<dt><strong>numpy.ones</strong></dt><dd><ul class="simple">
+<li><p>creates an array full of ones</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy.ones_like</span></code>: return an array of ones with same shape and type as given array</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>    <span class="c1"># dtype float64</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>    <span class="c1"># b has shape of (2, 3)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>numpy.empty</strong></dt><dd><ul class="simple">
+<li><p>creates an array with random initial content</p></li>
+<li><p>depends on the state of memory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy.empty_like</span></code>: return an array with same shape and type as given array</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>    <span class="c1"># b has shape of (2, 3)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>numpy.arange</strong></dt><dd><ul class="simple">
+<li><p>analogous to Python <code class="docutils literal notranslate"><span class="pre">range</span></code>, but returns an array</p></li>
+<li><p>accepts float arguments, but number of elements obtained is unpredictable due to the
+finite floating point precision</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="c1"># [10, 15, 20, 25]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)</span> <span class="c1"># [0., 0.6, 1.2, 1.8]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>numpy.linspace</strong></dt><dd><ul class="simple">
+<li><p>return evenly spaced numbers over a specified interval</p></li>
+<li><p>better to use than <code class="docutils literal notranslate"><span class="pre">numpy.arange</span></code> with float arguments</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>    <span class="c1"># 9 numbers from 0 to 2</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># useful to evaluate function at lots of points</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>numpy.fromfunction</strong></dt><dd><ul class="simple">
+<li><p>create array by executing a function over each coordinate</p></li>
+<li><p>array has a value fn(x, y, z) at coordinate (x, y, z)</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfunction</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="c1"># [[0. 1. 2.]</span>
+<span class="c1">#  [1. 2. 3.]]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>numpy.fromfile</strong></dt><dd><ul class="simple">
+<li><p>create array from data in a text or binary file</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+
+<span class="c1"># Define a structured data type with nested structure for &#39;time&#39; and a float for &#39;temp&#39;</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">([(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;sec&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)]),</span> <span class="p">(</span><span class="s1">&#39;temp&#39;</span><span class="p">,</span> <span class="nb">float</span><span class="p">)])</span>
+
+<span class="c1"># Create a NumPy array of shape (1,) with the defined structured data type</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># Set values for the fields in the structured array</span>
+<span class="n">x</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">][</span><span class="s1">&#39;min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">x</span><span class="p">[</span><span class="s1">&#39;temp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">98.25</span>
+
+<span class="n">fname</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mkstemp</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>   <span class="c1"># Create a temporary file and get the file path</span>
+<span class="n">x</span><span class="o">.</span><span class="n">tofile</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="c1"># Write the structured array to the temporary file</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># recommended way</span>
+<span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>   <span class="c1"># save an array to a binary file in NumPy `.npy` format</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fname</span> <span class="o">+</span> <span class="s2">&quot;.npy&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="numpy-random">
+<h3>NumPy Random<a class="headerlink" href="#numpy-random" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> implements pseudo-random number generators</p></li>
+<li><p>only designed for statistical modeling and simulation, not suitable for security or</p></li>
+</ul>
+<p>cryptographic purposes
+* create a generator with <code class="docutils literal notranslate"><span class="pre">default_rng()</span></code> and call various methods to get samples from
+different distributions
+* <strong>Seeds</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>with no seed provided, <code class="docutils literal notranslate"><span class="pre">default_rng()</span></code> will seed from non-deterministic data from OS
+and generate different numbers each time</p></li>
+<li><p>seeds should be large positive integers of any size, use <code class="docutils literal notranslate"><span class="pre">secrets.randbits()</span></code></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">secrets</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">secrets</span><span class="o">.</span><span class="n">randbits</span><span class="p">(</span><span class="mi">128</span><span class="p">))</span>
+<span class="n">num</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ul>
+<li><dl>
+<dt><strong>numpy.random.Generator.random</strong></dt><dd><ul class="simple">
+<li><p>return random floats between [0.0, 1.0)</p></li>
+<li><p>has <code class="docutils literal notranslate"><span class="pre">size</span></code> parameter that accepts int or tuple of ints, (m * n * k) samples are
+drawn for (m, n, k) shape</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<span class="n">num</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="n">arr1</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">5</span><span class="p">,))</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>numpy.random.Generator.normal</strong></dt><dd><ul class="simple">
+<li><p>draw random samples from normal distribution</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loc</span></code> (mean/centre of distribution), and <code class="docutils literal notranslate"><span class="pre">scale</span></code> (stand deviation, spread/width)
+parameters accept float or <code class="docutils literal notranslate"><span class="pre">array_like</span></code> of floats</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span>  <span class="c1"># mean and standard deviation</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<span class="n">arr1</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,))</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="numpy-ufunc">
+<h3>NumPy UFunc<a class="headerlink" href="#numpy-ufunc" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>vectorized functions that takes a fixed number of scalar inputs and produces a fixed</p></li>
+</ul>
+<p>number of scalar outputs
+* supports array broadcasting, type casting, and other standard features
+* <strong>Output Type</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>determined by input class with highest <code class="docutils literal notranslate"><span class="pre">__array_priority__</span></code> or by <code class="docutils literal notranslate"><span class="pre">output</span></code> parameter</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__array_prepare__</span></code>: called before ufunc, provided context about the ufunc, pass the
+array to the ufunc after prepare</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__array_wrap__</span></code>: called after execution of ufunc</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>can check type handling, e.g. <code class="docutils literal notranslate"><span class="pre">np.add.types</span></code></p></li>
+<li><p>defined in <code class="docutils literal notranslate"><span class="pre">_core/include/numpy/ufuncobject.h</span></code></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">range_sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="c1"># frompyfunc() takes any Python function and turns it into ufunc</span>
+<span class="n">rs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frompyfunc</span><span class="p">(</span><span class="n">range_sum</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># 2 inputs, 1 output</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">rs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="numpy-source-code">
+<h3>NumPy Source Code<a class="headerlink" href="#numpy-source-code" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>numpy/_core</strong></dt><dd><ul>
+<li><p>contains most of the C code base</p></li>
+<li><p>code for multi-array, ufunc extensions</p></li>
+<li><p>various support libraries such as npymath, npysort</p></li>
+<li><p>public headers in include</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>numpy/lib: various tools on top of core</p></li>
+<li><p>Python interface is pretty straightforward</p></li>
+<li><dl class="simple">
+<dt><strong>npymath</strong></dt><dd><ul>
+<li><p>C99 abstraction for cross platform math operations</p></li>
+<li><p>implement fundamental IEEE 754-related features</p></li>
+<li><p>half float implementation, C99 layer for functions, macros and constant definitions</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>PyArrayObject</strong></dt><dd><ul>
+<li><p>every NumPy array has a corresponding <code class="docutils literal notranslate"><span class="pre">PyArrayObject</span></code></p></li>
+<li><p>defined in <code class="docutils literal notranslate"><span class="pre">numpy/ndarraytypes.h</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>PyArray_Descr</strong></dt><dd><ul>
+<li><p>contains instance-specific data of <code class="docutils literal notranslate"><span class="pre">dtype</span></code></p></li>
+<li><p>one <code class="docutils literal notranslate"><span class="pre">dtype</span></code> object -&gt; one <code class="docutils literal notranslate"><span class="pre">PyArray_Descr</span></code> instance</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PyArrayDescr_Type``L</span> <span class="pre">extension</span> <span class="pre">type</span> <span class="pre">(singleton)</span> <span class="pre">which</span> <span class="pre">defines</span> <span class="pre">the</span> <span class="pre">``dtype</span></code> class</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>PyArray_Type</strong></dt><dd><ul>
+<li><p>of <code class="docutils literal notranslate"><span class="pre">PyTypeObject</span></code>, which is a C-api to define new type extension</p></li>
+<li><p>extension type (singleton) which defines the array behaviour</p></li>
+<li><p>contains most of Python and C layering</p></li>
+<li><p>understanding the data structure will help know which function will be called on the
+NumPy array</p></li>
+<li><p>defined in <code class="docutils literal notranslate"><span class="pre">multiarray/arrayobject.c</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#python">back to top</a></p>
+</section>
+</section>
+<section id="pytorch">
+<h2>PyTorch<a class="headerlink" href="#pytorch" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#tensors">Tensors</a>, <a class="reference internal" href="#pytorch-basic-functions">PyTorch Basic Functions</a>, <a class="reference internal" href="#pytorch-dataset">PyTorch Dataset</a>, <a class="reference internal" href="#nn-module">nn Module</a>, <a class="reference internal" href="#matrix-dot-product">Matrix Dot Product</a></p></li>
+</ul>
+<section id="tensors">
+<h3>Tensors<a class="headerlink" href="#tensors" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>specialised data structure similar to arrays and matrices, and NumPy’s ndarrays</p></li>
+<li><p>used to encode inputs, outputs, and parameters of a model</p></li>
+<li><p>can run on GPU or other hardware accelerators, optimised for automatic differentiation</p></li>
+<li><p>shape of the tensor, a tuple, determines the dimensionality</p></li>
+<li><p>tensors are created on CPU by default, need to explicitly move tensors to GPU</p></li>
+<li><p>copying large tensors across devices can be expensive</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+
+<span class="n">t1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># create tensor directly, auto infer datatype</span>
+
+<span class="n">np_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">np_arr</span><span class="p">)</span>  <span class="c1"># create  tensor from ndarray</span>
+
+<span class="c1"># create tensor from another tensor</span>
+<span class="n">t3</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>  <span class="c1"># retain properties of argument tensor</span>
+
+<span class="n">t4</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand_like</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>  <span class="c1"># override datatype</span>
+
+<span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,)</span>
+<span class="n">t5</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
+    <span class="n">t5</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul>
+<li><dl>
+<dt><strong>Tensor Attributes</strong></dt><dd><ul class="simple">
+<li><p>describe the shape, datatype, and the device on which tensors are stored</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># (2, 3)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>  <span class="c1"># float32</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>  <span class="c1"># cpu</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Tensor Operations</strong></dt><dd><ul class="simple">
+<li><p>over 100 operations available, each can be run on GPU</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tensor[:,</span> <span class="pre">-1]</span></code>:  select last element along the second dimension</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tensor[...,</span> <span class="pre">-1]</span></code>: ellipsis, to select last element along the last dimension, more
+flexible with higher-dimensional tensors</p></li>
+<li><p>in matrix multiplication, <code class="docutils literal notranslate"><span class="pre">t1</span> <span class="pre">&#64;</span> <span class="pre">t2</span> <span class="pre">!=</span> <span class="pre">t2</span> <span class="pre">&#64;</span> <span class="pre">t1</span></code></p></li>
+<li><p>can convert single-element tensor to Python numerical value</p></li>
+<li><p>in-place operations: stores the result into the operand, denoted by _ suffix, save
+memory, but can be problematic when computing derivatives because of an immediate loss
+of history</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># first row</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>  <span class="c1"># first column</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t1</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># first column</span>
+<span class="n">t1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># change values on second column to 0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+
+<span class="n">t2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">t3</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># concat t1 and t2 along 1st dimension</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t3</span><span class="p">)</span>
+
+<span class="n">t4</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">@</span> <span class="n">t2</span>  <span class="c1"># matrix multiplication</span>
+<span class="n">t4</span> <span class="o">=</span> <span class="n">t1</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>  <span class="c1"># same as above</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t4</span><span class="p">)</span>
+
+<span class="n">t5</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">*</span> <span class="n">t2</span>  <span class="c1"># element-wise product</span>
+<span class="n">t5</span> <span class="o">=</span> <span class="n">t1</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>  <span class="c1"># same as above</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t5</span><span class="p">)</span>
+
+<span class="n">t6</span> <span class="o">=</span> <span class="n">t1</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>  <span class="c1"># aggregate all values of tensor</span>
+<span class="n">t6_item</span> <span class="o">=</span> <span class="n">t6</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t6_item</span><span class="p">)</span>
+
+<span class="n">t1</span><span class="o">.</span><span class="n">add_</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># changes t1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p>tensors on CPU and NumPy arrays can share their underlying memory locations, changing one</p></li>
+</ul>
+<p>will change the other</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">n1</span> <span class="o">=</span> <span class="n">t1</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>  <span class="c1"># convert tensor to NumPy array</span>
+<span class="n">t1</span><span class="o">.</span><span class="n">add_</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># changes both t1 and n1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">n1</span><span class="p">)</span>
+
+<span class="n">n2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">n2</span><span class="p">)</span>  <span class="c1"># convert NumPy array to tensor</span>
+<span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">n2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">n2</span><span class="p">)</span>  <span class="c1"># changes both n2 and t2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="pytorch-basic-functions">
+<h3>PyTorch Basic Functions<a class="headerlink" href="#pytorch-basic-functions" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">arange(start=0,</span> <span class="pre">end,</span> <span class="pre">step=1)</span></code>: return 1-D tensor of size (end-start)/step with values</p></li>
+</ul>
+<p>from [start, end)
+* <code class="docutils literal notranslate"><span class="pre">cat(tensors,</span> <span class="pre">dim=0)</span></code>: concat tensors in given dimension, all tensors must be same shape
+or 1-D empty tensor with size 0
+* <code class="docutils literal notranslate"><span class="pre">empty(size)</span></code>: return tensor filled with uninitialized data, size can be variable number
+of arguments or collection
+* <code class="docutils literal notranslate"><span class="pre">empty_like(input)</span></code>: return uninitialized tensor with same size as input Tensor, same as
+<code class="docutils literal notranslate"><span class="pre">empty(input.size(),</span> <span class="pre">dtype=input.dtype,</span> <span class="pre">layout=input.layout,</span> <span class="pre">device=input.device)</span></code>
+* <code class="docutils literal notranslate"><span class="pre">exp(input)</span></code>: return tensor with exponential of elements of input tensor
+* <code class="docutils literal notranslate"><span class="pre">eye(n)</span></code>: return 2-D tensor with ones on the diagonal and zeros elsewhere
+* <code class="docutils literal notranslate"><span class="pre">linspace(start,</span> <span class="pre">end,</span> <span class="pre">steps)</span></code>: create 1-D tensor of size steps with values evenly spaced
+from start to end, [$start, start + frac{end-start}{steps-1}, …, end$]
+* <code class="docutils literal notranslate"><span class="pre">logspace(start,</span> <span class="pre">end,</span> <span class="pre">steps,</span> <span class="pre">base=10.0)</span></code>: create 1-D tensor of size steps with values
+evenly spaced from $base^{start}$ to $base^{end}$,
+[$base^{start}, base^{(start+frac{end-start}{steps-1})}, …, base^{end}$]
+* <code class="docutils literal notranslate"><span class="pre">masked_fill(mask,</span> <span class="pre">value)</span></code>: fills elements of self tensor with value where mask is True,
+out-of-place version, mask is boolean tensor
+* <code class="docutils literal notranslate"><span class="pre">multinomial(input,</span> <span class="pre">num_samples)</span></code>: return a tensor where each row contains num_samples
+indices sampled from the multinomial, input is a tensor of probabilities
+* <code class="docutils literal notranslate"><span class="pre">ones(size)</span></code>: return tensor filled with scalar 1, size can be variable number of
+arguments or collection
+* <code class="docutils literal notranslate"><span class="pre">randint(low=0,</span> <span class="pre">high,</span> <span class="pre">size)</span></code>: return tensor with random ints uniformly between [low, high)
+* <code class="docutils literal notranslate"><span class="pre">stack(tensors)</span></code>: concat tensors along a new dimension
+* <code class="docutils literal notranslate"><span class="pre">tensor(data)</span></code>: create tensor with no autograd history by copying data, data can be a list,
+tuple or NumPy ndarray, scalar and other types
+* <code class="docutils literal notranslate"><span class="pre">transpose(input,</span> <span class="pre">dim0,</span> <span class="pre">dim1)</span></code>: return transposed version of input tensor, dim0 and dim1
+are swapped
+* <code class="docutils literal notranslate"><span class="pre">tril(input,</span> <span class="pre">diagonal=0)</span></code>: return lower triangular part, elements on and below diagonal,
+of 2-D tensor or batch of matrices
+* <code class="docutils literal notranslate"><span class="pre">triu(input,</span> <span class="pre">diagonal=0)</span></code>: return upper triangular part, elements on and above diagonal,
+of 2-D tensor or batch of matrices
+* <code class="docutils literal notranslate"><span class="pre">zeros(size)</span></code>: return tensor filled with scalar 0, size can be variable number of
+arguments or collection</p>
+</div></blockquote>
+</section>
+<section id="pytorch-dataset">
+<h3>PyTorch Dataset<a class="headerlink" href="#pytorch-dataset" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>decouple dataset code from model training code for readability and modularity</p></li>
+<li><p>PyTorch provides two data primitives to use pre-loaded and own datasets</p></li>
+<li><p>has functions specific to particular data that can be used to prototype and benchmark</p></li>
+</ul>
+<p>models
+* <code class="docutils literal notranslate"><span class="pre">utils.data.Dataset</span></code>: stores samples and labels, retrieves one sample at a time
+* <code class="docutils literal notranslate"><span class="pre">utils.data.DataLoader</span></code>: wraps an iterable around <code class="docutils literal notranslate"><span class="pre">Dataset</span></code>, can reshuffle data at every
+epoch to reduce model overfitting</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span>
+<span class="kn">from</span> <span class="nn">torchvision</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">torchvision.transforms</span> <span class="kn">import</span> <span class="n">ToTensor</span>
+
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">FashionMNIST</span><span class="p">(</span>
+    <span class="n">root</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span>  <span class="c1"># path of stored data</span>
+    <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># training or test dataset</span>
+    <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># download if not available at root</span>
+    <span class="n">transform</span><span class="o">=</span><span class="n">ToTensor</span><span class="p">()</span>  <span class="c1"># feature and label transformation</span>
+<span class="p">)</span>
+
+<span class="n">test_data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">FashionMNIST</span><span class="p">(</span>
+    <span class="n">root</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span>
+    <span class="n">train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">transform</span><span class="o">=</span><span class="n">ToTensor</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">test_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">train_dataloader</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Feature batch shape: </span><span class="si">{</span><span class="n">train_features</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Labels batch shape: </span><span class="si">{</span><span class="n">train_labels</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">train_features</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+<span class="n">label</span> <span class="o">=</span> <span class="n">train_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Image: </span><span class="si">{</span><span class="n">img</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Label: </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul>
+<li><p><strong>Image Datasets</strong></p></li>
+<li><p><strong>Text Datasets</strong></p></li>
+<li><p><strong>Audio Datasets</strong></p></li>
+<li><dl>
+<dt><strong>Custom Datasets</strong></dt><dd><ul class="simple">
+<li><p>must implement <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>, <code class="docutils literal notranslate"><span class="pre">__len__()</span></code>, and <code class="docutils literal notranslate"><span class="pre">__getitem__()</span></code></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torchvision.io</span> <span class="kn">import</span> <span class="n">read_image</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="k">class</span> <span class="nc">CustomImageDataset</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">annotations_file</span><span class="p">,</span> <span class="n">img_dir</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">target_transform</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">img_labels</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">annotations_file</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">img_dir</span> <span class="o">=</span> <span class="n">img_dir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transform</span> <span class="o">=</span> <span class="n">transform</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_transform</span> <span class="o">=</span> <span class="n">target_transform</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">img_labels</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+        <span class="n">img_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">img_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">img_labels</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">read_image</span><span class="p">(</span><span class="n">img_path</span><span class="p">)</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">img_labels</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">:</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_transform</span><span class="p">:</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_transform</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">image</span><span class="p">,</span> <span class="n">label</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="nn-module">
+<h3>nn Module<a class="headerlink" href="#nn-module" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>module to train and build neural network layers such as input, hidden, and output</p></li>
+<li><dl class="simple">
+<dt><strong>Softmax</strong></dt><dd><ul>
+<li><p>$Softmax(x_i) = frac{exp(x_i)}{Sigma_jexp(x_j)}$</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Linear(in_features,</span> <span class="pre">out_features,</span> <span class="pre">bias=True)</span></code>: apply linear transformation to incoming</p></li>
+</ul>
+<p>data
+* <code class="docutils literal notranslate"><span class="pre">functional.softmax(input,</span> <span class="pre">dim=None)</span></code>: apply softmax function to all slices along dim,
+and will rescale so that elements lie in the range [0, 1] and sum to 1
+* <strong>model.train()</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>model learns from the data, and weights and biases are updated as training goes on</p></li>
+<li><p>some layers, such as dropout and batch normalisation operate differently</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dropout</span></code>: active during training, dropout random neurons not to overfit, helps the
+model learn better with noise present</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>model.eval()</strong></dt><dd><ul>
+<li><p>use the entire network to see how well it performs</p></li>
+<li><p>some layers, such as dropout and batch normalisation operate differently</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dropout</span></code>: inactive during evaluation</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>functional.relu()</strong></dt><dd><ul>
+<li><p>applies element-wise ReLU, [0, $inf$]</p></li>
+<li><p>if number is &lt;= 0, returns 0, return same number otherwise</p></li>
+<li><p>offers non-linearity to linear network</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>functional.sigmoid()</strong></dt><dd><ul>
+<li><p>applies element-wise sigmoid, (0, 1)</p></li>
+<li><p>$Sigmoid(x) = frac{1}{1 + exp(-x)}$</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>functional.tanh()</strong></dt><dd><ul>
+<li><p>applies element-wise tanh, (-1, 1)</p></li>
+<li><p>$tanh(x) = frac{exp(x)-exp(-x)}{exp(x)+exp(-x)}$</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>nn.Sequential()</strong></dt><dd><ul>
+<li><p>one block depends on another to complete synchronously</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>nn.ModuleList()</strong></dt><dd><ul>
+<li><p>does not run sequentially</p></li>
+<li><p>each layer or head is isolated and gets its own unique perspective</p></li>
+<li><p>parallelism in a model isn’t due to <code class="docutils literal notranslate"><span class="pre">ModuleList()</span></code>, instead the computations are
+structured to take advantage of the GPU</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="matrix-dot-product">
+<h3>Matrix Dot Product<a class="headerlink" href="#matrix-dot-product" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>number of rows of first matrix must be equal to the number of columns of the second</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># (3, 2)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># (2, 3)</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">@</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># (3, 3)</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="c1"># same as using @</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># (2, 2)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>cannot multiply tensors of different <code class="docutils literal notranslate"><span class="pre">dtype</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">@</span> <span class="n">y</span><span class="p">)</span>    <span class="c1"># error</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">@</span> <span class="n">y</span><span class="p">)</span>    <span class="c1"># ok</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#python">back to top</a></p>
+</section>
+</section>
+<section id="tkinter">
+<h2>Tkinter<a class="headerlink" href="#tkinter" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#frame">Frame</a>, <a class="reference internal" href="#widgets">Widgets</a>, <a class="reference internal" href="#event-loop">Event Loop</a>, <a class="reference internal" href="#example-tkinter-code">Example Tkinter Code</a></p></li>
+<li><p>works cross-platform</p></li>
+<li><p>do not need to implement redrawing, parsing and dispatching events, hit detection or handling</p></li>
+</ul>
+<p>events on each widget
+* no complex code for widgets, only need to attach them to variables
+* always encapsulate the main code rather than putting into global variable space</p>
+<section id="frame">
+<h3>Frame<a class="headerlink" href="#frame" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>main application window is not part of newer themed widgets, and its background color</p></li>
+</ul>
+<p>doesn’t match the themed widgets
+* using a themed frame widget to hold content ensures that the background is correct</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mainframe</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s2">&quot;3 3 12 12&quot;</span><span class="p">)</span>
+<span class="c1"># place the frame inside main application window</span>
+<span class="n">mainframe</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">S</span><span class="p">))</span>
+<span class="c1"># expand frame to fill extra space when window resizes</span>
+<span class="n">root</span><span class="o">.</span><span class="n">columnconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">root</span><span class="o">.</span><span class="n">rowconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="widgets">
+<h3>Widgets<a class="headerlink" href="#widgets" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>need to specify a parent when creating widget</p></li>
+<li><p>parent is passed as the first parameter when instantiating a widget object</p></li>
+<li><p>can provide options such as <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">textvariable</span></code>, which must be instance of</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">StringVar</span></code> class
+* widgets do not auto appear on screen, must be placed in appropriate column and row
+* <code class="docutils literal notranslate"><span class="pre">sticky</span></code> describes how the widget should line up within the grid cell, using compass
+directions</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">username</span> <span class="o">=</span> <span class="n">StringVar</span><span class="p">()</span>
+<span class="n">username_entry</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Entry</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">textvariable</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+<span class="n">username_entry</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">E</span><span class="p">))</span>
+<span class="n">ttk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Username&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="n">W</span><span class="p">)</span>
+<span class="n">ttk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Register&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">register</span><span class="p">)</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span>
+    <span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="n">W</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="event-loop">
+<h3>Event Loop<a class="headerlink" href="#event-loop" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>necessary for everything to appear onscreen</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="example-tkinter-code">
+<h3>Example Tkinter Code<a class="headerlink" href="#example-tkinter-code" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">ttk</span>
+
+
+<span class="k">class</span> <span class="nc">HelloWorld</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="n">Tk</span><span class="p">):</span>
+        <span class="n">root</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
+
+        <span class="n">mainframe</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s2">&quot;3 3 12 12&quot;</span><span class="p">)</span>
+        <span class="c1"># place the frame inside main application window</span>
+        <span class="n">mainframe</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">S</span><span class="p">))</span>
+        <span class="c1"># expand frame to fill extra space when window resizes</span>
+        <span class="n">root</span><span class="o">.</span><span class="n">columnconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">root</span><span class="o">.</span><span class="n">rowconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">ttk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">E</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">world</span> <span class="o">=</span> <span class="n">StringVar</span><span class="p">()</span>
+        <span class="n">ttk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">textvariable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">world</span><span class="p">)</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span>
+            <span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">E</span><span class="p">))</span>
+
+        <span class="n">ttk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Say world&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">hello_world</span><span class="p">)</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span>
+            <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="n">W</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">mainframe</span><span class="o">.</span><span class="n">winfo_children</span><span class="p">():</span>
+            <span class="n">child</span><span class="o">.</span><span class="n">grid_configure</span><span class="p">(</span><span class="n">padx</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">world</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">)</span>
+
+
+<span class="n">root</span> <span class="o">=</span> <span class="n">Tk</span><span class="p">()</span>
+<span class="n">HelloWorld</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+<span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><a class="reference external" href="#python">back to top</a></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Prometheus.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Prometheus</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="React.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">React</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argparse">Argparse</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positional-arguments">Positional Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-arguments">Optional Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mutually-exclusive-group">Mutually Exclusive Group</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subprocess">Subprocess</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checkoutput">checkoutput</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shell">shell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pipe">PIPE</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiprocessing">Multiprocessing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process">Process</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-synchronization">Process Synchronization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#communication">Communication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sharing-state">Sharing State</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#worker-pool">Worker Pool</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#socket">Socket</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#server">Server</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#client">Client</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">NumPy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-data-types">NumPy Data Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorization">Vectorization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">Broadcasting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ndarray">ndarray</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strides">Strides</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-arrays">NumPy Arrays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-random">NumPy Random</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-ufunc">NumPy UFunc</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-source-code">NumPy Source Code</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch">PyTorch</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensors">Tensors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-basic-functions">PyTorch Basic Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-dataset">PyTorch Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nn-module">nn Module</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-dot-product">Matrix Dot Product</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tkinter">Tkinter</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frame">Frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widgets">Widgets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#event-loop">Event Loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-tkinter-code">Example Tkinter Code</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

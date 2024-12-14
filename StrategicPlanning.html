@@ -1,0 +1,951 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Strategic Planning &#8212; Notes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'StrategicPlanning';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Terraform" href="Terraform.html" />
+    <link rel="prev" title="SQL" href="SQL.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AWS.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BackendEngineering.html">Backend Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSharp.html">C# #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CTF.html">CTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CompTIA.html">CompTIA Cert Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compilers.html">Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerGraphics.html">Computer Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputingSystems.html">Computing Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">ECS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FFmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Helm.html">Helm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Istio.html">Istio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JDBC.html">JDBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MongoDB.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkProgramming.html">Network Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NodeJS.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenAPI.html">OpenAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OperatingSystem.html">Operating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="POSIXThreads.html">POSIX Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PenetrationTesting.html">Penetration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramDesign.html">Program Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectManagement.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prometheus.html">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SFML.html">SFML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL.html">SQL</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Strategic Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terraform.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TypeScript.html">TypeScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI/UX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrant.html">Vagrant</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/StrategicPlanning.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Strategic Planning</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#market-strategy">Market Strategy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indirect-competition">Indirect Competition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opinion-leaders">Opinion Leaders</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#value-creation">Value Creation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lifestyle-business">Lifestyle Business</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rapid-growth">Rapid Growth</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#business-goals">Business Goals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#business-models">Business Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#business-plan">Business Plan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#novelty">Novelty</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#team-building">Team Building</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#team-roles">Team Roles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recruitment">Recruitment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#company-structure">Company Structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directors">Directors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shareholders">Shareholders</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="strategic-planning">
+<h1>Strategic Planning<a class="headerlink" href="#strategic-planning" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#market-strategy">Market Strategy</a></p></li>
+<li><p><a class="reference internal" href="#value-creation">Value Creation</a></p></li>
+<li><p><a class="reference internal" href="#team-building">Team Building</a></p></li>
+<li><p><a class="reference internal" href="#company-structure">Company Structure</a></p></li>
+</ol>
+<p><a class="reference external" href="#strategic-planning">back to top</a></p>
+<section id="market-strategy">
+<h2>Market Strategy<a class="headerlink" href="#market-strategy" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#indirect-competition">Indirect Competition</a>, <a class="reference internal" href="#opinion-leaders">Opinion Leaders</a></p></li>
+<li><p>customers only care about what the product will do for them</p></li>
+<li><p>a product or service need to solves a real problem in more effective way, but not necessarily</p></li>
+</ul>
+<p>higher-tech, than available alternatives
+* talk with potential customers in the early step, and find out how the market works and what
+the real problems are
+* know who the competitors are, what they do, how they make money, how good their products are
+and why people buy them</p>
+<section id="indirect-competition">
+<h3>Indirect Competition<a class="headerlink" href="#indirect-competition" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>customer solving the problem with in-house solution</p></li>
+<li><p>customer adopting a different working practice that makes the problem irrelevant</p></li>
+<li><p>customer tolerate the problem as their money is limited and invest money on other things</p></li>
+</ul>
+<p>that they think will get a better return on investment</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>identify where in the market to offer a product different from the competition and a customer</p></li>
+</ul>
+<p>a compelling reason to buy
+* customer purchase decision-making will pay significant attention to the potential downside
+and the risk</p>
+</section>
+<section id="opinion-leaders">
+<h3>Opinion Leaders<a class="headerlink" href="#opinion-leaders" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>have influence on the customers in technology markets</p></li>
+<li><p>identify, engage and get them on the same side</p></li>
+<li><p>it is worth to investigate whether it is possible to define market segments in terms of</p></li>
+</ul>
+<p>them
+* engaging them can sometimes lead to automatic, free-of-charge business advantage</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>learn how the market works, decide which market segments to go for, and use the networks in</p></li>
+</ul>
+<p>the segments to increase selling effort
+* product-based company should have the potential to be large and global, and the market
+should be at an early stage of exploitation
+* service-based company should allow the customer to get end result more efficiently
+* entering a mature market without distinct offering could lead to failure
+* it is important to be first to market as it will allow to shape customer expectations, charge
+a premium and obtain first-mover publicity</p>
+<p><a class="reference external" href="#strategic-planning">back to top</a></p>
+</section>
+</section>
+<section id="value-creation">
+<h2>Value Creation<a class="headerlink" href="#value-creation" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#lifestyle-business">Lifestyle Business</a>, <a class="reference internal" href="#rapid-growth">Rapid Growth</a>, <a class="reference internal" href="#business-goals">Business Goals</a>, <a class="reference internal" href="#business-models">Business Models</a>, <a class="reference internal" href="#business-plan">Business Plan</a></p></li>
+<li><p><a class="reference internal" href="#novelty">Novelty</a></p></li>
+<li><p>value creation options will depend the personal choice and availability of finance</p></li>
+</ul>
+<section id="lifestyle-business">
+<h3>Lifestyle Business<a class="headerlink" href="#lifestyle-business" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>in control of operations, few employees, and flexible with own time and resources</p></li>
+<li><p>primary value will be created through cash flow</p></li>
+<li><p>choose to invest that cash in other ventures, reinvest in own business, or create other</p></li>
+</ul>
+<p>forms of savings
+* will be dependent on the cash and growth in the business</p>
+</div></blockquote>
+</section>
+<section id="rapid-growth">
+<h3>Rapid Growth<a class="headerlink" href="#rapid-growth" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>might have to give up some of shares and control</p></li>
+<li><p>manage more complex work situations, and deal with investors</p></li>
+<li><p>plenty of scope for travel overseas, and spend long hours on the road</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="business-goals">
+<h3>Business Goals<a class="headerlink" href="#business-goals" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>New Entrepreneurs</strong></dt><dd><ul>
+<li><p>build credibility and experience, and get an understanding of how the market works</p></li>
+<li><p>can start with some form of consulting business</p></li>
+<li><p>lower risks, but selling consulting services to raise money for product development
+can delay that development</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Higher Risk</strong></dt><dd><ul>
+<li><p>need financial resources, strong team and global market with significant potential
+demand</p></li>
+<li><p>can make an objective to raise sums of money from venture capital and other sources</p></li>
+<li><p>expecting the business to grow with speed to enable investors to realise value
+through some form of exit, e.g. sale of shares to other business or via flotation on
+the stock market</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="business-models">
+<h3>Business Models<a class="headerlink" href="#business-models" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>choice of models will have an impact on the final value</p></li>
+<li><p>be very clear about the business model</p></li>
+<li><p>start-up companies will find it difficult to mix business models</p></li>
+<li><p>do not develop products and deliver consulting expertise</p></li>
+<li><dl class="simple">
+<dt><strong>Licensing Idea</strong></dt><dd><ul>
+<li><p>it may require to make further investment to prove that the technology works and
+that there is a market for it</p></li>
+<li><p>but can expect to receive a part of the value when the idea is brought to the market
+by those who have licensed it</p></li>
+<li><p>need to find the right licensees, good legal advice on contracts and the protection
+of intellectual property</p></li>
+<li><p>e.g. biotechnology companies develop potential new medicines and license them to
+pharmaceutical companies</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Full Ownership</strong></dt><dd><ul>
+<li><p>own various forms of diluted ownership with co-investment by other firms and people</p></li>
+<li><p>going it alone has the highest risks</p></li>
+<li><p>must be fully committed, but can expect the greatest rewards if it all works out</p></li>
+<li><p>fit teams who are experienced in business and have a desire to grow a large business
+for a large return</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Joint Ventures</strong></dt><dd><ul>
+<li><p>reduces the risks, but can be complicated to set up</p></li>
+<li><p>need to find a company that is willing to co-develop the technology or the market</p></li>
+<li><p>fit teams who are experienced in business and have a desire to grow a large business
+for a large return</p></li>
+<li><p>e.g. shared flights in the airline industry</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Product Development &amp; Sale</strong></dt><dd><ul>
+<li><p>growing a products business requires more capital than growing a services company</p></li>
+<li><p>more risky as the company is unlikely to get a second chance if the first fails</p></li>
+<li><p>but rewards can be great if the product is successful</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Services Delivery</strong></dt><dd><ul>
+<li><p>less risky to grow the company, but growth will be slower</p></li>
+<li><p>staff numbers will need to double in order to double company revenue</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>IP licensing</strong></dt><dd><ul>
+<li><p>very competitive and often does not appear to have more than one large player in
+each market sector</p></li>
+<li><p>important to ensure to follow through with succeeding generations of IP</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="business-plan">
+<h3>Business Plan<a class="headerlink" href="#business-plan" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>necessary document that will help or hinder attempts to raise outside finance</p></li>
+<li><p>can be extremely time consuming, seek external advice</p></li>
+<li><dl class="simple">
+<dt><strong>Internal Plan</strong></dt><dd><ul>
+<li><p>personal objectives, product or service to sell</p></li>
+<li><p>itinerary to develop the technology, market research, recruit,and acquire other
+resources</p></li>
+<li><p>should be reviewed continuously, and make simple budgets and cash flow forecasts</p></li>
+<li><p>style and content reflect only the internal needs of the business</p></li>
+<li><p>becomes more formal as the business develops, and a specific plan, based on the
+internal plan, may be necessary</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>important to understand that the needs of equity investors and bankers are different</p></li>
+<li><dl class="simple">
+<dt><strong>Plan Emphasis</strong></dt><dd><ul>
+<li><p>depends on the stage of the business</p></li>
+<li><p>start-up: its people, product and the quality of market research</p></li>
+<li><p>developed business: emphasise its track record</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>External Plan</strong></dt><dd><ul>
+<li><p>company and management background, staff structure, market, production, product and
+details of IP</p></li>
+<li><p>financial forecasts, competition, risk and reward for potential financiers</p></li>
+<li><p>how the product will be sold, time scale and benchmarks, mainly for overcoming
+barriers to market entry</p></li>
+<li><p>if the plan is to raise equity, must include business’s unique selling point</p></li>
+<li><p>must be reviewed before going public</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Executive Summary</strong></dt><dd><ul>
+<li><p>written after the plan is finished, must introduced the plan with it</p></li>
+<li><p>has to attract attention and should be short, two or three pages</p></li>
+<li><p>but must be sharp, bringing out the key selling points</p></li>
+<li><p>write in a way that an investor with no special knowledge can quickly understand the
+business and what is in it for him</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>once potential investors form a negative perception of the business, it is often</p></li>
+</ul>
+<p>impossible to change it</p>
+</div></blockquote>
+</section>
+<section id="novelty">
+<h3>Novelty<a class="headerlink" href="#novelty" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>the new offering must be sufficiently different to be attractive to clients</p></li>
+<li><p>investors like companies whose offerings have a significant degree of novelty</p></li>
+<li><p>product must be sufficiently novel</p></li>
+<li><p>intellectual property, patents, in the product must be defensible, i.e. a competitor</p></li>
+</ul>
+<p>should not be able to steal it
+* the product should not be launched before the market has developed
+* new markets are generally slower to take off than expected</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>most successful technology companies raise three or four rounds of finance prior to flotation</p></li>
+</ul>
+<p>or the sale of the company
+* it is necessary to convince the first-round financiers that the team is credible, product is
+novel, there is a large global market and proposition is sustainable
+* execute flawlessly and maintain focus, do not think too long, and go into market and do it</p>
+<p><a class="reference external" href="#strategic-planning">back to top</a></p>
+</section>
+</section>
+<section id="team-building">
+<h2>Team Building<a class="headerlink" href="#team-building" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#team-roles">Team Roles</a>, <a class="reference internal" href="#recruitment">Recruitment</a></p></li>
+<li><p>find partners that can be trusted and get along with, two or three people make a sufficient</p></li>
+</ul>
+<p>starting team
+* the founding team must have skills to create the product, identify customers and make sales
+* if there is no obvious leader in the founding team, recruit before or shortly after
+first-stage funding is secured
+* fill the remaining key management gaps within a reasonable period
+* communicate, share business vision, build trust, clarify and formalise roles through the
+business plan
+* skill required will change with the growth trajectory
+* hire as needed, and recruit from outside the region if necessary, but set high standards from
+the first and stick to them
+* VCs consider a business proposal based on the skills and experience of the entire team</p>
+<section id="team-roles">
+<h3>Team Roles<a class="headerlink" href="#team-roles" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Chair</strong></dt><dd><ul>
+<li><p>senior wise head, has experience and contacts</p></li>
+<li><p>resolve dispute in the company</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>CEO/Managing Director</strong></dt><dd><ul>
+<li><p>find money and manage investor relations</p></li>
+<li><p>responsible for day-to-day running of the company</p></li>
+<li><p>formulate policy proposals and implement the board’s decisions</p></li>
+<li><p>usually has a marketing rather than a technical background</p></li>
+<li><p>often not a founder member</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>CFO/Finance Director</strong></dt><dd><ul>
+<li><p>usually a qualified accountant, prepare management reports and budgets</p></li>
+<li><p>advises on fundraising, may act as company secretary and run the administration</p></li>
+<li><p>can have additional roles of office management and quality control</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>CTO/Technical Director</strong></dt><dd><ul>
+<li><p>invent new things, take charge of development</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>COO/Production Director</strong></dt><dd><ul>
+<li><p>run the factory and distribution chain</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>VP Marketing/Marketing Director</strong></dt><dd><ul>
+<li><p>decide what and how to sell</p></li>
+<li><p>handle market communications and competitor information</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>VP Sales/Sales Director</strong></dt><dd><ul>
+<li><p>handles selling and customer relationship management</p></li>
+<li><p>also manage after-sales support</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Board of Directors</strong></dt><dd><ul>
+<li><p>Chair, CEO, CFO, CTO, COO, VPs of Marketing and Sales, and other non-executive
+directors</p></li>
+<li><p>usually business or industry experts and representatives from the VC</p></li>
+<li><p>each has responsibilities to the company, shareholders, creditors and employees</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Scientific Advisory Board</strong></dt><dd><ul>
+<li><p>does not have a legal role as the board of directors does</p></li>
+<li><p>advises on scientific direction of the company</p></li>
+<li><p>mostly very senior figures from particular area of science</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>As a Manager</strong></dt><dd><ul>
+<li><p>lead, acquire resource, and allocate disturbance</p></li>
+<li><p>inspire other team members, and sell vision and goals</p></li>
+<li><p>understand the individual team member’s own personal goals</p></li>
+<li><p>obtain the resources for the team to function, e.g. investment</p></li>
+<li><p>inform the team of changes and deal with the consequences</p></li>
+<li><p>should not micro-manage, making every small decision</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="recruitment">
+<h3>Recruitment<a class="headerlink" href="#recruitment" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>make rough details of the ideal person for the job, e.g. background, experience, career</p></li>
+</ul>
+<p>path, reason to join, options package requested and to attract
+* best way is to find through personal recommendation
+* some companies run bounty schemes to reward staff who introduce new employees
+* can employ an agency, but usually charge 15-20% of first-year salary
+* for more senior posts, hire headhunters which will minimise publicity
+* can also advertise, which can be low-cost and effective</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>all-Scientist company will stay small or fizzle out as the Scientist burns out, as he will</p></li>
+</ul>
+<p>want to have his hands on everything the company invents or makes
+* all-Entrepreneur company will generate excitement and publicity, but will bankrupt quickly,
+as entrepreneurs have zero attention to detail and are stubborn
+* all-Manager company will slowly be packed away, becoming the land of the living dead</p>
+<p><a class="reference external" href="#strategic-planning">back to top</a></p>
+</section>
+</section>
+<section id="company-structure">
+<h2>Company Structure<a class="headerlink" href="#company-structure" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#directors">Directors</a>, <a class="reference internal" href="#shareholders">Shareholders</a></p></li>
+<li><p>a company offers limited liability, risks are taken by the company rather than as an</p></li>
+</ul>
+<p>individual, so that personal assets can be safe if the business goes wrong
+* every company must have public documents such as Memorandum, objectives and share capital,
+Articles of Association, how the company should be run
+* do not allow investors to mess with the Memorandum and Articles of the company
+* register certain documents with the Registrar of Companies, and appoint auditors and submit
+audited accounts annually to Companies House
+* can purchase companies read-formed from company formation agents, or ask a firm of lawyers to
+set up with tailored Memorandum and Articles
+* address legal and taxation issues at an early stage
+* e.g. share option agreement isn’t needed when only the founders are working for the company,
+and directors liability insurance is only needed when a certain type of company is actively
+trading
+* as an individual, consider shareholding from family’s point of view, and find the best way to
+obtain income from the company in the future</p>
+<section id="directors">
+<h3>Directors<a class="headerlink" href="#directors" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>must be legally in the best interests of the company</p></li>
+<li><p>cannot make decisions for personal benefits</p></li>
+<li><p>have to declare conflicting interest, that will be decided by the board, to other directors</p></li>
+<li><p>a director must not discuss or vote on any issue where there is a conflict of interest</p></li>
+<li><p>may need to risk personal liability in some cases, e.g. signing an agreement without</p></li>
+</ul>
+<p>unanimous shareholder approval</p>
+</div></blockquote>
+</section>
+<section id="shareholders">
+<h3>Shareholders<a class="headerlink" href="#shareholders" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>key people for any new company, appoint and remove directors to run the company</p></li>
+<li><p>make decisions by way of a General Meeting, where certain major decisions can only be</p></li>
+</ul>
+<p>made
+* but once the company framework is established, the power to run the company from day to
+day is vested in the board of directors
+* <strong>Shareholders’ Agreement</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>who is on the board, what decisions require unanimity</p></li>
+<li><p>what are the voting rights, what are the exit routes</p></li>
+<li><p>what happens to shares of a deceased shareholder</p></li>
+<li><p>in some where matters have reached a point that cannot move forward together, one
+shareholder can require the others to buy him out or be bought out themselves</p></li>
+<li><p>most articles restrict the freedom to transfer shares</p></li>
+<li><p>e.g. the share seller must offer to the fellow shareholders at the same price
+offered by an external purchaser, giving the opportunity to stop a third-party
+shareholder being imposed on them</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p><a class="reference external" href="#strategic-planning">back to top</a></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="SQL.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">SQL</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Terraform.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Terraform</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#market-strategy">Market Strategy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indirect-competition">Indirect Competition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opinion-leaders">Opinion Leaders</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#value-creation">Value Creation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lifestyle-business">Lifestyle Business</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rapid-growth">Rapid Growth</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#business-goals">Business Goals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#business-models">Business Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#business-plan">Business Plan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#novelty">Novelty</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#team-building">Team Building</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#team-roles">Team Roles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recruitment">Recruitment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#company-structure">Company Structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directors">Directors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shareholders">Shareholders</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

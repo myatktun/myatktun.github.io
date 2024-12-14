@@ -1,0 +1,1107 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SQL &#8212; Notes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'SQL';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Strategic Planning" href="StrategicPlanning.html" />
+    <link rel="prev" title="SFML" href="SFML.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AWS.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BackendEngineering.html">Backend Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSharp.html">C# #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CTF.html">CTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CompTIA.html">CompTIA Cert Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compilers.html">Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerGraphics.html">Computer Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputingSystems.html">Computing Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">ECS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FFmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Helm.html">Helm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Istio.html">Istio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JDBC.html">JDBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MongoDB.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkProgramming.html">Network Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NodeJS.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenAPI.html">OpenAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OperatingSystem.html">Operating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="POSIXThreads.html">POSIX Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PenetrationTesting.html">Penetration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramDesign.html">Program Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectManagement.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prometheus.html">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SFML.html">SFML</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StrategicPlanning.html">Strategic Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terraform.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TypeScript.html">TypeScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI/UX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrant.html">Vagrant</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/SQL.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>SQL</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-sql">What is SQL?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rdbms-basics">RDBMS Basics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#int">INT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decimal-m-n">DECIMAL(M,N)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#varchar-l">VARCHAR(l)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blob">BLOB</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#date">DATE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timestamp">TIMESTAMP</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commands-queries">Commands &amp; Queries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-db">create DB</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-dbs">list DBs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#switch-db">switch DB</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-table">create table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-tables">list tables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#show-structure-of-the-table">show structure of the table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-table">delete table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constraints">Constraints</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-column">modify column</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#insert-data">insert data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#update-data">update data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-data">delete data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-data">get data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wildcards">wildcards</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#union">union</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#join">join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-queries">nested queries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triggers">triggers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#er-diagrams">ER Diagrams</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entity">Entity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">Attributes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relationship">Relationship</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-to-schema">Convert to Schema</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="sql">
+<h1>SQL<a class="headerlink" href="#sql" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#what-is-sql">What is SQL?</a></p></li>
+<li><p><a class="reference internal" href="#data-types">Data Types</a></p></li>
+<li><p><a class="reference internal" href="#commands-queries">Commands &amp; Queries</a></p></li>
+<li><p><a class="reference internal" href="#er-diagrams">ER Diagrams</a></p></li>
+</ol>
+<p><a class="reference external" href="#sql">back to top</a></p>
+<section id="what-is-sql">
+<h2>What is SQL?<a class="headerlink" href="#what-is-sql" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#rdbms-basics">RDBMS Basics</a></p></li>
+<li><p>Structured Query Language, used to communicate with data in RDBMS (Relational Database
+Management System)</p></li>
+</ul>
+<section id="rdbms-basics">
+<h3>RDBMS Basics<a class="headerlink" href="#rdbms-basics" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Column</strong>: define single attribute</p></li>
+<li><p><strong>Row</strong>: define single entry</p></li>
+<li><p><strong>Primary Key</strong>: special attribute to make a row unique, each table needs primary key
+column</p></li>
+<li><p><strong>Surrogate Key</strong>: primary key that serves only as unique id, no mapping to the
+real-world data</p></li>
+<li><p><strong>Natural Key</strong>: primary key that has a mapping to the real-world data</p></li>
+<li><p><strong>Foreign Key</strong>: primary key in another table and relates to it, a table can have
+more than one foreign key, need to create table first before defining foreign keys</p></li>
+<li><p><strong>Composite Key</strong>: made up of two keys (primary or foreign), used when one column
+doesn’t uniquely identify each row</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>different RDBMS implement SQL differently</p></li>
+<li><p>SQL code is not always portable to another without modification</p></li>
+<li><dl class="simple">
+<dt>hybrid language, combination of 4</dt><dd><ul>
+<li><dl class="simple">
+<dt>DQL (Data Query Language)</dt><dd><ul>
+<li><p>to query already present data</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>DDL (Data Definition Language)</dt><dd><ul>
+<li><p>to define database schemas</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>DCL (Data Control Language)</dt><dd><ul>
+<li><p>to control access to the data, user and permission management</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>DML (Data Manipulation Language)</dt><dd><ul>
+<li><p>to insert, update and delete data</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><a class="reference external" href="#sql">back to top</a></p>
+</section>
+</section>
+<section id="data-types">
+<h2>Data Types<a class="headerlink" href="#data-types" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>some data types differ depending on DBMS</p></li>
+</ul>
+<section id="int">
+<h3>INT<a class="headerlink" href="#int" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>integer, whole numbers</p></li>
+<li><p>e.g 1, 10, 999</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="decimal-m-n">
+<h3>DECIMAL(M,N)<a class="headerlink" href="#decimal-m-n" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>M: total number of digits</p></li>
+<li><p>N: total number of digits after the decimal point</p></li>
+<li><p>e.g DECIMAL(7,3): 1234.567</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="varchar-l">
+<h3>VARCHAR(l)<a class="headerlink" href="#varchar-l" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>variable character, string</p></li>
+<li><p>l: maximum number of characters</p></li>
+<li><p>e.g VARCHAR(3): abc</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="blob">
+<h3>BLOB<a class="headerlink" href="#blob" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>binary large object, usually for images or files</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="date">
+<h3>DATE<a class="headerlink" href="#date" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>specific format of date</p></li>
+<li><p>e.g ‘YYYY-MM-DD’</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="timestamp">
+<h3>TIMESTAMP<a class="headerlink" href="#timestamp" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>specific date format with time, usually for records</p></li>
+<li><p>e.g ‘YYYY-MM-DD HH:MM:SS’</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#sql">back to top</a></p>
+</section>
+</section>
+<section id="commands-queries">
+<h2>Commands &amp; Queries<a class="headerlink" href="#commands-queries" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>instructions to manipulate and fetch the database</p></li>
+<li><p>convention that SQL commands are in upper case</p></li>
+</ul>
+<section id="create-db">
+<h3>create DB<a class="headerlink" href="#create-db" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">DATABASE</span> <span class="pre">db_name;</span></code></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="list-dbs">
+<h3>list DBs<a class="headerlink" href="#list-dbs" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SHOW</span> <span class="pre">DATABASES;</span></code></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="switch-db">
+<h3>switch DB<a class="headerlink" href="#switch-db" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">USE</span> <span class="pre">db_name;</span></code></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="create-table">
+<h3>create table<a class="headerlink" href="#create-table" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span> <span class="pre">table_name</span> <span class="pre">(column_1</span> <span class="pre">INT</span> <span class="pre">PRIMARY</span> <span class="pre">KEY,</span> <span class="pre">column_2</span> <span class="pre">VARCHAR(50));</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span> <span class="pre">t1</span> <span class="pre">(c1</span> <span class="pre">INT,</span> <span class="pre">c2</span> <span class="pre">VARCHAR(50),</span> <span class="pre">PRIMARY</span> <span class="pre">KEY(c1));</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span> <span class="pre">t1(PRIMARY</span> <span class="pre">KEY(c1,c2));</span></code> set multiple attributes as primary, composite key</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span> <span class="pre">t1</span> <span class="pre">(c1</span> <span class="pre">INT</span> <span class="pre">NOT</span> <span class="pre">NULL);</span></code> (c1 cannot be empty when insert)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span> <span class="pre">t1</span> <span class="pre">(c1</span> <span class="pre">INT</span> <span class="pre">UNIQUE);</span></code> (cannot insert duplicate values)</p></li>
+<li><p>primary key is <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code> and <code class="docutils literal notranslate"><span class="pre">UNIQUE</span></code> by default</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span> <span class="pre">t3(FOREIGN</span> <span class="pre">KEY(c1)</span> <span class="pre">REFERENCES</span> <span class="pre">t2(c1)</span> <span class="pre">ON</span> <span class="pre">DELETE</span> <span class="pre">SET</span> <span class="pre">NULL);</span></code> add foreign key
+while creating table, referenced table must already exist</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span> <span class="pre">t3(FOREIGN</span> <span class="pre">KEY(c1)</span> <span class="pre">REFERENCES</span> <span class="pre">t2(c1)</span> <span class="pre">ON</span> <span class="pre">DELETE</span> <span class="pre">CASCADE);</span></code></p></li>
+<li><p>some foreign keys must be set to <code class="docutils literal notranslate"><span class="pre">NULL</span></code> first, and then updates it, as the other table
+isn’t created or populated yet</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="list-tables">
+<h3>list tables<a class="headerlink" href="#list-tables" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SHOW</span> <span class="pre">TABLES;</span></code></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="show-structure-of-the-table">
+<h3>show structure of the table<a class="headerlink" href="#show-structure-of-the-table" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DESCRIBE</span> <span class="pre">t1;</span></code></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="delete-table">
+<h3>delete table<a class="headerlink" href="#delete-table" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DROP</span> <span class="pre">TABLE</span> <span class="pre">t1;</span></code></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="constraints">
+<h3>Constraints<a class="headerlink" href="#constraints" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code>, <code class="docutils literal notranslate"><span class="pre">UNIQUE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code>: <code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span> <span class="pre">t1</span> <span class="pre">(c1</span> <span class="pre">INT</span> <span class="pre">DEFAULT</span> <span class="pre">66);</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AUTO_INCREMENT</span></code>: data can be left when insert, will auto increase based on previous,
+default start at 1, use <cite>ALTER TABLE t1 AUTO_INCREMENT=100;</cite> to change</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ON</span> <span class="pre">DELETE</span> <span class="pre">SET</span> <span class="pre">NULL</span></code>: foreign key will be set to <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if row on referenced table is
+deleted</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span> <span class="pre">t3(FOREIGN</span> <span class="pre">KEY(c1)</span> <span class="pre">REFERENCES</span> <span class="pre">t2(c1)</span> <span class="pre">ON</span> <span class="pre">DELETE</span> <span class="pre">SET</span> <span class="pre">NULL);</span></code> t3.c1 will be
+“sql” resulted in an error at token: ‘$’<cite>NULL</cite> if t2.c1 is deleted</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ON</span> <span class="pre">DELETE</span> <span class="pre">CASCADE</span></code>: row on foreign key will be deleted if row on referenced table is
+deleted</p></li>
+<li><p>use when foreign key will also be primary key of the table</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span> <span class="pre">t3(FOREIGN</span> <span class="pre">KEY(c1)</span> <span class="pre">REFERENCES</span> <span class="pre">t2(c1)</span> <span class="pre">ON</span> <span class="pre">DELETE</span> <span class="pre">CASCADE);</span></code> t3.c1 will be
+deleted if t2.c1 is deleted</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="modify-column">
+<h3>modify column<a class="headerlink" href="#modify-column" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span> <span class="pre">t1</span> <span class="pre">ADD</span> <span class="pre">c3</span> <span class="pre">DECIMAL;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span> <span class="pre">t1</span> <span class="pre">DROP</span> <span class="pre">COLUMN</span> <span class="pre">c3;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span> <span class="pre">t1</span> <span class="pre">ADD</span> <span class="pre">FOREIGN</span> <span class="pre">KEY(c1)</span> <span class="pre">REFERENCES</span> <span class="pre">t2(c1);</span></code> add foreign key to existing table</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="insert-data">
+<h3>insert data<a class="headerlink" href="#insert-data" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">INSERT</span> <span class="pre">INTO</span> <span class="pre">t1</span> <span class="pre">VALUES(x,</span> <span class="pre">y);</span></code> (order matters)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INSERT</span> <span class="pre">INTO</span> <span class="pre">t1(c1)</span> <span class="pre">VALUES(x);</span></code> (insert only specific attribute)</p></li>
+<li><p>cannot insert values with duplicate primary key</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="update-data">
+<h3>update data<a class="headerlink" href="#update-data" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">UPDATE</span> <span class="pre">t1</span> <span class="pre">SET</span> <span class="pre">c1='new_value'</span> <span class="pre">WHERE</span> <span class="pre">c1='old_value;'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UPDATE</span> <span class="pre">t1</span> <span class="pre">SET</span> <span class="pre">c1='new_value'</span> <span class="pre">WHERE</span> <span class="pre">c1='x'</span> <span class="pre">OR</span> <span class="pre">c1='y;'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UPDATE</span> <span class="pre">t1</span> <span class="pre">SET</span> <span class="pre">c1='new_value',c2='new_value'</span> <span class="pre">WHERE</span> <span class="pre">c1='old_value;'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UPDATE</span> <span class="pre">t1</span> <span class="pre">SET</span> <span class="pre">c1='new_value';'</span></code> (apply to every row)</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="delete-data">
+<h3>delete data<a class="headerlink" href="#delete-data" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">FROM</span> <span class="pre">t1;</span></code> (delete every row)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">FROM</span> <span class="pre">t1</span> <span class="pre">WHERE</span> <span class="pre">c1='x';</span></code></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="get-data">
+<h3>get data<a class="headerlink" href="#get-data" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">t1;</span></code></p></li>
+<li><dl class="simple">
+<dt>comparison operators</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;,</span> <span class="pre">&gt;,</span> <span class="pre">&lt;=,</span> <span class="pre">&gt;=,</span> <span class="pre">=,</span> <span class="pre">&lt;&gt;</span> <span class="pre">(not</span> <span class="pre">equal),</span> <span class="pre">AND,</span> <span class="pre">OR</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">this</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">comment</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">c1</span> <span class="pre">FROM</span> <span class="pre">t1;</span></code> or <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">t1.c1</span> <span class="pre">FROM</span> <span class="pre">t1;</span></code> (prefix with table_name is useful for
+complex queries)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">c1,c2</span> <span class="pre">FROM</span> <span class="pre">t1</span> <span class="pre">ORDER</span> <span class="pre">BY</span> <span class="pre">c2;</span></code> (ASC by default)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">c1,c2</span> <span class="pre">FROM</span> <span class="pre">t1</span> <span class="pre">ORDER</span> <span class="pre">BY</span> <span class="pre">c2</span> <span class="pre">DESC;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">c1,c2</span> <span class="pre">FROM</span> <span class="pre">t1</span> <span class="pre">ORDER</span> <span class="pre">BY</span> <span class="pre">c3;</span></code> (can order even if not included in query)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">c1,c2</span> <span class="pre">FROM</span> <span class="pre">t1</span> <span class="pre">ORDER</span> <span class="pre">BY</span> <span class="pre">c2,c1;</span></code> (order by c2 first, order by c1 again if needed)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">t1</span> <span class="pre">LIMIT</span> <span class="pre">3;</span></code> (limit result row numbers)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">c1</span> <span class="pre">FROM</span> <span class="pre">t1</span> <span class="pre">WHERE</span> <span class="pre">c1='x'</span> <span class="pre">OR</span> <span class="pre">c3='y';</span></code> (filter)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">t1</span> <span class="pre">WHERE</span> <span class="pre">c1</span> <span class="pre">IN</span> <span class="pre">('v1',</span> <span class="pre">'v2',</span> <span class="pre">'v3');</span></code> (can be any one of the values)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">c1</span> <span class="pre">AS</span> <span class="pre">new_name</span> <span class="pre">FROM</span> <span class="pre">t1;</span></code> change result column name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">DISTINCT</span> <span class="pre">c1</span> <span class="pre">FROM</span> <span class="pre">t1;</span></code> get only distinct attributes</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="functions">
+<h3>functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>special block of code used when querying data</p></li>
+<li><dl class="simple">
+<dt>count</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">COUNT(c1)</span> <span class="pre">FROM</span> <span class="pre">t1;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">COUNT(c1)</span> <span class="pre">FROM</span> <span class="pre">t1</span> <span class="pre">WHERE</span> <span class="pre">c1='x'</span> <span class="pre">AND</span> <span class="pre">c2&gt;'y';</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>average</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">AVG(c1)</span> <span class="pre">FROM</span> <span class="pre">t1;</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>sum</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">SUM(c1)</span> <span class="pre">FROM</span> <span class="pre">t1;</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>aggregate</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">COUNT(c1),c2</span> <span class="pre">FROM</span> <span class="pre">t1</span> <span class="pre">GROUP</span> <span class="pre">BY</span> <span class="pre">c2;</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="wildcards">
+<h3>wildcards<a class="headerlink" href="#wildcards" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">%</span></code>: any number of characters, <code class="docutils literal notranslate"><span class="pre">_</span></code>: one character</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">t1</span> <span class="pre">LIKE</span> <span class="pre">'%og';</span></code> e.g ‘aog’ or ‘aaaaog’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">t1</span> <span class="pre">LIKE</span> <span class="pre">'%og%';</span></code> e.g ‘aaaaogaaaa’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">t1</span> <span class="pre">LIKE</span> <span class="pre">'__og';</span></code> e.g ‘aaog’</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="union">
+<h3>union<a class="headerlink" href="#union" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>combine columns from <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statements</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">c1</span> <span class="pre">FROM</span> <span class="pre">t1</span> <span class="pre">UNION</span> <span class="pre">SELECT</span> <span class="pre">c2</span> <span class="pre">FROM</span> <span class="pre">t2;</span></code> result c1 and c2 in single column</p></li>
+<li><p>number of columns must be same to union, e.g cannot be <code class="docutils literal notranslate"><span class="pre">c1,c2</span> <span class="pre">FROM</span> <span class="pre">t1</span> <span class="pre">UNION</span> <span class="pre">c2</span> <span class="pre">FROM</span> <span class="pre">t2</span></code></p></li>
+<li><p>columns must be of same or compatible data type to union, different data types will be
+converted if possible</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">c1</span> <span class="pre">as</span> <span class="pre">new_name</span> <span class="pre">FROM</span> <span class="pre">t1</span> <span class="pre">UNION</span> <span class="pre">SELECT</span> <span class="pre">c2</span> <span class="pre">FROM</span> <span class="pre">t2;</span></code> result column will be <code class="docutils literal notranslate"><span class="pre">new_name</span></code></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="join">
+<h3>join<a class="headerlink" href="#join" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>join separate tables on specific common column</p></li>
+<li><dl class="simple">
+<dt><strong>inner join</strong></dt><dd><ul>
+<li><p>only common will be returned</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">t1.c1,</span> <span class="pre">t1.c2,</span> <span class="pre">t2.c2</span> <span class="pre">FROM</span> <span class="pre">t1</span> <span class="pre">JOIN</span> <span class="pre">t2</span> <span class="pre">ON</span> <span class="pre">t1.c1</span> <span class="pre">=</span> <span class="pre">t2.c1;</span></code> return only those
+where <code class="docutils literal notranslate"><span class="pre">t1.c1</span> <span class="pre">=</span> <span class="pre">t2.c1</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>left join</strong></dt><dd><ul>
+<li><p>return all from <code class="docutils literal notranslate"><span class="pre">t1</span></code> even if not common</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">t1.c1,</span> <span class="pre">t1.c2,</span> <span class="pre">t2.c2</span> <span class="pre">FROM</span> <span class="pre">t1</span> <span class="pre">JOIN</span> <span class="pre">t2</span> <span class="pre">ON</span> <span class="pre">t1.c1</span> <span class="pre">=</span> <span class="pre">t2.c1;</span></code> return not only those
+where <code class="docutils literal notranslate"><span class="pre">t1.c1</span> <span class="pre">=</span> <span class="pre">t2.c1</span></code> but also others from <code class="docutils literal notranslate"><span class="pre">t1</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>right join</strong></dt><dd><ul>
+<li><p>return all from <code class="docutils literal notranslate"><span class="pre">t2</span></code> even if not common</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">t1.c1,</span> <span class="pre">t1.c2,</span> <span class="pre">t2.c2</span> <span class="pre">FROM</span> <span class="pre">t1</span> <span class="pre">JOIN</span> <span class="pre">t2</span> <span class="pre">ON</span> <span class="pre">t1.c1</span> <span class="pre">=</span> <span class="pre">t2.c1;</span></code> return not only those
+where <code class="docutils literal notranslate"><span class="pre">t1.c1</span> <span class="pre">=</span> <span class="pre">t2.c1</span></code> but also others from <code class="docutils literal notranslate"><span class="pre">t2</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>full outer join</strong></dt><dd><ul>
+<li><p>left join and right join combined</p></li>
+<li><p>cannot do in MySQL</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="nested-queries">
+<h3>nested queries<a class="headerlink" href="#nested-queries" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>using results from one query in another</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">t1.c1</span> <span class="pre">FROM</span> <span class="pre">t1</span> <span class="pre">WHERE</span> <span class="pre">t1.c2</span> <span class="pre">IN</span> <span class="pre">(SELECT</span> <span class="pre">t2.c1</span> <span class="pre">FROM</span> <span class="pre">t2</span> <span class="pre">WHERE</span> <span class="pre">t2.c1</span> <span class="pre">=</span> <span class="pre">x);</span></code> execute the
+query in the () first and use that result to execute outer query</p></li>
+<li><p>use constraints if necessary, as result from one query could be incompatible with other,
+especially when using equal</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="triggers">
+<h3>triggers<a class="headerlink" href="#triggers" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>block of SQL that will be performed when certain action is operated</p></li>
+<li><p>e.g add a row to t2 when certain data is deleted on t1</p></li>
+<li><p>create trigger</p>
+<blockquote>
+<div><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DELIMITER</span><span class="w"> </span><span class="err">$$</span><span class="w"> </span><span class="c1">-- change SQL delimiter from &#39;;&#39; to &#39;$$&#39;</span>
+<span class="k">CREATE</span>
+<span class="w">    </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">trig1</span><span class="w"> </span><span class="k">BEFORE</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="c1">-- can also use AFTER INSERT/DELETE/UPDATE</span>
+<span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">t1</span>
+<span class="w">    </span><span class="k">FOR</span><span class="w"> </span><span class="k">EACH</span><span class="w"> </span><span class="k">ROW</span><span class="w"> </span><span class="k">BEGIN</span>
+<span class="w">        </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;action triggered&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="k">NEW</span><span class="p">.</span><span class="n">c1</span><span class="p">);</span><span class="w"> </span><span class="c1">-- add value of c1, to be added to t1, into t2 first</span>
+<span class="w">        </span><span class="k">IF</span><span class="w"> </span><span class="k">NEW</span><span class="p">.</span><span class="n">c1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;x&#39;</span><span class="w"> </span><span class="k">THEN</span>
+<span class="w">            </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="k">NEW</span><span class="p">.</span><span class="n">c1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ELSEIF</span><span class="w"> </span><span class="k">NEW</span><span class="p">.</span><span class="n">c1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;y&#39;</span><span class="w"> </span><span class="k">THEN</span>
+<span class="w">            </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;wrong value&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">ELSE</span>
+<span class="w">            </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;default value&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span>
+<span class="w">    </span><span class="k">END</span><span class="err">$$</span><span class="w"> </span><span class="c1">-- CREATE command ends here</span>
+<span class="k">DELIMITER</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="c1">-- change SQL delimiter back to &#39;;&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>delete trigger: <code class="docutils literal notranslate"><span class="pre">DROP</span> <span class="pre">TRIGGER</span> <span class="pre">trig1;</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#sql">back to top</a></p>
+</section>
+</section>
+<section id="er-diagrams">
+<h2>ER Diagrams<a class="headerlink" href="#er-diagrams" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#entity">Entity</a>, <a class="reference internal" href="#attributes">Attributes</a>, <a class="reference internal" href="#relationship">Relationship</a>, <a class="reference internal" href="#convert-to-schema">Convert to Schema</a></p></li>
+<li><p>Entity Relationship Diagrams, helps to convert storage/business requirements into database
+schema</p></li>
+<li><p>uses shapes and arrows or graphs to define relationship</p></li>
+</ul>
+<section id="entity">
+<h3>Entity<a class="headerlink" href="#entity" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>object to be modeled and stored information about</p></li>
+<li><p>use rectangle shape</p></li>
+<li><p>can define more than one entity in a diagram</p></li>
+<li><dl class="simple">
+<dt><strong>weak entity</strong></dt><dd><ul>
+<li><p>cannot be uniquely identified only by its attributes</p></li>
+<li><p>usually depends on other entities</p></li>
+<li><p>use double-layered rectangle shape</p></li>
+<li><p>always need to have total participation in the relationship</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>specific information about an entity</p></li>
+<li><p>use oval shape</p></li>
+<li><dl class="simple">
+<dt><strong>primary key</strong></dt><dd><ul>
+<li><p>uniquely define an entry in the database table</p></li>
+<li><p>use oval shape, text is underlined</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>composite attribute</strong></dt><dd><ul>
+<li><p>can be broken into sub-attributes</p></li>
+<li><p>e.g name can be separated into first_name and last_name</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>multi-valued attribute</strong></dt><dd><ul>
+<li><p>can have more than one value</p></li>
+<li><p>use double-layered oval shape</p></li>
+<li><p>e.g a person can have more than one phone numbers</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>derived attribute</strong></dt><dd><ul>
+<li><p>can be derived from other attributes</p></li>
+<li><p>use dotted-line oval shape</p></li>
+<li><p>e.g a student’s attribute <code class="docutils literal notranslate"><span class="pre">passed</span></code> can be derived from attribute <code class="docutils literal notranslate"><span class="pre">test_score</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="relationship">
+<h3>Relationship<a class="headerlink" href="#relationship" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>connect multiple entities in a single diagram</p></li>
+<li><p>use diamond shape</p></li>
+<li><p>connect with single line for partial participation and double line for total</p></li>
+<li><dl class="simple">
+<dt><strong>relationship attribute</strong></dt><dd><ul>
+<li><p>a relationship can have attributes</p></li>
+<li><p>attributes are not stored on entity but on the relationship</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>relationship cardinality</strong></dt><dd><ul>
+<li><p>maximum number of times an instance in one entity can relate to instances of another
+entity</p></li>
+<li><p>e.g 1:1, 1:N, N:M</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>identifying relationship</strong></dt><dd><ul>
+<li><p>use double-layered diamond shape</p></li>
+<li><p>serves to uniquely identify the weak entity</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="convert-to-schema">
+<h3>Convert to Schema<a class="headerlink" href="#convert-to-schema" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>create relation/table for each regular entity with all simple attributes</p></li>
+<li><dl class="simple">
+<dt>create relation/table for each weak entity with all simple attributes</dt><dd><ul>
+<li><p>primary key should be the key of weak entity plus the primary key of its owner</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>map binary (two entity participating) 1:1 relationship types</dt><dd><ul>
+<li><p>add primary key of one entity as foreign key in the one that has total participation</p></li>
+<li><p>if both are partial or total, use most convenient approach</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>map binary 1:N relationship types</dt><dd><ul>
+<li><p>add <code class="docutils literal notranslate"><span class="pre">1</span></code> side primary key as foreign key on the <code class="docutils literal notranslate"><span class="pre">N</span></code> side</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>map binary M:N relationship types</dt><dd><ul>
+<li><p>create new relation/table, with primary key as the combination of both entities’
+primary keys, and include any relationship attributes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#sql">back to top</a></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="SFML.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">SFML</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="StrategicPlanning.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Strategic Planning</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-sql">What is SQL?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rdbms-basics">RDBMS Basics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#int">INT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decimal-m-n">DECIMAL(M,N)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#varchar-l">VARCHAR(l)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blob">BLOB</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#date">DATE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timestamp">TIMESTAMP</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commands-queries">Commands &amp; Queries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-db">create DB</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-dbs">list DBs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#switch-db">switch DB</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-table">create table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-tables">list tables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#show-structure-of-the-table">show structure of the table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-table">delete table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constraints">Constraints</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-column">modify column</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#insert-data">insert data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#update-data">update data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-data">delete data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-data">get data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wildcards">wildcards</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#union">union</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#join">join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-queries">nested queries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triggers">triggers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#er-diagrams">ER Diagrams</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entity">Entity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">Attributes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relationship">Relationship</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-to-schema">Convert to Schema</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
