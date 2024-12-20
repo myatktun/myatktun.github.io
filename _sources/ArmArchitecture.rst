@@ -3,7 +3,7 @@ Arm Architecture
 ================
 
 1. `Architecture`_
-2. `Reference Sources`_
+2. `References & External Resources`_
 
 `back to top <#arm-architecture>`_
 
@@ -16,22 +16,22 @@ Architecture
 * Arm architecture is integrated into System-on-Chip (SoC) devices
 * Programmer's model: common instruction set and workflow for software developers
 * interoperability across different architecture implementation ensure that software can run on
-different Arm devices
+  different Arm devices
 * A-profile: applications, high performance, designed for complex operating system, e.g. Linux,
-Windows
+  Windows
 * R-profile: real-time, for real-time systems, such as networking equipment, embedded control
-systems
+  systems
 * M-profile: microcontroller, small and power-efficient IoT devices
 * architecture defines functional specification for a processor, and describes what
-functionality the software can provide, relying on the hardware
+  functionality the software can provide, relying on the hardware
 * Instruction set: function of each instruction and encoding, instruction's memory
-representation
+  representation
 * Register set: count, size, function and initial states of registers
 * Exception model: privilege levels, exception types, and take or return from an exception
 * Memory model: memory access order, cache behaviour, and how software must perform
-explicit maintenance
+  explicit maintenance
 * Debug, trace, and profiling: how breakpoints set and trigger, and what information in
-different formats can be captured by trace tools
+  different formats can be captured by trace tools
 
 Component Architecture Specifications
 -------------------------------------
@@ -45,32 +45,34 @@ System Architecture
     * BSA and BBR, kernel boot compatibility, applicable to a wide range of use cases
     * xBSA, standard distribution compatibility, specific to particular market
 
-Base System Architecture (BSA)
-------------------------------
-    * describe hardware system architecture that system software can rely on
+Base System Architecture
+------------------------
+    * BSA describe hardware system architecture that system software can rely on
     * cover features of processor and system architecture, e.g. interrupt controller, timers,
-    and other common devices that OS need
+      and other common devices that OS need
     * can be used by other standards to provide market-specific standardisation, e.g. SBSA for
-    server OS
+      server OS
 
-Base Boot Requirements (BBR)
-----------------------------
-    * describe requirements that Arm based systems, OS and hypervisors can rely on
+Base Boot Requirements
+----------------------
+    * BBR describe requirements that Arm based systems, OS and hypervisors can rely on
     * establish firmware interface requirements, such as PSCI, SMCCC, UEFI, ACPI, SMBIOS
     * also provide instructions for target specific use cases, e.g. SBBR, EBBR, LBBR
+
 * architecture does not tell how a processor is built or works
 
 Micro-architecture
 ------------------
     * explains how a particular processor works
     * include pipeline length and layout, number and sizes of caches, cycle counts for
-    individual instructions, and optional features implemented
+      individual instructions, and optional features implemented
     * e.g. Cortex-A53 and Cortex-A72 both implement Armv8-A architecture, but have very
-    different micro-architectures
+      different micro-architectures
     * architecturally compliant software can run on any processor that implement the same
-    architecture
+      architecture
+
 * each architecture version builds on the previous one, e.g Armv9-A or v9-A, version 9 for
-A-profile, builds on Armv8-A
+  A-profile, builds on Armv8-A
 * new instructions and features are added annually
 
 Available Specifications
@@ -89,18 +91,18 @@ Available Specifications
         - provide system design guidelines for SoC developers
     * **AMBA**
         - Advanced Microcontroller Bus Architecture, family of bus protocols
-          control how components are connected and the protocols of the connections
+        - control how components are connected and the protocols of the connections
 
 Documentation
 -------------
     * Arm architecture and processor manuals are available on [Arm developer website](https://developer.arm.com/)
     * Architecture Reference Manual: describe architecture specification, and any
-    implementation of that architecture
+      implementation of that architecture
     * Technical Reference Manual (TRM): describe features specific to each Arm Cortex processor
     * Configuration and Integration Manual (CIM): describe how to integrate Arm Cortex
-    processor into a system, only relevant to SoC designers, and only available to IP licenses
+      processor into a system, only relevant to SoC designers, and only available to IP licenses
     * reference manuals do not guide on how to use the processor, only technical detail of what
-    the architecture requires
+      the architecture requires
     * documents provide more general guidance, concepts, and instructions
 
 Architecture Terms
@@ -145,12 +147,12 @@ Architecture Terms
 
 `back to top <#arm-architecture>`_
 
-Reference Sources
-=================
+References & External Resources
+===============================
 
-* Arm. (2024). Architecture: Learn the Architecture Guides [online].
-Available from: https://www.arm.com/architecture/learn-the-architecture
-* Arm Developer. (2024). Learn the Architecture: Introducing the Arm architecture [online].
-Available from: https://developer.arm.com/documentation/102404/latest/
+* Arm. (2024). Architecture: Learn the Architecture Guides. Available at:
+  https://www.arm.com/architecture/learn-the-architecture
+* Arm Developer. (2024). Learn the Architecture: Introducing the Arm architecture. Available
+  at: https://developer.arm.com/documentation/102404/latest/
 
 `back to top <#arm-architecture>`_

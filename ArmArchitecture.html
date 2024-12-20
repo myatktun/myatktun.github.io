@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Arm Architecture &#8212; Notes  documentation</title>
+    <title>Arm Architecture &#8212; Notes</title>
   
   
   
@@ -125,7 +125,7 @@
   
   
   
-    <p class="title logo__title">Notes  documentation</p>
+    <p class="title logo__title">Notes</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -330,15 +330,15 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#architecture">Architecture</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#component-architecture-specifications">Component Architecture Specifications</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-architecture">System Architecture</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-system-architecture-bsa">Base System Architecture (BSA)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-boot-requirements-bbr">Base Boot Requirements (BBR)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-system-architecture">Base System Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-boot-requirements">Base Boot Requirements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-architecture">Micro-architecture</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#available-specifications">Available Specifications</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#architecture-terms">Architecture Terms</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-sources">Reference Sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>
 </ul>
             </nav>
         </div>
@@ -354,35 +354,35 @@
 <h1>Arm Architecture<a class="headerlink" href="#arm-architecture" title="Link to this heading">#</a></h1>
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="#architecture">Architecture</a></p></li>
-<li><p><a class="reference internal" href="#reference-sources">Reference Sources</a></p></li>
+<li><p><a class="reference internal" href="#references-external-resources">References &amp; External Resources</a></p></li>
 </ol>
 <p><a class="reference external" href="#arm-architecture">back to top</a></p>
 <section id="architecture">
 <h2>Architecture<a class="headerlink" href="#architecture" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#component-architecture-specifications">Component Architecture Specifications</a>, <a class="reference internal" href="#system-architecture">System Architecture</a>, <a href="#id3"><span class="problematic" id="id4">`Base System Architecture`_</span></a></p></li>
-<li><p><a href="#id5"><span class="problematic" id="id6">`Base Boot Requirements`_</span></a>, <a class="reference internal" href="#micro-architecture">Micro-architecture</a>, <a class="reference internal" href="#available-specifications">Available Specifications</a>, <a class="reference internal" href="#documentation">Documentation</a></p></li>
+<li><p><a class="reference internal" href="#component-architecture-specifications">Component Architecture Specifications</a>, <a class="reference internal" href="#system-architecture">System Architecture</a>, <a class="reference internal" href="#base-system-architecture">Base System Architecture</a></p></li>
+<li><p><a class="reference internal" href="#base-boot-requirements">Base Boot Requirements</a>, <a class="reference internal" href="#micro-architecture">Micro-architecture</a>, <a class="reference internal" href="#available-specifications">Available Specifications</a>, <a class="reference internal" href="#documentation">Documentation</a></p></li>
 <li><p><a class="reference internal" href="#architecture-terms">Architecture Terms</a></p></li>
 <li><p>Arm architecture is integrated into System-on-Chip (SoC) devices</p></li>
 <li><p>Programmer’s model: common instruction set and workflow for software developers</p></li>
-<li><p>interoperability across different architecture implementation ensure that software can run on</p></li>
+<li><p>interoperability across different architecture implementation ensure that software can run on
+different Arm devices</p></li>
+<li><p>A-profile: applications, high performance, designed for complex operating system, e.g. Linux,
+Windows</p></li>
+<li><p>R-profile: real-time, for real-time systems, such as networking equipment, embedded control
+systems</p></li>
+<li><p>M-profile: microcontroller, small and power-efficient IoT devices</p></li>
+<li><p>architecture defines functional specification for a processor, and describes what
+functionality the software can provide, relying on the hardware</p></li>
+<li><p>Instruction set: function of each instruction and encoding, instruction’s memory
+representation</p></li>
+<li><p>Register set: count, size, function and initial states of registers</p></li>
+<li><p>Exception model: privilege levels, exception types, and take or return from an exception</p></li>
+<li><p>Memory model: memory access order, cache behaviour, and how software must perform
+explicit maintenance</p></li>
+<li><p>Debug, trace, and profiling: how breakpoints set and trigger, and what information in
+different formats can be captured by trace tools</p></li>
 </ul>
-<p>different Arm devices
-* A-profile: applications, high performance, designed for complex operating system, e.g. Linux,
-Windows
-* R-profile: real-time, for real-time systems, such as networking equipment, embedded control
-systems
-* M-profile: microcontroller, small and power-efficient IoT devices
-* architecture defines functional specification for a processor, and describes what
-functionality the software can provide, relying on the hardware
-* Instruction set: function of each instruction and encoding, instruction’s memory
-representation
-* Register set: count, size, function and initial states of registers
-* Exception model: privilege levels, exception types, and take or return from an exception
-* Memory model: memory access order, cache behaviour, and how software must perform
-explicit maintenance
-* Debug, trace, and profiling: how breakpoints set and trigger, and what information in
-different formats can be captured by trace tools</p>
 <section id="component-architecture-specifications">
 <h3>Component Architecture Specifications<a class="headerlink" href="#component-architecture-specifications" title="Link to this heading">#</a></h3>
 <blockquote>
@@ -403,23 +403,23 @@ different formats can be captured by trace tools</p>
 </ul>
 </div></blockquote>
 </section>
-<section id="base-system-architecture-bsa">
-<h3>Base System Architecture (BSA)<a class="headerlink" href="#base-system-architecture-bsa" title="Link to this heading">#</a></h3>
+<section id="base-system-architecture">
+<h3>Base System Architecture<a class="headerlink" href="#base-system-architecture" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>describe hardware system architecture that system software can rely on</p></li>
-<li><p>cover features of processor and system architecture, e.g. interrupt controller, timers,</p></li>
+<li><p>BSA describe hardware system architecture that system software can rely on</p></li>
+<li><p>cover features of processor and system architecture, e.g. interrupt controller, timers,
+and other common devices that OS need</p></li>
+<li><p>can be used by other standards to provide market-specific standardisation, e.g. SBSA for
+server OS</p></li>
 </ul>
-<p>and other common devices that OS need
-* can be used by other standards to provide market-specific standardisation, e.g. SBSA for
-server OS</p>
 </div></blockquote>
 </section>
-<section id="base-boot-requirements-bbr">
-<h3>Base Boot Requirements (BBR)<a class="headerlink" href="#base-boot-requirements-bbr" title="Link to this heading">#</a></h3>
+<section id="base-boot-requirements">
+<h3>Base Boot Requirements<a class="headerlink" href="#base-boot-requirements" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>describe requirements that Arm based systems, OS and hypervisors can rely on</p></li>
+<li><p>BBR describe requirements that Arm based systems, OS and hypervisors can rely on</p></li>
 <li><p>establish firmware interface requirements, such as PSCI, SMCCC, UEFI, ACPI, SMBIOS</p></li>
 <li><p>also provide instructions for target specific use cases, e.g. SBBR, EBBR, LBBR</p></li>
 </ul>
@@ -433,19 +433,19 @@ server OS</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>explains how a particular processor works</p></li>
-<li><p>include pipeline length and layout, number and sizes of caches, cycle counts for</p></li>
+<li><p>include pipeline length and layout, number and sizes of caches, cycle counts for
+individual instructions, and optional features implemented</p></li>
+<li><p>e.g. Cortex-A53 and Cortex-A72 both implement Armv8-A architecture, but have very
+different micro-architectures</p></li>
+<li><p>architecturally compliant software can run on any processor that implement the same
+architecture</p></li>
 </ul>
-<p>individual instructions, and optional features implemented
-* e.g. Cortex-A53 and Cortex-A72 both implement Armv8-A architecture, but have very
-different micro-architectures
-* architecturally compliant software can run on any processor that implement the same
-architecture</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>each architecture version builds on the previous one, e.g Armv9-A or v9-A, version 9 for</p></li>
+<li><p>each architecture version builds on the previous one, e.g Armv9-A or v9-A, version 9 for
+A-profile, builds on Armv8-A</p></li>
+<li><p>new instructions and features are added annually</p></li>
 </ul>
-<p>A-profile, builds on Armv8-A
-* new instructions and features are added annually</p>
 </section>
 <section id="available-specifications">
 <h3>Available Specifications<a class="headerlink" href="#available-specifications" title="Link to this heading">#</a></h3>
@@ -485,8 +485,8 @@ component</p></li>
 </li>
 <li><dl class="simple">
 <dt><strong>AMBA</strong></dt><dd><ul>
-<li><p>Advanced Microcontroller Bus Architecture, family of bus protocols
-control how components are connected and the protocols of the connections</p></li>
+<li><p>Advanced Microcontroller Bus Architecture, family of bus protocols</p></li>
+<li><p>control how components are connected and the protocols of the connections</p></li>
 </ul>
 </dd>
 </dl>
@@ -499,15 +499,15 @@ control how components are connected and the protocols of the connections</p></l
 <blockquote>
 <div><ul class="simple">
 <li><p>Arm architecture and processor manuals are available on [Arm developer website](<a class="reference external" href="https://developer.arm.com/">https://developer.arm.com/</a>)</p></li>
-<li><p>Architecture Reference Manual: describe architecture specification, and any</p></li>
+<li><p>Architecture Reference Manual: describe architecture specification, and any
+implementation of that architecture</p></li>
+<li><p>Technical Reference Manual (TRM): describe features specific to each Arm Cortex processor</p></li>
+<li><p>Configuration and Integration Manual (CIM): describe how to integrate Arm Cortex
+processor into a system, only relevant to SoC designers, and only available to IP licenses</p></li>
+<li><p>reference manuals do not guide on how to use the processor, only technical detail of what
+the architecture requires</p></li>
+<li><p>documents provide more general guidance, concepts, and instructions</p></li>
 </ul>
-<p>implementation of that architecture
-* Technical Reference Manual (TRM): describe features specific to each Arm Cortex processor
-* Configuration and Integration Manual (CIM): describe how to integrate Arm Cortex
-processor into a system, only relevant to SoC designers, and only available to IP licenses
-* reference manuals do not guide on how to use the processor, only technical detail of what
-the architecture requires
-* documents provide more general guidance, concepts, and instructions</p>
 </div></blockquote>
 </section>
 <section id="architecture-terms">
@@ -581,14 +581,14 @@ unused</p></li>
 <p><a class="reference external" href="#arm-architecture">back to top</a></p>
 </section>
 </section>
-<section id="reference-sources">
-<h2>Reference Sources<a class="headerlink" href="#reference-sources" title="Link to this heading">#</a></h2>
+<section id="references-external-resources">
+<h2>References &amp; External Resources<a class="headerlink" href="#references-external-resources" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Arm. (2024). Architecture: Learn the Architecture Guides [online].</p></li>
+<li><p>Arm. (2024). Architecture: Learn the Architecture Guides. Available at:
+<a class="reference external" href="https://www.arm.com/architecture/learn-the-architecture">https://www.arm.com/architecture/learn-the-architecture</a></p></li>
+<li><p>Arm Developer. (2024). Learn the Architecture: Introducing the Arm architecture. Available
+at: <a class="reference external" href="https://developer.arm.com/documentation/102404/latest/">https://developer.arm.com/documentation/102404/latest/</a></p></li>
 </ul>
-<p>Available from: <a class="reference external" href="https://www.arm.com/architecture/learn-the-architecture">https://www.arm.com/architecture/learn-the-architecture</a>
-* Arm Developer. (2024). Learn the Architecture: Introducing the Arm architecture [online].
-Available from: <a class="reference external" href="https://developer.arm.com/documentation/102404/latest/">https://developer.arm.com/documentation/102404/latest/</a></p>
 <p><a class="reference external" href="#arm-architecture">back to top</a></p>
 </section>
 </section>
@@ -642,15 +642,15 @@ Available from: <a class="reference external" href="https://developer.arm.com/do
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#architecture">Architecture</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#component-architecture-specifications">Component Architecture Specifications</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-architecture">System Architecture</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-system-architecture-bsa">Base System Architecture (BSA)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-boot-requirements-bbr">Base Boot Requirements (BBR)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-system-architecture">Base System Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-boot-requirements">Base Boot Requirements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-architecture">Micro-architecture</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#available-specifications">Available Specifications</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#architecture-terms">Architecture Terms</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-sources">Reference Sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>
 </ul>
   </nav></div>
 

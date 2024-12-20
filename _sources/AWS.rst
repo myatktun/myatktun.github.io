@@ -9,7 +9,7 @@ AWS
 5. `AWS Global Infrastructure`_
 6. `Pricing & Support`_
 7. `CAF`_
-8. `6 R's`_
+8. `6 Rs`_
 9. `Cloud Acquisition`_
 10. `Application Integration`_
 11. `Compute`_
@@ -23,7 +23,7 @@ AWS
 19. `Security & Compliance`_
 20. `Storage`_
 21. `Exam Guides`_
-22. `Additional Resources`_
+22. `References & External Resources`_
 
 Job Roles
 =========
@@ -123,7 +123,7 @@ Management with IaC
 
 * can also manually manage through AWS management console, AWS cli or AWS apis
 * managing with Infrastructure as Code provides reusable, maintainable, extensible and
-testable infrastructure using versioning control and continuous integration and delivery
+  testable infrastructure using versioning control and continuous integration and delivery
 
 DevOPs
 ------
@@ -140,9 +140,10 @@ DevOPs
         - build and manage infrastructure code (by operations engineer)
         - build workflows, validate and automate deployments (by devops engineer)
         - application can then be deployed to test or production environment
+
 * using automation/devops depends on security, application sensitivity, organization
-history, staffs skills and experience, adopted technologies, business goals and other
-factors
+  history, staffs skills and experience, adopted technologies, business goals and other
+  factors
 
 `back to top <#aws>`_
 
@@ -193,7 +194,7 @@ Main Cloud Computing Models
 Well-Architected
 ================
 
-* helps cloud architects build secure infrastructure
+* helps cloud architects build secure infrastructure, and is built around six pillars
 * framework was created to
     - provide consistent approach to evaluating architectures
     - ensure that customers are thinking cloud natively
@@ -215,7 +216,6 @@ General design principles
         - allow for evolutionary architectures
         - drive architectures using data
         - improve through game days
-* built around six pillars
 
 Operational Excellence
 ----------------------
@@ -345,7 +345,7 @@ Cost Optimization
 -----------------
     * focuses on avoiding unnecessary costs
     * controlling fund allocation, selecting right resources and scaling without
-    overspending
+      overspending
     * in traditional environment
         - centralize cost, labor to maintain servers
         - pay upfront, no benefit from economies of scale
@@ -372,17 +372,21 @@ Sustainability
 --------------
     * focuses on minimizing environmental impacts of running workloads
     * shared responsibility, understanding impact and maximize utilization and minimize
-    required resources
+      required resources
+
 * framework includes domain-specific lenses and AWS Well-Architected Tool, a tool to
-evaluate workloads
+  evaluate workloads
+
 * terms
     * component: code, configuration and resources
     * workload: a set of components that deliver business value
     * architecture: how components work together in a workload
     * milestones: key changes in architecture as it evolves
     * technology portfolio: collection of workloads that are required for the business
+
 * trade-offs will be made between pillars based on the business context
 * security and operational excellence are generally not traded-off against others
+
 * common uses of framework
     * learn how to build cloud-native architecture
     * build a backlog
@@ -424,7 +428,9 @@ Availability Zones (AZs)
     * each Region consists of isolated and physically separated AZs
     * high availability and disaster recovery
     * run services across at least two AZs in a Region
+
 * may of the AWS services run at the Region level, running synchronously across multiple AZs
+
 
 Edge locations
 --------------
@@ -514,7 +520,7 @@ Consolidated Billing
 --------------------
     * free [AWS Organizations](#organizations) feature for single billing of multiple accounts
     * can get bulk discount pricing, share Savings Plans and Reserved Instances across all
-    accounts in the organization
+      accounts in the organization
     * default maximum accounts allowed for an organization is 4
     * can contact AWS Support to increase quota
 
@@ -539,7 +545,7 @@ Enterprise support
     * Basic, Developer and Business support
     * 15-minute SLA for critical workloads
     * dedicated TAM (Technical Account Manager), who provides expertise across full range
-    of services
+      of services
 
 EDP (Enterprise Discount Program)
 ---------------------------------
@@ -548,8 +554,8 @@ EDP (Enterprise Discount Program)
 
 `back to top <#aws>`_
 
-CAF (Cloud Adoption Framework)
-==============================
+CAF
+===
 
 * to enable quick and smooth migration to AWS, focuses on six perspectives
 * business, people and governance perspectives focus on business capabilities
@@ -569,7 +575,7 @@ CAF (Cloud Adoption Framework)
           business strategy
         - manage and measure cloud investments to evaluate business outcomes
         - roles: CIO, program managers, enterprise architects, business analysts, portfolio
-        managers
+          managers
     * **Platform**
         - to understand and communicate structure of IT systems and their relationships
         - includes principles and patterns for implementing new solutions on the cloud and
@@ -593,8 +599,8 @@ CAF (Cloud Adoption Framework)
 
 `back to top <#aws>`_
 
-6 R's (migration strategies)
-============================
+6 Rs
+====
 
 
 Rehosting
@@ -612,7 +618,7 @@ Refactoring/re-architecting
 ---------------------------
     * changing application architecture and develop by using cloud-native features
     * driven by strong business needs to add features, scale or performance that is hard
-    to achieve in existing environment
+      to achieve in existing environment
 
 Repurchasing
 ------------
@@ -638,7 +644,7 @@ Cloud Acquisition
 Procurement
 -----------
     * buying cloud technologies is paying for access to standardized compute, storage and other
-    IT services that run in a cloud service provider (CSP) data centers
+      IT services that run in a cloud service provider (CSP) data centers
     * different from traditional on-premises hardware as only pay for the resources used
     * reevaluate existing procurement strategies
     * create flexible acquisition process
@@ -650,7 +656,7 @@ Legal
     * avoid traditional IT terms and conditions as the basis for contract
     * use the CSP's terms as possible to avoid misalignment
     * recognize different terms and conditions among CSPs, cloud-managed service providers
-    and resellers
+      and resellers
 
 Security
 --------
@@ -675,6 +681,7 @@ Compliance
 ----------
     * compliance requirements differ based on geographical location
     * ask CSPs and Partners about how they comply and what tools are supported
+
 * engage all **stakeholders** early and often
     * help them understand how cloud will affect their area
     * understand how they will need to change and adapt internal skills and processes
@@ -696,13 +703,13 @@ Compliance
     * Indirect
         - purchase from CSP partner/reseller
         - negotiate customized agreement with the CSP
+
 * separate technology provided by CSP from hands-on services and labor
 * CSPs operate at massive one-to-many scale to offer services
 * key aspects of procurement: pricing, security, governance, terms & conditions
 * data sovereignty: ownership over data
 * data residency: requirement that all processed and stored content remain within specific
-country's borders
-* `Vendor selection guide`_, `Buying Cloud Services guide`_
+  country's borders
 
 AWS Partner Network (APN)
 -------------------------
@@ -710,7 +717,8 @@ AWS Partner Network (APN)
     * consulting partners: provide customers with professional services
     * technology partners: provide customers with software solutions
     * AWS offers Partners solution provider program, managed service provider (MSP) program,
-    competency program, service delivery program
+      competency program, service delivery program
+
 * AWS programs
     * AWS re/Start
         - 12-week program for disadvantaged people and members of armed forces community
@@ -726,11 +734,12 @@ AWS Partner Network (APN)
         - can be applied direct or through a participating accelerator, incubator, seed or VC
           fund or other start-up enabling organizations
         - 3 tiers providing up to $100,000 of free platform credits, training and support
+
 * can query AWS prices with The Price List Service API (Query API, JSON) and AWS Price List API
-(Bulk API, HTML)
+  (Bulk API, HTML)
 * can subscribe to Amazon SNS to get alerts when prices change
 * prices change periodically when AWS cuts prices, new instance types are launched or new
-services are introduced
+  services are introduced
 * different ways for cloud migration
     * Agile approach
         - to accelerate cloud migrations at scale
@@ -747,7 +756,7 @@ services are introduced
         - create blueprints of agile delivery for scaling migrations based on Wave 1 ( the
           initial wave of migrations with 10 to 30 applications)
     * can scale teams to support initial wave of migrations after agile and sprints to build
-    migration factory process
+      migration factory process
     * AWS Incentives
         - AWS Cloud Adoption Framework (AWS CAF), AWS Professional Services (ProServe)
         - AWS Cloud Adoption Readiness Tool (CART) helps customers develop efficient and
@@ -755,7 +764,6 @@ services are introduced
     * AWS Migration Partners
         - can help through every stage of migration
         - accelerate results by providing personnel, tools and education
-* `AWS Cloud Adoption Readiness`_, `Ten Considerations for a Cloud Procurement`_
 
 `back to top <#aws>`_
 
@@ -764,17 +772,19 @@ Application Integration
 
 * `SNS`_, `SQS`_
 
-SNS (Simple Notification Service)
----------------------------------
+SNS
+---
+    * Simple Notification Service
     * send notifications to end users in publish/subscribe model using mobile
-    push, SMS and email
+      push, SMS and email
     * SNS topic: channel for messages to be delivered
     * sending a message to a topic will go out to all subscribers of that channel
     * subscribers can also be endpoints such as SQS queues, Lambda functions, HTTPS or
-    HTTP web hooks
+      HTTP web hooks
 
-SQS (Simple Queue Service)
---------------------------
+SQS
+---
+    * Simple Queue Service
     * send, store and receive messages between software components at any volume
     * payload: data within the message which is protected until delivery
     * messages are sent into a queue and retrieved from it and deleted after processed
@@ -795,7 +805,7 @@ EC2 (Elastic Compute Cloud)
     * one instance is not aware of another on the same host
     * pay only for the compute time when an instance is running
     * can choose OS and specific hardware configuration
-    * flexible and resizable/vertical scaling
+    * flexible and resizable/vertical scaling, and auto-scalable
     * **Instance types**
         - **General purpose**
           + balance of compute, memory and networking resources
@@ -846,7 +856,6 @@ EC2 (Elastic Compute Cloud)
           + On-Demand Dedicated Hosts (hourly) and Dedicated Hosts Reservations (up to 70%
           off the On-Demand price)
           + most expensive type
-    * can be auto scaled
     * **Security Groups**
         - for instance level access
         - every instance launched comes with security group
@@ -860,10 +869,11 @@ ELB (Elastic Load Balancing)
     * EC2 instances can be added or removed without disruption
     * ELB and Auto Scaling can work together even though they are separate services
     * regional construct: run at the Region level rather than on individual EC2 instances,
-    therefore, is highly available
+      therefore, is highly available
     * can also be used for internal traffic in decoupled architecture
     * e.g front-end and back-end stay separated with ELB between, distributing all
-    all traffics to back-end instances
+      all traffics to back-end instances
+
 * tightly coupled architecture (Monolithic)
     * applications communicate directly
     * if single component fails or changes, it may cause issues to entire application
@@ -877,9 +887,9 @@ Lambda
 ------
     * do not need to provision servers
     * flexibility to auto scale serverless applications by modifying units of consumptions
-    such as throughput and memory
+      such as throughput and memory
     * upload code to Lambda, set code to trigger from an event source, code runs only when
-    triggered, pay only for compute time used
+      triggered, pay only for compute time used
     * default metrics provided on CloudWatch
         - Invocation metrics, Performance metrics, Concurrency metrics
     * maximum 10GB storage and 15 minute execution for running a lambda function
@@ -904,17 +914,20 @@ Containers
 
 * `ECS`_, `EKS`_, `Fargate`_
 
-ECS (Elastic Container Service)
--------------------------------
+ECS
+---
+    * Elastic Container Service
     * containers: package application's code and dependencies into single object
     * run and scale containerized applications
     * supports Docker containers (Community and Enterprise Editions)
     * can use API calls to launch and stop applications
 
-EKS (Elastic Kubernetes Service)
---------------------------------
+EKS
+---
+    * Elastic Kubernetes Service
     * deploy and manage containerized applications at scale
     * new features from K8s community can be easily applied to applications on EKS
+
 * both ECS and EKS can run on top of EC2, both are container orchestration tools
 
 Fargate
@@ -936,7 +949,7 @@ Budgets
     * information is updated three times a day
     * set alerts if usage exceeds the limit
     * send emails up to 10 addresses, integrate with AWS Chatbot to receive alerts through
-    Slack and Amazon Chime
+      Slack and Amazon Chime
     * can compare current/forecasted vs budgeted
 
 Cost Explorer
@@ -951,7 +964,7 @@ Marketplace
     * can choose third-party software with different payment options
     * can use one-click deployment
     * most vendors allow already owned licenses to use for AWS deployment and offer
-    pay-as-you-go pricing
+      pay-as-you-go pricing
     * many vendors offer free trials or quick start plans
     * enterprise focused features
         - custom terms and pricing
@@ -968,9 +981,13 @@ Database
 * relational databases
     * data is stored in a way that relates it to other pieces of data
     * uses SQL to store and query data
+* nonrelational databases
+    * use key-value (item-attribute) pairs rather than rows and columns
+    * not every item in the table has to have the same attributes
 
-RDS (Relational Database Service)
----------------------------------
+RDS
+---
+    * Relational Database Service
     * enables to run relational databases in the AWS Cloud
     * supported database engines: Aurora, PostgreSQL, MySQL, MariaDB, Oracle, Microsoft SQL
     * AWS manages automated patching, backups, redundancy, failover, disaster recovery
@@ -982,9 +999,6 @@ RDS (Relational Database Service)
         - replicates six copies of data and up to 15 read replicas
         - continuous backup to S3 and point-in-time recovery
         - for workloads that require high availability
-* nonrelational databases
-    * use key-value (item-attribute) pairs rather than rows and columns
-    * not every item in the table has to have the same attributes
 
 DynamoDB
 --------
@@ -1000,13 +1014,14 @@ DynamoDB
 Redshift
 --------
     * data warehousing as a service, ideal for business intelligence (BI) workloads and data
-    analytics
+      analytics
     * can collect data from many sources
     * can directly run single SQL query against exabytes of unstructured data
     * up to 10 times higher performance than traditional databases
 
-DMS (Database Migration Service)
---------------------------------
+DMS
+---
+    * Database Migration Service
     * migrate existing databases (source) onto AWS (target)
     * source database remains fully operational during the migration
     * source and target don't have to be of same type
@@ -1018,7 +1033,7 @@ DMS (Database Migration Service)
         - 2-step process
         - first use AWS Schema Conversion Tool and use DMS to migrate
     * useful for development and test database migrations, database consolidation, continuous
-    database replication
+      database replication
 
 DocumentDB
 ----------
@@ -1034,8 +1049,9 @@ Managed Blockchain
 ------------------
     * to create and manage blockchain networks with open-source frameworks
 
-QLDB (Quantum Ledger Database)
-------------------------------
+QLDB
+----
+    * Quantum Ledger Database
     * ledger database service
     * immutable system of record
 
@@ -1051,8 +1067,9 @@ Artificial Intelligence
 
 * `A2I`_, `Comprehend`_, `DeepRacer`_, `Fraud Detector`_, `Lex`_, `SageMaker`_, `Textract`_, `Transcribe`_
 
-A2I (Augmented AI)
-------------------
+A2I
+---
+    * Augmented AI
     * provides built-in human review workflows for common machine learning use cases
     * can also create own workflows for machine learning models built on SageMaker or others
     * e.g content moderation, text extraction from documents
@@ -1075,7 +1092,7 @@ DeepRacer
         - onboard computer with Wi-Fi and Intel Atom processor running Ubuntu Linux
         - can equip up to two single-lens cameras and LIDAR sensor
     * need to achieve efficient inference with limited resources of the car, by making sure the
-    machine learning model is appropriate for the inference engine
+      machine learning model is appropriate for the inference engine
     * **OpenVINO**
         - Open Visual Inferencing and Neural Network Optimiser
         - Intel developer toolkit for machine learning inference used with DeepRacer
@@ -1123,7 +1140,7 @@ Management & Governance
 Auto Scaling
 ------------
     * begin with only resources needed and auto respond to changing demand by scaling
-    out or in
+      out or in
     * **dynamic scaling**
         - responds to changing demand
     * **predictive scaling**
@@ -1165,7 +1182,7 @@ CloudWatch
 ----------
     * monitoring and observability service
     * collects data in the from of logs, metrics and events to monitor, respond and optimize
-    across all resources on single platform
+      across all resources on single platform
     * can be used to detect anomalous behavior, set alarms and take automated actions
     * reduce MTTR (mean time to resolution) and improve TCO (total cost of ownership)
 
@@ -1181,11 +1198,12 @@ Organizations
     * consolidated billing and hierarchical groupings of accounts
     * can group accounts into organizational units (OUs)
     * services and API actions access control with SCPs (Service control policies) to
-    organization root, individual member accounts or OUs
+      organization root, individual member accounts or OUs
 
 Systems Manager
 ---------------
     * collection of features that enable IT Operations
+    * no additional charge, only pay for resources created
     * pre-requisites for resources to be managed with Systems Manager
         - must use supported OS (Windows, Amazon Linux, Ubuntu, RHEL, CentOS)
         - SSM Agent must be installed (Windows requires PowerShell 3.0 or later)
@@ -1197,7 +1215,6 @@ Systems Manager
         - access Systems Manager in supported region
         - requires IAM roles for instances that will process commands and for users executing
           commands
-    * no additional charge, only pay for resources created
     * **Inventory**
         - collect operating system (OS), application, and instance metadata from EC2 instances
           and on-premises servers or virtual machines (VMs) in hybrid environment
@@ -1250,7 +1267,7 @@ Systems Manager
 Trusted Advisor
 ---------------
     * auto evaluate resources against five pillars (cost optimization, performance, security,
-    fault tolerance, service limits)
+      fault tolerance, service limits)
     * has free checks and others based on support plan
     * green: no problems, orange: recommended investigations, red: recommended actions
 
@@ -1312,12 +1329,12 @@ Route 53
     * DNS with low latency
     * uses *Edge locations*
     * can direct traffic to different endpoints using routing policies (latency-based,
-    geolocation, geoproximity, weighted round robin)
+      geolocation, geoproximity, weighted round robin)
     * can register domain names
 
-VPC (Virtual Private Cloud)
----------------------------
-    * to create logically isolated networks
+VPC
+---
+    * Virtual Private Cloud, to create logically isolated networks
     * manage resources within ip ranges of the network
         - recommended range (RFC1918): 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
     * usually for back-end services like databases or application servers
@@ -1431,9 +1448,9 @@ Shared Responsibility Model
         - explore solutions in the AWS Marketplace
         - explore AWS security competency partners
 
-IAM (Identity and Access Management)
-------------------------------------
-    * authentication and authorization as a service
+IAM
+---
+    * Identity and Access Management, authentication and authorization as a service
     * can specify who or what can access services and resources in AWS
     * create permissions based on department, job role or team name
     * manage per-account or use IAM Identity Center to provide multi-account access
@@ -1481,7 +1498,7 @@ Artifact
     * access to security and compliance reports and select online agreements
     * show compliance enabled services and documentations
     * AWS will not replicate data across Regions if certain Regions do not allow to get data
-    outside of that Region
+      outside of that Region
     * **Artifact Agreements**
         - can review, accept and manage agreements for an account or all accounts in OUs
         - e.g HIPAA
@@ -1496,7 +1513,7 @@ Cognito
 GuardDuty
 ---------
     * analyze continuous streams of metadata generated from the account and network activity
-    found in CloudTrail events, VPC Flow Logs and DNS Logs
+      found in CloudTrail events, VPC Flow Logs and DNS Logs
     * uses integrated threat intelligence
     * runs independently from other AWS services
     * will not affect performance of existing workloads
@@ -1509,8 +1526,9 @@ Inspector
     * Amazon agent: can installed on EC2 instances
     * security assessment service
 
-KMS (Key Management Service)
-----------------------------
+KMS
+---
+    * Key Management Service
     * create and manage encryption keys that is used to encrypt database tables
     * can choose specific levels of access control for keys
 
@@ -1534,7 +1552,7 @@ Storage
 * `Instance stores`_, `EBS`_, `S3`_, `EFS`_
 * block storage
     * when a file is updated, only the piece that changed is updated instead of overwriting
-    whole series of blocks
+      whole series of blocks
     * e.g hard drive on computer
     * for uploading video files that get edited frequently
     * useful for complex read, write, change functions
@@ -1545,11 +1563,12 @@ Instance stores
     * physically attached to EC2 host
     * all data will be deleted if the instance is stopped or terminated
     * when restarting the instance, the underlying host might change where the previous volume
-    does not exist
+      does not exist
     * only useful for temp data or data that can be easily recreated
 
-EBS (Elastic Block Store)
--------------------------
+EBS
+---
+    * Elastic Block Store
     * EBS volumes: virtual hard drives that can be attached to EC2 instances
     * separate drives from local instance store volumes and not tied directly to the host
     * data written will persist between stops and starts of EC2 instance
@@ -1561,15 +1580,16 @@ EBS (Elastic Block Store)
     * **EBS snapshots**
         - incremental backups of data
         - only blocks of data that have changed since the most recent snapshot are saved
+
 * object storage
     * each object consists of data, metadata and a key
     * entire object is updated when a file in object storage is modified
     * for documents, images, video files that get uploaded and consumed as entire objects
     * useful for complete objects or only occasional changes
 
-S3 (Simple Storage Service)
----------------------------
-    * storage and retrieve unlimited amount of data
+S3
+--
+    * Simple Storage Service, store and retrieve unlimited amount of data
     * data is stored as objects in buckets instead of file directory
     * maximum individual object size of 5TB
     * objects can be versioned, unversioned by default
@@ -1578,7 +1598,7 @@ S3 (Simple Storage Service)
     * create multiple buckets and store across different classes
     * useful for static website hosting
     * when choosing S3 storage class, consider how often data will be retrieved and how
-    available the data need to be
+      available the data need to be
     * **Standard**
         - for frequently accessed data
         - 11 nines % of durability
@@ -1612,12 +1632,14 @@ S3 (Simple Storage Service)
         - lowest-cost storage class for archiving
         - able to retrieve objects within 12 hours
         - consider data retrieval time when choosing Glacier and Glacier Deep Archive
+
 * file storage
     * for use cases in which a large number of services and resources need to access the same
-    data at the same time
+      data at the same time
 
-EFS (Elastic File System)
--------------------------
+EFS
+---
+    * Elastic File System
     * AWS handles the scaling and replication of files
     * multiple instances can access the data in EFS at the same time
     * Linux file system
@@ -1641,22 +1663,39 @@ Cloud Practitioner
     * **Technology (33%)**
     * **Billing and Pricing (16%)**
     * always read the full question, try to predict answer before looking at choices, eliminate
-    incorrect choices
+      incorrect choices
 
 `back to top <#aws>`_
 
-Additional Resources
-====================
+References & External Resources
+===============================
 
-* `Getting Started`_
-* `Glossary`_, `Overview`_, `Fundamentals`_, `Blogs`_
-* `Compute`_, `Well-Architected`_
-* `Databases`_, `Storage`_
-* `Security`_, `Management & Governance`_
-* `Support Plans`_, `Marketplace`_, `Pricing`_, `Cost Management`_
-* `Whitepapers & Guides`_, `Workshops`_
-* `Migration`_, `Mass Migration`_, `Migration tools`_
-* `APN`_, `How to Buy for Public Sector`_
-* `Cloud Ping`_
+* Amazon Web Services. [2024]. AWS Glossary. Available at:
+  https://docs.aws.amazon.com/general/latest/gr/glos-chap.html
+* Amazon Web Services. [2024]. Overview of Amazon Web Services - AWS Whitepaper.
+  Available at: https://d0.awsstatic.com/whitepapers/aws-overview.pdf
+* Amazon Web Services. [2024]. AWS Cloud Essentials: GETTING STARTED GUIDE. Available at:
+  https://aws.amazon.com/getting-started/cloud-essentials/
+* Amazon Web Services. [2024]. AWS Blog. Available at: https://aws.amazon.com/blogs/
+* Amazon Web Services. [2024]. AWS Well-Architected. Available at:
+  https://aws.amazon.com/architecture/well-architected/
+* Amazon Web Services. [2024]. Discover, deploy, and manage software that runs on AWS.
+  Available at https://aws.amazon.com/marketplace
+* Amazon Web Services. [2024]. AWS Whitepapers & Guides. Available at:
+  https://aws.amazon.com/whitepapers/
+* Amazon Web Services. [2024]. AWS Workshops. Available at: https://workshops.aws/
+* Orban, Stephen. [2016]. A Process for Mass Migrations to the Cloud. Available at:
+  https://aws.amazon.com/blogs/enterprise-strategy/214-2/
+* Amazon Web Services. [2024]. Discover How AWS Leverages Contract Vehicles within the Public
+  Sector. Available at: https://aws.amazon.com/how-to-buy/
+* Leonhard, Michael. [2024]. cloudping.info. Available at: https://cloudping.info/
+* NIST. [2012]. Cloud Computing Synopsis and Recommendations. Available at:
+  https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-146.pdf
+* CISPE. Buying Cloud Services in Public Sector. Available at:
+  https://cispe.cloud/website_cispe/wp-content/uploads/2019/05/Public-Policy-strategy-on-Procurement-Handbook-Final-190528.pdf
+* Amazon Web Services. [2024]. AWS Self Assessments. Available at:
+  https://cloudreadiness.amazonaws.com/#/
+* AWS Public Sector Blog Team. [2017]. Ten considerations for a cloud procurement. Available
+  at: https://aws.amazon.com/blogs/publicsector/ten-considerations-for-a-cloud-procurement/
 
 `back to top <#aws>`_

@@ -6,9 +6,11 @@ Python
 2. `Subprocess`_
 3. `Multiprocessing`_
 4. `Socket`_
-5. `NumPy`_
-6. `PyTorch`_
-7. `Tkinter`_
+5. `OOP`_
+6. `NumPy`_
+7. `PyTorch`_
+8. `Tkinter`_
+9. `References & External Resources`_
 
 `back to top <#python>`_
 
@@ -150,7 +152,7 @@ Mutually Exclusive Group
 Subprocess
 ==========
 
-* `checkoutput`_, `shell`_, `PIPE`_
+* `checkoutput()`_, `shell`_, `PIPE`_
 * not available in WebAssemply platforms
 * ``run()`` is recommended for most cases
 * can use ``Popen()`` interface for advance cases
@@ -175,8 +177,8 @@ Subprocess
 
 
 
-checkoutput
------------
+checkoutput()
+-------------
     * command returns output in bytes, decoding is required
     * raises ``CalledProcessError`` for non-zero return code
     * command is same as ``run(..., check=True, stdout=PIPE).stdout``
@@ -194,7 +196,7 @@ shell
 -----
     * when ``shell=True``, command is executed through the shell
     * can access other shell features such as shell pipes, filename wildcard, environment
-    variable expansions, etc.
+      variable expansions, etc.
     * **For security**
         - must ensure whitespace and metacharacters are quoted properly
         - can be vulnerable to shell injection
@@ -208,7 +210,7 @@ shell
 PIPE
 ----
     * instead of using ``shell=True`` to use shell pipe feature, use ``stdout`` and ``stdin`` to pass
-    output between commands
+      output between commands
 
     .. code-block:: python
 
@@ -409,7 +411,7 @@ Worker Pool
     * has methods to offload tasks to the worker processes in different ways
     * methods of pool should only be used by the process which created it
     * require ``__main__`` module be importable by the children and some will not work in
-    interactive interpreter
+      interactive interpreter
 
     .. code-block:: python
 
@@ -459,9 +461,10 @@ Socket
 Server
 ------
     * usual workflow is socket->bind->listen->accept
-    * ``socket.accept()``: return a pair (client_socket, client_address), client_socket can be
-    used to send and receive data, client_address is the address bound to the socket on the
-    other end
+    * ``socket.accept()``
+        - return a pair (client_socket, client_address)
+        - client_socket can be used to send and receive data
+        - client_address is the address bound to the socket on the other end
 
     .. code-block:: python
 
@@ -530,6 +533,63 @@ Client
 
 `back to top <#python>`_
 
+OOP
+===
+
+* `ABCs`_, `Protocols`_
+
+ABCs
+----
+    * give more structure to types, and type hints do not need updates for new subclasses
+    * can be difficult to combine classes from other libraries, and virtual subclasses need
+      explicit registering
+
+    .. code-block:: python
+
+       from abc import ABC, abstractmethod
+   
+       class Animal(ABC):
+           @abstractmethod
+           def walk(self):
+               pass
+   
+       class Duck(Animal):
+           def walk(self):
+               pass
+   
+       assert isinstance(Duck(), Animal)  # True
+
+
+
+Protocols
+---------
+    * mainly designed to be used when type checking, also called structural subtyping or static
+    duck typing
+    * do not need to inherit or register, and easier than ABCs when combining libraries
+    * need to decorate the protocol to make it runtime-checkable
+    * ``runtime_checkable``
+        - any object that adheres to the protocol becomes an instance of it at runtime
+        - only checks the existence of protocol members, and names, but not signatures
+
+    .. code-block:: python
+
+       from typing import Protocol, runtime_checkable
+   
+       @runtime_checkable
+       class Animal(Protocol):
+           def walk(self):
+               pass
+   
+       # implicitly considered to be a subtype of Animal
+       class Duck():
+           def walk(self):
+               pass
+   
+       assert isinstance(Duck(), Animal)  # True, but TypeError without runtime_checkable
+
+
+`back to top <#python>`_
+
 NumPy
 =====
 
@@ -558,7 +618,7 @@ NumPy Data Types
 Vectorization
 -------------
     * absence of any explicit looping in the code, but operates in optimized, pre-compiled C
-    code
+      code
     * vectorized code is more concise and easier to read, more Pythonic code
     * fewer lines and fewer bugs, closer to standard mathematical notation
 
@@ -641,12 +701,12 @@ ndarray
 
     * ``ndarray.ndim``: number of axes/dimensions of the array
     * ``ndarray.shape``: tuple of integers with size of the array in each dimension, e.g. shape
-    n x m matrix is (n, m), length of the `shape` tuple is the number of axes, `ndim`
+      n x m matrix is (n, m), length of the `shape` tuple is the number of axes, `ndim`
     * ``ndarray.size``: total number of elements, equal to the product of the elements of ``shape``
     * ``ndarray.dtype``: object describing type of elements, can specify ``dtype`` using Python types
-    or NumPy types, e.g. `numpy.int32`, `numpy.int16`, `numpy.float64`
+      or NumPy types, e.g. `numpy.int32`, `numpy.int16`, `numpy.float64`
     * ``ndarray.itemsize``: size in bytes of each element, equal to ``ndarray.dtype.itemsize``,
-    e.g. `float64` has `itemsize` of 8 bytes
+      e.g. `float64` has `itemsize` of 8 bytes
     * ``ndarray.data``: buffer containing the actual elements, do not need to use normally
 
     .. code-block:: python
@@ -668,7 +728,7 @@ Strides
 -------
     * data pointer: shows where in memory the data is stored
     * stride tells how many bytes to skip in memory to move forward in any single dimension of
-    the array
+      the array
     * e.g. strid(6, 2): need to skip 6 bytes to get to next row, and 2 bytes to the next column
     * strides allow NumPy to do operations without copying data
     * by only flipping the strides, the array can be transposed
@@ -692,15 +752,15 @@ Strides
 NumPy Arrays
 ------------
     * NumPy arrays are printed in similar way to nested lists
-        - the last axis is printed from left to right
-        - the second-to-last is printed from top to bottom
-        - the rest are printed from top to bottom, with each slice separated from the next by
-          an empty line
-        - one-dimensional arrays are printed as rows, bi-dimensional as matrix and
-          tri-dimensional as lists of matrices
-        - if array is too large, central part is skipped, and only corners are printed
-        - use ``np.set_printoptions(threshold=sys.maxsize)`` to print the entire array
-    * **numpy.array**
+    * the last axis is printed from left to right
+    * the second-to-last is printed from top to bottom
+    * the rest are printed from top to bottom, with each slice separated from the next by
+      an empty line
+    * one-dimensional arrays are printed as rows, bi-dimensional as matrix and
+      tri-dimensional as lists of matrices
+    * if array is too large, central part is skipped, and only corners are printed
+    * use ``np.set_printoptions(threshold=sys.maxsize)`` to print the entire array
+    * **numpy.array()**
         - function to create array form python list or tuple
         - can transform sequences of sequences into 2-dimensional arrays, and so on
         - can specify type of array at creation time
@@ -712,8 +772,8 @@ NumPy Arrays
 
 
     * has several functions to create arrays with initial placeholder content to minimize the
-    necessity of growing arrays, `dtype` is `float64` by default
-    * **numpy.zeros**
+      necessity of growing arrays, `dtype` is `float64` by default
+    * **numpy.zeros()**
         - creates an array full of zeros
         - ``numpy.zeros_like``: return an array of zeros with same shape and type as given array
 
@@ -724,7 +784,7 @@ NumPy Arrays
            b = np.zeros_like(a)    # b has shape of (2, 3)
 
 
-    * **numpy.ones**
+    * **numpy.ones()**
         - creates an array full of ones
         - ``numpy.ones_like``: return an array of ones with same shape and type as given array
 
@@ -734,7 +794,8 @@ NumPy Arrays
    
            b = np.ones_like(a)    # b has shape of (2, 3)
 
-    * **numpy.empty**
+
+    * **numpy.empty()**
         - creates an array with random initial content
         - depends on the state of memory
         - ``numpy.empty_like``: return an array with same shape and type as given array
@@ -746,7 +807,7 @@ NumPy Arrays
            b = np.empty_like(a)    # b has shape of (2, 3)
 
 
-    * **numpy.arange**
+    * **numpy.arange()**
         - analogous to Python ``range``, but returns an array
         - accepts float arguments, but number of elements obtained is unpredictable due to the
           finite floating point precision
@@ -757,7 +818,7 @@ NumPy Arrays
            b = np.arange(0, 2, 0.6) # [0., 0.6, 1.2, 1.8]
 
 
-    * **numpy.linspace**
+    * **numpy.linspace()**
         - return evenly spaced numbers over a specified interval
         - better to use than ``numpy.arange`` with float arguments
 
@@ -768,7 +829,7 @@ NumPy Arrays
            c = np.sin(b)
 
 
-    * **numpy.fromfunction**
+    * **numpy.fromfunction()**
         - create array by executing a function over each coordinate
         - array has a value fn(x, y, z) at coordinate (x, y, z)
 
@@ -779,7 +840,7 @@ NumPy Arrays
            #  [1. 2. 3.]]
 
 
-    * **numpy.fromfile**
+    * **numpy.fromfile()**
         - create array from data in a text or binary file
 
         .. code-block:: python
@@ -812,9 +873,9 @@ NumPy Random
 ------------
     * ``numpy.random`` implements pseudo-random number generators
     * only designed for statistical modeling and simulation, not suitable for security or
-    cryptographic purposes
+      cryptographic purposes
     * create a generator with ``default_rng()`` and call various methods to get samples from
-    different distributions
+      different distributions
     * **Seeds**
         - with no seed provided, ``default_rng()`` will seed from non-deterministic data from OS
           and generate different numbers each time
@@ -857,13 +918,14 @@ NumPy Random
 NumPy UFunc
 -----------
     * vectorized functions that takes a fixed number of scalar inputs and produces a fixed
-    number of scalar outputs
+      number of scalar outputs
     * supports array broadcasting, type casting, and other standard features
     * **Output Type**
         - determined by input class with highest ``__array_priority__`` or by ``output`` parameter
         - ``__array_prepare__``: called before ufunc, provided context about the ufunc, pass the
           array to the ufunc after prepare
         - ``__array_wrap__``: called after execution of ufunc
+
     * can check type handling, e.g. ``np.add.types``
     * defined in ``_core/include/numpy/ufuncobject.h``
 
@@ -887,8 +949,10 @@ NumPy Source Code
         - code for multi-array, ufunc extensions
         - various support libraries such as npymath, npysort
         - public headers in include
+
     * numpy/lib: various tools on top of core
     * Python interface is pretty straightforward
+
     * **npymath**
         - C99 abstraction for cross platform math operations
         - implement fundamental IEEE 754-related features
@@ -964,8 +1028,8 @@ Tensors
         - in matrix multiplication, ``t1 @ t2 != t2 @ t1``
         - can convert single-element tensor to Python numerical value
         - in-place operations: stores the result into the operand, denoted by _ suffix, save
-          memory, but can be problematic when computing derivatives because of an immediate loss
-          of history
+          memory, but can be problematic when computing derivatives because of an immediate
+          loss of history
 
         .. code-block:: python
 
@@ -997,7 +1061,7 @@ Tensors
 
 
     * tensors on CPU and NumPy arrays can share their underlying memory locations, changing one
-    will change the other
+      will change the other
 
         .. code-block:: python
 
@@ -1016,48 +1080,48 @@ Tensors
 PyTorch Basic Functions
 -----------------------
     * ``arange(start=0, end, step=1)``: return 1-D tensor of size (end-start)/step with values
-    from [start, end)
+      from [start, end)
     * ``cat(tensors, dim=0)``: concat tensors in given dimension, all tensors must be same shape
-    or 1-D empty tensor with size 0
+      or 1-D empty tensor with size 0
     * ``empty(size)``: return tensor filled with uninitialized data, size can be variable number
-    of arguments or collection
+      of arguments or collection
     * ``empty_like(input)``: return uninitialized tensor with same size as input Tensor, same as
-    ``empty(input.size(), dtype=input.dtype, layout=input.layout, device=input.device)``
+      ``empty(input.size(), dtype=input.dtype, layout=input.layout, device=input.device)``
     * ``exp(input)``: return tensor with exponential of elements of input tensor
     * ``eye(n)``: return 2-D tensor with ones on the diagonal and zeros elsewhere
     * ``linspace(start, end, steps)``: create 1-D tensor of size steps with values evenly spaced
-    from start to end, [$start, start + \frac{end-start}{steps-1}, ..., end$]
+      from start to end, [$start, start + \frac{end-start}{steps-1}, ..., end$]
     * ``logspace(start, end, steps, base=10.0)``: create 1-D tensor of size steps with values
-    evenly spaced from $base^{start}$ to $base^{end}$,
-    [$base^{start}, base^{(start+\frac{end-start}{steps-1})}, ..., base^{end}$]
+      evenly spaced from $base^{start}$ to $base^{end}$,
+      [$base^{start}, base^{(start+\frac{end-start}{steps-1})}, ..., base^{end}$]
     * ``masked_fill(mask, value)``: fills elements of self tensor with value where mask is True,
-    out-of-place version, mask is boolean tensor
+      out-of-place version, mask is boolean tensor
     * ``multinomial(input, num_samples)``: return a tensor where each row contains num_samples
-    indices sampled from the multinomial, input is a tensor of probabilities
+      indices sampled from the multinomial, input is a tensor of probabilities
     * ``ones(size)``: return tensor filled with scalar 1, size can be variable number of
-    arguments or collection
+      arguments or collection
     * ``randint(low=0, high, size)``: return tensor with random ints uniformly between [low, high)
     * ``stack(tensors)``: concat tensors along a new dimension
     * ``tensor(data)``: create tensor with no autograd history by copying data, data can be a list,
-    tuple or NumPy ndarray, scalar and other types
+      tuple or NumPy ndarray, scalar and other types
     * ``transpose(input, dim0, dim1)``: return transposed version of input tensor, dim0 and dim1
-    are swapped
+      are swapped
     * ``tril(input, diagonal=0)``: return lower triangular part, elements on and below diagonal,
-    of 2-D tensor or batch of matrices
+      of 2-D tensor or batch of matrices
     * ``triu(input, diagonal=0)``: return upper triangular part, elements on and above diagonal,
-    of 2-D tensor or batch of matrices
+      of 2-D tensor or batch of matrices
     * ``zeros(size)``: return tensor filled with scalar 0, size can be variable number of
-    arguments or collection
+      arguments or collection
 
 PyTorch Dataset
 ---------------
     * decouple dataset code from model training code for readability and modularity
     * PyTorch provides two data primitives to use pre-loaded and own datasets
     * has functions specific to particular data that can be used to prototype and benchmark
-    models
+      models
     * ``utils.data.Dataset``: stores samples and labels, retrieves one sample at a time
     * ``utils.data.DataLoader``: wraps an iterable around ``Dataset``, can reshuffle data at every
-    epoch to reduce model overfitting
+      epoch to reduce model overfitting
 
     .. code-block:: python
 
@@ -1131,9 +1195,9 @@ nn Module
     * **Softmax**
         - $Softmax(x_i) = \frac{exp(x_i)}{\Sigma_jexp(x_j)}$
     * ``Linear(in_features, out_features, bias=True)``: apply linear transformation to incoming
-    data
+      data
     * ``functional.softmax(input, dim=None)``: apply softmax function to all slices along dim,
-    and will rescale so that elements lie in the range [0, 1] and sum to 1
+      and will rescale so that elements lie in the range [0, 1] and sum to 1
     * **model.train()**
         - model learns from the data, and weights and biases are updated as training goes on
         - some layers, such as dropout and batch normalisation operate differently
@@ -1202,14 +1266,14 @@ Tkinter
 * `Frame`_, `Widgets`_, `Event Loop`_, `Example Tkinter Code`_
 * works cross-platform
 * do not need to implement redrawing, parsing and dispatching events, hit detection or handling
-events on each widget
+  events on each widget
 * no complex code for widgets, only need to attach them to variables
 * always encapsulate the main code rather than putting into global variable space
 
 Frame
 -----
     * main application window is not part of newer themed widgets, and its background color
-    doesn't match the themed widgets
+      doesn't match the themed widgets
     * using a themed frame widget to hold content ensures that the background is correct
 
     .. code-block:: python
@@ -1228,10 +1292,10 @@ Widgets
     * need to specify a parent when creating widget
     * parent is passed as the first parameter when instantiating a widget object
     * can provide options such as ``width`` and ``textvariable``, which must be instance of
-    ``StringVar`` class
+      ``StringVar`` class
     * widgets do not auto appear on screen, must be placed in appropriate column and row
     * ``sticky`` describes how the widget should line up within the grid cell, using compass
-    directions
+      directions
 
     .. code-block:: python
 
@@ -1294,5 +1358,15 @@ Example Tkinter Code
        HelloWorld(root)
        root.mainloop()
 
+
+`back to top <#python>`_
+
+References & External Resources
+===============================
+
+* EuroPython Conference. (2022). Protocols in Python: Why You Need Them - presented by Rogier
+  van der Geer. Available at: https://youtu.be/Lddegb2ToNY?si=xYzoKf0NNlDVozzS
+* EuroPython Conference. (2022). What happens when you import a module? - presented by Reuven
+  M. Lerner. Available at: https://youtu.be/Aty6rJIvpfU?si=AnpdXpURoVXYx-EP
 
 `back to top <#python>`_

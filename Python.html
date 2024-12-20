@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Python &#8212; Notes  documentation</title>
+    <title>Python &#8212; Notes</title>
   
   
   
@@ -125,7 +125,7 @@
   
   
   
-    <p class="title logo__title">Notes  documentation</p>
+    <p class="title logo__title">Notes</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -334,7 +334,7 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subprocess">Subprocess</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checkoutput">checkoutput</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checkoutput">checkoutput()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shell">shell</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pipe">PIPE</a></li>
 </ul>
@@ -350,6 +350,11 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#socket">Socket</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#server">Server</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#client">Client</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oop">OOP</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abcs">ABCs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protocols">Protocols</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">NumPy</a><ul class="nav section-nav flex-column">
@@ -379,6 +384,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-tkinter-code">Example Tkinter Code</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>
 </ul>
             </nav>
         </div>
@@ -397,9 +403,11 @@
 <li><p><a class="reference internal" href="#subprocess">Subprocess</a></p></li>
 <li><p><a class="reference internal" href="#multiprocessing">Multiprocessing</a></p></li>
 <li><p><a class="reference internal" href="#socket">Socket</a></p></li>
+<li><p><a class="reference internal" href="#oop">OOP</a></p></li>
 <li><p><a class="reference internal" href="#numpy">NumPy</a></p></li>
 <li><p><a class="reference internal" href="#pytorch">PyTorch</a></p></li>
 <li><p><a class="reference internal" href="#tkinter">Tkinter</a></p></li>
+<li><p><a class="reference internal" href="#references-external-resources">References &amp; External Resources</a></p></li>
 </ol>
 <p><a class="reference external" href="#python">back to top</a></p>
 <section id="argparse">
@@ -546,7 +554,7 @@
 <section id="subprocess">
 <h2>Subprocess<a class="headerlink" href="#subprocess" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#checkoutput">checkoutput</a>, <a class="reference internal" href="#shell">shell</a>, <a class="reference internal" href="#pipe">PIPE</a></p></li>
+<li><p><a class="reference internal" href="#checkoutput">checkoutput()</a>, <a class="reference internal" href="#shell">shell</a>, <a class="reference internal" href="#pipe">PIPE</a></p></li>
 <li><p>not available in WebAssemply platforms</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">run()</span></code> is recommended for most cases</p></li>
 <li><p>can use <code class="docutils literal notranslate"><span class="pre">Popen()</span></code> interface for advance cases</p></li>
@@ -569,7 +577,7 @@
 </pre></div>
 </div>
 <section id="checkoutput">
-<h3>checkoutput<a class="headerlink" href="#checkoutput" title="Link to this heading">#</a></h3>
+<h3>checkoutput()<a class="headerlink" href="#checkoutput" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
 <li><p>command returns output in bytes, decoding is required</p></li>
@@ -589,16 +597,17 @@
 <blockquote>
 <div><ul class="simple">
 <li><p>when <code class="docutils literal notranslate"><span class="pre">shell=True</span></code>, command is executed through the shell</p></li>
-<li><p>can access other shell features such as shell pipes, filename wildcard, environment</p></li>
-</ul>
-<p>variable expansions, etc.
-* <strong>For security</strong></p>
-<blockquote>
-<div><ul class="simple">
+<li><p>can access other shell features such as shell pipes, filename wildcard, environment
+variable expansions, etc.</p></li>
+<li><dl class="simple">
+<dt><strong>For security</strong></dt><dd><ul>
 <li><p>must ensure whitespace and metacharacters are quoted properly</p></li>
 <li><p>can be vulnerable to shell injection</p></li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
+</li>
+</ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">subprocess</span><span class="o">.</span><span class="n">checkoutput</span><span class="p">(</span><span class="s2">&quot;dmesg | grep hda&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># can use shell pipe feature</span>
 </pre></div>
 </div>
@@ -608,9 +617,9 @@
 <h3>PIPE<a class="headerlink" href="#pipe" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>instead of using <code class="docutils literal notranslate"><span class="pre">shell=True</span></code> to use shell pipe feature, use <code class="docutils literal notranslate"><span class="pre">stdout</span></code> and <code class="docutils literal notranslate"><span class="pre">stdin</span></code> to pass</p></li>
+<li><p>instead of using <code class="docutils literal notranslate"><span class="pre">shell=True</span></code> to use shell pipe feature, use <code class="docutils literal notranslate"><span class="pre">stdout</span></code> and <code class="docutils literal notranslate"><span class="pre">stdin</span></code> to pass
+output between commands</p></li>
 </ul>
-<p>output between commands</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">([</span><span class="s2">&quot;dmesg&quot;</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">)</span>
 <span class="n">p2</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">([</span><span class="s2">&quot;grep&quot;</span><span class="p">,</span> <span class="s2">&quot;hda&quot;</span><span class="p">],</span> <span class="n">stdin</span><span class="o">=</span><span class="n">p1</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">)</span> <span class="c1"># use p1&#39;s stdout as input</span>
 <span class="n">p1</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -843,9 +852,9 @@ Condition, Event, Barrier, Queue, Value and Array</p></li>
 <li><p>distribute the input data across processes, data parallelism</p></li>
 <li><p>has methods to offload tasks to the worker processes in different ways</p></li>
 <li><p>methods of pool should only be used by the process which created it</p></li>
-<li><p>require <code class="docutils literal notranslate"><span class="pre">__main__</span></code> module be importable by the children and some will not work in</p></li>
+<li><p>require <code class="docutils literal notranslate"><span class="pre">__main__</span></code> module be importable by the children and some will not work in
+interactive interpreter</p></li>
 </ul>
-<p>interactive interpreter</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
 
 <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -896,10 +905,16 @@ Condition, Event, Barrier, Queue, Value and Array</p></li>
 <blockquote>
 <div><ul class="simple">
 <li><p>usual workflow is socket-&gt;bind-&gt;listen-&gt;accept</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">socket.accept()</span></code>: return a pair (client_socket, client_address), client_socket can be</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">socket.accept()</span></code></dt><dd><ul>
+<li><p>return a pair (client_socket, client_address)</p></li>
+<li><p>client_socket can be used to send and receive data</p></li>
+<li><p>client_address is the address bound to the socket on the other end</p></li>
 </ul>
-<p>used to send and receive data, client_address is the address bound to the socket on the
-other end</p>
+</dd>
+</dl>
+</li>
+</ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">socket</span>
 
 
@@ -967,6 +982,70 @@ other end</p>
 <p><a class="reference external" href="#python">back to top</a></p>
 </section>
 </section>
+<section id="oop">
+<h2>OOP<a class="headerlink" href="#oop" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#abcs">ABCs</a>, <a class="reference internal" href="#protocols">Protocols</a></p></li>
+</ul>
+<section id="abcs">
+<h3>ABCs<a class="headerlink" href="#abcs" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>give more structure to types, and type hints do not need updates for new subclasses</p></li>
+<li><p>can be difficult to combine classes from other libraries, and virtual subclasses need
+explicit registering</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+<span class="k">class</span> <span class="nc">Animal</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">walk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Duck</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">walk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">Duck</span><span class="p">(),</span> <span class="n">Animal</span><span class="p">)</span>  <span class="c1"># True</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="protocols">
+<h3>Protocols<a class="headerlink" href="#protocols" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>mainly designed to be used when type checking, also called structural subtyping or static</p></li>
+</ul>
+<p>duck typing
+* do not need to inherit or register, and easier than ABCs when combining libraries
+* need to decorate the protocol to make it runtime-checkable
+* <code class="docutils literal notranslate"><span class="pre">runtime_checkable</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>any object that adheres to the protocol becomes an instance of it at runtime</p></li>
+<li><p>only checks the existence of protocol members, and names, but not signatures</p></li>
+</ul>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Protocol</span><span class="p">,</span> <span class="n">runtime_checkable</span>
+
+<span class="nd">@runtime_checkable</span>
+<span class="k">class</span> <span class="nc">Animal</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">walk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="c1"># implicitly considered to be a subtype of Animal</span>
+<span class="k">class</span> <span class="nc">Duck</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">walk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">Duck</span><span class="p">(),</span> <span class="n">Animal</span><span class="p">)</span>  <span class="c1"># True, but TypeError without runtime_checkable</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><a class="reference external" href="#python">back to top</a></p>
+</section>
+</section>
 <section id="numpy">
 <h2>NumPy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -1007,11 +1086,11 @@ other end</p>
 <h3>Vectorization<a class="headerlink" href="#vectorization" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>absence of any explicit looping in the code, but operates in optimized, pre-compiled C</p></li>
+<li><p>absence of any explicit looping in the code, but operates in optimized, pre-compiled C
+code</p></li>
+<li><p>vectorized code is more concise and easier to read, more Pythonic code</p></li>
+<li><p>fewer lines and fewer bugs, closer to standard mathematical notation</p></li>
 </ul>
-<p>code
-* vectorized code is more concise and easier to read, more Pythonic code
-* fewer lines and fewer bugs, closer to standard mathematical notation</p>
 </div></blockquote>
 </section>
 <section id="broadcasting">
@@ -1102,15 +1181,15 @@ other end</p>
 </div></blockquote>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ndarray.ndim</span></code>: number of axes/dimensions of the array</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ndarray.shape</span></code>: tuple of integers with size of the array in each dimension, e.g. shape</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ndarray.shape</span></code>: tuple of integers with size of the array in each dimension, e.g. shape
+n x m matrix is (n, m), length of the <cite>shape</cite> tuple is the number of axes, <cite>ndim</cite></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ndarray.size</span></code>: total number of elements, equal to the product of the elements of <code class="docutils literal notranslate"><span class="pre">shape</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ndarray.dtype</span></code>: object describing type of elements, can specify <code class="docutils literal notranslate"><span class="pre">dtype</span></code> using Python types
+or NumPy types, e.g. <cite>numpy.int32</cite>, <cite>numpy.int16</cite>, <cite>numpy.float64</cite></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ndarray.itemsize</span></code>: size in bytes of each element, equal to <code class="docutils literal notranslate"><span class="pre">ndarray.dtype.itemsize</span></code>,
+e.g. <cite>float64</cite> has <cite>itemsize</cite> of 8 bytes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ndarray.data</span></code>: buffer containing the actual elements, do not need to use normally</p></li>
 </ul>
-<p>n x m matrix is (n, m), length of the <cite>shape</cite> tuple is the number of axes, <cite>ndim</cite>
-* <code class="docutils literal notranslate"><span class="pre">ndarray.size</span></code>: total number of elements, equal to the product of the elements of <code class="docutils literal notranslate"><span class="pre">shape</span></code>
-* <code class="docutils literal notranslate"><span class="pre">ndarray.dtype</span></code>: object describing type of elements, can specify <code class="docutils literal notranslate"><span class="pre">dtype</span></code> using Python types
-or NumPy types, e.g. <cite>numpy.int32</cite>, <cite>numpy.int16</cite>, <cite>numpy.float64</cite>
-* <code class="docutils literal notranslate"><span class="pre">ndarray.itemsize</span></code>: size in bytes of each element, equal to <code class="docutils literal notranslate"><span class="pre">ndarray.dtype.itemsize</span></code>,
-e.g. <cite>float64</cite> has <cite>itemsize</cite> of 8 bytes
-* <code class="docutils literal notranslate"><span class="pre">ndarray.data</span></code>: buffer containing the actual elements, do not need to use normally</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
@@ -1128,14 +1207,13 @@ e.g. <cite>float64</cite> has <cite>itemsize</cite> of 8 bytes
 <section id="strides">
 <h3>Strides<a class="headerlink" href="#strides" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>data pointer: shows where in memory the data is stored</p></li>
-<li><p>stride tells how many bytes to skip in memory to move forward in any single dimension of</p></li>
-</ul>
-<p>the array
-* e.g. strid(6, 2): need to skip 6 bytes to get to next row, and 2 bytes to the next column
-* strides allow NumPy to do operations without copying data
-* by only flipping the strides, the array can be transposed</p>
+<li><p>stride tells how many bytes to skip in memory to move forward in any single dimension of
+the array</p></li>
+<li><p>e.g. strid(6, 2): need to skip 6 bytes to get to next row, and 2 bytes to the next column</p></li>
+<li><p>strides allow NumPy to do operations without copying data</p></li>
+<li><p>by only flipping the strides, the array can be transposed</p>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># dtype:uint8, stride(3, 1)</span>
 <span class="n">arr</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
@@ -1151,14 +1229,15 @@ e.g. <cite>float64</cite> has <cite>itemsize</cite> of 8 bytes
 </pre></div>
 </div>
 </div></blockquote>
+</li>
+</ul>
 </div></blockquote>
 </section>
 <section id="numpy-arrays">
 <h3>NumPy Arrays<a class="headerlink" href="#numpy-arrays" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul>
-<li><dl class="simple">
-<dt>NumPy arrays are printed in similar way to nested lists</dt><dd><ul class="simple">
+<li><p>NumPy arrays are printed in similar way to nested lists</p></li>
 <li><p>the last axis is printed from left to right</p></li>
 <li><p>the second-to-last is printed from top to bottom</p></li>
 <li><p>the rest are printed from top to bottom, with each slice separated from the next by
@@ -1167,12 +1246,8 @@ an empty line</p></li>
 tri-dimensional as lists of matrices</p></li>
 <li><p>if array is too large, central part is skipped, and only corners are printed</p></li>
 <li><p>use <code class="docutils literal notranslate"><span class="pre">np.set_printoptions(threshold=sys.maxsize)</span></code> to print the entire array</p></li>
-</ul>
-</dd>
-</dl>
-</li>
 <li><dl>
-<dt><strong>numpy.array</strong></dt><dd><ul class="simple">
+<dt><strong>numpy.array()</strong></dt><dd><ul class="simple">
 <li><p>function to create array form python list or tuple</p></li>
 <li><p>can transform sequences of sequences into 2-dimensional arrays, and so on</p></li>
 <li><p>can specify type of array at creation time</p></li>
@@ -1184,12 +1259,10 @@ tri-dimensional as lists of matrices</p></li>
 </dd>
 </dl>
 </li>
-<li><p>has several functions to create arrays with initial placeholder content to minimize the</p></li>
-</ul>
-<p>necessity of growing arrays, <cite>dtype</cite> is <cite>float64</cite> by default
-* <strong>numpy.zeros</strong></p>
-<blockquote>
-<div><ul class="simple">
+<li><p>has several functions to create arrays with initial placeholder content to minimize the
+necessity of growing arrays, <cite>dtype</cite> is <cite>float64</cite> by default</p></li>
+<li><dl>
+<dt><strong>numpy.zeros()</strong></dt><dd><ul class="simple">
 <li><p>creates an array full of zeros</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">numpy.zeros_like</span></code>: return an array of zeros with same shape and type as given array</p></li>
 </ul>
@@ -1198,10 +1271,11 @@ tri-dimensional as lists of matrices</p></li>
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>    <span class="c1"># b has shape of (2, 3)</span>
 </pre></div>
 </div>
-</div></blockquote>
-<ul>
+</dd>
+</dl>
+</li>
 <li><dl>
-<dt><strong>numpy.ones</strong></dt><dd><ul class="simple">
+<dt><strong>numpy.ones()</strong></dt><dd><ul class="simple">
 <li><p>creates an array full of ones</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">numpy.ones_like</span></code>: return an array of ones with same shape and type as given array</p></li>
 </ul>
@@ -1214,7 +1288,7 @@ tri-dimensional as lists of matrices</p></li>
 </dl>
 </li>
 <li><dl>
-<dt><strong>numpy.empty</strong></dt><dd><ul class="simple">
+<dt><strong>numpy.empty()</strong></dt><dd><ul class="simple">
 <li><p>creates an array with random initial content</p></li>
 <li><p>depends on the state of memory</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">numpy.empty_like</span></code>: return an array with same shape and type as given array</p></li>
@@ -1228,7 +1302,7 @@ tri-dimensional as lists of matrices</p></li>
 </dl>
 </li>
 <li><dl>
-<dt><strong>numpy.arange</strong></dt><dd><ul class="simple">
+<dt><strong>numpy.arange()</strong></dt><dd><ul class="simple">
 <li><p>analogous to Python <code class="docutils literal notranslate"><span class="pre">range</span></code>, but returns an array</p></li>
 <li><p>accepts float arguments, but number of elements obtained is unpredictable due to the
 finite floating point precision</p></li>
@@ -1241,7 +1315,7 @@ finite floating point precision</p></li>
 </dl>
 </li>
 <li><dl>
-<dt><strong>numpy.linspace</strong></dt><dd><ul class="simple">
+<dt><strong>numpy.linspace()</strong></dt><dd><ul class="simple">
 <li><p>return evenly spaced numbers over a specified interval</p></li>
 <li><p>better to use than <code class="docutils literal notranslate"><span class="pre">numpy.arange</span></code> with float arguments</p></li>
 </ul>
@@ -1254,7 +1328,7 @@ finite floating point precision</p></li>
 </dl>
 </li>
 <li><dl>
-<dt><strong>numpy.fromfunction</strong></dt><dd><ul class="simple">
+<dt><strong>numpy.fromfunction()</strong></dt><dd><ul class="simple">
 <li><p>create array by executing a function over each coordinate</p></li>
 <li><p>array has a value fn(x, y, z) at coordinate (x, y, z)</p></li>
 </ul>
@@ -1267,7 +1341,7 @@ finite floating point precision</p></li>
 </dl>
 </li>
 <li><dl>
-<dt><strong>numpy.fromfile</strong></dt><dd><ul class="simple">
+<dt><strong>numpy.fromfile()</strong></dt><dd><ul class="simple">
 <li><p>create array from data in a text or binary file</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1302,16 +1376,14 @@ finite floating point precision</p></li>
 <section id="numpy-random">
 <h3>NumPy Random<a class="headerlink" href="#numpy-random" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> implements pseudo-random number generators</p></li>
-<li><p>only designed for statistical modeling and simulation, not suitable for security or</p></li>
-</ul>
-<p>cryptographic purposes
-* create a generator with <code class="docutils literal notranslate"><span class="pre">default_rng()</span></code> and call various methods to get samples from
-different distributions
-* <strong>Seeds</strong></p>
-<blockquote>
-<div><ul class="simple">
+<li><p>only designed for statistical modeling and simulation, not suitable for security or
+cryptographic purposes</p></li>
+<li><p>create a generator with <code class="docutils literal notranslate"><span class="pre">default_rng()</span></code> and call various methods to get samples from
+different distributions</p></li>
+<li><dl>
+<dt><strong>Seeds</strong></dt><dd><ul class="simple">
 <li><p>with no seed provided, <code class="docutils literal notranslate"><span class="pre">default_rng()</span></code> will seed from non-deterministic data from OS
 and generate different numbers each time</p></li>
 <li><p>seeds should be large positive integers of any size, use <code class="docutils literal notranslate"><span class="pre">secrets.randbits()</span></code></p></li>
@@ -1321,8 +1393,9 @@ and generate different numbers each time</p></li>
 <span class="n">num</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
 </pre></div>
 </div>
-</div></blockquote>
-<ul>
+</dd>
+</dl>
+</li>
 <li><dl>
 <dt><strong>numpy.random.Generator.random</strong></dt><dd><ul class="simple">
 <li><p>return random floats between [0.0, 1.0)</p></li>
@@ -1360,20 +1433,19 @@ parameters accept float or <code class="docutils literal notranslate"><span clas
 <h3>NumPy UFunc<a class="headerlink" href="#numpy-ufunc" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>vectorized functions that takes a fixed number of scalar inputs and produces a fixed</p></li>
-</ul>
-<p>number of scalar outputs
-* supports array broadcasting, type casting, and other standard features
-* <strong>Output Type</strong></p>
-<blockquote>
-<div><ul class="simple">
+<li><p>vectorized functions that takes a fixed number of scalar inputs and produces a fixed
+number of scalar outputs</p></li>
+<li><p>supports array broadcasting, type casting, and other standard features</p></li>
+<li><dl class="simple">
+<dt><strong>Output Type</strong></dt><dd><ul>
 <li><p>determined by input class with highest <code class="docutils literal notranslate"><span class="pre">__array_priority__</span></code> or by <code class="docutils literal notranslate"><span class="pre">output</span></code> parameter</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">__array_prepare__</span></code>: called before ufunc, provided context about the ufunc, pass the
 array to the ufunc after prepare</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">__array_wrap__</span></code>: called after execution of ufunc</p></li>
 </ul>
-</div></blockquote>
-<ul class="simple">
+</dd>
+</dl>
+</li>
 <li><p>can check type handling, e.g. <code class="docutils literal notranslate"><span class="pre">np.add.types</span></code></p></li>
 <li><p>defined in <code class="docutils literal notranslate"><span class="pre">_core/include/numpy/ufuncobject.h</span></code></p></li>
 </ul>
@@ -1506,8 +1578,8 @@ flexible with higher-dimensional tensors</p></li>
 <li><p>in matrix multiplication, <code class="docutils literal notranslate"><span class="pre">t1</span> <span class="pre">&#64;</span> <span class="pre">t2</span> <span class="pre">!=</span> <span class="pre">t2</span> <span class="pre">&#64;</span> <span class="pre">t1</span></code></p></li>
 <li><p>can convert single-element tensor to Python numerical value</p></li>
 <li><p>in-place operations: stores the result into the operand, denoted by _ suffix, save
-memory, but can be problematic when computing derivatives because of an immediate loss
-of history</p></li>
+memory, but can be problematic when computing derivatives because of an immediate
+loss of history</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">t1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># first row</span>
@@ -1539,9 +1611,8 @@ of history</p></li>
 </dd>
 </dl>
 </li>
-<li><p>tensors on CPU and NumPy arrays can share their underlying memory locations, changing one</p></li>
-</ul>
-<p>will change the other</p>
+<li><p>tensors on CPU and NumPy arrays can share their underlying memory locations, changing one
+will change the other</p>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">n1</span> <span class="o">=</span> <span class="n">t1</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>  <span class="c1"># convert tensor to NumPy array</span>
@@ -1555,46 +1626,48 @@ of history</p></li>
 </pre></div>
 </div>
 </div></blockquote>
+</li>
+</ul>
 </div></blockquote>
 </section>
 <section id="pytorch-basic-functions">
 <h3>PyTorch Basic Functions<a class="headerlink" href="#pytorch-basic-functions" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">arange(start=0,</span> <span class="pre">end,</span> <span class="pre">step=1)</span></code>: return 1-D tensor of size (end-start)/step with values</p></li>
-</ul>
-<p>from [start, end)
-* <code class="docutils literal notranslate"><span class="pre">cat(tensors,</span> <span class="pre">dim=0)</span></code>: concat tensors in given dimension, all tensors must be same shape
-or 1-D empty tensor with size 0
-* <code class="docutils literal notranslate"><span class="pre">empty(size)</span></code>: return tensor filled with uninitialized data, size can be variable number
-of arguments or collection
-* <code class="docutils literal notranslate"><span class="pre">empty_like(input)</span></code>: return uninitialized tensor with same size as input Tensor, same as
-<code class="docutils literal notranslate"><span class="pre">empty(input.size(),</span> <span class="pre">dtype=input.dtype,</span> <span class="pre">layout=input.layout,</span> <span class="pre">device=input.device)</span></code>
-* <code class="docutils literal notranslate"><span class="pre">exp(input)</span></code>: return tensor with exponential of elements of input tensor
-* <code class="docutils literal notranslate"><span class="pre">eye(n)</span></code>: return 2-D tensor with ones on the diagonal and zeros elsewhere
-* <code class="docutils literal notranslate"><span class="pre">linspace(start,</span> <span class="pre">end,</span> <span class="pre">steps)</span></code>: create 1-D tensor of size steps with values evenly spaced
-from start to end, [$start, start + frac{end-start}{steps-1}, …, end$]
-* <code class="docutils literal notranslate"><span class="pre">logspace(start,</span> <span class="pre">end,</span> <span class="pre">steps,</span> <span class="pre">base=10.0)</span></code>: create 1-D tensor of size steps with values
+<li><p><code class="docutils literal notranslate"><span class="pre">arange(start=0,</span> <span class="pre">end,</span> <span class="pre">step=1)</span></code>: return 1-D tensor of size (end-start)/step with values
+from [start, end)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cat(tensors,</span> <span class="pre">dim=0)</span></code>: concat tensors in given dimension, all tensors must be same shape
+or 1-D empty tensor with size 0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">empty(size)</span></code>: return tensor filled with uninitialized data, size can be variable number
+of arguments or collection</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">empty_like(input)</span></code>: return uninitialized tensor with same size as input Tensor, same as
+<code class="docutils literal notranslate"><span class="pre">empty(input.size(),</span> <span class="pre">dtype=input.dtype,</span> <span class="pre">layout=input.layout,</span> <span class="pre">device=input.device)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">exp(input)</span></code>: return tensor with exponential of elements of input tensor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eye(n)</span></code>: return 2-D tensor with ones on the diagonal and zeros elsewhere</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linspace(start,</span> <span class="pre">end,</span> <span class="pre">steps)</span></code>: create 1-D tensor of size steps with values evenly spaced
+from start to end, [$start, start + frac{end-start}{steps-1}, …, end$]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">logspace(start,</span> <span class="pre">end,</span> <span class="pre">steps,</span> <span class="pre">base=10.0)</span></code>: create 1-D tensor of size steps with values
 evenly spaced from $base^{start}$ to $base^{end}$,
-[$base^{start}, base^{(start+frac{end-start}{steps-1})}, …, base^{end}$]
-* <code class="docutils literal notranslate"><span class="pre">masked_fill(mask,</span> <span class="pre">value)</span></code>: fills elements of self tensor with value where mask is True,
-out-of-place version, mask is boolean tensor
-* <code class="docutils literal notranslate"><span class="pre">multinomial(input,</span> <span class="pre">num_samples)</span></code>: return a tensor where each row contains num_samples
-indices sampled from the multinomial, input is a tensor of probabilities
-* <code class="docutils literal notranslate"><span class="pre">ones(size)</span></code>: return tensor filled with scalar 1, size can be variable number of
-arguments or collection
-* <code class="docutils literal notranslate"><span class="pre">randint(low=0,</span> <span class="pre">high,</span> <span class="pre">size)</span></code>: return tensor with random ints uniformly between [low, high)
-* <code class="docutils literal notranslate"><span class="pre">stack(tensors)</span></code>: concat tensors along a new dimension
-* <code class="docutils literal notranslate"><span class="pre">tensor(data)</span></code>: create tensor with no autograd history by copying data, data can be a list,
-tuple or NumPy ndarray, scalar and other types
-* <code class="docutils literal notranslate"><span class="pre">transpose(input,</span> <span class="pre">dim0,</span> <span class="pre">dim1)</span></code>: return transposed version of input tensor, dim0 and dim1
-are swapped
-* <code class="docutils literal notranslate"><span class="pre">tril(input,</span> <span class="pre">diagonal=0)</span></code>: return lower triangular part, elements on and below diagonal,
-of 2-D tensor or batch of matrices
-* <code class="docutils literal notranslate"><span class="pre">triu(input,</span> <span class="pre">diagonal=0)</span></code>: return upper triangular part, elements on and above diagonal,
-of 2-D tensor or batch of matrices
-* <code class="docutils literal notranslate"><span class="pre">zeros(size)</span></code>: return tensor filled with scalar 0, size can be variable number of
-arguments or collection</p>
+[$base^{start}, base^{(start+frac{end-start}{steps-1})}, …, base^{end}$]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">masked_fill(mask,</span> <span class="pre">value)</span></code>: fills elements of self tensor with value where mask is True,
+out-of-place version, mask is boolean tensor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">multinomial(input,</span> <span class="pre">num_samples)</span></code>: return a tensor where each row contains num_samples
+indices sampled from the multinomial, input is a tensor of probabilities</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ones(size)</span></code>: return tensor filled with scalar 1, size can be variable number of
+arguments or collection</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">randint(low=0,</span> <span class="pre">high,</span> <span class="pre">size)</span></code>: return tensor with random ints uniformly between [low, high)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stack(tensors)</span></code>: concat tensors along a new dimension</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tensor(data)</span></code>: create tensor with no autograd history by copying data, data can be a list,
+tuple or NumPy ndarray, scalar and other types</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transpose(input,</span> <span class="pre">dim0,</span> <span class="pre">dim1)</span></code>: return transposed version of input tensor, dim0 and dim1
+are swapped</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tril(input,</span> <span class="pre">diagonal=0)</span></code>: return lower triangular part, elements on and below diagonal,
+of 2-D tensor or batch of matrices</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">triu(input,</span> <span class="pre">diagonal=0)</span></code>: return upper triangular part, elements on and above diagonal,
+of 2-D tensor or batch of matrices</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zeros(size)</span></code>: return tensor filled with scalar 0, size can be variable number of
+arguments or collection</p></li>
+</ul>
 </div></blockquote>
 </section>
 <section id="pytorch-dataset">
@@ -1603,12 +1676,12 @@ arguments or collection</p>
 <div><ul class="simple">
 <li><p>decouple dataset code from model training code for readability and modularity</p></li>
 <li><p>PyTorch provides two data primitives to use pre-loaded and own datasets</p></li>
-<li><p>has functions specific to particular data that can be used to prototype and benchmark</p></li>
+<li><p>has functions specific to particular data that can be used to prototype and benchmark
+models</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utils.data.Dataset</span></code>: stores samples and labels, retrieves one sample at a time</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utils.data.DataLoader</span></code>: wraps an iterable around <code class="docutils literal notranslate"><span class="pre">Dataset</span></code>, can reshuffle data at every
+epoch to reduce model overfitting</p></li>
 </ul>
-<p>models
-* <code class="docutils literal notranslate"><span class="pre">utils.data.Dataset</span></code>: stores samples and labels, retrieves one sample at a time
-* <code class="docutils literal notranslate"><span class="pre">utils.data.DataLoader</span></code>: wraps an iterable around <code class="docutils literal notranslate"><span class="pre">Dataset</span></code>, can reshuffle data at every
-epoch to reduce model overfitting</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span>
 <span class="kn">from</span> <span class="nn">torchvision</span> <span class="kn">import</span> <span class="n">datasets</span>
 <span class="kn">from</span> <span class="nn">torchvision.transforms</span> <span class="kn">import</span> <span class="n">ToTensor</span>
@@ -1690,21 +1763,20 @@ epoch to reduce model overfitting</p>
 </dd>
 </dl>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Linear(in_features,</span> <span class="pre">out_features,</span> <span class="pre">bias=True)</span></code>: apply linear transformation to incoming</p></li>
-</ul>
-<p>data
-* <code class="docutils literal notranslate"><span class="pre">functional.softmax(input,</span> <span class="pre">dim=None)</span></code>: apply softmax function to all slices along dim,
-and will rescale so that elements lie in the range [0, 1] and sum to 1
-* <strong>model.train()</strong></p>
-<blockquote>
-<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Linear(in_features,</span> <span class="pre">out_features,</span> <span class="pre">bias=True)</span></code>: apply linear transformation to incoming
+data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">functional.softmax(input,</span> <span class="pre">dim=None)</span></code>: apply softmax function to all slices along dim,
+and will rescale so that elements lie in the range [0, 1] and sum to 1</p></li>
+<li><dl class="simple">
+<dt><strong>model.train()</strong></dt><dd><ul>
 <li><p>model learns from the data, and weights and biases are updated as training goes on</p></li>
 <li><p>some layers, such as dropout and batch normalisation operate differently</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">dropout</span></code>: active during training, dropout random neurons not to overfit, helps the
 model learn better with noise present</p></li>
 </ul>
-</div></blockquote>
-<ul class="simple">
+</dd>
+</dl>
+</li>
 <li><dl class="simple">
 <dt><strong>model.eval()</strong></dt><dd><ul>
 <li><p>use the entire network to see how well it performs</p></li>
@@ -1804,19 +1876,19 @@ structured to take advantage of the GPU</p></li>
 <ul class="simple">
 <li><p><a class="reference internal" href="#frame">Frame</a>, <a class="reference internal" href="#widgets">Widgets</a>, <a class="reference internal" href="#event-loop">Event Loop</a>, <a class="reference internal" href="#example-tkinter-code">Example Tkinter Code</a></p></li>
 <li><p>works cross-platform</p></li>
-<li><p>do not need to implement redrawing, parsing and dispatching events, hit detection or handling</p></li>
+<li><p>do not need to implement redrawing, parsing and dispatching events, hit detection or handling
+events on each widget</p></li>
+<li><p>no complex code for widgets, only need to attach them to variables</p></li>
+<li><p>always encapsulate the main code rather than putting into global variable space</p></li>
 </ul>
-<p>events on each widget
-* no complex code for widgets, only need to attach them to variables
-* always encapsulate the main code rather than putting into global variable space</p>
 <section id="frame">
 <h3>Frame<a class="headerlink" href="#frame" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>main application window is not part of newer themed widgets, and its background color</p></li>
+<li><p>main application window is not part of newer themed widgets, and its background color
+doesn’t match the themed widgets</p></li>
+<li><p>using a themed frame widget to hold content ensures that the background is correct</p></li>
 </ul>
-<p>doesn’t match the themed widgets
-* using a themed frame widget to hold content ensures that the background is correct</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mainframe</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s2">&quot;3 3 12 12&quot;</span><span class="p">)</span>
 <span class="c1"># place the frame inside main application window</span>
 <span class="n">mainframe</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">S</span><span class="p">))</span>
@@ -1833,12 +1905,12 @@ structured to take advantage of the GPU</p></li>
 <div><ul class="simple">
 <li><p>need to specify a parent when creating widget</p></li>
 <li><p>parent is passed as the first parameter when instantiating a widget object</p></li>
-<li><p>can provide options such as <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">textvariable</span></code>, which must be instance of</p></li>
+<li><p>can provide options such as <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">textvariable</span></code>, which must be instance of
+<code class="docutils literal notranslate"><span class="pre">StringVar</span></code> class</p></li>
+<li><p>widgets do not auto appear on screen, must be placed in appropriate column and row</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sticky</span></code> describes how the widget should line up within the grid cell, using compass
+directions</p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">StringVar</span></code> class
-* widgets do not auto appear on screen, must be placed in appropriate column and row
-* <code class="docutils literal notranslate"><span class="pre">sticky</span></code> describes how the widget should line up within the grid cell, using compass
-directions</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">username</span> <span class="o">=</span> <span class="n">StringVar</span><span class="p">()</span>
 <span class="n">username_entry</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Entry</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">textvariable</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
 <span class="n">username_entry</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">E</span><span class="p">))</span>
@@ -1903,6 +1975,16 @@ directions</p>
 <p><a class="reference external" href="#python">back to top</a></p>
 </section>
 </section>
+<section id="references-external-resources">
+<h2>References &amp; External Resources<a class="headerlink" href="#references-external-resources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>EuroPython Conference. (2022). Protocols in Python: Why You Need Them - presented by Rogier
+van der Geer. Available at: <a class="reference external" href="https://youtu.be/Lddegb2ToNY?si=xYzoKf0NNlDVozzS">https://youtu.be/Lddegb2ToNY?si=xYzoKf0NNlDVozzS</a></p></li>
+<li><p>EuroPython Conference. (2022). What happens when you import a module? - presented by Reuven
+M. Lerner. Available at: <a class="reference external" href="https://youtu.be/Aty6rJIvpfU?si=AnpdXpURoVXYx-EP">https://youtu.be/Aty6rJIvpfU?si=AnpdXpURoVXYx-EP</a></p></li>
+</ul>
+<p><a class="reference external" href="#python">back to top</a></p>
+</section>
 </section>
 
 
@@ -1958,7 +2040,7 @@ directions</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subprocess">Subprocess</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checkoutput">checkoutput</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checkoutput">checkoutput()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shell">shell</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pipe">PIPE</a></li>
 </ul>
@@ -1974,6 +2056,11 @@ directions</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#socket">Socket</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#server">Server</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#client">Client</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oop">OOP</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abcs">ABCs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protocols">Protocols</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">NumPy</a><ul class="nav section-nav flex-column">
@@ -2003,6 +2090,7 @@ directions</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-tkinter-code">Example Tkinter Code</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>
 </ul>
   </nav></div>
 
