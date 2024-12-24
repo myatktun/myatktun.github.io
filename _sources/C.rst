@@ -6,9 +6,8 @@ C
 2. `Arrays`_
 3. `Functions`_
 4. `Bit Masking`_
-5. `GCC`_
-6. `GDB`_
-7. `Reference Sources`_
+5. `GDB`_
+6. `References & External Resources`_
 
 `back to top <#c>`_
 
@@ -57,18 +56,20 @@ Input & Output
         - can specify width and precision for better output
         - ``printf("%7d %3d", 10, 20);``, and ``printf("%7.2f", 10.12345673);`` with at least 7
           characters wide and 2 digits after decimal point
+
 * escape sequence: ``\n``, ``\t``, ``\b``, ``\"``, ``\\``, provide mechanism to represent hard-to-type or
-invisible characters
+  invisible characters
 * all variables must be declared before use
 
-Date Types
+Data Types
 ----------
     * int, float, char, short, long, double
     * size of data types are machine dependent
     * float is usually 32 bit, with at least six significant digits and between 10<sup>-38</sup>
-    and 10<sup>38</sup> magnitude
+      and 10<sup>38</sup> magnitude
+
 * compilers do not care about how the program looks, but proper indentation and spacing are
-critical for readability
+  critical for readability
     * write only one statement per line
     * use blanks around operators to clarify grouping
     * always indent statements controlled by the loop by one tab stop or four spaces
@@ -205,11 +206,11 @@ Functions
 * can use a function without worrying about its implementation
 * function definition can be in any order, in one source file or several
 * parameter names are local to the function, not visible to others and they can use the
-same names
+  same names
 * not necessary to return a value
 * caller can ignore the return value
 * ``main()`` return a value to its caller, the environment in which program was executed, 0
-for normal termination and non-zero for error condition
+  for normal termination and non-zero for error condition
 
 .. code-block:: c
 
@@ -264,9 +265,9 @@ Call by Reference
     * can make a function modify variable
     * caller must provide the address of the variable, a pointer
     * function must also declare the parameter to be a pointer, to access the variable
-    indirectly through it
+      indirectly through it
     * when array is used as argument, value passed to the function is the address of the
-    beginning of the array, and there is no copying of elements
+      beginning of the array, and there is no copying of elements
 
 Scopes
 ------
@@ -353,7 +354,7 @@ Bit Masking
 
 * `Bit Shifting`_, `Extract Bits`_, `Set Bits`_, `Clear Bits`_, `Toggle Bits`_, `Flip Bits`_
 * manipulate specific bits within a data structures, by using bitwise operations to extract,
-set, clear, or toggle individual bits or groups of bits
+  set, clear, or toggle individual bits or groups of bits
 
 Bit Shifting
 ------------
@@ -375,23 +376,23 @@ Bit Shifting
 Extract Bits
 ------------
     * extract specific bits by using AND bitwise operation with a mask with 1s in the position
-    to extract
+      to extract
     * e.g. ``num & 0x0f`` extract the lower 4 bits, ``(num >> n) & 1`` extract the bit at (n + 1)
-    position
+      position
 
 Set Bits
 --------
     * set specific bits to 1 by using OR bitwise operation with a mask with 1s in the positions
-    to set
+      to set
     * e.g. ``num | 0x0f`` set the lower 4 bits to 1
 
 Clear Bits
 ----------
     * clear specific bits, set to 0, by using AND bitwise operation with a mask with 0s in the
-    positions to clear
+      positions to clear
     * e.g. ``num & ~0x0f`` or ``num & 0xf0`` clear the lower 4 bits
     * to clear a specific bit, flip, bitwise OR with a mask with 1 at that position, and flip
-    again
+      again
     * e.g. ``~(~num | (1 << (n - 1)))``, clear 3rd bit in 15, ``~(~15 | (1 << 2)) = 11``
     * can also use bitwise AND to clear a specific bit
     * e.g. ``num & ~(1 << (n - 1))``, clear 3rd bit in 15, ``15 & ~(1 << 2) = 11``
@@ -399,7 +400,7 @@ Clear Bits
 Toggle Bits
 -----------
     * toggle/invert specific bits by using XOR bitwise operation with a mask with 1s in the
-    positions to toggle
+      positions to toggle
     * e.g. ``num ^ 0x0f`` toggle the lower 4 bits
 
 Flip Bits
@@ -407,16 +408,6 @@ Flip Bits
     * flip all bits by using NOT bitwise operation, no mask required
     * e.g. ``~num``
 
-`back to top <#c>`_
-
-GCC
-===
-
-* `Attributes`_
-
-Attributes
-----------
-    * 
 `back to top <#c>`_
 
 GDB
@@ -482,11 +473,11 @@ GDB Commands
 
 `back to top <#c>`_
 
-Reference Sources
-=================
+References & External Resources
+===============================
 
 * Learn Learn Scratch Tutorials (2021). Bitwise Operations & Bit Masking. Available at:
-[https://youtu.be/ffPOA7UUDAs?si=0zu6dPhu34mjgdoZ](https://youtu.be/ffPOA7UUDAs?si=0zu6dPhu34mjgdoZ)
-* CS 246 (2019). GDB Tutorial. Available at: [https://youtu.be/svG6OPyKsrw?si=QwG4LyTX9zV2Qiqw](https://youtu.be/svG6OPyKsrw?si=QwG4LyTX9zV2Qiqw)
+  https://youtu.be/ffPOA7UUDAs?si=0zu6dPhu34mjgdoZ
+* CS 246 (2019). GDB Tutorial. Available at: https://youtu.be/svG6OPyKsrw?si=QwG4LyTX9zV2Qiqw
 
 `back to top <#c>`_
