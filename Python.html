@@ -481,10 +481,9 @@
 <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-f&quot;</span><span class="p">,</span> <span class="s2">&quot;--foo&quot;</span><span class="p">)</span> <span class="c1"># can also specify short options for argument</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>with <code class="docutils literal notranslate"><span class="pre">action=&quot;store_true&quot;</span></code>, argument is treated as boolean and no need to specify value</p></li>
-</ul>
-<p>if used</p>
+<ul>
+<li><p>with <code class="docutils literal notranslate"><span class="pre">action=&quot;store_true&quot;</span></code>, argument is treated as boolean and no need to specify value
+if used</p>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--foo&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">)</span> <span class="c1"># args.foo is False by default</span>
 <span class="c1"># python main.py --foo (args.foo is True)</span>
@@ -492,7 +491,7 @@
 </pre></div>
 </div>
 </div></blockquote>
-<ul>
+</li>
 <li><p>can limit the values optional argument can accept</p>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--foo&quot;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;baz&quot;</span><span class="p">])</span> <span class="c1"># providing other values will error</span>
@@ -1015,18 +1014,19 @@ explicit registering</p></li>
 <h3>Protocols<a class="headerlink" href="#protocols" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>mainly designed to be used when type checking, also called structural subtyping or static</p></li>
-</ul>
-<p>duck typing
-* do not need to inherit or register, and easier than ABCs when combining libraries
-* need to decorate the protocol to make it runtime-checkable
-* <code class="docutils literal notranslate"><span class="pre">runtime_checkable</span></code></p>
-<blockquote>
-<div><ul class="simple">
+<li><p>mainly designed to be used when type checking, also called structural subtyping or static
+duck typing</p></li>
+<li><p>do not need to inherit or register, and easier than ABCs when combining libraries</p></li>
+<li><p>need to decorate the protocol to make it runtime-checkable</p></li>
+<li><dl class="simple">
+<dt><strong>``runtime_checkable``</strong></dt><dd><ul>
 <li><p>any object that adheres to the protocol becomes an instance of it at runtime</p></li>
 <li><p>only checks the existence of protocol members, and names, but not signatures</p></li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
+</li>
+</ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Protocol</span><span class="p">,</span> <span class="n">runtime_checkable</span>
 
 <span class="nd">@runtime_checkable</span>
@@ -2104,10 +2104,21 @@ M. Lerner. Available at: <a class="reference external" href="https://youtu.be/At
   
   <div class="footer-item">
     
+<p class="component-author">
+By Myat Kyaw Tun
+</p>
+
   </div>
   
   <div class="footer-item">
     
+
+  <p class="copyright">
+    
+      © Copyright 2024, Myat Kyaw Tun.
+      <br/>
+    
+  </p>
 
   </div>
   

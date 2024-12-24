@@ -73,11 +73,12 @@ props
 
 
     * main difference from state is that props are passed in components and never change props
-    in the component that receives them
+      in the component that receives them
     * when the prop value changes, the component will re-render with new value
     * props make component dynamic
     * **children**
         - default prop to use when nesting stuff inside a component
+
 * PropTypes
     * to check propTypes when not using TypeScript
 

@@ -473,7 +473,6 @@ Free Tier
     * **Trials**
         - Lightsail offers 1 month trial of up to 750 hours of usage
         - Inspector offers 90-day free trial
-    * SageMaker, Comprehend Medical, DynamoDB, SNS, Cognito, [etc.](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all)
 
 Pricing
 -------

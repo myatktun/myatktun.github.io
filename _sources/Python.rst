@@ -86,7 +86,7 @@ Optional Arguments
 
 
     * with ``action="store_true"``, argument is treated as boolean and no need to specify value
-    if used
+      if used
 
         .. code-block:: python
 
@@ -564,10 +564,10 @@ ABCs
 Protocols
 ---------
     * mainly designed to be used when type checking, also called structural subtyping or static
-    duck typing
+      duck typing
     * do not need to inherit or register, and easier than ABCs when combining libraries
     * need to decorate the protocol to make it runtime-checkable
-    * ``runtime_checkable``
+    * **``runtime_checkable``**
         - any object that adheres to the protocol becomes an instance of it at runtime
         - only checks the existence of protocol members, and names, but not signatures
 
