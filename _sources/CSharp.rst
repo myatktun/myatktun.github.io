@@ -121,14 +121,15 @@ Arrays
 
     * 2-dimensional array
 
+        .. code-block:: csharp
 
-        int[,] x = {
-            {1, 2},
-            {3, 4}
-        }
-
-        // declare empty 2D array
-        int[,] y = new int[row, col]
+           int[,] x = {
+               {1, 2},
+               {3, 4}
+           }
+   
+           // declare empty 2D array
+           int[,] y = new int[row, col]
 
 
 
@@ -222,19 +223,20 @@ Loops
 Exceptions
 ----------
 
-    ``` csharp
-    try
-    {
-        // code that'll break
-    }
-    catch (exceptionType e)
-    {
-        // handle error
-    }
-    finally
-    {
-        // default handle
-    }
+    .. code-block:: csharp
+
+       try
+       {
+           // code that'll break
+       }
+       catch (exceptionType e)
+       {
+           // handle error
+       }
+       finally
+       {
+           // default handle
+       }
 
 
 

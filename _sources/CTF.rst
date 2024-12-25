@@ -626,7 +626,7 @@ Additional Resources
 Read stdout & Write stdin
 -------------------------
     * in level 99 and 100 of pwn.college Program Interaction, formulas from stdout can be read,
-    calculated, and written to stdin
+      calculated, and written to stdin
     * below is a python script that automate calculations, for simplicity it uses ``eval()``
 
     .. code-block:: python

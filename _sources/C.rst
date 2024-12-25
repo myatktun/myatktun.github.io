@@ -70,10 +70,9 @@ Data Types
 
 * compilers do not care about how the program looks, but proper indentation and spacing are
   critical for readability
-    * write only one statement per line
-    * use blanks around operators to clarify grouping
-    * always indent statements controlled by the loop by one tab stop or four spaces
-    * pick a style and use it consistently
+* write only one statement per line, use blanks around operators to clarify grouping
+* always indent statements controlled by the loop by one tab stop or four spaces
+* pick a style and use it consistently
 
 Arithmetic
 ----------
