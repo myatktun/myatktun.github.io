@@ -1641,7 +1641,7 @@ EFS
     * Elastic File System
     * AWS handles the scaling and replication of files
     * multiple instances can access the data in EFS at the same time
-    * Linux file system
+    * only for Linux, as it uses Network File System (NFS) volumes
     * store data in and across multiple AZs
     * Regional resource, any EC2 instance in the region can write to the EFS
     * on-premises servers can access EFS using AWS Direct Connect
