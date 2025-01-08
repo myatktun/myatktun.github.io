@@ -6,7 +6,7 @@ Backend Engineering
 2. `Protocols`_
 3. `HTTPS`_
 4. `Execution Patterns`_
-5. `Proxy vs Reverse Proxy`_
+5. `Proxies`_
 6. `Load Balancers`_
 7. `Designing Software`_
 8. `Request Journey`_
@@ -39,11 +39,11 @@ Request & Response
         - has a boundary
         - defined by a protocol and message format
     * **Sending large files**
-          1\. simple way is to send a large request with the file, but if fail, the sent data is
+        - simple way is to send a large request with the file, but if fail, the sent data is
           deleted
-          2\. chunk the file and send a request per chunk, can be resumable if fail
+        - chunk the file and send a request per chunk, can be resumable if fail
     * some such as notification service or chatting app do not work well with request/response
-    model, e.g., a request must be sent every interval to see if there is a notification
+      model, e.g., a request must be sent every interval to see if there is a notification
     * try ``curl -v --trace out.txt http://google.com`` and check
 
 Synchronous & Asynchronous
@@ -64,13 +64,13 @@ Synchronous & Asynchronous
         - e.g., program create secondary thread that reads from the disk and is blocked by OS,
           main program still run and execute, thread finish and call back the main thread
         - example workloads: async programming such as promises and futures, async backend
-          processing, async commits in postgres, async I/O in Linux such as epoll and io_uring,
-          async replication, async OS fsync
+          processing, async commits in postgres, async I/O in Linux such as epoll and
+          io_uring, async replication, async OS fsync
     * synchronicity is a client property, most modern client libraries are asynchronous
     * synchronous communication: caller waits for response from receiver, e.g., asking a
-    question in meeting
+      question in meeting
     * asynchronous communication: response can come at any time, caller and receiver can do
-    anything in between, e.g., emailing someone
+      anything in between, e.g., emailing someone
     * **Asynchronous backend processing**
         - when the backend receives a request and need to execute long running process, the
           client moves on, being async, while backend is synchronous, knowing someone is
@@ -85,7 +85,7 @@ Synchronous & Asynchronous
 Push
 ----
     * one of the famous patterns for fast response, ideal model for real time notification from
-    backend or chat apps
+      backend or chat apps
     * **Basic Scenario**
         - client connects to server, server sends data to client
         - client does not need to request anything, only a connection is necessary
@@ -102,7 +102,7 @@ Polling
 -------
     * common, easy to implement and popular pattern, also called short polling
     * ideal for request that takes a long time to process and want it to execute asynchronously
-    on the backend
+      on the backend
     * **Basic Scenario**
         - client sends a request, server immediately responds with a handle, usually in the
           form of unique id
@@ -110,22 +110,22 @@ Polling
         - client can check the status with the handle, server responds if ready or not
         - multiple short request/response as polls
     * the idea of polling is request/response, but the whole system is based on asynchronous
-    execution with short polling
+      execution with short polling
     * one big request/response is broken down into multiple request/response as polls
     * server will only send the processed response when it is finished and the client polls, in
-    this way client can be disconnected
+      this way client can be disconnected
     * if server send the processed response without client polling, the data may be lost if the
-    client is disconnected
+      client is disconnected
     * **Drawbacks**
         - multiple requests must be sent to check status
         - does not scale well, increases network bandwidth
         - waste backend resources as it has to check polls, instead can be used to serve
-        requests
+          requests
 
 Long Polling
 ------------
     * after sending a request that will take a long time, client polls and wait until server
-    responds when it's ready
+      responds when it's ready
     * ideal for long processed requests or backend to send notification
     * used by Kafka
     * **Basic Scenario**
@@ -140,8 +140,8 @@ Long Polling
         - may not be real time, if client delay/not polling often, when there is a new
           response from server
 
-Sever-Sent Events
------------------
+Server-Sent Events
+------------------
     * one request, very very long response
     * **Basic Scenario**
         - client sends request, server sends logical events as part of response
@@ -197,7 +197,7 @@ Multiplexing & Demultiplexing
         - e.g., single 3 multiplexed requests demultiplexed into 3 pipes
         - HTTP/1.1 in browser can only demultiplex up to 6 connections
     * in demultiplexing, each connection can have its own rule, flow control and congestion
-    control without affecting each other
+      control without affecting each other
     * **Connection Pooling**
         - spinning up multiple free connections prior and giving to each incoming requests
         - will have a pool of connections instead of establishing on a request or multiple
@@ -247,10 +247,10 @@ Sidecar
     * the library parses the request for server to understand
     * mostly app and library should be same language and become entrenched
     * changing or adding features to the library is hard and requires testing and backward
-    compatibility
+      compatibility
     * the idea is to delegate communication to other app, such as proxy which has rich library
-    and can talk to any language/protocol, and now the client will have a thin library and a
-    sidecar proxy
+      and can talk to any language/protocol, and now the client will have a thin library and a
+      sidecar proxy
     * **Sidecar Proxy**
         - client->client sidecar proxy->server sidecar reverse proxy->server
         - configure a proxy in the application for all HTTP requests to direct into sidecar
@@ -263,7 +263,7 @@ Sidecar
         - used in service meshes such as Envoy, Istio, Linkerd
         - can be sidecar proxy container, must be Layer 7 proxy
     * using sidecar can be language agnostic, upgradable protocol, secure, trace and monitor,
-    service discovery and cache
+      service discovery and cache
     * **Drawbacks**
         - system can be complex
         - debugging can be hard
@@ -304,9 +304,9 @@ Protocols
 OSI Model
 ---------
     * Open Systems Interconnection Model, conceptual 7 layers, with each describing specific
-    networking component
+      networking component
     * it is important to understand on which layer does the application live, especially when
-    the app is a bridge between other apps
+      the app is a bridge between other apps
     * a communication model is required for applications to be agnostic
     * without standard model
         - apps need to understand all the underlying network to communicate
@@ -314,7 +314,7 @@ OSI Model
         - not possible to do work in each layer without affecting other parts of the system as
           it is not decoupled
     * ``Layer 7, Application``: HTTP, FTP, gRPC, backend engineers do not interact with Layer 7
-    directly, instead use libraries
+      directly, instead use libraries
     * ``Layer 6, Presentation``: encoding, serialization
     * ``Layer 5, Session``: connection establishment, where state sets place, TLS
     * ``Layer 4, Transport``: datagram, segments, UDP, TCP
@@ -340,7 +340,7 @@ OSI Model
         - 6: deserialize byte strings to JSON for app to consume
         - 7: app understands JSON POST and event is triggered
     * for example, switch works at Layer 2, router and VPN at Layer 3, firewall at Layer 4 and
-    CDN at Layer 7
+      CDN at Layer 7
     * OSI model has too many layers and can be hard to understand
     * TCP/IP model deals with Layers 5, 6 and 7 as one layer, application
 
@@ -390,7 +390,7 @@ UDP
     * stateless and prior communication not required, has 8 bytes header
     * usually used to avoid overheads of TCP, such as video streaming, VPN, DNS, WebRTC
     * does not guarantee delivery and some frames can get dropped, useful for sending huge
-    inconsistent data
+      inconsistent data
     * sender multiplex requests from different apps into UDP and receiver demultiplex
     * require source and destination ports to identify app or process
     * **UDP Datagram**
@@ -413,7 +413,7 @@ TCP
     * controls the transmission, not like UDP
     * stateful and requires handshake, has 20 or up to 60 bytes header
     * reliable and guarantee deliver, used for remote shell, database connections and any
-    bidirectional communication
+      bidirectional communication
     * **TCP Connection**
         - Layer 5 agreement between client and server
         - sometimes called socket or file descriptor
@@ -490,7 +490,7 @@ TLS
         - client get the symmetric by using its private key and server's encrypted key
         - client and server both now have symmetric key and use it to encrypt data
     * TLS 1.2 can have stages to negotiate whether to use Diffe Hellman or not, but not in TLS
-    1.3, which removes the overhead of negotiating, and thus faster
+      1.3, which removes the overhead of negotiating, and thus faster
 
 HTTP/1.1
 --------
@@ -565,11 +565,11 @@ HTTP/3
     * replaces TCP with QUIC, which is built on top of UDP
     * has streams and allows multiplexing on same connection
     * if one datagram of a stream is lost and other datagrams are delivered, only the stream
-    with missing one will fail
+      with missing one will fail
     * connection setup and TLS are in one handshake
     * has congestion control at stream level
     * as UDP is stateless and connection ID is sent with every packet, ID can be used to
-    migrate connection when IP address changes
+      migrate connection when IP address changes
     * main reason HTTP/2 over QUIC is not used is because of header compression algorithm
     * **Drawbacks**
         - has security limits in connection migration as connection ID is in plain text
@@ -603,7 +603,7 @@ WebSockets
 gRPC
 ----
     * communication protocols need a language client library such as SOAP or HTTP client
-    library
+      library
     * it is hard to maintain and patch client libraries for new features, security etc.,
     * gRPC was invented as one client library for popular languages
     * build a protocol buffer definition file and specific stubs for library
@@ -620,7 +620,7 @@ gRPC
     * **Bidirectional Streaming RPC**
         - both client and server send a stream of messages simultaneously
     * fast, compact, one client library, can build many apps through progress feedback, can
-    cancel HTTP/2 request and protocol buffer is powerful message format
+      cancel HTTP/2 request and protocol buffer is powerful message format
     * **Drawbacks**
         - maintaining schemas can be annoying
         - still a thick client library
@@ -737,7 +737,7 @@ gRPC
 WebRTC
 ------
     * Web Real-Time Communication, peer to peer path to exchange video and audio in efficient
-    and low latency
+      and low latency
     * standardized API that enables rich communications in browsers, mobile and IoT devices
     * **Basic Scenario**
         - A wants to connect to B
@@ -898,7 +898,7 @@ Over TCP with TLS 1.3
 ---------------------
     * establish connection with TCP 3-way Handshake, SYN, SYN/ACK and ACK
     * connection encryption is done in one round trip, Client Hello and Server Hello, as it is
-    [TLS 1.3](#tls-13)
+      [TLS 1.3](#tls-13)
     * connection is now encrypted and can send data safely
 
 Over QUIC
@@ -922,18 +922,18 @@ Over TCP with TLS 1.3 0RTT
     * establish connection with TCP 3-way Handshake, SYN, SYN/ACK and ACK
     * client sends Client Hello with TLS extension pre-shared key and then sends data/request
     * if server accepts the pre-shared key, it responds with Server Hello and encrypted
-    response
+      response
     * Client FIN can be sent
     * no need to wait for TLS encryption round trips before sending requests, as handshake and
-    sending request happen same time
+      sending request happen same time
 
 Over QUIC 0RTT
 --------------
     * use QUIC, HTTP/3, which is on top of UDP
     * client sends QUIC handshake, which includes connection establishment and encryption, with
-    a pre-shared key and then sends data/request
+      a pre-shared key and then sends data/request
     * if server accepts the pre-shared key, it responds with QUIC handshake and encrypted
-    response
+      response
     * QUIC handshake now ends
     * hard to implement, [Cloudflare blog](https://blog.cloudflare.com/even-faster-connection-establishment-with-quic-0-rtt-resumption/) for more information
 
@@ -975,7 +975,7 @@ Process vs Thread
         - can have race conditions and need locks and latches
         - e.g SQL Server, Apache, Envoy
     * multiple processes/threads on single core CPU will cause context switches, which can be
-    expensive
+      expensive
     * having same number of cores and processes can be optimal
 
 Connection Establishment
@@ -983,7 +983,7 @@ Connection Establishment
     * server will listen on both port and all network interfaces addresses by default
     * should specify which network interface to listen on, as it might be exposed to public
     * server app tells the kernel the IP and port on which it is listening, and the kernel
-    creates necessary socket and SYN and Accept queues
+      creates necessary socket and SYN and Accept queues
     * when a client connects, kernel does the handshake to create a connection
         - client sends SYN, kernel adds it to SYN queue and replies with SYN/ACK
         - client replies with ACK and if it matches the SYN from the queue, kernel finishes
@@ -1022,10 +1022,11 @@ Reading/Writing Data
         - if backend does not read fast enough, the receive buffer will be full and the kernel
           cannot accept more data
         - packets sent from client will be dropped and thus client suffers
+
 * Listener: thread/process that calls ``listen()``, by passing address and port, and gets back
-the socket ID
+  the socket ID
 * Acceptor: has access to the socket ID and calls ``accept()`` on it, to get descriptors for
-connections
+  connections
 * Reader: reads/writes the connection for requests
 
 Single Listener/Single Worker Thread
@@ -1033,7 +1034,7 @@ Single Listener/Single Worker Thread
     * single listener, acceptor and reader
     * single threaded applications such as NodeJS
     * single process is responsible for listening, accepting connections and reading from
-    connections asynchronously, as in NodeJS using epoll
+      connections asynchronously, as in NodeJS using epoll
     * simple architecture as one process do all the jobs
     * **Problems**
         - process might not be able to handle massive multiple connections optimally
@@ -1046,9 +1047,9 @@ Single Listener/Multiple Worker Threads
     * single process both listens and accepts, and spins up multiple threads to read
     * multi-threaded applications such as Memcached
     * threads will be assigned connections to read by the main process, load balancing may be
-    used
+      used
     * reader threads can become worker threads to handle the request or spin new threads to
-    handle it
+      handle it
     * **Problems**
         - one thread might be given heavy processing connection and others lightweight
           connections
@@ -1058,7 +1059,7 @@ Single Listener/Multiple Worker Threads with Load Balancing
 -----------------------------------------------------------
     * single listener, acceptor, and reader
     * single process listens, accepts and read, but spins up multiple threads to handle
-    requests, with load balancing
+      requests, with load balancing
     * multi-threaded applications such as RAMCloud
     * threads are given actual requests to process, instead of raw connections
     * main process handles everything and passes the requests to the threads for execution
@@ -1077,9 +1078,9 @@ Multiple Threads/Single Socket
 Multiple Listeners on same Port
 -------------------------------
     * socket reuse option, ``SO_REUSEPORT``, can be used to share a socket between multiple
-    processes
+      processes
     * OS will create multiple necessary queues for each process and load balance connections to
-    each queues
+      each queues
     * can spin up multiple threads, with each being listener, acceptor and reader
     * each thread gets unique socket ID, with own sets of queues, and no conflict will occur
     * default in applications such NGINX, Envoy, HAProxy
@@ -1133,10 +1134,14 @@ Nagle's Algorithm
 
 `back to top <#backend-engineering>`_
 
-Proxy vs Reverse Proxy
-======================
+Proxies
+=======
 
 * `Proxy`_, `Reverse Proxy`_, `Tunnel Proxy`_
+* proxy and reverse proxy can be used at the same time, but client will only know it as a proxy
+* not recommended to use proxy instead of VPN for anonymity, as VPN operates at Layer 3, and
+  proxy operates at Layer 4 and above
+* HTTP proxy is the most popular
 
 Proxy
 -----
@@ -1159,13 +1164,9 @@ Reverse Proxy
     * reverse proxy server is also called front-end server or edge server
     * load balancer is reverse proxy, but not all reverse proxies are load balancers
     * TCP connection between client and destination, which is reverse proxy, and another TCP
-    connection between reverse proxy and the actual destination
+      connection between reverse proxy and the actual destination
     * used for caching, load balancing, ingress, canary deployment, microservices
     * both from Layer 4 and 7, client only knows the reverse proxy as true final destination
-* proxy and reverse proxy can be used at the same time, but client will only know it as a proxy
-* not recommended to use proxy instead of VPN for anonymity, as VPN operates at Layer 3, and
-proxy operates at Layer 4 and above
-* HTTP proxy is the most popular
 
 Tunnel Proxy
 ------------
@@ -1188,7 +1189,7 @@ Layer 4 Load Balancer
     * warm up by opening TCP connections to the backend servers
     * when client connects, it needs to choose one server
     * load balancer will tag a state, as Layer 4 is stateful, to only one connection to the
-    backend
+      backend
     * all segments from client will only have to go to one connection
     * load balancer has connection to clinet and to backend server
     * **Rewrite Mode**
@@ -1230,7 +1231,7 @@ Designing Software
 * `Workflow Document`_, `Design Overview`_, `Component Design`_, `Design Overview Diagram`_
 * code-first approach: can be lost when viewing the code later, can forget things about system
 * diagram-first approach: can be too many detailed ones or too high level, may need companion
-documents
+  documents
 * the real way to design software is to spec it out all in writings
 * keep away distractions. e.g email, notification
 * use clutter-free text editors, e.g VIM, go dark mode if necessary
@@ -1239,13 +1240,13 @@ documents
 Workflow Document
 -----------------
     * do not add a feature if there is no use case, might be fine for personal projects but
-    commercial software must be approached pragmatically
+      commercial software must be approached pragmatically
     * workflow and use cases can help minimize scope and link back to customer requirement
     * write a workflow of how the software will be use in detail
     * finalize the workflow step by using the questions raised, if any
     * final workflow will be available for non-technical people who are interested
     * workflow document must be clear, can be creative, use UI elements and explain in high
-    level
+      level
     * anyone reading the workflow document must know what and who the software if for
 
 Design Overview
@@ -1254,9 +1255,9 @@ Design Overview
     * write about different components of the software and how they interact with each other
     * reference the workflow document if applicable
     * do not link back non-functional requirements to workflow, e.g. async jobs, health checks
-    that does not require direct user input
+      that does not require direct user input
     * include any technical problems that might occur, e.g. protocol, database, reverse proxy,
-    scaling
+      scaling
     * review it with technical stake-holders
 
 Component Design
@@ -1266,17 +1267,18 @@ Component Design
     * be technical as if reading the design is like reading the actual source code
     * some components can be described entirely in the design overview
     * writing component design will give insight of each, may find some so big that they can be
-    their own projects
+      their own projects
 
 Design Overview Diagram
 -----------------------
     * diagram to show how components communicate with each other
     * can use simple tools to design it
     * can have multiple diagrams for each component based on complexity
+
 * it takes time to make documents and keep them up to date
 * if owner leaves, next designer might not use same approach
 * as there are many documents and diagrams, can be hard to understand for participants who are
-not familiar with
+  not familiar with
 
 `back to top <#backend-engineering>`_
 
@@ -1292,16 +1294,16 @@ Accept
 ------
     * requests are sent on connections, which are needed to be accepted by the backend
     * accept queue: listener queue where connection is placed after performing 3 way handshake
-    by server kernel when client connects to it
+      by server kernel when client connects to it
     * backend is responsible to invoke ``accept()`` syscall on listener socket to create file
-    descriptor that represents the connection
+      descriptor that represents the connection
     * Accept step can be a bottleneck if backend is slow in accepting connections
     * backlog: parameter to specify the size of accept queue when listening on port
     * for speed, most backend assign one thread only to accept connections
     * can use multi-thread for accepting connections, but threads block each other when
-    accepting on same socket
+      accepting on same socket
     * use ``SO_REUSEPORT`` option to create multiple listener sockets, multiple accept queues,
-    on the same port with each thread owning a socket queue, e.g NGINX, HAProxy
+      on the same port with each thread owning a socket queue, e.g NGINX, HAProxy
 
 Read
 ----
@@ -1309,10 +1311,10 @@ Read
     * a request is just a series of bytes with clear start and end defined by the protocol used
     * client and backend must agree on the protocol, mostly HTTP
     * client can encrypt the request if TLS is used, compress the body if request compression
-    is supported and serialize data type, such as JSON/protobuff, and write the raw bytes
+      is supported and serialize data type, such as JSON/protobuff, and write the raw bytes
     * bytes sent from client go to NIC, OS kernel and into connection receive queue
     * packets remain in receive queue until backend application invoke ``read()`` or ``rcv()``,
-    which move data from receive queue to process user space memory
+      which move data from receive queue to process user space memory
     * reading of the raw bytes can be done in own thread or in the same thread as accept
 
 Decrypt
@@ -1326,7 +1328,7 @@ Parse
 -----
     * plain text readable bytes are parsed by the library used, based on the protocol agreed
     * in HTTP/1.1, read plaint text and look for start and end of request based on definition
-    of HTTP spec, e.g content-length, transfer encoding
+      of HTTP spec, e.g content-length, transfer encoding
     * in HTTP/2 or HTTP/3, more work is done to parse as there are more metadata
     * parsing is CPU bound, and can bottleneck the backend if not used properly
     * can be done in own thread or same thread as others
@@ -1338,9 +1340,9 @@ Decode
     * turning raw bytes into language structures has cost and memory footprint
     * even in JavaScript, need to ``JSON.parse()``, cannot just read a JSON string
     * bytes of text encoded in UTF8 also need to be decoded, as UTF8 use up to 4 bytes to
-    represent some characters
+      represent some characters
     * if necessary, need to do request decompression, some large POST request body are sent
-    compressed
+      compressed
 
 Process
 -------
