@@ -13,7 +13,8 @@ Linux
 9. `Kernel Data Structures`_
 10. `Kernel Modules`_
 11. `Device Drivers`_
-12. `References & External Resources`_
+12. `Linux From Scratch`_
+13. `References & External Resources`_
 
 `back to top <#linux>`_
 
@@ -1572,6 +1573,57 @@ scull Driver
     * ``scullsingle`` allows only one process at a time to use
     * ``scullpriv`` is private to each virtual console
     * ``sculluid`` and ``scullwuid`` can be opened multiple times, but only one user at a time
+
+`back to top <#linux>`_
+
+Linux From Scratch
+==================
+
+* `Preparations`_
+* this section is mostly from following along the Linux From Scratch book
+
+Preparations
+------------
+    * **Partitioning**
+        - use 10GB partition for minimal system, or 30GB for further enhancements
+        - to create unallocated space from allocated free space, booting into live Linux and
+          resizing with parted or gparted can be easy
+        - use fdisk or cfdisk to create a partition from the unallocated free space
+        - create a file system with ``mkfs -v -t ext4 /dev/<name>``
+        - for the host system to access, mount the partition to the directory where LFS system
+          will be built
+        - the partition must be mounted on every host system restart, or edit ``/etc/fstab`` to
+          auto mount
+    * **Download Files**
+        - required files can be found at https://www.linuxfromscratch.org/mirrors.html#files
+        - store the files in the directory where LFS partition is mounted
+        - file ownership may need to be modified with ``chown root:root /LFS/dir/files/*``
+    * **Directories**
+        - create ``etc``, ``var``, ``usr/bin``, ``usr/lib``, ``usr/sbin``, along with symlinks of ``usr/*``
+          in root directory of LFS system
+    * **LFS User**
+        - create group and user named ``lfs`` with ``groupadd`` and ``useradd``, and set password
+          with ``passwd lfs``
+        - change ownership of files in LFS system directory to ``lfs`` user
+        - can start a shell of ``lfs`` user with ``su - lfs``
+    * **Environment Setup for lfs User**
+        - create ``.bash_profile`` with ``exec env -i HOME=$HOME TERM=$TERM /bin/bash`` to set
+          empty environment
+        - create ``.bashrc`` with following commands:
+        - ``set +h``: turns off bash hash function to search ``PATH`` on every program run and use
+          newly compiled tools
+        - ``umask 022``: set user file-creation mask to make newly files and directories are
+          only writable by their owner, but readable and executable by anyone
+        - set env variable of ``LFS=original_mount_point``
+        - ``LC_ALL=POSIX`` to control localisation of certain programs
+        - ``LFS_TGT=$(uname -m)-lfs-linux-gnu`` for non-default machine description
+        - ``PATH=/usr/bin`` and ``if [ ! -L /bin ]; then PATH=/bin:$PATH; fi`` to add ``/bin`` to
+          ``PATH`` if it is not symlinked
+        - ``PATH=$LFS/tools/bin:$PATH`` to use the new cross-compiler
+        - ``CONFIG_SITE=$LFS/user/share/config.site`` to prevent configure scripts loading
+          configurations from the host
+        - ``MAKEFLAGS=-j$(nproc)`` to let ``make`` use all cores for faster build jobs
+        - env variables need to be exported using ``export``
 
 `back to top <#linux>`_
 
