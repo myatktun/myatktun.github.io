@@ -431,6 +431,9 @@
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-from-scratch">Linux From Scratch</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preparations">Preparations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building">Building</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directories">Directories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-and-restore">Backup and Restore</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>
@@ -991,7 +994,7 @@ it now</p></li>
 <blockquote>
 <div><ul class="simple">
 <li><p>must be unmounted before checking</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">xfs_repair</span> <span class="pre">-v</span> <span class="pre">/dev/sda1</span></code>, repair XFS filesystem</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xfs_repair</span> <span class="pre">-v</span> <span class="pre">/dev/sda1</span></code>, repair XFS file system</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">fsck.ext4</span> <span class="pre">-v</span> <span class="pre">-f</span> <span class="pre">-p</span> <span class="pre">/dev/sda1</span></code>, check ext4 file system</p></li>
 </ul>
 </div></blockquote>
@@ -1953,14 +1956,14 @@ clock in the system</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Filesystem Tools</strong></dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">e2fsprogs</span></code>: to manage ext2, ext3, and ext4 filesystems, recommended latest version,
+<dt><strong>File System Tools</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">e2fsprogs</span></code>: to manage ext2, ext3, and ext4 file systems, recommended latest version,
 <code class="docutils literal notranslate"><span class="pre">tune2fs</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">jfsutils</span></code>: to use IBM JFS filesystem, <code class="docutils literal notranslate"><span class="pre">fsck.jfs</span> <span class="pre">-V</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">reiserfsprogs</span></code>: to use ReiserFS filesystem, <code class="docutils literal notranslate"><span class="pre">reiserfsck</span> <span class="pre">-V</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">xfsprogs</span></code>: to use XFS filesystem from SGI, <code class="docutils literal notranslate"><span class="pre">xfs_db</span> <span class="pre">-V</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jfsutils</span></code>: to use IBM JFS file system, <code class="docutils literal notranslate"><span class="pre">fsck.jfs</span> <span class="pre">-V</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reiserfsprogs</span></code>: to use ReiserFS file system, <code class="docutils literal notranslate"><span class="pre">reiserfsck</span> <span class="pre">-V</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xfsprogs</span></code>: to use XFS file system from SGI, <code class="docutils literal notranslate"><span class="pre">xfs_db</span> <span class="pre">-V</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">quota-tools</span></code>: to use quota functionality of the kernel, <code class="docutils literal notranslate"><span class="pre">quota</span> <span class="pre">-V</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nfs-utils</span></code>: to use NFS filesystem, <code class="docutils literal notranslate"><span class="pre">showmount</span> <span class="pre">--version</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nfs-utils</span></code>: to use NFS file system, <code class="docutils literal notranslate"><span class="pre">showmount</span> <span class="pre">--version</span></code></p></li>
 </ul>
 </dd>
 </dl>
@@ -2132,7 +2135,7 @@ e.g. go from 2.6.17.9 to 2.6.17, and then upgrade to 2.6.17.11</p></li>
 <li><p>only disable options that are certain not needed</p></li>
 <li><dl class="simple">
 <dt><strong>sysfs</strong></dt><dd><ul>
-<li><p>virtual filesystem with symlinks to all around the filesystem, should always be
+<li><p>virtual file system with symlinks to all around the file system, should always be
 mounted at <code class="docutils literal notranslate"><span class="pre">/sys</span></code></p></li>
 <li><p>internal structure usually changes due to reorganisation of devices</p></li>
 </ul>
@@ -2196,12 +2199,12 @@ vendor definition</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>for Root Filesystem</strong></dt><dd><ul>
+<dt><strong>for Root File System</strong></dt><dd><ul>
 <li><p>contain all initial programs, and usually entire system config</p></li>
-<li><p>the kernel must be able to find the root filesystem at boot time</p></li>
-<li><p>recommended to build filesystem for root partition, and disk controller for the disk,
+<li><p>the kernel must be able to find the root file system at boot time</p></li>
+<li><p>recommended to build file system for root partition, and disk controller for the disk,
 and use ramdisk image at boot time</p></li>
-<li><p>determine the filesystem type with <code class="docutils literal notranslate"><span class="pre">mount</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;</span> <span class="pre">/</span> <span class="pre">&quot;</span></code>, and check block devices with
+<li><p>determine the file system type with <code class="docutils literal notranslate"><span class="pre">mount</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;</span> <span class="pre">/</span> <span class="pre">&quot;</span></code>, and check block devices with
 <code class="docutils literal notranslate"><span class="pre">tree</span> <span class="pre">-d</span> <span class="pre">/sys/block</span> <span class="pre">|</span> <span class="pre">egrep</span> <span class="pre">&quot;hd|sd&quot;</span></code></p></li>
 <li><p>disk partitions are numbered, but main block devices are not</p></li>
 <li><p>the whole main block device must be configured to access the individual partitions</p></li>
@@ -2221,7 +2224,7 @@ the necessary drivers</p></li>
 </dd>
 </dl>
 </li>
-<li><p>enable the necessary filesystem type driver, and disk controller drivers in kernel config</p></li>
+<li><p>enable the necessary file system type driver, and disk controller drivers in kernel config</p></li>
 </ul>
 </div></blockquote>
 </section>
@@ -2296,12 +2299,12 @@ options</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Filesystem</strong></dt><dd><ul>
+<dt><strong>File System</strong></dt><dd><ul>
 <li><p>hardware RAID is handled by the disk controller without help from the kernel</p></li>
 <li><p>software RAID need Multiple devices driver support, RAID support with at least one
 RAID configuration</p></li>
 <li><p>LVM need Multiple devices driver support, Device mapper support with helper modules</p></li>
-<li><p>SMB, CIFS, and OCFS2 filesystems need respective system support</p></li>
+<li><p>SMB, CIFS, and OCFS2 file systems need respective system support</p></li>
 </ul>
 </dd>
 </dl>
@@ -2544,8 +2547,8 @@ method</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Filesystem</strong></dt><dd><ul>
-<li><p>kernel builds structured filesystem on top of unstructured hardware</p></li>
+<dt><strong>File System</strong></dt><dd><ul>
+<li><p>kernel builds structured file system on top of unstructured hardware</p></li>
 </ul>
 </dd>
 </dl>
@@ -2590,7 +2593,7 @@ called just before it is unloaded</p></li>
 </li>
 <li><dl class="simple">
 <dt><strong>Character Device</strong></dt><dd><ul>
-<li><p>can be accessed as a stream of bytes, and by means of filesystem nodes, e.g.
+<li><p>can be accessed as a stream of bytes, and by means of file system nodes, e.g.
 <code class="docutils literal notranslate"><span class="pre">/dev/tty1</span></code></p></li>
 <li><p>char driver implements at least <code class="docutils literal notranslate"><span class="pre">open</span></code>, <code class="docutils literal notranslate"><span class="pre">close</span></code>, <code class="docutils literal notranslate"><span class="pre">read</span></code>, and <code class="docutils literal notranslate"><span class="pre">write</span></code> system calls</p></li>
 <li><p>most char devices can only be accessed sequentially, cannot move back and forth like
@@ -2603,7 +2606,7 @@ in regular file</p></li>
 </li>
 <li><dl class="simple">
 <dt><strong>Block Device</strong></dt><dd><ul>
-<li><p>can host a filesystem, and accessed by filesystem nodes in <code class="docutils literal notranslate"><span class="pre">/dev</span></code></p></li>
+<li><p>can host a file system, and accessed by file system nodes in <code class="docutils literal notranslate"><span class="pre">/dev</span></code></p></li>
 <li><p>Linux allows read and write to a block device like a char device, by permitting the
 transfer of any number of bytes at a time</p></li>
 <li><p>block and char devices differ only how data is managed internally, and block drivers
@@ -2616,13 +2619,13 @@ have different interface to the kernel than char drivers</p></li>
 <dt><strong>Network Interface</strong></dt><dd><ul>
 <li><p>a network driver only handles data packets without connection details</p></li>
 <li><p>a network device is not stream-oriented, and the interface is not mapped to a node
-in the filesystem</p></li>
+in the file system</p></li>
 <li><p>communication for kernel and network driver is different from char and block drivers</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><p>filesystem type is just a software driver, as it maps low-level data structures to
+<li><p>file system type is just a software driver, as it maps low-level data structures to
 high-level ones, and is independent of actual data transfer to and from the disk</p></li>
 </ul>
 </div></blockquote>
@@ -2989,7 +2992,7 @@ opened it</p></li>
 <section id="linux-from-scratch">
 <h2>Linux From Scratch<a class="headerlink" href="#linux-from-scratch" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#preparations">Preparations</a></p></li>
+<li><p><a class="reference internal" href="#preparations">Preparations</a>, <a class="reference internal" href="#building">Building</a>, <a class="reference internal" href="#directories">Directories</a>, <a class="reference internal" href="#backup-and-restore">Backup and Restore</a></p></li>
 <li><p>this section is mostly from following along the Linux From Scratch book</p></li>
 </ul>
 <section id="preparations">
@@ -3029,7 +3032,7 @@ in root directory of LFS system</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>LFS User</strong></dt><dd><ul>
+<dt><strong>lfs User</strong></dt><dd><ul>
 <li><p>create group and user named <code class="docutils literal notranslate"><span class="pre">lfs</span></code> with <code class="docutils literal notranslate"><span class="pre">groupadd</span></code> and <code class="docutils literal notranslate"><span class="pre">useradd</span></code>, and set password
 with <code class="docutils literal notranslate"><span class="pre">passwd</span> <span class="pre">lfs</span></code></p></li>
 <li><p>change ownership of files in LFS system directory to <code class="docutils literal notranslate"><span class="pre">lfs</span></code> user</p></li>
@@ -3061,6 +3064,154 @@ configurations from the host</p></li>
 </dd>
 </dl>
 </li>
+</ul>
+</div></blockquote>
+</section>
+<section id="building">
+<h3>Building<a class="headerlink" href="#building" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>offset or fuzzy warning messages when applying a patch can be ignored</p></li>
+<li><dl class="simple">
+<dt><strong>Autoconf Build System</strong></dt><dd><ul>
+<li><p>accepts system types in a triplet, cpu-vendor-kernel-os, where vendor field can be
+omitted, e.g. x86_64-redhat-linux</p></li>
+<li><p>two systems can share the same kernel and be different to use the same triplet to
+describe them, e.g. Android and Ubuntu on ARM64 using the same Linux kernel</p></li>
+<li><p>can check system triplet with <code class="docutils literal notranslate"><span class="pre">config.guess</span></code> script from source files, or
+<code class="docutils literal notranslate"><span class="pre">gcc</span> <span class="pre">-dumpmachine</span></code></p></li>
+<li><p>can check the dynamic linker with <code class="docutils literal notranslate"><span class="pre">readelf</span> <span class="pre">-l</span> <span class="pre">any_binary</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">interpreter</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>install the cross-toolchain under <code class="docutils literal notranslate"><span class="pre">$LFS/tools</span></code> be keep them separate</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="directories">
+<h3>Directories<a class="headerlink" href="#directories" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>enter a chroot environment to install the final LFS system</p></li>
+<li><dl class="simple">
+<dt><strong>Virtual Kernel File Systems</strong></dt><dd><ul class="simple">
+<li><p>created by the kernel, and used by applications to communicated with it</p></li>
+<li><p>virtual file systems, and no disk space is used as contents are in memory</p></li>
+<li><p>mount the necessary in LFS directory tree, such as <code class="docutils literal notranslate"><span class="pre">dev</span></code>, <code class="docutils literal notranslate"><span class="pre">proc</span></code>, <code class="docutils literal notranslate"><span class="pre">sys</span></code>, <code class="docutils literal notranslate"><span class="pre">run</span></code></p></li>
+<li><p>kernel auto mounts <code class="docutils literal notranslate"><span class="pre">devtmpfs</span></code> on <code class="docutils literal notranslate"><span class="pre">/dev</span></code> and create device device nodes</p></li>
+<li><p>some hosts can be without <code class="docutils literal notranslate"><span class="pre">devtmpfs</span></code> support, and need to bind mount the host’s
+<code class="docutils literal notranslate"><span class="pre">/dev</span></code> with <code class="docutils literal notranslate"><span class="pre">mount</span> <span class="pre">-v</span> <span class="pre">--bind</span> <span class="pre">/dev</span> <span class="pre">$LFS/dev</span></code></p></li>
+<li><p>mount others with <code class="docutils literal notranslate"><span class="pre">mount</span> <span class="pre">-vt</span> <span class="pre">devpts</span> <span class="pre">devpts</span> <span class="pre">-o</span> <span class="pre">gid=5,mode=0620</span> <span class="pre">$LFS/dev/pts</span></code>,
+<code class="docutils literal notranslate"><span class="pre">mount</span> <span class="pre">-vt</span> <span class="pre">proc</span> <span class="pre">proc</span> <span class="pre">$LFS/proc</span></code>, <code class="docutils literal notranslate"><span class="pre">mount</span> <span class="pre">-vt</span> <span class="pre">sysfs</span> <span class="pre">sysfs</span> <span class="pre">$LFS/sys</span></code>,
+<code class="docutils literal notranslate"><span class="pre">mount</span> <span class="pre">-vt</span> <span class="pre">tmpfs</span> <span class="pre">tmpfs</span> <span class="pre">$LFS/run</span></code></p></li>
+<li><p>may need to explicitly mount a tmpfs with
+<code class="docutils literal notranslate"><span class="pre">mount</span> <span class="pre">-vt</span> <span class="pre">tmpfs</span> <span class="pre">-o</span> <span class="pre">nosuid,nodev</span> <span class="pre">tmpfs</span> <span class="pre">$LFS/dev/shm</span></code></p></li>
+<li><p>can check VFS mounts with <code class="docutils literal notranslate"><span class="pre">findmnt</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">$LFS</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Entering Chroot</strong></p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chroot<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$LFS</span><span class="s2">&quot;</span><span class="w"> </span>/usr/bin/env<span class="w"> </span>-i<span class="w"> </span><span class="se">\</span>
+<span class="nv">HOME</span><span class="o">=</span>/root<span class="w"> </span><span class="se">\</span>
+<span class="nv">TERM</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$TERM</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="nv">PS1</span><span class="o">=</span><span class="s1">&#39;(lfs chroot) \u:\w\$ &#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="nv">PATH</span><span class="o">=</span>/usr/bin:/usr/sbin<span class="w"> </span><span class="se">\</span>
+<span class="nv">MAKEFLAGS</span><span class="o">=</span><span class="s2">&quot;-j</span><span class="k">$(</span>nproc<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="nv">TESTSUITEFLAGS</span><span class="o">=</span><span class="s2">&quot;-j</span><span class="k">$(</span>nproc<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+/bin/bash<span class="w"> </span>--login
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><dl class="simple">
+<dt><strong>Full Directory Structure</strong></dt><dd><ul class="simple">
+<li><p>create root-level directories with <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">-pv</span> <span class="pre">/{boot,home,mnt,opt,srv}</span></code></p></li>
+<li><p>create subdirectories <code class="docutils literal notranslate"><span class="pre">/etc/{opt,sysconfig}</span></code>, <code class="docutils literal notranslate"><span class="pre">/lib/firmware</span></code>,
+<code class="docutils literal notranslate"><span class="pre">/media/{floppy,cdrom}</span></code>, <code class="docutils literal notranslate"><span class="pre">/usr/{,local/}{include,src}</span></code>, <code class="docutils literal notranslate"><span class="pre">/usr/lib/locale</span></code>,
+<code class="docutils literal notranslate"><span class="pre">/usr/local/{bin,lib,sbin}</span></code>, <code class="docutils literal notranslate"><span class="pre">/usr/{,local/}share/{color,dict,doc,info,locale,man}</span></code>,
+<code class="docutils literal notranslate"><span class="pre">/usr/{,local/}share/{misc,terminfo,zoneinfo}</span></code>, <code class="docutils literal notranslate"><span class="pre">/usr/{,local/}share/man/man{1..8}</span></code>,
+<code class="docutils literal notranslate"><span class="pre">/var/{cache,local,log,mail,opt,spool}</span></code>, <code class="docutils literal notranslate"><span class="pre">/var/lib/{color,misc,locate}</span></code></p></li>
+<li><p>create symlinks with <code class="docutils literal notranslate"><span class="pre">ln</span> <span class="pre">-sfv</span> <span class="pre">/run</span> <span class="pre">/var/run</span></code>, <code class="docutils literal notranslate"><span class="pre">ln</span> <span class="pre">-sfv</span> <span class="pre">/run/lock</span> <span class="pre">/var/lock</span></code>,
+<code class="docutils literal notranslate"><span class="pre">ln</span> <span class="pre">-sv</span> <span class="pre">/proc/self/mounts</span> <span class="pre">/etc/mtab</span></code></p></li>
+<li><p>set attributes with <code class="docutils literal notranslate"><span class="pre">install</span> <span class="pre">-dv</span> <span class="pre">-m</span> <span class="pre">0750</span> <span class="pre">/root</span></code>, <code class="docutils literal notranslate"><span class="pre">install</span> <span class="pre">-dv</span> <span class="pre">-m</span> <span class="pre">1777</span> <span class="pre">/tmp</span> <span class="pre">/var/tmp</span></code></p></li>
+<li><p>create log files with <code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">/var/log/{btmp,lastlog,faillog,wtmp}</span></code>,
+<code class="docutils literal notranslate"><span class="pre">chgrp</span> <span class="pre">-v</span> <span class="pre">utmp</span> <span class="pre">/var/log/lastlog</span></code>, <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">-v</span> <span class="pre">664</span> <span class="pre">/var/log/lastlog</span></code>,
+<code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">-v</span> <span class="pre">600</span> <span class="pre">/var/log/btmp</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>/etc/hosts File</strong></p>
+<blockquote>
+<div><p>127.0.0.1 localhost $(hostname)
+::1       localhost</p>
+</div></blockquote>
+</li>
+<li><p><strong>/etc/passwd File</strong></p>
+<blockquote>
+<div><p>root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/dev/null:/usr/bin/false
+daemon:x:6:6:Daemon User:/dev/null:/usr/bin/false
+messagebus:x:18:18:D-Bus Message Daemon User:/run/dbus:/usr/bin/false
+uuidd:x:80:80:UUID Generation Daemon User:/dev/null:/usr/bin/false
+nobody:x:65534:65534:Unprivileged User:/dev/null:/usr/bin/false</p>
+</div></blockquote>
+</li>
+<li><dl>
+<dt><strong>/etc/group File</strong></dt><dd><ul class="simple">
+<li><p>LSB only recommends GID 0 <code class="docutils literal notranslate"><span class="pre">root</span></code> and GID 1 <code class="docutils literal notranslate"><span class="pre">bin</span></code></p></li>
+<li><p>GID 5 is widely used for <code class="docutils literal notranslate"><span class="pre">tty</span></code> group, and other names and GID can be chosen freely</p></li>
+<li><p>well-written programs do not depend on GID numbers, but the name</p></li>
+</ul>
+<p>root:x:0:
+bin:x:1:daemon
+sys:x:2:
+kmem:x:3:
+tape:x:4:
+tty:x:5:
+daemon:x:6:
+floppy:x:7:
+disk:x:8:
+lp:x:9:
+dialout:x:10:
+audio:x:11:
+video:x:12:
+utmp:x:13:
+cdrom:x:15:
+adm:x:16:
+messagebus:x:18:
+input:x:24:
+mail:x:34:
+kvm:x:61:
+uuidd:x:80:
+wheel:x:97:
+users:x:999:
+nogroup:x:65534:</p>
+</dd>
+</dl>
+</li>
+<li><p>set locale with <code class="docutils literal notranslate"><span class="pre">localedef</span> <span class="pre">-i</span> <span class="pre">C</span> <span class="pre">-f</span> <span class="pre">UTF-8</span> <span class="pre">C.UTF-8</span></code></p></li>
+<li><p>can add a temporary user to run tests with
+<code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;tester:x:101:101::/home/tester:/bin/bash&quot;</span> <span class="pre">&gt;&gt;</span> <span class="pre">/etc/passwd</span></code>,
+<code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;tester:x:101:&quot;</span> <span class="pre">&gt;&gt;</span> <span class="pre">/etc/group</span></code>, and <code class="docutils literal notranslate"><span class="pre">install</span> <span class="pre">-o</span> <span class="pre">tester</span> <span class="pre">-d</span> <span class="pre">/home/tester</span></code></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="backup-and-restore">
+<h3>Backup and Restore<a class="headerlink" href="#backup-and-restore" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>after creating essential programs and libraries, LFS system should be backed up in case
+of failures in the future</p></li>
+<li><p>create a backup outside the chroot environment</p></li>
+<li><p>umount VFS with <code class="docutils literal notranslate"><span class="pre">mountpoint</span> <span class="pre">-q</span> <span class="pre">$LFS/dev/shm</span> <span class="pre">&amp;&amp;</span> <span class="pre">umount</span> <span class="pre">$LFS/dev/shm</span></code>,
+<code class="docutils literal notranslate"><span class="pre">umount</span> <span class="pre">$LFS/dev/pts</span></code>, <code class="docutils literal notranslate"><span class="pre">umount</span> <span class="pre">$LFS/{sys,proc,run,dev}</span></code></p></li>
+<li><p>change into LFS directory, and create a backup archive with
+<code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-cJpf</span> <span class="pre">$HOME/lfs-temp-tools.12.2.tar.xz</span> <span class="pre">.</span></code></p></li>
+<li><p>restore with <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">$LFS/*</span></code>, and <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-xvpf</span> <span class="pre">$HOME/lfs-temp-tools.12.2.tar.xz</span> <span class="pre">-C</span> <span class="pre">$LFS/</span></code></p></li>
 </ul>
 </div></blockquote>
 <p><a class="reference external" href="#linux">back to top</a></p>
@@ -3237,6 +3388,9 @@ Usama Anjum, Collabora. Available at: <a class="reference external" href="https:
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-from-scratch">Linux From Scratch</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preparations">Preparations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building">Building</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directories">Directories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-and-restore">Backup and Restore</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>

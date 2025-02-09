@@ -344,7 +344,7 @@ dnf
 Checking file system
 --------------------
     * must be unmounted before checking
-    * ``xfs_repair -v /dev/sda1``, repair XFS filesystem
+    * ``xfs_repair -v /dev/sda1``, repair XFS file system
     * ``fsck.ext4 -v -f -p /dev/sda1``, check ext4 file system
 
 * ``systemctl list-dependencies``, check services running or not
@@ -949,14 +949,14 @@ Kernel Dependent Tools
     * **module-init-tools**
         - required to use kernel modules
         - recommended for the latest version to support new features, ``depmod -V``
-    * **Filesystem Tools**
-        - ``e2fsprogs``: to manage ext2, ext3, and ext4 filesystems, recommended latest version,
+    * **File System Tools**
+        - ``e2fsprogs``: to manage ext2, ext3, and ext4 file systems, recommended latest version,
           ``tune2fs``
-        - ``jfsutils``: to use IBM JFS filesystem, ``fsck.jfs -V``
-        - ``reiserfsprogs``: to use ReiserFS filesystem, ``reiserfsck -V``
-        - ``xfsprogs``: to use XFS filesystem from SGI, ``xfs_db -V``
+        - ``jfsutils``: to use IBM JFS file system, ``fsck.jfs -V``
+        - ``reiserfsprogs``: to use ReiserFS file system, ``reiserfsck -V``
+        - ``xfsprogs``: to use XFS file system from SGI, ``xfs_db -V``
         - ``quota-tools``: to use quota functionality of the kernel, ``quota -V``
-        - ``nfs-utils``: to use NFS filesystem, ``showmount --version``
+        - ``nfs-utils``: to use NFS file system, ``showmount --version``
     * **udev**
         - enable persistent and dynamic device-naming system in ``/dev``
         - almost all Linux distributions use ``udev`` to manage ``/dev`` directory
@@ -1048,7 +1048,7 @@ Customise Kernel
       ``/proc/config.gz`` or ``/boot/config-$(uname -r)``
     * only disable options that are certain not needed
     * **sysfs**
-        - virtual filesystem with symlinks to all around the filesystem, should always be
+        - virtual file system with symlinks to all around the file system, should always be
           mounted at ``/sys``
         - internal structure usually changes due to reorganisation of devices
     * **Device Discovery**
@@ -1088,12 +1088,12 @@ Find Drivers
         - USB drivers have a list of supported devices in ``struct usb_device_id``
         - search the Makefiles with ``find -type f -name Makefile | xargs grep DRIVER_NAME`` for
           ``CONFIG_`` to build the driver
-    * **for Root Filesystem**
+    * **for Root File System**
         - contain all initial programs, and usually entire system config
-        - the kernel must be able to find the root filesystem at boot time
-        - recommended to build filesystem for root partition, and disk controller for the disk,
+        - the kernel must be able to find the root file system at boot time
+        - recommended to build file system for root partition, and disk controller for the disk,
           and use ramdisk image at boot time
-        - determine the filesystem type with ``mount | grep " / "``, and check block devices with
+        - determine the file system type with ``mount | grep " / "``, and check block devices with
           ``tree -d /sys/block | egrep "hd|sd"``
         - disk partitions are numbered, but main block devices are not
         - the whole main block device must be configured to access the individual partitions
@@ -1104,7 +1104,7 @@ Find Drivers
         - go up the link and take note of the disk controller driver in
           ``/sys/devices/<SOMETHING_LESS_LONG>/target0:0:0/0:0:0:0``
         - go up and find another driver, e.g. ``/sys/devices/pci<SOMETHING>/0000:<SOMETHING>``
-    * enable the necessary filesystem type driver, and disk controller drivers in kernel config
+    * enable the necessary file system type driver, and disk controller drivers in kernel config
 
 Common Config
 -------------
@@ -1149,12 +1149,12 @@ Common Config
         - Bluetooth need Bluetooth subsystem, protocols, and specific device drivers
         - Wireless network need IEEE 802.11 option, protocols, and PCI or USB device driver
           options
-    * **Filesystem**
+    * **File System**
         - hardware RAID is handled by the disk controller without help from the kernel
         - software RAID need Multiple devices driver support, RAID support with at least one
           RAID configuration
         - LVM need Multiple devices driver support, Device mapper support with helper modules
-        - SMB, CIFS, and OCFS2 filesystems need respective system support
+        - SMB, CIFS, and OCFS2 file systems need respective system support
     * **Security**
         - different security models and default linux capabilities should be enabled
         - SELinux need network option, Auditing support, Socket and Networking Security Hooks,
@@ -1275,8 +1275,8 @@ Kernel Role
     * **Memory Management**
         - kernel builds virtual address space on limited available resources
         - different parts of kernel interact with memory management subsystem
-    * **Filesystem**
-        - kernel builds structured filesystem on top of unstructured hardware
+    * **File System**
+        - kernel builds structured file system on top of unstructured hardware
     * **Device Control**
         - almost every system operation maps to a physical device
         - device drivers perform any device control operations
@@ -1297,7 +1297,7 @@ Device and Module Classes
           called just before it is unloaded
         - the exit function must undo everything the init function did
     * **Character Device**
-        - can be accessed as a stream of bytes, and by means of filesystem nodes, e.g.
+        - can be accessed as a stream of bytes, and by means of file system nodes, e.g.
           ``/dev/tty1``
         - char driver implements at least ``open``, ``close``, ``read``, and ``write`` system calls
         - most char devices can only be accessed sequentially, cannot move back and forth like
@@ -1305,7 +1305,7 @@ Device and Module Classes
         - but char devices that look like data areas, such as frame grabbers, use ``mmap()`` or
           ``lseek()``
     * **Block Device**
-        - can host a filesystem, and accessed by filesystem nodes in ``/dev``
+        - can host a file system, and accessed by file system nodes in ``/dev``
         - Linux allows read and write to a block device like a char device, by permitting the
           transfer of any number of bytes at a time
         - block and char devices differ only how data is managed internally, and block drivers
@@ -1313,9 +1313,9 @@ Device and Module Classes
     * **Network Interface**
         - a network driver only handles data packets without connection details
         - a network device is not stream-oriented, and the interface is not mapped to a node
-          in the filesystem
+          in the file system
         - communication for kernel and network driver is different from char and block drivers
-    * filesystem type is just a software driver, as it maps low-level data structures to
+    * file system type is just a software driver, as it maps low-level data structures to
       high-level ones, and is independent of actual data transfer to and from the disk
 
 Protection Levels
@@ -1579,7 +1579,7 @@ scull Driver
 Linux From Scratch
 ==================
 
-* `Preparations`_
+* `Preparations`_, `Building`_, `Directories`_, `Backup and Restore`_
 * this section is mostly from following along the Linux From Scratch book
 
 Preparations
@@ -1601,7 +1601,7 @@ Preparations
     * **Directories**
         - create ``etc``, ``var``, ``usr/bin``, ``usr/lib``, ``usr/sbin``, along with symlinks of ``usr/*``
           in root directory of LFS system
-    * **LFS User**
+    * **lfs User**
         - create group and user named ``lfs`` with ``groupadd`` and ``useradd``, and set password
           with ``passwd lfs``
         - change ownership of files in LFS system directory to ``lfs`` user
@@ -1624,6 +1624,128 @@ Preparations
           configurations from the host
         - ``MAKEFLAGS=-j$(nproc)`` to let ``make`` use all cores for faster build jobs
         - env variables need to be exported using ``export``
+
+Building
+--------
+    * offset or fuzzy warning messages when applying a patch can be ignored
+    * **Autoconf Build System**
+        - accepts system types in a triplet, cpu-vendor-kernel-os, where vendor field can be
+          omitted, e.g. x86_64-redhat-linux
+        - two systems can share the same kernel and be different to use the same triplet to
+          describe them, e.g. Android and Ubuntu on ARM64 using the same Linux kernel
+        - can check system triplet with ``config.guess`` script from source files, or
+          ``gcc -dumpmachine``
+        - can check the dynamic linker with ``readelf -l any_binary | grep interpreter``
+    * install the cross-toolchain under ``$LFS/tools`` be keep them separate
+
+Directories
+-----------
+    * enter a chroot environment to install the final LFS system
+    * **Virtual Kernel File Systems**
+        - created by the kernel, and used by applications to communicated with it
+        - virtual file systems, and no disk space is used as contents are in memory
+        - mount the necessary in LFS directory tree, such as ``dev``, ``proc``, ``sys``, ``run``
+        - kernel auto mounts ``devtmpfs`` on ``/dev`` and create device device nodes
+        - some hosts can be without ``devtmpfs`` support, and need to bind mount the host's
+          ``/dev`` with ``mount -v --bind /dev $LFS/dev``
+        - mount others with ``mount -vt devpts devpts -o gid=5,mode=0620 $LFS/dev/pts``,
+          ``mount -vt proc proc $LFS/proc``, ``mount -vt sysfs sysfs $LFS/sys``,
+          ``mount -vt tmpfs tmpfs $LFS/run``
+        - may need to explicitly mount a tmpfs with
+          ``mount -vt tmpfs -o nosuid,nodev tmpfs $LFS/dev/shm``
+        - can check VFS mounts with ``findmnt | grep $LFS``
+    * **Entering Chroot**
+
+        .. code-block:: bash
+
+           chroot "$LFS" /usr/bin/env -i \
+           HOME=/root \
+           TERM="$TERM" \
+           PS1='(lfs chroot) \u:\w\$ ' \
+           PATH=/usr/bin:/usr/sbin \
+           MAKEFLAGS="-j$(nproc)" \
+           TESTSUITEFLAGS="-j$(nproc)" \
+           /bin/bash --login
+
+
+    * **Full Directory Structure**
+        - create root-level directories with ``mkdir -pv /{boot,home,mnt,opt,srv}``
+        - create subdirectories ``/etc/{opt,sysconfig}``, ``/lib/firmware``,
+          ``/media/{floppy,cdrom}``, ``/usr/{,local/}{include,src}``, ``/usr/lib/locale``,
+          ``/usr/local/{bin,lib,sbin}``, ``/usr/{,local/}share/{color,dict,doc,info,locale,man}``,
+          ``/usr/{,local/}share/{misc,terminfo,zoneinfo}``, ``/usr/{,local/}share/man/man{1..8}``,
+          ``/var/{cache,local,log,mail,opt,spool}``, ``/var/lib/{color,misc,locate}``
+        - create symlinks with ``ln -sfv /run /var/run``, ``ln -sfv /run/lock /var/lock``,
+          ``ln -sv /proc/self/mounts /etc/mtab``
+        - set attributes with ``install -dv -m 0750 /root``, ``install -dv -m 1777 /tmp /var/tmp``
+        - create log files with ``touch /var/log/{btmp,lastlog,faillog,wtmp}``,
+          ``chgrp -v utmp /var/log/lastlog``, ``chmod -v 664 /var/log/lastlog``,
+          ``chmod -v 600 /var/log/btmp``
+    * **/etc/hosts File**
+
+
+        127.0.0.1 localhost $(hostname)
+        ::1       localhost
+
+
+    * **/etc/passwd File**
+
+
+        root:x:0:0:root:/root:/bin/bash
+        bin:x:1:1:bin:/dev/null:/usr/bin/false
+        daemon:x:6:6:Daemon User:/dev/null:/usr/bin/false
+        messagebus:x:18:18:D-Bus Message Daemon User:/run/dbus:/usr/bin/false
+        uuidd:x:80:80:UUID Generation Daemon User:/dev/null:/usr/bin/false
+        nobody:x:65534:65534:Unprivileged User:/dev/null:/usr/bin/false
+
+
+    * **/etc/group File**
+        - LSB only recommends GID 0 ``root`` and GID 1 ``bin``
+        - GID 5 is widely used for ``tty`` group, and other names and GID can be chosen freely
+        - well-written programs do not depend on GID numbers, but the name
+
+
+        root:x:0:
+        bin:x:1:daemon
+        sys:x:2:
+        kmem:x:3:
+        tape:x:4:
+        tty:x:5:
+        daemon:x:6:
+        floppy:x:7:
+        disk:x:8:
+        lp:x:9:
+        dialout:x:10:
+        audio:x:11:
+        video:x:12:
+        utmp:x:13:
+        cdrom:x:15:
+        adm:x:16:
+        messagebus:x:18:
+        input:x:24:
+        mail:x:34:
+        kvm:x:61:
+        uuidd:x:80:
+        wheel:x:97:
+        users:x:999:
+        nogroup:x:65534:
+
+
+    * set locale with ``localedef -i C -f UTF-8 C.UTF-8``
+    * can add a temporary user to run tests with
+      ``echo "tester:x:101:101::/home/tester:/bin/bash" >> /etc/passwd``,
+      ``echo "tester:x:101:" >> /etc/group``, and ``install -o tester -d /home/tester``
+
+Backup and Restore
+------------------
+    * after creating essential programs and libraries, LFS system should be backed up in case
+      of failures in the future
+    * create a backup outside the chroot environment
+    * umount VFS with ``mountpoint -q $LFS/dev/shm && umount $LFS/dev/shm``,
+      ``umount $LFS/dev/pts``, ``umount $LFS/{sys,proc,run,dev}``
+    * change into LFS directory, and create a backup archive with
+      ``tar -cJpf $HOME/lfs-temp-tools.12.2.tar.xz .``
+    * restore with ``rm -rf $LFS/*``, and ``tar -xvpf $HOME/lfs-temp-tools.12.2.tar.xz -C $LFS/``
 
 `back to top <#linux>`_
 
