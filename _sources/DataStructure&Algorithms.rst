@@ -375,9 +375,9 @@ Heap
         - Inserting: O(log n)
         - Deleting: O(log n)
 
-Trie/ Prefix Tree
------------------
-    * a kind of tree ideal for text-based features, such as autocomplete
+Prefix Tree
+-----------
+    * also called trie, a kind of tree ideal for text-based features, such as autocomplete
     * each node represents single character, usually an alphabet
     * each node can have any number of child nodes, usually max 26 nodes when using alphabets
     * a node should have a value to indicate the end of the word
@@ -466,6 +466,7 @@ Algorithms
 * `Bubble Sort`_, `Selection Sort`_, `Insertion Sort`_, `Quick Sort`_, `Heap Sort`_
 * `Quick Select`_, `Greedy Algorithm`_, `Boyer-Moore Voting Algorithm`_
 * `Tree Traversals`_, `Graph Traversals`_
+* `KMP`_
 * `Dynamic Programming`_
 * `Optimization`_
 * a set of instructions to operate a specific task
@@ -682,6 +683,33 @@ Graph Traversals
                     7\. ignore if the adjacent vertex has been visited
                     8\. if the adjacent vertex is not visited, mark it as visited and add it to the queue
                     9\. repeat the loop from step 4 until the queue is empty
+
+KMP
+---
+    * Knuth-Morris-Pratt string matching algorithm
+    * efficiency of the algorithm is avoiding comparison if the beginning part of the pattern
+      is already matched
+    * **Longest Prefix Suffix**
+        - check the longest prefix of the pattern that is also the suffix
+        - the first part of the algorithm is to build LPS array with every prefix length of
+          the pattern substring
+        - the first value of LPS array will always be 0 as it cannot match itself
+        - loop through the pattern with ``curr_ptr`` and ``prev_lps_ptr``
+        - if characters at both pointers match, set LPS value at ``curr_ptr`` to
+          ``prev_lps_ptr + 1``, and increment both by 1
+        - if ``prev_lps_ptr == 0``, set LPS value at ``curr_ptr`` to 0 and only increment
+          ``curr_ptr`` by 1
+        - otherwise, set ``prev_lps_ptr`` to LPS value at ``prev_lps_ptr - 1``
+    * **Pattern Matching**
+        - loop with two pointers for search string, ``search_ptr``, and pattern string,
+          ``pattern_ptr``
+        - increment both pointers if characters match
+        - if characters do not match, need to check the value of LPS with last matched index,
+          by setting ``pattern_ptr = LPS_ARR[pattern_ptr - 1]``, but if ``pattern_ptr == 0``, just
+          increment ``search_ptr``
+        - when ``pattern_ptr`` is at the end, we have found a match
+    * **Complexity**
+        - all cases: O(n + m), space O(m)
 
 Dynamic Programming
 -------------------

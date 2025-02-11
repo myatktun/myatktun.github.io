@@ -345,7 +345,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-tree">Binary Tree</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-search-tree">Binary Search Tree</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heap">Heap</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trie-prefix-tree">Trie/ Prefix Tree</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prefix-tree">Prefix Tree</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spanning-tree">Spanning Tree</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum-spanning-tree">Minimum Spanning Tree</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph">Graph</a></li>
@@ -366,6 +366,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boyer-moore-voting-algorithm">Boyer-Moore Voting Algorithm</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tree-traversals">Tree Traversals</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-traversals">Graph Traversals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kmp">KMP</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-programming">Dynamic Programming</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization">Optimization</a></li>
 </ul>
@@ -471,7 +472,7 @@ algorithm</p>
 <h2>Data Structures<a class="headerlink" href="#data-structures" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#array">Array</a>, <a class="reference internal" href="#linked-list">Linked List</a>, <a class="reference internal" href="#circular-array">Circular Array</a>, <a class="reference internal" href="#hash-table">Hash Table</a>, <a class="reference internal" href="#queue">Queue</a>, <a class="reference internal" href="#stack">Stack</a>, <a class="reference internal" href="#set">Set</a></p></li>
-<li><p><a class="reference internal" href="#tree">Tree</a>, <a class="reference internal" href="#binary-tree">Binary Tree</a>, <a class="reference internal" href="#binary-search-tree">Binary Search Tree</a>, <a class="reference internal" href="#heap">Heap</a>, <a href="#id5"><span class="problematic" id="id6">`Prefix Tree`_</span></a></p></li>
+<li><p><a class="reference internal" href="#tree">Tree</a>, <a class="reference internal" href="#binary-tree">Binary Tree</a>, <a class="reference internal" href="#binary-search-tree">Binary Search Tree</a>, <a class="reference internal" href="#heap">Heap</a>, <a class="reference internal" href="#prefix-tree">Prefix Tree</a></p></li>
 <li><p><a class="reference internal" href="#spanning-tree">Spanning Tree</a>, <a class="reference internal" href="#minimum-spanning-tree">Minimum Spanning Tree</a>, <a class="reference internal" href="#graph">Graph</a></p></li>
 <li><p>can operate read, search, insert and delete on data structures</p></li>
 <li><p>use a data structure that is consistently fast, rather than the one that is sometimes</p></li>
@@ -1051,11 +1052,11 @@ inspecting every node</p></li>
 </ul>
 </div></blockquote>
 </section>
-<section id="trie-prefix-tree">
-<h3>Trie/ Prefix Tree<a class="headerlink" href="#trie-prefix-tree" title="Link to this heading">#</a></h3>
+<section id="prefix-tree">
+<h3>Prefix Tree<a class="headerlink" href="#prefix-tree" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>a kind of tree ideal for text-based features, such as autocomplete</p></li>
+<li><p>also called trie, a kind of tree ideal for text-based features, such as autocomplete</p></li>
 <li><p>each node represents single character, usually an alphabet</p></li>
 <li><p>each node can have any number of child nodes, usually max 26 nodes when using alphabets</p></li>
 <li><p>a node should have a value to indicate the end of the word</p></li>
@@ -1205,6 +1206,7 @@ moves far away from the starting vertex</p></li>
 <li><p><a class="reference internal" href="#bubble-sort">Bubble Sort</a>, <a class="reference internal" href="#selection-sort">Selection Sort</a>, <a class="reference internal" href="#insertion-sort">Insertion Sort</a>, <a class="reference internal" href="#quick-sort">Quick Sort</a>, <a class="reference internal" href="#heap-sort">Heap Sort</a></p></li>
 <li><p><a class="reference internal" href="#quick-select">Quick Select</a>, <a class="reference internal" href="#greedy-algorithm">Greedy Algorithm</a>, <a class="reference internal" href="#boyer-moore-voting-algorithm">Boyer-Moore Voting Algorithm</a></p></li>
 <li><p><a class="reference internal" href="#tree-traversals">Tree Traversals</a>, <a class="reference internal" href="#graph-traversals">Graph Traversals</a></p></li>
+<li><p><a class="reference internal" href="#kmp">KMP</a></p></li>
 <li><p><a class="reference internal" href="#dynamic-programming">Dynamic Programming</a></p></li>
 <li><p><a class="reference internal" href="#optimization">Optimization</a></p></li>
 <li><p>a set of instructions to operate a specific task</p></li>
@@ -1620,6 +1622,52 @@ subtree, visit the node</p></li>
 </ul>
 </div></blockquote>
 </section>
+<section id="kmp">
+<h3>KMP<a class="headerlink" href="#kmp" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Knuth-Morris-Pratt string matching algorithm</p></li>
+<li><p>efficiency of the algorithm is avoiding comparison if the beginning part of the pattern
+is already matched</p></li>
+<li><dl class="simple">
+<dt><strong>Longest Prefix Suffix</strong></dt><dd><ul>
+<li><p>check the longest prefix of the pattern that is also the suffix</p></li>
+<li><p>the first part of the algorithm is to build LPS array with every prefix length of
+the pattern substring</p></li>
+<li><p>the first value of LPS array will always be 0 as it cannot match itself</p></li>
+<li><p>loop through the pattern with <code class="docutils literal notranslate"><span class="pre">curr_ptr</span></code> and <code class="docutils literal notranslate"><span class="pre">prev_lps_ptr</span></code></p></li>
+<li><p>if characters at both pointers match, set LPS value at <code class="docutils literal notranslate"><span class="pre">curr_ptr</span></code> to
+<code class="docutils literal notranslate"><span class="pre">prev_lps_ptr</span> <span class="pre">+</span> <span class="pre">1</span></code>, and increment both by 1</p></li>
+<li><p>if <code class="docutils literal notranslate"><span class="pre">prev_lps_ptr</span> <span class="pre">==</span> <span class="pre">0</span></code>, set LPS value at <code class="docutils literal notranslate"><span class="pre">curr_ptr</span></code> to 0 and only increment
+<code class="docutils literal notranslate"><span class="pre">curr_ptr</span></code> by 1</p></li>
+<li><p>otherwise, set <code class="docutils literal notranslate"><span class="pre">prev_lps_ptr</span></code> to LPS value at <code class="docutils literal notranslate"><span class="pre">prev_lps_ptr</span> <span class="pre">-</span> <span class="pre">1</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Pattern Matching</strong></dt><dd><ul>
+<li><p>loop with two pointers for search string, <code class="docutils literal notranslate"><span class="pre">search_ptr</span></code>, and pattern string,
+<code class="docutils literal notranslate"><span class="pre">pattern_ptr</span></code></p></li>
+<li><p>increment both pointers if characters match</p></li>
+<li><p>if characters do not match, need to check the value of LPS with last matched index,
+by setting <code class="docutils literal notranslate"><span class="pre">pattern_ptr</span> <span class="pre">=</span> <span class="pre">LPS_ARR[pattern_ptr</span> <span class="pre">-</span> <span class="pre">1]</span></code>, but if <code class="docutils literal notranslate"><span class="pre">pattern_ptr</span> <span class="pre">==</span> <span class="pre">0</span></code>, just
+increment <code class="docutils literal notranslate"><span class="pre">search_ptr</span></code></p></li>
+<li><p>when <code class="docutils literal notranslate"><span class="pre">pattern_ptr</span></code> is at the end, we have found a match</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Complexity</strong></dt><dd><ul>
+<li><p>all cases: O(n + m), space O(m)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
 <section id="dynamic-programming">
 <h3>Dynamic Programming<a class="headerlink" href="#dynamic-programming" title="Link to this heading">#</a></h3>
 <blockquote>
@@ -1810,7 +1858,7 @@ multiplication, <code class="docutils literal notranslate"><span class="pre">((a
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-tree">Binary Tree</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-search-tree">Binary Search Tree</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heap">Heap</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trie-prefix-tree">Trie/ Prefix Tree</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prefix-tree">Prefix Tree</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spanning-tree">Spanning Tree</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum-spanning-tree">Minimum Spanning Tree</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph">Graph</a></li>
@@ -1831,6 +1879,7 @@ multiplication, <code class="docutils literal notranslate"><span class="pre">((a
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boyer-moore-voting-algorithm">Boyer-Moore Voting Algorithm</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tree-traversals">Tree Traversals</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-traversals">Graph Traversals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kmp">KMP</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-programming">Dynamic Programming</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization">Optimization</a></li>
 </ul>
