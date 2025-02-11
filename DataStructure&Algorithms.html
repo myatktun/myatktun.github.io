@@ -1638,9 +1638,9 @@ the pattern substring</p></li>
 <li><p>loop through the pattern with <code class="docutils literal notranslate"><span class="pre">curr_ptr</span></code> and <code class="docutils literal notranslate"><span class="pre">prev_lps_ptr</span></code></p></li>
 <li><p>if characters at both pointers match, set LPS value at <code class="docutils literal notranslate"><span class="pre">curr_ptr</span></code> to
 <code class="docutils literal notranslate"><span class="pre">prev_lps_ptr</span> <span class="pre">+</span> <span class="pre">1</span></code>, and increment both by 1</p></li>
-<li><p>if <code class="docutils literal notranslate"><span class="pre">prev_lps_ptr</span> <span class="pre">==</span> <span class="pre">0</span></code>, set LPS value at <code class="docutils literal notranslate"><span class="pre">curr_ptr</span></code> to 0 and only increment
+<li><p>if characters do not match, set <code class="docutils literal notranslate"><span class="pre">prev_lps_ptr</span></code> to LPS value at <code class="docutils literal notranslate"><span class="pre">prev_lps_ptr</span> <span class="pre">-</span> <span class="pre">1</span></code>,
+but if <code class="docutils literal notranslate"><span class="pre">prev_lps_ptr</span> <span class="pre">==</span> <span class="pre">0</span></code>, set LPS value at <code class="docutils literal notranslate"><span class="pre">curr_ptr</span></code> to 0 and only increment
 <code class="docutils literal notranslate"><span class="pre">curr_ptr</span></code> by 1</p></li>
-<li><p>otherwise, set <code class="docutils literal notranslate"><span class="pre">prev_lps_ptr</span></code> to LPS value at <code class="docutils literal notranslate"><span class="pre">prev_lps_ptr</span> <span class="pre">-</span> <span class="pre">1</span></code></p></li>
 </ul>
 </dd>
 </dl>
@@ -1652,7 +1652,7 @@ the pattern substring</p></li>
 <li><p>increment both pointers if characters match</p></li>
 <li><p>if characters do not match, need to check the value of LPS with last matched index,
 by setting <code class="docutils literal notranslate"><span class="pre">pattern_ptr</span> <span class="pre">=</span> <span class="pre">LPS_ARR[pattern_ptr</span> <span class="pre">-</span> <span class="pre">1]</span></code>, but if <code class="docutils literal notranslate"><span class="pre">pattern_ptr</span> <span class="pre">==</span> <span class="pre">0</span></code>, just
-increment <code class="docutils literal notranslate"><span class="pre">search_ptr</span></code></p></li>
+increment <code class="docutils literal notranslate"><span class="pre">search_ptr</span></code> by 1</p></li>
 <li><p>when <code class="docutils literal notranslate"><span class="pre">pattern_ptr</span></code> is at the end, we have found a match</p></li>
 </ul>
 </dd>

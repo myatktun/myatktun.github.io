@@ -697,16 +697,16 @@ KMP
         - loop through the pattern with ``curr_ptr`` and ``prev_lps_ptr``
         - if characters at both pointers match, set LPS value at ``curr_ptr`` to
           ``prev_lps_ptr + 1``, and increment both by 1
-        - if ``prev_lps_ptr == 0``, set LPS value at ``curr_ptr`` to 0 and only increment
+        - if characters do not match, set ``prev_lps_ptr`` to LPS value at ``prev_lps_ptr - 1``,
+          but if ``prev_lps_ptr == 0``, set LPS value at ``curr_ptr`` to 0 and only increment
           ``curr_ptr`` by 1
-        - otherwise, set ``prev_lps_ptr`` to LPS value at ``prev_lps_ptr - 1``
     * **Pattern Matching**
         - loop with two pointers for search string, ``search_ptr``, and pattern string,
           ``pattern_ptr``
         - increment both pointers if characters match
         - if characters do not match, need to check the value of LPS with last matched index,
           by setting ``pattern_ptr = LPS_ARR[pattern_ptr - 1]``, but if ``pattern_ptr == 0``, just
-          increment ``search_ptr``
+          increment ``search_ptr`` by 1
         - when ``pattern_ptr`` is at the end, we have found a match
     * **Complexity**
         - all cases: O(n + m), space O(m)
