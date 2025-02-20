@@ -1,0 +1,944 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Assembly &#8212; Notes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Assembly';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Backend Engineering" href="BackendEngineering.html" />
+    <link rel="prev" title="Arm Architecture" href="ArmArchitecture.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AWS.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BackendEngineering.html">Backend Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSharp.html">C# #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CTF.html">CTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CompTIA.html">CompTIA Cert Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compilers.html">Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerGraphics.html">Computer Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputingSystems.html">Computing Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">ECS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FFmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Helm.html">Helm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Istio.html">Istio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JDBC.html">JDBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MongoDB.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkProgramming.html">Network Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NodeJS.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenAPI.html">OpenAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OperatingSystem.html">Operating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="POSIXThreads.html">POSIX Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PenetrationTesting.html">Penetration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramDesign.html">Program Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectManagement.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prometheus.html">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SFML.html">SFML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StrategicPlanning.html">Strategic Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terraform.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TypeScript.html">TypeScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI/UX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrant.html">Vagrant</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Assembly.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Assembly</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#risc-v">RISC-V</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#risc-v-basics">RISC-V Basics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#risc-v-modes">RISC-V Modes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#risc-v-registers">RISC-V Registers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#risc-v-instruction-set">RISC-V Instruction Set</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#risc-v-directives">RISC-V Directives</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="assembly">
+<h1>Assembly<a class="headerlink" href="#assembly" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#risc-v">RISC-V</a></p></li>
+<li><p><a class="reference internal" href="#references-external-resources">References &amp; External Resources</a></p></li>
+</ol>
+<p><a class="reference external" href="#assembly">back to top</a></p>
+<section id="risc-v">
+<h2>RISC-V<a class="headerlink" href="#risc-v" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#risc-v-basics">RISC-V Basics</a>, <a class="reference internal" href="#risc-v-modes">RISC-V Modes</a>, <a class="reference internal" href="#risc-v-registers">RISC-V Registers</a>, <a class="reference internal" href="#risc-v-instruction-set">RISC-V Instruction Set</a>, <a class="reference internal" href="#risc-v-directives">RISC-V Directives</a></p></li>
+</ul>
+<section id="risc-v-basics">
+<h3>RISC-V Basics<a class="headerlink" href="#risc-v-basics" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>open-sourced ISA based on RISC principles</p></li>
+<li><p>can be used academically, and deployed in any hardware or software without royalties</p></li>
+<li><p>supports 32-bit and 64-bit implementations</p></li>
+<li><p>byte: 8 bits, halfword: 16 bits, word: 32 bits, double word: 64 bits</p></li>
+<li><p>unsigned numbers are usually used for addresses, pointers and bit vectors</p></li>
+<li><p>unsigned double words are never necessary for memory addresses, loop counters, etc.</p></li>
+<li><p>unused upper bits of singed values will be filled with sign bit, and zeros for unsigned
+values</p></li>
+<li><dl class="simple">
+<dt><strong>Address Alignment</strong></dt><dd><ul>
+<li><p>every byte in the memory has a unique address</p></li>
+<li><p>halfword-aligned address: divisible by 2, and ends with bit 0, or 0, 2, 4, 6, 8, a,
+c, e in hex</p></li>
+<li><p>word-aligned address: divisible by 4, and ends with bits 00, or 0, 4, 8, c in hex</p></li>
+<li><p>double word-aligned address: divisible by 8, and ends with bits 000, or 0, 8 in hex</p></li>
+<li><p>all instructions must be halfword aligned</p></li>
+<li><p>Load and Store with unaligned addresses are implementation dependent, works fine,
+exception occurs, or undefined behaviour</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Code Relocation</strong></dt><dd><ul>
+<li><p>benefit of PC relative code, where it can be anywhere in memory and still works</p></li>
+<li><p>the distance between jump/call and the target must be constant</p></li>
+<li><p>useful when dynamically loading the code</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="risc-v-modes">
+<h3>RISC-V Modes<a class="headerlink" href="#risc-v-modes" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>privileged instructions can only be executed in Machine and Supervisor modes</p></li>
+<li><dl class="simple">
+<dt><strong>Machine Mode</strong></dt><dd><ul>
+<li><p>highest, and initial mode after power-on or reset</p></li>
+<li><p>code such as timer interrupts require the handler to run in machine mode</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Supervisor Mode</strong></dt><dd><ul>
+<li><p>mode run by all kernel code</p></li>
+<li><p>when switching from kernel code to user code, kernel registers are saved, and will
+be restored once kernel code is entered again</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>User Mode</strong></dt><dd><ul>
+<li><p>mode run by all user code</p></li>
+<li><p>running privileged instructions in this mode will cause trap and abort</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="risc-v-registers">
+<h3>RISC-V Registers<a class="headerlink" href="#risc-v-registers" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>32 general purpose registers <code class="docutils literal notranslate"><span class="pre">x0-x31</span></code>, and 1 program counter register <code class="docutils literal notranslate"><span class="pre">pc</span></code></p></li>
+<li><p>4,096 control and status registers (CSRs) cannot be accessed by user mode</p></li>
+<li><p>6 special purpose, 7 temporary (volatile, data does not persist through function calls),
+12 saved (non-volatile), and 8 argument</p></li>
+<li><p>arguments more than 8 or larger than register size must be passed onto the stack</p></li>
+<li><p>registers have separate identifiers based on calling convention</p></li>
+<li><dl class="simple">
+<dt><strong>zero: x0</strong></dt><dd><ul>
+<li><p>hard-wired zero</p></li>
+<li><p>can also be used as a destination to discard the result</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>ra: x1</strong></dt><dd><ul>
+<li><p>return address, saver: caller</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CALL</span></code>: does not push return address onto stack, but saves it in <code class="docutils literal notranslate"><span class="pre">x1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RET</span></code>: jumps to the address in <code class="docutils literal notranslate"><span class="pre">ra</span></code> or <code class="docutils literal notranslate"><span class="pre">x1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CALL</span></code> and <code class="docutils literal notranslate"><span class="pre">RET</span></code> are fast as they do not need to access memory</p></li>
+<li><p>but nested calls require additional instructions to save and restore from memory</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>sp: x2</strong></dt><dd><ul>
+<li><p>stack pointer, saver: callee</p></li>
+<li><p>not a special stack pointer register, but used as convention only</p></li>
+<li><p>some compressed instructions assume <code class="docutils literal notranslate"><span class="pre">x2</span></code> is the stack pointer</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>gp: x3</strong></dt><dd><ul>
+<li><p>global pointer</p></li>
+<li><p>points to global/static variables area, and makes addressing easier</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>tp: x4</strong></dt><dd><ul>
+<li><p>thread pointer</p></li>
+<li><p>points to area of variables such as thread ID, threat parameters, and global/static
+variables local to the thread</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>t0-2: x5-7</strong></dt><dd><ul>
+<li><p>temporaries, saver: caller</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>s0/fp: x8</strong></dt><dd><ul>
+<li><p>saved register/frame pointer, saver: callee</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>s1: x9</strong></dt><dd><ul>
+<li><p>saved register, saver: callee</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>a0-1: x10-11</strong></dt><dd><ul>
+<li><p>function arguments/return values, saver: caller</p></li>
+<li><p>by convention, function returns the result in <code class="docutils literal notranslate"><span class="pre">a0</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>a2-7: x12-17</strong></dt><dd><ul>
+<li><p>function arguments, saver: caller</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>s2-11: x18-27</strong></dt><dd><ul>
+<li><p>saved registers, saver: callee</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>t3-6: x28-31</strong></dt><dd><ul>
+<li><p>temporaries, saver: caller</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>pc</strong></dt><dd><ul>
+<li><p>holds the address of next instruction to execute</p></li>
+<li><p>32 or 64 bits accordingly, but may be smaller and implementation depends on maximum
+memory size</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>mhartid</strong></dt><dd><ul>
+<li><p>hard-wired core/hart id</p></li>
+<li><p>during startup, id is copied into <code class="docutils literal notranslate"><span class="pre">tp</span></code> and the register will never change in the
+kernel</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mstatus</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">sstatus</span></code>: status register</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mtvec</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">stvec</span></code>: trap vector or address of the invoked handler when a trap occurs</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mepc</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">sepc</span></code>: exception pc, value of previous pc when a trap occurs</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scause</span></code>: trap cause code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stval</span></code>: bad address or instruction</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mscratch</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">sscratch</span></code>: work register to be used by trap handlers</p></li>
+<li><dl class="simple">
+<dt><strong>satp</strong></dt><dd><ul>
+<li><p>address translation pointer, points to the page table and initially 0</p></li>
+<li><p>after initialisation, VAT is always on in supervisor and user mode</p></li>
+<li><p>whenever <code class="docutils literal notranslate"><span class="pre">satp</span></code> is updated, all TLBs (translation lookaside buffers) must be flushed
+with <code class="docutils literal notranslate"><span class="pre">sfence.vma</span></code> or <code class="docutils literal notranslate"><span class="pre">sfence_vma()</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mie</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">sie</span></code>: interrupt enable, to enable interrupt selectively</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sip</span></code>: interrupt pending</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">medeleg</span></code>: exception delegation, from machine to supervisor mode</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mideleg</span></code>: interrupt delegation, from machine to supervisor mode</p></li>
+<li><dl class="simple">
+<dt><strong>pmpcfgX &amp; pmpaddrX</strong></dt><dd><ul>
+<li><p>physical memory protection, configuration word and address</p></li>
+<li><p>limit physical memory access for code in supervisor or user mode</p></li>
+<li><p>mainly for secure bootstrapping and hypervisor</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="risc-v-instruction-set">
+<h3>RISC-V Instruction Set<a class="headerlink" href="#risc-v-instruction-set" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><dl class="simple">
+<dt><strong>Notation</strong></dt><dd><ul class="simple">
+<li><p>three register instruction structure: <code class="docutils literal notranslate"><span class="pre">&lt;opcode&gt;</span>&#160;&#160;&#160; <span class="pre">&lt;dst&gt;,&lt;src1&gt;,&lt;src2&gt;</span>&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">cmt</span></code></p></li>
+<li><p>only <code class="docutils literal notranslate"><span class="pre">sw</span></code> has destination listed last, <code class="docutils literal notranslate"><span class="pre">sw</span>&#160;&#160; <span class="pre">&lt;rs1&gt;,&lt;rd&gt;</span>&#160;&#160;&#160;&#160; <span class="pre">/*</span> <span class="pre">multi-line</span> <span class="pre">cmt</span> <span class="pre">*/</span></code></p></li>
+<li><p>one instruction per line</p></li>
+<li><p>can have optional label: <code class="docutils literal notranslate"><span class="pre">&lt;label&gt;:</span> <span class="pre">&lt;opcode&gt;</span> <span class="pre">&lt;rd&gt;,&lt;rs1&gt;,&lt;rs2&gt;</span></code></p></li>
+<li><p>value of the label is the address of next thing in the file, e.g. in <code class="docutils literal notranslate"><span class="pre">hello:</span> <span class="pre">add</span></code>,
+value of <code class="docutils literal notranslate"><span class="pre">hello</span></code> will be the address of <code class="docutils literal notranslate"><span class="pre">add</span></code> instruction</p></li>
+<li><p>example opcode: <code class="docutils literal notranslate"><span class="pre">add</span></code>, <code class="docutils literal notranslate"><span class="pre">call</span></code>, <code class="docutils literal notranslate"><span class="pre">c.add</span></code>, <code class="docutils literal notranslate"><span class="pre">.word</span></code> which is an assembler directive</p></li>
+<li><p>operands can be register to register, or register to 12-bit immediate value, which
+can be in decimal, hex, symbolic or expression</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Full-Sized Instruction Set</strong></dt><dd><ul class="simple">
+<li><p>mandatory on any core</p></li>
+<li><p>every instruction is a word in size, 32 bits or 4 bytes, regardless of RV32 or RV64</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Compressed Instruction Set</strong></dt><dd><ul class="simple">
+<li><p>optional and will not be included on some processors</p></li>
+<li><p>to reduce code size and increase execution speed, e.g. <code class="docutils literal notranslate"><span class="pre">c.add</span></code></p></li>
+<li><p>every instruction is halfword in size, 16 bits or 2 bytes</p></li>
+<li><p>every compressed instruction is same as a single full-sized instruction, but not
+vice versa</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Arithmetic &amp; Logic</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">add,</span> <span class="pre">sub,</span> <span class="pre">and,</span> <span class="pre">or,</span> <span class="pre">xor</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addi,</span> <span class="pre">andi,</span> <span class="pre">ori,</span> <span class="pre">xori,</span> <span class="pre">slli,</span> <span class="pre">srli,</span> <span class="pre">srai,</span> <span class="pre">slti,</span> <span class="pre">sltui</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sll</span></code>: shift left logical, rs1 &lt;&lt; rs2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">srl</span></code>: shift right logical, rs1 &gt;&gt; rs2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sra</span></code>: shift right arithmetic, rs1 &gt;&gt;&gt; rs2, used for signed values</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slt</span></code>: set if less than, (rs1 &lt; rs2) ? 1 : 0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sltu</span></code>: set if less than unsigned, (rs1 &lt; rs2) ? 1 : 0</p></li>
+<li><p>no subtract immediate instruction in RISC-V, use <code class="docutils literal notranslate"><span class="pre">addi</span></code> with negated value</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Load &amp; Store</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">lb</span></code>: load byte, upper bits will be sign extended</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lh</span></code>: load halfword, upper bits will be sign extended</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lw</span></code>: load word</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lbu</span></code> and <code class="docutils literal notranslate"><span class="pre">lhu</span></code> will be zero extended for upper bits</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sb,</span> <span class="pre">sh,</span> <span class="pre">sw</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lwu,</span> <span class="pre">ld,</span> <span class="pre">sd</span></code> for double word in RV64</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Conditional Branching</strong></dt><dd><ul class="simple">
+<li><p>syntax: <code class="docutils literal notranslate"><span class="pre">&lt;opcode&gt;</span>&#160;&#160;&#160; <span class="pre">rs1,rs2,imm12</span>&#160;&#160; <span class="pre">#</span> <span class="pre">if</span> <span class="pre">condition(rs1,rs2)</span> <span class="pre">goto</span> <span class="pre">PC+imm12</span></code></p></li>
+<li><p>target address to jump to is PC relative</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">beq</span></code>: ==, <code class="docutils literal notranslate"><span class="pre">bne</span></code>: !=, <code class="docutils literal notranslate"><span class="pre">blt</span></code>: &lt;, <code class="docutils literal notranslate"><span class="pre">bge</span></code>: &gt;=</p></li>
+<li><p>unsigned condition testing with <code class="docutils literal notranslate"><span class="pre">bltu,</span> <span class="pre">bgeu</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Pseudo Instructions</strong></dt><dd><ul class="simple">
+<li><p>assembler will translate them into one or more machine instructions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">j</span>&#160; <span class="pre">label</span></code>: jump to address</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">call</span>&#160; <span class="pre">label</span></code>: save return address in <code class="docutils literal notranslate"><span class="pre">ra</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ret</span></code>: go to address in <code class="docutils literal notranslate"><span class="pre">ra</span></code>, translated to <code class="docutils literal notranslate"><span class="pre">jalr</span>&#160; <span class="pre">zero,0(ra)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">li</span>&#160; <span class="pre">rd,imm</span></code>: load immediate into destination, translated to <code class="docutils literal notranslate"><span class="pre">addi</span>&#160; <span class="pre">rd,zero,imm</span></code> for
+12 bits, and <code class="docutils literal notranslate"><span class="pre">lui</span>&#160; <span class="pre">rd,upper(imm)</span></code> and <code class="docutils literal notranslate"><span class="pre">addi</span>&#160; <span class="pre">rd,rd,lower(imm)</span></code> for &gt;12 bits</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">la</span>&#160; <span class="pre">rd,label</span></code>: load address into destination</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">neg</span>&#160; <span class="pre">rd,rs1</span></code>: negate, translated to <code class="docutils literal notranslate"><span class="pre">sub</span>&#160; <span class="pre">rd,zero,rs1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mov</span>&#160; <span class="pre">rd,rs1</span></code>: move, translated to <code class="docutils literal notranslate"><span class="pre">addi</span>&#160; <span class="pre">rd,rs1,0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">not</span>&#160; <span class="pre">rd,rs1</span></code>: logical negate, translated to <code class="docutils literal notranslate"><span class="pre">xori</span>&#160; <span class="pre">rd,rs1,-1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jr</span>&#160; <span class="pre">reg</span></code>: indirect jump to target, translated to <code class="docutils literal notranslate"><span class="pre">jalr</span>&#160; <span class="pre">zero,0(reg)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bgt</span>&#160; <span class="pre">rs1,rs2,addr</span></code>: branch if greater than, translated to <code class="docutils literal notranslate"><span class="pre">blt</span>&#160; <span class="pre">rs2,rs1,addr</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ble</span>&#160; <span class="pre">rs1,rs2,addr</span></code>: branch if less than or equal, translated to <code class="docutils literal notranslate"><span class="pre">bge</span>&#160; <span class="pre">rs2,rs1,addr</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bgtu</span></code> and <code class="docutils literal notranslate"><span class="pre">bleu</span></code> for unsigned comparisons</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">beqz</span></code>: branch if equal to zero, translated to <code class="docutils literal notranslate"><span class="pre">beq</span>&#160; <span class="pre">rs1,zero,addr</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bnez,</span> <span class="pre">bltz,</span> <span class="pre">blez,</span> <span class="pre">bgtz,</span> <span class="pre">bgez</span></code> are also translated similarly</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Jump &amp; Link</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">jal</span>&#160; <span class="pre">rd,imm20</span></code>, should use <code class="docutils literal notranslate"><span class="pre">call</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> instead</p></li>
+<li><p>save return address in destination register <code class="docutils literal notranslate"><span class="pre">rd</span></code>, and perform PC relative jump where
+<code class="docutils literal notranslate"><span class="pre">pc</span> <span class="pre">=</span> <span class="pre">pc</span> <span class="pre">+</span> <span class="pre">imm20</span></code></p></li>
+<li><p>to make instruction halfword-aligned, <code class="docutils literal notranslate"><span class="pre">imm20</span></code> is extended with additional 0 bit</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jal</span>&#160; <span class="pre">ra,addr</span></code>: same as <code class="docutils literal notranslate"><span class="pre">call</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jal</span>&#160; <span class="pre">zero,addr</span></code>: same as <code class="docutils literal notranslate"><span class="pre">j</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Jump &amp; Link Register</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">jalr</span>&#160; <span class="pre">rd,imm12(rs1)</span></code></p></li>
+<li><p>save return address in destination register, <code class="docutils literal notranslate"><span class="pre">rd</span></code>, and jump to <code class="docutils literal notranslate"><span class="pre">pc</span> <span class="pre">=</span> <span class="pre">rs1</span> <span class="pre">+</span> <span class="pre">imm12</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jalr</span>&#160; <span class="pre">ra,0(t5)</span></code>: indirect <code class="docutils literal notranslate"><span class="pre">call</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jalr</span>&#160; <span class="pre">zero,0(t5)</span></code>: indirect <code class="docutils literal notranslate"><span class="pre">j</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jalr</span>&#160; <span class="pre">zero,0(ra)</span></code>: same as <code class="docutils literal notranslate"><span class="pre">ret</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Load Upper Immediate</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">lui</span>&#160; <span class="pre">rd,imm20</span></code>, where <code class="docutils literal notranslate"><span class="pre">rd</span> <span class="pre">=</span> <span class="pre">imm20&lt;&lt;12</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Long Jump &amp; Long Call</strong></dt><dd><ul class="simple">
+<li><p>if target address requires 32 bits, use 2 instructions by breaking address into
+20 + 12 bits</p></li>
+<li><p>long jump: <code class="docutils literal notranslate"><span class="pre">lui</span>&#160; <span class="pre">t0,upper20</span></code> and <code class="docutils literal notranslate"><span class="pre">jalr</span>&#160; <span class="pre">zero,lower12(t0)</span></code></p></li>
+<li><p>long call: <code class="docutils literal notranslate"><span class="pre">lui</span>&#160; <span class="pre">to,upper20</span></code> and <code class="docutils literal notranslate"><span class="pre">jalr</span>&#160; <span class="pre">ra,lower12(t0)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Add Upper Immediate to PC</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">auipc</span>&#160; <span class="pre">rd,imm20</span></code>, where <code class="docutils literal notranslate"><span class="pre">rd</span> <span class="pre">=</span> <span class="pre">pc</span> <span class="pre">+</span> <span class="pre">(imm20&lt;&lt;12)</span></code></p></li>
+<li><p>used to make long jumps and calls with PC relative</p></li>
+<li><p>long jump: <code class="docutils literal notranslate"><span class="pre">auipc</span>&#160; <span class="pre">t0,upper20</span></code> and <code class="docutils literal notranslate"><span class="pre">jalr</span>&#160; <span class="pre">zero,lower12(t0)</span></code></p></li>
+<li><p>long call: <code class="docutils literal notranslate"><span class="pre">auipc</span>&#160; <span class="pre">t0,upper20</span></code> and <code class="docutils literal notranslate"><span class="pre">jalr</span>&#160; <span class="pre">ra,lower12(t0)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Linux-based Syscall</strong></dt><dd><ul class="simple">
+<li><p>set <code class="docutils literal notranslate"><span class="pre">a7</span></code> to the syscall number, <code class="docutils literal notranslate"><span class="pre">a0..</span></code> to the arguments for the syscall</p></li>
+<li><p>invoke <code class="docutils literal notranslate"><span class="pre">ecall</span></code> to call the kernel</p></li>
+<li><p>can just load null terminated argument and use <code class="docutils literal notranslate"><span class="pre">call</span>&#160; <span class="pre">printf</span></code> if standard library is
+linked</p></li>
+<li><p>can use <code class="docutils literal notranslate"><span class="pre">.asciz</span></code> to auto null terminate</p></li>
+</ul>
+<div class="highlight-s notranslate"><div class="highlight"><pre><span></span><span class="c1"># can also use addi like the second ecall</span>
+
+<span class="n">.global</span><span class="w"> </span>_<span class="n">start</span>
+
+_<span class="n">start</span><span class="o">:</span>
+<span class="w">    </span><span class="n">li</span><span class="w">  </span><span class="n">a0</span><span class="p">,</span><span class="m">1</span><span class="w">                </span><span class="c1"># arg1: stdout</span>
+<span class="w">    </span><span class="n">la</span><span class="w">  </span><span class="n">a1</span><span class="p">,</span><span class="n">helloworld</span><span class="w">       </span><span class="c1"># arg2: buff</span>
+<span class="w">    </span><span class="n">li</span><span class="w">  </span><span class="n">a2</span><span class="p">,</span><span class="m">13</span><span class="w">               </span><span class="c1"># arg3: buff length</span>
+<span class="w">    </span><span class="n">li</span><span class="w">  </span><span class="n">a7</span><span class="p">,</span><span class="m">64</span><span class="w">               </span><span class="c1"># write syscall</span>
+<span class="w">    </span><span class="n">ecall</span>
+
+<span class="w">    </span><span class="n">addi</span><span class="w"> </span><span class="n">a0</span><span class="p">,</span><span class="n">zero</span><span class="p">,</span><span class="m">0</span><span class="w">          </span><span class="c1"># arg1: status</span>
+<span class="w">    </span><span class="n">addi</span><span class="w"> </span><span class="n">a7</span><span class="p">,</span><span class="n">zero</span><span class="p">,</span><span class="m">93</span><span class="w">         </span><span class="c1"># exit syscall</span>
+<span class="w">    </span><span class="n">ecall</span>
+
+<span class="n">helloworld</span><span class="o">:</span>
+<span class="w">    </span><span class="n">.ascii</span><span class="w"> </span><span class="s">&quot;Hello, World\n&quot;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="risc-v-directives">
+<h3>RISC-V Directives<a class="headerlink" href="#risc-v-directives" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Memory Allocation</strong></dt><dd><ul>
+<li><p>always preceded by a label to create a variable</p></li>
+<li><p>can initialise using comma-separated values</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.byte</span>&#160; <span class="pre">int</span></code>: allocate 1 byte and initialise with a value, often 0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.hword</span>&#160; <span class="pre">int</span></code>: allocate 2 bytes and initialise</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.half</span>&#160; <span class="pre">int</span></code>: same as <code class="docutils literal notranslate"><span class="pre">.hword</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.word</span>&#160; <span class="pre">int</span></code>: allocate 4 bytes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.dword</span>&#160; <span class="pre">int</span></code>: allocate 8 bytes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.ascii</span>&#160; <span class="pre">&quot;str&quot;</span></code>: any Unicode or UTF-8</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.asciz</span>&#160; <span class="pre">&quot;str</span></code>: same as <code class="docutils literal notranslate"><span class="pre">.ascii</span></code> with auto null terminated</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.string</span>&#160; <span class="pre">&quot;str</span></code>: same as <code class="docutils literal notranslate"><span class="pre">.asciz</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.skip</span>&#160; <span class="pre">int</span></code>: allocate given byte count, useful for arrays</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Global</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">.globl</span>&#160; <span class="pre">symbol</span></code></p></li>
+<li><p>export and make a symbol available to the rest of the program, accessible by other
+object files when linking them together</p></li>
+<li><p>assembler does not check the symbols, but the linker does</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_start</span></code> symbol must be in one of the files and exported to be the entry point of
+the program</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.equ</span>&#160; <span class="pre">symbol,val</span></code>: associate a value with the symbol, and the symbol can be used
+anywhere below the directive</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.set</span>&#160; <span class="pre">symbol,val</span></code>: same as <code class="docutils literal notranslate"><span class="pre">.equ</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.align</span>&#160; <span class="pre">int</span></code>: add enough bytes for the next instruction to be properly align</p></li>
+<li><dl class="simple">
+<dt><strong>Segments</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">.text</span></code>: code, program usually begins with this directive</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.data</span></code>: r/w data</p></li>
+<li><p>can have multiple <code class="docutils literal notranslate"><span class="pre">.text</span></code> and <code class="docutils literal notranslate"><span class="pre">.data</span></code> segments in the file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.bss</span></code>: only data that evaluates to zero, object file will be optimised</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.rodata</span></code>: read-only data</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#assembly">back to top</a></p>
+</section>
+</section>
+<section id="references-external-resources">
+<h2>References &amp; External Resources<a class="headerlink" href="#references-external-resources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Low Level. (2021). You Can Learn RISC-V Assembly in 10 Minutes | Getting Started RISC-V
+Assembly on Linux Tutorial [online]. Available at: <a class="reference external" href="https://youtu.be/GWiAQs4-UQ0?si=c6mdr-kJs_7gMJ9o">https://youtu.be/GWiAQs4-UQ0?si=c6mdr-kJs_7gMJ9o</a></p></li>
+<li><p>Scheel, Jeff. (2024). RISC-V Technical Specifications [online]. Available at:
+<a class="reference external" href="https://lf-riscv.atlassian.net/wiki/spaces/HOME/pages/16154769/RISC-V+Technical+Specifications">https://lf-riscv.atlassian.net/wiki/spaces/HOME/pages/16154769/RISC-V+Technical+Specifications</a></p></li>
+<li><p>Borza, Juraj. (2021). RISC-V Linux syscall table [online]. Available at:
+<a class="reference external" href="https://jborza.com/post/2021-05-11-riscv-linux-syscalls/">https://jborza.com/post/2021-05-11-riscv-linux-syscalls/</a></p></li>
+</ul>
+<p><a class="reference external" href="#assembly">back to top</a></p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ArmArchitecture.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Arm Architecture</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="BackendEngineering.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Backend Engineering</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#risc-v">RISC-V</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#risc-v-basics">RISC-V Basics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#risc-v-modes">RISC-V Modes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#risc-v-registers">RISC-V Registers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#risc-v-instruction-set">RISC-V Instruction Set</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#risc-v-directives">RISC-V Directives</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Myat Kyaw Tun
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Myat Kyaw Tun.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
