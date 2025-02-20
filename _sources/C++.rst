@@ -2531,7 +2531,7 @@ STL
 * `Pair`_, `Vector`_, `List`_, `Stack`_, `Queue`_, `Deque`_, `Priority Queue`_, `Bounds`_, `Set`_, `Multi Set`_, `Unordered Set`_
 * `Map`_, `Multi Map`_, `Unordered Map`_, `Sort`_, `Reverse`_, `PopCount`_, `Permutation`_, `Min/Max Element`_
 * Standard Template Library, compilation of predefined algorithms, containers, functions and
-iterators
+  iterators
 
 Pair
 ----
@@ -2555,7 +2555,7 @@ Vector
 ------
     * contiguous dynamic array
     * similar to an array in other languages, but doesn't need to specify the size of vector
-    in advance
+      in advance
     * doesn't just store elements, also stores size
     * element type comes after ``vector`` in angle brackets (< >)
     * will only accept elements of declared type
@@ -2592,6 +2592,8 @@ Vector
 
 
     * getting input and adding to vector, using input operation as the condition for a for-loop
+        - use character '|' to terminate the input
+        - using for-loop limit the scope of input variable, x, to the loop, rather than 'while'
 
         .. code-block:: cpp
 
@@ -2600,8 +2602,6 @@ Vector
                vs.push_back(x);
 
 
-        - use character '|' to terminate the input
-        - using for-loop limit the scope of input variable, x, to the loop, rather than 'while'
     * iterator: points to the memory address
 
     .. code-block:: cpp
@@ -3085,10 +3085,10 @@ Min/Max Element
 STL Custom Implementation
 =========================
 
-* `Vector`_, `List`_
+* `Vector Custom`_, `List Custom`_
 
-Vector
-------
+Vector Custom
+-------------
     * need data members to hold the size and elements
         - functions such as ``push_back()`` cannot be implemented with fixed number of elements
         - need data member that points to different sets of elements if more space is required
@@ -3116,8 +3116,8 @@ Vector
 
 
 
-List
-----
+List Custom
+-----------
 
 `back to top <#c>`_
 

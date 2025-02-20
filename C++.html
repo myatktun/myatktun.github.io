@@ -141,6 +141,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="AWS.html">AWS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Assembly.html">Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="BackendEngineering.html">Backend Engineering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="C.html">C</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">C++</a></li>
@@ -435,8 +436,8 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stl-custom-implementation">STL Custom Implementation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Vector</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">List</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-custom">Vector Custom</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-custom">List Custom</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-project-structure">Sample Project Structure</a></li>
@@ -477,7 +478,7 @@
 <h2>Basics<a class="headerlink" href="#basics" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#variables">Variables</a>, <a class="reference internal" href="#i-o">I/O</a>, <a class="reference internal" href="#operators">Operators</a>, <a class="reference internal" href="#literals">Literals</a>, <a class="reference internal" href="#type-safety">Type Safety</a>, <a class="reference internal" href="#typedef">typedef</a>, <a class="reference internal" href="#switch">Switch</a>, <a class="reference internal" href="#loops">Loops</a>, <a class="reference internal" href="#functions">Functions</a></p></li>
-<li><p><a href="#id54"><span class="problematic" id="id55">`Errors`_</span></a>, <a class="reference internal" href="#exceptions">Exceptions</a>, <a class="reference internal" href="#debugging">Debugging</a>, <a href="#id56"><span class="problematic" id="id57">`Program Development`_</span></a>, <a class="reference internal" href="#program-evaluation">Program Evaluation</a></p></li>
+<li><p><a href="#id52"><span class="problematic" id="id53">`Errors`_</span></a>, <a class="reference internal" href="#exceptions">Exceptions</a>, <a class="reference internal" href="#debugging">Debugging</a>, <a href="#id54"><span class="problematic" id="id55">`Program Development`_</span></a>, <a class="reference internal" href="#program-evaluation">Program Evaluation</a></p></li>
 <li><p><a class="reference internal" href="#namespaces">Namespaces</a>, <a class="reference internal" href="#struct">Struct</a>, <a class="reference internal" href="#enumerations">Enumerations</a>, <a class="reference internal" href="#overloading">Overloading</a>, <a class="reference internal" href="#lambda-expressions">Lambda Expressions</a>, <a class="reference internal" href="#files">Files</a>, <a class="reference internal" href="#date-time">Date &amp; Time</a></p></li>
 <li><dl class="simple">
 <dt>process of developing a program: analysis, design, programming, testing</dt><dd><ul>
@@ -2553,7 +2554,7 @@ necessary</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#access-specifiers">Access Specifiers</a>, <a class="reference internal" href="#member-functions">Member Functions</a>, <a class="reference internal" href="#helper-functions">Helper Functions</a></p></li>
 <li><p><a class="reference internal" href="#constructor">Constructor</a>, <a class="reference internal" href="#destructor">Destructor</a>, <a class="reference internal" href="#copy-constructor">Copy Constructor</a></p></li>
-<li><p><a class="reference internal" href="#const-functions">Const Functions</a>, <a class="reference internal" href="#friend-functions">Friend Functions</a>, <a class="reference internal" href="#inline-functions">Inline Functions</a>, <a href="#id58"><span class="problematic" id="id59">`this pointer`_</span></a>, <a class="reference internal" href="#static-members">Static Members</a></p></li>
+<li><p><a class="reference internal" href="#const-functions">Const Functions</a>, <a class="reference internal" href="#friend-functions">Friend Functions</a>, <a class="reference internal" href="#inline-functions">Inline Functions</a>, <a href="#id56"><span class="problematic" id="id57">`this pointer`_</span></a>, <a class="reference internal" href="#static-members">Static Members</a></p></li>
 <li><p>used to specify the form of an object</p></li>
 <li><p>data and functions, parts used to define the class, are members of the class</p></li>
 <li><p>has zero or more members</p></li>
@@ -3733,11 +3734,11 @@ the user, which is different from conventional programs
 <section id="stl">
 <h2>STL<a class="headerlink" href="#stl" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#pair">Pair</a>, <a href="#id60"><span class="problematic" id="id61">`Vector`_</span></a>, <a href="#id62"><span class="problematic" id="id63">`List`_</span></a>, <a class="reference internal" href="#stack">Stack</a>, <a class="reference internal" href="#queue">Queue</a>, <a class="reference internal" href="#deque">Deque</a>, <a class="reference internal" href="#priority-queue">Priority Queue</a>, <a class="reference internal" href="#bounds">Bounds</a>, <a class="reference internal" href="#set">Set</a>, <a class="reference internal" href="#multi-set">Multi Set</a>, <a class="reference internal" href="#unordered-set">Unordered Set</a></p></li>
+<li><p><a class="reference internal" href="#pair">Pair</a>, <a class="reference internal" href="#vector">Vector</a>, <a class="reference internal" href="#list">List</a>, <a class="reference internal" href="#stack">Stack</a>, <a class="reference internal" href="#queue">Queue</a>, <a class="reference internal" href="#deque">Deque</a>, <a class="reference internal" href="#priority-queue">Priority Queue</a>, <a class="reference internal" href="#bounds">Bounds</a>, <a class="reference internal" href="#set">Set</a>, <a class="reference internal" href="#multi-set">Multi Set</a>, <a class="reference internal" href="#unordered-set">Unordered Set</a></p></li>
 <li><p><a class="reference internal" href="#map">Map</a>, <a class="reference internal" href="#multi-map">Multi Map</a>, <a class="reference internal" href="#unordered-map">Unordered Map</a>, <a class="reference internal" href="#sort">Sort</a>, <a class="reference internal" href="#reverse">Reverse</a>, <a class="reference internal" href="#popcount">PopCount</a>, <a class="reference internal" href="#permutation">Permutation</a>, <a class="reference internal" href="#min-max-element">Min/Max Element</a></p></li>
-<li><p>Standard Template Library, compilation of predefined algorithms, containers, functions and</p></li>
+<li><p>Standard Template Library, compilation of predefined algorithms, containers, functions and
+iterators</p></li>
 </ul>
-<p>iterators</p>
 <section id="pair">
 <h3>Pair<a class="headerlink" href="#pair" title="Link to this heading">#</a></h3>
 <blockquote>
@@ -3762,13 +3763,13 @@ the user, which is different from conventional programs
 <blockquote>
 <div><ul class="simple">
 <li><p>contiguous dynamic array</p></li>
-<li><p>similar to an array in other languages, but doesn’t need to specify the size of vector</p></li>
+<li><p>similar to an array in other languages, but doesn’t need to specify the size of vector
+in advance</p></li>
+<li><p>doesn’t just store elements, also stores size</p></li>
+<li><p>element type comes after <code class="docutils literal notranslate"><span class="pre">vector</span></code> in angle brackets (&lt; &gt;)</p></li>
+<li><p>will only accept elements of declared type</p></li>
+<li><p>can also define a vector of given size without specifying elements</p></li>
 </ul>
-<p>in advance
-* doesn’t just store elements, also stores size
-* element type comes after <code class="docutils literal notranslate"><span class="pre">vector</span></code> in angle brackets (&lt; &gt;)
-* will only accept elements of declared type
-* can also define a vector of given size without specifying elements</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
 <span class="c1">// vector&lt;Type&gt; v;</span>
 <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span><span class="w"> </span><span class="c1">// vector of 6 int initialized to 0/garbage value, depend on compiler</span>
@@ -3802,18 +3803,18 @@ the user, which is different from conventional programs
 </pre></div>
 </div>
 <ul>
-<li><p>getting input and adding to vector, using input operation as the condition for a for-loop</p>
-<blockquote>
-<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vs</span><span class="p">;</span>
+<li><dl>
+<dt>getting input and adding to vector, using input operation as the condition for a for-loop</dt><dd><ul class="simple">
+<li><p>use character ‘|’ to terminate the input</p></li>
+<li><p>using for-loop limit the scope of input variable, x, to the loop, rather than ‘while’</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vs</span><span class="p">;</span>
 <span class="k">for</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">x</span><span class="p">)</span>
 <span class="w">    </span><span class="n">vs</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>use character ‘|’ to terminate the input</p></li>
-<li><p>using for-loop limit the scope of input variable, x, to the loop, rather than ‘while’</p></li>
-</ul>
-</div></blockquote>
+</dd>
+</dl>
 </li>
 <li><p>iterator: points to the memory address</p></li>
 </ul>
@@ -4323,10 +4324,10 @@ the user, which is different from conventional programs
 <section id="stl-custom-implementation">
 <h2>STL Custom Implementation<a class="headerlink" href="#stl-custom-implementation" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a href="#id64"><span class="problematic" id="id65">`Vector`_</span></a>, <a href="#id66"><span class="problematic" id="id67">`List`_</span></a></p></li>
+<li><p><a class="reference internal" href="#vector-custom">Vector Custom</a>, <a class="reference internal" href="#list-custom">List Custom</a></p></li>
 </ul>
-<section id="id22">
-<h3>Vector<a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<section id="vector-custom">
+<h3>Vector Custom<a class="headerlink" href="#vector-custom" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
 <li><dl class="simple">
@@ -4360,8 +4361,8 @@ the user, which is different from conventional programs
 </div>
 </div></blockquote>
 </section>
-<section id="id23">
-<h3>List<a class="headerlink" href="#id23" title="Link to this heading">#</a></h3>
+<section id="list-custom">
+<h3>List Custom<a class="headerlink" href="#list-custom" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="#c">back to top</a></p>
 </section>
 </section>
@@ -4415,21 +4416,21 @@ the user, which is different from conventional programs
 <li><p>example structure</p>
 <blockquote>
 <div><dl class="simple">
-<dt>PROJECT</dt><dd><p><a href="#id25"><span class="problematic" id="id26">|</span></a>—&gt;cmake
-<a href="#id27"><span class="problematic" id="id28">|</span></a>—&gt;src
-|      <a href="#id29"><span class="problematic" id="id30">|</span></a>—&gt;app1
-|      |      <a href="#id31"><span class="problematic" id="id32">|</span></a>—&gt;src
-|      |      <a href="#id33"><span class="problematic" id="id34">|</span></a>—-CMakeLists.txt
-|      <a href="#id35"><span class="problematic" id="id36">|</span></a>—&gt;cmake
-|      <a href="#id37"><span class="problematic" id="id38">|</span></a>—&gt;module
-|      |      <a href="#id39"><span class="problematic" id="id40">|</span></a>—&gt;include
-|      |      <a href="#id41"><span class="problematic" id="id42">|</span></a>—&gt;src
-|      |      <a href="#id43"><span class="problematic" id="id44">|</span></a>—-CMakeLists.txt
-|      <a href="#id45"><span class="problematic" id="id46">|</span></a>—-CMakeLists.txt
+<dt>PROJECT</dt><dd><p><a href="#id23"><span class="problematic" id="id24">|</span></a>—&gt;cmake
+<a href="#id25"><span class="problematic" id="id26">|</span></a>—&gt;src
+|      <a href="#id27"><span class="problematic" id="id28">|</span></a>—&gt;app1
+|      |      <a href="#id29"><span class="problematic" id="id30">|</span></a>—&gt;src
+|      |      <a href="#id31"><span class="problematic" id="id32">|</span></a>—-CMakeLists.txt
+|      <a href="#id33"><span class="problematic" id="id34">|</span></a>—&gt;cmake
+|      <a href="#id35"><span class="problematic" id="id36">|</span></a>—&gt;module
+|      |      <a href="#id37"><span class="problematic" id="id38">|</span></a>—&gt;include
+|      |      <a href="#id39"><span class="problematic" id="id40">|</span></a>—&gt;src
+|      |      <a href="#id41"><span class="problematic" id="id42">|</span></a>—-CMakeLists.txt
+|      <a href="#id43"><span class="problematic" id="id44">|</span></a>—-CMakeLists.txt
 |
-<a href="#id47"><span class="problematic" id="id48">|</span></a>—&gt;tests
-<a href="#id49"><span class="problematic" id="id50">|</span></a>—-CMakeLists.txt
-<a href="#id51"><span class="problematic" id="id52">|</span></a>—-CMakePresets.json</p>
+<a href="#id45"><span class="problematic" id="id46">|</span></a>—&gt;tests
+<a href="#id47"><span class="problematic" id="id48">|</span></a>—-CMakeLists.txt
+<a href="#id49"><span class="problematic" id="id50">|</span></a>—-CMakePresets.json</p>
 </dd>
 </dl>
 </div></blockquote>
@@ -4593,8 +4594,8 @@ the user, which is different from conventional programs
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stl-custom-implementation">STL Custom Implementation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Vector</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">List</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-custom">Vector Custom</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-custom">List Custom</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-project-structure">Sample Project Structure</a></li>

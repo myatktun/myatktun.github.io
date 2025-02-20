@@ -7,6 +7,7 @@ Notes
 
    AWS
    ArmArchitecture
+   Assembly
    BackendEngineering
    C
    C++
