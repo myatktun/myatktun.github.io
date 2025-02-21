@@ -16,7 +16,7 @@ RISC-V Basics
 -------------
     * open-sourced ISA based on RISC principles
     * can be used academically, and deployed in any hardware or software without royalties
-    * supports 32-bit and 64-bit implementations
+    * RV32 for 32-bit and RV64 for 64-bit implementations
     * byte: 8 bits, halfword: 16 bits, word: 32 bits, double word: 64 bits
     * unsigned numbers are usually used for addresses, pointers and bit vectors
     * unsigned double words are never necessary for memory addresses, loop counters, etc.
@@ -142,6 +142,11 @@ RISC-V Instruction Set
         - every instruction is halfword in size, 16 bits or 2 bytes
         - every compressed instruction is same as a single full-sized instruction, but not
           vice versa
+    * **Option Letter Codes**
+        - RV32I and RV64I basic instructions work on entire register, e.g. ``add`` performs
+          32-bit addition on RV32, and 64-bit addition on RV64
+        - ``C``: compressed instruction set
+        - ``M``: multiply and divide instructions
     * **Arithmetic & Logic**
         - ``add, sub, and, or, xor``
         - ``addi, andi, ori, xori, slli, srli, srai, slti, sltui``
@@ -152,11 +157,12 @@ RISC-V Instruction Set
         - ``sltu``: set if less than unsigned, (rs1 < rs2) ? 1 : 0
         - no subtract immediate instruction in RISC-V, use ``addi`` with negated value
     * **Load & Store**
-        - ``lb``: load byte, upper bits will be sign extended
+        - ``lb  rd,imm12(rs1)``: load byte, upper bits will be sign extended
         - ``lh``: load halfword, upper bits will be sign extended
         - ``lw``: load word
         - ``lbu`` and ``lhu`` will be zero extended for upper bits
-        - ``sb, sh, sw``
+        - ``sb  rs2,imm12(rs1)``: copy 8 bits into memory
+        - `` sh`` for 16 bits, and ``sw`` for 32 bits
         - ``lwu, ld, sd`` for double word in RV64
     * **Conditional Branching**
         - syntax: ``<opcode>    rs1,rs2,imm12   # if condition(rs1,rs2) goto PC+imm12``
@@ -205,6 +211,29 @@ RISC-V Instruction Set
         - used to make long jumps and calls with PC relative
         - long jump: ``auipc  t0,upper20`` and ``jalr  zero,lower12(t0)``
         - long call: ``auipc  t0,upper20`` and ``jalr  ra,lower12(t0)``
+    * **Multiply**
+        - in multiplication, lower bytes of signed and unsigned are same, but the upper bytes
+          differ
+        - number of result bits = 2x number of operand bits
+        - ``mul  rd,rs1,rs2``: lower half of the result
+        - ``mulh  rd,rs1,rs2``: multiply high, upper half of the result
+        - ``mulhu``: unsigned, upper half of the result
+        - ``mulhsu  rd,rs1,rs2``: ``rs1`` is signed, and ``rs2`` is unsigned
+    * **Division**
+        - number of result bits = number of operand bits
+        - ``div  rd,rs1,rs2``: divide
+        - ``rem  rd,rs1,rs2``: remainder
+        - ``divu, remu`` for unsigned operands
+        - RISC-V mandates truncated division for negative operands
+        - overflow for ``max_negative / -1``: max_negative for quotient, and 0 for remainder
+        - division by zero: all bits set to 1 for quotient, and dividend for remainder
+    * **32-bit Operations for RV64**
+        - ``addw, sub2, addiw, sllw, srlw, sraw, slliw, srliw, sraiw`` for word size
+        - ``mulw`` for 32-bit multiply on RV64
+        - ``divw, remw, divuw, remuw`` for 32-bit division on RV64
+        - result is stored in lower 32 bits of ``rd``, and upper 32 bits of ``rd`` contain
+          sign-extension of the lower
+        - shift amount is from 0 to 31, taken from only lower 5 bits
     * **Linux-based Syscall**
         - set ``a7`` to the syscall number, ``a0..`` to the arguments for the syscall
         - invoke ``ecall`` to call the kernel

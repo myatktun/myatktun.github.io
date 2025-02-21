@@ -366,7 +366,7 @@
 <div><ul class="simple">
 <li><p>open-sourced ISA based on RISC principles</p></li>
 <li><p>can be used academically, and deployed in any hardware or software without royalties</p></li>
-<li><p>supports 32-bit and 64-bit implementations</p></li>
+<li><p>RV32 for 32-bit and RV64 for 64-bit implementations</p></li>
 <li><p>byte: 8 bits, halfword: 16 bits, word: 32 bits, double word: 64 bits</p></li>
 <li><p>unsigned numbers are usually used for addresses, pointers and bit vectors</p></li>
 <li><p>unsigned double words are never necessary for memory addresses, loop counters, etc.</p></li>
@@ -625,6 +625,16 @@ vice versa</p></li>
 </dl>
 </li>
 <li><dl class="simple">
+<dt><strong>Option Letter Codes</strong></dt><dd><ul class="simple">
+<li><p>RV32I and RV64I basic instructions work on entire register, e.g. <code class="docutils literal notranslate"><span class="pre">add</span></code> performs
+32-bit addition on RV32, and 64-bit addition on RV64</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">C</span></code>: compressed instruction set</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">M</span></code>: multiply and divide instructions</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt><strong>Arithmetic &amp; Logic</strong></dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">add,</span> <span class="pre">sub,</span> <span class="pre">and,</span> <span class="pre">or,</span> <span class="pre">xor</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">addi,</span> <span class="pre">andi,</span> <span class="pre">ori,</span> <span class="pre">xori,</span> <span class="pre">slli,</span> <span class="pre">srli,</span> <span class="pre">srai,</span> <span class="pre">slti,</span> <span class="pre">sltui</span></code></p></li>
@@ -640,11 +650,12 @@ vice versa</p></li>
 </li>
 <li><dl class="simple">
 <dt><strong>Load &amp; Store</strong></dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">lb</span></code>: load byte, upper bits will be sign extended</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lb</span>&#160; <span class="pre">rd,imm12(rs1)</span></code>: load byte, upper bits will be sign extended</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">lh</span></code>: load halfword, upper bits will be sign extended</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">lw</span></code>: load word</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">lbu</span></code> and <code class="docutils literal notranslate"><span class="pre">lhu</span></code> will be zero extended for upper bits</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sb,</span> <span class="pre">sh,</span> <span class="pre">sw</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sb</span>&#160; <span class="pre">rs2,imm12(rs1)</span></code>: copy 8 bits into memory</p></li>
+<li><p>`` sh`` for 16 bits, and <code class="docutils literal notranslate"><span class="pre">sw</span></code> for 32 bits</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">lwu,</span> <span class="pre">ld,</span> <span class="pre">sd</span></code> for double word in RV64</p></li>
 </ul>
 </dd>
@@ -728,6 +739,44 @@ vice versa</p></li>
 <li><p>used to make long jumps and calls with PC relative</p></li>
 <li><p>long jump: <code class="docutils literal notranslate"><span class="pre">auipc</span>&#160; <span class="pre">t0,upper20</span></code> and <code class="docutils literal notranslate"><span class="pre">jalr</span>&#160; <span class="pre">zero,lower12(t0)</span></code></p></li>
 <li><p>long call: <code class="docutils literal notranslate"><span class="pre">auipc</span>&#160; <span class="pre">t0,upper20</span></code> and <code class="docutils literal notranslate"><span class="pre">jalr</span>&#160; <span class="pre">ra,lower12(t0)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Multiply</strong></dt><dd><ul class="simple">
+<li><p>in multiplication, lower bytes of signed and unsigned are same, but the upper bytes
+differ</p></li>
+<li><p>number of result bits = 2x number of operand bits</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mul</span>&#160; <span class="pre">rd,rs1,rs2</span></code>: lower half of the result</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mulh</span>&#160; <span class="pre">rd,rs1,rs2</span></code>: multiply high, upper half of the result</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mulhu</span></code>: unsigned, upper half of the result</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mulhsu</span>&#160; <span class="pre">rd,rs1,rs2</span></code>: <code class="docutils literal notranslate"><span class="pre">rs1</span></code> is signed, and <code class="docutils literal notranslate"><span class="pre">rs2</span></code> is unsigned</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Division</strong></dt><dd><ul class="simple">
+<li><p>number of result bits = number of operand bits</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">div</span>&#160; <span class="pre">rd,rs1,rs2</span></code>: divide</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rem</span>&#160; <span class="pre">rd,rs1,rs2</span></code>: remainder</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">divu,</span> <span class="pre">remu</span></code> for unsigned operands</p></li>
+<li><p>RISC-V mandates truncated division for negative operands</p></li>
+<li><p>overflow for <code class="docutils literal notranslate"><span class="pre">max_negative</span> <span class="pre">/</span> <span class="pre">-1</span></code>: max_negative for quotient, and 0 for remainder</p></li>
+<li><p>division by zero: all bits set to 1 for quotient, and dividend for remainder</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>32-bit Operations for RV64</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">addw,</span> <span class="pre">sub2,</span> <span class="pre">addiw,</span> <span class="pre">sllw,</span> <span class="pre">srlw,</span> <span class="pre">sraw,</span> <span class="pre">slliw,</span> <span class="pre">srliw,</span> <span class="pre">sraiw</span></code> for word size</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mulw</span></code> for 32-bit multiply on RV64</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">divw,</span> <span class="pre">remw,</span> <span class="pre">divuw,</span> <span class="pre">remuw</span></code> for 32-bit division on RV64</p></li>
+<li><p>result is stored in lower 32 bits of <code class="docutils literal notranslate"><span class="pre">rd</span></code>, and upper 32 bits of <code class="docutils literal notranslate"><span class="pre">rd</span></code> contain
+sign-extension of the lower</p></li>
+<li><p>shift amount is from 0 to 31, taken from only lower 5 bits</p></li>
 </ul>
 </dd>
 </dl>
