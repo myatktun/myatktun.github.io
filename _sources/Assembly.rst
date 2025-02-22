@@ -161,8 +161,8 @@ RISC-V Instruction Set
         - ``lh``: load halfword, upper bits will be sign extended
         - ``lw``: load word
         - ``lbu`` and ``lhu`` will be zero extended for upper bits
-        - ``sb  rs2,imm12(rs1)``: copy 8 bits into memory
-        - `` sh`` for 16 bits, and ``sw`` for 32 bits
+        - ``sb  rs2,imm12(rs1)``: store byte, ``rs1 + imm12 = rs2``
+        - ``sh`` for 16 bits, and ``sw`` for 32 bits
         - ``lwu, ld, sd`` for double word in RV64
     * **Conditional Branching**
         - syntax: ``<opcode>    rs1,rs2,imm12   # if condition(rs1,rs2) goto PC+imm12``
