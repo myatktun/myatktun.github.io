@@ -351,6 +351,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-file-system">Checking file system</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-runtime-parameters">Kernel runtime parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selinux">SELinux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pie">PIE</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configurations">Configurations</a><ul class="nav section-nav flex-column">
@@ -1051,6 +1052,20 @@ it now</p></li>
 </li>
 </ul>
 </div></blockquote>
+</section>
+<section id="pie">
+<h3>PIE<a class="headerlink" href="#pie" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Position-Independent Executables, can be loaded anywhere in memory</p></li>
+<li><p>ASLR: Address Space Layout Randomisation, security feature that mitigates some attacks
+based on fixed addresses</p></li>
+<li><p>without PIE, ASLR can be applied for shared libraries, but not for executables</p></li>
+<li><p>SSP: Stack Smashing Protection, to ensure the parameter stack is not corrupted</p></li>
+<li><p>stack corruption can alter the return address of a function, transferring control to
+malicious code</p></li>
+</ul>
+</div></blockquote>
 <p><a class="reference external" href="#linux">back to top</a></p>
 </section>
 </section>
@@ -1060,29 +1075,36 @@ it now</p></li>
 <h3>Users<a class="headerlink" href="#users" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">useradd</span> <span class="pre">newUser</span></code>, add new user</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">useradd</span> <span class="pre">-D</span></code> or <code class="docutils literal notranslate"><span class="pre">/etc/login.defs</span></code>, list defaults</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">passwd</span> <span class="pre">newUser</span></code>, set password for user</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">userdel</span> <span class="pre">newUser</span></code>, delete user but <code class="docutils literal notranslate"><span class="pre">/home</span></code> directory will not be deleted</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">userdel</span> <span class="pre">-r</span> <span class="pre">newUser</span></code>, delete user and <code class="docutils literal notranslate"><span class="pre">/home</span></code> directory</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">useradd</span> <span class="pre">-s</span> <span class="pre">/bin/shell1</span> <span class="pre">-d</span> <span class="pre">/home/dir1</span> <span class="pre">newUser</span></code>, change default shell and home directory</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">useradd</span> <span class="pre">-u</span> <span class="pre">1111</span> <span class="pre">newUser</span></code>, set user ID</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code>, file contains user details</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>, list users and ID</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">useradd</span> <span class="pre">--system</span> <span class="pre">sysAcc</span></code>, create system account</p></li>
-<li><p>system accounts has ID less than 1000</p></li>
-<li><p>system accounts are for programs, used by daemons, and no <code class="docutils literal notranslate"><span class="pre">/home</span></code> created</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">usermod</span> <span class="pre">-d</span> <span class="pre">/home/dir1</span> <span class="pre">-m</span> <span class="pre">user1</span></code>, change user home directory</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">usermod</span> <span class="pre">-l</span> <span class="pre">user2</span> <span class="pre">user1</span></code>, change user name</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">usermod</span> <span class="pre">-L</span> <span class="pre">user1</span></code>, lock user account (will be able to login if ssh with key is setup)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">usermod</span> <span class="pre">-U</span> <span class="pre">user1</span></code>, unlock user account</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">usermod</span> <span class="pre">-e</span> <span class="pre">2049-1-1</span> <span class="pre">user1</span></code>, set expiration date for user account (year-month-day)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">usermod</span> <span class="pre">-e</span> <span class="pre">&quot;&quot;</span> <span class="pre">user1</span></code>, remove expiration date for user account</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">chage</span> <span class="pre">-d</span> <span class="pre">0</span> <span class="pre">user1</span></code>, set expiration date for user password (user must change password)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">chage</span> <span class="pre">-d</span> <span class="pre">-1</span> <span class="pre">user1</span></code>, remove expiration for user password</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">chage</span> <span class="pre">-M</span> <span class="pre">30</span> <span class="pre">user1</span></code>, user must change password every month</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">chage</span> <span class="pre">-M</span> <span class="pre">-1</span> <span class="pre">user1</span></code>, user password never expires</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">chage</span> <span class="pre">--list</span> <span class="pre">user1</span></code>, list passwords expiration dates</p></li>
+<li><p>Shadow package contains programs for handling passwords in a secure way</p></li>
+<li><p>check <code class="docutils literal notranslate"><span class="pre">doc/HOWTO</span></code> in Shadow source directory for full explanation</p></li>
+<li><p>when using Shadow support, programs that verify passwords, such as display managers, FTP
+programs, pop3 daemons must be Shadow-compliant</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pwconv</span></code>: enable shadowed passwords</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grpconv</span></code>: enable shadowed group passwords</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">useradd</span></code> by default creates user and group with same name, and IDs start at 1000</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">useradd</span> <span class="pre">newUser</span></code>: add new user</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">useradd</span> <span class="pre">-D</span></code> or <code class="docutils literal notranslate"><span class="pre">/etc/login.defs</span></code>: list defaults</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">passwd</span> <span class="pre">newUser</span></code>: set password for user</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">userdel</span> <span class="pre">newUser</span></code>: delete user but <code class="docutils literal notranslate"><span class="pre">/home</span></code> directory will not be deleted</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">userdel</span> <span class="pre">-r</span> <span class="pre">newUser</span></code>: delete user and <code class="docutils literal notranslate"><span class="pre">/home</span></code> directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">useradd</span> <span class="pre">-s</span> <span class="pre">/bin/shell1</span> <span class="pre">-d</span> <span class="pre">/home/dir1</span> <span class="pre">newUser</span></code>: change default shell and home directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">useradd</span> <span class="pre">-u</span> <span class="pre">1111</span> <span class="pre">newUser</span></code>: set user ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code>: file contains user details</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: list users and ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">useradd</span> <span class="pre">--system</span> <span class="pre">sysAcc</span></code>: create system account</p></li>
+<li><p>system accounts has ID less than 1000, and are for programs, used by daemons, and no
+<code class="docutils literal notranslate"><span class="pre">/home</span></code> is created</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">usermod</span> <span class="pre">-d</span> <span class="pre">/home/dir1</span> <span class="pre">-m</span> <span class="pre">user1</span></code>: change user home directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">usermod</span> <span class="pre">-l</span> <span class="pre">user2</span> <span class="pre">user1</span></code>: change user name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">usermod</span> <span class="pre">-L</span> <span class="pre">user1</span></code>: lock user account (will be able to login if ssh with key is setup)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">usermod</span> <span class="pre">-U</span> <span class="pre">user1</span></code>: unlock user account</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">usermod</span> <span class="pre">-e</span> <span class="pre">2049-1-1</span> <span class="pre">user1</span></code>: set expiration date for user account (year-month-day)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">usermod</span> <span class="pre">-e</span> <span class="pre">&quot;&quot;</span> <span class="pre">user1</span></code>: remove expiration date for user account</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chage</span> <span class="pre">-d</span> <span class="pre">0</span> <span class="pre">user1</span></code>: set expiration date for user password (user must change password)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chage</span> <span class="pre">-d</span> <span class="pre">-1</span> <span class="pre">user1</span></code>: remove expiration for user password</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chage</span> <span class="pre">-M</span> <span class="pre">30</span> <span class="pre">user1</span></code>: user must change password every month</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chage</span> <span class="pre">-M</span> <span class="pre">-1</span> <span class="pre">user1</span></code>: user password never expires</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chage</span> <span class="pre">--list</span> <span class="pre">user1</span></code>: list passwords expiration dates</p></li>
 </ul>
 </div></blockquote>
 </section>
@@ -3308,6 +3330,7 @@ Usama Anjum, Collabora. Available at: <a class="reference external" href="https:
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-file-system">Checking file system</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-runtime-parameters">Kernel runtime parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selinux">SELinux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pie">PIE</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configurations">Configurations</a><ul class="nav section-nav flex-column">

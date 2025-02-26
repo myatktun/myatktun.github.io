@@ -466,7 +466,7 @@ Algorithms
 * `Bubble Sort`_, `Selection Sort`_, `Insertion Sort`_, `Quick Sort`_, `Heap Sort`_
 * `Quick Select`_, `Greedy Algorithm`_, `Boyer-Moore Voting Algorithm`_
 * `Tree Traversals`_, `Graph Traversals`_
-* `KMP`_
+* `KMP`_, `Kadane Algorithm`_
 * `Dynamic Programming`_
 * `Optimization`_
 * a set of instructions to operate a specific task
@@ -710,6 +710,19 @@ KMP
         - when ``pattern_ptr`` is at the end, we have found a match
     * **Complexity**
         - all cases: O(n + m), space O(m)
+
+Kadane Algorithm
+----------------
+    * finding the maximum subarray sum
+    * to get the maximum subarray sum at current element, use the maximum sum ending at the
+      previous element, `max(prev_sum + curr_element, curr_element)`
+    * when previous sum is positive, it is always better to extend the subarray by adding
+      current element
+    * when previous sum is negative, it is always better to start a new subarray from current
+      element
+    * can also find the minimum subarray sum by using ``min(prev_sum + curr_element, curr_element)``
+    * **Complexity**
+        - all cases: O(n), space O(1)
 
 Dynamic Programming
 -------------------

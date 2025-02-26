@@ -380,6 +380,16 @@ SELinux
         - authorized users and processes are allowed to take only a limited set of actions
         - everything else is denied
 
+PIE
+---
+    * Position-Independent Executables, can be loaded anywhere in memory
+    * ASLR: Address Space Layout Randomisation, security feature that mitigates some attacks
+      based on fixed addresses
+    * without PIE, ASLR can be applied for shared libraries, but not for executables
+    * SSP: Stack Smashing Protection, to ensure the parameter stack is not corrupted
+    * stack corruption can alter the return address of a function, transferring control to
+      malicious code
+
 `back to top <#linux>`_
 
 Configurations
@@ -388,29 +398,36 @@ Configurations
 
 Users
 -----
-    * ``useradd newUser``, add new user
-    * ``useradd -D`` or ``/etc/login.defs``, list defaults
-    * ``passwd newUser``, set password for user
-    * ``userdel newUser``, delete user but ``/home`` directory will not be deleted
-    * ``userdel -r newUser``, delete user and ``/home`` directory
-    * ``useradd -s /bin/shell1 -d /home/dir1 newUser``, change default shell and home directory
-    * ``useradd -u 1111 newUser``, set user ID
-    * ``/etc/passwd``, file contains user details
-    * ``id``, list users and ID
-    * ``useradd --system sysAcc``, create system account
-    * system accounts has ID less than 1000
-    * system accounts are for programs, used by daemons, and no ``/home`` created
-    * ``usermod -d /home/dir1 -m user1``, change user home directory
-    * ``usermod -l user2 user1``, change user name
-    * ``usermod -L user1``, lock user account (will be able to login if ssh with key is setup)
-    * ``usermod -U user1``, unlock user account
-    * ``usermod -e 2049-1-1 user1``, set expiration date for user account (year-month-day)
-    * ``usermod -e "" user1``, remove expiration date for user account
-    * ``chage -d 0 user1``, set expiration date for user password (user must change password)
-    * ``chage -d -1 user1``, remove expiration for user password
-    * ``chage -M 30 user1``, user must change password every month
-    * ``chage -M -1 user1``, user password never expires
-    * ``chage --list user1``, list passwords expiration dates
+    * Shadow package contains programs for handling passwords in a secure way
+    * check ``doc/HOWTO`` in Shadow source directory for full explanation
+    * when using Shadow support, programs that verify passwords, such as display managers, FTP
+      programs, pop3 daemons must be Shadow-compliant
+    * ``pwconv``: enable shadowed passwords
+    * ``grpconv``: enable shadowed group passwords
+    * ``useradd`` by default creates user and group with same name, and IDs start at 1000
+    * ``useradd newUser``: add new user
+    * ``useradd -D`` or ``/etc/login.defs``: list defaults
+    * ``passwd newUser``: set password for user
+    * ``userdel newUser``: delete user but ``/home`` directory will not be deleted
+    * ``userdel -r newUser``: delete user and ``/home`` directory
+    * ``useradd -s /bin/shell1 -d /home/dir1 newUser``: change default shell and home directory
+    * ``useradd -u 1111 newUser``: set user ID
+    * ``/etc/passwd``: file contains user details
+    * ``id``: list users and ID
+    * ``useradd --system sysAcc``: create system account
+    * system accounts has ID less than 1000, and are for programs, used by daemons, and no
+      ``/home`` is created
+    * ``usermod -d /home/dir1 -m user1``: change user home directory
+    * ``usermod -l user2 user1``: change user name
+    * ``usermod -L user1``: lock user account (will be able to login if ssh with key is setup)
+    * ``usermod -U user1``: unlock user account
+    * ``usermod -e 2049-1-1 user1``: set expiration date for user account (year-month-day)
+    * ``usermod -e "" user1``: remove expiration date for user account
+    * ``chage -d 0 user1``: set expiration date for user password (user must change password)
+    * ``chage -d -1 user1``: remove expiration for user password
+    * ``chage -M 30 user1``: user must change password every month
+    * ``chage -M -1 user1``: user password never expires
+    * ``chage --list user1``: list passwords expiration dates
 
 Groups
 ------

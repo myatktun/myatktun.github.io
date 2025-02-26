@@ -368,6 +368,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tree-traversals">Tree Traversals</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-traversals">Graph Traversals</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kmp">KMP</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kadane-algorithm">Kadane Algorithm</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-programming">Dynamic Programming</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization">Optimization</a></li>
 </ul>
@@ -1207,7 +1208,7 @@ moves far away from the starting vertex</p></li>
 <li><p><a class="reference internal" href="#bubble-sort">Bubble Sort</a>, <a class="reference internal" href="#selection-sort">Selection Sort</a>, <a class="reference internal" href="#insertion-sort">Insertion Sort</a>, <a class="reference internal" href="#quick-sort">Quick Sort</a>, <a class="reference internal" href="#heap-sort">Heap Sort</a></p></li>
 <li><p><a class="reference internal" href="#quick-select">Quick Select</a>, <a class="reference internal" href="#greedy-algorithm">Greedy Algorithm</a>, <a class="reference internal" href="#boyer-moore-voting-algorithm">Boyer-Moore Voting Algorithm</a></p></li>
 <li><p><a class="reference internal" href="#tree-traversals">Tree Traversals</a>, <a class="reference internal" href="#graph-traversals">Graph Traversals</a></p></li>
-<li><p><a class="reference internal" href="#kmp">KMP</a></p></li>
+<li><p><a class="reference internal" href="#kmp">KMP</a>, <a class="reference internal" href="#kadane-algorithm">Kadane Algorithm</a></p></li>
 <li><p><a class="reference internal" href="#dynamic-programming">Dynamic Programming</a></p></li>
 <li><p><a class="reference internal" href="#optimization">Optimization</a></p></li>
 <li><p>a set of instructions to operate a specific task</p></li>
@@ -1669,6 +1670,28 @@ increment <code class="docutils literal notranslate"><span class="pre">search_pt
 </ul>
 </div></blockquote>
 </section>
+<section id="kadane-algorithm">
+<h3>Kadane Algorithm<a class="headerlink" href="#kadane-algorithm" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>finding the maximum subarray sum</p></li>
+<li><p>to get the maximum subarray sum at current element, use the maximum sum ending at the
+previous element, <cite>max(prev_sum + curr_element, curr_element)</cite></p></li>
+<li><p>when previous sum is positive, it is always better to extend the subarray by adding
+current element</p></li>
+<li><p>when previous sum is negative, it is always better to start a new subarray from current
+element</p></li>
+<li><p>can also find the minimum subarray sum by using <code class="docutils literal notranslate"><span class="pre">min(prev_sum</span> <span class="pre">+</span> <span class="pre">curr_element,</span> <span class="pre">curr_element)</span></code></p></li>
+<li><dl class="simple">
+<dt><strong>Complexity</strong></dt><dd><ul>
+<li><p>all cases: O(n), space O(1)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
 <section id="dynamic-programming">
 <h3>Dynamic Programming<a class="headerlink" href="#dynamic-programming" title="Link to this heading">#</a></h3>
 <blockquote>
@@ -1881,6 +1904,7 @@ multiplication, <code class="docutils literal notranslate"><span class="pre">((a
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tree-traversals">Tree Traversals</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-traversals">Graph Traversals</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kmp">KMP</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kadane-algorithm">Kadane Algorithm</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-programming">Dynamic Programming</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization">Optimization</a></li>
 </ul>
