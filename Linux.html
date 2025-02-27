@@ -352,6 +352,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-runtime-parameters">Kernel runtime parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selinux">SELinux</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pie">PIE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ffi">FFI</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configurations">Configurations</a><ul class="nav section-nav flex-column">
@@ -436,6 +437,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building">Building</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directories">Directories</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-and-restore">Backup and Restore</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-symbols">Debugging Symbols</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>
@@ -1064,6 +1066,18 @@ based on fixed addresses</p></li>
 <li><p>SSP: Stack Smashing Protection, to ensure the parameter stack is not corrupted</p></li>
 <li><p>stack corruption can alter the return address of a function, transferring control to
 malicious code</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="ffi">
+<h3>FFI<a class="headerlink" href="#ffi" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Foreign Function Interface, allows a program written in one language to call a program in
+another language</p></li>
+<li><p>Libffi provides to call functions specified by a call interface description at run time,</p></li>
+<li><p>it also provides a bridge between interpreters such as Perl, Python and shared library
+subroutines in C or C++</p></li>
 </ul>
 </div></blockquote>
 <p><a class="reference external" href="#linux">back to top</a></p>
@@ -3016,6 +3030,7 @@ opened it</p></li>
 <h2>Linux From Scratch<a class="headerlink" href="#linux-from-scratch" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#preparations">Preparations</a>, <a class="reference internal" href="#building">Building</a>, <a class="reference internal" href="#directories">Directories</a>, <a class="reference internal" href="#backup-and-restore">Backup and Restore</a></p></li>
+<li><p><a class="reference internal" href="#debugging-symbols">Debugging Symbols</a></p></li>
 <li><p>this section is mostly from following along the Linux From Scratch book</p></li>
 </ul>
 <section id="preparations">
@@ -3230,11 +3245,34 @@ nogroup:x:65534:</p>
 <li><p>after creating essential programs and libraries, LFS system should be backed up in case
 of failures in the future</p></li>
 <li><p>create a backup outside the chroot environment</p></li>
+<li><p>does not need to unmount the LFS root directory</p></li>
 <li><p>umount VFS with <code class="docutils literal notranslate"><span class="pre">mountpoint</span> <span class="pre">-q</span> <span class="pre">$LFS/dev/shm</span> <span class="pre">&amp;&amp;</span> <span class="pre">umount</span> <span class="pre">$LFS/dev/shm</span></code>,
 <code class="docutils literal notranslate"><span class="pre">umount</span> <span class="pre">$LFS/dev/pts</span></code>, <code class="docutils literal notranslate"><span class="pre">umount</span> <span class="pre">$LFS/{sys,proc,run,dev}</span></code></p></li>
-<li><p>change into LFS directory, and create a backup archive with
-<code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-cJpf</span> <span class="pre">$HOME/lfs-temp-tools.12.2.tar.xz</span> <span class="pre">.</span></code></p></li>
-<li><p>restore with <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">$LFS/*</span></code>, and <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-xvpf</span> <span class="pre">$HOME/lfs-temp-tools.12.2.tar.xz</span> <span class="pre">-C</span> <span class="pre">$LFS/</span></code></p></li>
+<li><p>create a backup archive with <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-cJpf</span> <span class="pre">lfs-temp-tools.12.2.tar.xz</span> <span class="pre">-C</span> <span class="pre">$LFS</span> <span class="pre">.</span></code></p></li>
+<li><p>restore with <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">$LFS/*</span></code>, and <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-xvpf</span> <span class="pre">lfs-temp-tools.12.2.tar.xz</span> <span class="pre">-C</span> <span class="pre">$LFS/</span></code></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="debugging-symbols">
+<h3>Debugging Symbols<a class="headerlink" href="#debugging-symbols" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>programs and libraries compiled with debugging symbols, <code class="docutils literal notranslate"><span class="pre">gcc</span> <span class="pre">-g</span></code> option, enlarge
+significantly</p></li>
+<li><p>sizes vary depending on compiler and C library, but program without debugging symbols is
+usually 50% to 80% smaller</p></li>
+<li><dl class="simple">
+<dt><strong>Strip</strong></dt><dd><ul>
+<li><p>use with <code class="docutils literal notranslate"><span class="pre">--strip-unneeded</span></code> to remove all debug symbols from binary or library</p></li>
+<li><p>always make a backup before running <code class="docutils literal notranslate"><span class="pre">strip</span></code> commands</p></li>
+<li><p>symbols will be compressed with Zlib in separate files, which can be used to run
+regression tests with <code class="docutils literal notranslate"><span class="pre">valgrind</span></code> or <code class="docutils literal notranslate"><span class="pre">gdb</span></code></p></li>
+<li><p>the processed binary or library will be overwritten, and can cause crashes</p></li>
+<li><p>it is better to make copies, strip them, and reinstall with <code class="docutils literal notranslate"><span class="pre">install</span></code> command</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </div></blockquote>
 <p><a class="reference external" href="#linux">back to top</a></p>
@@ -3331,6 +3369,7 @@ Usama Anjum, Collabora. Available at: <a class="reference external" href="https:
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-runtime-parameters">Kernel runtime parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selinux">SELinux</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pie">PIE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ffi">FFI</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configurations">Configurations</a><ul class="nav section-nav flex-column">
@@ -3415,6 +3454,7 @@ Usama Anjum, Collabora. Available at: <a class="reference external" href="https:
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building">Building</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directories">Directories</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backup-and-restore">Backup and Restore</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-symbols">Debugging Symbols</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>

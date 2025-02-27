@@ -390,6 +390,14 @@ PIE
     * stack corruption can alter the return address of a function, transferring control to
       malicious code
 
+FFI
+---
+    * Foreign Function Interface, allows a program written in one language to call a program in
+      another language
+    * Libffi provides to call functions specified by a call interface description at run time,
+    * it also provides a bridge between interpreters such as Perl, Python and shared library
+      subroutines in C or C++
+
 `back to top <#linux>`_
 
 Configurations
@@ -1597,6 +1605,7 @@ Linux From Scratch
 ==================
 
 * `Preparations`_, `Building`_, `Directories`_, `Backup and Restore`_
+* `Debugging Symbols`_
 * this section is mostly from following along the Linux From Scratch book
 
 Preparations
@@ -1758,11 +1767,25 @@ Backup and Restore
     * after creating essential programs and libraries, LFS system should be backed up in case
       of failures in the future
     * create a backup outside the chroot environment
+    * does not need to unmount the LFS root directory
     * umount VFS with ``mountpoint -q $LFS/dev/shm && umount $LFS/dev/shm``,
       ``umount $LFS/dev/pts``, ``umount $LFS/{sys,proc,run,dev}``
-    * change into LFS directory, and create a backup archive with
-      ``tar -cJpf $HOME/lfs-temp-tools.12.2.tar.xz .``
-    * restore with ``rm -rf $LFS/*``, and ``tar -xvpf $HOME/lfs-temp-tools.12.2.tar.xz -C $LFS/``
+    * create a backup archive with ``tar -cJpf lfs-temp-tools.12.2.tar.xz -C $LFS .``
+    * restore with ``rm -rf $LFS/*``, and ``tar -xvpf lfs-temp-tools.12.2.tar.xz -C $LFS/``
+
+Debugging Symbols
+-----------------
+    * programs and libraries compiled with debugging symbols, ``gcc -g`` option, enlarge
+      significantly
+    * sizes vary depending on compiler and C library, but program without debugging symbols is
+      usually 50% to 80% smaller
+    * **Strip**
+        - use with ``--strip-unneeded`` to remove all debug symbols from binary or library
+        - always make a backup before running ``strip`` commands
+        - symbols will be compressed with Zlib in separate files, which can be used to run
+          regression tests with ``valgrind`` or ``gdb``
+        - the processed binary or library will be overwritten, and can cause crashes
+        - it is better to make copies, strip them, and reinstall with ``install`` command
 
 `back to top <#linux>`_
 
