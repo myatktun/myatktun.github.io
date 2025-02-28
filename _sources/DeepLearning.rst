@@ -17,7 +17,8 @@ Tokenizer
 
 * `Character Level Tokenizer`_, `Word Level Tokenizer`_, `Subword Level Tokenizer`_
 * contains encoder and decoder, which convert each element of array to specific type, e.g char
-to int
+  to int
+
 
 Character Level Tokenizer
 -------------------------
@@ -34,11 +35,12 @@ Subword Level Tokenizer
 
 `back to top <#deep-learning>`_
 
-Optmizer
-========
+Optimizer
+=========
 
 * `Mean Squared Error`_, `Gradient Descent`_, `Momentum`_, `RMSprop`_, `Adam`_, `AdamW`_
 * it is essential to know which optimizer to use based on a problem
+
 
 Mean Squared Error
 ------------------
@@ -51,21 +53,21 @@ Gradient Descent
 ----------------
     * used to minimize the loss function of a model
     * the loss function measures how well the model is able to predict the target based on
-    input features
+      input features
     * iteratively adjust the model parameters in the direction of the steepest descent of the
-    loss function
+      loss function
 
 Momentum
 --------
     * extension of Gradient Descent that adds a momentum term to the parameter updates
     * the term helps smooth out the updates and allows the optimizer to continue moving in the
-    right direction, even if the gradient changes direction or varies in magnitude
+      right direction, even if the gradient changes direction or varies in magnitude
     * particularly useful for training deep neural networks
 
 RMSprop
 -------
     * Root Mean Square Propagation, uses a moving average of the square gradient to adapt
-    learning rates of each parameter
+      learning rates of each parameter
     * helps to avoid oscillations in the parameter updates and can improve convergence in some
     cases
 
@@ -73,7 +75,7 @@ Adam
 ----
     * popular optimization algorithm, combines the ideas of momentum and RMSprop
     * uses moving of both the gradient and the squared values to adapt the learning rate of
-    each parameter
+      each parameter
     * often used as default optimizer for deep learning models
 
 AdamW
@@ -100,7 +102,7 @@ Activation Functions
 
 * `Sigmoid`_
 * to introduce non-linearity into the model to learn complex patterns, applied to output of
-each layer
+  each layer
 
 Sigmoid
 -------
@@ -134,7 +136,7 @@ Transformers
 * neural network architecture that relies on self-attention mechanisms
 * discard the recurrent layers commonly used in sequence modeling tasks
 * pre-training: send inputs into a transformer, get output probabilities that are used to
-generate from
+  generate from
 * parallelisation makes the transformer significantly faster, especially for longer sequences
 * can scale well with increasing amounts of data and computational resources
 * suitable for large-scale tasks
@@ -143,7 +145,7 @@ generate from
 Self-Attention
 --------------
     * sets different scores to each token in a sentence, a token can be character, sub-word, or
-    word level
+      word level
     * use self-attention to compute representations of input and output sequences
     * each word in a sequence is connected directly to every other word
     * allow more efficient parallelisation compared to recurrent models
@@ -152,7 +154,7 @@ Positional Encoding
 -------------------
     * transformers do not have built-in notion of word order, unlike RNNs
     * added to the input embeddings to give the model information about the position of each
-    word in the sequence
+      word in the sequence
 
 Encoder-Decoder Structure
 -------------------------
@@ -166,6 +168,6 @@ Multi-Head Attention
 Feed-Forward Neural Networks
 ----------------------------
     * after the attention layers, position-wise feed-forward neural networks further process
-    the data
+      the data
 
 `back to top <#deep-learning>`_

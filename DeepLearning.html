@@ -334,7 +334,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subword-level-tokenizer">Subword Level Tokenizer</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optmizer">Optmizer</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizer">Optimizer</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-squared-error">Mean Squared Error</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent">Gradient Descent</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#momentum">Momentum</a></li>
@@ -376,7 +376,7 @@
 <h1>Deep Learning<a class="headerlink" href="#deep-learning" title="Link to this heading">#</a></h1>
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="#tokenizer">Tokenizer</a></p></li>
-<li><p><a href="#id8"><span class="problematic" id="id9">`Optimizer`_</span></a></p></li>
+<li><p><a class="reference internal" href="#optimizer">Optimizer</a></p></li>
 <li><p><a class="reference internal" href="#normalisation">Normalisation</a></p></li>
 <li><p><a class="reference internal" href="#activation-functions">Activation Functions</a></p></li>
 <li><p><a class="reference internal" href="#bigram-language-model">Bigram Language Model</a></p></li>
@@ -388,9 +388,9 @@
 <h2>Tokenizer<a class="headerlink" href="#tokenizer" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#character-level-tokenizer">Character Level Tokenizer</a>, <a class="reference internal" href="#word-level-tokenizer">Word Level Tokenizer</a>, <a class="reference internal" href="#subword-level-tokenizer">Subword Level Tokenizer</a></p></li>
-<li><p>contains encoder and decoder, which convert each element of array to specific type, e.g char</p></li>
+<li><p>contains encoder and decoder, which convert each element of array to specific type, e.g char
+to int</p></li>
 </ul>
-<p>to int</p>
 <section id="character-level-tokenizer">
 <h3>Character Level Tokenizer<a class="headerlink" href="#character-level-tokenizer" title="Link to this heading">#</a></h3>
 <blockquote>
@@ -418,8 +418,8 @@
 <p><a class="reference external" href="#deep-learning">back to top</a></p>
 </section>
 </section>
-<section id="optmizer">
-<h2>Optmizer<a class="headerlink" href="#optmizer" title="Link to this heading">#</a></h2>
+<section id="optimizer">
+<h2>Optimizer<a class="headerlink" href="#optimizer" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#mean-squared-error">Mean Squared Error</a>, <a class="reference internal" href="#gradient-descent">Gradient Descent</a>, <a class="reference internal" href="#momentum">Momentum</a>, <a class="reference internal" href="#rmsprop">RMSprop</a>, <a class="reference internal" href="#adam">Adam</a>, <a class="reference internal" href="#adamw">AdamW</a></p></li>
 <li><p>it is essential to know which optimizer to use based on a problem</p></li>
@@ -440,11 +440,11 @@
 <blockquote>
 <div><ul class="simple">
 <li><p>used to minimize the loss function of a model</p></li>
-<li><p>the loss function measures how well the model is able to predict the target based on</p></li>
+<li><p>the loss function measures how well the model is able to predict the target based on
+input features</p></li>
+<li><p>iteratively adjust the model parameters in the direction of the steepest descent of the
+loss function</p></li>
 </ul>
-<p>input features
-* iteratively adjust the model parameters in the direction of the steepest descent of the
-loss function</p>
 </div></blockquote>
 </section>
 <section id="momentum">
@@ -452,21 +452,21 @@ loss function</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>extension of Gradient Descent that adds a momentum term to the parameter updates</p></li>
-<li><p>the term helps smooth out the updates and allows the optimizer to continue moving in the</p></li>
+<li><p>the term helps smooth out the updates and allows the optimizer to continue moving in the
+right direction, even if the gradient changes direction or varies in magnitude</p></li>
+<li><p>particularly useful for training deep neural networks</p></li>
 </ul>
-<p>right direction, even if the gradient changes direction or varies in magnitude
-* particularly useful for training deep neural networks</p>
 </div></blockquote>
 </section>
 <section id="rmsprop">
 <h3>RMSprop<a class="headerlink" href="#rmsprop" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>Root Mean Square Propagation, uses a moving average of the square gradient to adapt</p></li>
+<li><p>Root Mean Square Propagation, uses a moving average of the square gradient to adapt
+learning rates of each parameter</p></li>
+<li><p>helps to avoid oscillations in the parameter updates and can improve convergence in some</p></li>
 </ul>
-<p>learning rates of each parameter
-* helps to avoid oscillations in the parameter updates and can improve convergence in some
-cases</p>
+<p>cases</p>
 </div></blockquote>
 </section>
 <section id="adam">
@@ -474,10 +474,10 @@ cases</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>popular optimization algorithm, combines the ideas of momentum and RMSprop</p></li>
-<li><p>uses moving of both the gradient and the squared values to adapt the learning rate of</p></li>
+<li><p>uses moving of both the gradient and the squared values to adapt the learning rate of
+each parameter</p></li>
+<li><p>often used as default optimizer for deep learning models</p></li>
 </ul>
-<p>each parameter
-* often used as default optimizer for deep learning models</p>
 </div></blockquote>
 </section>
 <section id="adamw">
@@ -511,9 +511,9 @@ cases</p>
 <h2>Activation Functions<a class="headerlink" href="#activation-functions" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#sigmoid">Sigmoid</a></p></li>
-<li><p>to introduce non-linearity into the model to learn complex patterns, applied to output of</p></li>
+<li><p>to introduce non-linearity into the model to learn complex patterns, applied to output of
+each layer</p></li>
 </ul>
-<p>each layer</p>
 <section id="sigmoid">
 <h3>Sigmoid<a class="headerlink" href="#sigmoid" title="Link to this heading">#</a></h3>
 <blockquote>
@@ -549,23 +549,23 @@ cases</p>
 <li><p><a class="reference internal" href="#feed-forward-neural-networks">Feed-Forward Neural Networks</a></p></li>
 <li><p>neural network architecture that relies on self-attention mechanisms</p></li>
 <li><p>discard the recurrent layers commonly used in sequence modeling tasks</p></li>
-<li><p>pre-training: send inputs into a transformer, get output probabilities that are used to</p></li>
+<li><p>pre-training: send inputs into a transformer, get output probabilities that are used to
+generate from</p></li>
+<li><p>parallelisation makes the transformer significantly faster, especially for longer sequences</p></li>
+<li><p>can scale well with increasing amounts of data and computational resources</p></li>
+<li><p>suitable for large-scale tasks</p></li>
+<li><p>outperforms traditional models like LSTMs and GRUs, particularly in machine translation</p></li>
 </ul>
-<p>generate from
-* parallelisation makes the transformer significantly faster, especially for longer sequences
-* can scale well with increasing amounts of data and computational resources
-* suitable for large-scale tasks
-* outperforms traditional models like LSTMs and GRUs, particularly in machine translation</p>
 <section id="self-attention">
 <h3>Self-Attention<a class="headerlink" href="#self-attention" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>sets different scores to each token in a sentence, a token can be character, sub-word, or</p></li>
+<li><p>sets different scores to each token in a sentence, a token can be character, sub-word, or
+word level</p></li>
+<li><p>use self-attention to compute representations of input and output sequences</p></li>
+<li><p>each word in a sequence is connected directly to every other word</p></li>
+<li><p>allow more efficient parallelisation compared to recurrent models</p></li>
 </ul>
-<p>word level
-* use self-attention to compute representations of input and output sequences
-* each word in a sequence is connected directly to every other word
-* allow more efficient parallelisation compared to recurrent models</p>
 </div></blockquote>
 </section>
 <section id="positional-encoding">
@@ -573,9 +573,9 @@ cases</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>transformers do not have built-in notion of word order, unlike RNNs</p></li>
-<li><p>added to the input embeddings to give the model information about the position of each</p></li>
+<li><p>added to the input embeddings to give the model information about the position of each
+word in the sequence</p></li>
 </ul>
-<p>word in the sequence</p>
 </div></blockquote>
 </section>
 <section id="encoder-decoder-structure">
@@ -599,9 +599,9 @@ cases</p>
 <h3>Feed-Forward Neural Networks<a class="headerlink" href="#feed-forward-neural-networks" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>after the attention layers, position-wise feed-forward neural networks further process</p></li>
+<li><p>after the attention layers, position-wise feed-forward neural networks further process
+the data</p></li>
 </ul>
-<p>the data</p>
 </div></blockquote>
 <p><a class="reference external" href="#deep-learning">back to top</a></p>
 </section>
@@ -660,7 +660,7 @@ cases</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subword-level-tokenizer">Subword Level Tokenizer</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optmizer">Optmizer</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizer">Optimizer</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-squared-error">Mean Squared Error</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent">Gradient Descent</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#momentum">Momentum</a></li>
