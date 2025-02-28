@@ -305,8 +305,8 @@ Express
     * send small amount of data using url
         - http://hn.algolia.com/api/v1/users/:username
         - http://hn.algolia.com/api/v1/search?query=foo&tags=story
-          + everything after ? is not part of url and is sent to server to decide what to do
-          + will send {query: 'foo', tags: 'story'}
+           + everything after ? is not part of url and is sent to server to decide what to do
+           + will send {query: 'foo', tags: 'story'}
 
         .. code-block:: js
 
@@ -470,7 +470,7 @@ HTTP Methods
         - partial update
         - update only data that was passed in
 * DELETE (delete)
-    * www.site.com/api/orders/:id , delete order (path params)
+    *  www.site.com/api/orders/:id , delete order (path params)
     * app.delete
 
 `back to top <#top>`_

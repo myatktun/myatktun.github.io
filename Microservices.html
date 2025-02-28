@@ -406,41 +406,41 @@ computer, and communicate via network
 <section id="monolith-vs-microservices">
 <h3>Monolith vs Microservices<a class="headerlink" href="#monolith-vs-microservices" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt><strong>Monolith</strong></dt><dd><ul>
+<div><ul>
+<li><dl>
+<dt><strong>Monolith</strong></dt><dd><ul class="simple">
 <li><p>a great option for creating a throw-away prototype, to validate business idea first</p></li>
 <li><p>all code runs in same process with no barriers</p></li>
-<li><p>can become a mess as size increases and can be difficult for new developers to
-understand</p></li>
-<li><p>a code change can break the entire application and gives arise to deployment fear</p></li>
-<li><p>testing can be difficult to scale as it consumes resources as entire application and
-becomes more expensive to run</p></li>
+<li><p>can become a mess as size increases and can be difficult for new developers to</p></li>
 </ul>
+<p>understand
+- a code change can break the entire application and gives arise to deployment fear
+- testing can be difficult to scale as it consumes resources as entire application and
+becomes more expensive to run</p>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>Microservices</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>Microservices</strong></dt><dd><ul class="simple">
 <li><p>with the right tools, microservices prototyping can be as easy as with monolith</p></li>
-<li><p>before, microservices were only used where value of solution is more than cost of
-implementation</p></li>
-<li><p>as it became cheaper to replace monolithic apps, components of distributed systems
-reduce to microservices</p></li>
-<li><p>each service can has dedicated resources</p></li>
-<li><p>physical infrastructure can be shared between many services to be cost effective</p></li>
-<li><p>can have fine-grained control, minimize deployment risk and choose own tech stack</p></li>
-<li><p>error when updating a service cannot break the entire application and easier
-rollback as small part of the system rather than the whole</p></li>
-<li><p>faster boot that makes system easier to scale as it can be replicated quickly</p></li>
-<li><p>easier to test and troubleshoot</p></li>
-<li><p>each component should be able to thrown away and be rewritten with different tech
-within weeks</p></li>
-<li><p>multiple tech stacks can work together in the cluster using shared protocols and
-communication mechanism</p></li>
-<li><p>microservices create structure that can be converted to newer tech stacks</p></li>
-<li><p>more difficult and complex to develop, and has steep learning curve</p></li>
+<li><p>before, microservices were only used where value of solution is more than cost of</p></li>
 </ul>
+<p>implementation
+- as it became cheaper to replace monolithic apps, components of distributed systems
+reduce to microservices
+- each service can has dedicated resources
+- physical infrastructure can be shared between many services to be cost effective
+- can have fine-grained control, minimize deployment risk and choose own tech stack
+- error when updating a service cannot break the entire application and easier
+rollback as small part of the system rather than the whole
+- faster boot that makes system easier to scale as it can be replicated quickly
+- easier to test and troubleshoot
+- each component should be able to thrown away and be rewritten with different tech
+within weeks
+- multiple tech stacks can work together in the cluster using shared protocols and
+communication mechanism
+- microservices create structure that can be converted to newer tech stacks
+- more difficult and complex to develop, and has steep learning curve</p>
 </dd>
 </dl>
 </li>
@@ -617,18 +617,18 @@ assets, for easier and faster deployment
 <li><p>one-to-one indirect messaging between services</p></li>
 <li><p>can have multiple senders and receivers</p></li>
 <li><p>only single service will receive each individual message</p></li>
-<li><p>useful when distributing a job that should be handled only by the first one that is
-capable of dealing with</p></li>
-<li><p>will make sure that a job is done only once within application</p></li>
+<li><p>useful when distributing a job that should be handled only by the first one that is</p></li>
 </ul>
+<p>capable of dealing with
+- will make sure that a job is done only once within application</p>
 </div></blockquote>
-<ul class="simple">
-<li><dl class="simple">
-<dt><strong>multiple-recipient messaging</strong></dt><dd><ul>
-<li><p>one-to-many broadcast style, one service sends that message but many others can
-receive</p></li>
-<li><p>mostly used for notifications</p></li>
+<ul>
+<li><dl>
+<dt><strong>multiple-recipient messaging</strong></dt><dd><ul class="simple">
+<li><p>one-to-many broadcast style, one service sends that message but many others can</p></li>
 </ul>
+<p>receive
+- mostly used for notifications</p>
 </dd>
 </dl>
 </li>
@@ -666,44 +666,44 @@ receive</p></li>
 <section id="monorepos">
 <h3>Monorepos<a class="headerlink" href="#monorepos" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>related changes in different projects can be in the same pull-request</p></li>
-<li><dl class="simple">
-<dt><strong>Nx</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>Nx</strong></dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">npx</span> <span class="pre">create-nx-workspace</span></code>, <code class="docutils literal notranslate"><span class="pre">yarn</span> <span class="pre">create</span> <span class="pre">nx-workspace</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">[target]</span> <span class="pre">[project]</span></code>, targets (serve, build, lint, test, e2e) from <code class="docutils literal notranslate"><span class="pre">project.json</span></code></p></li>
 <li><p>types of libraries: Feature, UI, Data-access, Utility</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">g</span> <span class="pre">lib</span> <span class="pre">feature</span> <span class="pre">--directory</span> <span class="pre">feature1</span> <span class="pre">--appProject</span> <span class="pre">project1</span> <span class="pre">--tags</span> <span class="pre">type:feature</span></code>,
-create library in <code class="docutils literal notranslate"><span class="pre">libs/feature1/feature</span></code>, <code class="docutils literal notranslate"><span class="pre">--appProject</span></code> make the library routable
-inside specified application, <code class="docutils literal notranslate"><span class="pre">--tags</span></code> are add to <code class="docutils literal notranslate"><span class="pre">project.json</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">g</span> <span class="pre">component</span> <span class="pre">GlobalStyles</span> <span class="pre">--project</span> <span class="pre">project1-folder1</span> <span class="pre">--export</span></code>, create component
-in <code class="docutils literal notranslate"><span class="pre">libs/project1/folder1/src/lib/global-styles</span></code>, <code class="docutils literal notranslate"><span class="pre">--project</span></code> specifies as found in
-<code class="docutils literal notranslate"><span class="pre">projects</span></code> section of <code class="docutils literal notranslate"><span class="pre">nx.json</span></code>, <code class="docutils literal notranslate"><span class="pre">--export</span></code> exports the component in <code class="docutils literal notranslate"><span class="pre">index.ts</span></code> file</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">g</span> <span class="pre">app</span> <span class="pre">--help</span></code>, <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">g</span> <span class="pre">lib</span> <span class="pre">--help</span></code>, <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">g</span> <span class="pre">component</span> <span class="pre">--help</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&#64;nrwl/nx/enforce-module-boundaries</span></code> define libraries dependencies based on tags,
-even circular dependency is not allowed, need to set <code class="docutils literal notranslate"><span class="pre">allowCircularSelfDependency:</span> <span class="pre">true</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">graph</span></code>, show dependency graph</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">affected:graph</span></code>, show affected graph (uses Git history and compare with main
-branch to determine which projects are affected, specify base with <code class="docutils literal notranslate"><span class="pre">--base</span></code> or
-<code class="docutils literal notranslate"><span class="pre">deafultBase</span></code> in <code class="docutils literal notranslate"><span class="pre">nx.json</span></code>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">affected:build</span></code>, build affected apps</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">affected:test</span></code>, test affected projects</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">affected:lint</span></code>, lint affected projects</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">affected:e2e</span></code>, run e2e tests on affected projects</p></li>
-<li><p>projects at the bottom of the dependency run first</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--maxParallel</span></code>, specify parallel tasks (3 by default)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">print-affected</span> <span class="pre">--type=app</span> <span class="pre">--select=projects</span></code>, list affected apps</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">print-affected</span> <span class="pre">--type=lib</span> <span class="pre">--select=projects</span></code>, list affected libraries</p></li>
-<li><p>listing affected projects can be useful in CI</p></li>
-<li><p>Nx uses computation caching to run tasks faster, will replay the same output if
-computation hash is the same (stored in <code class="docutils literal notranslate"><span class="pre">node_modules/.cache/nx</span></code> and can specify under
-<code class="docutils literal notranslate"><span class="pre">tasksRunnerOptions</span></code> in <code class="docutils literal notranslate"><span class="pre">nx.json</span></code>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">g</span> <span class="pre">&#64;nrwl/express:app</span> <span class="pre">api</span> <span class="pre">--no-interactive</span> <span class="pre">--frontend-project=frontend</span></code>, generate
-express app boiler plate (<code class="docutils literal notranslate"><span class="pre">--frontend-project</span></code> add proxy configuration)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">run-many</span> <span class="pre">--target=serve</span> <span class="pre">--projects=api,frontend</span></code>, start multiple applications</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">g</span> <span class="pre">&#64;nrwl/node:lib</span> <span class="pre">shared-models</span> <span class="pre">--no-interactive</span></code>, generate utility library</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">format:check</span></code>, <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">format:write</span></code>, checks and formats files with Prettier</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">g</span> <span class="pre">lib</span> <span class="pre">feature</span> <span class="pre">--directory</span> <span class="pre">feature1</span> <span class="pre">--appProject</span> <span class="pre">project1</span> <span class="pre">--tags</span> <span class="pre">type:feature</span></code>,</p></li>
 </ul>
+<p>create library in <code class="docutils literal notranslate"><span class="pre">libs/feature1/feature</span></code>, <code class="docutils literal notranslate"><span class="pre">--appProject</span></code> make the library routable
+inside specified application, <code class="docutils literal notranslate"><span class="pre">--tags</span></code> are add to <code class="docutils literal notranslate"><span class="pre">project.json</span></code>
+- <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">g</span> <span class="pre">component</span> <span class="pre">GlobalStyles</span> <span class="pre">--project</span> <span class="pre">project1-folder1</span> <span class="pre">--export</span></code>, create component
+in <code class="docutils literal notranslate"><span class="pre">libs/project1/folder1/src/lib/global-styles</span></code>, <code class="docutils literal notranslate"><span class="pre">--project</span></code> specifies as found in
+<code class="docutils literal notranslate"><span class="pre">projects</span></code> section of <code class="docutils literal notranslate"><span class="pre">nx.json</span></code>, <code class="docutils literal notranslate"><span class="pre">--export</span></code> exports the component in <code class="docutils literal notranslate"><span class="pre">index.ts</span></code> file
+- <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">g</span> <span class="pre">app</span> <span class="pre">--help</span></code>, <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">g</span> <span class="pre">lib</span> <span class="pre">--help</span></code>, <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">g</span> <span class="pre">component</span> <span class="pre">--help</span></code>
+- <code class="docutils literal notranslate"><span class="pre">&#64;nrwl/nx/enforce-module-boundaries</span></code> define libraries dependencies based on tags,
+even circular dependency is not allowed, need to set <code class="docutils literal notranslate"><span class="pre">allowCircularSelfDependency:</span> <span class="pre">true</span></code>
+- <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">graph</span></code>, show dependency graph
+- <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">affected:graph</span></code>, show affected graph (uses Git history and compare with main
+branch to determine which projects are affected, specify base with <code class="docutils literal notranslate"><span class="pre">--base</span></code> or
+<code class="docutils literal notranslate"><span class="pre">deafultBase</span></code> in <code class="docutils literal notranslate"><span class="pre">nx.json</span></code>)
+- <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">affected:build</span></code>, build affected apps
+- <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">affected:test</span></code>, test affected projects
+- <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">affected:lint</span></code>, lint affected projects
+- <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">affected:e2e</span></code>, run e2e tests on affected projects
+- projects at the bottom of the dependency run first
+- <code class="docutils literal notranslate"><span class="pre">--maxParallel</span></code>, specify parallel tasks (3 by default)
+- <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">print-affected</span> <span class="pre">--type=app</span> <span class="pre">--select=projects</span></code>, list affected apps
+- <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">print-affected</span> <span class="pre">--type=lib</span> <span class="pre">--select=projects</span></code>, list affected libraries
+- listing affected projects can be useful in CI
+- Nx uses computation caching to run tasks faster, will replay the same output if
+computation hash is the same (stored in <code class="docutils literal notranslate"><span class="pre">node_modules/.cache/nx</span></code> and can specify under
+<code class="docutils literal notranslate"><span class="pre">tasksRunnerOptions</span></code> in <code class="docutils literal notranslate"><span class="pre">nx.json</span></code>)
+- <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">g</span> <span class="pre">&#64;nrwl/express:app</span> <span class="pre">api</span> <span class="pre">--no-interactive</span> <span class="pre">--frontend-project=frontend</span></code>, generate
+express app boiler plate (<code class="docutils literal notranslate"><span class="pre">--frontend-project</span></code> add proxy configuration)
+- <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">run-many</span> <span class="pre">--target=serve</span> <span class="pre">--projects=api,frontend</span></code>, start multiple applications
+- <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">g</span> <span class="pre">&#64;nrwl/node:lib</span> <span class="pre">shared-models</span> <span class="pre">--no-interactive</span></code>, generate utility library
+- <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">format:check</span></code>, <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">format:write</span></code>, checks and formats files with Prettier</p>
 </dd>
 </dl>
 </li>

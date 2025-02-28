@@ -140,10 +140,10 @@ monitoring systems
         - can detect if service is up and running
     * **push system**
         - apps and servers are responsible for pushing metrics data to centralized collection
-          platform (e.g., Amazon Cloud Watch, Relic)
+         platform (e.g., Amazon Cloud Watch, Relic)
         - can cause high load of network traffic as services constantly push data
         - service not pushing metrics can be caused by many reasons other than service not
-          running
+        running
         - can't have insight what is happening to the service
         - usually used in event-based systems
     * **pushgateway**
@@ -647,7 +647,7 @@ Alertmanager Configuration
     * **Notification Templates**
         - messages from notifiers can be configured with Go templating system
         - GroupLabels, CommonLabels, CommonAnnotations, ExternalURL, Status, resolved,
-          Receiver, Alerts (Labels, Annotations, status, StartsAt, EndsAt)
+        Receiver, Alerts (Labels, Annotations, status, StartsAt, EndsAt)
 
     .. code-block:: yaml
 
@@ -708,13 +708,13 @@ Types
         - numeric floating point value
     * instant vector
         - set of time series containing single sample for each series, all share same
-          timestamp
+        timestamp
         - e.g query of ``METRICS`` returning multiple ``METRICS{LABELS} VALUE`` with same
-          ``TIMESTAMP``
+        ``TIMESTAMP``
     * range vector
-        - set of time series containing range of data points over time for each time series
+        -set of time series containing range of data points over time for each time series
         - e.g query of ``METRICS[time]`` returning multiple ``METRICS{LABELS} VALUE`` with
-          different ``TIMESTAMP``
+        different ``TIMESTAMP``
 
 Label Selectors & Matchers
 --------------------------
@@ -725,7 +725,7 @@ Label Selectors & Matchers
         - can use multiple selectors by separating with comma
         - e.g ``node_filesystem_avail_bytes{instance="node1", device!="tmpfs"}``
         - e.g ``node_filesystem_avail_bytes{instance="node1", device!="tmpfs"}[3m]``, using
-          range vectors
+        range vectors
 
 Modifiers
 ---------
@@ -734,7 +734,7 @@ Modifiers
     * e.g offset modifier: ``node_filesystem_avail_bytes{instance="node1"} offset 5m``
     * to specific point in time
         - e.g @ modifier: ``node_filesystem_avail_bytes{instance="node1"} @2132151523``, unix
-          timestamp
+        timestamp
     * can combine multiple modifiers
         - modifiers order does not matter
         - e.g ``node_filesystem_avail_bytes{instance="node1"} @2132151523 offset 3m``
@@ -745,15 +745,15 @@ Operators
 ---------
     * metric name is removed from output when it is modified
         - e.g ``node_filesystem_avail_bytes{instance="node1"} + 10`` will output
-          ``{instance="node1"} VALUE``
+        ``{instance="node1"} VALUE``
     * Arithmetic: +, -, \*, /, %, ^
     * Comparison: ==, !==, >, <, >=, <=, bool (return 1 or 0, mostly used for alerts)
     * Logical: or, and, unless
     * Aggregation
         - take an instant vector and aggregate its elements, and result in new instant vector
         - sum, min, max, avg, group, stddev, stdvar, count, count_values, bottomk, topk,
-          quantile (determine how many values in distribution are above or below certain limit,
-          90% quantile = at what value is 90% of the data less than)
+        quantile (determine how many values in distribution are above or below certain limit,
+         90% quantile = at what value is 90% of the data less than)
         - can use ``by`` to group labels and aggregate
         - e.g ``sum by(path) (http_requests)``
         - can use ``without`` to ignore labels and aggregate
@@ -770,9 +770,9 @@ Vector Matching
     * one-to-many
         - elements on the one side can match with multiple elements on the other/many side
         - e.g ``http_errors + on(method) group_left http_requests``, http_errors become many
-          side
+        side
         - e.g ``http_requests + on(method) group_right http_errors``, http_errors become many
-          side
+        side
 
 Functions
 ---------
@@ -780,7 +780,7 @@ Functions
         - e.g ceil, floor, abs, round
     * date & time
         - time (returns current time), minute, hour, day_of_week, day_of_month, days_in_month,
-          month, year
+         month, year
     * vector
         - take scalar and return instant vector
         - e.g ``vector(4)`` output ``{}4``
@@ -793,13 +793,13 @@ Functions
     * rate
         - return per second average rate of change
         - rate: takes last and first value, an average rate over the range, mostly used for
-          slow moving counters and alert rules
+        slow moving counters and alert rules
         - e.g ``rate(http_errors[1m])``, group values in 1m interval, (last - first)/60s and
-          return the calculated value
+        return the calculated value
         - irate: takes last and value before last, instant rate, mostly used to graph volatile
-          counters
+        counters
         - e.g ``irate(http_errors[1m])``, group values in 1m interval, (last - before_last)/15s
-          and return the calculated value, 15s is the interval between last two values
+        and return the calculated value, 15s is the interval between last two values
         - should at least have 4 samples in a range to calculate rate and irate
         - e.g 15s scrape interval 60s window give 4 samples
         - always use rate function first when combining with aggregate
@@ -809,7 +809,7 @@ Subquery
     * format: ``<instant query> [<range>:<resolution>] [offset <duration>]``
     * e.g ``max_over_time(rate(http_requests_total[1m]) [5m:30s])``
         - ``rate(http_requests_total[1m]) [5m:30s]``, return range vector with 1m sample range,
-          data from last 5m and 30s gap between each query
+        data from last 5m and 30s gap between each query
 
 Histogram
 ---------
@@ -818,9 +818,9 @@ Histogram
         - allow to calculate quantiles easily
         - ``histogram_quantile(<percentile>, <histogram metric>)``
         - e.g ``histogram_quantile(0.75, request_latency_seconds_bucket)``, 75% of all requests
-          had a latency of VALUE or less
+        had a latency of VALUE or less
         - can be used to measure SLO, but only approximation as the function use linear
-          interpolation
+        interpolation
         - for accurate SLO, make sure one bucket has the specific SLO value
     * each histogram bucket is stored as separate time series
     * having too many buckets can result in high cardinality, high memory usage and disk space,
@@ -848,8 +848,8 @@ Recording Rules
         - level: aggregation level of the metric by the labels
         - operations: list of functions applied to the metric
         - e.g for http_errors with labels of "method" and "path",
-          expr: ``sum without(instance) (rate(http_errors{job="api"}[5m]))``,
-          record: ``job_method_path:http_errors:rate5m``
+        expr: ``sum without(instance) (rate(http_errors{job="api"}[5m]))``,
+        record: ``job_method_path:http_errors:rate5m``
     * all rules for a specific job should be in a single group
 
     .. code-block:: yaml
@@ -923,7 +923,7 @@ Client Libraries
         - online app: number of requests, errors, latency, in-progress requests
         - offline app: amount of queued work, in-progress work, rate of processing, errors
         - batch job (require pushgateway): process time for each stage, overall runtime, last
-          completed job time
+        completed job time
 
 Monitoring Kubernetes
 ---------------------
@@ -954,15 +954,15 @@ Monitoring Kubernetes
         - allow to avoid modifying Prometheus configs directly
         - give declarative Kubernetes syntax to define targets
     * **Applying scrape configs**
-          1\. modifying Helm chart values of additionalScrapeConfigs
-          2\. more optimal way of using ServiceMonitor by providing endpoints to scrape, need to
-          have same serviceMonitorSelector.matchLabels from Prometheus CRD for Prometheus to
-          dynamically discover the ServiceMonitor
+        #. modifying Helm chart values of additionalScrapeConfigs
+        #. more optimal way of using ServiceMonitor by providing endpoints to scrape, need to
+        have same serviceMonitorSelector.matchLabels from Prometheus CRD for Prometheus to
+        dynamically discover the ServiceMonitor
     * use PrometheusRule CRD to add rules, need to have same ruleSelector.matchLabels
     * use AlertmanagerConfig CRD to add Alertmanager rules
         - rule files for Kubernetes use camelCase
         - need to add custom Helm value for alertmanagerConfigSelector.matchLabels, and have
-          same label in AlertManager rule file
+        same label in AlertManager rule file
 
 `back to top <#prometheus>`_
 
@@ -1053,15 +1053,15 @@ pushgateway
     * HTTP requests
         - ``http://IP:PORT/metrics/job/JOB_NAME/LABEL1/VALUE1/LBAEL2/VALUE2``
         - ``LABEL/VALUE`` is used as a grouping key, to group metrics together and update
-          multiple metrics at once
+        multiple metrics at once
         - POST: only metrics with same name as newly pushed metrics are replaced
         - PUT: all metrics within specific group are replaced by new ones
         - DELETE: delete all metrics within a group
     * Prometheus Client Libraries
         - push: existing metrics for the job are removed and pushed ones are added, same as
-          HTTP PUT
+        HTTP PUT
         - pushadd: pushed metrics override existing same ones, others remain unchanged, same
-          as HTTP POST
+        as HTTP POST
         - delete: delete all metrics for a group
 
         .. code-block:: python

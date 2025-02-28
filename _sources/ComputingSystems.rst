@@ -56,28 +56,28 @@ Boolean Algebra
     architectures
     * **Truth Table**
         - specify boolean function by enumerating all possible values of inputs and outputs
-          | x | y | z | f(x, y, z) |
-          |---|---|---|------------|
-          | 0 | 0 | 0 |     0      |
-          | 0 | 0 | 1 |     0      |
-          | 0 | 1 | 0 |     1      |
-          | 0 | 1 | 1 |     0      |
-          | 1 | 0 | 0 |     1      |
-          | 1 | 0 | 1 |     0      |
-          | 1 | 1 | 0 |     1      |
-          | 1 | 1 | 1 |     0      |
+         | x | y | z | f(x, y, z) |
+         |---|---|---|------------|
+         | 0 | 0 | 0 |     0      |
+         | 0 | 0 | 1 |     0      |
+         | 0 | 1 | 0 |     1      |
+         | 0 | 1 | 1 |     0      |
+         | 1 | 0 | 0 |     1      |
+         | 1 | 0 | 1 |     0      |
+         | 1 | 1 | 0 |     1      |
+         | 1 | 1 | 1 |     0      |
     * **Boolean Expression**
         - specify boolean function by operating over inputs
         - basic operators are AND (x.y), OR (x + y), NOT (!x)
     * **Canonical Representation**
         - every boolean function can be expressed using AND, OR, NOT
         - for each row with output 1, construct a term created by AND-ing together literals
-          (variables or their negations) that fix the values of all row's inputs
+        (variables or their negations) that fix the values of all row's inputs
         - x = 0, y = 1, z = 0 produce the term !xy!z
         - x = 1, y = 0, z = 0 produce the term x!y!z
         - x = 1, y = 1, z = 0 produce the term xy!z
         - apply OR on terms of rows with output 1 and the result expression is equivalent to
-          truth table, (!xy!z + x!y!z + xy!z)
+        truth table, (!xy!z + x!y!z + xy!z)
         - NP-hard problem to find the shortest expression equivalent to the given one
     * constant 0 = 0, AND = xy, x AND NOT y = x!y, x = x, NOT x AND y = !xy, y = y
     * XOR = x!y + !xy, OR = x + y, NOR = !(x + y), Equivalence = xy + !x!y, NOT y = !y
@@ -485,7 +485,7 @@ ALU
         - has hardware/software trade-off when implementing ALU
         - deciding which operations are allowed to perform
         - as operations are abstracted from a programmer, to output the correct result is the
-          only concern
+        only concern
         - when an operation is designed in hardware, it is faster, but complex and costly
     * **Example ALU Control Bits**
         - control bits are sequential
@@ -532,13 +532,13 @@ HDL
     * **Statment**
         - specify each part of its name and connection to other parts
         - to write a statement, need to know a complete documentation of underlying parts'
-          interfaces
+        interfaces
     * **Pins**
         - by default single-bit, multi-bit bus pins can also be declared and used
         - internal pins: create and connect to describe inter-part connections, can be created
-          and named at will
+        and named at will
         - output pins: names cannot be controlled by programmer, supplied by chips' architects
-          and documented in given API
+        and documented in given API
         - pins have fan-in 1 and unlimited fan-out
 
         .. code-block:: vhdl
@@ -553,7 +553,7 @@ HDL
     * **Program Structure**
         - interface: chip's API documentation, chip name and names of input and output pins
         - implementation: statements below PARTS keyword, describe names and topology of all
-          lower-level parts from which the chip is constructed
+        lower-level parts from which the chip is constructed
 
         .. code-block:: vhdl
 
@@ -594,14 +594,14 @@ Multi-Bit Buses
     * **Internal Bus Pins**
         - bit-widths are deduced implicitly from the bindings in declaration
         - ``chipPart1(..., x[i]=u, ...);`` defines ``u`` as single-bit internal pin and has value
-          x[i]
+        x[i]
         - ``chipPart1(..., x[i..j]=v, ...);`` defines ``v`` as internal pin of width ``j-i+1`` bits
-          and has values indexed ``i`` to ``j`` (inclusive) of bus-pin ``x``
+        and has values indexed ``i`` to ``j`` (inclusive) of bus-pin ``x``
         - internal pins cannot be subscripted, e.g. u[i] is not allowed
     * **True/False Buses**
         - constants true, 1, and false, 0, can be sued to define buses
         - if ``x`` is 8-bit bus-pin, ``chipPart(..., x[0..2]=true, ..., x[6..7]=true, ...);`` sets
-          ``x`` to the value 11000111
+        ``x`` to the value 11000111
         - unaffected bits are set to false, 0, by default
     * **Indexing Internal Bus Pins Workaround**
 
@@ -663,15 +663,15 @@ Built-In Chips
         - built-in chips provide supplied implementations of given or primitive chips
     * **Efficiency**
         - when using complex chips, hardware simulator has to evaluate all lower-level chips
-          recursively, and it can be slow and inefficient
+        recursively, and it can be slow and inefficient
         - using built-in chip-parts instead of regular HDL-based chips can speed up the
-          simulation
+        simulation
     * **Unit Testing**
         - when building a new chip, it is recommended to use built-in chip parts
         - improves efficiency and minimizes errors
     * **Visualization**
         - built-in chips that features a GUI will be displayed whenever it is loaded into the
-          simulator
+        simulator
         - chips with GUI can be used just like any other chip
     * **Extension**
         - built-in chips can support to implement new I/O device or hardware platform
@@ -690,26 +690,26 @@ Sequential Chips
         - tick moves the value from t to t+, and tock from t+ to t+1
         - simulated time can be fully controlled by the user or a test script
         - in first phase, tick, inputs of each sequential chip affect the chip's internal
-          state
+        state
         - in second phase, tock, chip outputs are set to new values
     * **Controlling the clock**
         - when a sequential chip is loaded, GUI enables a clock-shaped button
         - one click on the button, a tick, end the first phase of the clock cycle, and a
-          subsequent click, a tock, ends the second phase
+        subsequent click, a tock, ends the second phase
         - scripting commands ``repeat n {tick, tock, output;}`` advance the clock ``n`` time units
-          , and print some values
+        , and print some values
     * **Sequential Built-In Chips**
         - only built-in chip can depend on the clock explicitly, ``CLOCKED pin,..., pin;``
         - each pin is one of the chip's input or output pins
         - if input pin x is in ``CLOCKED`` list, changes to it should affect outputs only at the
-          beginning of the next time unit
+        beginning of the next time unit
         - if output pin x is in ``CLOCKET`` list, changes to any inputs should affect only at the
-          beginning of the next time unit
+        beginning of the next time unit
         - when only some of I/O pins are declared as clocked, changes in the non-clocked input
-          pins affect the non-clocked output pins instantaneously, e.g. address pins in RAM
-          units, addressing logic is combinational, and independent of the clock
+        pins affect the non-clocked output pins instantaneously, e.g. address pins in RAM
+        units, addressing logic is combinational, and independent of the clock
         - if ``CLOCKED`` keyword is with empty list, the chip mah change its internal state
-          depending on the clock, but I/O will be combinational and independent of the clock
+        depending on the clock, but I/O will be combinational and independent of the clock
 
         .. code-block:: vhdl
 
@@ -726,19 +726,19 @@ Sequential Chips
 
     * **Sequential Regular Chips**
         - if the chip is not built-in, it is clocked when one or more of its chip-parts is
-          clocked
+        clocked
         - clocked property is checked recursively
         - if a built-in chip is explicitly clocked, every chip that depends on it is clocked
         - if a chip is not built-in, there is no way to tell from its HDL code whether it is
-          sequential or not
+        sequential or not
         - chip architect should provide the necessary information in the chip API
     * **Feedback Loops**
         - feedback loop: input of a chip feeds from one of the outputs, directly or through
-          path of dependencies
+        path of dependencies
         - data race: instantaneous and uncontrolled dependency between ``in`` and ``out``
         - for each loop, simulator checks if the loop goes through a clocked pin
         - if the loop does not go through a clocked pin, simulator stops processing and error
-          to prevent uncontrolled data races
+        to prevent uncontrolled data races
 
         .. code-block:: vhdl
 

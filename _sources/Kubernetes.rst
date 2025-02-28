@@ -137,24 +137,24 @@ YAML
 
     * K8s YAML contains four top definition fields
         - **apiVersion**
-          + K8s api used to create objects
+           + K8s api used to create objects
         - **kind**
-          + type of object to create
-          + e.g Pod (v1), ReplicaSet (apps/v1), Service (v1), Deployment (apps/v1)
+           + type of object to create
+           + e.g Pod (v1), ReplicaSet (apps/v1), Service (v1), Deployment (apps/v1)
         - **metadata**
-          + data about object such as name, labels
-          + every data is in the form of dictionary
-          + indent doesn't matter as long as they are same
-          + labels can have any key/value pairs and make pods easier to group
+           + data about object such as name, labels
+           + every data is in the form of dictionary
+           + indent doesn't matter as long as they are same
+           + labels can have any key/value pairs and make pods easier to group
         - **spec**
-          + remaining details such as containers, which contains arrays
+           + remaining details such as containers, which contains arrays
 
 TLS Basics
 ----------
     * used to guarantee trust during transactions
     * symmetric encryption
         - using same key to encrypt and decrypt, key has to be exchanged between receiver and
-          sender
+        sender
         - data is encrypted using a key
         - a copy of the key must also be on server
         - e.g data transaction between user and web server
@@ -165,21 +165,21 @@ TLS Basics
         - cannot encrypt and decrypt with the same key
         - use one to decrypt and the other to decrypt
         - if data is encrypted using private key, public key can be used to decrypt and since
-          public key has been shared, deciding which key to use to decrypt is important
+        public key has been shared, deciding which key to use to decrypt is important
         - e.g safely transfer symmetric key between user and web server
     * ``ssh-keygen`` is for ssh purposes, format is different
     * use ``openssl`` for web servers
         - ``openssl genrsa -out my.key 1024``
         - ``openssl rsa -in my.key -pubout > myPub.pem``
         - when the user first access the web server using https, he gets the public key from
-          the server, hackers can get the public key
+        the server, hackers can get the public key
         - the user's browser encrypt the symmetric key using the public key provided by the
-          server
+        server
         - the user sends the encrypted key to the server, hacker also gets the copy
         - the server decrypt the symmetric key using it's private key, since the hacker does
-          not have the private key, he cannot decrypt it
+        not have the private key, he cannot decrypt it
         - the symmetric key now be used to send data between user and server, the server can
-          use the same encrypted symmetric key to decrypt the data
+        use the same encrypted symmetric key to decrypt the data
     * every certificate has a name, person or subject the certificate is issued to
     * who signed and issued the certificate is very important
     * everyone can look at the certificate and know if the persons signed is authorized or not
@@ -188,7 +188,7 @@ TLS Basics
         - well-known organizations that can sign and validate the certificate
         - e.g Symantec, Digicert, Comodo, GlobalSign
         - generate a CSR (Certificate Signing Request) using the key generated and the domain
-          name of the website
+        name of the website
         - ``openssl req -new -key my.key -out my.csr -subj "/C=US/ST=CA/O=MyOrg, Inc./CN=mydomain.com``
         - CA verifies the details and sign the certificate and send it back
         - now have a certificate that the browsers trust
@@ -201,15 +201,15 @@ TLS Basics
     * client certificates
         - the server does not know if the client can be trusted or not
         - in initial trust building exercise, the server can request a certificate from the
-          client
+        client
         - the client generates a pair of keys and a signed certificate from a CA and send it
-          to the server
+        to the server
         - TLS client certificates are not generally implemented on web servers
     * certificates with public key are usually named ``*.crt`` or ``*.pem``
     * private keys are usually named ``*.key`` or ``*-key.pem``
     * PKI (Public Key Infrastructure)
         - CAs, servers, clients and the process of generating, distributing and maintaining
-          digital certificates
+        digital certificates
     * **Oneway SSL**
         - client verifies server's certificate, the server does not verify client's certificate
         - the server only verifies the user based on the data sent, such as username, password
@@ -217,10 +217,10 @@ TLS Basics
         - both client and server verify authenticity of each other
         - client first request server's public certificate
         - the server replies with it's public certificate and requests for the client's public
-          certificate
+        certificate
         - the client checks the server's certificate with the CA
         - the client then sends its public certificate and a symmetric key encrypted with the
-          public key of the server
+        public key of the server
         - the server verifies the client's certificate with the CA
         - all communication can now be encrypted with symmetric keys
 
@@ -276,13 +276,13 @@ DNS
     * **DNS server**
         - as the environment grows, entries in ``/etc/hosts`` will also increase
         - instead of managing entries on each system, let a single server, DNS server, manage
-          all entries
+        all entries
         - point all systems to look up on the DNS server if they need to resolve a name to IP
-          address
+        address
         - every system has DNS resolution configuration file at ``/etc/resolv.conf``
         - only need to update on the DNS server if IPs change
         - if there is same entry on local and DNS server, the system will first look in local
-          file and use it
+        file and use it
         - order that defines which file to look first is defined in ``/etc/nsswitch.conf``
         - can configure the DNS server to forward all unknown names to the public nameserver
     * **Domain Names**
@@ -378,9 +378,9 @@ Network Namespace
         - the host now have two IPs, one on bridge and other on external
         - gateway should be the one the namespace can reach, the bridge (192.168.15.5)
         - the host must have net functionality for the outside network to know that the
-          packets are coming from the host instead of the namespace, which is unknown it
+        packets are coming from the host instead of the namespace, which is unknown it
         - since the namespace can reach any network the host can, it can be setup so that
-          the namespace talk to the host to reach any external network
+        the namespace talk to the host to reach any external network
         - can use port forwarding for external network to reach the namespace
 
         .. code-block:: sh
@@ -405,13 +405,13 @@ Container Network Configurations
         - container is not part of any network
     * **host**
         - container is attached to host network, no network isolation between host and
-          container
+        container
     * **bridge**
         - internal private network is created, which the host and containers attach to and
-          containers get their own internal private IPs
+        containers get their own internal private IPs
         - docker calls the default bridge as 'bridge', but the host sees it as 'docker0'
         - docker creates a network namespace for a container by default and attach it to the
-          bridge, naming interfaces as odd/even pairs
+        bridge, naming interfaces as odd/even pairs
         - docker provides port mapping for external networks to reach the container
 
 Container Runtime Interface (CRI)
@@ -458,7 +458,7 @@ Container Sandboxing
     * denylist
         - allows everything by default
         - useful when want to make rules not much restricted or want to apply the rules to
-          different applications
+        different applications
     * writing efficient profiles for hundreds of application is not easy, even with third-party
     tools
     * choose which best work for the environment
@@ -473,13 +473,13 @@ System Calls
         - ``strace -p PID``, trace a running process
     * **Aquasec tracee**
         - make use of eBPF, which can run programs directly in kernel space without
-          interfering with kernel code or loading modules
+        interfering with kernel code or loading modules
         - need bind mounts when using as container, ``/tmp/tracee``, ``/lib/modules``, ``/usr/src``
         - container also needs to privileged
         - ``trace comm=ls``, ``trace pid=new``, ``trace container=new``
     * **seccomp**
         - Secure Computing, kernel level feature to sandbox processes to only use necessary
-          syscalls
+        syscalls
         - ``grep Seccomp /proc/pid/status``, Seccomp value 2 means it is implemented
         - modes: 0 (disabled), 1 (strict), 2 (filtered)
         - docker has built-in seccomp filter used by default, if the host kernel has seccomp
@@ -1020,7 +1020,7 @@ Static Pods
     view details about the pods, cannot edit or delete them
     * if the pod is part of the cluster, kubelet also creates a mirror object of the pod in
     kube-apiserver
-    * as static pods are not part of the control-plane, they can be used to deploy
+    *  as static pods are not part of the control-plane, they can be used to deploy
     control-plane components as pods on a node
 
 Init Containers
@@ -1259,7 +1259,7 @@ Selector-less Services
 ----------------------
     * can be used to declare a K8s service with manually assigned IP address that is outside of
     the cluster
-    * service discovery via DNS works as expected
+    *  service discovery via DNS works as expected
     * to create, remove ``spec.selecotr``field from the resource, while leaving the ``metadata``
     and `ports` section unchanged
     * endpoints must be added manually
@@ -1283,12 +1283,12 @@ Connect from External
 ---------------------
     * connecting external resources to K8s services is complex
     * if cloud provider supports
-          1\. can create an internal load balancer in the virtual private network and deliver
-          traffic from a fixed IP address into the cluster and then use DNS to make the IP
-          address available to the external resources
-                    2\. can use ``NodePort`` service to expose the service on the IP addresses of the nodes in
-          the cluster and program a physical load balancer to serve traffic to the nodes or use
-          DNS-based load balancing to spread traffic between nodes
+        #. can create an internal load balancer in the virtual private network and deliver
+        traffic from a fixed IP address into the cluster and then use DNS to make the IP
+        address available to the external resources
+        #. can use ``NodePort`` service to expose the service on the IP addresses of the nodes in
+        the cluster and program a physical load balancer to serve traffic to the nodes or use
+        DNS-based load balancing to spread traffic between nodes
     * can run ``kube-proxy`` on the external resource and program it to use the DNS server in the
     cluster
     * other open source solutions, such as HashiCorp Consul, can be used to manage connectivity
@@ -1552,17 +1552,17 @@ Deployments
 
     * **Rollout**
         - when new Deployment is created, a new rollout is triggered, which creates a new
-          revision
+        revision
         - updating will trigger a new rollout and revision
         - ``OldReplicaSets`` and ``NewReplicaSet`` fields are set to values in the middle of the
-          rollout
+        rollout
         - annotations can be used to record information about the update
         - do not update ``change-cause`` annotation when simple scaling
         - can undo regardless of the rollout stage
         - recommended to edit YAML files to revert versions, rather than imperative ``undo``
         - roll back uses the previous template and renumbers it as the latest revision
         - last 10 revisions are kept by default and can set maximum history size with
-          ``spec.revisionHistoryLimit``
+        ``spec.revisionHistoryLimit``
 
         .. code-block:: sh
 
@@ -1596,11 +1596,11 @@ Deployments
 
     * health checks
         - set ``spec.minReadySeconds`` to make the Deployment wait to update next pod after
-          current pod passes health check
+        current pod passes health check
         - set ``spec.progessDeadlineSeconds`` to time out the rollout and mark it as failed when
-          there's a bug and to avoid the Deployment being stalled forever
+        there's a bug and to avoid the Deployment being stalled forever
         - timeout is defined as the time the Deployment creates or deletes a pod, not overall
-          length of a Deployment
+        length of a Deployment
         - check ``status.conditions`` to check the Deployment state
 
 Deployment Strategies
@@ -1629,12 +1629,12 @@ Deployment Strategies
         - ``Deployment`` create a new ``replicaset`` and upgrade one after another
         - ``kubectl get rs`` will show two ``replicasets``
         - ``maxUnavailable`` sets the max pods that can be unavailable during update and allows
-          to trade speed for availability (Recreate strategy can be considered as
-          ``maxUnavailable`` set to 100%)
+        to trade speed for availability (Recreate strategy can be considered as
+        ``maxUnavailable`` set to 100%)
         - can set ``maxUnavailable`` to 0 and use ``maxSurge`` to maintain 100% capacity and just
-          use extra resources for rollout
+        use extra resources for rollout
         - ``maxSurge`` controls how many extra resources can be created for a rollout (setting
-          it to 100% is same a blue/green strategy)
+        it to 100% is same a blue/green strategy)
         - using percentage to set parameters is good approach
 
         .. code-block:: yaml
@@ -1787,10 +1787,10 @@ StatefulSets
     * if volume is specified, all pods created by StatefulSet will try to use that volume
     * **volumeClaimTemplates**
         - is a PVC (Persistent Volume), ensure each pod created by StatefulSet gets a
-          individual PVC (Persistent Volume Claim)
+        individual PVC (Persistent Volume Claim)
         - defined in statefulset-definition.yml file under ``spec``
         - during the creation of a pod, PVC is created and associated to a SC (Storage Class),
-          the SC creates PV and binds the PVC to the PV
+        the SC creates PV and binds the PVC to the PV
         - StatefulSet do not auto delete the PVC and volume if the associated pod fails
         - instead makes sure that the restarted pod is attached to the same PVC before
 
@@ -1960,7 +1960,7 @@ Recommended Patterns
 --------------------
     * Communication/Synchronization
         - e.g using ``emptyDir`` volume which only has the scope of pod's lifespan but can be
-          shared between two containers
+        shared between two containers
     * Cache
         - cache must survive a container restart and ``emptyDir`` can also be used
     * Persistent data
@@ -1968,7 +1968,7 @@ Recommended Patterns
         - e.g NFS, iSCSI, cloud provider storage
     * Mounting the host filesystem
         - ``hostPath`` volume, which can mount arbitrary locations on the worker node into the
-          container
+        container
         - not recommended unless there are specific reasons
 * external replicated cluster storage solutions: NFS, GlusterFS, Flocker, Ceph, ScaleIO,
 AWS EBS, Azuer Disk, GCE Persistence Disk
@@ -2234,7 +2234,7 @@ Operator Framework
         - popular operator framework to deploy and manage etcd cluster within K8s
         - has EtcdCluster CRD and ETCD Controller
         - can also take backup (EtcdBackup, Backup Operator), restore (EtcdRestore, Restore
-          Operator)
+        Operator)
     * [OperatorHub](https://operatorhub.io/)
 
 `back to top <#kubernetes>`_
@@ -2388,7 +2388,7 @@ Implementing Network Model
 
     * CNI tells K8s to call the script as soon as the container is created
     * the script should meet CNI standards
-    * when a container is created, kubelet looks for script name in ``--cni-conf-dir`` and
+    *  when a container is created, kubelet looks for script name in ``--cni-conf-dir`` and
     find the script in `--cin-bin-dir` and run it with `./net-script.sh add cid ns`
 
 
@@ -2462,7 +2462,7 @@ DNS in K8s
     * coredns is recommended, kube-dns was used before
     * **services**
         - when a service is created, DNS service auto creates a record for it so that any pod
-          can reach the service using the service name
+        can reach the service using the service name
         - ``cluster.local``: domain name
         - ``svc``: sub domain for service
         - ``dev``: namespace
@@ -2475,20 +2475,20 @@ DNS in K8s
     * **pods**
         - records for pods are not created by default
         - full domain name of a pod, ``10-244-2-5.namespace1.type.cluster.local``, dots in pod's
-          IP are replaced by dashes
+        IP are replaced by dashes
     * **coredns**
         - deployed as pod which runs Coredns executable
         - K8s uses ``/etc/coredns/Corefile`` for configuration file
         - multiple plugins are enabled in the file
         - ``kubernetes`` plugin makes CoreDNS work with K8s, where top level domain name of the
-          cluster is set
+        cluster is set
         - ``pods`` options in the file is responsible for creating records for pods
         - any record that the DNS server can't solve is forwarded to the nameserver specified
-          in ``proxy`` in the Corefile
+        in ``proxy`` in the Corefile
         - the Corefile is also passed in to the pods as configmap object
         - when coredns is deployed as pod, a service called ``kube-dns`` is also deployed
         - IP of kube-dns is configured as nameserver and default search entry is also added in
-          ``/etc/resolv.conf`` on pods, which is done by kubelet automatically
+        ``/etc/resolv.conf`` on pods, which is done by kubelet automatically
         - IP of DNS server and domain can be found in ``/var/lib/kubelet/config.yml``
 
 Network Policies
@@ -2581,14 +2581,14 @@ Ingress
     * **Ingress Controller**
         - **Ingress proxy**: exposed outside the cluster using ``LoadBalancer`` type service
         - **Ingress reconciler/operator**: read and monitor ingress objects and reconfigure
-          Ingress proxy to route traffic
+        Ingress proxy to route traffic
         - the solution deployed, does not come with K8s by default
         - must be deployed using third-party as no single load balancer can be set as standard
-          and Ingress was added to K8s before other extensibility capabilities
+        and Ingress was added to K8s before other extensibility capabilities
         - GCE and Nginx are supported and maintained by K8s
         - need a service to expose the ingress controller
         - intelligent enough to monitor cluster's ingress resources and configure underlying
-          nginx server if needed, but requires a ``ServiceAccount`` with right permissions
+        nginx server if needed, but requires a ``ServiceAccount`` with right permissions
 
         .. code-block:: yaml
 
@@ -2671,17 +2671,17 @@ Ingress
         - has a ``Default backend`` where the user will be routed to if rules are not matched
         - should deploy a service for ``Default backend``
         - ``paths``: to direct traffic based on the path in HTTP request, can be used to host
-          multiple services on different paths of single domain, longest prefix matches if
-          multiple paths are on the same host
+        multiple services on different paths of single domain, longest prefix matches if
+        multiple paths are on the same host
         - add ``host:`` in each rule to split traffic by domain name and route appropriately
         - ``rewrite-target``: to write and forward internally to the correct URL on the
-          application, rewrites the URL by replacing the defined ``rule->http->paths->path``
+        application, rewrites the URL by replacing the defined ``rule->http->paths->path``
         - ``spec.ingressClassName``: to enable single Ingress resource to request particular
-          implementation and allowing to run multiple Ingress controllers on single cluster,
-          default controller will be used if not specified
+        implementation and allowing to run multiple Ingress controllers on single cluster,
+        default controller will be used if not specified
         - ``nginx.ingress.kubernetes.io/rewrite-target``, modify/rewrite path in the proxied
-          request with an annotation on the Ingress object, which applies to all requests
-          specified by that object and can make upstream services work on a subpath
+        request with an annotation on the Ingress object, which applies to all requests
+        specified by that object and can make upstream services work on a subpath
         - can also use regular expressions when rewriting path
         - better to avoid path rewriting complicated applications as it can lead to bugs
 
@@ -2743,12 +2743,12 @@ Ingress
         - can use API-driven [Let's Encrypt](https://letsencrypt.org/) and [cer-manager](https://cert-manager.io/)
     * implementations
         - each provider has cloud-based L7 load balancer Ingress implementation that take
-          Ingress objects and configure via API
+        Ingress objects and configure via API
         - reduces the cluster and management load for the operators
         - GCE, Nginx, Contour, HAProxy, Traefik, Istio
         - NGINX Ingress controller has many features exposed via annotations
         - Envoy-based Emissary and Gloo focus on being API gateways, which includes resources
-          for controlling Layer 4 balancing
+        for controlling Layer 4 balancing
 
 
 mTLS
@@ -2822,7 +2822,7 @@ Authentication
         - can use tokens instead of passwords, use ``--token-auth-file``
     * using kubeadm
         - the kube-apiserver pod will be restarted once the ``kube-apiserver.yml`` file is
-          modified
+        modified
     * using curl
         - ``curl -v -k https://main-node-ip:6443/api/v1/pods -u "user1:password``
     * using static file is deprecated
@@ -2966,11 +2966,11 @@ Authorization
     * Namespace scoped
         - resources that can specify namespace
         - pods, replicasets, jobs, deployments, services, sercrets, roles, rolebindings,
-          configmaps, PVC
+        configmaps, PVC
     * Cluster scoped
         - resources that don't need to specify namespace
         - such as nodes, PV, clusterroles, clusterrolebindings, certificatesigningrequests,
-          namespaces
+        namespaces
 
     .. code-block:: sh
 
@@ -3037,19 +3037,19 @@ TLS in K8s
 
 
     * client certificates
-          1\. admin user requires ``admin.crt`` and ``admin.key`` to communicate with kube-apiserver
-                    2\. kube-scheduler requires ``scheduler.crt`` and ``scheduler.key``
-                    3\. kube-controller-manager requires ``controller-manager.crt`` and ``controller-manager.key``
-                    4\. kube-proxy requires ``kube-proxy.crt`` and ``kube-proxy.key``
-                    5\. kube-apiserver is also a client from etcdserver point of view, as it is the only
-          component that communicates to it, kube-apiserver can use the keys generated or
-          generate ``apiserver-etcd-client.crt`` and ``apiserver-etcd-client.key``
-                    6\. kube-apiserver is also a client from kubelet server point of view, as it
-          communicates to it, kube-apiserver can use the keys generated or
-          generate ``apiserver-kubelet-client.crt`` and ``apiserver-kubelet-client.key``
-                    7\. kubelet-server is also a client from kube-apiserver point of view, as it
-          communicates to it, kubelet-server can use the keys generated or
-          generate ``kubelet-client.crt`` and ``kubelet-client.key``
+        #. admin user requires ``admin.crt`` and ``admin.key`` to communicate with kube-apiserver
+        #. kube-scheduler requires ``scheduler.crt`` and ``scheduler.key``
+        #. kube-controller-manager requires ``controller-manager.crt`` and ``controller-manager.key``
+        #. kube-proxy requires ``kube-proxy.crt`` and ``kube-proxy.key``
+        #. kube-apiserver is also a client from etcdserver point of view, as it is the only
+        component that communicates to it, kube-apiserver can use the keys generated or
+        generate ``apiserver-etcd-client.crt`` and ``apiserver-etcd-client.key``
+        #. kube-apiserver is also a client from kubelet server point of view, as it
+        communicates to it, kube-apiserver can use the keys generated or
+        generate ``apiserver-kubelet-client.crt`` and ``apiserver-kubelet-client.key``
+        #. kubelet-server is also a client from kube-apiserver point of view, as it
+        communicates to it, kubelet-server can use the keys generated or
+        generate ``kubelet-client.crt`` and ``kubelet-client.key``
         - kube-apiserver needs to know which node is authenticating
         - certificates are named ``system:node:NODE_NAME``
         - group names must be added, ``system:nodes``, for API server to give right permissions
@@ -3070,24 +3070,24 @@ TLS in K8s
 
 
     * server certificates
-          1\. kube-apiserver exposes https service, so ``apiserver.crt`` and ``apiserver.key`` must be
-          generated
+        #. kube-apiserver exposes https service, so ``apiserver.crt`` and ``apiserver.key`` must be
+        generated
         - kube-apiserver is also called kubernetes, kubernetes.default, kubernetes.default.svc
-          kubernetes.default.svc.cluster.local or IP address of the host running kube-apiserver
-          or that of the pod running it
+        kubernetes.default.svc.cluster.local or IP address of the host running kube-apiserver
+        or that of the pod running it
         - all the names must be present in certificate generated
         - ``--etcd-cafile``, ``--etcd-certfile``, ``--etcd-keyfile``, ``--client-ca-file``,
-          ``--tls-cert-file``, ``--tls-private-key-file``, ``--kubelet-certificate-authority``,
-          ``--kubelet-client-certificate``, ``--kubelet-client-key``
-                    2\. etcd server also requires ``etcdserver.crt`` and ``etcdserver.key``
+        ``--tls-cert-file``, ``--tls-private-key-file``, ``--kubelet-certificate-authority``,
+        ``--kubelet-client-certificate``, ``--kubelet-client-key``
+        #. etcd server also requires ``etcdserver.crt`` and ``etcdserver.key``
         - since etcdserver can be deployed as cluster across multiple servers,
-          additional peer certificates, ``etcdpeer1.crt`` and ``etcdpeer1.key``, must be
-          generated to secure communication between each other
+        additional peer certificates, ``etcdpeer1.crt`` and ``etcdpeer1.key``, must be
+        generated to secure communication between each other
         - require CA root certificate to verify clients are valid
         - specify them while starting the server, ``--key-file``, ``--cert-file``,
-          ``--peer-cert-file``, ``--peer-client-cert``, ``--peer-key-file``,
-          ``--peer-trusted-ca-file``, ``--trusted-ca-file``
-                    3\. kubelet server also requires ``kubelet.crt`` and ``kubelet.key``
+        ``--peer-cert-file``, ``--peer-client-cert``, ``--peer-key-file``,
+        ``--peer-trusted-ca-file``, ``--trusted-ca-file``
+        #. kubelet server also requires ``kubelet.crt`` and ``kubelet.key``
         - need certificates for each in the node of the cluster
         - certificates will be named after nodes
         - must use the certificates in definition file for each node
@@ -3213,7 +3213,7 @@ Certificates API
         - look for ``/etc/kubernetes/manifests/kube-apiserver.yml`` file
         - ``command:`` under ``containers:`` has all the information
         - after decoding the certificate, start by looking ``subject:``, which has certificate
-          name, then look for ``X509v3 Subject Alternative Name``, ``Not After``, ``Issuer``
+        name, then look for ``X509v3 Subject Alternative Name``, ``Not After``, ``Issuer``
         - when built from scratch, view logs with ``journalctl -u etcd.service -l``
         - in kubeadm, ``kubectl logs etcd-controlplane``
         - if the core components are down, ``docker logs CONTAINER_ID``
@@ -3260,11 +3260,11 @@ K8s Attack Surface
 ------------------
     * example attack
         - attacker tries to find the IP address of the application, ``ping www.site.com`` and
-          the site responds with IP
+        the site responds with IP
         - then port scan the server and one port is opened, e.g docker port
         - run docker command with the hostname, ``docker -H www.site.com ps``, and success
         - run a new privileged container in the environment,
-          ``docker -H www.site.com run --privileged -it ubuntu bash``
+        ``docker -H www.site.com run --privileged -it ubuntu bash``
         - from the container, install the necessary utilities and download the attack script
         - runs the script to escape from the container onto the host
         - run various commands on the host to get more information about the infrastructure
@@ -3272,10 +3272,10 @@ K8s Attack Surface
         - can visit the K8s dashboard as it is setup without security
         - information about the whole cluster is now exposed
     * 4C's of Cloud Native Security
-          1\. Cloud: security of the entire infrastructure, e.g data center, network, servers
-                    2\. Cluster: e.g authentication, authorization, admission, network policy
-                    3\. Container: e.g restrict images, supply chain, sandboxing, privileged
-                    4\. Code: code with security best practices
+        #. Cloud: security of the entire infrastructure, e.g data center, network, servers
+        #. Cluster: e.g authentication, authorization, admission, network policy
+        #. Container: e.g restrict images, supply chain, sandboxing, privileged
+        #. Code: code with security best practices
     * [Security Overview](https://kubernetes.io/docs/concepts/security/overview/)
 
 Kubelet Security
@@ -3677,11 +3677,11 @@ Annotations
         - provide extra data for a UI
         - encode parameters for alpha functionality
         - enable Deployment object to keep track of ReplicaSet for rollout status and provide
-          necessary data to roll back
+        necessary data to roll back
     * good for small bits of data that are associated with specific resource
     * key
         - 'namespace' part is more important as they are used to communicate information
-          between tools
+        between tools
     * value
         - free-form string field to store arbitrary data of any format
 * when domain names are used in labels and annotations, they are expected to be aligned to that
@@ -3957,7 +3957,7 @@ Service Accounts
         - must be used by external applications to authenticate
         - stored as secret object which is linked to the service account
         - token can be mounted as volume to the pod if the third-party application is also
-          hosted on K8s cluster
+        hosted on K8s cluster
 
     .. code-block:: sh
 
@@ -3992,7 +3992,7 @@ Taints & Tolerations
     * taint effects
         - NoSchedule, PreferNoSchedule
         - NoExecute: new pods will not be scheduled, existing pods on the node will be evicted
-          if they do not tolerate
+        if they do not tolerate
     * taints and tolerations do not tell the pod to go to a particular node
     * a taint is set on control-plane node automatically to not accept any pods
 
@@ -4073,14 +4073,14 @@ Node Affinity
     * **DuringScheduling**
         - state where a pod does not exist and created for the first time
         - "Required": scheduler mandates that the pod be placed on a node with the given
-          affinity rules, pod will not be scheduled if cannot match the label, used when the
-          placement of the pod is important
+        affinity rules, pod will not be scheduled if cannot match the label, used when the
+        placement of the pod is important
         - "Preferred": if no matching node is found, scheduler ignores the affinity rules and
-          place the pod on any available node
+        place the pod on any available node
     * **DuringExecution**
         - state where a pod is running and a change is made that affect the node affinity
         - "Ignored": pod will still run and node affinity changes will not affect once they
-          are scheduled
+        are scheduled
         - "Required": running pods will be evicted if they do not match
 * using Taints/Tolerations and Node Affinity together give more control over nodes and pods
 
@@ -4297,7 +4297,7 @@ Application Failure
         - use ``curl http://web-service-ip:node-port`` if web application
     * check services
         - check the service, ``kubectl describe service web-service``, to see if endpoints are
-          reached
+        reached
         - compare the selectors and labels on pod and service
     * check pod
         - make sure the pod is in a running state, ``kubectl get pod``
@@ -4356,7 +4356,7 @@ Network Failure
         - check or add ``resolvConf`` in kubelet config yaml
         - disable local DNS cache on host nodes and restore ``/etc/resolv.conf``
         - edit the ``Corefile``, replacing forward ``./etc/resolv.conf`` with the IP address of
-          upstream DNS
+        upstream DNS
     * check kube-dns service endpoints
         - ``kubectl -n kube-system get ep kube-dns``
     * check kube-proxy pod in kube-system namespace
@@ -4433,24 +4433,24 @@ JSON Path
         - familiarize with JSON output, ``kubectl get pods -o json``
         - form JSON Path query, ``.items[0].spec.containers[0].image`` (kubectl auto add '$')
         - use the JSON Path query with kubectl command
-          ``kubectl get pods -o=jsonpath='{ .items[0].spec.containers[0].image }'``
+        ``kubectl get pods -o=jsonpath='{ .items[0].spec.containers[0].image }'``
     * examples
         - ``kubectl get pods nginx -o=jsonpath={.status.podIP}`` or
-          ``kubectl get pods nginx -o jsonpath --template={.status.podIP}`` or
-          ``kubectl get pods nginx -o jsonpath={.status.podIP}``, get IP of a pod
+        ``kubectl get pods nginx -o jsonpath --template={.status.podIP}`` or
+        ``kubectl get pods nginx -o jsonpath={.status.podIP}``, get IP of a pod
         - ``kubectl get nodes -o=jsonpath='{.items[*].metadata.name}'``, returns the names of
-          the nodes in the cluster
+        the nodes in the cluster
         - ``kubectl get nodes -o=jsonpath='{.items[*].status.nodeInfo.architecture}'``, returns
-          hardware architecture of the nodes
+        hardware architecture of the nodes
         - ``kubectl get nodes -o=jsonpath='{.items[*].status.capacity.cpu}'``, returns cpu
-          counts on the nodes
+        counts on the nodes
         - can combine queries,
-          ``kubectl get nodes -o=jsonpath='{.items[*].metadata.name}{.items[*].status.capacity.cpu}'``,
-          returns the names of the nodes and cpu counts
+        ``kubectl get nodes -o=jsonpath='{.items[*].metadata.name}{.items[*].status.capacity.cpu}'``,
+        returns the names of the nodes and cpu counts
         - can add ``{"\n"}``, ``{"\t"}`` between queries for better output
     * using loop, ``range``
         - for each item in the node, print the node name, insert a tab, print cpu count, print
-          new line character
+        new line character
         - ``'{range .items[*]} {.metadata.name}{"\t"}{.status.capacity.cpu}{"\n"} {end}'``
     * can print custom columns
         - ``kubectl get nodes -o=custom-columns=<COLUMN NAME>:<JSON PATH>``
@@ -4524,18 +4524,18 @@ K8s Versions
         - cannot use ``kubectl`` command as all management tools also go down
         - but if a pod fails, new pods will not be auto created
     * after the controlplane is upgraded, upgrade the worker nodes
-          1\. upgrade all worker nodes at the same time
-                    2\. upgrade one node at a time
-                    3\. add new nodes with newer version to the cluster and remove the old ones, strategy
-          easy to use if on cloud
+        #. upgrade all worker nodes at the same time
+        #. upgrade one node at a time
+        #. add new nodes with newer version to the cluster and remove the old ones, strategy
+        easy to use if on cloud
     * **upgrading with kubeadm**
         - does not install or upgrade kubelet on the nodes
         - upgrade the kubeadm tool first
         - ``VERSION`` output from ``kubectl get nodes`` is the version kubelet is registered to
-          the API server, not the version of the API server
+        the API server, not the version of the API server
         - upgrade kubelet on controlplane, if exists
         - move the workloads on worker node to another with ``kubectl drain node-1``, and
-          upgrade the necessary components
+        upgrade the necessary components
         - do the same on other nodes, one after another
 
         .. code-block:: sh
@@ -4573,7 +4573,7 @@ K8s API
     * **/api**
         - core group, /v1
         - such as namespaces, pods, rc, events, endpoints, nodes, bindings, PV, PVC,
-          configmaps, secrets, services
+        configmaps, secrets, services
     * **/apis**
         - named group, more organized
         - new features will be placed in named group
@@ -4591,30 +4591,30 @@ K8s API
     * versions
         - major.minor.patch
         - v1alpha1: not enabled by default, have bugs, lack e2e tests, may be dropped later,
-          for expert users
+        for expert users
         - v1beta1: minor bugs, has e2e tests, for beta testers
         - v1: GA/Stable, conformance tests, highly reliable, for all users
         - objects with different versions can run at the same time
         - only one can be ``preferredVersion``, to which API commands will be run on (can
-          check by viewing groups and resources with API URL)
+        check by viewing groups and resources with API URL)
         - only one can be ``storageVersion``, to be stored in etcd (can only check by
-          querying etcd database)
+        querying etcd database)
     * **API Deprecation Policies**
-          1\. API elements may only be removed by incrementing the version of the API group
+        #. API elements may only be removed by incrementing the version of the API group
         - e.g element in v1alpha1 can only be removed in v1alpha2, still present in v1alpha1
-                    2\. API objects must be able to round-trip between API versions in a given release
-          without information loss, with the exception of whole REST resources that do not exist
-          in some versions
+        #. API objects must be able to round-trip between API versions in a given release
+        without information loss, with the exception of whole REST resources that do not exist
+        in some versions
         - e.g objects converted from v1alpha1 to v1alpha2, then back to v1alpha1, should be
-          the same as v1alpha1 version
-                    3\. API version in a given track may not be deprecated until a new API version at
-          least as stable is released
-                    4a\. Other than the most recent API versions in each track, older API versions must
-          be supported after their announced deprecation for a duration of no less than:
-          GA: 12 months or 3 releases, Beta: 9 months or 3 releases, Alpha: 0 releases
-                    4b\. The "preferred" API version and the "storage version" for a given group may not
-          advance until after a release has been made that supports both the new version and the
-          previous version
+        the same as v1alpha1 version
+        #. API version in a given track may not be deprecated until a new API version at
+        least as stable is released
+        4a\. Other than the most recent API versions in each track, older API versions must
+        be supported after their announced deprecation for a duration of no less than:
+        GA: 12 months or 3 releases, Beta: 9 months or 3 releases, Alpha: 0 releases
+        4b\. The "preferred" API version and the "storage version" for a given group may not
+        advance until after a release has been made that supports both the new version and the
+        previous version
     * converting API versions with Kubectl Convert (a plugin)
 
         .. code-block:: sh
@@ -4645,15 +4645,15 @@ Backup
         - ``--data-dir``, directory where all configurations will be stored
         - etcd has built-in snapshot too, ``etcdctl snapshot save snapshot.db``
         - ``service kube-apiserver stop && etcd snapshot restore snapshot.db --data-dir /dir``,
-          new data directory is created in /dir, then configure the etcd.service to use the new
-          data directory
+        new data directory is created in /dir, then configure the etcd.service to use the new
+        data directory
         - ``systemctl daemon-reload && service etcd restart && service kube-apiserver start``
         - always authenticate etcd commands, ``--endpoints, --cacert, --cert, --key``
         - when etcd restore, it initializes a new cluster config and configure the members
         - as new members of the new cluster
         - if etcd is running as a pod, ETCD is set up as a Stacked ETCD Topology where the
-          distributed data storage cluster provided by etcd is stacked on top of the cluster
-          formed by the nodes managed by kubeadm that run control plane components.
+        distributed data storage cluster provided by etcd is stacked on top of the cluster
+        formed by the nodes managed by kubeadm that run control plane components.
 
         .. code-block:: sh
 
@@ -4741,7 +4741,7 @@ Choosing Infrastructure
         - provision, configure and maintain VMs and use scripts to deploy cluster
         - e.g [Kubernetes on AWS](https://aws.amazon.com/kubernetes/) using [kops](https://kops.sigs.k8s.io/) or [KubeOne](https://www.kubermatic.com/products/kubermatic-kubeone/)
         - K8s certified solutions such as OpenShift, Cloud Foundry Container Runtime, VMware
-          Cloud PKS, Vagrant
+        Cloud PKS, Vagrant
     * hosted
         - managed solutions, K8s-as-a-Service
         - CSP provision and maintain VMs and install K8s
@@ -4756,31 +4756,31 @@ High Availability
         - have load balancer in front of the nodes using solutions such as Nginx, HA proxy
         - then point kubectl to the load balancer
         - two instances of each kube-controller-manager and kube-scheduler must run in
-          active-standby mode, which is decided through leader election process
+        active-standby mode, which is decided through leader election process
         - ``--leader-elect`` , ``--leader-elect-lease-duration``, ``--leader-elect-renew-deadline``,
-          ``--leader-elect-retry-period`` options are available
+        ``--leader-elect-retry-period`` options are available
         - stacked topology: etcd is part of the control-plane node, easy to setup and manage,
-          but both etcd go down if one node goes down
+        but both etcd go down if one node goes down
         - external etcd topology: etcd is separated from control-plane node, hard to setup but
-          less failure impact
+        less failure impact
     * etcd
         - when distributing across multiple servers, data can be read from multiple nodes
         - only one is responsible for processing the write
         - one node is elected as leader, and others become followers
         - leader makes sure other nodes have copy of the data if write request is sent to
-          it
+        it
         - if writes are sent to the followers, they are internally forwarded to the leader
         - uses RAFT for leader election
         - a write is complete if it can be written to majority of the nodes, Quorum = n/2 + 1
         - recommended to have at least 3 or odd number (5, beyond 5 is unnecessary) of
-          instances, as even number of
-          nodes has the possibility of failing when network is segmented
+        instances, as even number of
+        nodes has the possibility of failing when network is segmented
     * RAFT
         - uses random timer for initiating requests
         - the first one to finish the request sends permission to others to be a leader
         - it sends notification to others that it will continue to be the leader
         - if the other nodes do not receive notification from the leader, new leader election
-          process is initiated among them
+        process is initiated among them
 
 Mutable vs Immutable Infrastructure
 -----------------------------------
@@ -4789,9 +4789,9 @@ Mutable vs Immutable Infrastructure
         - underlying infrastructure remains the same
         - but software and configurations of the servers change as part of the update
         - upgrade can fail on one or more of the servers because of unmet dependencies,
-          network issues, file system full, different OS versions
+        network issues, file system full, different OS versions
         - configuration drift: not all servers able to update leaving the infrastructure in
-          a complex state, each server behaving different
+        a complex state, each server behaving different
     * **Immutable**
         - deploy new servers with new software, and delete the old ones if the new ones succeed
         - cannot carry out in-place updates
@@ -4800,7 +4800,7 @@ Mutable vs Immutable Infrastructure
     * to prevent in-place updating, make sure file system cannot be written once the pod
     started
         - using only ``readOnlyRootFileSystem``, application might break if it has to write logs
-          or cache data
+        or cache data
         - use volume mounts
         - can still make changes to sudo file system if container is run in privileged mode
     * to make infrastructure immutable, use least privileged principle and pod security policy
@@ -4846,7 +4846,7 @@ Limit access to nodes
         - user account: individuals who need access to Linux system, e.g admins, developers
         - superuser account: root account with UID 0, has unrestricted access
         - system account: created during OS installation, used by services not run
-          as superuser
+        as superuser
         - service account: created when services are installed
         - ``id``, ``who``, ``last``
         - ``usermod -s /bin/nologin user1``, ``userdel user1``, ``deluser user1 group1``
@@ -5129,14 +5129,14 @@ Helm
 
     * Helm Chart
         - combination of templates, ``values.yml`` and Chart.yml, which has info about the chart
-          itself
+        itself
         - single chart may be used to deploy simple application
         - can create own chart or search from [ArtifactHUB](https://artifacthub.io/), which
-          is a repository for Helm Charts
+        is a repository for Helm Charts
         - ``helm search hub wordpress`` searches from ArtifactHUB
         - other repositories such as [Bitnami]()
         - ``helm repo add bitnami https://charts.bitnami.com/bitnami``: must add repository to
-          search from other than ArtifactHUB
+        search from other than ArtifactHUB
         - ``helm search repo wordpress``: can now search
         - ``helm repo list`` to list repos
         - release: each installation of a chart
@@ -5171,7 +5171,7 @@ CIS Benchmark (Center for Internet Security)
     * some necessary security benchmark
         - physical access (e.g usb ports)
         - user access: what users, which users, disable root user, use sudo if required, but
-          only those who are configured to
+        only those who are configured to
         - network: configure firewall, iptables, open only required ports
         - services: enable only necessary services
         - filesystems: right permission of files, disable unused file systems
@@ -5185,12 +5185,12 @@ CIS Benchmark (Center for Internet Security)
     * CIS-CAT Lite tool only support for Windows 10, Ubuntu, Google Chrome, macOS
     * **CIS benchmark for K8s**
         - document contains recommendations for components, details to check current status
-          and necessary commands to remediate
+        and necessary commands to remediate
         - CIS-CAT Pro tool is required
     * [CIS](https://www.cisecurity.org/)
 on the master node and set the --terminated-pod-gc-threshold to an appropriate threshold,
 for example:
-* -terminated-pod-gc-threshold=10
+*-terminated-pod-gc-threshold=10
 
 kube-bench
 ----------
@@ -5318,7 +5318,7 @@ Falco
         - ``json_out``, logs events in json, false by default, so logs as text
         - logging options, ``log_stderr``, ``log_syslog``, ``log_level``
         - ``priority``, related to falco rules, minimum to use all events, everything higher
-          will be logged
+        will be logged
         - ``stdout_output``, logs to stdout by default, can have multiple output channels
         - ``file_output``, logs to a file
         - ``program_output``, send output to programs

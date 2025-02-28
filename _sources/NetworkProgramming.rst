@@ -81,7 +81,7 @@ Internet Sockets
         - do not need to maintain an open connection
         - e.g. used by tftp, dhcpcd, multiplayer games, streaming audio, video conferencing
         - tftp and similar programs have own protocol on top of UDP that needs to send back
-          ACK, or else the sender will re-transmit the packet until ACK
+        ACK, or else the sender will re-transmit the packet until ACK
 
 Socket Data Types
 -----------------
@@ -169,7 +169,7 @@ Manipulating IP Addresses
         - presentation to network
         - converts IP address in numbers-and-dots notation to ``in_addr`` or ``in6_addr``
         - return value: 1 on success, 0 if not valid network address , and -1 if not valid
-          address family
+        address family
 
         .. code-block:: c
 
@@ -231,7 +231,7 @@ Broadcasting
     * **To Global Broadcast Address**
         - ``INADDR_BROADCAST``: 255.255.255.255
         - many machines will bitwise AND it with the network number to convert it to a network
-          broadcast address
+        broadcast address
         - routers do not forward this type of broadcast packet off the local network
 
     .. code-block:: c
@@ -566,9 +566,9 @@ select()
     * ``FD_ZERO(fd_set* set);``: clear the set
     * **Linux Bugs**
         - sometimes ``select()`` can return ready to read, and then not actually be ready, and it
-          can block ``read()``
+        can block ``read()``
         - to solve this, set ``O_NONBLOCK`` flag on the receiving socket to error with
-          ``EWOULDBLOCK``
+        ``EWOULDBLOCK``
 
     .. code-block:: c
 
@@ -681,15 +681,15 @@ Example Packet Structure
         - since every packet starts with a length, call ``recv()`` to get the packet length
         - call it again specifying exactly the remaining length of the packet
         - only need one buffer per packet, but need to call ``recv()`` at least twice to get all
-          data
+        data
     * **Receive Method 2**
         - call ``recv()`` with maximum number of bytes in a packet, might get some of the next
-          packet
+        packet
         - use a buffer big enough for two packets, and reconstruct the packets
         - in every ``recv()``, append the data into the buffer, and check if the packet is
-          complete by comparing bytes in the buffer with the length specified in the header
+        complete by comparing bytes in the buffer with the length specified in the header
         - remove the packet after processing, and move the second packet, maybe partial of it,
-          to the front of the buffer
+        to the front of the buffer
         - can use a circular buffer instead of removing and moving packets
 
 `back to top <#network-programming>`_

@@ -41,27 +41,27 @@ Monolith vs Microservices
         - a great option for creating a throw-away prototype, to validate business idea first
         - all code runs in same process with no barriers
         - can become a mess as size increases and can be difficult for new developers to
-          understand
+        understand
         - a code change can break the entire application and gives arise to deployment fear
         - testing can be difficult to scale as it consumes resources as entire application and
-          becomes more expensive to run
+        becomes more expensive to run
     * **Microservices**
         - with the right tools, microservices prototyping can be as easy as with monolith
         - before, microservices were only used where value of solution is more than cost of
-          implementation
+        implementation
         - as it became cheaper to replace monolithic apps, components of distributed systems
-          reduce to microservices
+        reduce to microservices
         - each service can has dedicated resources
         - physical infrastructure can be shared between many services to be cost effective
         - can have fine-grained control, minimize deployment risk and choose own tech stack
         - error when updating a service cannot break the entire application and easier
-          rollback as small part of the system rather than the whole
+        rollback as small part of the system rather than the whole
         - faster boot that makes system easier to scale as it can be replicated quickly
         - easier to test and troubleshoot
         - each component should be able to thrown away and be rewritten with different tech
-          within weeks
+        within weeks
         - multiple tech stacks can work together in the cluster using shared protocols and
-          communication mechanism
+        communication mechanism
         - microservices create structure that can be converted to newer tech stacks
         - more difficult and complex to develop, and has steep learning curve
 * microservices as an architectural pattern is a tool that gives many ways to manage complexity
@@ -179,11 +179,11 @@ indirect messaging (asynchronous communication)
         - can have multiple senders and receivers
         - only single service will receive each individual message
         - useful when distributing a job that should be handled only by the first one that is
-          capable of dealing with
+        capable of dealing with
         - will make sure that a job is done only once within application
     * **multiple-recipient messaging**
         - one-to-many broadcast style, one service sends that message but many others can
-          receive
+        receive
         - mostly used for notifications
 * can use direct or indirect messaging to load balance handling of a message by one of a
 collection of services
@@ -213,18 +213,18 @@ Monorepos
         - ``nx [target] [project]``, targets (serve, build, lint, test, e2e) from ``project.json``
         - types of libraries: Feature, UI, Data-access, Utility
         - ``nx g lib feature --directory feature1 --appProject project1 --tags type:feature``,
-          create library in ``libs/feature1/feature``, ``--appProject`` make the library routable
-          inside specified application, ``--tags`` are add to ``project.json``
+        create library in ``libs/feature1/feature``, ``--appProject`` make the library routable
+        inside specified application, ``--tags`` are add to ``project.json``
         - ``nx g component GlobalStyles --project project1-folder1 --export``, create component
-          in ``libs/project1/folder1/src/lib/global-styles``, ``--project`` specifies as found in
-          ``projects`` section of ``nx.json``, ``--export`` exports the component in ``index.ts`` file
+        in ``libs/project1/folder1/src/lib/global-styles``, ``--project`` specifies as found in
+        ``projects`` section of ``nx.json``, ``--export`` exports the component in ``index.ts`` file
         - ``nx g app --help``, ``nx g lib --help``, ``nx g component --help``
         - ``@nrwl/nx/enforce-module-boundaries`` define libraries dependencies based on tags,
-          even circular dependency is not allowed, need to set ``allowCircularSelfDependency: true``
+        even circular dependency is not allowed, need to set ``allowCircularSelfDependency: true``
         - ``nx graph``, show dependency graph
         - ``nx affected:graph``, show affected graph (uses Git history and compare with main
-          branch to determine which projects are affected, specify base with ``--base`` or
-          ``deafultBase`` in ``nx.json``)
+        branch to determine which projects are affected, specify base with ``--base`` or
+        ``deafultBase`` in ``nx.json``)
         - ``nx affected:build``, build affected apps
         - ``nx affected:test``, test affected projects
         - ``nx affected:lint``, lint affected projects
@@ -235,10 +235,10 @@ Monorepos
         - ``nx print-affected --type=lib --select=projects``, list affected libraries
         - listing affected projects can be useful in CI
         - Nx uses computation caching to run tasks faster, will replay the same output if
-          computation hash is the same (stored in ``node_modules/.cache/nx`` and can specify under
-          ``tasksRunnerOptions`` in ``nx.json``)
+        computation hash is the same (stored in ``node_modules/.cache/nx`` and can specify under
+        ``tasksRunnerOptions`` in ``nx.json``)
         - ``nx g @nrwl/express:app api --no-interactive --frontend-project=frontend``, generate
-          express app boiler plate (``--frontend-project`` add proxy configuration)
+        express app boiler plate (``--frontend-project`` add proxy configuration)
         - ``nx run-many --target=serve --projects=api,frontend``, start multiple applications
         - ``nx g @nrwl/node:lib shared-models --no-interactive``, generate utility library
         - ``nx format:check``, ``nx format:write``, checks and formats files with Prettier

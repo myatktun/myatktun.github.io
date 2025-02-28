@@ -26,19 +26,20 @@ Space Complexity
     - only consider generated new data
     - algorithm can consume extra space even when not generating additional data, e.g
       call stacks of recursive functions such as quicksort
+
 * has Theta, Omega and O notations, which allow to easily categorize efficiency
 * notations are originally a concept from mathematics
 * concerned with algorithm's performance as input data, "n", increases
 * algorithms that aren't affected by increased input data are said to be constant, e.g O(1)
 * constants in the functions are ignored and only highest order is used, e.g O(2n<sup>2</sup>+3n+1)
-becomes O(n<sup>2</sup>)
+  becomes O(n<sup>2</sup>)
 * when two algorithms have same classification, further analysis is required to determine which
-is faster
+  is faster
 * determining the current efficiency is the first step in optimizing the program
 * most only consider time complexity
 * for devices with limited memory, space complexity matter a lot
 * should analyze whether to prioritize speed or memory and check all pros and cons of each
-algorithm
+  algorithm
 
 Big O
 -----
@@ -69,14 +70,14 @@ Data Structures
 * `Spanning Tree`_, `Minimum Spanning Tree`_, `Graph`_
 * can operate read, search, insert and delete on data structures
 * use a data structure that is consistently fast, rather than the one that is sometimes
-extremely fast and sometimes slow
+  extremely fast and sometimes slow
 
 Array
 -----
     * a list of fixed length, used when number of data items is known
     * can be used to implement any type of binary tree
     * in most languages, array can be passed through a call stack as it remains the same object
-    after modifying it
+      after modifying it
     * **Pros**
         - good for storing similar contiguous data
         - O(1) accessing power
@@ -110,7 +111,7 @@ Linked List
     * the pointer at the end, the tail, is set to null
     * each node contains two memory cells, one for the actual data and other for the link
     * a deleted node will still exist in memory, different languages handle the deleted nodes
-    in various ways
+      in various ways
     * **Doubly Linked List**
         - root node has a pointer to both the first and last nodes
         - each node has a pointer to the previous and the next node
@@ -140,11 +141,11 @@ Circular Array
     * also called circular buffer or ring buffer
     * uses a single, fixed-size array as if it were connected end-to-end
     * allows efficient and continuous writing and reading of data without the need for shifting
-    elements
+      elements
     * useful where data is continuously produced and consume at different rates
     * fixed size is determined at creation, has read and write pointers
     * when the end is reached, read and write continues from the beginning using modulo
-    arithmetic, e.g. `write_idx = (write_idx + 1) % SIZE`
+      arithmetic, e.g. `write_idx = (write_idx + 1) % SIZE`
     * **Pros**
         - efficient use of memory
         - constant time complexity due to wrap-around behaviour
@@ -169,7 +170,7 @@ Hash Table
     * storing existing key will overwrite the value, but keep the same key
     * hash value can be used for organizing and sorting the data
     * efficiency depends on data amount to be stored, number of available cells in a table and
-    hash function
+      hash function
     * **Hash Function**
         - process of converting characters to numbers
         - must convert the same string to same number every time
@@ -262,7 +263,7 @@ Tree
     * each level of a tree is a row
     * traversing a tree is always O(n)
     * searching in a node is same as traversing the tree, except the method stops when target
-    is found
+      is found
     * **Balanced Tree**
         - nodes' subtrees have the same number of nodes
     * **Complete Tree**
@@ -308,11 +309,11 @@ Binary Search Tree
         - inserting sorted data can create imbalanced tree, make searching O(n)
         - need to randomize an ordered array before converting it to a bst
     * **Searching**
-          1\. set a node as current node, usually the root node is set as when start
-                    2\. check value of the current node
-                    3\. search left subtree if current node value is less than the target value or search
-          right subtree if current node value is greater
-                    4\. repeat steps 1 to 3 until target is found or no nodes left to search for
+        #. set a node as current node, usually the root node is set as when start
+        #. check value of the current node
+        #. search left subtree if current node value is less than the target value or search
+           right subtree if current node value is greater
+        #. repeat steps 1 to 3 until target is found or no nodes left to search for
     * **Deleting**
         - just delete the node if it doesn't have children
         - if the node has one child, place the child node in the deleted node position
@@ -331,9 +332,9 @@ Binary Search Tree
 Heap
 ----
     * binary tree with heap condition, each node must be greater or less than each of its
-    descendants, and the tree must be complete, to ensure it remains well-balanced
+      descendants, and the tree must be complete, to ensure it remains well-balanced
     * visualized as a tree but usually implemented using Array, to find the last node
-    efficiently
+      efficiently
     * can also use linked-list to implement
     * last node is the rightmost node in the bottom level
     * trickling: process of moving the node up/down the heap
@@ -355,17 +356,17 @@ Heap
           inspecting every node
         - imbalanced heap will have operations of O(n)
     * **Inserting**
-          1\. create a node and insert at the rightmost spot in the bottom level
-                    2\. compare the new node with its parent node
-                    3\. swap the node with the parent if it is greater than the parent's value
-                    4\. repeat step 3 and move the node up the heap until parent with greater value is met
+        #. create a node and insert at the rightmost spot in the bottom level
+        #. compare the new node with its parent node
+        #. swap the node with the parent if it is greater than the parent's value
+        #. repeat step 3 and move the node up the heap until parent with greater value is met
     * **Deleting**
-          1\. move the last node to the root node position
-                    2\. trickle the root node down to proper place
+        #. move the last node to the root node position
+        #. trickle the root node down to proper place
     * **Trickling Down**
-          1\. check both children of the trickle node
-                    2\. swap the node with the larger one of the two child nodes
-                    3\. repeat steps 1 and 2 until the trickle node has no greater children
+        #. check both children of the trickle node
+        #. swap the node with the larger one of the two child nodes
+        #. repeat steps 1 and 2 until the trickle node has no greater children
     * **Array-based Heap**
         - root node is always stored at index 0 and last node will be last element
         - accessing left-child: (2*i)+1, accessing right-child: (2*i)+2
@@ -386,22 +387,22 @@ Prefix Tree
         - can search for a complete word or a word prefix
     * **Cons**
     * **Prefix Search**
-          1\. set a node as current node, usually the root node is set as when start
-                    2\. iterate over each character of the search string
-                    3\. check if current node has a child with the character as a value
-                    4\. return None if doesn't exist and searching ends without finding the string
-                    5\. if exists, update the child node as current node and repeat from step 2 to iterate
-          another character
-                    6\. string is found if end of search string is reached
+        #. set a node as current node, usually the root node is set as when start
+        #. iterate over each character of the search string
+        #. check if current node has a child with the character as a value
+        #. return None if doesn't exist and searching ends without finding the string
+        #. if exists, update the child node as current node and repeat from step 2 to iterate
+           another character
+        #. string is found if end of search string is reached
     * **Inserting**
-          1\. set a node as current node, usually the root node is set as when start
-                    2\. iterate over each character of the search string
-                    3\. check if current node has a child with the character as a value
-                    4\. if exists, update the child node as current node and repeat from step 2 to iterate
-          another character
-                    5\. if doesn't exist, create a child node with the character and update it as current
-          node and repeat from step 2
-                    6\. after inserting the final character, add a value to indicate the end of the word
+        #. set a node as current node, usually the root node is set as when start
+        #. iterate over each character of the search string
+        #. check if current node has a child with the character as a value
+        #. if exists, update the child node as current node and repeat from step 2 to iterate
+           another character
+        #. if doesn't exist, create a child node with the character and update it as current
+           node and repeat from step 2
+        #. after inserting the final character, add a value to indicate the end of the word
     * **Time Complexity**
         - Accessing
         - Searching: O(k), (k = number of characters in the search string)
@@ -428,7 +429,7 @@ Graph
     * path: sequence of edges from one vertex to another
     * can use hash table, adjaceny list or two-dimensional arrays/adjacency matrix to implement
     * searching is traversing the graph to find connected vertices and can also operate on each
-    vertex the same time
+      vertex the same time
     * keep track of visited vertices when searching a graph, e.g use a hash table for visited
     * social networking applications use graph databases
     * **Connected Graph**
@@ -451,7 +452,7 @@ Graph
         - hard to work with and can get complicated as it grows large
         - can use various algorithms to implement
     * for complexity, need to consider number of vertices and number of adjacent neighbors each
-    vertex has
+      vertex has
     * **Complexity**
         - Searching: O(v + e), (v = no. of vertices, e = no. of edges)
         - Inserting:
@@ -462,11 +463,11 @@ Graph
 Algorithms
 ==========
 
-* `Binary Search`_, `Recursion`_, `Peak Finding`_, `Dijkstra's Algorithm`_
+* `Binary Search`_, `Recursion`_, `Peak Finding`_, `Dijkstra`_
 * `Bubble Sort`_, `Selection Sort`_, `Insertion Sort`_, `Quick Sort`_, `Heap Sort`_
 * `Quick Select`_, `Greedy Algorithm`_, `Boyer-Moore Voting Algorithm`_
 * `Tree Traversals`_, `Graph Traversals`_
-* `KMP`_, `Kadane Algorithm`_
+* `KMP`_, `Kadane`_
 * `Dynamic Programming`_
 * `Optimization`_
 * a set of instructions to operate a specific task
@@ -479,14 +480,14 @@ Binary Search
     * fastest search method for sorted search space, usually in ascending order
     * split the search space into two halves and only keep the half that might have the target
     * **steps**
-          1\. set left and right boundaries, min(search space) for left and max(search space)
-          for right
-                    2\. while left < right, calculate middle value with (left + (right - left) / 2)
-                    3\. if condition(mid) is true, set right = mid, else set left = mid + 1, condition
-          checking can be from simple comparison to complex calculations
-                    4\. return left or (left - 1) after exiting the while loop
+        #. set left and right boundaries, min(search space) for left and max(search space)
+           for right
+        #. while left < right, calculate middle value with (left + (right - left) / 2)
+        #. if condition(mid) is true, set right = mid, else set left = mid + 1, condition
+           checking can be from simple comparison to complex calculations
+        #. return left or (left - 1) after exiting the while loop
     * can use binary search if there is monotonicity, e.g if condition(k) is true then
-    condition(k + 1) is true
+      condition(k + 1) is true
     * **Complexity**
         - best: O(1), first middle element is the target element
         - average: O(log n)
@@ -526,28 +527,30 @@ Recursion
 Peak Finding
 ------------
 
-Dijkstra's Algorithm
---------------------
+Dijkstra
+--------
     * graph search algorithm
     * can find shortest path to a point and shortest paths from current to all points
     * has different implementations
     * using simple array can cause to have O(v<sup>2</sup>), priority queue can be faster
     * **steps**
-          1\. set starting vertex as current vertex
-                    2\. check weights of edges from the current to each of its adjacent vertices
-                    3\. if weight from the starting vertex to adjacent vertex is less than the weight seen
-          before, update the current weight as the shortest weight
-                    4\. visit the next shortest vertex from the starting vertex and set it as current
-                    5\. repeat steps 2 to 4 until every vertex is visited
+        #. set starting vertex as current vertex
+        #. check weights of edges from the current to each of its adjacent vertices
+        #. if weight from the starting vertex to adjacent vertex is less than the weight seen
+           before, update the current weight as the shortest weight
+        #. visit the next shortest vertex from the starting vertex and set it as current
+        #. repeat steps 2 to 4 until every vertex is visited
+    * **Complexity**
+        - using priority queue, O(E log V + V), space O(V)
 
 Bubble Sort
 -----------
     * **steps**
-          1\. compare first item with the second
-                    2\. swap if out of order
-                    3\. move one to the right
-                    4\. repeat steps 1 through 3 until the end of array
-                    5\. go back to first two items and execute steps 1 through 4 until no swaps are needed
+        #. compare first item with the second
+        #. swap if out of order
+        #. move one to the right
+        #. repeat steps 1 through 3 until the end of array
+        #. go back to first two items and execute steps 1 through 4 until no swaps are needed
     * in each pass-through, highest unsorted value bubbles up to its correct position
     * **Complexity**
         - best: O(n)
@@ -557,25 +560,25 @@ Bubble Sort
 Selection Sort
 --------------
     * **steps**
-          1\. go from start to end and keep track of lowest value
-                    2\. swap the tracked lowest value with the value at the beginning of the pass-through
-          (will be first value for the first pass-through)
-                    3\. repeat pass-throughs with steps 1 and 2, each starting from the next that has been
-          swapped in the previous, until a pass-through start at the final index
+        #. go from start to end and keep track of lowest value
+        #. swap the tracked lowest value with the value at the beginning of the pass-through
+           (will be first value for the first pass-through)
+        #. repeat pass-throughs with steps 1 and 2, each starting from the next that has been
+           swapped in the previous, until a pass-through start at the final index
     * **Complexity**
         - all cases: O(n<sup>2</sup>)
 
 Insertion Sort
 --------------
     * **steps**
-          1\. at first pass-through, temporarily remove the second value and a gap will be made
-          (remove values at the subsequent indexes for subsequent pass-throughs)
-                    2\. compare the temp value with the value to the left of the gap, shift to the right
-          if greater than the temp, the gap moves leftward as values shift, if a value lower
-          than the temp value is found or the left end of the array is reached, stop shifting
-                    3\. insert the temp value into the current gap
-                    4\. repeat pass-throughs with steps 1 through 3 until a pass-through start at the
-          final index
+        #. at first pass-through, temporarily remove the second value and a gap will be made
+           (remove values at the subsequent indexes for subsequent pass-throughs)
+        #. compare the temp value with the value to the left of the gap, shift to the right
+           if greater than the temp, the gap moves leftward as values shift, if a value lower
+           than the temp or the left end of the array is reached, stop shifting
+        #. insert the temp value into the current gap
+        #. repeat pass-throughs with steps 1 through 3 until a pass-through start at the
+           final index
     * in-place sort, O(1) auxiliary space
     * **Complexity**
         - best: O(n)
@@ -588,20 +591,20 @@ Quick Sort
     * very fast and efficient algorithm for average cases
     * combination of partitioning and recursions
     * **Partitioning**
-          1\. take random value as the pivot from array and move the left pointer to the right
-          until value greater than or equal to the pivot is found
-                    2\. move the right pointer to the left until value less than or equal to the pivot is
-          found
-                    3\. if left pointer reach or go beyond the right pointer, swap the values of left and
-          right pointers and repeat steps 1, 2 and 3, other wise go to step 4
-          4\. swap the pivot with the value of left pointer
+        #. take random value as the pivot from array and move the left pointer to the right
+           until value greater than or equal to the pivot is found
+        #. move the right pointer to the left until value less than or equal to the pivot is
+           found
+        #. if left pointer reach or go beyond the right pointer, swap the values of left and
+           right pointers and repeat steps 1, 2 and 3, other wise go to step 4
+        #. swap the pivot with the value of left pointer
     * after partitioning, all values to the left of the pivot are less than and all to the
-    right are greater than it
+      right are greater than it
     * partition time complexity O(n)
     * **steps**
-          1\. partition the array, the pivot will be in proper place
-                    2\. recurse the subarrays to the left and right of the pivot with steps 1 and 2
-                    3\. done if subarray has zero or one element
+        #. partition the array, the pivot will be in proper place
+        #. recurse the subarrays to the left and right of the pivot with steps 1 and 2
+        #. done if subarray has zero or one element
     * **Complexity**
         - best: O(n log n), pivot ends up in the middle after partition
         - average: O(n log n)
@@ -621,10 +624,10 @@ Quick Select
     * variation of quick sort and binary search and relies on partitioning
     * can find correct value without sorting the entire array
     * **steps**
-          1\. partition the entire array, pivot will now be in the right place
-                    2\. divide the array in half from the pivot and use only left or right after comparing
-          the desired value with the pivot value
-                    3\. recurse that subarray until the value is found
+        #. partition the entire array, pivot will now be in the right place
+        #. divide the array in half from the pivot and use only left or right after comparing
+           the desired value with the pivot value
+        #. recurse that subarray until the value is found
     * **Complexity**
         - best: O(n), only need to partition one half
         - average: O(n)
@@ -639,10 +642,10 @@ Boyer-Moore Voting Algorithm
     * to find majority element in an array
     * majority element: occured more than n/2 times
     * **steps**
-          1\. initialize count as 0 and iterate the array
-                    2\. if count is 0, set current number as majority number and increase count by 1
-                    3\. else check if current number equal to the majority number, if equal, increase
-          count by 1, if not decrease count by 1
+        #. initialize count as 0 and iterate the array
+        #. if count is 0, set current number as majority number and increase count by 1
+        #. else check if current number equal to the majority number, if equal, increase
+           count by 1, if not decrease count by 1
     * can have extra loop to check if chosen number's count is really greater than n/2 or not
     * **Complexity**
         - all cases: O(n), space O(1)
@@ -668,21 +671,21 @@ Tree Traversals
 Graph Traversals
 ----------------
     * **Depth-first Search**
-          1\. start at any random vertex
-                    2\. mark current vertex as visited
-                    3\. iterate current vertex's adjacent vertices
-                    4\. ignore if the adjacent vertex has been visited
-                    5\. if the adjacent vertex is not visited, do recursive depth-first search on it
+        #. start at any random vertex
+        #. mark current vertex as visited
+        #. iterate current vertex's adjacent vertices
+        #. ignore if the adjacent vertex has been visited
+        #. if the adjacent vertex is not visited, do recursive depth-first search on it
     * **Breadth-first Search**
-          1\. start at any random vertex
-                    2\. mark the starting vertex as visited
-                    3\. add the starting vertex to a queue
-                    4\. run a loop while the queue isn't empty
-                    5\. in the loop, remove and use the first vertex as current vertex
-                    6\. iterate all adjacent vertices of the current
-                    7\. ignore if the adjacent vertex has been visited
-                    8\. if the adjacent vertex is not visited, mark it as visited and add it to the queue
-                    9\. repeat the loop from step 4 until the queue is empty
+        #. start at any random vertex
+        #. mark the starting vertex as visited
+        #. add the starting vertex to a queue
+        #. run a loop while the queue isn't empty
+        #. in the loop, remove and use the first vertex as current vertex
+        #. iterate all adjacent vertices of the current
+        #. ignore if the adjacent vertex has been visited
+        #. if the adjacent vertex is not visited, mark it as visited and add it to the queue
+        #. repeat the loop from step 4 until the queue is empty
 
 KMP
 ---
@@ -711,8 +714,8 @@ KMP
     * **Complexity**
         - all cases: O(n + m), space O(m)
 
-Kadane Algorithm
-----------------
+Kadane
+------
     * finding the maximum subarray sum
     * to get the maximum subarray sum at current element, use the maximum sum ending at the
       previous element, `max(prev_sum + curr_element, curr_element)`
@@ -727,7 +730,7 @@ Kadane Algorithm
 Dynamic Programming
 -------------------
     * problems have patterns such as find min/max, distinct ways, merging intervals, dp on
-    strings or decision making
+      strings or decision making
     * **min/max**
         - find min/max cost, path or sum to reach the target
         - approach: choose min/max path among all possible paths before the current state,

@@ -34,8 +34,8 @@ Classic IT Job Roles
     * **Architect**
         - design based on business requirements
         - Enterprise or System architect
-          + translate business requirements into technical architecture
-          + manage teams of designers and engineers
+           + translate business requirements into technical architecture
+           + manage teams of designers and engineers
         - Application architect
         - Storage architect
         - Network architect
@@ -71,9 +71,9 @@ Cloud Job Roles
     * **Enterprise Architect**
         - works in business management, infrastructure, security and application infrastructure
         - responsible for delivering cloud services for business
-          + obtain business requirements
-          + design solution-independent architectures and  present different models
-          + validate, refine, expand, manage, monitor and update architectures
+           + obtain business requirements
+           + design solution-independent architectures and  present different models
+           + validate, refine, expand, manage, monitor and update architectures
     * **Program Manager**
         - ensure that the cloud is managed appropriately
         - manage operational teams
@@ -102,19 +102,19 @@ Cloud Job Roles
         - collaborate with cloud infrastructure architect
         - ensure that service requirements are met
         - Management
-          + OS management, patch and update, manage templates, document changes, tag and review
-          cloud infrastructure
-          + manage capacity, manage virtual networks, manage app resiliency
+           + OS management, patch and update, manage templates, document changes, tag and review
+           cloud infrastructure
+           + manage capacity, manage virtual networks, manage app resiliency
         - Support
-          + provide through monitoring, which also includes compliance programs
-          + perform performance tuning and root cause analysis
-          + document reviews
+           + provide through monitoring, which also includes compliance programs
+           + perform performance tuning and root cause analysis
+           + document reviews
         - Security
-          + manage, monitor and enforce security
-          + implement security policies
-          + perform vulnerability testing and risk analysis
+           + manage, monitor and enforce security
+           + implement security policies
+           + perform vulnerability testing and risk analysis
         - Infrastructure
-          + build infrastructure/application
+           + build infrastructure/application
 
 `back to top <#aws>`_
 
@@ -363,7 +363,7 @@ Cost Optimization
     * manage demand and supply resources
         - resource provisioning, monitoring tools and benchmark
         - manage demand with queue or buffer and supply through auto scaling (demand based or
-          time based)
+        time based)
     * optimize over time
         - decommission resources or services
         - stay up to date on new services and features
@@ -388,7 +388,7 @@ Sustainability
 * security and operational excellence are generally not traded-off against others
 
 * common uses of framework
-    * learn how to build cloud-native architecture
+    *  learn how to build cloud-native architecture
     * build a backlog
     * use as a gating mechanism before launch
     * compare maturity of different teams
@@ -417,10 +417,10 @@ Regions
     * each Region is isolated from every other
     * data can only move from Region to Region if permission is explicitly granted
     * **choosing a Region**
-          1. compliance requirements
-          2. proximity to customers
-          3. feature availability
-          4. pricing
+        1. compliance requirements
+        2. proximity to customers
+        3. feature availability
+        4. pricing
 
 Availability Zones (AZs)
 ------------------------
@@ -494,10 +494,10 @@ Pricing
           each object
         - requests and data retrievals: pay for requests made to S3 objects and buckets
         - data transfer
-          + no cost to transfer data between S3 buckets or from S3 to other services within
-          same Region
-          + no cost to transfer into S3 from the internet or out to CloudFront
-          + no cost to transfer out to EC2 instance in the same Region
+           + no cost to transfer data between S3 buckets or from S3 to other services within
+           same Region
+           + no cost to transfer into S3 from the internet or out to CloudFront
+           + no cost to transfer out to EC2 instance in the same Region
         - management and replication: pay for storage management features enabled (Inventory,
           analytics, object tagging)
 
@@ -725,7 +725,7 @@ AWS Partner Network (APN)
         - free cloud curriculum content for recognized educational institutions
     * AWS Startup Day
         - free full-day events to deliver education, networking opportunities and experiences
-          of start-up founders
+        of start-up founders
     * AWS Lofts
         - a place where start-ups and developers can meet at no cost
     * AWS Activate
@@ -759,7 +759,7 @@ AWS Partner Network (APN)
     * AWS Incentives
         - AWS Cloud Adoption Framework (AWS CAF), AWS Professional Services (ProServe)
         - AWS Cloud Adoption Readiness Tool (CART) helps customers develop efficient and
-          effective plans
+        effective plans
     * AWS Migration Partners
         - can help through every stage of migration
         - accelerate results by providing personnel, tools and education
@@ -807,54 +807,54 @@ EC2 (Elastic Compute Cloud)
     * flexible and resizable/vertical scaling, and auto-scalable
     * **Instance types**
         - **General purpose**
-          + balance of compute, memory and networking resources
+           + balance of compute, memory and networking resources
         - **Compute optimized**
-          + compute intensive tasks
-          + e.g gaming servers, HPC, scientific modeling, batch processing workloads
+           + compute intensive tasks
+           + e.g gaming servers, HPC, scientific modeling, batch processing workloads
         - **Memory optimized**
-          + for workloads to process large datasets in memory
-          + e.g high-performance database, perform real-time processing of unstructured data
+           + for workloads to process large datasets in memory
+           + e.g high-performance database, perform real-time processing of unstructured data
         - **Accelerated computing**
-          + use hardware accelerators or coprocessors
-          + e.g floating point calculations, graphics processing, data pattern matching
+           + use hardware accelerators or coprocessors
+           + e.g floating point calculations, graphics processing, data pattern matching
         - **Storage optimized**
-          + for high, sequential read and write access to large datasets on local storage
-          + suitable for high IOPS requirement
-          + e.g distributed file systems, data warehousing apps, OLTP systems
+           + for high, sequential read and write access to large datasets on local storage
+           + suitable for high IOPS requirement
+           + e.g distributed file systems, data warehousing apps, OLTP systems
     * **Pricing**
         - **On-Demand**
-          + for short-term, irregular, uninterruptible workloads
-          + instances run continuously until stopped
-          + pay only for compute time used
-          + e.g developing and testing apps, running apps that have unpredictable usage
-          patterns
+           + for short-term, irregular, uninterruptible workloads
+           + instances run continuously until stopped
+           + pay only for compute time used
+           + e.g developing and testing apps, running apps that have unpredictable usage
+             patterns
         - **Savings Plans**
-          + commit consistent amount of compute usage for 1 or 3-year term
-          + measured in $/hour, more flexible than Reserved Instances
-          + usage beyond commitment is charged at regular On-Demand rates
-          + payment options: all upfront, partial upfront or no upfront
-          + Compute savings plans: up to 66% over On-Demand cost
-          + EC2 Instance savings plans: up to 72% for commitment to usage of individual
-          instance families in a Region
-          + SageMaker savings plans: 64% savings
+           + commit consistent amount of compute usage for 1 or 3-year term
+           + measured in $/hour, more flexible than Reserved Instances
+           + usage beyond commitment is charged at regular On-Demand rates
+           + payment options: all upfront, partial upfront or no upfront
+           + Compute savings plans: up to 66% over On-Demand cost
+           + EC2 Instance savings plans: up to 72% for commitment to usage of individual
+             instance families in a Region
+           + SageMaker savings plans: 64% savings
         - **Reserved**
-          + Standard (up to 72%) or Convertible reserved (up to 66%) for 1 or 3-year term
-          + Scheduled reserved for recurring schedule can pay by $/hour
-          + no, partial or all upfront
-          + charged with On-Demand rates at the end of term until terminated or purchase new
-          Reserved instance that matches
+           + Standard (up to 72%) or Convertible reserved (up to 66%) for 1 or 3-year term
+           + Scheduled reserved for recurring schedule can pay by $/hour
+           + no, partial or all upfront
+           + charged with On-Demand rates at the end of term until terminated or purchase new
+             Reserved instance that matches
         - **Spot**
-          + for workloads that can have interruptions
-          + use unused/spare EC2 capacity and savings up to 90% off of On-Demand prices
-          + Spot request is unsuccessful until capacity is available
-          + AWS can reclaim if needed giving a two-minute warning to save state
-          + e.g batch workloads
+           + for workloads that can have interruptions
+           + use unused/spare EC2 capacity and savings up to 90% off of On-Demand prices
+           + Spot request is unsuccessful until capacity is available
+           + AWS can reclaim if needed giving a two-minute warning to save state
+           + e.g batch workloads
         - **Dedicated Hosts**
-          + physical servers with EC2 instances
-          + can use existing software licenses
-          + On-Demand Dedicated Hosts (hourly) and Dedicated Hosts Reservations (up to 70%
-          off the On-Demand price)
-          + most expensive type
+           + physical servers with EC2 instances
+           + can use existing software licenses
+           + On-Demand Dedicated Hosts (hourly) and Dedicated Hosts Reservations (up to 70%
+             off the On-Demand price)
+           + most expensive type
     * **Security Groups**
         - for instance level access
         - every instance launched comes with security group
@@ -1206,10 +1206,10 @@ Systems Manager
     * pre-requisites for resources to be managed with Systems Manager
         - must use supported OS (Windows, Amazon Linux, Ubuntu, RHEL, CentOS)
         - SSM Agent must be installed (Windows requires PowerShell 3.0 or later)
-          + installed by default on Amazon Linux base AMIs dated 2017.09 and later
-          + Windows Server 2016 instances
-          + instances created from Windows Server 2003-2012 R2 AMIs from November 2016 or
-          later
+           + installed by default on Amazon Linux base AMIs dated 2017.09 and later
+           + Windows Server 2016 instances
+           + instances created from Windows Server 2003-2012 R2 AMIs from November 2016 or
+             later
         - EC2 instances must have outbound internet access
         - access Systems Manager in supported region
         - requires IAM roles for instances that will process commands and for users executing
@@ -1218,12 +1218,12 @@ Systems Manager
         - collect operating system (OS), application, and instance metadata from EC2 instances
           and on-premises servers or virtual machines (VMs) in hybrid environment
         - query metadata to quickly understand which instances are running the software and
-          configurations required by software policy, and which instances need to be updated.
+        configurations required by software policy, and which instances need to be updated.
     * **State Manager**
         - association
-          + defines the state to apply to a set of targets
-          + includes document that defines the state, targets, schedule and optional runtime
-          parameters
+           + defines the state to apply to a set of targets
+           + includes document that defines the state, targets, schedule and optional runtime
+             parameters
     * **Compliance**
         - scan the fleet of managed instances for patch compliance and configuration
           inconsistencies
@@ -1240,12 +1240,12 @@ Systems Manager
         - target instances individually or in large groups by using Amazon EC2 tags
         - always test patches thoroughly before deploying to production environments
         - patch baselines
-          + include rules for auto-approving patches within days of release
+           + include rules for auto-approving patches within days of release
         - integrate with IAM, CloudTrail and CloudWatch Events
         - patch group
-          + can create by using EC2 tags
-          + groups must be defined with the tag key, which is case sensitive
-          + an instance can only be in one patch group
+           + can create by using EC2 tags
+           + groups must be defined with the tag key, which is case sensitive
+           + an instance can only be in one patch group
     * **Documents**
         - defines the actions that Systems Manager performs on managed instances
         - us JSON or YAML notation
@@ -1287,16 +1287,16 @@ Snow Family
         - order via Management Console, copy data and ship it back to AWS
     * **Snowball**
         - **edge compute optimized**
-          + for machine learning, full motion video analysis, analytics and local computing
-          + 42 TB HDD for S3 compatible or EBS compatible, 7.68 TB of NVMe SSD for EBS
-          compatible
-          + 52 vCPUs, 208 GiB of memory and optional NVIDIA Tesla V100 GPU
-          + run EC2 sbe-c and sbe-g instances (equal to C5, M5a, G3 and P3)
+           + for machine learning, full motion video analysis, analytics and local computing
+           + 42 TB HDD for S3 compatible or EBS compatible, 7.68 TB of NVMe SSD for EBS
+             compatible
+           + 52 vCPUs, 208 GiB of memory and optional NVIDIA Tesla V100 GPU
+           + run EC2 sbe-c and sbe-g instances (equal to C5, M5a, G3 and P3)
         - **edge storage optimized**
-          + for large-scale data migrations
-          + 80 TB of HDD for block volumes and S3 compatible, 1 TB of SATA SSD for block
-          volumes
-          + 40 vCPUs and 80 GiB of memory to support EC2 sbe1 instances (equal to C5)
+           + for large-scale data migrations
+           + 80 TB of HDD for block volumes and S3 compatible, 1 TB of SATA SSD for block
+             volumes
+           + 40 vCPUs and 80 GiB of memory to support EC2 sbe1 instances (equal to C5)
         - fit into existing server racks
         - can run Lambda functions, EC2-compatible AMI or IoT Greengrass
         - usually for remote locations
@@ -1464,22 +1464,22 @@ IAM
     * **Root user**
         - account owner, created when AWS account is created
         - **credentials**
-          + full access to all resources in the account
-          + cannot use IAM policies to deny root user access to resources
-          + can only use AWS Organizations SCP to limit permissions of the root user
-          + only root user can close the account
+           + full access to all resources in the account
+           + cannot use IAM policies to deny root user access to resources
+           + can only use AWS Organizations SCP to limit permissions of the root user
+           + only root user can close the account
     * **IAM user**
         - Identity and Access Management user
         - created by root user or IAM admin
         - least privilege principle: user is granted access only to what they need
         - no permissions associated by default
         - **credentials**
-          + securely control access to AWS services and resources for users in the account
-          + can create unique credentials for each user and define who has access to which
-          resources
-          + do not need to share credentials
-          + can create IAM users with read-only access to resources and distribute those
-          credentials to users
+           + securely control access to AWS services and resources for users in the account
+           + can create unique credentials for each user and define who has access to which
+             resources
+           + do not need to share credentials
+           + can create IAM users with read-only access to resources and distribute those
+           credentials to users
     * tasks that require to be signed in as the root user
         - change account settings
         - restore IAM user permissions
@@ -1620,7 +1620,7 @@ S3
         - if object from Standard-IA is accessed, it is automatically moved into Standard
     * **Glacier**
         - for data that needs to be retained several years for auditing and don't need rapid
-          retrieval
+        retrieval
         - able to retrieve objects within few minutes to hours
         - simply move data or create vaults and populate them with *archives*
         - can create policy (WORM, write once/read many) and lock the vault

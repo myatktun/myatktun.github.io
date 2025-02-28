@@ -184,7 +184,7 @@ Drawing
         - calling it before drawing anything is mandatory
         - without clearing, contents from previous frames will be present
         - can cover entire window with drawing and not call ``clear()``, but will have
-          performance impact
+        performance impact
     * ``draw()``: draws any object passed to it
     * ``display()``
         - calling it is mandatory
@@ -256,7 +256,7 @@ Drawing
 
     * SFML supports multi-threaded drawing
         - need to deactivate a window before using it in another thread, as OpenGL context
-          cannot be active in more than one thread at the same time
+        cannot be active in more than one thread at the same time
 
         .. code-block:: cpp
 
@@ -302,7 +302,7 @@ Sprites & Textures
         - ``loadFromMemory()``: load image file from memory
         - ``loadFromStream()``: load image file from custom input stream
         - ``loadFromImage()``: load from already loaded image, which loads the texture from
-          ``sf::Image``
+        ``sf::Image``
         - pixels of ``sf::Image`` stay in system memory and operations are as fast as possible
         - pixels of texture in video memory are slow to retrieve but fast to draw
 
@@ -343,12 +343,12 @@ Sprites & Textures
     * can also specify coordinates and update only a part of texture
     * texture has two properties that change how it is rendered
         - ``texture.setSmooth(true)``: smooth texture that makes pixel boundaries less visible,
-          but blur the image a little
+        but blur the image a little
         - ``texture.setRepeated(true)``: allow texture to be repeatedly tiled within a single
-          sprite, only works if sprite is configured to show a rectangle larger than the texture
+        sprite, only works if sprite is configured to show a rectangle larger than the texture
     * after creating texture, can create a sprite
         - color of sprite is modulated/multiplied with its texture, and can be used to change
-          global transparency, alpha, of sprite
+        global transparency, alpha, of sprite
 
         .. code-block:: cpp
 
@@ -387,7 +387,7 @@ Sprites & Textures
 
     * if texture is destroyed or move in memory, sprite ends up with invalid texture pointer
         - when texture of a sprite is set, it internally stores a pointer to the texture
-          instance
+        instance
         - invalid texture pointer causes to show only a white square
         - must correctly manage the lifetime of texture to be as long as the sprite using it
 
@@ -467,13 +467,13 @@ Text & Fonts
         - use wide literal strings to avoid bothering with encodings
         - ``text.setString(L"יטאח")``, the prefix ``L`` tells the compiler to produce wide string
         - on most platforms, wide strings produce Unicode strings, which SFML can handle
-          correctly
+        correctly
     * **Custom Text Class**
         - ``sf::Font`` provides feature to retrieve texture that contains pre-rendered glyphs of
-          certain size
+        certain size
         - glyphs are added to the texture when they are requested
         - characters that can be generated when font is loaded are rendered on the fly when
-          ``getGlyph()`` is called
+        ``getGlyph()`` is called
 
         .. code-block:: cpp
 
@@ -487,9 +487,9 @@ Text & Fonts
     * ``sf::Glyph`` members
         - ``textureRect``: contains texture coordinates of glyph within texture
         - ``bounds``: contains bounding rectangle of glyph, which helps position it relative to
-          baseline of text
+        baseline of text
         - ``advance``: horizontal offset to apply to get starting position of the next glyph in
-          the text
+        the text
 
 Shapes
 ------
@@ -507,7 +507,7 @@ Shapes
 
     * shapes can have outline
         - outline is extruded outwards by default, e.g. circle radius 10 and outline thickness
-          5 will make total circle radius of 15
+        5 will make total circle radius of 15
         - set negative thickness to extrude towards the center of the shape
 
         .. code-block:: cpp
@@ -529,8 +529,8 @@ Shapes
 
     * shapes can also be textured like sprites
         - ``setTextureRect()``: map the texture rectangle to the bounding rectangle of shape,
-          not maximum flexibility, but easier than individually setting texture coordinates of
-          each point of the shape
+        not maximum flexibility, but easier than individually setting texture coordinates of
+        each point of the shape
         - outline is not textured
         - texture is modulated/multiplied with shape's fill color
         - ``sf::Color::White`` will cause texture appear unmodified
@@ -555,7 +555,7 @@ Shapes
     * **Circle**
         - ``sf::CircleShape``, has radius and number of sides attributes
         - number of sides: optional, to adjust quality of the circle as circles have to be
-          approximated by polygons with many sides
+        approximated by polygons with many sides
 
         .. code-block:: cpp
 
@@ -566,7 +566,7 @@ Shapes
     * **Regular Ploygons**
         - no dedicated class
         - use ``sf::CircleShape`` with specific number of sides, as circles are approximated by
-          polygons with many sides
+        polygons with many sides
 
         .. code-block:: cpp
 
@@ -611,7 +611,7 @@ Shapes
     * **Custom Shapes**
         - extend ``sf::Shape`` and override ``getPointCount()`` and ``getPoint()``
         - call protected ``update()`` whenever any point in the shape changes, so that the base
-          class is informed and can update its internal geometry
+        class is informed and can update its internal geometry
 
         .. code-block:: cpp
 
@@ -654,7 +654,7 @@ Shapes
     * **Antialiasing**
         - cannot anti-alias, smooth edges, single shape
         - need to enable anti-aliasing globally when creating the window, with
-          ``sf::ContextSettings``
+        ``sf::ContextSettings``
         - anti-aliasing availability depends on GPU, or might be disabled in GPU settings
 
         .. code-block:: cpp
@@ -672,7 +672,7 @@ Transforming
     * the class defines position, rotation, scale and origin
     * **Position**
         - entities are positioned relative to their top-left corner by default, but can change
-          by setting origin
+        by setting origin
 
         .. code-block:: cpp
 
@@ -686,7 +686,7 @@ Transforming
         - in clockwise order, as Y axis is pointing down
         - ``getRotation()`` returns angle in range [0, 360)
         - rotation is performed around the top-left corner by default, but can change by
-          setting origin
+        setting origin
 
 
         .. code-block:: cpp
@@ -710,10 +710,10 @@ Transforming
     * **Origin**
         - center point of three other transformations
         - entity's position is the position of its origin, rotation is performed around the
-          origin, scale is applied relative to the origin
+        origin, scale is applied relative to the origin
         - origin is top-left corner by default, can set it to center or any other corner
         - only single origin for all three transformations, cannot position relative to
-          top-left corner and rotate around the center
+        top-left corner and rotate around the center
         - changing the origin also changes where the entity is drawn on screen
 
         .. code-block:: cpp

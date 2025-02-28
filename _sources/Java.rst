@@ -53,7 +53,7 @@ Modifiers
         - abstract: for abstract classes and methods
         - strictfp: strict floating-point, to get same floating-point result on any platforms
         - synchronized: for threads, guarantees both atomicity and visibility, can be applied
-          to blocks or methods
+        to blocks or methods
         - volatile: for threads, guarantees visibility, can only be applied to variables
 
 Variables
@@ -73,7 +73,7 @@ Variables
         - visible for all methods, constructors and blocks in the class
         - have default values, but can be assigned during declaration or in constructor
         - can be accessed directly inside the class, but should called using ``Object.Variable``
-          in static methods
+        in static methods
     * **Class/Static**
         - declared with static keyword in class, but outside a method, constructor or block
         - only one copy per class, no matter how many objects are created
@@ -81,9 +81,9 @@ Variables
         - stored in static memory
         - created when program starts and destroyed when it stops
         - similar visibility to instance variables, but mostly declared public for users of the
-          class
+        class
         - same default values as instance variables, and can be assigned in static initializer
-          blocks
+        blocks
         - can be called using ``ClassName.VariableName``
         - should be all upper case when declaring as ``public static final``
 
@@ -133,7 +133,7 @@ Operators
     * **misc**
         - ?: (conditional)
         - ``instance of`` (only for object reference variables, check object is of or compatible
-          with particular type)
+        with particular type)
 
 Loops
 -----
@@ -231,7 +231,7 @@ Numbers
         - determine if Number object is equal to the argument object
         - argument can be of any object
         - return true if argument is not null and is an object of same type with same numeric
-          value
+        value
         - extra requirements for Double and Float
         - ``x.equals(y)``
     * ``valueOf()``: return relevant Number Object holding the value of the argument passed,
@@ -470,27 +470,27 @@ Date/Time
     * **GregorianCalendar**
         - concrete implementation of Calendar class in Gregorian
         - ``GregorianCalendar()``: initialize default GregorianCalendar using current time in
-          default time zone and default locale or ``GregorianCalendar(int yr, int month, int date)``
-          or ``GregorianCalendar(int yr, int month, int date, int hr, int min, int second)`` or
-          ``GregorianCalendar(Locale l)`` or ``GregorianCalendar(TimeZone zone)`` or
-          ``GregorianCalendar(TimeZone z, Locale l)``
+        default time zone and default locale or ``GregorianCalendar(int yr, int month, int date)``
+        or ``GregorianCalendar(int yr, int month, int date, int hr, int min, int second)`` or
+        ``GregorianCalendar(Locale l)`` or ``GregorianCalendar(TimeZone zone)`` or
+        ``GregorianCalendar(TimeZone z, Locale l)``
         - ``add(int field, int amnt)``: add amount of time to given field,
-          ``c.add(GregorianCalendar.MONTH, 2)``
+        ``c.add(GregorianCalendar.MONTH, 2)``
         - ``computeFields()``: converts UTC as ms to time field values
         - ``computeTime()``: Overrides Calendar Converts time field values to UTC as ms
         - ``equals()``: true if equal, ``c1.equals(c2)``
         - ``get()``: get value of given time field, ``c.get(Calendar.YEAR)``
         - ``getActualMaximum()``: get max value a field can have,
-          ``c.getActualMaximum(Calendar.YEAR)``
+        ``c.getActualMaximum(Calendar.YEAR)``
         - ``getActualMinimum()``: get minimum value a field can have,
-          ``c.getActualMinimum(Calendar.YEAR)``
+        ``c.getActualMinimum(Calendar.YEAR)``
         - ``getGreatestMinimum()``: get highest minimum value of a field,
-          ``c.getGreatestMinimum(Calendar.AM_PM)``
+        ``c.getGreatestMinimum(Calendar.AM_PM)``
         - ``getGregorianChange()``: get date change from Julian Calendar to Gregorian
         - ``setGregorianChange()``: set Gregorian Calendar change date,
-          ``c.setGregorianChange(new Date())``
+        ``c.setGregorianChange(new Date())``
         - ``getLeastMaximum()``: get lowest max value of a field,
-          ``c.getLeastMaximum(Calendar.PM)``
+        ``c.getLeastMaximum(Calendar.PM)``
         - ``getMaximum()``: get max value for a field, ``c.getMaximum(Calendar.YEAR)``
         - ``getTime()``: get this Calendar current time, ``c.getTime()``
         - ``getTimeInMillis()``: get this Calendar current time in ms, ``c.getTimeInMillis()``
@@ -498,11 +498,11 @@ Date/Time
         - ``hashCode()``: get hash code, ``c.hashCode()``
         - ``isLeapYear()``: true if argument is leap year, ``c.isLeapYear(2000)``
         - ``roll()``: add/subtract single unit of time on given field,
-          ``c.roll(Calendar.YEAR, true)`` increase year by one, ``c.roll(Calendar.YEAR, false)``
-          decrease year by one
+        ``c.roll(Calendar.YEAR, true)`` increase year by one, ``c.roll(Calendar.YEAR, false)``
+        decrease year by one
         - ``set()``: set time field with given value, ``c.set(Calendar.YEAR, 22)`` or
-          ``c.set(yr, month, date)`` or ``c.set(yr, month, date, hr, min)`` or
-          ``c.set(yr, month, date, hr, min, second)``
+        ``c.set(yr, month, date)`` or ``c.set(yr, month, date, hr, min)`` or
+        ``c.set(yr, month, date, hr, min, second)``
         - ``setTime()``: set this Calendar current time with given Date object, ``c.setTime(Date())``
         - ``setTimeinMillis()``: set this Calendar current time in given long value
         - ``setTimeZone()``: set time zone with given TimeZone object, ``c.setTimeZone(TimeZone)``
@@ -518,31 +518,31 @@ Regex
         - interpret pattern and preform match operations on input string
         - no public constructors, must invoke ``matcher()`` on Pattern object
         - ``groupCount()``: return number of capturing groups, does not include group 0,
-          ``m.groupCount()``
+        ``m.groupCount()``
         - capturing group 0 represents entire expression
         - ``start()``: return start index of previous match, ``m.start()`` or ``m.start(int group)``,
-          which returns start index of subsequence captured by given group
+        which returns start index of subsequence captured by given group
         - ``end()``: return offset after the last char matched, ``m.end()`` or ``m.end(int group)``,
-          which returns offset after the last char of subsequence captured by given group
+        which returns offset after the last char of subsequence captured by given group
         - ``lookingAt()``: true if pattern is matched, starting at the beginning, ``m.lookingAt()``
         - ``find()``: true if next subsequence of matched pattern is found, ``m.find()`` or
-          ``m.find(int start)``, which find next subsequence at given index
+        ``m.find(int start)``, which find next subsequence at given index
         - ``matches()``: true if entire region matches the pattern
         - ``appendReplacement(StringBuffer, String)``: non-terminal append and replace return
-          Matcher object, ``m.appendReplacement()``
+        Matcher object, ``m.appendReplacement()``
         - ``appendTail(StringBuffer)``: terminal append and replace, return StringBuffer object
         - ``replaceAll(String)``: replace every subsequence that matches with given string,
-          return String object
+        return String object
         - ``replaceFirst(String)``: replace first subsequence, ``m.replaceFirst()``, return String
         - ``quoteReplacement(String)``: return literal replacement String for specified String,
-          act as intermediate in replace methods, ``m.quoteReplacement()``
+        act as intermediate in replace methods, ``m.quoteReplacement()``
     * **PatternSyntaxException**
         - unchecked exception that indicates syntax error in regex
         - ``getDescription()``: return description of error
         - ``getIndex()``: return error index
         - ``getPattern()``: return incorrect regex pattern
         - ``getMessage()``: return description of syntax error and index, incorrect regex
-          pattern and visual indication of error index within pattern
+        pattern and visual indication of error index within pattern
 
     .. code-block:: java
 
@@ -610,7 +610,7 @@ Methods
 
     * **this**
         - used as reference to the object of current class, only within instance method or
-          constructor
+        constructor
         - can refer the members of class such as constructors, variables and methods
         - to differentiate instance variables from local variables that have same names
 
@@ -681,7 +681,7 @@ I/O
     * **character streams**
         - for I/O of 16-bit unicode
         - ``FileReader`` and ``FileWriter`` use ``FileInputStream`` and ``FileOutputStream``
-          internally, but read and write 2 bytes at a time
+        internally, but read and write 2 bytes at a time
 
         .. code-block:: java
 
@@ -718,11 +718,11 @@ I/O
         - all methods throw IOException
         - ``close()``: close file input stream, ``in.close()``
         - ``finalize()``: protected method, clean the connection to the file, ensure ``close()``
-          is called when there are no more references to the stream
+        is called when there are no more references to the stream
         - ``read(int r)``: read specified byte of data from InputStream, return the next byte of
-          data or -1 if end of file
+        data or -1 if end of file
         - ``read(byte[] r)``: read r.length bytes from InputStream into array, return total
-          number of bytes read or -1 if end of file
+        number of bytes read or -1 if end of file
         - ``available()``: return number of bytes that can be read from the file input stream
 
         .. code-block:: java
@@ -740,7 +740,7 @@ I/O
         - all methods throw IOException
         - ``close()``: file file output stream, ``out.close()``
         - ``finalize()``: protected method, clean the connection to the file, ensure ``close()``
-          is called when there are no more references to the stream
+        is called when there are no more references to the stream
         - ``write(int w)``: write specified byte to output stream
         - ``write(byte[] w)``: write w.length bytes from byte array to OutputStream
 
@@ -756,7 +756,7 @@ I/O
     * **Directories**
         - can use File object to create directories and list files in a directory
         - ``mkdir()``: create a directory, return true on success and false on failure, which
-          means path specified already exists or entire path does not exist yet, ``d.mkdir(/foo)``
+        means path specified already exists or entire path does not exist yet, ``d.mkdir(/foo)``
         - ``mkdirs()``: create both directory and parents of the directory, ``d.mkdirs(/foo/bar)``
         - path separators of UNIX and Windows are resolved correctly by Java
         - ``list()``: list all files
@@ -775,16 +775,16 @@ I/O
     * **ByteArrayInputStream**
         - allow buffer in memory to be used as InputStream, byte array as input source
         - ``ByteArrayInputStream(byte[] a)`` or ``ByteArrayInputStream(byte[] a, int off, int len)``:
-          constructor take byte array, first byte to be read and number of bytes to be read
+        constructor take byte array, first byte to be read and number of bytes to be read
         - ``read()``: read next byte from InputStream, return int as next byte of data, -1 if
-          end of file
+        end of file
         - ``read(byte[] r, int off, int len)``: read from input stream starting from off till
-          len into an array, return total number of bytes read or -1 if end of file
+        len into an array, return total number of bytes read or -1 if end of file
         - ``available()``: return number of readable bytes from input stream
         - ``mark(int r)``: set current marked position in the stream, max limit of readable
-          bytes as argument
+        bytes as argument
         - ``skip(long n)``: skip n numbers of bytes from stream, return actual number of bytes
-          skipped
+        skipped
 
         .. code-block:: java
 
@@ -802,9 +802,9 @@ I/O
         - ``ByteArrayOutputStream()``: create ByteArrayOutputStream having buffer of 32 bytes
         - ``ByteArrayOutputStream(int s)``: having buffer of given size
         - ``reset()``: reset number of valid bytes of the stream to zero, all output in the
-          stream is discarded
+        stream is discarded
         - ``toByteArray()``: return newly allocated byte array, with size and content of current
-          output stream
+        output stream
         - ``toString()``: return buffer content as string
         - ``write(byte[] b)``: write given array to output stream
         - ``write(byte[] b, int off, int lent)``: write len of bytes starting from off
@@ -825,13 +825,13 @@ I/O
         - ``DataInputStream(InputStream in)``: create InputStream object
         - all methods throw IOException
         - ``read(byte[] b)``: read bytes from input stream into the byte array, return total
-          number of bytes read or -1 if end of file
+        number of bytes read or -1 if end of file
         - ``read(byte[] b, int off, int len)``: read len of bytes starting from off
         - ``readBoolean()``, ``readByte()``, ``readShort()``, ``readInt()``: read bytes from the
-          contained InputStream, return next two bytes of InputStream as specific primitive type
+        contained InputStream, return next two bytes of InputStream as specific primitive type
         - ``readLine()``: read next line of text from InputStream, read successive bytes by
-          converting each into char, until line terminator or end of file, return chars read as
-          String
+        converting each into char, until line terminator or end of file, return chars read as
+        String
 
         .. code-block:: java
 
@@ -847,14 +847,14 @@ I/O
         - ``DataOutputStream(OutputStream out)``: create OutputStream object
         - all methods throw IOException
         - ``write(byte[] w)``: write number of bytes to output stream, return number bytes
-          written to buffer
+        written to buffer
         - ``write(byte[] w, int off, int len)``: write len bytes from byte array at starting
-          point off
+        point off
         - ``writeBoolean()``, ``writeByte()``, ``writeShort()``, ``writeInt()``: write specific
-          primitive type data into output stream as bytes
+        primitive type data into output stream as bytes
         - ``flush()``: flush data output stream
         - ``wrtieBytes(String s)``: write the string to output stream as sequence of bytes, by
-          discarding each char high eight bits
+        discarding each char high eight bits
 
         .. code-block:: java
 
@@ -866,16 +866,16 @@ I/O
         - class to create files and directories, file searching, file deletion, etc.
         - File object represents actual file/dir on the disk
         - ``File(File parent, String child)``: create File instance from parent abstract
-          pathname and child pathname
+        pathname and child pathname
         - ``File(String pathname)``: create File instance by converting given pathname into
-          abstract pathname
+        abstract pathname
         - ``File(String parent, String child)``: create File instance from parent and child
-          pathname string
+        pathname string
         - ``File(URI uri)``: create File instance by converting given URI into abstract pathname
         - ``getName()``: return name of file or dir
         - ``getParent()``: return pathname's parent or null if parent dir not exist
         - ``getParentFile()``: return abstract pathname of pathname's parent, null if parent
-          dir does not exist
+        dir does not exist
         - ``getPath()``: return pathname string
         - ``isAbsolute()``: true if pathname is absolute
         - ``getAbsolutePath()``: return absolute pathname string
@@ -884,32 +884,32 @@ I/O
         - ``exists()``: true if file or dir exists
         - ``isDirectory()``: true if and only if pathname exists and is a dir
         - ``isFile()``: true if and only if file exists and is normal file, which is not a dir
-          and satisfy other system-dependent criteria
+        and satisfy other system-dependent criteria
         - ``lastModified()``: return last modified time in ms since epoch (Jan 1, 1970)
         - ``length()``: return length of file, return unspecified value if pathname is dir
         - ``createNewFile()``: auto create new, empty file only if it does not exist, return
-          true if file not exist and created successfully, throw IOException
+        true if file not exist and created successfully, throw IOException
         - ``delete()``: delete file or dir, dir must be empty, return true if success
         - ``deleteOnExit()``: request file or dir be deleted when the VM terminates
         - ``list()``: return array of strings of files and dirs
         - ``list(FilenameFilter f)``: return array of strings of files and dirs that satisfy
-          given filter
+        given filter
         - ``listFiles()`` or ``listFiles(FileFilter)``: return array of File objects
         - ``mkdir()``: create dir, return true if dir is created
         - ``mkdirs()``: create dir, with necessary parent dirs if not exist, return true if
-          dir with parent dirs is created
+        dir with parent dirs is created
         - ``renameTo(File f)``: rename the file, return true if success
         - ``setLastModified(long time)``: set last modified time of file or dir, return true if
-          success
+        success
         - ``setReadOnly()``: mark file or dir read only, return true if success
         - ``createTempFile(String prefix, String suffix)`` or
-          ``createTempFile(String prefix, String suffix, File dir)``: create empty file in default
-          tmp or specified directory, using prefix and suffix to generate name, return abstract
-          pathname of created empty file
+        ``createTempFile(String prefix, String suffix, File dir)``: create empty file in default
+        tmp or specified directory, using prefix and suffix to generate name, return abstract
+        pathname of created empty file
         - ``compareTo(File)``: compare two abstract pathnames lexicographically, return 0 if
-          equal, < 0 if argument is greater, > 0 if argument is less
+        equal, < 0 if argument is greater, > 0 if argument is less
         - ``compareTo(Object)``: compare abstract pathname to another object, return 0 if equal,
-          < 0 if argument is greater, > 0 if argument is less
+        < 0 if argument is greater, > 0 if argument is less
         - ``equals(Object)``: true if argument is not null and same file or dir
         - ``toString()``: return pathname string, which is just the string returned by ``getPath()``
 
@@ -924,10 +924,10 @@ I/O
     * **FileReader**
         - inherits from InputStreamReader, used to read streams of characters
         - ``FileReader(File)``, ``FileReader(FileDescriptor)``, ``FileReader(String)``: create
-          FileReader with given argument to read from
+        FileReader with given argument to read from
         - ``read()``: read single char, return int of char read, throws IOException
         - ``read(char[] c, int off, int len)``: read chars into array, return number of chars
-          read
+        read
 
         .. code-block:: java
 
@@ -940,8 +940,8 @@ I/O
     * **FileWriter**
         - inherits form OutputStreamWriter, used to write streams of characters
         - ``FileWriter(File)``, ``FileWriter(File,boolean append)``, ``FileWriter(FileDescriptor)``,
-          ``FileWriter(String)``, ``FileWriter(String, boolean append)``: create FileWriter object,
-          accept boolean to append data or not
+        ``FileWriter(String)``, ``FileWriter(String, boolean append)``: create FileWriter object,
+        accept boolean to append data or not
         - ``write(int c)``: write single char, throw IOException
         - ``write(char[] c, int off, int len)``: write len of array of chars starting from off
         - ``write(String s, int off, int len)``: write len of String starting from off
@@ -964,7 +964,7 @@ Exceptions
         - checked by the compiler at compilation time, aka compile time exceptions
         - cannot be ignored and must be taken care of immediately
         - e.g ``FileNotFoundException`` when creating ``FileReader`` object and the file doesn't
-          exist
+        exist
         - ``ClassNotFoundException``, ``CloneNOtSupportedException``, ``IllegalAccessException``
         - ``InstantiationException``, ``InterruptedException``, ``NoSuchFieldException``
         - ``NoSuchMethodException``
@@ -995,18 +995,18 @@ Exceptions
         - ``toString()``: return name of the class from ``getMessage()``
         - ``printStackTrace()``: print result of ``toString()`` with stack trace to ``System.err``
         - ``getStackTrace()``: return array with elements on stack trace, index 0 being the top
-          of the call stack
+        of the call stack
         - ``fillInStackTrace()``: fill the stack trace of this Throwable object with current
-          stack trace, return Throwable object
+        stack trace, return Throwable object
     * **try/catch**
         - placed around the code that might generate exception
         - code within the block is called protected code
         - every ``try`` block should be immediately followed by ``catch`` or ``finally``, which is
-          optional
+        optional
         - one ``try`` can have multiple ``catch`` blocks
         - code in ``finally`` block always execute, even if exception does not occur
         - can use ``finally`` to do cleanup, no matter what happens in the protected code, e.g
-          closing a file
+        closing a file
 
         .. code-block:: java
 
@@ -1042,7 +1042,7 @@ Exceptions
         - a class should implement ``AutoCloseable`` interface to be used with
         - can have multiple classes in ``try`` statement, which will be closed in reverse order
         - resources declared in ``try`` statement are instantiated before the start of ``try`` block,
-          and are implicitly declared as ``final``
+        and are implicitly declared as ``final``
 
         .. code-block:: java
 
@@ -1056,7 +1056,7 @@ Exceptions
     * **custom exceptions**
         - must be a child of ``Throwable``
         - need to extend ``Exception`` class for a checked exception that is auto enforced by
-          the Handle or Declare Rule
+        the Handle or Declare Rule
         - need to extend ``RuntimeException`` for runtime exception
 
         .. code-block:: java
@@ -1139,7 +1139,7 @@ Interfaces
         - interface with no methods in it
         - to create common parent among group of interfaces
         - to add data type to a class: implementing class does not need to define any methods,
-          but becomes an interface type through polymorphism
+        but becomes an interface type through polymorphism
 
 Packages
 --------
@@ -1216,10 +1216,10 @@ Packages
     * **CLASSPATH**
         - full path of the classes directory can be set with ``CLASSPATH`` system variable
         - if class path is ``path/classes`` and package is ``foo.MyPackage``, compiler and JVM will
-          look for ``.class`` files in ``path/classes/foo/MyPackage``
+        look for ``.class`` files in ``path/classes/foo/MyPackage``
         - can have several class paths separated by semicolon (Windows) or colon (Unix)
         - by default, compiler and JVM will search current directory and JAR files containing
-          Java platform classes
+        Java platform classes
 
 `back to top <#java>`_
 
@@ -1434,7 +1434,7 @@ Non-static Nested Class
 
 
         - can pass anonymous inner class as argument to a method that accepts object of an
-          interface, abstract class or a concrete class
+        interface, abstract class or a concrete class
 
         .. code-block:: java
 
@@ -1623,20 +1623,20 @@ Inheritance
         - overriding function of existing method
         - allow subclass to implement parent class method based on its requirements
         - argument list must be same, return type must be same or subtype of the one declared
-          in original overridden method
+        in original overridden method
         - access level cannot be more restrictive than original, e.g if original method is
-          ``public``, overriding method cannot be ``private`` or ``protected``
+        ``public``, overriding method cannot be ``private`` or ``protected``
         - can only override instance methods if subclass inherits them
         - method with ``final`` cannot be overridden
         - method with ``static`` cannot be overridden, but can be re-declared
         - cannot override if method cannot be inherited
         - if same package as superclass, can override any method, unless ``private`` or ``final``
         - if different package as superclass, can only override ``public`` or ``protected``
-          non-final methods
+        non-final methods
         - overriding method can throw unchecked exceptions, even if the original method does
-          not
+        not
         - overriding method should not throw checked exceptions that are new or broader than
-          the ones in original method
+        the ones in original method
         - constructors cannot be overridden
 
         .. code-block:: java
@@ -2384,7 +2384,7 @@ Iterator
         - ``previousIndex()``: return index of previous index, return -1 if not exist
         - ``remove()``: remove current element
         - ``set(Object)``: assign argument to current element, which is the element returned by
-          ``next()`` or ``previous()``
+        ``next()`` or ``previous()``
 
     .. code-block:: java
 
@@ -2589,43 +2589,43 @@ Socket Programming
         - ``ServerSocket()``: create unbound server socket, must use ``bind()`` when ready
         - ``ServerSocket(int)``: create server socket with given port
         - ``ServerSocket(int port, int backlog)``: create server socket with given port and
-          backlog, number of incoming clients to store in a wait queue
+        backlog, number of incoming clients to store in a wait queue
         - ``ServerSocket(int port, int backlog, InetAddress addr)``: create server socket with
-          local IP address to bind to, InetAddress is used for servers that may have multiple IP
+        local IP address to bind to, InetAddress is used for servers that may have multiple IP
         - ``getLocalPort()``: return listening port
         - ``accept()``: wait for incoming client, block until client connect or socket time out,
-          must set timeout value with ``setSoTimeout()``, return Socket object if client connect,
-          throw ``IOException``
+        must set timeout value with ``setSoTimeout()``, return Socket object if client connect,
+        throw ``IOException``
         - ``setSoTimeout(int)``: set timeout value during ``accept()``
         - ``bind(SocketAddress, int backlog)``: bind socket to given SocketAddress object
     * **Socket**
         - use by both client and server, client instantiate one and server obtain one from
-          ``accept()``
+        ``accept()``
         - all constructors, except default one, throw ``IOException``
         - ``Socket(String, int)``: connect to given server at given port, throw
-          ``UnknownHostException``
+        ``UnknownHostException``
         - ``Socket(InetAddress, int)``: connect to given server, using InetAddress, at given port
         - ``Socket(String host, int port, InetAddress local, int localPort)``: connect to given
-          host and port, creating socket on local host at given address and port
+        host and port, creating socket on local host at given address and port
         - ``Socket(InetAddress host, int port, InetAddress local, int localPort)``: connect to
-          given host, using InetAddress, and port, creating socket on local host at given
-          address and port
+        given host, using InetAddress, and port, creating socket on local host at given
+        address and port
         - ``Socket()``: create unconnected socket, need to use ``connect()``
         - ``connect(SocketAddress, int timeout)``: connect socket to given host, throw
-          ``IOException``
+        ``IOException``
         - ``getInetAddress()``: return address to which the socket is connected
         - ``getPort()``: return port of the socket bounded on remote machine
         - ``getLocalPort()``: return port of socket on local machine
         - ``getRemoteSocketAddress()``: return address of remote socket
         - ``getInputStream()``: return InputStream of socket, which is connected to OutputStream
-          of remote socket, throw ``IOException``
+        of remote socket, throw ``IOException``
         - ``getOutputStream()``: return OutputStream of socket, which is connected to InputStream
-          of remote socket, throw ``IOException``
+        of remote socket, throw ``IOException``
         - ``close()``: close the socket, throw ``IOException``
     * **InetAddress**
         - ``InetAddress(byte[])``: create object with raw IP address, return InetAddress
         - ``getByAddress(String, byte[])``: create object with given host name and IP address,
-          return InetAddress
+        return InetAddress
         - ``getByName(String)``: return IP address, as InetAddress object, of given host
         - ``getHostAddress()``: return IP address string
         - ``getHostName()``: get host name string
@@ -2757,11 +2757,11 @@ URL Processing
         - ``setDoInput(boolean)``: default argument true to denote the connection will be used
         for input
         - ``setDoOutput(boolean)``: default argument false to denote connection will not be used
-          for output
+        for output
         - ``getInputStream()``: return InputStream of connection for reading from the resource,
-          throw ``IOException``
+        throw ``IOException``
         - ``getOutputStream()``: return OutputStream of connection for writing to resource,
-          throw ``IOException``
+        throw ``IOException``
         - ``getURL()``: return URL object of connection
 
 Email
@@ -2867,7 +2867,7 @@ Creating Thread
     * **Using Runnable**
         - implement Runnable interface to execute class as a thread
         - must implement ``run()`` provided by Runnable, which is an entry point for a thread,
-          need to put complete business logic inside the method
+        need to put complete business logic inside the method
         - instantiate a Thread object, ``Thread(Runnable, String name)``
         - can start the created Thread object with ``start()``
 
@@ -2912,28 +2912,28 @@ Creating Thread
     * **Using Thread**
         - extending Thread class provide more flexibility
         - override ``run()``, which is an entry point for a thread, need to put complete
-          business logic inside the method
+        business logic inside the method
         - call ``start()`` once Thread object is created
         - ``start()``: start the thread in a separate path of execution, then invoke ``run()``
         - ``run()``: invoked when this Thread object is instantiated using separate Runnable
-          target
+        target
         - ``setName(String)``: change the name of Thread object
         - ``getName()``: return name of Thread object
         - ``setPriority(int)``: set thread priority, between 1 and 10
         - ``setDaemon(boolean)``: this Thread is daemon thread if argument is true
         - ``join(long)``: invoked on second thread, current thread is blocked until the second
-          thread terminate or given time in ms passes
+        thread terminate or given time in ms passes
         - ``interrupt()``: interrupt this thread, will continue execution if it was blocked
         - ``isAlive()``: return true if alive, which is any time after the thread has been
-          started
+        started
         - below static methods perform operation on currently running thread
         - ``yield()``: yield to any other threads of same priority that are waiting to be
-          scheduled
+        scheduled
         - ``sleep(long)``: block current thread for given amount of time in ms
         - ``holdsLock(Object)``: return true if current thread hold the lock on argument
         - ``currentThread()``: return reference to this thread
         - ``dumpStack()``: print stack trace for current thread, useful for debugging
-          multithreaded applications
+        multithreaded applications
 
         .. code-block:: java
 
@@ -3382,7 +3382,7 @@ Streams
         - used to combine result of processing on elements of a stream
         - can be used to return a list or a string
         - can use statistics collectors to calculate all statistics when stream processing is
-          done
+        done
 
         .. code-block:: java
 

@@ -122,10 +122,10 @@ Configuration
         - contains Terraform settings such as required providers that will be used
         - ``source`` of each provider defines optional hostname, namespace and provider type
         - providers are installed from Terraform Registry by default,
-          ``registry.terraform.io/hashicorp/aws``
+        ``registry.terraform.io/hashicorp/aws``
         - ``version`` attribute is optional, but recommended to use to have provider version
-          that works well with the configuration, most recent version is downloaded if not
-          specified
+        that works well with the configuration, most recent version is downloaded if not
+        specified
     * ``provider "PROVIDER_NAME" {}``
         - configure the specified provider
         - can use multiple provider blocks to manage resources from different providers
@@ -133,9 +133,9 @@ Configuration
         - define components of infrastructure, can be physical, virtual or logical resource
         - prefix of the ``TYPE`` maps to the name of the provider
         - ``RESORUCE_TYPE`` and ``RESOURCE_NAME`` form a unique ID for the resource, e.g
-          ``aws_instance.app_server``
+        ``aws_instance.app_server``
         - the block contains arguments to configure the resource, such as machine size, disk
-          image names or VPC IDs
+        image names or VPC IDs
 * ``terraform init``
     * to initialize and install required providers in ``.terraform`` folder
     * ``.terraform.lock.hcl`` file is created to specify exact provider versions used
@@ -185,7 +185,7 @@ Migrate existing infrastructure
     command
         - such as docker images (``docker image inspect sha256:ID -f {{.RepoTags}}``)
         - create ``docker_image`` resource first and update the ``image`` attribute in
-          ``docker_container`` resource to avoid recreating
+        ``docker_container`` resource to avoid recreating
     * import only knows the current state as reported by the provider
     * importing can be error prone due to manual steps and doesn't generate relationships
     between infrastructure
@@ -214,9 +214,9 @@ Troubleshoot
     * **opening GitHub issue**
         - confirm Terraform and providers version with ``terraform version``
         - enable logging by setting environment variables ``export TF_LOG_COR=TRACE``,
-          ``export TF_LOG_PROVIDER=TRACE``, ``export TF_LOG_PATH=logs.txt`` and run a command such
-          as ``terraform refresh`` to generate log file, unset the environment variables to
-          disable logging
+        ``export TF_LOG_PROVIDER=TRACE``, ``export TF_LOG_PATH=logs.txt`` and run a command such
+        as ``terraform refresh`` to generate log file, unset the environment variables to
+        disable logging
         - can submit issue as forum topic before opening in the repository
 
 Additional Resources
@@ -244,7 +244,7 @@ Input variables
         - bool: true or false
         - number: numeric value
         - list: values of same type (start from index 0, can use functions on it,
-          slice(var.LIST_VAR, start, end_exclusive)
+        slice(var.LIST_VAR, start, end_exclusive)
         - map: key/values of same type
         - null: absence or omission
         - set: unordered collection of unique values of same type
@@ -669,15 +669,15 @@ Workflows
     * CLI-driven
         - initiate operations in the terminal and run Terraform remotely or locally
         - using local execution will execute Terraform on local machine and remotely store the
-          state file in the Cloud
+        state file in the Cloud
         - ``terraform init`` will create workspace defined in ``cloud{}`` if needed
         - remote execution can be confirmed from UI or API
     * VCS-driven
         - changes pushed trigger runs in the workspace
         - must configure VCS access, create workspace and associate it with a repository
         - Speculative plans: non-destructive, plan-only runs that show the changes if a PR is
-          created and runs will not show in Cloud logs, can only access from direct link attached
-          to a PR
+        created and runs will not show in Cloud logs, can only access from direct link attached
+        to a PR
         - speculative plans can only be applied by merging to main branch
     * API-driven
         - create tools to interact with [Terraform Cloud API](https://developer.hashicorp.com/terraform/cloud-docs/api-docs)
@@ -714,7 +714,7 @@ Sentinel
     * **enforcement levels**
         - hard-mandatory: policy needs to be passed, run is halted if fails
         - soft-mandatory: similar to hard-mandatory, but allow admin to override policy
-          failures
+        failures
         - advisory: never interrupt the run, only show policy failures as information
     * file must follow the naming convention of ``<policy-name>.sentinel``
     * policy set names within an organization must be unique
@@ -737,7 +737,7 @@ workflow
     * initialize the Terraform working directory
         - ``terraform init -input=false``
         - ``-input=false`` makes Terraform not to prompt for input as all necessary values will
-          provided
+        provided
     * make a plan to match current configuration
         - save the plan to local file
         - ``terraform plan -out-tfplan -input=false``

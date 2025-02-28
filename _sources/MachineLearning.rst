@@ -32,7 +32,7 @@ Supervised Learning
         - performing a classification task
     * **Continuous Label**
         - does not have a discrete set of possible values, potentially unlimited number of
-          possibilities
+        possibilities
         - performing a regression task
 
 Unsupervised Learning
@@ -68,7 +68,7 @@ Reinforcement Learning
     * **Value Function**
         - determine possible future rewards given the current policy
         - adjust to encourage desirable actions while discouraging others, also called policy
-          update
+        update
     * **PPO**
         - Proximal Policy Optimisation, uses on-policy learning
         - learn only from observations made by current policy, most recent and relevant data
@@ -133,7 +133,7 @@ Deep Learning Models
     * **RNN/LSTM**
         - Recurrent Neural Networks and the related Long Short-Term Memory
         - to effectively represent for loops in traditional computing, collecting state while
-          iterating over some object
+        iterating over some object
         - can be used for processing sequences of data
     * **Transformer**
         - more modern replacement for RNN/LSTMs
@@ -155,7 +155,7 @@ Defining Problem
     better
     * **Machine Learning Tasks**
         - output of a task can be different and classified into different groups based on the
-          task
+        task
         - characteristics of the input data can help to define which ML task to be used
         - Supervised and Unsupervised learning are two common tasks
 
@@ -173,7 +173,7 @@ Building Dataset
         - collect data related to the problem defined
         - search and use publicly available data in early exploration
         - the format of data, labeled or unlabeled, and availability of data will determine
-          the ML task
+        the ML task
     * **Data Inspection**
         - inspect the integrity of the data, not all data found are high quality
         - quality of the data has a massive impact of how well the model performs
@@ -185,10 +185,10 @@ Building Dataset
         - bag of words: count how many times a word appears in a document
     * **Summary Statistics**
         - helps understand what the data is communicating or in line with the underlying
-          assumptions of the ML model
+        assumptions of the ML model
         - allows to see insights such as scope, scale and shape of the data
         - there are many tools to calculate things such as mean, IQR (inner-quartile range)
-          and standard deviation
+        and standard deviation
     * **Data Visualization**
         - communicate the findings, such as outliers and trends, to project stakeholders
 
@@ -204,15 +204,15 @@ Model Training
         - randomly split the dataset before training
         - majority of the data is in training dataset, usually 80%
         - test dataset is withheld from training and used later to evaluate the model before
-          production
+        production
         - test the data against the bias-variance trade-off and how well the model will
-          generalize to new data
+        generalize to new data
     * feed the training data into the model, compute the loss function on the results, and
      iteratively updating model parameters to minimize some loss function
     * models are trained by slowly changing model parameters to move it closer to some goal
     * **Model Parameters**
         - settings, knobs, configurations, weights or biases that are updated to change how
-          the model behaves
+        the model behaves
         - weights are values that change as the model learns, specific to neural networks
     * **Loss Function**
         - measure how close the model is to its goal
@@ -233,10 +233,10 @@ Model Evaluation
     * **Metrics**
         - accuracy: how often the model predicts correctly
         - log loss: to understand model's uncertainty about a given prediction, how strongly
-          the model believes its prediction is accurate
+        the model believes its prediction is accurate
         - silhouette coefficient: shows how well the data is clustered by the model, score
-          near 0 show overlapping clusters, score < 0 show data points assigned to incorrect
-          clusters, and score near 1 show successful identification
+        near 0 show overlapping clusters, score < 0 show data points assigned to incorrect
+        clusters, and score near 1 show successful identification
 
 Model Inference
 ---------------
@@ -248,11 +248,11 @@ Model Inference
         - number of inferences per second, need to maximise
         - depend on performances such as CPU, GPU, RAM, and machine learning framework
         - cost-effective to centralise in one place, where data is fed from edge devices to a
-          central server for processing
+        central server for processing
         - inference at edge, performing inference locally is crucial for real-time devices
     * **Inference Time/Latency**
         - time taken to run a single inference
         - inference at edge reduces latency as data does not need to travel to the server for
-          processing
+        processing
 
 `back to top <#machine-learning>`_

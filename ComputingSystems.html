@@ -458,9 +458,13 @@
 * <strong>Truth Table</strong></p>
 <blockquote>
 <div><ul class="simple">
-<li><p>specify boolean function by enumerating all possible values of inputs and outputs
-| x | y | z | f(x, y, z) |
-<a href="#id5"><span class="problematic" id="id6">|---|</span></a>—<a href="#id7"><span class="problematic" id="id8">|---|</span></a>————|
+<li><p>specify boolean function by enumerating all possible values of inputs and outputs</p></li>
+</ul>
+<blockquote>
+<div><div class="line-block">
+<div class="line">x | y | z | f(x, y, z) |</div>
+</div>
+<p><a href="#id5"><span class="problematic" id="id6">|---|</span></a>—<a href="#id7"><span class="problematic" id="id8">|---|</span></a>————|
 | 0 | 0 | 0 |     0      |
 | 0 | 0 | 1 |     0      |
 | 0 | 1 | 0 |     1      |
@@ -468,30 +472,30 @@
 | 1 | 0 | 0 |     1      |
 | 1 | 0 | 1 |     0      |
 | 1 | 1 | 0 |     1      |
-| 1 | 1 | 1 |     0      |</p></li>
-</ul>
+| 1 | 1 | 1 |     0      |</p>
 </div></blockquote>
-<ul class="simple">
+</div></blockquote>
+<ul>
 <li><dl class="simple">
-<dt><strong>Boolean Expression</strong></dt><dd><ul>
+<dt><strong>Boolean Expression</strong></dt><dd><ul class="simple">
 <li><p>specify boolean function by operating over inputs</p></li>
 <li><p>basic operators are AND (x.y), OR (x + y), NOT (!x)</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>Canonical Representation</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>Canonical Representation</strong></dt><dd><ul class="simple">
 <li><p>every boolean function can be expressed using AND, OR, NOT</p></li>
-<li><p>for each row with output 1, construct a term created by AND-ing together literals
-(variables or their negations) that fix the values of all row’s inputs</p></li>
-<li><p>x = 0, y = 1, z = 0 produce the term !xy!z</p></li>
-<li><p>x = 1, y = 0, z = 0 produce the term x!y!z</p></li>
-<li><p>x = 1, y = 1, z = 0 produce the term xy!z</p></li>
-<li><p>apply OR on terms of rows with output 1 and the result expression is equivalent to
-truth table, (!xy!z + x!y!z + xy!z)</p></li>
-<li><p>NP-hard problem to find the shortest expression equivalent to the given one</p></li>
+<li><p>for each row with output 1, construct a term created by AND-ing together literals</p></li>
 </ul>
+<p>(variables or their negations) that fix the values of all row’s inputs
+- x = 0, y = 1, z = 0 produce the term !xy!z
+- x = 1, y = 0, z = 0 produce the term x!y!z
+- x = 1, y = 1, z = 0 produce the term xy!z
+- apply OR on terms of rows with output 1 and the result expression is equivalent to
+truth table, (!xy!z + x!y!z + xy!z)
+- NP-hard problem to find the shortest expression equivalent to the given one</p>
 </dd>
 </dl>
 </li>
@@ -1068,21 +1072,21 @@ separately on inputs
 <section id="alu">
 <h3>ALU<a class="headerlink" href="#alu" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>Arithmetic Logic Unit, computes a function on two inputs and outputs the result</p></li>
-<li><dl class="simple">
-<dt><strong>Trade-Offs</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>Trade-Offs</strong></dt><dd><ul class="simple">
 <li><p>has hardware/software trade-off when implementing ALU</p></li>
 <li><p>deciding which operations are allowed to perform</p></li>
-<li><p>as operations are abstracted from a programmer, to output the correct result is the
-only concern</p></li>
-<li><p>when an operation is designed in hardware, it is faster, but complex and costly</p></li>
+<li><p>as operations are abstracted from a programmer, to output the correct result is the</p></li>
 </ul>
+<p>only concern
+- when an operation is designed in hardware, it is faster, but complex and costly</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Example ALU Control Bits</strong></dt><dd><ul>
+<dt><strong>Example ALU Control Bits</strong></dt><dd><ul class="simple">
 <li><p>control bits are sequential</p></li>
 <li><p>zx: if zx then x=0</p></li>
 <li><p>nx: if nx then x=!x</p></li>
@@ -1138,24 +1142,24 @@ fabrication companies
 </ul>
 </div></blockquote>
 <ul>
-<li><dl class="simple">
+<li><dl>
 <dt><strong>Statment</strong></dt><dd><ul class="simple">
 <li><p>specify each part of its name and connection to other parts</p></li>
-<li><p>to write a statement, need to know a complete documentation of underlying parts’
-interfaces</p></li>
+<li><p>to write a statement, need to know a complete documentation of underlying parts’</p></li>
 </ul>
+<p>interfaces</p>
 </dd>
 </dl>
 </li>
 <li><dl>
 <dt><strong>Pins</strong></dt><dd><ul class="simple">
 <li><p>by default single-bit, multi-bit bus pins can also be declared and used</p></li>
-<li><p>internal pins: create and connect to describe inter-part connections, can be created
-and named at will</p></li>
-<li><p>output pins: names cannot be controlled by programmer, supplied by chips’ architects
-and documented in given API</p></li>
-<li><p>pins have fan-in 1 and unlimited fan-out</p></li>
+<li><p>internal pins: create and connect to describe inter-part connections, can be created</p></li>
 </ul>
+<p>and named at will
+- output pins: names cannot be controlled by programmer, supplied by chips’ architects
+and documented in given API
+- pins have fan-in 1 and unlimited fan-out</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="w"> </span><span class="n">internal</span><span class="w"> </span><span class="n">pin</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="n">simultaneously</span><span class="w"> </span><span class="n">feeds</span><span class="w"> </span><span class="n">three</span><span class="w"> </span><span class="n">input</span>
 
 <span class="n">chipPart1</span><span class="p">(...,</span><span class="w"> </span><span class="k">out</span><span class="o">=</span><span class="n">v</span><span class="p">,...);</span>
@@ -1169,9 +1173,9 @@ and documented in given API</p></li>
 <li><dl>
 <dt><strong>Program Structure</strong></dt><dd><ul class="simple">
 <li><p>interface: chip’s API documentation, chip name and names of input and output pins</p></li>
-<li><p>implementation: statements below PARTS keyword, describe names and topology of all
-lower-level parts from which the chip is constructed</p></li>
+<li><p>implementation: statements below PARTS keyword, describe names and topology of all</p></li>
 </ul>
+<p>lower-level parts from which the chip is constructed</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="w"> </span><span class="n">Comment</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nc">line</span>
 <span class="err">/*</span><span class="w"> </span><span class="nc">Comment</span><span class="w"> </span><span class="k">until</span><span class="w"> </span><span class="nc">closing</span><span class="w"> </span><span class="err">*/</span>
 <span class="err">/**</span><span class="w"> </span><span class="nc">API</span><span class="w"> </span><span class="nc">documentation</span><span class="w"> </span><span class="nc">comment</span><span class="w"> </span><span class="err">*/</span>
@@ -1226,25 +1230,25 @@ lower-level parts from which the chip is constructed</p></li>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
+<li><dl>
 <dt><strong>Internal Bus Pins</strong></dt><dd><ul class="simple">
 <li><p>bit-widths are deduced implicitly from the bindings in declaration</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">chipPart1(...,</span> <span class="pre">x[i]=u,</span> <span class="pre">...);</span></code> defines <code class="docutils literal notranslate"><span class="pre">u</span></code> as single-bit internal pin and has value
-x[i]</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">chipPart1(...,</span> <span class="pre">x[i..j]=v,</span> <span class="pre">...);</span></code> defines <code class="docutils literal notranslate"><span class="pre">v</span></code> as internal pin of width <code class="docutils literal notranslate"><span class="pre">j-i+1</span></code> bits
-and has values indexed <code class="docutils literal notranslate"><span class="pre">i</span></code> to <code class="docutils literal notranslate"><span class="pre">j</span></code> (inclusive) of bus-pin <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
-<li><p>internal pins cannot be subscripted, e.g. u[i] is not allowed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chipPart1(...,</span> <span class="pre">x[i]=u,</span> <span class="pre">...);</span></code> defines <code class="docutils literal notranslate"><span class="pre">u</span></code> as single-bit internal pin and has value</p></li>
 </ul>
+<p>x[i]
+- <code class="docutils literal notranslate"><span class="pre">chipPart1(...,</span> <span class="pre">x[i..j]=v,</span> <span class="pre">...);</span></code> defines <code class="docutils literal notranslate"><span class="pre">v</span></code> as internal pin of width <code class="docutils literal notranslate"><span class="pre">j-i+1</span></code> bits
+and has values indexed <code class="docutils literal notranslate"><span class="pre">i</span></code> to <code class="docutils literal notranslate"><span class="pre">j</span></code> (inclusive) of bus-pin <code class="docutils literal notranslate"><span class="pre">x</span></code>
+- internal pins cannot be subscripted, e.g. u[i] is not allowed</p>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
+<li><dl>
 <dt><strong>True/False Buses</strong></dt><dd><ul class="simple">
 <li><p>constants true, 1, and false, 0, can be sued to define buses</p></li>
-<li><p>if <code class="docutils literal notranslate"><span class="pre">x</span></code> is 8-bit bus-pin, <code class="docutils literal notranslate"><span class="pre">chipPart(...,</span> <span class="pre">x[0..2]=true,</span> <span class="pre">...,</span> <span class="pre">x[6..7]=true,</span> <span class="pre">...);</span></code> sets
-<code class="docutils literal notranslate"><span class="pre">x</span></code> to the value 11000111</p></li>
-<li><p>unaffected bits are set to false, 0, by default</p></li>
+<li><p>if <code class="docutils literal notranslate"><span class="pre">x</span></code> is 8-bit bus-pin, <code class="docutils literal notranslate"><span class="pre">chipPart(...,</span> <span class="pre">x[0..2]=true,</span> <span class="pre">...,</span> <span class="pre">x[6..7]=true,</span> <span class="pre">...);</span></code> sets</p></li>
 </ul>
+<p><code class="docutils literal notranslate"><span class="pre">x</span></code> to the value 11000111
+- unaffected bits are set to false, 0, by default</p>
 </dd>
 </dl>
 </li>
@@ -1306,43 +1310,43 @@ and has values indexed <code class="docutils literal notranslate"><span class="p
 <span class="err">}</span>
 </pre></div>
 </div>
-<ul class="simple">
+<ul>
 <li><dl class="simple">
-<dt><strong>Foundation</strong></dt><dd><ul>
+<dt><strong>Foundation</strong></dt><dd><ul class="simple">
 <li><p>built-in chips provide supplied implementations of given or primitive chips</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>Efficiency</strong></dt><dd><ul>
-<li><p>when using complex chips, hardware simulator has to evaluate all lower-level chips
-recursively, and it can be slow and inefficient</p></li>
-<li><p>using built-in chip-parts instead of regular HDL-based chips can speed up the
-simulation</p></li>
+<li><dl>
+<dt><strong>Efficiency</strong></dt><dd><ul class="simple">
+<li><p>when using complex chips, hardware simulator has to evaluate all lower-level chips</p></li>
 </ul>
+<p>recursively, and it can be slow and inefficient
+- using built-in chip-parts instead of regular HDL-based chips can speed up the
+simulation</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Unit Testing</strong></dt><dd><ul>
+<dt><strong>Unit Testing</strong></dt><dd><ul class="simple">
 <li><p>when building a new chip, it is recommended to use built-in chip parts</p></li>
 <li><p>improves efficiency and minimizes errors</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>Visualization</strong></dt><dd><ul>
-<li><p>built-in chips that features a GUI will be displayed whenever it is loaded into the
-simulator</p></li>
-<li><p>chips with GUI can be used just like any other chip</p></li>
+<li><dl>
+<dt><strong>Visualization</strong></dt><dd><ul class="simple">
+<li><p>built-in chips that features a GUI will be displayed whenever it is loaded into the</p></li>
 </ul>
+<p>simulator
+- chips with GUI can be used just like any other chip</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Extension</strong></dt><dd><ul>
+<dt><strong>Extension</strong></dt><dd><ul class="simple">
 <li><p>built-in chips can support to implement new I/O device or hardware platform</p></li>
 </ul>
 </dd>
@@ -1369,20 +1373,20 @@ unit, also called cycle
 <li><p>progression of the series is controlled by simulator commands, tick and tock</p></li>
 <li><p>tick moves the value from t to t+, and tock from t+ to t+1</p></li>
 <li><p>simulated time can be fully controlled by the user or a test script</p></li>
-<li><p>in first phase, tick, inputs of each sequential chip affect the chip’s internal
-state</p></li>
-<li><p>in second phase, tock, chip outputs are set to new values</p></li>
+<li><p>in first phase, tick, inputs of each sequential chip affect the chip’s internal</p></li>
 </ul>
+<p>state
+- in second phase, tock, chip outputs are set to new values</p>
 </div></blockquote>
 <ul>
-<li><dl class="simple">
+<li><dl>
 <dt><strong>Controlling the clock</strong></dt><dd><ul class="simple">
 <li><p>when a sequential chip is loaded, GUI enables a clock-shaped button</p></li>
-<li><p>one click on the button, a tick, end the first phase of the clock cycle, and a
-subsequent click, a tock, ends the second phase</p></li>
-<li><p>scripting commands <code class="docutils literal notranslate"><span class="pre">repeat</span> <span class="pre">n</span> <span class="pre">{tick,</span> <span class="pre">tock,</span> <span class="pre">output;}</span></code> advance the clock <code class="docutils literal notranslate"><span class="pre">n</span></code> time units
-, and print some values</p></li>
+<li><p>one click on the button, a tick, end the first phase of the clock cycle, and a</p></li>
 </ul>
+<p>subsequent click, a tock, ends the second phase
+- scripting commands <code class="docutils literal notranslate"><span class="pre">repeat</span> <span class="pre">n</span> <span class="pre">{tick,</span> <span class="pre">tock,</span> <span class="pre">output;}</span></code> advance the clock <code class="docutils literal notranslate"><span class="pre">n</span></code> time units
+, and print some values</p>
 </dd>
 </dl>
 </li>
@@ -1390,16 +1394,16 @@ subsequent click, a tock, ends the second phase</p></li>
 <dt><strong>Sequential Built-In Chips</strong></dt><dd><ul class="simple">
 <li><p>only built-in chip can depend on the clock explicitly, <code class="docutils literal notranslate"><span class="pre">CLOCKED</span> <span class="pre">pin,...,</span> <span class="pre">pin;</span></code></p></li>
 <li><p>each pin is one of the chip’s input or output pins</p></li>
-<li><p>if input pin x is in <code class="docutils literal notranslate"><span class="pre">CLOCKED</span></code> list, changes to it should affect outputs only at the
-beginning of the next time unit</p></li>
-<li><p>if output pin x is in <code class="docutils literal notranslate"><span class="pre">CLOCKET</span></code> list, changes to any inputs should affect only at the
-beginning of the next time unit</p></li>
-<li><p>when only some of I/O pins are declared as clocked, changes in the non-clocked input
-pins affect the non-clocked output pins instantaneously, e.g. address pins in RAM
-units, addressing logic is combinational, and independent of the clock</p></li>
-<li><p>if <code class="docutils literal notranslate"><span class="pre">CLOCKED</span></code> keyword is with empty list, the chip mah change its internal state
-depending on the clock, but I/O will be combinational and independent of the clock</p></li>
+<li><p>if input pin x is in <code class="docutils literal notranslate"><span class="pre">CLOCKED</span></code> list, changes to it should affect outputs only at the</p></li>
 </ul>
+<p>beginning of the next time unit
+- if output pin x is in <code class="docutils literal notranslate"><span class="pre">CLOCKET</span></code> list, changes to any inputs should affect only at the
+beginning of the next time unit
+- when only some of I/O pins are declared as clocked, changes in the non-clocked input
+pins affect the non-clocked output pins instantaneously, e.g. address pins in RAM
+units, addressing logic is combinational, and independent of the clock
+- if <code class="docutils literal notranslate"><span class="pre">CLOCKED</span></code> keyword is with empty list, the chip mah change its internal state
+depending on the clock, but I/O will be combinational and independent of the clock</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="cm">/** D-Flip-Flop gate(DFF):</span>
 <span class="cm">out[t] = in[t - 1] where t is current cycle, or time-unit. */</span>
 
@@ -1414,28 +1418,28 @@ depending on the clock, but I/O will be combinational and independent of the clo
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
+<li><dl>
 <dt><strong>Sequential Regular Chips</strong></dt><dd><ul class="simple">
-<li><p>if the chip is not built-in, it is clocked when one or more of its chip-parts is
-clocked</p></li>
-<li><p>clocked property is checked recursively</p></li>
-<li><p>if a built-in chip is explicitly clocked, every chip that depends on it is clocked</p></li>
-<li><p>if a chip is not built-in, there is no way to tell from its HDL code whether it is
-sequential or not</p></li>
-<li><p>chip architect should provide the necessary information in the chip API</p></li>
+<li><p>if the chip is not built-in, it is clocked when one or more of its chip-parts is</p></li>
 </ul>
+<p>clocked
+- clocked property is checked recursively
+- if a built-in chip is explicitly clocked, every chip that depends on it is clocked
+- if a chip is not built-in, there is no way to tell from its HDL code whether it is
+sequential or not
+- chip architect should provide the necessary information in the chip API</p>
 </dd>
 </dl>
 </li>
 <li><dl>
 <dt><strong>Feedback Loops</strong></dt><dd><ul class="simple">
-<li><p>feedback loop: input of a chip feeds from one of the outputs, directly or through
-path of dependencies</p></li>
-<li><p>data race: instantaneous and uncontrolled dependency between <code class="docutils literal notranslate"><span class="pre">in</span></code> and <code class="docutils literal notranslate"><span class="pre">out</span></code></p></li>
-<li><p>for each loop, simulator checks if the loop goes through a clocked pin</p></li>
-<li><p>if the loop does not go through a clocked pin, simulator stops processing and error
-to prevent uncontrolled data races</p></li>
+<li><p>feedback loop: input of a chip feeds from one of the outputs, directly or through</p></li>
 </ul>
+<p>path of dependencies
+- data race: instantaneous and uncontrolled dependency between <code class="docutils literal notranslate"><span class="pre">in</span></code> and <code class="docutils literal notranslate"><span class="pre">out</span></code>
+- for each loop, simulator checks if the loop goes through a clocked pin
+- if the loop does not go through a clocked pin, simulator stops processing and error
+to prevent uncontrolled data races</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="cm">/** Not is combinational, DFF is sequential.</span>
 <span class="cm">    loop1 creates data race.</span>
 <span class="cm">    in-out dependency by loop2 is delayed by the clock, since in input of DFF</span>

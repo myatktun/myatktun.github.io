@@ -958,21 +958,21 @@ CompTIA A+ Cert Notes
 <blockquote>
 <div><ul class="simple">
 <li><p>maximum number of clock cycles that a CPU can handle in a given period of time</p></li>
-<li><p>although all CPUs come off of the same assembly lines, they have subtle differences in
-the silicon that makes on CPU faster than another</p></li>
+<li><p>although all CPUs come off of the same assembly lines, they have subtle differences in</p></li>
 </ul>
+<p>the silicon that makes on CPU faster than another</p>
 </div></blockquote>
-<ul class="simple">
-<li><dl class="simple">
-<dt><strong>system crystal (quartz oscillator)</strong></dt><dd><ul>
+<ul>
+<li><dl>
+<dt><strong>system crystal (quartz oscillator)</strong></dt><dd><ul class="simple">
 <li><p>determines the speed at which CPU and the rest of the PC operate</p></li>
 <li><p>sends out an electric pulse at a certain speed</p></li>
 <li><p>the pulse signal goes first to a clock chip that adjusts the pulse, usually increasing</p></li>
-<li><p>in the old days, crystal and clock chip must be adjusted to send out the correct clock
-pulse for the particular CPU</p></li>
-<li><p>in today’s systems, the CPU tells the motherboard the clock speed it needs, and the
-clock chip auto adjusts for the CPU</p></li>
+<li><p>in the old days, crystal and clock chip must be adjusted to send out the correct clock</p></li>
 </ul>
+<p>pulse for the particular CPU
+- in today’s systems, the CPU tells the motherboard the clock speed it needs, and the
+clock chip auto adjusts for the CPU</p>
 </dd>
 </dl>
 </li>
@@ -997,14 +997,14 @@ clock chip auto adjusts for the CPU</p></li>
 <li><p>64 bits = a paragraph or quad word</p></li>
 </ul>
 </div></blockquote>
-<ul class="simple">
-<li><dl class="simple">
-<dt><strong>DRAM (dynamic RAM)</strong></dt><dd><ul>
+<ul>
+<li><dl>
+<dt><strong>DRAM (dynamic RAM)</strong></dt><dd><ul class="simple">
 <li><p>used in computers</p></li>
-<li><p>needs both constant electrical charge and a periodic refresh of the circuits, loses
-data otherwise</p></li>
-<li><p>refresh can cause some delays and CPU has to wait for it</p></li>
+<li><p>needs both constant electrical charge and a periodic refresh of the circuits, loses</p></li>
 </ul>
+<p>data otherwise
+- refresh can cause some delays and CPU has to wait for it</p>
 </dd>
 </dl>
 </li>
@@ -1171,18 +1171,24 @@ and multiplier are set automatically</p>
 <section id="parallel-execution">
 <h3>Parallel execution<a class="headerlink" href="#parallel-execution" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>CPUs accomplish through multiple pipelines, dedicated cache and multiple threads</p></li>
-<li><dl class="simple">
-<dt><strong>Pipelining</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>Pipelining</strong></dt><dd><ul class="simple">
 <li><p>takes at least four steps</p></li>
 <li><p>Fetch, Decode, Execute, Write</p></li>
 <li><p>each stage does its job with each clock-cycle pulse, much more efficient</p></li>
-<li><p>not always perfect, can hit a complex command requiring more than one clock-cycle that
-force the pipeline to stop</p></li>
-<li><p>CPU tries to avoid <strong>pipeline stalls</strong>
-+ also called wait states
-+ mostly caused by decode stage as RAM can’t keep up with CPU</p></li>
+<li><p>not always perfect, can hit a complex command requiring more than one clock-cycle that</p></li>
+</ul>
+<p>force the pipeline to stop
+- CPU tries to avoid <strong>pipeline stalls</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>also called wait states</p></li>
+<li><p>mostly caused by decode stage as RAM can’t keep up with CPU</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
 <li><p>with single pipline, only ALU or FPU worked at any execution stage</p></li>
 </ul>
 </dd>
@@ -1215,11 +1221,21 @@ force the pipeline to stop</p></li>
 <li><p>L1 in CPU, smallest and fastest</p></li>
 <li><p>L2 and L3 on CPU package</p></li>
 <li><p>speed: L1 &gt; L2 &gt; L3</p></li>
-<li><p><strong>frontside bus</strong>
-+ new term for address and external data bus
-+ also referred to as double-pumped and quad-pumped buses</p></li>
-<li><p><strong>backside bus</strong>
-+ connection between CPU and L2 cache</p></li>
+<li><dl class="simple">
+<dt><strong>frontside bus</strong></dt><dd><ul>
+<li><p>new term for address and external data bus</p></li>
+<li><p>also referred to as double-pumped and quad-pumped buses</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>backside bus</strong></dt><dd><ul>
+<li><p>connection between CPU and L2 cache</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </dd>
 </dl>
@@ -1309,21 +1325,31 @@ force the pipeline to stop</p></li>
 <section id="numbering-schemes">
 <h3>numbering schemes<a class="headerlink" href="#numbering-schemes" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
+<div><ul>
+<li><dl>
 <dt><strong>Intel</strong></dt><dd><ul>
-<li><p>Intel Core i7 7500 U
-+ Intel Core = brand, i7 = brand modifier, 7 = generation, 500 = SKU numbers,
-U = alpha suffix (U for desktop processor using ultra-low power)</p></li>
+<li><dl>
+<dt>Intel Core i7 7500 U</dt><dd><ul class="simple">
+<li><p>Intel Core = brand, i7 = brand modifier, 7 = generation, 500 = SKU numbers,</p></li>
+</ul>
+<p>U = alpha suffix (U for desktop processor using ultra-low power)</p>
+</dd>
+</dl>
+</li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
+<li><dl>
 <dt><strong>AMD</strong></dt><dd><ul>
-<li><p>AMD Ryzen 7 2700X
-+ AMD Ryzen = brand, 7 = market segment, 2 = generation, 7 = performance level,
-00 = model number, X = power suffix (X for high performance)</p></li>
+<li><dl>
+<dt>AMD Ryzen 7 2700X</dt><dd><ul class="simple">
+<li><p>AMD Ryzen = brand, 7 = market segment, 2 = generation, 7 = performance level,</p></li>
+</ul>
+<p>00 = model number, X = power suffix (X for high performance)</p>
+</dd>
+</dl>
+</li>
 </ul>
 </dd>
 </dl>
@@ -1846,30 +1872,35 @@ modules (eg. servers)
 <section id="post-power-on-self-test">
 <h3>POST (Power-On Self Test)<a class="headerlink" href="#post-power-on-self-test" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>program stored on system ROM chip</p></li>
 <li><p>checks out the system every boot</p></li>
 <li><p>sends command to all standard devices to run their own built-in diagnostic</p></li>
 <li><p>doesn’t specify what to check</p></li>
 <li><p>quality of diagnostic is up to those who made the device</p></li>
 <li><dl class="simple">
-<dt>send <strong>beep codes</strong> or <strong>text messages</strong> if POST errors occur</dt><dd><ul>
-<li><p>two beep codes (before and during video tests)
-+ bad or missing video (one long beep followed by two or three short beeps)
-+ bad or missing RAM (single beep that repeats indefinitely)</p></li>
+<dt>send <strong>beep codes</strong> or <strong>text messages</strong> if POST errors occur</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>two beep codes (before and during video tests)</dt><dd><ul>
+<li><p>bad or missing video (one long beep followed by two or three short beeps)</p></li>
+<li><p>bad or missing RAM (single beep that repeats indefinitely)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>text erros are after the video has tested okay</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>POST card</strong></dt><dd><ul>
-<li><p>inoperative device can sometimes disrupt POST, forcing the machine into endless loop
-and cause PC to act dead with no beeps and text erros</p></li>
-<li><p>POST card monitor POST and identify which hardware is causing the problem</p></li>
-<li><p>simple cards snapped at expansion slots (small two-character LED)</p></li>
-<li><p>mostly use on dead PC to determine at which level it’s dead</p></li>
+<li><dl>
+<dt><strong>POST card</strong></dt><dd><ul class="simple">
+<li><p>inoperative device can sometimes disrupt POST, forcing the machine into endless loop</p></li>
 </ul>
+<p>and cause PC to act dead with no beeps and text erros
+- POST card monitor POST and identify which hardware is causing the problem
+- simple cards snapped at expansion slots (small two-character LED)
+- mostly use on dead PC to determine at which level it’s dead</p>
 </dd>
 </dl>
 </li>
@@ -1893,13 +1924,23 @@ and cause PC to act dead with no beeps and text erros</p></li>
 <dt>differs between old BIOS and UEFI</dt><dd><ul>
 <li><dl>
 <dt><strong>old BIOS way</strong></dt><dd><ul class="simple">
-<li><p>POST pass the control to <strong>bootstrap loader</strong>
-+ few dozen lines of BIOS code tacked to the end of POST program
-+ reads CMOS info to find the OS
-+ CMOS setup utility tell which devices to check and in which order (boot sequence)</p></li>
-<li><p><strong>bootable disk or system disk</strong>
-+ has boot sector containing special programming designed to tell the system where
+<li><dl class="simple">
+<dt>POST pass the control to <strong>bootstrap loader</strong></dt><dd><ul>
+<li><p>few dozen lines of BIOS code tacked to the end of POST program</p></li>
+<li><p>reads CMOS info to find the OS</p></li>
+<li><p>CMOS setup utility tell which devices to check and in which order (boot sequence)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>bootable disk or system disk</strong></dt><dd><ul>
+<li><p>has boot sector containing special programming designed to tell the system where
 to locate the operating system</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>if good boot sector is found, bootstrap loader pass control to the OS and remove</p></li>
 </ul>
 <p>itself from the memory, goes to next device if not
@@ -1908,16 +1949,21 @@ to locate the operating system</p></li>
 <div><ul class="simple">
 <li><p>enable to boot a PC without any local storage by retrieving an OS from server over</p></li>
 </ul>
-<p>network</p>
 </div></blockquote>
+<p>network</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
 <dt><strong>UEFI system</strong></dt><dd><ul class="simple">
-<li><p>POST pass control to the <strong>boot manager</strong>
-+ checks the boot configuration and loads the OS boot loader directly
-+ no need to scan for a boot sector</p></li>
+<li><dl class="simple">
+<dt>POST pass control to the <strong>boot manager</strong></dt><dd><ul>
+<li><p>checks the boot configuration and loads the OS boot loader directly</p></li>
+<li><p>no need to scan for a boot sector</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>UEFI firmware store the boot manager and boot configuration</p></li>
 </ul>
 </dd>
@@ -1962,21 +2008,36 @@ to locate the operating system</p></li>
 <li><p>only dedicated connector was keyboard port</p></li>
 </ul>
 </div></blockquote>
-<ul>
-<li><p><strong>ATX</strong>
-+ has all necessary ports built in
-+ place RAM closer to the northbridge and CPU to offer ehanced performance
-+ full-sized: 12 by 9.6 inches
-+ microATX: 9.6 by 9.6 inches, not all boards have same physical size
-+ FlexATX: 9 by 7.5 inches, not used anymore now</p></li>
-<li><p><strong>ITX</strong>
-+ Mini-ITX: 6.7 by 6.7 inches
-+ only tiny amount of power needed</p></li>
-<li><p><strong>proprietary form factors</strong>
-+ have feature such as unique power connections and riser cards (separated from board</p>
-<blockquote>
-<div><p>but connected by cable, some plug into unique socket called daughter boards)</p>
-</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>ATX</strong></dt><dd><ul>
+<li><p>has all necessary ports built in</p></li>
+<li><p>place RAM closer to the northbridge and CPU to offer ehanced performance</p></li>
+<li><p>full-sized: 12 by 9.6 inches</p></li>
+<li><p>microATX: 9.6 by 9.6 inches, not all boards have same physical size</p></li>
+<li><p>FlexATX: 9 by 7.5 inches, not used anymore now</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>ITX</strong></dt><dd><ul>
+<li><p>Mini-ITX: 6.7 by 6.7 inches</p></li>
+<li><p>only tiny amount of power needed</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>proprietary form factors</strong></dt><dd><ul>
+<li><dl class="simple">
+<dt>have feature such as unique power connections and riser cards (separated from board</dt><dd><p>but connected by cable, some plug into unique socket called daughter boards)</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -2053,10 +2114,15 @@ from device drivers</p></li>
 </ul>
 </div></blockquote>
 <ul class="simple">
-<li><p>in serial, only one wire carries 32 bits
-+ all bits arrive one after the other in single stream
-+ almost one-to-one correlation between transfer rate and binary data rate
-+ effective rate drops a bit due to encoding scheme (data broken down and reassembled)</p></li>
+<li><dl class="simple">
+<dt>in serial, only one wire carries 32 bits</dt><dd><ul>
+<li><p>all bits arrive one after the other in single stream</p></li>
+<li><p>almost one-to-one correlation between transfer rate and binary data rate</p></li>
+<li><p>effective rate drops a bit due to encoding scheme (data broken down and reassembled)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 <li><p>doesn’t share the bus, has its own direct connection (P2P) to the CPU so doesn’t wait for
@@ -2138,14 +2204,17 @@ working, it won’t damage the computer</p></li>
 - volt-ohn meter (VOM) or digital multimeter (DMM)
 - offer at least four types of electrical tests: <a href="#id11"><span class="problematic" id="id12">**</span></a>continuity, resistance, AC voltage</p>
 <blockquote>
-<div><p>(VAC), DC voltage (VDC)**
-+ continuity: test whether electrons can flow from one end of wire to other, can use</p>
-<blockquote>
-<div><p>to determine fuse if good or check for breaks in wire</p>
-</div></blockquote>
-<ul class="simple">
+<div><dl class="simple">
+<dt>(VAC), DC voltage (VDC)**</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>continuity: test whether electrons can flow from one end of wire to other, can use</dt><dd><p>to determine fuse if good or check for breaks in wire</p>
+</dd>
+</dl>
+</li>
 <li><p>resistance: broken wire or fuse will show infinit resistance</p></li>
 </ul>
+</dd>
+</dl>
 </div></blockquote>
 </li>
 </ul>
@@ -2194,14 +2263,24 @@ working, it won’t damage the computer</p></li>
 <li><p>devices are constantly powered through the UPS’s battery</p></li>
 </ul>
 </div></blockquote>
-<ul>
-<li><p><strong>standby</strong>
-+ devices receive power only when the AC sags below ~80-90V</p></li>
-<li><p><strong>line-interactive</strong>
-+ similar to standby but has special circuitry to handle moderate AC sags and surges</p>
-<blockquote>
-<div><p>without the need to switch to battery power</p>
-</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>standby</strong></dt><dd><ul>
+<li><p>devices receive power only when the AC sags below ~80-90V</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>line-interactive</strong></dt><dd><ul>
+<li><dl class="simple">
+<dt>similar to standby but has special circuitry to handle moderate AC sags and surges</dt><dd><p>without the need to switch to battery power</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
 </li>
 <li><p>always look for joule and UL 1449 ratings, replacement battery cost</p></li>
 <li><p>UPS with USB or Ethernet (RJ-45) connection has monitoring and maintenance software</p></li>
@@ -2219,18 +2298,23 @@ connectors to supply extra power</p></li>
 <li><p>at least <strong>three types of connector</strong>
 * <a href="#id13"><span class="problematic" id="id14">**</span></a>Molex**&lt;a id=”molex”&gt;&lt;/a&gt;</p>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>supply 5V and 12V current for fans and older drives</p></li>
 <li><p>has notches called chamfers</p></li>
 <li><p>require a firm push to plug in properly</p></li>
 <li><p>always check for proper orientation</p></li>
 <li><p><strong>case fans</strong> may come with standard Molex connectors or with special three-pronged
-connectors that need to connect to motherboard
-+ intake fan: near the bottom of the front bezel
-+ exhaust fan: near the top and rear of the case
-+ industry use 80mm power supply and cooling fans
-+ sleeve-bearing fans get louder as they age; ball-bearing fans do not
-+ can’t use CMOS settings to tell the fans when to turn on or off</p></li>
+connectors that need to connect to motherboard</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>intake fan: near the bottom of the front bezel</p></li>
+<li><p>exhaust fan: near the top and rear of the case</p></li>
+<li><p>industry use 80mm power supply and cooling fans</p></li>
+<li><p>sleeve-bearing fans get louder as they age; ball-bearing fans do not</p></li>
+<li><p>can’t use CMOS settings to tell the fans when to turn on or off</p></li>
+</ul>
+</div></blockquote>
+</li>
 </ul>
 </div></blockquote>
 <ul>
@@ -2276,9 +2360,14 @@ connectors that need to connect to motherboard
 <div><p>the 20/24pin P1</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><strong>AUX connector</strong>
-+ 6pin auxiliary connector
-+ supply increased 3.3 and 5V current to motherboard</p></li>
+<li><dl class="simple">
+<dt><strong>AUX connector</strong></dt><dd><ul>
+<li><p>6pin auxiliary connector</p></li>
+<li><p>supply increased 3.3 and 5V current to motherboard</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 <li><p><strong>EPS12V</strong>
@@ -2497,43 +2586,57 @@ internal SSD controller
 - went through seven major revisions
 - ATA/ATAPI version introduced <strong>S.M.A.R.T</strong> (Self-Monitoring, Analysis and Reporting</p>
 <blockquote>
-<div><p>Technology)
-+ internal drive program that tracks erros and error conditions
-+ stored in nonvolatile memory on the drive</p>
+<div><dl class="simple">
+<dt>Technology)</dt><dd><ul class="simple">
+<li><p>internal drive program that tracks erros and error conditions</p></li>
+<li><p>stored in nonvolatile memory on the drive</p></li>
+</ul>
+</dd>
+</dl>
 </div></blockquote>
 <ul class="simple">
-<li><p><a href="#id18"><span class="problematic" id="id19">**</span></a>PATA (parallel ATA)**&lt;a id=”pata”&gt;&lt;/a&gt;
-+ introduced with ATA/ATAPI version 1
-+ use 40pin ribbon cables or IDE cables, usually plugged directly into motherboard
-+ all PATA drives use standard [Molex power connector](#molex)
-+ latest drive speed up to 133MBps
-+ single ribbon cable could connect up to two drives to a single ATA controller
-+ cables impede airflow and have limited length (18inches)
-+ cannot hot-swap</p></li>
-<li><p><strong>SATA (serial ATA)</strong>
-+ introduced with ATA/ATAPI version 7
-+ creates P2P connection between device and controller, HBA (host bus adapter)
-+ SATA interface needs far fewer physical wires, only 7 connectors
-+ cable length about 40inches (1 meter)
-+ each drive to one port, no maximum number of drives
-+ many motherboards support up to eight SATA drives
-+ speed up to 30 times faster than PATA
-+ SATA-specific varieties: 1.5Gbps, 3Gbps, 6Gbps
-+ encoding scheme used takes about 20% of the transferred bytes as overhead,
-leaving 80% for pure bandwidth
-+ hot-swapping: plug device without harming and auto recognized and functional
-+ <strong>SATAe (SATA Express) or SATA 3.2</strong>
+<li><dl class="simple">
+<dt><a href="#id18"><span class="problematic" id="id19">**</span></a>PATA (parallel ATA)**&lt;a id=”pata”&gt;&lt;/a&gt;</dt><dd><ul>
+<li><p>introduced with ATA/ATAPI version 1</p></li>
+<li><p>use 40pin ribbon cables or IDE cables, usually plugged directly into motherboard</p></li>
+<li><p>all PATA drives use standard [Molex power connector](#molex)</p></li>
+<li><p>latest drive speed up to 133MBps</p></li>
+<li><p>single ribbon cable could connect up to two drives to a single ATA controller</p></li>
+<li><p>cables impede airflow and have limited length (18inches)</p></li>
+<li><p>cannot hot-swap</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>SATA (serial ATA)</strong></dt><dd><ul>
+<li><p>introduced with ATA/ATAPI version 7</p></li>
+<li><p>creates P2P connection between device and controller, HBA (host bus adapter)</p></li>
+<li><p>SATA interface needs far fewer physical wires, only 7 connectors</p></li>
+<li><p>cable length about 40inches (1 meter)</p></li>
+<li><p>each drive to one port, no maximum number of drives</p></li>
+<li><p>many motherboards support up to eight SATA drives</p></li>
+<li><p>speed up to 30 times faster than PATA</p></li>
+<li><p>SATA-specific varieties: 1.5Gbps, 3Gbps, 6Gbps</p></li>
+<li><p>encoding scheme used takes about 20% of the transferred bytes as overhead,
+leaving 80% for pure bandwidth</p></li>
+<li><p>hot-swapping: plug device without harming and auto recognized and functional</p></li>
+<li><p><strong>SATAe (SATA Express) or SATA 3.2</strong>
 + ties drives directly into PCI Express bus
 + drops both SATA link and transport layers
 + lack of overhead enhance the speed of SATA throughput, up to 8Gbps
 + uniques connectors but provide full backward compatibility
-+ need a motherboard with SATAe support
-+ SATA 1.0: 1.5Gbps/150MBps
-+ SATA 2.0: 3Gbps/300MBps
-+ SATA 3.0: 6Gbps/600MBps
-+ SATA 3.2: up to 16Gbps/2000MBps
-+ SATA 3.3 (2016) increased support drive sizes but not throughput speed
-+ most hard drives sold today are SATA drives</p></li>
++ need a motherboard with SATAe support</p></li>
+<li><p>SATA 1.0: 1.5Gbps/150MBps</p></li>
+<li><p>SATA 2.0: 3Gbps/300MBps</p></li>
+<li><p>SATA 3.0: 6Gbps/600MBps</p></li>
+<li><p>SATA 3.2: up to 16Gbps/2000MBps</p></li>
+<li><p>SATA 3.3 (2016) increased support drive sizes but not throughput speed</p></li>
+<li><p>most hard drives sold today are SATA drives</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 <li><p><strong>eSATA (external)</strong>
@@ -2574,10 +2677,15 @@ leaving 80% for pure bandwidth
 <ul class="simple">
 <li><p>enabled at [CMOS](#cmos) level</p></li>
 <li><p>needs to be enabled before installing OS</p></li>
-<li><p>options/modes/HBA configs
-+ IDE/SATA or compatibility mode
-+ AHCI (works best for most system)
-+ RAID</p></li>
+<li><dl class="simple">
+<dt>options/modes/HBA configs</dt><dd><ul>
+<li><p>IDE/SATA or compatibility mode</p></li>
+<li><p>AHCI (works best for most system)</p></li>
+<li><p>RAID</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 <li><p><strong>NVMe</strong>
@@ -2781,18 +2889,23 @@ existing and add new one to the unallocated space</p></li>
 <div><ul class="simple">
 <li><p>to support bootable OS, usually assigned drive letters and appear in File Explorer</p></li>
 <li><p>small primary, “System Reserved”, for essential Windows boot files</p></li>
-<li><p>has special settings, <em>active</em>, stored in partition table that determines the active</p></li>
+<li><p>has special settings, <em>active</em>, stored in partition table that determines the active
+partition</p></li>
+<li><p>BIOS/POST read MBR to find the active partition and boots the OS on that partition</p></li>
+<li><p>only one partition can be active at a time as only one OS is run at a time</p></li>
+<li><p>limited to only 4 drive letters is using only primary partitions</p></li>
 </ul>
-<p>partition
-+ BIOS/POST read MBR to find the active partition and boots the OS on that partition
-+ only one partition can be active at a time as only one OS is run at a time
-+ limited to only 4 drive letters is using only primary partitions</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><strong>extended partitions</strong>
-+ not bootable, can contain multiple logical drives
-+ each logical drive is in the same extended partition
-+ extended partitions don’t receive drive letters but logical drives do</p></li>
+<li><dl class="simple">
+<dt><strong>extended partitions</strong></dt><dd><ul>
+<li><p>not bootable, can contain multiple logical drives</p></li>
+<li><p>each logical drive is in the same extended partition</p></li>
+<li><p>extended partitions don’t receive drive letters but logical drives do</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 <li><p><strong>proprietary dynamic storage scheme</strong>
@@ -2806,17 +2919,32 @@ existing and add new one to the unallocated space</p></li>
 <div><p>is only compatible with Windows Server</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><strong>simple volumes</strong>
-+ works a lot like primary partitions
-+ cannot install operating system</p></li>
-<li><p><strong>spanning volumes</strong>
-+ use unallocated space on multiple drives to create a single volume but a bit risky
-+ can also extend the volume to grab extra space on completely different dynamic disks</p></li>
-<li><p><strong>striped volumes</strong>
-+ RAID 0 volumes
-+ using tow or more drives in a group called <em>stipe set</em>, striping writes data first
-to a certain number of clusters (allocation unit) on one drive and then to next
-+ all stripes must be same size on each drive</p></li>
+<li><dl class="simple">
+<dt><strong>simple volumes</strong></dt><dd><ul>
+<li><p>works a lot like primary partitions</p></li>
+<li><p>cannot install operating system</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>spanning volumes</strong></dt><dd><ul>
+<li><p>use unallocated space on multiple drives to create a single volume but a bit risky</p></li>
+<li><p>can also extend the volume to grab extra space on completely different dynamic disks</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>striped volumes</strong></dt><dd><ul>
+<li><p>RAID 0 volumes</p></li>
+<li><p>using tow or more drives in a group called <em>stipe set</em>, striping writes data first
+to a certain number of clusters (allocation unit) on one drive and then to next</p></li>
+<li><p>all stripes must be same size on each drive</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p><strong>mirrored volumes</strong>: RAID 1 volumes</p></li>
 </ul>
 </li>
@@ -2824,17 +2952,26 @@ to a certain number of clusters (allocation unit) on one drive and then to next
 - <strong>GUID (globally unique identifier)</strong></p>
 <blockquote>
 <div><ul class="simple">
-<li><p>provides reference number for an object or process that has almost impossibly small</p></li>
+<li><p>provides reference number for an object or process that has almost impossibly small
+chance of duplication</p></li>
 </ul>
-<p>chance of duplication</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>shares a lot with MBR scheme but has <strong>improvements</strong>
-+ can have unlimited number of primary partitions (Windows is limited to 128)
-+ MBR partitions cannot be larger than 2.2TB but GPT is limited only in z
+<li><dl class="simple">
+<dt>shares a lot with MBR scheme but has <strong>improvements</strong></dt><dd><ul>
+<li><p>can have unlimited number of primary partitions (Windows is limited to 128)</p></li>
+<li><p>MBR partitions cannot be larger than 2.2TB but GPT is limited only in z
 (almost no restrictions)</p></li>
-<li><p>arranged by [LBA](#lba) instead of sectors, LBA0 is protective MBR so that utilities
-know it is GPT drive</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>arranged by [LBA](#lba) instead of sectors, LBA0 is protective MBR so that utilities</p></li>
+</ul>
+<blockquote>
+<div><p>know it is GPT drive</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>use GPT header and partition entry array, both located at beginning and end of drive</p></li>
 <li><p>can configure 64bit Windows to boot from GPT only if using UEFI motherboard</p></li>
 <li><p>most Linux distros can boot from GPT with older BIOS or UEFI</p></li>
@@ -2893,7 +3030,7 @@ know it is GPT drive</p></li>
 - APFS (Apple File System) default, HFS+ (Hierarchical File System Plus)
 - only read NTFS</p></li>
 <li><p>Linux
-- lots to choose; most used is ext4 (Fourth Extended File System)
+-lots to choose; most used is ext4 (Fourth Extended File System)
 - older distros ext2 or ext3, enterprise level BTRFS, XFS, ZFS
 - ext4 supports volumes up to 1EB with file sizes up to 16TB and backward compatible
 - able to read/write to NTFS, FAT32, exFAT, HFS+, ext4</p></li>
@@ -2913,29 +3050,49 @@ know it is GPT drive</p></li>
 <div><p>waste is acceptible as most files are larger than 4096)</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><strong>FAT (file allocation table)</strong>
-+ first supported in MS-DOS version 2.1
-+ data structure and indexing system to keep track of stored data on hard drive</p></li>
-<li><p><strong>left column</strong> gives each cluster a hexadecimal number from 00000000 to FFFFFFFF
-+ each hexa 4bits, eight hexa 32bits</p></li>
-<li><p><strong>right column</strong> contains info on the status of cluster
-+ even brand-new drives contain faulty blocks that cannot store data because of
-imperfections in the construction of the drive
-+ high-level formatting: OS mapping bad blocks and marking them unusable
-+ quick format: creates the FAT and creates a blank root dir
-+ full format: testing every sector to mark unusable one in the FAT
-+ bad block: 0000FFF7
-+ good blocks: 00000000</p></li>
-<li><p>when <strong>saving a file</strong>
-+ starts at the beginning of the FAT to look for first space marked 00000000 and store
-+ if file fits within one cluster, cluster status area is marked with 0000FFFF (last
-cluster), called end-of-file marker
-+ if require more than one cluster, searches for the next open cluster and places the
-number of next cluster in the status area, repeat until entire file is saved
-+ after saving all clusters, Windows locate the file’s folder (which are stored on
+<li><dl class="simple">
+<dt><strong>FAT (file allocation table)</strong></dt><dd><ul>
+<li><p>first supported in MS-DOS version 2.1</p></li>
+<li><p>data structure and indexing system to keep track of stored data on hard drive</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>left column</strong> gives each cluster a hexadecimal number from 00000000 to FFFFFFFF</dt><dd><ul>
+<li><p>each hexa 4bits, eight hexa 32bits</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>right column</strong> contains info on the status of cluster</dt><dd><ul>
+<li><p>even brand-new drives contain faulty blocks that cannot store data because of
+imperfections in the construction of the drive</p></li>
+<li><p>high-level formatting: OS mapping bad blocks and marking them unusable</p></li>
+<li><p>quick format: creates the FAT and creates a blank root dir</p></li>
+<li><p>full format: testing every sector to mark unusable one in the FAT</p></li>
+<li><p>bad block: 0000FFF7</p></li>
+<li><p>good blocks: 00000000</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>when <strong>saving a file</strong></dt><dd><ul>
+<li><p>starts at the beginning of the FAT to look for first space marked 00000000 and store</p></li>
+<li><p>if file fits within one cluster, cluster status area is marked with 0000FFFF (last
+cluster), called end-of-file marker</p></li>
+<li><p>if require more than one cluster, searches for the next open cluster and places the
+number of next cluster in the status area, repeat until entire file is saved</p></li>
+<li><p>after saving all clusters, Windows locate the file’s folder (which are stored on
 blocks but has different set of blocks), and records the filename, size, date/time,
-starting cluster
-+ process is reversed if a program request a file</p></li>
+starting cluster</p></li>
+<li><p>process is reversed if a program request a file</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>FAT32 auto makes two copies of the FAT</p></li>
 <li><p>offers 4KB cluster sizes up to a partition size of 2GB (match the size of 4KB block)</p></li>
 <li><p>supports dirves up to 2TB and files up to 4GB</p></li>
@@ -2947,18 +3104,28 @@ starting cluster
 <li><p>16GB to 32GB       16KB</p></li>
 <li><p>&gt;32GB              32KB</p></li>
 <li><p>still commonly used but not for OS partitions</p></li>
-<li><p>when <strong>deleting a file</strong>
-+ Windows only alter the info in the folder, changing the first letter of file to
-lower Greek letter
-+ causes file to disappear to OS (won’t show up in Explorer)
-+ does not actually delete files but move the file listing (not actual blocks) to
-hidden dir that can be accessed via Recycle Bin
-+ in 1st gen SSDs
-+ once data was written into memory cell, it stayed there until dirve is full
-+ the cell wasn’t immediately erase or overwritten even if contain deleted contents
-+ SSD controller don’t know the cell’s contents were deleted
-+ SSD memory cells have finite number of write times before wearing out
-+ waited until all the cells were filled before erasing and reusing previous cell</p></li>
+<li><dl class="simple">
+<dt>when <strong>deleting a file</strong></dt><dd><ul>
+<li><p>Windows only alter the info in the folder, changing the first letter of file to
+lower Greek letter</p></li>
+<li><p>causes file to disappear to OS (won’t show up in Explorer)</p></li>
+<li><p>does not actually delete files but move the file listing (not actual blocks) to
+hidden dir that can be accessed via Recycle Bin</p></li>
+<li><dl class="simple">
+<dt>in 1st gen SSDs</dt><dd><ul>
+<li><p>once data was written into memory cell, it stayed there until dirve is full</p></li>
+<li><p>the cell wasn’t immediately erase or overwritten even if contain deleted contents</p></li>
+<li><p>SSD controller don’t know the cell’s contents were deleted</p></li>
+<li><p>SSD memory cells have finite number of write times before wearing out</p></li>
+<li><p>waited until all the cells were filled before erasing and reusing previous cell</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 <li><p><strong>NTFS (New Technology File System)</strong>
@@ -2974,8 +3141,12 @@ hidden dir that can be accessed via Recycle Bin
 <li><p>enable to compress individual files and folders to save space</p></li>
 <li><p>compression make access time to the data slower</p></li>
 <li><p>in Windows, can encrypt with utility called <em>encrypting file system (EFS)</em></p></li>
-<li><p>disk quotas enable admins to set limits on drive space usage for users (usually used on
-multi-user systems)</p></li>
+<li><p>disk quotas enable admins to set limits on drive space usage for users (usually used on</p></li>
+</ul>
+<blockquote>
+<div><p>multi-user systems)</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>Drive Size         Cluster Size</p></li>
 <li><p>7MB to 16TB        4KB</p></li>
 <li><p>16TB to 32TB       8KB</p></li>
@@ -3263,48 +3434,68 @@ the power consumption of Thunderbolt 2</p></li>
 - <strong>codecs</strong></p>
 <blockquote>
 <div><ul class="simple">
-<li><p>compressor/decompressor programs for compressing and discarding unnecessary audio</p></li>
+<li><p>compressor/decompressor programs for compressing and discarding unnecessary audio
+qualities</p></li>
+<li><p>MP3: MPEG-1 Layer 3 codec, AAC (advanced audio encoding)</p></li>
+<li><p>MPEG-2 Part 2: for DVDs, broadcast TV</p></li>
+<li><p>H.264: from smartphone video and streaming video to Blu-ray movies</p></li>
+<li><p>H.265: half the size fo h.264 at same quality, used to support 4k</p></li>
+<li><p>VP9: google’s competitor to h.265 used in android devices and YouTube</p></li>
 </ul>
-<p>qualities
-+ MP3: MPEG-1 Layer 3 codec, AAC (advanced audio encoding)
-+ MPEG-2 Part 2: for DVDs, broadcast TV
-+ H.264: from smartphone video and streaming video to Blu-ray movies
-+ H.265: half the size fo h.264 at same quality, used to support 4k
-+ VP9: google’s competitor to h.265 used in android devices and YouTube</p>
 </div></blockquote>
 <ul class="simple">
 <li><p>streaming media: broadcast of data that is played and immediately discarded</p></li>
-<li><p><strong>MIDI</strong>
-+ second processor of sound card to interpret standardized musical instrument digital
-interface (MIDI) files
-+ not an independent music file like WAV
-+ a text file that takes advantage of the sound-processing hardware to enable the
-computing device to produce sound
-+ tiny in comparison to equivalent WAV files
-+ hardware dependent</p></li>
+<li><dl class="simple">
+<dt><strong>MIDI</strong></dt><dd><ul>
+<li><p>second processor of sound card to interpret standardized musical instrument digital
+interface (MIDI) files</p></li>
+<li><p>not an independent music file like WAV</p></li>
+<li><p>a text file that takes advantage of the sound-processing hardware to enable the
+computing device to produce sound</p></li>
+<li><p>tiny in comparison to equivalent WAV files</p></li>
+<li><p>hardware dependent</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>most motherboards support five or more speakers in discrete channels</p></li>
 <li><p>subwoofer: provides amazing low-frequency sounds</p></li>
 <li><p>all modern systems support both surround sound and subwoofer (Dolby Digital or DTS)</p></li>
 <li><p>2.1 system: two satellites and a subwoofer, 5.1: five satellites and a sub</p></li>
-<li><p><strong>audio jacks</strong>
-+ main stereo: green, line in: blue, microphone: pink
-+ main speaker out: standard speaker connector
-+ line out: output sounds from the computer
-+ line in: import sounds into computer
-+ rear out: connect to rear speakers for surround sound output
-+ analog/digital out: special digital connection to external digital devices and as
+<li><dl class="simple">
+<dt><strong>audio jacks</strong></dt><dd><ul>
+<li><p>main stereo: green, line in: blue, microphone: pink</p></li>
+<li><p>main speaker out: standard speaker connector</p></li>
+<li><p>line out: output sounds from the computer</p></li>
+<li><p>line in: import sounds into computer</p></li>
+<li><p>rear out: connect to rear speakers for surround sound output</p></li>
+<li><p>analog/digital out: special digital connection to external digital devices and as
 analog connection to center and subwoofer channels</p></li>
-<li><p><strong>SPDIF</strong>
-+ S/PDIF, Sony/Philips Digital Interface
-+ comes in many sound processors to connect sound card directly to 5.1 speaker system
-or receiver
-+ optical: square with a small door
-+ coaxial: standard RCA connector</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>SPDIF</strong></dt><dd><ul>
+<li><p>S/PDIF, Sony/Philips Digital Interface</p></li>
+<li><p>comes in many sound processors to connect sound card directly to 5.1 speaker system
+or receiver</p></li>
+<li><p>optical: square with a small door</p></li>
+<li><p>coaxial: standard RCA connector</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>both HDMI and DisplayPort are capable of carrying audio</p></li>
-<li><p><strong>container file or wrapper</strong>
-+ wrap the compressed tracks of video after each video and audio tracks are compressed
-+ doesn’t specify how the video or audio tracks were encoded
-+ AVI (windows), MOV (Apple QuickTime), MP4 (for h.264 and h.265 video)</p></li>
+<li><dl class="simple">
+<dt><strong>container file or wrapper</strong></dt><dd><ul>
+<li><p>wrap the compressed tracks of video after each video and audio tracks are compressed</p></li>
+<li><p>doesn’t specify how the video or audio tracks were encoded</p></li>
+<li><p>AVI (windows), MOV (Apple QuickTime), MP4 (for h.264 and h.265 video)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 </ul>
@@ -3326,75 +3517,102 @@ sharing programs and data</p></li>
 </div></blockquote>
 <ul class="simple">
 <li><p>CF (CompactFlash): CF I (3.3 mm thick), CF II (5mm thick)</p></li>
-<li><p><strong>SD (SecureDigital) cards</strong>
-+ miniSD, microSD
-+ standard SD cards: 4MB to 4GB
-+ SDHC (secure digital high capacity): from 4GB to 32GB
-+ SDXC (secure digital extended capacity): 32GB to 2TB
-+ first-gen cards use speed class (2, 4, 6 ,10), Class10 should write at minimum 10MB/s
-+ second-gen: Ultra High Speed (UHS) bus, Class U1 should both read and write at
-minimum of 10MB/s, U3 cards should read and write at minimum of 30MB/s
-+ third-gen: Video Speed Class, to support 4k and 8k, V6 at 6MB/s, V90 at 90MB/s
-+ Application Performance Class ratings, A1 and A2 both a minimum of 10MB/s
+<li><dl class="simple">
+<dt><strong>SD (SecureDigital) cards</strong></dt><dd><ul>
+<li><p>miniSD, microSD</p></li>
+<li><p>standard SD cards: 4MB to 4GB</p></li>
+<li><p>SDHC (secure digital high capacity): from 4GB to 32GB</p></li>
+<li><p>SDXC (secure digital extended capacity): 32GB to 2TB</p></li>
+<li><p>first-gen cards use speed class (2, 4, 6 ,10), Class10 should write at minimum 10MB/s</p></li>
+<li><p>second-gen: Ultra High Speed (UHS) bus, Class U1 should both read and write at
+minimum of 10MB/s, U3 cards should read and write at minimum of 30MB/s</p></li>
+<li><p>third-gen: Video Speed Class, to support 4k and 8k, V6 at 6MB/s, V90 at 90MB/s</p></li>
+<li><p>Application Performance Class ratings, A1 and A2 both a minimum of 10MB/s
 + A1 at 1500IOPS read and 500 IOPS when write
 + A2 at 4000IOPS read and 2000IOPS when write
 + IOPS doesn’t matter while writing but make difference when multiple apps are using</p></li>
-<li><p><strong>Extreme Digital (xD) Picture Cards</strong>
-+ half the size of SD card used in Olympus and Fujifilm cameras
-+ original, Standard (Type M), and Hi-Speed (Type H)</p></li>
-<li><p>XQD: high-speed transfers and capacities of 2+ TB, used in Nikon cameras, replaced by
-CFexpress which uses NVMe rather than PCIe</p></li>
 </ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Extreme Digital (xD) Picture Cards</strong></dt><dd><ul>
+<li><p>half the size of SD card used in Olympus and Fujifilm cameras</p></li>
+<li><p>original, Standard (Type M), and Hi-Speed (Type H)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>XQD: high-speed transfers and capacities of 2+ TB, used in Nikon cameras, replaced by</p></li>
+</ul>
+<blockquote>
+<div><p>CFexpress which uses NVMe rather than PCIe</p>
+</div></blockquote>
 </li>
 <li><p><strong>optical discs</strong>
 - from CD-ROMs (compact disc) to DVDs (digital versatile disc) and Blu-ray Discs
 - <strong>CD</strong></p>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>store data by using microscopic pits burned into glass master CD with powerful laser</p></li>
-<li><p>CDDA (CD-Digital Audio): lack advanced error checking, file support or directory</p></li>
-</ul>
-<p>structure
-+ <strong>CD-ROM</strong>
+<li><p>CDDA (CD-Digital Audio): lack advanced error checking, file support or directory
+structure</p></li>
+<li><p><strong>CD-ROM</strong>
 + created not to tied to proprietary formats like FAT or NTFS
 + divides CD into fixed sectors, each holding 2353bytes
 + CDFS (CD File System): most used format
 + original speed: 150KBps, same speed as CD-audio
 + each increase in speed is measured in multiples of original 150KBps
 + 1x 150KBps, 2x 300KBps, 24x 3600KBps, 72x 10800 KBps
-+ require specialized, expensive equipment
-+ <strong>CD-R (CD-recordable)</strong>
++ require specialized, expensive equipment</p></li>
+<li><p><strong>CD-R (CD-recordable)</strong>
 + enable affrodable CD-R drives/burners
 + 74-minute disc with about 650MB, 80-minute disc with about 700MB
 + burner must be designed for 80-minute CD-R format
 + records data by using organic dyes embedded into the disc
 + both record speed and read speed expressed as multiples of 150KBps speed
-+ 8x24x : burn at 8x and read at 24x
-+ <strong>CD-RW (CD-rewritable)</strong>
++ 8x24x : burn at 8x and read at 24x</p></li>
+<li><p><strong>CD-RW (CD-rewritable)</strong>
 + enable to burn over existing data, colored bottom side
-+ CD-RW drive works by using laser to heat an amorphous substance which is cooled to
-crystalline, which are relective areas
-+ has three multiplier values: write, rewrite, read (8x4x32x)</p>
++ CD-RW drive works by using laser to heat an amorphous substance which is cooled to</p>
+<blockquote>
+<div><p>crystalline, which are relective areas</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><strong>DVDs</strong>
-+ lowest capacity holds 4.37GB of data or two hours standard video
-+ use smaller pits than CD
-+ SS (single-sided), DS (double-sided)
-+ SL (single-layer), DL (dual-layer)
-+ DVD version               Capacity
-+ DVD-5 (12cm, SS/SL)       4.37GB, more than 2hrs of video
-+ DVD-9 (12cm, SS/DL)       7.95GB, about 2hrs of video
-+ DVD-10 (12cm, DS/SL)      8.74GB, about 4.5hrs of video
-+ DVD-18 (12cm, DS/DL)      15.90GB, more than 8hrs of video
-+ DVD-ROM: up to almost 16GB, most drives sold with PCs are DVD-ROM drives
-+ DVD-R: works like CD-R, can write but not erase what’s written
-+ DVD-RW: like CD-RW
-+ DVD-RW DL: can be written on two layers, doubling the capacity</p></li>
-<li><p><strong>Blu-ray Disc</strong>
-+ up to 25GB (SL), 50GB (DL), 100GB (BDXL)
-+ popular until flash memory prices dropped in 2010
-+ BD-R (recordable), BD-RE (rewritable)</p></li>
+<li><p>has three multiplier values: write, rewrite, read (8x4x32x)</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>DVDs</strong></dt><dd><ul>
+<li><p>lowest capacity holds 4.37GB of data or two hours standard video</p></li>
+<li><p>use smaller pits than CD</p></li>
+<li><p>SS (single-sided), DS (double-sided)</p></li>
+<li><p>SL (single-layer), DL (dual-layer)</p></li>
+<li><p>DVD version               Capacity</p></li>
+<li><p>DVD-5 (12cm, SS/SL)       4.37GB, more than 2hrs of video</p></li>
+<li><p>DVD-9 (12cm, SS/DL)       7.95GB, about 2hrs of video</p></li>
+<li><p>DVD-10 (12cm, DS/SL)      8.74GB, about 4.5hrs of video</p></li>
+<li><p>DVD-18 (12cm, DS/DL)      15.90GB, more than 8hrs of video</p></li>
+<li><p>DVD-ROM: up to almost 16GB, most drives sold with PCs are DVD-ROM drives</p></li>
+<li><p>DVD-R: works like CD-R, can write but not erase what’s written</p></li>
+<li><p>DVD-RW: like CD-RW</p></li>
+<li><p>DVD-RW DL: can be written on two layers, doubling the capacity</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Blu-ray Disc</strong></dt><dd><ul>
+<li><p>up to 25GB (SL), 50GB (DL), 100GB (BDXL)</p></li>
+<li><p>popular until flash memory prices dropped in 2010</p></li>
+<li><p>BD-R (recordable), BD-RE (rewritable)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>most internal optical drives use SATA</p></li>
 <li><p>external optical drives often use USB or Thunderbolt connections</p></li>
 </ul>
@@ -3653,20 +3871,35 @@ recover</p></li>
 - HKEY_CLASSES_ROOT</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>defined standard class objects which are named groups of functions that defines what</p></li>
+<li><p>defined standard class objects which are named groups of functions that defines what
+you can do with the object they represents</p></li>
+<li><p>combines class objects from SoftwareClasses under both HKEY_CURRENT_USER and
+HKEY_LOCAL_MACHINE to provide backward compatibility for older apps</p></li>
 </ul>
-<p>you can do with the object they represents
-+ combines class objects from SoftwareClasses under both HKEY_CURRENT_USER and
-HKEY_LOCAL_MACHINE to provide backward compatibility for older apps</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>HKEY_CURRENT_USER, HKEY_USERS
-+ stores current user settings and all of the personalized information for each user</p></li>
-<li><p>HKEY_LOCAL_MACHINE
-+ contains all data for system’s non-user-specific configs</p></li>
-<li><p>HKEY_CURRENT_CONFIG
-+ defines which value is currently used
-+ almost never touch</p></li>
+<li><dl class="simple">
+<dt>HKEY_CURRENT_USER, HKEY_USERS</dt><dd><ul>
+<li><p>stores current user settings and all of the personalized information for each user</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>HKEY_LOCAL_MACHINE</dt><dd><ul>
+<li><p>contains all data for system’s non-user-specific configs</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>HKEY_CURRENT_CONFIG</dt><dd><ul>
+<li><p>defines which value is currently used</p></li>
+<li><p>almost never touch</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 <li><p><strong>values</strong>
@@ -3691,8 +3924,12 @@ key or subkey</p></li>
 <div><p>files as command components in the Registry</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>can cause problems if try to add 32bit DLL on with 64bit version of regsvr32, which is
-default</p></li>
+<li><p>can cause problems if try to add 32bit DLL on with 64bit version of regsvr32, which is</p></li>
+</ul>
+<blockquote>
+<div><p>default</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>to edit 32bit DLL, run regsvr32.exe file in the %SystemRoot%Syswow64 folder</p></li>
 </ul>
 </li>
@@ -3768,13 +4005,26 @@ call the bootmgr to launch the OS</p></li>
 <li><p>setting any single process to Realtime priority will often slow the system</p></li>
 <li><p>Set Affinity: enables to specify which PCU cores a process can run on</p></li>
 <li><p>Task Manager doesn’t show what processes depend on other processes</p></li>
-<li><p>End Process Tree: ends not only the process but any process it depends on but will not kill
-a process tree for important system processes</p></li>
+<li><p>End Process Tree: ends not only the process but any process it depends on but will not kill</p></li>
+</ul>
+<blockquote>
+<div><p>a process tree for important system processes</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>Process Explorer: written by Mark Russinovitch shows process dependicies</p></li>
-<li><p>Services: General tab provides name of the service, describes the service and enable to
-stop, start, pause or resume the service</p></li>
-<li><p><strong>staring service from command prompt</strong>
-+ net start &lt;service name&gt;</p></li>
+<li><p>Services: General tab provides name of the service, describes the service and enable to</p></li>
+</ul>
+<blockquote>
+<div><p>stop, start, pause or resume the service</p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>staring service from command prompt</strong></dt><dd><ul>
+<li><p>net start &lt;service name&gt;</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>Users tab: enables to log off any user (even current)</p></li>
 </ul>
 </li>
@@ -3785,11 +4035,11 @@ stop, start, pause or resume the service</p></li>
 - Details</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>list processes by executable name, and includes PID, status, the user running them,</p></li>
+<li><p>list processes by executable name, and includes PID, status, the user running them,
+CPU/memory use, and a description</p></li>
+<li><p>context menu also introduces a debugging option called <em>Analyze wait chain</em> to
+identify why a program is frozen</p></li>
 </ul>
-<p>CPU/memory use, and a description
-+ context menu also introduces a debugging option called <em>Analyze wait chain</em> to
-identify why a program is frozen</p>
 </div></blockquote>
 </li>
 <li><p><strong>Processes tab</strong>
@@ -3976,14 +4226,9 @@ administrator account</p></li>
 <blockquote>
 <div><ul class="simple">
 <li><p>authorization process use the NT File System (NTFS) as the primary tool</p></li>
-<li><dl class="simple">
-<dt>every file and folder on an NTFS partition has a list that contains <strong>two sets of data</strong></dt><dd><ol class="arabic simple">
-<li><p>details every user and group that has access to that file or folder</p></li>
-<li><p>specifies the level of access that each user or group has to that file or folder</p></li>
-</ol>
-</dd>
-</dl>
-</li>
+<li><p>every file and folder on an NTFS partition has a list that contains <strong>two sets of data</strong>
+1. details every user and group that has access to that file or folder
+2. specifies the level of access that each user or group has to that file or folder</p></li>
 <li><p>levle of access is defined by a set of restrictions called NTFS permissions</p></li>
 <li><p><strong>Ownership</strong>
 - creator is the owner of that file or folder
@@ -4033,7 +4278,7 @@ parent folder</p></li>
 <div><ul class="simple">
 <li><p>determines what NTFS permissions are applied to files that are moved or copied</p></li>
 <li><p>copying creates two copies of the object, moving creates one copy of the object
-- Same Volume                             Different Volume
+-          Same Volume                             Different Volume
 - Move     keeps original permissions              inherits new permissions
 - Copy     inherits new permissions                inherits new permissions</p></li>
 <li><p>any object that is put on a FAT partition loses any permissions because FAT doesn’t support
@@ -4118,8 +4363,12 @@ from access by any other user</p></li>
 <div><p>permanently</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>if computer dies, installing the hard drive in another system won’t bring back data, even
-with identical user name (as security ID of that user account will differ)</p></li>
+<li><p>if computer dies, installing the hard drive in another system won’t bring back data, even</p></li>
+</ul>
+<blockquote>
+<div><p>with identical user name (as security ID of that user account will differ)</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>encryption only stays if the file is copied to a drive with NTFS</p></li>
 </ul>
 </li>
@@ -4135,9 +4384,14 @@ with identical user name (as security ID of that user account will differ)</p></
 </div></blockquote>
 <ul class="simple">
 <li><p>can use flash drive to store recovery key if TPM chip is not available</p></li>
-<li><p><strong>BitLocker To Go</strong>
-+ enables to apply BitLocker encryption to removable dirves
-+ applies encryption and password protection but doesn’t require TPM chip</p></li>
+<li><dl class="simple">
+<dt><strong>BitLocker To Go</strong></dt><dd><ul>
+<li><p>enables to apply BitLocker encryption to removable dirves</p></li>
+<li><p>applies encryption and password protection but doesn’t require TPM chip</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 </ul>
@@ -4354,12 +4608,22 @@ with identical user name (as security ID of that user account will differ)</p></
 * three tabs: Visual Effects, Advanced, Data Execution Prevention</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Advanced tab
-+ processor scheduling and virtual memory</p></li>
-<li><p>DEP
-+ works in background to stop viruses and other malware from taking over programs
-loaded in system memory
-+ only enabled for critical OS files in RAM</p></li>
+<li><dl class="simple">
+<dt>Advanced tab</dt><dd><ul>
+<li><p>processor scheduling and virtual memory</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>DEP</dt><dd><ul>
+<li><p>works in background to stop viruses and other malware from taking over programs
+loaded in system memory</p></li>
+<li><p>only enabled for critical OS files in RAM</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </div></blockquote>
 </li>
@@ -4823,9 +5087,11 @@ need to run <em>autochk</em> at the next boot if dirty</p></li>
 <div><p>signature</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>can use this option if using older driver to connect the hard driver controller or other
-low-level feature</p></li>
+<li><p>can use this option if using older driver to connect the hard driver controller or other</p></li>
 </ul>
+<blockquote>
+<div><p>low-level feature</p>
+</div></blockquote>
 </li>
 </ul>
 </div></blockquote>
@@ -5009,11 +5275,17 @@ arranged in row and columns between polarizing filters</p></li>
 <div><p>which is still used in displays such as calculators</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>use a matrix of wires, vertical wires (Y wires) for every sub-pixel in column,
-horizontal wires (X wires) for row sub-pixels</p></li>
-<li><p>there had to be a charge on both X and Y wires to make enough voltage to light a single
-sub-pixel</p></li>
+<li><p>use a matrix of wires, vertical wires (Y wires) for every sub-pixel in column,</p></li>
 </ul>
+<blockquote>
+<div><p>horizontal wires (X wires) for row sub-pixels</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>there had to be a charge on both X and Y wires to make enough voltage to light a single</p></li>
+</ul>
+<blockquote>
+<div><p>sub-pixel</p>
+</div></blockquote>
 </li>
 <li><p>passive matrix
 - three matrices intersected very close together, above which the glass was covered with</p>
@@ -5032,7 +5304,7 @@ color dot, used by current LCDs</p></li>
 - inverters: send power to backlights that need AC</p></li>
 <li><p><strong>LCD panels</strong>
 - twisted nematic (TN), in-plane switching (IPS), vertical alignment (VA)
-- Plane to LIne Switching (PLS), proprietary IPS version by Samsung</p></li>
+-Plane to LIne Switching (PLS), proprietary IPS version by Samsung</p></li>
 <li><p><strong>backlights</strong>
 - current LCDs use light-emitting diode (LED) technology
 - older generations used CCFL technology
@@ -5042,12 +5314,21 @@ color dot, used by current LCDs</p></li>
 </div></blockquote>
 <ul class="simple">
 <li><p>edge LED backlighting: can sometimes see the edges are brighter than the center</p></li>
-<li><p>direct LED backlighting: puts a bank of LEDs behind the panel, more expensive and use
-more electricity than edge LED backlighting</p></li>
-<li><p><strong>CCFL</strong>
-+ cold cathode fluorescent lamp used by early LCDs
-+ low power use, even brightness and long life
-+ needed high frequency AC and required the use of an inverter</p></li>
+<li><p>direct LED backlighting: puts a bank of LEDs behind the panel, more expensive and use</p></li>
+</ul>
+<blockquote>
+<div><p>more electricity than edge LED backlighting</p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>CCFL</strong></dt><dd><ul>
+<li><p>cold cathode fluorescent lamp used by early LCDs</p></li>
+<li><p>low power use, even brightness and long life</p></li>
+<li><p>needed high frequency AC and required the use of an inverter</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 <li><p><strong>Resolution</strong>
@@ -5059,10 +5340,15 @@ more electricity than edge LED backlighting</p></li>
 </div></blockquote>
 <ul class="simple">
 <li><p>aspect ratio: number of pixels arranged on the screen</p></li>
-<li><p><strong>pixels per inch (PPI)</strong>
-+ combination of the resolution and physical size of a display
-+ smaller, high-resolution monitor will look better than much larger monitor with same
+<li><dl class="simple">
+<dt><strong>pixels per inch (PPI)</strong></dt><dd><ul>
+<li><p>combination of the resolution and physical size of a display</p></li>
+<li><p>smaller, high-resolution monitor will look better than much larger monitor with same
 resolution</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 <li><p><strong>Brightness</strong>
@@ -5080,8 +5366,12 @@ resolution</p></li>
 </div></blockquote>
 <ul class="simple">
 <li><p>measured in milliseconds (ms), the lower the better</p></li>
-<li><p>black-to-white (BtW): how long it takes the pixels to go from pure black to puer white
-and balck again</p></li>
+<li><p>black-to-white (BtW): how long it takes the pixels to go from pure black to puer white</p></li>
+</ul>
+<blockquote>
+<div><p>and balck again</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>gray-to-gray (GtG): how long it takes the pixels to go from one gray state to another</p></li>
 <li><p>GtG time will always be faster than BtW time</p></li>
 </ul>
@@ -5158,15 +5448,25 @@ distance</p></li>
 <li><p>excessive heat and fan noise, life span of ~3000 hours</p></li>
 </ul>
 </div></blockquote>
-<ul class="simple">
-<li><p>LED-based projectors
-+ use red, green and blue LEDs to provide light
-+require smaller and quieter fans as LEDs don’t heat up
-+ require much darker room, life span of 20,000+ hours</p></li>
-<li><p>laser-based projectors
-+ come from white lasers hitting color wheels to colored lasers
-+ produce vibrant, high-contrast images and very little heat
-+ can last 30,000+ hours</p></li>
+<ul>
+<li><dl>
+<dt>LED-based projectors</dt><dd><ul class="simple">
+<li><p>use red, green and blue LEDs to provide light</p></li>
+</ul>
+<p>+require smaller and quieter fans as LEDs don’t heat up
++ require much darker room, life span of 20,000+ hours</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>laser-based projectors</dt><dd><ul class="simple">
+<li><p>come from white lasers hitting color wheels to colored lasers</p></li>
+<li><p>produce vibrant, high-contrast images and very little heat</p></li>
+<li><p>can last 30,000+ hours</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 </ul>
@@ -5199,8 +5499,12 @@ electrical charge, requires no backlight, can turn off completely</p></li>
 <div><p>or DVI-I (interchangeable) for DVI-D or DVI-A</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>single-link DVI: maximum bandwidth of 165MHz, max resolution of 1920x1080 at 60HZ or
-1280x1024 at 85Hz</p></li>
+<li><p>single-link DVI: maximum bandwidth of 165MHz, max resolution of 1920x1080 at 60HZ or</p></li>
+</ul>
+<blockquote>
+<div><p>1280x1024 at 85Hz</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>dual-link DVI: uses more pins to double throughput, res up to 2048x1536 at 60Hz</p></li>
 </ul>
 </li>
@@ -5287,21 +5591,33 @@ coordinates and color info that the monitor understands and displays</p></li>
 <li><p>video RAM can read and write data at the same time, not like DRAM</p></li>
 <li><p>Acronym  Name                                    Purpose</p></li>
 <li><p>DDR3     Double Data Rate SDRAM version 3        budget graphics cards, laptop video cards</p></li>
-<li><p>GDDR3    Graphics Double Data Rate version 3     similar to DDR3, but runs at faster speed
-different cooling requirements</p></li>
+<li><dl class="simple">
+<dt>GDDR3    Graphics Double Data Rate version 3     similar to DDR3, but runs at faster speed</dt><dd><p>different cooling requirements</p>
+</dd>
+</dl>
+</li>
 <li><p>GDDR4    Graphics Double Data Rate version 4     upgrade of GDDR3, faster clock</p></li>
-<li><p>GDDR5    Graphics Double Data Rate version 5     successor of GDDR4, double the
-input/output rate of GDDR4</p></li>
+<li><dl class="simple">
+<dt>GDDR5    Graphics Double Data Rate version 5     successor of GDDR4, double the</dt><dd><p>input/output rate of GDDR4</p>
+</dd>
+</dl>
+</li>
 <li><p>GDDR5X    Graphics Double Data Rate version 5X   successor of GDDR5</p></li>
 <li><p>GDDR6    Graphics Double Data Rate version 6     successor of GDDR5X</p></li>
 <li><p>HBM      High Bandwidth Memory                   competitor of GDDR5</p></li>
 <li><p>HBM2      High Bandwidth Memory version2         successor to HBM, competitor of GDDR6</p></li>
-<li><p>HBM2 offers very different style of memory from DDR or GDDR by using stacked DRAM
-connected via super-wide buses</p></li>
-<li><p>GDDR has 32bit bush width, HBM 1024bit bus</p></li>
-<li><p>huge amount of video RAM enables game developers to optimize their games and store more
-essential data on the local video RAM</p></li>
+<li><p>HBM2 offers very different style of memory from DDR or GDDR by using stacked DRAM</p></li>
 </ul>
+<blockquote>
+<div><p>connected via super-wide buses</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>GDDR has 32bit bush width, HBM 1024bit bus</p></li>
+<li><p>huge amount of video RAM enables game developers to optimize their games and store more</p></li>
+</ul>
+<blockquote>
+<div><p>essential data on the local video RAM</p>
+</div></blockquote>
 </li>
 <li><p><strong>Integrated GPUs</strong>
 - onboard video isn’t very powerful, but common in laptops as it save space and power
@@ -5312,11 +5628,17 @@ essential data on the local video RAM</p></li>
 <div><p>systems</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>connector types: VGA, DVI, HDMI (include mini &amp; micro), DisplayPort (include full * mini
-), Thunderbolt (include Thunderbolt 1 &amp; 2, USB Type-C Thunderbolt 3)</p></li>
-<li><p>connector types for interfacing with other media devices such as camcorders, projectors,
-television sets</p></li>
+<li><p>connector types: VGA, DVI, HDMI (include mini &amp; micro), DisplayPort (include full * mini</p></li>
 </ul>
+<blockquote>
+<div><p>), Thunderbolt (include Thunderbolt 1 &amp; 2, USB Type-C Thunderbolt 3)</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>connector types for interfacing with other media devices such as camcorders, projectors,</p></li>
+</ul>
+<blockquote>
+<div><p>television sets</p>
+</div></blockquote>
 </li>
 <li><p>issues when installing cards: long cards, proximity of nearest expansion card, presence of
 power connectors</p></li>
@@ -5348,13 +5670,19 @@ power connectors</p></li>
 <div><p>including the one player cannot see</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>filling in 3D object begins by drawing lines/edges between vertices to construct the 3D
-object from many triangles (triangles make the most sense from mathematical standpoint)</p></li>
+<li><p>filling in 3D object begins by drawing lines/edges between vertices to construct the 3D</p></li>
+</ul>
+<blockquote>
+<div><p>object from many triangles (triangles make the most sense from mathematical standpoint)</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>3D process groups triangles into various shapes called polygons</p></li>
 <li><p>originally, CPU handled calculations to create triangles</p></li>
-<li><p>with the introduction of GeForce 256 in 199, transform process was moved from CPU to the
-video card</p></li>
+<li><p>with the introduction of GeForce 256 in 199, transform process was moved from CPU to the</p></li>
 </ul>
+<blockquote>
+<div><p>video card</p>
+</div></blockquote>
 </li>
 <li><p><strong>textures</strong>
 - image files stored by every 3D game
@@ -5682,11 +6010,20 @@ another</p></li>
 </ul>
 </div></blockquote>
 <ul class="simple">
-<li><p>single-mode cabling
-+ use laser light
-+ have high transfer rates over long distances
-+ recorded speed at 100Tbps over 100miles
-and currently quite rare</p></li>
+<li><dl class="simple">
+<dt>single-mode cabling</dt><dd><ul>
+<li><p>use laser light</p></li>
+<li><p>have high transfer rates over long distances</p></li>
+<li><p>recorded speed at 100Tbps over 100miles</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<blockquote>
+<div><p>and currently quite rare</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>cabling standards: 1000BaseSX, 10GBaseSR</p></li>
 <li><p>need a fiber optic switch and fiber optic network cards</p></li>
 </ul>
@@ -5743,9 +6080,14 @@ and currently quite rare</p></li>
 </ul>
 </div></blockquote>
 <ul class="simple">
-<li><p>stranded core UTP
-+ each wire is a bundle of tiny wire strands
-+ not quite good conductor but robust</p></li>
+<li><dl class="simple">
+<dt>stranded core UTP</dt><dd><ul>
+<li><p>each wire is a bundle of tiny wire strands</p></li>
+<li><p>not quite good conductor but robust</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>horizontal cabling should always be solid core</p></li>
 </ul>
 </li>
@@ -5776,19 +6118,24 @@ and currently quite rare</p></li>
 </ul>
 </div></blockquote>
 <ul class="simple">
-<li><p><strong>patch panel</strong>
-+ a box with a row of female connectors (ports) in the front and permanent connections
-in the back
-+ uses a special type of connector called 110 block or 110-punchdown block
-+ UTP cables connect to a 110 block using a punchdown tool (has a blunt end that forces
-the wire into the groove)
-+ prevent horizontal cabling from being moved
-+ use a ANSI/TIA 606 labeling method
-+ can get UTP, STP or fiber ports and some manufacturers combine several different
-types on the same patch panel
-+ UTP patch panels come with Cat ratings
-+ patch cables are short (2 to 5ft) stranded cables which require specific crimps
-+ a good patch cable should include a boot</p></li>
+<li><dl class="simple">
+<dt><strong>patch panel</strong></dt><dd><ul>
+<li><p>a box with a row of female connectors (ports) in the front and permanent connections
+in the back</p></li>
+<li><p>uses a special type of connector called 110 block or 110-punchdown block</p></li>
+<li><p>UTP cables connect to a 110 block using a punchdown tool (has a blunt end that forces
+the wire into the groove)</p></li>
+<li><p>prevent horizontal cabling from being moved</p></li>
+<li><p>use a ANSI/TIA 606 labeling method</p></li>
+<li><p>can get UTP, STP or fiber ports and some manufacturers combine several different
+types on the same patch panel</p></li>
+<li><p>UTP patch panels come with Cat ratings</p></li>
+<li><p>patch cables are short (2 to 5ft) stranded cables which require specific crimps</p></li>
+<li><p>a good patch cable should include a boot</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 </ul>
@@ -5838,15 +6185,19 @@ network</p></li>
 <div><p>which part identifies the host</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>255.255.255.0, any part that’s all 255s is the network ID, any part that’s all zeros is
-the host ID</p></li>
+<li><p>255.255.255.0, any part that’s all 255s is the network ID, any part that’s all zeros is</p></li>
+</ul>
+<blockquote>
+<div><p>the host ID</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>IP: 192.168.4.33, Subnet mask: 255.255.255.0, network ID: 192.168.4, host ID: 33</p></li>
 <li><p>every computer on a single LAN must have the same network ID and unique host ID</p></li>
 <li><p>subnets have classes: A (255.0.0.0), B (255.255.0.0), C (255.255.255.0)</p></li>
 </ul>
 </li>
 <li><p><strong>IP conflict</strong>
-- two computers having the same IP address and are not able to talk to each other and</p>
+-two computers having the same IP address and are not able to talk to each other and</p>
 <blockquote>
 <div><p>other computers don’t know where to send data</p>
 </div></blockquote>
@@ -5988,12 +6339,24 @@ or with device’s MAC address (EUI-64, extended unique identifier)</p></li>
 from a broadcast address and is called multicast address)</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>the router hears the message and responds with a router advertisement (RA) that tells
-the computer its network ID and subnet and DNS server</p></li>
-<li><p>once the computer gets a prefix, it generates the rest of the address just like with
-the link-local address</p></li>
-<li><p>if another computer is running IPv6 and also has a global address, it can access the
-system unless there’s a firewall</p></li>
+<li><p>the router hears the message and responds with a router advertisement (RA) that tells</p></li>
+</ul>
+<blockquote>
+<div><p>the computer its network ID and subnet and DNS server</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>once the computer gets a prefix, it generates the rest of the address just like with</p></li>
+</ul>
+<blockquote>
+<div><p>the link-local address</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>if another computer is running IPv6 and also has a global address, it can access the</p></li>
+</ul>
+<blockquote>
+<div><p>system unless there’s a firewall</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>computers using IPv6 need a global unicast address to access the Internet</p></li>
 </ul>
 </li>
@@ -6098,16 +6461,30 @@ local computers doesn’t affect the file attributes</p></li>
 <li><p>can log onto a domain with &lt;domain&gt;&lt;domain user name&gt;</p></li>
 <li><p>Active Directory Users and Computers utility provides basic Active Directory functions</p></li>
 <li><p>folders: Builtin (sic), Computers, Domain Controllers, Users</p></li>
-<li><p>cannot promote a local user or group to a domain user or group, domain admin must create
-new domain account on the domain controller</p></li>
-<li><p>with domain account, can add a logon script that runs every time user logs in</p></li>
-<li><p>from Active Directory, can pick where to store users home folders but requires the use
-of roaming profiles rather than local profiles</p></li>
-<li><p>folder redirection: users able to access home folders on a remote server rather than
-local machine and helps admins keep tighter control over network resources</p></li>
-<li><p>organizational units (OUs) enable to organize users and computers by function, location,
-permissions, etc.</p></li>
+<li><p>cannot promote a local user or group to a domain user or group, domain admin must create</p></li>
 </ul>
+<blockquote>
+<div><p>new domain account on the domain controller</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>with domain account, can add a logon script that runs every time user logs in</p></li>
+<li><p>from Active Directory, can pick where to store users home folders but requires the use</p></li>
+</ul>
+<blockquote>
+<div><p>of roaming profiles rather than local profiles</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>folder redirection: users able to access home folders on a remote server rather than</p></li>
+</ul>
+<blockquote>
+<div><p>local machine and helps admins keep tighter control over network resources</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>organizational units (OUs) enable to organize users and computers by function, location,</p></li>
+</ul>
+<blockquote>
+<div><p>permissions, etc.</p>
+</div></blockquote>
 </li>
 <li><p><strong>Homegroups</strong>
 - use the idea that people want to share data, not folders
@@ -6313,21 +6690,41 @@ the wireless medium is clear to use</p></li>
 </ul>
 </div></blockquote>
 <ul class="simple">
-<li><p><strong>WPA (wifi protected access)</strong>
-+ uses the <em>Temporal Key Integrity Protocol (TKIP)</em>, which provides new encryption key
-for every sent packet
-+ Extensible Authentication Protocl (EAP): encryption key intergrity-checking and user
+<li><dl class="simple">
+<dt><strong>WPA (wifi protected access)</strong></dt><dd><ul>
+<li><p>uses the <em>Temporal Key Integrity Protocol (TKIP)</em>, which provides new encryption key
+for every sent packet</p></li>
+<li><p>Extensible Authentication Protocl (EAP): encryption key intergrity-checking and user
 authentication feature offered to WEP</p></li>
-<li><p><strong>WPA2</strong>
-+ IEEE 802.11i standard
-+ uses the Advanced Encryption Standard (AES)</p></li>
-<li><p><strong>WPA3</strong>
-+ include encryption to protect the data of users on open (public) networks</p></li>
-<li><p><strong>WPS (wifi protected setup)</strong>
-+ standard included on most WAPs and clients to configure secure connections easier
-+ some devices use a push button, others a password or code
-+ WPS-capable WAP will have an eight-digit numeric code printed on the device
-+ code is easy to guess because of how it is set up</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>WPA2</strong></dt><dd><ul>
+<li><p>IEEE 802.11i standard</p></li>
+<li><p>uses the Advanced Encryption Standard (AES)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>WPA3</strong></dt><dd><ul>
+<li><p>include encryption to protect the data of users on open (public) networks</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>WPS (wifi protected setup)</strong></dt><dd><ul>
+<li><p>standard included on most WAPs and clients to configure secure connections easier</p></li>
+<li><p>some devices use a push button, others a password or code</p></li>
+<li><p>WPS-capable WAP will have an eight-digit numeric code printed on the device</p></li>
+<li><p>code is easy to guess because of how it is set up</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 </ul>
@@ -6339,8 +6736,12 @@ authentication feature offered to WEP</p></li>
 <div><ul class="simple">
 <li><p>a protocl for authenticating</p></li>
 <li><p>Remote Authentication Dial-In User Service is partially encrypted and uses UDP</p></li>
-<li><p>Terminal Access Controller Access-Control System Plus (TACACS+) if full encrypted and
-uses TCP, can handle authentication, authorization of resources and keep track of resources</p></li>
+<li><p>Terminal Access Controller Access-Control System Plus (TACACS+) if full encrypted and</p></li>
+</ul>
+<blockquote>
+<div><p>uses TCP, can handle authentication, authorization of resources and keep track of resources</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>original TACACS has no encryption and uses TCP or UDP and only handles authentication</p></li>
 </ul>
 </div></blockquote>
@@ -6399,9 +6800,11 @@ called channels</p></li>
 <li><p>up to four antennas, speed up to 600Mbps, range 300+ft</p></li>
 <li><p>transmit beamforming: multiple-antenna technology that helps get rid of dead spots</p></li>
 <li><p>can run in 2.4GHz ISM band, supporting slower 802.11b/g devices</p></li>
-<li><p>also support dual-band operation but need more advanced WAP that runs at both 5GHz and
-2.4GHz simultaneously</p></li>
+<li><p>also support dual-band operation but need more advanced WAP that runs at both 5GHz and</p></li>
 </ul>
+<blockquote>
+<div><p>2.4GHz simultaneously</p>
+</div></blockquote>
 </li>
 <li><p><strong>802.11ac</strong>
 - only uses 5GHz band
@@ -6604,19 +7007,24 @@ converting analog signals to digital signals and vice versa</p></li>
 </ul>
 </div></blockquote>
 <ul class="simple">
-<li><p><strong>ISDN</strong>
-+ integrated services digital network, uses digital dial-up
-+ B channels carry data and voice information at 64Kbps
-+ D channels carry setup and config info and data at 16Kbps
-+ basic rate interface (BRI): two B/one D setup
-+ BRI uses only one physical line, but each B channel sends 64Kbps
-+ ISDN connects much faster than modems
-+ monthly cost per B channel is slightly more than regular phone line
-+ has steep initial fee and need to be within about 18,000 feet of a central office
-+ primary rate interface (PRI): composed of twenty-three 64Kbps B channels and one
-64Kbps D channel, also known as T1 lines
-+ ISDN wall socket usually looks like standard RJ-45 jack
-+ terminal adapter (TA): common interface for computer, look like regular modems</p></li>
+<li><dl class="simple">
+<dt><strong>ISDN</strong></dt><dd><ul>
+<li><p>integrated services digital network, uses digital dial-up</p></li>
+<li><p>B channels carry data and voice information at 64Kbps</p></li>
+<li><p>D channels carry setup and config info and data at 16Kbps</p></li>
+<li><p>basic rate interface (BRI): two B/one D setup</p></li>
+<li><p>BRI uses only one physical line, but each B channel sends 64Kbps</p></li>
+<li><p>ISDN connects much faster than modems</p></li>
+<li><p>monthly cost per B channel is slightly more than regular phone line</p></li>
+<li><p>has steep initial fee and need to be within about 18,000 feet of a central office</p></li>
+<li><p>primary rate interface (PRI): composed of twenty-three 64Kbps B channels and one
+64Kbps D channel, also known as T1 lines</p></li>
+<li><p>ISDN wall socket usually looks like standard RJ-45 jack</p></li>
+<li><p>terminal adapter (TA): common interface for computer, look like regular modems</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 <li><p><strong>dedicated</strong>
@@ -6624,32 +7032,42 @@ converting analog signals to digital signals and vice versa</p></li>
 - <strong>DSL</strong></p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Digital subscriber line, use a standard telephone line with special equipment on each</p></li>
+<li><p>Digital subscriber line, use a standard telephone line with special equipment on each
+end to create always-on Internet connections at speeds greater than dial-up</p></li>
+<li><p>at low end, speeds are generally single digits</p></li>
+<li><p>xDSL technologies offer competitive broadband speeds</p></li>
+<li><p>require DSL modem and need to hook up a wireless router</p></li>
+<li><p>DSL microfilters remove the high-pitch screech of the DSL signal</p></li>
+<li><p>receiver connects to the telephone line and the computer</p></li>
+<li><p>house has to be within a short distance from a main phone service switching center,
+around 18,000 feet</p></li>
+<li><p>asymmetric (ADSL): differ between slow upload speed (384Kbps, 768Kbps, 1Mbps) and
+faster download speed (3-15Mbps)</p></li>
+<li><p>symmetric (SDSL): has same upload and download speeds as ADSL but cost more</p></li>
 </ul>
-<p>end to create always-on Internet connections at speeds greater than dial-up
-+ at low end, speeds are generally single digits
-+ xDSL technologies offer competitive broadband speeds
-+ require DSL modem and need to hook up a wireless router
-+ DSL microfilters remove the high-pitch screech of the DSL signal
-+ receiver connects to the telephone line and the computer
-+ house has to be within a short distance from a main phone service switching center,
-around 18,000 feet
-+ asymmetric (ADSL): differ between slow upload speed (384Kbps, 768Kbps, 1Mbps) and
-faster download speed (3-15Mbps)
-+ symmetric (SDSL): has same upload and download speeds as ADSL but cost more</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><strong>cable</strong>
-+ use regular TV cables to serve up lightning-fast speeds
-+ upload speed from 5-35+Mbps and download speed from 15-1000+Mbps
-+ start with RG-6 or RG-59 cable coming into the house, connects to a cable modem that
+<li><dl class="simple">
+<dt><strong>cable</strong></dt><dd><ul>
+<li><p>use regular TV cables to serve up lightning-fast speeds</p></li>
+<li><p>upload speed from 5-35+Mbps and download speed from 15-1000+Mbps</p></li>
+<li><p>start with RG-6 or RG-59 cable coming into the house, connects to a cable modem that
 connects to a small home router or NIC via Ethernet</p></li>
-<li><p><strong>fiber</strong>
-+ fiber-to-the-node (FTTN)
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>fiber</strong></dt><dd><ul>
+<li><p>fiber-to-the-node (FTTN)
 + fiber connections runs from the provider to a box somewhere in the neighborhood
-+ box connects to the home or office using normal coaxial or Ethernet cabling
-+ fiber-to-the-premises (FTTP)
++ box connects to the home or office using normal coaxial or Ethernet cabling</p></li>
+<li><p>fiber-to-the-premises (FTTP)
 + runs from provider straight to a home or office, using fiber the whole way</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 <li><p><strong>wireless</strong>
@@ -6661,14 +7079,14 @@ connects to a small home router or NIC via Ethernet</p></li>
 <li><p>either wirelessly as mobile hotspot or directly using USB</p></li>
 <li><p>most carriers charge extra to enable tethering</p></li>
 <li><p>1G, 2G, 2.5G (not 2G but also not quite 3G), 3G, 4G, 5G, just for marketing terms</p></li>
-<li><p>1G data services was analog and not at all designed to carry packetized data until</p></li>
+<li><p>1G data services was analog and not at all designed to carry packetized data until
+GSM (Global System for Mobile Communications), CDMA (code division multiple access)</p></li>
+<li><p>GSM evolved into GPRS and EDGE (2.5G), CDMA introduced EV-DO (3G)</p></li>
+<li><p>Long Term Evolution (LTE): rolled out in early 2010s and now accepted as true 4G</p></li>
+<li><p>wireless wide area network (WWAN) works similar to wireless LAN (WLAN) but connects
+multiple networks</p></li>
+<li><p>5G started development push in 2018</p></li>
 </ul>
-<p>GSM (Global System for Mobile Communications), CDMA (code division multiple access)
-+ GSM evolved into GPRS and EDGE (2.5G), CDMA introduced EV-DO (3G)
-+ Long Term Evolution (LTE): rolled out in early 2010s and now accepted as true 4G
-+ wireless wide area network (WWAN) works similar to wireless LAN (WLAN) but connects
-multiple networks
-+ 5G started development push in 2018</p>
 </div></blockquote>
 </li>
 <li><p><strong>satellite</strong>
@@ -6742,8 +7160,11 @@ of trying to access the Internet directly</p></li>
 <ul class="simple">
 <li><p>AFP                    macOS file services                     TCP           548</p></li>
 <li><p>SLP                    Services discovery protocol             TCP/UDP       427</p></li>
-<li><p>NetBIOS/NetBT          NetBIOS over TCP/IP                     UDP           137, 138
-TCP           137, 139</p></li>
+<li><dl class="simple">
+<dt>NetBIOS/NetBT          NetBIOS over TCP/IP                     UDP           137, 138</dt><dd><p>TCP           137, 139</p>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 </ul>
@@ -7066,11 +7487,17 @@ accessed in modern OSs</p></li>
 </div></blockquote>
 <ul class="simple">
 <li><p>no longer need to purchase expensive, heavy hardware</p></li>
-<li><p>not responsible for the hardware, but still for configuring and maintaining the OS and
-software of any VMs created</p></li>
-<li><p>have flexibility to tune it for needs, but also requires knowledge of the underlying
-OS and time to manage</p></li>
+<li><p>not responsible for the hardware, but still for configuring and maintaining the OS and</p></li>
 </ul>
+<blockquote>
+<div><p>software of any VMs created</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>have flexibility to tune it for needs, but also requires knowledge of the underlying</p></li>
+</ul>
+<blockquote>
+<div><p>OS and time to manage</p>
+</div></blockquote>
 </li>
 <li><p><strong>PaaS (Platform as a Service)</strong>
 - providers gives programmers all the tools they need to deploy, administer and maintain</p>
@@ -7079,12 +7506,18 @@ OS and time to manage</p></li>
 </div></blockquote>
 <ul class="simple">
 <li><p>infrastructure underneath is largely invisible to the developer</p></li>
-<li><p>provider is aware of their infrastructure but the developer cannot control it directly
-and doesn’t need to think about its complexity</p></li>
-<li><p>just a place to deploy and run applications</p></li>
-<li><p>eg. Heroku, one of the earliest PaaS providers, creates a simple interface on top of
-the IaaS offerings of AWS</p></li>
+<li><p>provider is aware of their infrastructure but the developer cannot control it directly</p></li>
 </ul>
+<blockquote>
+<div><p>and doesn’t need to think about its complexity</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>just a place to deploy and run applications</p></li>
+<li><p>eg. Heroku, one of the earliest PaaS providers, creates a simple interface on top of</p></li>
+</ul>
+<blockquote>
+<div><p>the IaaS offerings of AWS</p>
+</div></blockquote>
 </li>
 <li><p><strong>SaaS (Software as a Service)</strong>
 - best examples are the Web applications
@@ -7100,7 +7533,7 @@ the IaaS offerings of AWS</p></li>
 </div></blockquote>
 </li>
 <li><p><strong>Private Cloud</strong>
-- internal cloud that have some of the flexibility of the cloud and complete ownership of</p>
+-internal cloud that have some of the flexibility of the cloud and complete ownership of</p>
 <blockquote>
 <div><p>the data</p>
 </div></blockquote>
@@ -7378,9 +7811,11 @@ services must be fast, robust and secure</p></li>
 <div><p>time, messages, weather, controlling music, fitness tracking</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>fitness monitors: count steps using accelerometers, register heart rate through sensors,
-use GPS network to track exercise (comes in fobs that clip to the body and wristbands)</p></li>
+<li><p>fitness monitors: count steps using accelerometers, register heart rate through sensors,</p></li>
 </ul>
+<blockquote>
+<div><p>use GPS network to track exercise (comes in fobs that clip to the body and wristbands)</p>
+</div></blockquote>
 </li>
 <li><p><strong>VR/AR headsets</strong>
 - augmented reality: additional elements added to what user can see or hear, does not</p>
@@ -7389,9 +7824,11 @@ use GPS network to track exercise (comes in fobs that clip to the body and wrist
 Google Glass, one of the first but some public placesbanned the use of it</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>new devices focus more on specific hobbies or skill groups such as enabling cyclists to
-track speed, pedaling cadence, heart rate , distance traveled, calories burned, elevation</p></li>
+<li><p>new devices focus more on specific hobbies or skill groups such as enabling cyclists to</p></li>
 </ul>
+<blockquote>
+<div><p>track speed, pedaling cadence, heart rate , distance traveled, calories burned, elevation</p>
+</div></blockquote>
 </li>
 </ul>
 </div></blockquote>
@@ -7579,9 +8016,11 @@ services to sign into other services</p></li>
 </div></blockquote>
 <ul class="simple">
 <li><p>could result in incompletely downloaded e-mail or duplicate</p></li>
-<li><p>authentication issues, OS version issues, incorrect config settings, remote end of the
-connection problem or multiple sources trying to sync the same data can cause issues</p></li>
+<li><p>authentication issues, OS version issues, incorrect config settings, remote end of the</p></li>
 </ul>
+<blockquote>
+<div><p>connection problem or multiple sources trying to sync the same data can cause issues</p>
+</div></blockquote>
 </li>
 </ul>
 </div></blockquote>
@@ -7880,8 +8319,12 @@ listening on open ports</p></li>
 </div></blockquote>
 <ul class="simple">
 <li><p>can eaves drop on conversations, even encrypted</p></li>
-<li><p>can fool the device into turning off encryption completely and sophisticated attacks can
-even install malware</p></li>
+<li><p>can fool the device into turning off encryption completely and sophisticated attacks can</p></li>
+</ul>
+<blockquote>
+<div><p>even install malware</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>Stingray: device to intercept a suspect’s cell traffic using tower spoofing</p></li>
 <li><p>Dirtbox: aircraft-mounted version of Stingray</p></li>
 </ul>
@@ -7910,7 +8353,7 @@ and vertical dpi (dots per inch)</p></li>
 <li><p>POS (point of sale) machines use special impact paper that can print receipts in duplicate,
 triplicate or more</p></li>
 <li><p><strong>dot-matrix printers</strong>
-- large installed base in business, can be used for multipart forms as they actually strike</p>
+-large installed base in business, can be used for multipart forms as they actually strike</p>
 <blockquote>
 <div><p>the paper</p>
 </div></blockquote>
@@ -8083,10 +8526,18 @@ wrapping around the drum</p></li>
 </div></blockquote>
 <ul class="simple">
 <li><p>second number is determined by the smallest increment by which the drum can be turned</p></li>
-<li><p>laser printers produce better quality than dot-matrix printers because of resolution
-enhancement technology (RET)</p></li>
-<li><p>RET enables the printer to insert smaller dots among the characters, smoothing out the
-jagged curves that are typical of printers that do not use RET</p></li>
+<li><p>laser printers produce better quality than dot-matrix printers because of resolution</p></li>
+</ul>
+<blockquote>
+<div><p>enhancement technology (RET)</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>RET enables the printer to insert smaller dots among the characters, smoothing out the</p></li>
+</ul>
+<blockquote>
+<div><p>jagged curves that are typical of printers that do not use RET</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>RET enables laser printers to output high-quality print jobs but also requires RAM</p></li>
 <li><p>disabling RET will sometimes free up enough memory to complete the print job</p></li>
 </ul>
@@ -8224,10 +8675,15 @@ file that looks like the printed page</p></li>
 </ul>
 </div></blockquote>
 <ul class="simple">
-<li><p><strong>XML Paper Specification</strong>
-+ improvements over GDI, including enhanced color management
-+ requires a drive that supports XPS
-+ some printers natively support XPS</p></li>
+<li><dl class="simple">
+<dt><strong>XML Paper Specification</strong></dt><dd><ul>
+<li><p>improvements over GDI, including enhanced color management</p></li>
+<li><p>requires a drive that supports XPS</p></li>
+<li><p>some printers natively support XPS</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 </ul>
@@ -8417,9 +8873,11 @@ network or facilities</p></li>
 </div></blockquote>
 <ul class="simple">
 <li><p>outdoor must be closed before the inner door can be opened</p></li>
-<li><p>often controlled by a security who keeps an entry control roster, a document which keeps
-record of all comings and goinds from the building</p></li>
+<li><p>often controlled by a security who keeps an entry control roster, a document which keeps</p></li>
 </ul>
+<blockquote>
+<div><p>record of all comings and goinds from the building</p>
+</div></blockquote>
 </li>
 <li><p><strong>Telephone scams</strong>
 - most common attack</p></li>
@@ -8430,9 +8888,11 @@ record of all comings and goinds from the building</p></li>
 </div></blockquote>
 <ul class="simple">
 <li><p>most common form done today</p></li>
-<li><p>spear phising: targeted attacks, the bait can be carefully tailored using details from
-the target’s life</p></li>
+<li><p>spear phising: targeted attacks, the bait can be carefully tailored using details from</p></li>
 </ul>
+<blockquote>
+<div><p>the target’s life</p>
+</div></blockquote>
 </li>
 </ul>
 </div></blockquote>
@@ -8485,9 +8945,13 @@ physically</p></li>
 <section id="id57">
 <h3>Malware<a class="headerlink" href="#id57" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul>
-<li><p>networks are the fastes and most efficient vehicles for transferring computer viruses
-among systems</p></li>
+<div><ul class="simple">
+<li><p>networks are the fastes and most efficient vehicles for transferring computer viruses</p></li>
+</ul>
+<blockquote>
+<div><p>among systems</p>
+</div></blockquote>
+<ul>
 <li><p><strong>Virus</strong>
 - program that replicate and activate
 - does not self-replicate across networks
@@ -8532,9 +8996,11 @@ among systems</p></li>
 <div><p>intercepting traffic thought to be only between those systems</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>would be a person using software on a wireless network to make all clients think his
-laptop is a WAP</p></li>
+<li><p>would be a person using software on a wireless network to make all clients think his</p></li>
 </ul>
+<blockquote>
+<div><p>laptop is a WAP</p>
+</div></blockquote>
 </li>
 <li><p><strong>session hijacking</strong>
 - tries to intercept a valid computer session to get authentication info
@@ -8553,9 +9019,11 @@ laptop is a WAP</p></li>
 <div><p>hashed entries, binary files, not text files</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>rainbow tables are used to reverse password hashes, only a real threat to older/legacy
-systems and useless for reversing properly salted hashes</p></li>
+<li><p>rainbow tables are used to reverse password hashes, only a real threat to older/legacy</p></li>
 </ul>
+<blockquote>
+<div><p>systems and useless for reversing properly salted hashes</p>
+</div></blockquote>
 </li>
 <li><p>some pop-up browser windows are designed to mimic similar pop-up alerts from OS</p></li>
 <li><p>drive-by downloads: unwanted, unknown or unplanned file downloads</p></li>
@@ -8584,26 +9052,41 @@ browser to whatever site the malware adds to the file</p></li>
 <div><p>filtering to block devices from visiting all kinds of malicious sites</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>all antivirus programs include terminate-and-stay-resident programs (TSRs) that run
-every time the PC is booted</p></li>
+<li><p>all antivirus programs include terminate-and-stay-resident programs (TSRs) that run</p></li>
 </ul>
+<blockquote>
+<div><p>every time the PC is booted</p>
+</div></blockquote>
 </li>
 <li><p><strong>recovery</strong>
 - identify and research malware symptons
 - quarantine the infected systems</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>PacketFence: auto monitors network traffic and can cut a machine off the network if</p></li>
+<li><p>PacketFence: auto monitors network traffic and can cut a machine off the network if
+it starts sending suspicious packets</p></li>
 </ul>
-<p>it starts sending suspicious packets</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>disable system restore (in Windows)
-+ not to let the virus to be included in any saved restore points</p></li>
-<li><p>remediate the infected systems, update the anti-malware software, scan and use removal
-techniques (safe mode, preinstallation environment)
-+ get to safe mode and run anti-malware software
-+ replace corrupted Windows Registry files or even startup files</p></li>
+<li><dl class="simple">
+<dt>disable system restore (in Windows)</dt><dd><ul>
+<li><p>not to let the virus to be included in any saved restore points</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>remediate the infected systems, update the anti-malware software, scan and use removal</p></li>
+</ul>
+<blockquote>
+<div><dl class="simple">
+<dt>techniques (safe mode, preinstallation environment)</dt><dd><ul class="simple">
+<li><p>get to safe mode and run anti-malware software</p></li>
+<li><p>replace corrupted Windows Registry files or even startup files</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<ul class="simple">
 <li><p>schedule scans and run updates</p></li>
 <li><p>enable system restore and create a restore point (in Windows)</p></li>
 <li><p>educate the end user</p></li>
@@ -8617,8 +9100,12 @@ techniques (safe mode, preinstallation environment)
 <div><p>viruses only when certain events occur</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>detect boot sector viruses by comparing the drive’s boot sector to a standard one as
-most boot sectors are basically the same</p></li>
+<li><p>detect boot sector viruses by comparing the drive’s boot sector to a standard one as</p></li>
+</ul>
+<blockquote>
+<div><p>most boot sectors are basically the same</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>executable viruses are more difficult to find because they can be on any file in drive</p></li>
 <li><p>signature: code pattern of a known virus</p></li>
 <li><p>the program compares an executable file to its library of signatures</p></li>
@@ -8632,13 +9119,23 @@ most boot sectors are basically the same</p></li>
 </div></blockquote>
 <ul class="simple">
 <li><p>scrambling code itself can be identified and used as the signature</p></li>
-<li><p>to combat unknown ploymorphs, have the antivirus program create a checksum on every file
-in the drive</p></li>
-<li><p>checksum: a number generated by the software based on the contents of the file rather
-than the name, date or size</p></li>
-<li><p>every time a program is run, the antivirus program calculates a new checksum and
-compares it with earlier calculation</p></li>
+<li><p>to combat unknown ploymorphs, have the antivirus program create a checksum on every file</p></li>
 </ul>
+<blockquote>
+<div><p>in the drive</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>checksum: a number generated by the software based on the contents of the file rather</p></li>
+</ul>
+<blockquote>
+<div><p>than the name, date or size</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>every time a program is run, the antivirus program calculates a new checksum and</p></li>
+</ul>
+<blockquote>
+<div><p>compares it with earlier calculation</p>
+</div></blockquote>
 </li>
 <li><p><strong>Stealth</strong>
 - more of concept that an actual virus function
@@ -8652,23 +9149,43 @@ compares it with earlier calculation</p></li>
 <li><p>use a number of methods to protect networks, such as hiding IP and blocking TCP/IP ports</p></li>
 <li><p>hardware firewalls, often built into routers, and software firewalls</p></li>
 <li><p>both types can be run at the same time</p></li>
-<li><p>hardware firewall protect a LAN from outside threats by filtering the packets before
-they reach internal machines, use Stateful Packet Inspection (SPI) to inspect each
-incoming packet individually</p></li>
+<li><p>hardware firewall protect a LAN from outside threats by filtering the packets before</p></li>
+</ul>
+<blockquote>
+<div><p>they reach internal machines, use Stateful Packet Inspection (SPI) to inspect each
+incoming packet individually</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>SPI also blocks any incoming traffic that isn’t in response to outgoing traffic</p></li>
-<li><p>Port forwarding enables to open a port in the firewall and direct incoming traffic on
-that port to a specific IP address on LAN</p></li>
-<li><p>Port triggering enables to open an incoming connection to one computer automatically
-based on a specific outgoing connection</p></li>
+<li><p>Port forwarding enables to open a port in the firewall and direct incoming traffic on</p></li>
+</ul>
+<blockquote>
+<div><p>that port to a specific IP address on LAN</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Port triggering enables to open an incoming connection to one computer automatically</p></li>
+</ul>
+<blockquote>
+<div><p>based on a specific outgoing connection</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>trigger port: outgoing connection, destination port: incoming connection</p></li>
-<li><p>demilitarized zone (DMZ) puts systems with specified IP outside the protection of the
-firewall, opening all ports and enabling all incoming traffics</p></li>
+<li><p>demilitarized zone (DMZ) puts systems with specified IP outside the protection of the</p></li>
+</ul>
+<blockquote>
+<div><p>firewall, opening all ports and enabling all incoming traffics</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>any PC inside the DMZ will be completely exposed to outside attacks</p></li>
 <li><p>software firewall exceptions: choosing which programs and services can pass through</p></li>
 <li><p>most programs installed auto add themselves to exceptions list</p></li>
 <li><p>Windows network types: Domain, Private, Guest or Public</p></li>
-<li><p>even with Network Discovery activated, several firewall settings can overrule certain
-connections</p></li>
+<li><p>even with Network Discovery activated, several firewall settings can overrule certain</p></li>
+</ul>
+<blockquote>
+<div><p>connections</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>do nothing to stop interceptor hackers who monitor traffic on the public Internet</p></li>
 </ul>
 </li>
@@ -8721,8 +9238,12 @@ connections</p></li>
 <div><p>digital certificates, passwords or biometric data</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>RSA tokens: random-number generators that are used with user names and passwords to
-ensure extra security</p></li>
+<li><p>RSA tokens: random-number generators that are used with user names and passwords to</p></li>
+</ul>
+<blockquote>
+<div><p>ensure extra security</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>most security hardware tokens come in the form of key fobs</p></li>
 </ul>
 </li>
@@ -8733,13 +9254,19 @@ ensure extra security</p></li>
 </div></blockquote>
 <ul class="simple">
 <li><p>accounts should have permission to access only the resources they need</p></li>
-<li><p>in all OSs, permissions of the groups are combined into the effective permissions the
-user has to access a resource</p></li>
+<li><p>in all OSs, permissions of the groups are combined into the effective permissions the</p></li>
+</ul>
+<blockquote>
+<div><p>user has to access a resource</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>watch out for default user accounts and groups as they can become backdoors</p></li>
 <li><p>always make sure the Guest account is disabled</p></li>
-<li><p>never use default groups (Everyone, Guest, Users) unless intned to permit all to access
-a resource</p></li>
+<li><p>never use default groups (Everyone, Guest, Users) unless intned to permit all to access</p></li>
 </ul>
+<blockquote>
+<div><p>a resource</p>
+</div></blockquote>
 </li>
 <li><p><strong>security policies</strong>
 - policies as permissions for activities
@@ -8756,12 +9283,18 @@ a resource</p></li>
 <li><p>Windows wil fetch group policy when the system boots or someone logs in</p></li>
 <li><p>refresh the policy from time to time while running</p></li>
 <li><p>run “gpupdate /force” from cmd to update immediately</p></li>
-<li><p>group policy can set default wallpaper for every PC, make certain tools inaccessible,
-control access to the Internet, redirect home folders, run scripts, deploy software</p></li>
-<li><p>common policies on Windows: prevent registry edits, prevent access to the command
-prompt, log on locally, shut down system, minimum password length, account lockout
-threshold, disable windows installer, printer browsing</p></li>
+<li><p>group policy can set default wallpaper for every PC, make certain tools inaccessible,</p></li>
 </ul>
+<blockquote>
+<div><p>control access to the Internet, redirect home folders, run scripts, deploy software</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>common policies on Windows: prevent registry edits, prevent access to the command</p></li>
+</ul>
+<blockquote>
+<div><p>prompt, log on locally, shut down system, minimum password length, account lockout
+threshold, disable windows installer, printer browsing</p>
+</div></blockquote>
 </li>
 </ul>
 </div></blockquote>
@@ -8925,8 +9458,12 @@ individuals</p></li>
 <div><p>track of inventory</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>most RFID tags are passive, the tag receives all the power it needs fron the scanner’s
-signal</p></li>
+<li><p>most RFID tags are passive, the tag receives all the power it needs fron the scanner’s</p></li>
+</ul>
+<blockquote>
+<div><p>signal</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>active RFID uses a battery or external power source to send out and receive signals</p></li>
 <li><p>info stored in an RFID tag can be updated</p></li>
 </ul>
@@ -9084,7 +9621,7 @@ Organizationally Uniqure Identifier (OUI)</p></li>
 <li><p>current term for numbering name space is EUI-48 (Extended Unique Identifier)</p></li>
 </ul>
 </div></blockquote>
-<ul class="simple">
+<ul>
 <li><p>no two NICs ever share the same MAC address</p></li>
 <li><p>request MAC address from Institute of Electrical and Electronics Engineers (IEEE)</p></li>
 <li><p>if we keep two NICs speaking at the same time, only one system could speak at a time
@@ -9094,15 +9631,24 @@ because all data sent by one NIC is read by every other NIC on the network</p></
 send a broadcast onto the network to ask for it</p></li>
 <li><p>without knowing the MAC address to begin with, the requesting computer will us an IP to
 pick the target computer out of the crowd</p></li>
+<li><p>sending and receiving jobs NIC performs are broken down into <strong>two jobs</strong>
+1. Logical Link Control (LLC)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>talks to the system’s operating system, usually via device drivers</p></li>
+<li><p>handles multiple network protocols and provides flow control</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="2">
 <li><dl class="simple">
-<dt>sending and receiving jobs NIC performs are broken down into <strong>two jobs</strong></dt><dd><p>1. Logical Link Control (LLC)
-+ talks to the system’s operating system, usually via device drivers
-+ handles multiple network protocols and provides flow control
-2. MAC
-+ creates and address the frame
-+ it’s sublayer adds or checks the FCS</p>
+<dt>MAC</dt><dd><ul class="simple">
+<li><p>creates and address the frame</p></li>
+<li><p>it’s sublayer adds or checks the FCS</p></li>
+</ul>
 </dd>
 </dl>
+</li>
+</ol>
 </li>
 <li><p>operates at both Layer 2 and Layer 1</p></li>
 </ul>
@@ -9154,11 +9700,16 @@ network protocols designed to work together
 <blockquote>
 <div><ul class="simple">
 <li><p>makes sure that a piece of data gets to where it needs to go on the network</p></li>
-<li><p>by giving each device a unique numeric id called IP address (logical address)
-+ IP uses dotted decimal notation based on four 8-bit numbers
-+ each 8-bit number ranges from 0 to 255
-+ no two systems on the same network share the same IP address
-+ routers use IP address, not the MAC address, to forward data</p></li>
+<li><dl class="simple">
+<dt>by giving each device a unique numeric id called IP address (logical address)</dt><dd><ul>
+<li><p>IP uses dotted decimal notation based on four 8-bit numbers</p></li>
+<li><p>each 8-bit number ranges from 0 to 255</p></li>
+<li><p>no two systems on the same network share the same IP address</p></li>
+<li><p>routers use IP address, not the MAC address, to forward data</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </div></blockquote>
 <ul class="simple">
@@ -9184,8 +9735,10 @@ with the NIC to send and receive frames, but it can’t do anything with the pac
 <blockquote>
 <div><ul>
 <li><dl class="simple">
-<dt>sending system does the <strong>segmentation</strong></dt><dd><p>when the server receives a request for data, it chop the data into chunks to fit into a
-[packet](#packet) (eventually into NIC’s frame) and hand to the NIC for sending</p>
+<dt>sending system does the <strong>segmentation</strong></dt><dd><dl class="simple">
+<dt>when the server receives a request for data, it chop the data into chunks to fit into a</dt><dd><p>[packet](#packet) (eventually into NIC’s frame) and hand to the NIC for sending</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </li>
@@ -9246,8 +9799,10 @@ numbers for both sides of a TCP or [UDP](#udp) communication</p></li>
 <li><p>translates data from lower layers into a format usable by the
 [Application layer](#layer-7-application-layer) and vice versa</p></li>
 <li><dl class="simple">
-<dt>a number of protocols function on more than one OSI layer and can include Layer 6</dt><dd><p>encryption protocol used in e-commerce, Transport Layer Security (<strong>TLS</strong>) seems to
-initiate at [Layer 5](#layer-5-session-layer) and encrypt and decrypt at Layer 6</p>
+<dt>a number of protocols function on more than one OSI layer and can include Layer 6</dt><dd><dl class="simple">
+<dt>encryption protocol used in e-commerce, Transport Layer Security (<strong>TLS</strong>) seems to</dt><dd><p>initiate at [Layer 5](#layer-5-session-layer) and encrypt and decrypt at Layer 6</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </li>
@@ -9354,46 +9909,75 @@ get data from one computer to another on a network</p></li>
 <div><ul class="simple">
 <li><p>two distinct groups: <em>copper</em> and <em>fiber-optic</em></p></li>
 </ul>
-<ol class="arabic simple">
-<li><dl class="simple">
-<dt><strong>Copper</strong></dt><dd><ul class="simple">
+<ol class="arabic">
+<li><dl>
+<dt><strong>Copper</strong></dt><dd><ul>
 <li><p>most common form, two primary types: <em>coaxial</em> and <em>twisted pair</em></p></li>
-<li><p><strong>Coaxial</strong> (coax for short)
-+ contains central copper conductor wire surrounded by an insulating material,
-which, in turn, is surrounded by a braided metal shield
-+ shield data transmissions from <strong>electro magnetic interference (EMI)</strong>
-+ when a metal wire encounters magnetic fields, electrical current is generated
-along the wire
-+ can shut down a network because it is easily misinterpreted as a signal by
-devices like NICs
-+ old ones use special bayonet-style connectors called <strong>BNC connectors</strong>
-+ British Naval Connector or Bayonet Neill-Concelman
-+ today primarily same type used to connect televisions to cable boxes or to
-satellite receivers and use <strong>F connectors</strong>
-+ all coax cables have a <em>Radio Guide (RG) rating</em>
-+ only important measure of coax cabling is its <strong>Ohm rating</strong>
-+ describes the impedance, which describes a set of characteristics that define
-how much a cable resists the flow of electricity
-+ cable modems connect using one of two coaxial cable types: <em>RG-59</em>, <em>RG-6</em> (both
-cables are rated at 75 Ohms)
-+ can also connect two coax cables together easily using a <em>barrel connector</em>
-+ <strong>Twinaxial</strong> cable
+<li><dl>
+<dt><strong>Coaxial</strong> (coax for short)</dt><dd><ul>
+<li><p>contains central copper conductor wire surrounded by an insulating material,
+which, in turn, is surrounded by a braided metal shield</p></li>
+<li><p>shield data transmissions from <strong>electro magnetic interference (EMI)</strong>
++ when a metal wire encounters magnetic fields, electrical current is generated</p>
+<blockquote>
+<div><p>along the wire</p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>can shut down a network because it is easily misinterpreted as a signal by</dt><dd><p>devices like NICs</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>old ones use special bayonet-style connectors called <strong>BNC connectors</strong>
++ British Naval Connector or Bayonet Neill-Concelman</p></li>
+<li><dl class="simple">
+<dt>today primarily same type used to connect televisions to cable boxes or to</dt><dd><p>satellite receivers and use <strong>F connectors</strong></p>
+</dd>
+</dl>
+</li>
+<li><p>all coax cables have a <em>Radio Guide (RG) rating</em></p></li>
+<li><p>only important measure of coax cabling is its <strong>Ohm rating</strong>
++ describes the impedance, which describes a set of characteristics that define</p>
+<blockquote>
+<div><p>how much a cable resists the flow of electricity</p>
+</div></blockquote>
+</li>
+<li><dl class="simple">
+<dt>cable modems connect using one of two coaxial cable types: <em>RG-59</em>, <em>RG-6</em> (both</dt><dd><p>cables are rated at 75 Ohms)</p>
+</dd>
+</dl>
+</li>
+<li><p>can also connect two coax cables together easily using a <em>barrel connector</em></p></li>
+<li><p><strong>Twinaxial</strong> cable
 + contains two central copper conductors wrapped around a single shield
 + used as a substitute for short fiber connections, between equipment within rack
 + cheaper than fiber and associated hardware
-+ also called <em>direct attached cable (DAC)</em>
-+ <strong>Twisted Pair</strong>
++ also called <em>direct attached cable (DAC)</em></p></li>
+<li><p><strong>Twisted Pair</strong>
 + each pair works as a team either transmitting or receiving data
 + reduces a specific type of interference called <em>crosstalk</em>
 + the more twists per foot, the less crosstalk
-+ <strong>Shielded twisted pair (STP)</strong>
-+ consists twisted pairs of wires surrounded by shielding to protect from EMI
-+ six types differentiated by which part gets shielding, <em>STP Standard</em>
-+ should use rather than UTP in high-EMI environments
-+ <a href="#id64"><span class="problematic" id="id65">**</span></a>Unshielded twisted pair (UTP)**&lt;a id=”utp”&gt;&lt;/a&gt;
++ <strong>Shielded twisted pair (STP)</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>consists twisted pairs of wires surrounded by shielding to protect from EMI</p></li>
+<li><p>six types differentiated by which part gets shielding, <em>STP Standard</em></p></li>
+<li><p>should use rather than UTP in high-EMI environments</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><a href="#id64"><span class="problematic" id="id65">**</span></a>Unshielded twisted pair (UTP)**&lt;a id=”utp”&gt;&lt;/a&gt;
 + consists twisted pairs of wires surrounded by plastic jacket
 + does not provide any protection from EMI
 + most cables come with stranded Kevlar fibers to give the cable added strength</p></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </dd>
 </dl>
@@ -9401,8 +9985,10 @@ cables are rated at 75 Ohms)
 </ol>
 <ul>
 <li><dl class="simple">
-<dt>several groups set the standard for cabling and networking</dt><dd><p>International Organization for Standardization (ISO), American National Standards
-Institute (ANSI), Telecommunications Industry Association (TIA)</p>
+<dt>several groups set the standard for cabling and networking</dt><dd><dl class="simple">
+<dt>International Organization for Standardization (ISO), American National Standards</dt><dd><p>Institute (ANSI), Telecommunications Industry Association (TIA)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </li>
@@ -9435,48 +10021,84 @@ Institute (ANSI), Telecommunications Industry Association (TIA)</p>
 - telephones used RJ-11, support up to two paris of UTP
 - current wired networks use four-pair 8 position 8 contact (8P8C) or refer to as <em>RJ-45</em></p></li>
 </ul>
-<ol class="arabic simple" start="2">
-<li><dl class="simple">
+<ol class="arabic" start="2">
+<li><dl>
 <dt><strong>Fiber-Optic</strong></dt><dd><ul class="simple">
-<li><p>transmits light rather than electricity, good for both high-EMI areas and
-long-distance transmissions</p></li>
+<li><p>transmits light rather than electricity, good for both high-EMI areas and</p></li>
+</ul>
+<blockquote>
+<div><p>long-distance transmissions</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>distances of up to tens of kilometers depending on the implementation</p></li>
-<li><p>four components: glass fiber (the <em>core</em>), the <em>cladding</em> (part that makes light
-reflect down the fiber), <em>buffer</em> material to give strength, the <em>insulating jacket</em></p></li>
-<li><p>manufacturers use a two-number designator to define cables according to their core
-and cladding measurements</p></li>
+<li><p>four components: glass fiber (the <em>core</em>), the <em>cladding</em> (part that makes light</p></li>
+</ul>
+<blockquote>
+<div><p>reflect down the fiber), <em>buffer</em> material to give strength, the <em>insulating jacket</em></p>
+</div></blockquote>
+<ul class="simple">
+<li><p>manufacturers use a two-number designator to define cables according to their core</p></li>
+</ul>
+<blockquote>
+<div><p>and cladding measurements</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>common sizes: 9/125 &amp;micro;m, 50/125 &amp;micro;m, 62.5/125 &amp;micro;m</p></li>
-<li><p>almost all network technologies that use fiber-optic cable require paris of fibers
-for sending and receiving</p></li>
+<li><p>almost all network technologies that use fiber-optic cable require paris of fibers</p></li>
+</ul>
+<blockquote>
+<div><p>for sending and receiving</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>manufacturers often connect two fibers to create <em>duplex</em> fiber-optic cabling</p></li>
 <li><p>light can be sent as regular light or laser light</p></li>
 <li><p>two types of light require different fiber-optic cables</p></li>
 <li><p>color coding for various fiber types</p></li>
-<li><p><strong>multimode fiber (MMF)</strong>
-+ uses LEDs, standard prefix is “OM”
-+ can use a form of laser called <em>vertical-cavity surface-emitting laser (VCSEL)</em>
-+ transmit 850-nm or 1300-nm wavelengths
-+ color code: OM1 and OM2 “orange”, OM3 and OM4 “sport aqua”, OM5 “lime green”</p></li>
-<li><p><strong>single-mode fiber (SMF)</strong>
-+ uses lasers, standard prefix is “OS”
-+ prevents a problem unique to multimode fiber optics called <em>modal distortion</em>
-+ transmit 1310-nm or 1550-nm wavelengths
-+ color code “yellow”</p></li>
-<li><p>varous connector types, main four: <strong>ST, SC, LC, MT-RJ</strong>
-+ ST and SC connectors have unique ends
-+ LC and MT-RJ are always duplex
-+ no consensus about initials but,
-+ ST (bayonet-style): <em>straight tip</em> or <em>snap and twist</em>
-+ SC (push-in): <em>subscriber connector</em> or <em>standard connector</em> or <em>Siemon connector</em>
-or <em>stick and click</em>
-+ LC (little): <em>local connector</em> or <em>Lucent connector</em> or <em>little connector</em></p></li>
-<li><p><strong>fire ratings</strong>
-+ to reduce the risk of cables burning and creating noxious fumes and smoke
-+ most common are <strong>poly vinyl cholride (PVC)</strong> and <strong>plenum</strong>
-+ PVC ratings has no significant fire protection
-+ plenum-rated create much less smoke and fumes, but cost about three to five times
-as much as PVC-rated
-+ third type: <em>riser</em> provides less protection than plenum</p></li>
+<li><dl class="simple">
+<dt><strong>multimode fiber (MMF)</strong></dt><dd><ul>
+<li><p>uses LEDs, standard prefix is “OM”</p></li>
+<li><p>can use a form of laser called <em>vertical-cavity surface-emitting laser (VCSEL)</em></p></li>
+<li><p>transmit 850-nm or 1300-nm wavelengths</p></li>
+<li><p>color code: OM1 and OM2 “orange”, OM3 and OM4 “sport aqua”, OM5 “lime green”</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>single-mode fiber (SMF)</strong></dt><dd><ul>
+<li><p>uses lasers, standard prefix is “OS”</p></li>
+<li><p>prevents a problem unique to multimode fiber optics called <em>modal distortion</em></p></li>
+<li><p>transmit 1310-nm or 1550-nm wavelengths</p></li>
+<li><p>color code “yellow”</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>varous connector types, main four: <strong>ST, SC, LC, MT-RJ</strong></dt><dd><ul>
+<li><p>ST and SC connectors have unique ends</p></li>
+<li><p>LC and MT-RJ are always duplex</p></li>
+<li><p>no consensus about initials but,</p></li>
+<li><p>ST (bayonet-style): <em>straight tip</em> or <em>snap and twist</em></p></li>
+<li><p>SC (push-in): <em>subscriber connector</em> or <em>standard connector</em> or <em>Siemon connector</em>
+or <em>stick and click</em></p></li>
+<li><p>LC (little): <em>local connector</em> or <em>Lucent connector</em> or <em>little connector</em></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>fire ratings</strong></dt><dd><ul>
+<li><p>to reduce the risk of cables burning and creating noxious fumes and smoke</p></li>
+<li><p>most common are <strong>poly vinyl cholride (PVC)</strong> and <strong>plenum</strong></p></li>
+<li><p>PVC ratings has no significant fire protection</p></li>
+<li><p>plenum-rated create much less smoke and fumes, but cost about three to five times
+as much as PVC-rated</p></li>
+<li><p>third type: <em>riser</em> provides less protection than plenum</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </dd>
 </dl>
@@ -9519,9 +10141,14 @@ could see all traffic)</p></li>
 </ul>
 </div></blockquote>
 <ul class="simple">
-<li><p><strong>collision domain</strong>
-+ a group of nodes that have the capability of sending frames at the same time as each
+<li><dl class="simple">
+<dt><strong>collision domain</strong></dt><dd><ul>
+<li><p>a group of nodes that have the capability of sending frames at the same time as each
 other, resulting in collisions</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 </ul>
@@ -9541,11 +10168,17 @@ called a <strong>pad</strong>
 * <strong>Preamble</strong></p>
 <blockquote>
 <div><ul class="simple">
-<li><p>7byte series of alternating ones and zeroes followed by a 1byte start frame
-delimiter or an 8byte series of alternating ones and zeroes</p></li>
-<li><p>gives a receiving NIC time to realize a frame is coming and to know exactly where
-the frame starts</p></li>
+<li><p>7byte series of alternating ones and zeroes followed by a 1byte start frame</p></li>
 </ul>
+<blockquote>
+<div><p>delimiter or an 8byte series of alternating ones and zeroes</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>gives a receiving NIC time to realize a frame is coming and to know exactly where</p></li>
+</ul>
+<blockquote>
+<div><p>the frame starts</p>
+</div></blockquote>
 </div></blockquote>
 </li>
 <li><p><a href="#id141"><span class="problematic" id="id142">`MAC Address`_</span></a></p></li>
@@ -9601,19 +10234,24 @@ packet</p></li>
 <li><p>also called a <em>crimp</em></p></li>
 <li><p>installing a crimp onto the end of UTP cable is called <em>crimping</em></p></li>
 <li><p>tool used to secure a crimp is called a <em>crimper</em></p></li>
-<li><p>each pair of wires consists of solid-colored and striped wire: blue/blue-white,</p></li>
-</ul>
-<p>orange/orange-white, brown/brown-white, green/green-white
-+ TIA/EIA defines <strong>termination standard</strong> for correct crimping of four-pair UTP
+<li><p>each pair of wires consists of solid-colored and striped wire: blue/blue-white,
+orange/orange-white, brown/brown-white, green/green-white</p></li>
+<li><p>TIA/EIA defines <strong>termination standard</strong> for correct crimping of four-pair UTP
 + 568A: GW,G,OW,B,BW,O,BrW,Br &lt;a id=”568a”&gt;&lt;/a&gt;
-+ 568B: OW,O,GW,B,BW,G,BrW,Br &lt;a id=”568b”&gt;&lt;/a&gt;</p>
++ 568B: OW,O,GW,B,BW,G,BrW,Br &lt;a id=”568b”&gt;&lt;/a&gt;</p></li>
+</ul>
 </div></blockquote>
 <ul class="simple">
 <li><p>10BASE-T use pins 1 and 2 to send data, 3 and 6 to receive data</p></li>
 <li><p>device that was connected to a hub could not send and receive simutaneously</p></li>
-<li><p><strong>Limits</strong>
-+ distance between hub and computer could not exceed 100m
-+ hub could not connect more than 1024 computers</p></li>
+<li><dl class="simple">
+<dt><strong>Limits</strong></dt><dd><ul>
+<li><p>distance between hub and computer could not exceed 100m</p></li>
+<li><p>hub could not connect more than 1024 computers</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 <li><p><strong>10BASE-FL</strong>
@@ -9641,9 +10279,14 @@ packet</p></li>
 <div><p>the same collision domain</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>adding another hub enable to add more devices or connect networks using a <strong>bridge</strong>
-+ acts like a repeater to connect two networks
-+ filter and forward traffic between networks based on the MAC addresses</p></li>
+<li><dl class="simple">
+<dt>adding another hub enable to add more devices or connect networks using a <strong>bridge</strong></dt><dd><ul>
+<li><p>acts like a repeater to connect two networks</p></li>
+<li><p>filter and forward traffic between networks based on the MAC addresses</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 <li><p><a href="#id67"><span class="problematic" id="id68">**</span></a>Switches**&lt;a id=”switch”&gt;&lt;/a&gt;
@@ -9655,60 +10298,113 @@ packet</p></li>
 <blockquote>
 <div><p>addresses of connected computers called <em>MAC address table</em></p>
 </div></blockquote>
-<ul class="simple">
+<ul>
 <li><p>difference with hub is in the repeating of frames during normal use</p></li>
 <li><p>filter by MAC address once completed port mapping</p></li>
 <li><p>each port is in its own collision domain</p></li>
-<li><p>a switch can <strong>buffer incoming frames</strong>
-+ two nodes connected to the switch can send data at the same time and the switch will
+<li><dl class="simple">
+<dt>a switch can <strong>buffer incoming frames</strong></dt><dd><ul class="simple">
+<li><p>two nodes connected to the switch can send data at the same time and the switch will
 hanlde it without any collision</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>unicast messages always go only to the intended recipient</p></li>
 <li><p>sends all broadcast messages to all ports (except origin)</p></li>
-<li><p><strong>broadcast domain</strong>
-+ to contrast switch to the hub-based networks with their collision domains</p></li>
+<li><dl class="simple">
+<dt><strong>broadcast domain</strong></dt><dd><ul class="simple">
+<li><p>to contrast switch to the hub-based networks with their collision domains</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>a switch becomes a single point of failure if every node connects to the it</p></li>
-<li><p>can connect switches via <em>uplink port</em> or <em>crossover cable</em>
-+ <strong>Uplink Ports</strong>
+<li><dl>
+<dt>can connect switches via <em>uplink port</em> or <em>crossover cable</em></dt><dd><ul>
+<li><p><strong>Uplink Ports</strong>
 + enable to connect two switches using a <em>straight-through</em> cable
-+ modern switches do not have dedicated uplink port, instead auto-sense when another
-switch is plugged in
-+ <em>auto-medium-dependent interface crossover (MDI-X)</em>
-+ <strong>Crossover Cables</strong>
++ modern switches do not have dedicated uplink port, instead auto-sense when another</p>
+<blockquote>
+<div><p>switch is plugged in</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><em>auto-medium-dependent interface crossover (MDI-X)</em></p></li>
+</ul>
+</li>
+<li><p><strong>Crossover Cables</strong>
 + reverse the sending and receiving pairs on one end of the cable
 + one end with [T568A](#568a) and other end with [T568B](#568b)
 + modern switches with auto-sensing ports don’t require crossover cable
 + can use to connect two computers with no switch between
 + answer for interconnecting ancient switches (10BASE-T/10BASE-FL)</p></li>
-<li><p><strong>switching loops or bridge loops</strong>
-+ redundant connections in a network
-+ would crash the network in early days</p></li>
-<li><p><strong>Spanning Tree Protocol (STP)</strong>
-+ to eliminate the problem of accidental switching loops
-+ enabled by default</p></li>
-<li><p><strong>Bridge Protocol Data Units (BPDUs)</strong>
-+ used to communicate with other switches to prevent loops
-+ <strong>Loop-free topology</strong>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>switching loops or bridge loops</strong></dt><dd><ul class="simple">
+<li><p>redundant connections in a network</p></li>
+<li><p>would crash the network in early days</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Spanning Tree Protocol (STP)</strong></dt><dd><ul class="simple">
+<li><p>to eliminate the problem of accidental switching loops</p></li>
+<li><p>enabled by default</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Bridge Protocol Data Units (BPDUs)</strong></dt><dd><ul class="simple">
+<li><p>used to communicate with other switches to prevent loops</p></li>
+<li><p><strong>Loop-free topology</strong>
 + established by configuring BPDUs
 + one root switch act as center of STP and used by other switches as reference point
 + have redundant links but certain ports will be placed in <em>blocking</em> state
 + ports in the blocking state stil hear the configuration BPDUs</p></li>
-<li><p><strong>Topology Change Notification (TNC) BPDU</strong>
-+ another type of BPDU used by STP when a link or device goes down
-+ enables the switches to rework themselves around the failed interface or device</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Topology Change Notification (TNC) BPDU</strong></dt><dd><ul class="simple">
+<li><p>another type of BPDU used by STP when a link or device goes down</p></li>
+<li><p>enables the switches to rework themselves around the failed interface or device</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>STP settings can be manually changed</p></li>
-<li><p>switch port directly connected to a PC should never participate in STP, but instead
-use a setting called <strong>PortFast</strong>
-+ a setting that enables the interface to come up right aways without normal latency
-+ also prevent TCN BPDUs being sent out of the switch every time a PC is on and off
-(causes all switches to flush their source address table and relearn MAC addresses)
-+ <em>BPDU guard</em> will move a port configured with PortFast into an errdisable state
-(erro occurred, disabled) if a BPDU is received on that port
-+ after errdisable state, requires an admin to manually bring the port back up
-+ PortFast ports should never receive a BPDU, which could start a switching loop
-+ <em>root guard</em> will move a port into root-inconsistent state</p></li>
-<li><p><strong>Rapid Spanning Tree Protocol (RSTP)</strong>
-+ replace SPT in 2001
-+ offers significantly faster convergence time following some kind of network change</p></li>
+<li><p>switch port directly connected to a PC should never participate in STP, but instead</p></li>
+</ul>
+<blockquote>
+<div><dl class="simple">
+<dt>use a setting called <strong>PortFast</strong></dt><dd><ul class="simple">
+<li><p>a setting that enables the interface to come up right aways without normal latency</p></li>
+<li><p>also prevent TCN BPDUs being sent out of the switch every time a PC is on and off
+(causes all switches to flush their source address table and relearn MAC addresses)</p></li>
+<li><p><em>BPDU guard</em> will move a port configured with PortFast into an errdisable state
+(erro occurred, disabled) if a BPDU is received on that port</p></li>
+<li><p>after errdisable state, requires an admin to manually bring the port back up</p></li>
+<li><p>PortFast ports should never receive a BPDU, which could start a switching loop</p></li>
+<li><p><em>root guard</em> will move a port into root-inconsistent state</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Rapid Spanning Tree Protocol (RSTP)</strong></dt><dd><ul>
+<li><p>replace SPT in 2001</p></li>
+<li><p>offers significantly faster convergence time following some kind of network change</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 </ul>
@@ -9719,17 +10415,12 @@ use a setting called <strong>PortFast</strong>
 <blockquote>
 <div><ul class="simple">
 <li><p>two problem categories: Obvious physical damage, Dead ports</p></li>
-<li><dl class="simple">
-<dt>similar diagnostic pattern for both</dt><dd><ol class="arabic simple">
-<li><p>recognizing a switch have problem because plugged in device can’t connect to network</p></li>
-<li><p>examine switch for obvious damage</p></li>
-<li><p>look for link lights, try different port if no flashing</p></li>
-<li><p>check cables (bent, broken or stepped on), replace if needed</p></li>
-<li><p>use tried-and-true method of replacing the switch or the cable with good ones</p></li>
-</ol>
-</dd>
-</dl>
-</li>
+<li><p>similar diagnostic pattern for both
+1. recognizing a switch have problem because plugged in device can’t connect to network
+2. examine switch for obvious damage
+3. look for link lights, try different port if no flashing
+4. check cables (bent, broken or stepped on), replace if needed
+5. use tried-and-true method of replacing the switch or the cable with good ones</p></li>
 </ul>
 </div></blockquote>
 <p><a class="reference external" href="#network+top">back to top</a></p>
@@ -9813,13 +10504,18 @@ use a setting called <strong>PortFast</strong>
 </ul>
 </div></blockquote>
 <ul class="simple">
-<li><p><strong>1000BASE-LX</strong>
-+ uses 1300nm lasers on single-mode cables, long distance carriers, OS1 or OS2
-+ distance up to 5km
-+ use special repeaters to increase distance to 70km
-+ some large carriers are beginning to adopt 1000BASE-LX as the Ethernet backbone
-+ connectors look like 1000BASE-SX
-+ commonly use LC and SC</p></li>
+<li><dl class="simple">
+<dt><strong>1000BASE-LX</strong></dt><dd><ul>
+<li><p>uses 1300nm lasers on single-mode cables, long distance carriers, OS1 or OS2</p></li>
+<li><p>distance up to 5km</p></li>
+<li><p>use special repeaters to increase distance to 70km</p></li>
+<li><p>some large carriers are beginning to adopt 1000BASE-LX as the Ethernet backbone</p></li>
+<li><p>connectors look like 1000BASE-SX</p></li>
+<li><p>commonly use LC and SC</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 <li><p>ST connectors are relatively large, twist-on, requiring the installer to twist the cable
@@ -9884,30 +10580,55 @@ at such high speed</p></li>
 - 10GBASE-Sy</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>uses short-wavelength (850nm) signal over multimode fiber, max fiber length</p></li>
+<li><p>uses short-wavelength (850nm) signal over multimode fiber, max fiber length
+depend on th etype of multimode fiber used (OM1 for 33m, OM4 for 400m)</p></li>
+<li><p>10GBASE-SR: multimode 850nm, LAN-based signaling, max signal length 33-400m</p></li>
+<li><p>10GBASE-SW: multimode 850nm, SONET/WAN-based signaling, max signal length 33-400m</p></li>
 </ul>
-<p>depend on th etype of multimode fiber used (OM1 for 33m, OM4 for 400m)
-+ 10GBASE-SR: multimode 850nm, LAN-based signaling, max signal length 33-400m
-+ 10GBASE-SW: multimode 850nm, SONET/WAN-based signaling, max signal length 33-400m</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>10GBASE-Ly
-+ uses long-wavelength (1310nm) signal over single-mode fiber
-+ 10GABSE-LR: single-mode 1310nm, LAN, 10km, most popular and least expensive
-+ 10GBASE-LW: single-mode 1310nm, SONET/WAN, 10km</p></li>
-<li><p>10GABSE-Ey
-+ uses extra-long wavelength (1550nm) signal over single-mode
-+ 10GBASE-ER: single-mode 1550nm, LAN, 40km
-+ 10GBASE-EW: single-mode 1550nm, SONET/WAN, 40km</p></li>
-<li><p>10GBASE-L4
-+ uses four lasers at 1300nm wavelength over legacy fiber
-+ can support up to 300m on multimode cable</p></li>
-<li><p>10GABSE-LRM
-+ uses long-wavelength signal of 10GBASE-LR but over legacy multimode fiber</p></li>
-<li><p>10GBASE-ZR
-+ not part of the IEEE standards
-+ uses 1550nm wavelength over single-mode fiber
-+ up to 80km, work with both Ethernet LAN and SONET/WAN infrastructure</p></li>
+<li><dl class="simple">
+<dt>10GBASE-Ly</dt><dd><ul>
+<li><p>uses long-wavelength (1310nm) signal over single-mode fiber</p></li>
+<li><p>10GABSE-LR: single-mode 1310nm, LAN, 10km, most popular and least expensive</p></li>
+<li><p>10GBASE-LW: single-mode 1310nm, SONET/WAN, 10km</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>10GABSE-Ey</dt><dd><ul>
+<li><p>uses extra-long wavelength (1550nm) signal over single-mode</p></li>
+<li><p>10GBASE-ER: single-mode 1550nm, LAN, 40km</p></li>
+<li><p>10GBASE-EW: single-mode 1550nm, SONET/WAN, 40km</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>10GBASE-L4</dt><dd><ul>
+<li><p>uses four lasers at 1300nm wavelength over legacy fiber</p></li>
+<li><p>can support up to 300m on multimode cable</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>10GABSE-LRM</dt><dd><ul>
+<li><p>uses long-wavelength signal of 10GBASE-LR but over legacy multimode fiber</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>10GBASE-ZR</dt><dd><ul>
+<li><p>not part of the IEEE standards</p></li>
+<li><p>uses 1550nm wavelength over single-mode fiber</p></li>
+<li><p>up to 80km, work with both Ethernet LAN and SONET/WAN infrastructure</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 <li><p><strong>10GBASE-T (copper based)</strong>
@@ -10155,8 +10876,12 @@ logical layout of the network)</p></li>
 <li><p>light leakage: part of signal goes out the cable</p></li>
 <li><p>wavelength mismatch will stop the transmission</p></li>
 <li><p>fiber-optic runs don’t experience crosstalk or interference</p></li>
-<li><p>OTDR (optical time-domain reflectometer): determine continuity and tell exactly how far
-if there is a break</p></li>
+<li><p>OTDR (optical time-domain reflectometer): determine continuity and tell exactly how far</p></li>
+</ul>
+<blockquote>
+<div><p>if there is a break</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>fusion splicer: enables the tech to combine two fiber-optic cables without losing quality</p></li>
 </ul>
 </li>
@@ -10401,16 +11126,18 @@ FF-FF-FF-FF-FF-FF, for broadcast</p></li>
 a period</p></li>
 <li><p>each of 8-bit values is converted into decimal number between 0 and 255</p></li>
 <li><p>no two computers on the same network may have the same IP address</p></li>
-<li><dl>
-<dt><strong>IP numbering system</strong></dt><dd><ol class="arabic simple">
-<li><p>create network IDs</p></li>
+<li><p><strong>IP numbering system</strong>
+1. create network IDs
+2. interconnect the LANs using routers and provide routers a way to use the network ID to</p>
+<blockquote>
+<div><p>send packets</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>use a subnet mask to give each computer on the network to recognize a packet is for the</p></li>
 </ol>
-<p>2. interconnect the LANs using routers and provide routers a way to use the network ID to
-send packets
-3. use a subnet mask to give each computer on the network to recognize a packet is for the
-LAN or WAN</p>
-</dd>
-</dl>
+<blockquote>
+<div><p>LAN or WAN</p>
+</div></blockquote>
 </li>
 <li><p><strong>network IDs</strong>
 - needed by each LAN for a WAN to work
@@ -10420,8 +11147,12 @@ LAN or WAN</p>
 </div></blockquote>
 <ul class="simple">
 <li><p>202.120.10.x: network ID is 202.120.10.0, host ID is x</p></li>
-<li><p>no individual computer can have an IP address that ends with 0 as it’s reserved for
-network IDs</p></li>
+<li><p>no individual computer can have an IP address that ends with 0 as it’s reserved for</p></li>
+</ul>
+<blockquote>
+<div><p>network IDs</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>very flexible as long as no two interconnected networks share the same ID</p></li>
 <li><p>enable to connect multiple LANs into a WAN</p></li>
 </ul>
@@ -10431,18 +11162,23 @@ network IDs</p></li>
 - <strong>default gateway</strong></p>
 <blockquote>
 <div><ul class="simple">
-<li><p>both the router’s interface on a LAN and the router itself that route traffic out to</p></li>
+<li><p>both the router’s interface on a LAN and the router itself that route traffic out to
+other networks</p></li>
+<li><p>in the same network ID as the host</p></li>
+<li><p>most network admins give the LAN-side NIC on the default gateway the lowest or highest
+host address in the network</p></li>
+<li><p>if network ID is 22.33.4.x, router is configured to 22.33.4.1 or 22.33.4.254</p></li>
 </ul>
-<p>other networks
-+ in the same network ID as the host
-+ most network admins give the LAN-side NIC on the default gateway the lowest or highest
-host address in the network
-+ if network ID is 22.33.4.x, router is configured to 22.33.4.1 or 22.33.4.254</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><strong>routing table</strong>
-+ actual instructions that tell the router what to do with incoming packets and where
+<li><dl class="simple">
+<dt><strong>routing table</strong></dt><dd><ul>
+<li><p>actual instructions that tell the router what to do with incoming packets and where
 to send them</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 <li><p><strong>subnet mask</strong>
@@ -10459,55 +11195,75 @@ to send them</p></li>
 <div><p>destination’s network ID</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>most people represent subnet masks using shorthand called <strong>CIDR notation</strong>
-+ 11111111111111111111111100000000 = /24 (24 ones)</p></li>
+<li><dl class="simple">
+<dt>most people represent subnet masks using shorthand called <strong>CIDR notation</strong></dt><dd><ul>
+<li><p>11111111111111111111111100000000 = /24 (24 ones)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>all computers on the same network have the same subnet mask and network ID</p></li>
 <li><p>IANA (Internet Assigned Numbers Authority): track and disperse IP addresses</p></li>
 <li><p>RIRs (Regional Internet Registries): parcel out IP addresses to ISPs and corporations</p></li>
 <li><p>ICANNN (Internet Corporation for Assigned Names and Numbers): indirectly manages IANA</p></li>
 <li><p>PTI (Public Technical Identifiers): perform IANA’s techinal work</p></li>
-<li><p>ways to send a packet
-+ broadcast: every computer on the LAN hears the message
-+ unicast: one computer sends a message directly to another
-+ anycast: multiple computers share a single address and routers direct messages to the
-closest computer
-+ multicast: single computer sends a message to a group of interested computers</p></li>
-<li><p><strong>Class IDs</strong>
-+           First Decimal Value     Addresses                     Host per Network ID
-+ Class A   1-126                   1.0.0.0-126.255.255.255       16,777,216
-+ Class B   128-191                 128.0.0.0-191.255.255.255     65,534
-+ Class C   192-223                 192.0.0.0-223.255.255.255     254
-+ Class D   224-239                 224.0.0.0-239.255.255.255     Multicast
-+ Class E   240-255                 240.0.0.0-255.255.255.255     Experimental
-+ multicast blocks are used for one-to-many communication such as streaming video
-conferencing
-+ Class A: first binary octet always begins with a 0 (0xxxxxxx)
-+ Class B: first binary octet always begins with a 10 (10xxxxxx)
-+ Class C: first binary octet always begins with a 110 (110xxxxx)
-+ Class D: first binary octet always begins with a 1110 (1110xxxx)
-+ Class E: first binary octet always begins with a 1111 (1111xxxx)
-+ ip class blocks waste addresses as it had to take a single network block</p></li>
-<li><p><strong>CIDR &amp; subnetting</strong>
-+ foundation of CIDR is a concept called subnetting, taking single calss of IP addresses
-and chopping it up into multiple smaller groups called subnets
-+ CIDR is also referred to as classless address
-+ CIDR makes it possible to extend the subnetting approach to the Internet as a whole
-+ subnetting enables to separate a network for security or for bandwidth control
-+ take an existing /8, /16 or /24 subnet and extend the subnet mask by replacing zeroes
-with ones
-+ start with the given subnet mask and move it to the right until having the number of
-subnets needed, forget the dots, cannot subnet without first converting to binary
-+ classful subnets were always /8, /16 or /24
-+ number of hosts = 2^x - 2, x = number of zeroes in the subnet mask
-+ all subnetting begins with a single network ID
-+ primary tool for subnetting is the existing subnet mask
-+ <strong>subnetting 192.168.4.0/24</strong>
+<li><dl class="simple">
+<dt>ways to send a packet</dt><dd><ul>
+<li><p>broadcast: every computer on the LAN hears the message</p></li>
+<li><p>unicast: one computer sends a message directly to another</p></li>
+<li><p>anycast: multiple computers share a single address and routers direct messages to the
+closest computer</p></li>
+<li><p>multicast: single computer sends a message to a group of interested computers</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Class IDs</strong></dt><dd><ul>
+<li><p>First Decimal Value     Addresses                     Host per Network ID</p></li>
+<li><p>Class A   1-126                   1.0.0.0-126.255.255.255       16,777,216</p></li>
+<li><p>Class B   128-191                 128.0.0.0-191.255.255.255     65,534</p></li>
+<li><p>Class C   192-223                 192.0.0.0-223.255.255.255     254</p></li>
+<li><p>Class D   224-239                 224.0.0.0-239.255.255.255     Multicast</p></li>
+<li><p>Class E   240-255                 240.0.0.0-255.255.255.255     Experimental</p></li>
+<li><p>multicast blocks are used for one-to-many communication such as streaming video
+conferencing</p></li>
+<li><p>Class A: first binary octet always begins with a 0 (0xxxxxxx)</p></li>
+<li><p>Class B: first binary octet always begins with a 10 (10xxxxxx)</p></li>
+<li><p>Class C: first binary octet always begins with a 110 (110xxxxx)</p></li>
+<li><p>Class D: first binary octet always begins with a 1110 (1110xxxx)</p></li>
+<li><p>Class E: first binary octet always begins with a 1111 (1111xxxx)</p></li>
+<li><p>ip class blocks waste addresses as it had to take a single network block</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>CIDR &amp; subnetting</strong></dt><dd><ul>
+<li><p>foundation of CIDR is a concept called subnetting, taking single calss of IP addresses
+and chopping it up into multiple smaller groups called subnets</p></li>
+<li><p>CIDR is also referred to as classless address</p></li>
+<li><p>CIDR makes it possible to extend the subnetting approach to the Internet as a whole</p></li>
+<li><p>subnetting enables to separate a network for security or for bandwidth control</p></li>
+<li><p>take an existing /8, /16 or /24 subnet and extend the subnet mask by replacing zeroes
+with ones</p></li>
+<li><p>start with the given subnet mask and move it to the right until having the number of
+subnets needed, forget the dots, cannot subnet without first converting to binary</p></li>
+<li><p>classful subnets were always /8, /16 or /24</p></li>
+<li><p>number of hosts = 2^x - 2, x = number of zeroes in the subnet mask</p></li>
+<li><p>all subnetting begins with a single network ID</p></li>
+<li><p>primary tool for subnetting is the existing subnet mask</p></li>
+<li><p><strong>subnetting 192.168.4.0/24</strong>
 1. convert to binary      11111111111111111111111100000000
 2. move one bit to right  11111111111111111111111110000000
 3. insert periods         11111111.11111111.11111111.10000000
-4. convert to decimal     255.255.255.128
-+ number of subnets that can be created = 2^y, y = number of bits added to subnet mask
-+ goals of subnetting: efficiency and making multiple network IDs from a single ID</p></li>
+4. convert to decimal     255.255.255.128</p></li>
+<li><p>number of subnets that can be created = 2^y, y = number of bits added to subnet mask</p></li>
+<li><p>goals of subnetting: efficiency and making multiple network IDs from a single ID</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 </ul>
@@ -10552,9 +11308,11 @@ subnets needed, forget the dots, cannot subnet without first converting to binar
 only this DHCP server</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>DHCP server sends a <strong>DCHP ACK (Acknowledgment)</strong> and lists the client’s MAC address as
-well as IP info given to the DHCP client in a database</p></li>
+<li><p>DHCP server sends a <strong>DCHP ACK (Acknowledgment)</strong> and lists the client’s MAC address as</p></li>
 </ul>
+<blockquote>
+<div><p>well as IP info given to the DHCP client in a database</p>
+</div></blockquote>
 </li>
 <li><p>after DORA, DHCP client gets a DHCP lease from the pool of available leases</p></li>
 <li><p>DHCP lease is set for a fixed amount of time, often one to eight days</p></li>
@@ -10577,11 +11335,17 @@ well as IP info given to the DHCP client in a database</p></li>
 <div><p>valid IP address and knows the DHCP server’s IP</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>DHCP relay enables a router to accept DHCP broadcasts from clients and use UDP forwarding
-to send them on via unicast addresses directly to the DHCP server</p></li>
-<li><p>the relay device must have the IP address of the real DHCP server, also known as the IP
-helper address or UDP helper address</p></li>
+<li><p>DHCP relay enables a router to accept DHCP broadcasts from clients and use UDP forwarding</p></li>
 </ul>
+<blockquote>
+<div><p>to send them on via unicast addresses directly to the DHCP server</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>the relay device must have the IP address of the real DHCP server, also known as the IP</p></li>
+</ul>
+<blockquote>
+<div><p>helper address or UDP helper address</p>
+</div></blockquote>
 </li>
 <li><p>devices such as routers, switches, file servers, printers and cameras should never use
 dynamic IP addresses</p></li>
@@ -10602,8 +11366,12 @@ the same host each time</p></li>
 <div><p>IP Addressing) in Windows</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>DHCP clients are designed to auto generate an APIPA address if they do not receive a
-response to a DHCP Discover message</p></li>
+<li><p>DHCP clients are designed to auto generate an APIPA address if they do not receive a</p></li>
+</ul>
+<blockquote>
+<div><p>response to a DHCP Discover message</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>client only generates the last two octets of an APIPA address</p></li>
 <li><p>APIPA cannot issue a default gateway</p></li>
 </ul>
@@ -10623,11 +11391,16 @@ response to a DHCP Discover message</p></li>
 <li><p>DHCP Server 2:Scope 172.13.14.226-172.13.14.250</p></li>
 <li><p>each DHCP server would still use the same subnet mask and default gateway</p></li>
 <li><p>running two independent DHCP servers doubles the administrative load</p></li>
-<li><p><strong>DHCP failover</strong>
-+ only two DHCP servers work together to provide DHCP for the network
-+ in Windows Server 2012, DHCP failover pair consists of primary and secodary servers,
-the pair shares a single scope, end users never notice a thing
-+ failover is quite common in large networks</p></li>
+<li><dl class="simple">
+<dt><strong>DHCP failover</strong></dt><dd><ul>
+<li><p>only two DHCP servers work together to provide DHCP for the network</p></li>
+<li><p>in Windows Server 2012, DHCP failover pair consists of primary and secodary servers,
+the pair shares a single scope, end users never notice a thing</p></li>
+<li><p>failover is quite common in large networks</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </li>
 <li><p>rogue DHCP server

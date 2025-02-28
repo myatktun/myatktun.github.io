@@ -576,7 +576,8 @@ separate config for dev & prod
     * e.g. Selenium has images with bundled Firefox/Chrome browsers
     * '--exit-code-from' flag will tell compose to watch one service, tear the stack down when it
       exits, and pass along the exit code
-    *     .. code-block:: sh
+    *
+    .. code-block:: sh
 
        docker compose -f docker-compose-test.yml -p tests up --exit-code-from tests
 

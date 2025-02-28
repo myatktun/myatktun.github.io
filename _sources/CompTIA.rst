@@ -85,12 +85,12 @@ Radio Frequency Interference (RFI)
 Troubleshooting
 ---------------
     * **methodology**
-          1. identify the problem
-          2. establish a theory of probable cause
-          3. test the theory to determine cause
-          4. establish a plan of action to resolve the problem and implement the solution
-          5. verify full system functionality and implement preventive measures if possible
-          6. document findings, actions and outcomes
+        1. identify the problem
+        2. establish a theory of probable cause
+        3. test the theory to determine cause
+        4. establish a plan of action to resolve the problem and implement the solution
+        5. verify full system functionality and implement preventive measures if possible
+        6. document findings, actions and outcomes
 
 `back to top <#a+top>`_
 
@@ -134,15 +134,15 @@ clock wire (CLK)
     * **clock speed**
         - maximum number of clock cycles that a CPU can handle in a given period of time
         - although all CPUs come off of the same assembly lines, they have subtle differences in
-          the silicon that makes on CPU faster than another
+        the silicon that makes on CPU faster than another
     * **system crystal (quartz oscillator)**
         - determines the speed at which CPU and the rest of the PC operate
         - sends out an electric pulse at a certain speed
         - the pulse signal goes first to a clock chip that adjusts the pulse, usually increasing
         - in the old days, crystal and clock chip must be adjusted to send out the correct clock
-          pulse for the particular CPU
+        pulse for the particular CPU
         - in today's systems, the CPU tells the motherboard the clock speed it needs, and the
-          clock chip auto adjusts for the CPU
+        clock chip auto adjusts for the CPU
 
 Memory & RAM (Random Access Memory)
 -----------------------------------
@@ -158,7 +158,7 @@ Memory & RAM (Random Access Memory)
     * **DRAM (dynamic RAM)**
         - used in computers
         - needs both constant electrical charge and a periodic refresh of the circuits, loses
-          data otherwise
+        data otherwise
         - refresh can cause some delays and CPU has to wait for it
 
 Address Bus
@@ -251,10 +251,10 @@ Parallel execution
         - Fetch, Decode, Execute, Write
         - each stage does its job with each clock-cycle pulse, much more efficient
         - not always perfect, can hit a complex command requiring more than one clock-cycle that
-          force the pipeline to stop
+        force the pipeline to stop
         - CPU tries to avoid **pipeline stalls**
-          + also called wait states
-          + mostly caused by decode stage as RAM can't keep up with CPU
+           + also called wait states
+           + mostly caused by decode stage as RAM can't keep up with CPU
         - with single pipline, only ALU or FPU worked at any execution stage
 
 Cache
@@ -269,10 +269,10 @@ Cache
         - L2 and L3 on CPU package
         - speed: L1 > L2 > L3
         - **frontside bus**
-          + new term for address and external data bus
-          + also referred to as double-pumped and quad-pumped buses
+           + new term for address and external data bus
+           + also referred to as double-pumped and quad-pumped buses
         - **backside bus**
-          + connection between CPU and L2 cache
+           + connection between CPU and L2 cache
 
 Multithreading
 --------------
@@ -317,12 +317,12 @@ numbering schemes
 -----------------
     * **Intel**
         - Intel Core i7 7500 U
-          + Intel Core = brand, i7 = brand modifier, 7 = generation, 500 = SKU numbers,
-          U = alpha suffix (U for desktop processor using ultra-low power)
+           + Intel Core = brand, i7 = brand modifier, 7 = generation, 500 = SKU numbers,
+           U = alpha suffix (U for desktop processor using ultra-low power)
     * **AMD**
         - AMD Ryzen 7 2700X
-          + AMD Ryzen = brand, 7 = market segment, 2 = generation, 7 = performance level,
-          00 = model number, X = power suffix (X for high performance)
+           + AMD Ryzen = brand, 7 = market segment, 2 = generation, 7 = performance level,
+           00 = model number, X = power suffix (X for high performance)
 
 passive cooling
 ---------------
@@ -615,12 +615,12 @@ POST (Power-On Self Test)
     * quality of diagnostic is up to those who made the device
     * send **beep codes** or **text messages** if POST errors occur
         - two beep codes (before and during video tests)
-          + bad or missing video (one long beep followed by two or three short beeps)
-          + bad or missing RAM (single beep that repeats indefinitely)
+           + bad or missing video (one long beep followed by two or three short beeps)
+           + bad or missing RAM (single beep that repeats indefinitely)
         - text erros are after the video has tested okay
     * **POST card**
         - inoperative device can sometimes disrupt POST, forcing the machine into endless loop
-          and cause PC to act dead with no beeps and text erros
+        and cause PC to act dead with no beeps and text erros
         - POST card monitor POST and identify which hardware is causing the problem
         - simple cards snapped at expansion slots (small two-character LED)
         - mostly use on dead PC to determine at which level it's dead
@@ -634,21 +634,21 @@ boot process
     4. differs between old BIOS and UEFI
         * **old BIOS way**
             - POST pass the control to **bootstrap loader**
-              + few dozen lines of BIOS code tacked to the end of POST program
-              + reads CMOS info to find the OS
-              + CMOS setup utility tell which devices to check and in which order (boot sequence)
+               + few dozen lines of BIOS code tacked to the end of POST program
+               + reads CMOS info to find the OS
+               + CMOS setup utility tell which devices to check and in which order (boot sequence)
             - **bootable disk or system disk**
-              + has boot sector containing special programming designed to tell the system where
-              to locate the operating system
+               + has boot sector containing special programming designed to tell the system where
+                 to locate the operating system
             - if good boot sector is found, bootstrap loader pass control to the OS and remove
             itself from the memory, goes to next device if not
             - some include **PXE (preboot execution environment)**
-              + enable to boot a PC without any local storage by retrieving an OS from server over
-              network
+               + enable to boot a PC without any local storage by retrieving an OS from server over
+            network
         * **UEFI system**
             - POST pass control to the **boot manager**
-              + checks the boot configuration and loads the OS boot loader directly
-              + no need to scan for a boot sector
+               + checks the boot configuration and loads the OS boot loader directly
+               + no need to scan for a boot sector
             - UEFI firmware store the boot manager and boot configuration
 
 `back to top <#a+top>`_
@@ -671,20 +671,20 @@ characteristics
     - physical size
     - different form factors define different connections
     - **AT**
-      + huge, around 12inches wide by 13inches deep
-      + lack external ports
-      + only dedicated connector was keyboard port
+       + huge, around 12inches wide by 13inches deep
+       + lack external ports
+       + only dedicated connector was keyboard port
     - **ATX**
-      + has all necessary ports built in
-      + place RAM closer to the northbridge and CPU to offer ehanced performance
-      + full-sized: 12 by 9.6 inches
-      + microATX: 9.6 by 9.6 inches, not all boards have same physical size
-      + FlexATX: 9 by 7.5 inches, not used anymore now
+       + has all necessary ports built in
+       + place RAM closer to the northbridge and CPU to offer ehanced performance
+       + full-sized: 12 by 9.6 inches
+       + microATX: 9.6 by 9.6 inches, not all boards have same physical size
+       + FlexATX: 9 by 7.5 inches, not used anymore now
     - **ITX**
-      + Mini-ITX: 6.7 by 6.7 inches
-      + only tiny amount of power needed
+       + Mini-ITX: 6.7 by 6.7 inches
+       + only tiny amount of power needed
     - **proprietary form factors**
-      + have feature such as unique power connections and riser cards (separated from board
+       + have feature such as unique power connections and riser cards (separated from board
           but connected by cable, some plug into unique socket called daughter boards)
   * **chipset**
     - determine type of processor, RAM and internal/external devices that the board supports
@@ -732,21 +732,21 @@ PCIe (PCI Express)
 ------------------
   * uses **serial** connection, not like PCI which use shared **parallel** communication
     - in parallel, 32 wires each carry on bit of data
-      + need high speed checking of data as some bits can get faster than others
+       + need high speed checking of data as some bits can get faster than others
     - in serial, only one wire carries 32 bits
-      + all bits arrive one after the other in single stream
-      + almost one-to-one correlation between transfer rate and binary data rate
-      + effective rate drops a bit due to encoding scheme (data broken down and reassembled)
+       + all bits arrive one after the other in single stream
+       + almost one-to-one correlation between transfer rate and binary data rate
+       + effective rate drops a bit due to encoding scheme (data broken down and reassembled)
   * doesn't share the bus, has its own direct connection (P2P) to the CPU so doesn't wait for
     other devices
   * uses one wire for sending and one for receiving
   * **PCIe lane**
     - pairs of wires between PCIe controller and a device
     - **speed** for each direction of lane
-      + PCIe 1.x: 2.5 GTps (gigatransfers per second)
-      + PCIe 2.x: 5 GTps
-      + PCIe 3.x: 8 GTps
-      + PCIe 4.0: 15 GTps
+       + PCIe 1.x: 2.5 GTps (gigatransfers per second)
+       + PCIe 2.x: 5 GTps
+       + PCIe 3.x: 8 GTps
+       + PCIe 4.0: 15 GTps
     - each P2P connection can use 1, 2, 4, 8, 12 or 16 lanes and can have theoretical
       maximum 256 GTps
     - full-duplex throughput can be up to 32GBps on x16 connection (often for video cards)
@@ -789,9 +789,9 @@ symptons
     - volt-ohn meter (VOM) or digital multimeter (DMM)
     - offer at least four types of electrical tests: **continuity, resistance, AC voltage
       (VAC), DC voltage (VDC)**
-      + continuity: test whether electrons can flow from one end of wire to other, can use
+       + continuity: test whether electrons can flow from one end of wire to other, can use
           to determine fuse if good or check for breaks in wire
-      + resistance: broken wire or fuse will show infinit resistance
+       + resistance: broken wire or fuse will show infinit resistance
 * available with dual-voltage options (110-120 V in US, ~115 VAC, 220-240 VAC in other)
 * fixed-input: supplies with voltage-selection switches
 * auto-switching: supplies not have to manually switch for different voltages
@@ -819,11 +819,11 @@ handling spikes and sags
     - measured in both watts and volt-amps (VA)
     - watts value is a guess, VA rating is always higher than watt rating
     - **online**
-      + devices are constantly powered through the UPS's battery
+       + devices are constantly powered through the UPS's battery
     - **standby**
-      + devices receive power only when the AC sags below ~80-90V
+       + devices receive power only when the AC sags below ~80-90V
     - **line-interactive**
-      + similar to standby but has special circuitry to handle moderate AC sags and surges
+       + similar to standby but has special circuitry to handle moderate AC sags and surges
           without the need to switch to battery power
     - always look for joule and UL 1449 ratings, replacement battery cost
     - UPS with USB or Ethernet (RJ-45) connection has monitoring and maintenance software
@@ -841,11 +841,11 @@ handling spikes and sags
     - always check for proper orientation
     - **case fans** may come with standard Molex connectors or with special three-pronged
       connectors that need to connect to motherboard
-      + intake fan: near the bottom of the front bezel
-      + exhaust fan: near the top and rear of the case
-      + industry use 80mm power supply and cooling fans
-      + sleeve-bearing fans get louder as they age; ball-bearing fans do not
-      + can't use CMOS settings to tell the fans when to turn on or off
+       + intake fan: near the bottom of the front bezel
+       + exhaust fan: near the top and rear of the case
+       + industry use 80mm power supply and cooling fans
+       + sleeve-bearing fans get louder as they age; ball-bearing fans do not
+       + can't use CMOS settings to tell the fans when to turn on or off
   * **mini or Berg**
     - few power supplies still support
     - supply 5V and 12V to peripherals
@@ -876,8 +876,8 @@ ATX power supply
     - introduced 4 pin motherboard power connector (P4), provides more 12V power to assist
       the 20/24pin P1
     - **AUX connector**
-      + 6pin auxiliary connector
-      + supply increased 3.3 and 5V current to motherboard
+       + 6pin auxiliary connector
+       + supply increased 3.3 and 5V current to motherboard
   * **EPS12V**
     - non-ATX standard
     - 24pin main motherboard power connector that resembled a 20pin ATX connector
@@ -888,10 +888,10 @@ ATX power supply
     - three primary DC voltage rails: 12V, 5V, 3.3V
     - each rail has a maximum amount of power it can supply
     - **over-current protection (OCP)**
-      + monitor amount of amperage going through each rail
-      + shut down the power supply if current goes beyong its cap
-      + in single-rail system, single OCP circuit monitors all the pathways
-      + multi-rail system, each pathway gets its own OCP circuit
+       + monitor amount of amperage going through each rail
+       + shut down the power supply if current goes beyong its cap
+       + in single-rail system, single OCP circuit monitors all the pathways
+       + multi-rail system, each pathway gets its own OCP circuit
     - 12V rails push 70amps or more
   * **ATX12V 2.0**
     - 24pin motherboard power connector is backward compatible with older 20pin connector
@@ -1037,41 +1037,41 @@ connection
         - ATA drives are often called integrated drive electronics (IDE)
         - went through seven major revisions
         - ATA/ATAPI version introduced **S.M.A.R.T** (Self-Monitoring, Analysis and Reporting
-          Technology)
-          + internal drive program that tracks erros and error conditions
-          + stored in nonvolatile memory on the drive
+         Technology)
+           + internal drive program that tracks erros and error conditions
+           + stored in nonvolatile memory on the drive
         - **PATA (parallel ATA)**<a id="pata"></a>
-          + introduced with ATA/ATAPI version 1
-          + use 40pin ribbon cables or IDE cables, usually plugged directly into motherboard
-          + all PATA drives use standard [Molex power connector](#molex)
-          + latest drive speed up to 133MBps
-          + single ribbon cable could connect up to two drives to a single ATA controller
-          + cables impede airflow and have limited length (18inches)
-          + cannot hot-swap
+           + introduced with ATA/ATAPI version 1
+           + use 40pin ribbon cables or IDE cables, usually plugged directly into motherboard
+           + all PATA drives use standard [Molex power connector](#molex)
+           + latest drive speed up to 133MBps
+           + single ribbon cable could connect up to two drives to a single ATA controller
+           + cables impede airflow and have limited length (18inches)
+           + cannot hot-swap
         - **SATA (serial ATA)**
-          + introduced with ATA/ATAPI version 7
-          + creates P2P connection between device and controller, HBA (host bus adapter)
-          + SATA interface needs far fewer physical wires, only 7 connectors
-          + cable length about 40inches (1 meter)
-          + each drive to one port, no maximum number of drives
-          + many motherboards support up to eight SATA drives
-          + speed up to 30 times faster than PATA
-          + SATA-specific varieties: 1.5Gbps, 3Gbps, 6Gbps
-          + encoding scheme used takes about 20% of the transferred bytes as overhead,
-          leaving 80% for pure bandwidth
-          + hot-swapping: plug device without harming and auto recognized and functional
-          + **SATAe (SATA Express) or SATA 3.2**
-          + ties drives directly into PCI Express bus
-          + drops both SATA link and transport layers
-          + lack of overhead enhance the speed of SATA throughput, up to 8Gbps
-          + uniques connectors but provide full backward compatibility
-          + need a motherboard with SATAe support
-          + SATA 1.0: 1.5Gbps/150MBps
-          + SATA 2.0: 3Gbps/300MBps
-          + SATA 3.0: 6Gbps/600MBps
-          + SATA 3.2: up to 16Gbps/2000MBps
-          + SATA 3.3 (2016) increased support drive sizes but not throughput speed
-          + most hard drives sold today are SATA drives
+           + introduced with ATA/ATAPI version 7
+           + creates P2P connection between device and controller, HBA (host bus adapter)
+           + SATA interface needs far fewer physical wires, only 7 connectors
+           + cable length about 40inches (1 meter)
+           + each drive to one port, no maximum number of drives
+           + many motherboards support up to eight SATA drives
+           + speed up to 30 times faster than PATA
+           + SATA-specific varieties: 1.5Gbps, 3Gbps, 6Gbps
+           + encoding scheme used takes about 20% of the transferred bytes as overhead,
+             leaving 80% for pure bandwidth
+           + hot-swapping: plug device without harming and auto recognized and functional
+           + **SATAe (SATA Express) or SATA 3.2**
+             + ties drives directly into PCI Express bus
+             + drops both SATA link and transport layers
+             + lack of overhead enhance the speed of SATA throughput, up to 8Gbps
+             + uniques connectors but provide full backward compatibility
+             + need a motherboard with SATAe support
+           + SATA 1.0: 1.5Gbps/150MBps
+           + SATA 2.0: 3Gbps/300MBps
+           + SATA 3.0: 6Gbps/600MBps
+           + SATA 3.2: up to 16Gbps/2000MBps
+           + SATA 3.3 (2016) increased support drive sizes but not throughput speed
+           + most hard drives sold today are SATA drives
       * **eSATA (external)**
         - eSATA port operate at the same revision and speed as internal port
         - used connectors similar to inter SATA but keyed differently
@@ -1092,18 +1092,18 @@ drive command sets
     - Advanced Host Controller Interface, for spinning SATA drives
     - unlocks some advanced features of SATA, such as native command queuing and hot-swapping
     - **NCQ (native command queuing)**
-      + disk-optimization feature for SATA drives to achieve faster read/write speeds
+       + disk-optimization feature for SATA drives to achieve faster read/write speeds
     - enabled at [CMOS](#cmos) level
     - needs to be enabled before installing OS
     - options/modes/HBA configs
-      + IDE/SATA or compatibility mode
-      + AHCI (works best for most system)
-      + RAID
+       + IDE/SATA or compatibility mode
+       + AHCI (works best for most system)
+       + RAID
   * **NVMe**
     - Non-Volatile Memory Express
     - circuitry that makes the OS see SSD as traditional spinning drive
     - supports communication connection between the OS and SSD directly through [PCIe](#pcie)
-      bus lane
+     bus lane
     - formats: add-on expansion card and M.2
 
 SCSI (small computer system interface)
@@ -1135,7 +1135,7 @@ RAID (redundant array of independent disks)
     - all data is lost if either drive fails
   * **disk striping (with parity)**
     - protects data by adding extra information called parity data, that can be used to
-      rebuild data if one of the drives fails
+     rebuild data if one of the drives fails
     - requires at least three drives
     - protects data and is quite fast
     - used by majority of network servers
@@ -1171,7 +1171,7 @@ RAID (redundant array of independent disks)
     - does not require special controllers
     - can use the regular SATA controllers
     - built-in RAID software in Windows, which can configure RAID 0, 1, or 5 and works with
-      PATA or SATA
+     PATA or SATA
     - operating system is in charge of all RAID functions
   * **hardware RAID**
     - centers on intelligent controller that handles all of RAID functions
@@ -1179,7 +1179,7 @@ RAID (redundant array of independent disks)
     - almost all provide hot-swapping
     - invisible to the OS
     - have special config utility in flash ROM that need to be accessed after CMOS but before
-      the OS loads
+     the OS loads
   * **dedicated RAID box**
     - take two or more drives and connect via USB or Thunderbolt or FireWire or eSATA
 
@@ -1247,17 +1247,17 @@ partition in Windows
     - partition table support two types of partitions: primary and extended
     - single MBR disk may have up to 4 primary or up to 3 primary and 1 extended
     - **primary partitions**
-      + to support bootable OS, usually assigned drive letters and appear in File Explorer
-      + small primary, "System Reserved", for essential Windows boot files
-      + has special settings, *active*, stored in partition table that determines the active
-      partition
-      + BIOS/POST read MBR to find the active partition and boots the OS on that partition
-      + only one partition can be active at a time as only one OS is run at a time
-      + limited to only 4 drive letters is using only primary partitions
+       + to support bootable OS, usually assigned drive letters and appear in File Explorer
+       + small primary, "System Reserved", for essential Windows boot files
+       + has special settings, *active*, stored in partition table that determines the active
+         partition
+       + BIOS/POST read MBR to find the active partition and boots the OS on that partition
+       + only one partition can be active at a time as only one OS is run at a time
+       + limited to only 4 drive letters is using only primary partitions
     - **extended partitions**
-      + not bootable, can contain multiple logical drives
-      + each logical drive is in the same extended partition
-      + extended partitions don't receive drive letters but logical drives do
+       + not bootable, can contain multiple logical drives
+       + each logical drive is in the same extended partition
+       + extended partitions don't receive drive letters but logical drives do
   * **proprietary dynamic storage scheme**
     - volume: drive structure created with a dynamic disk
     - technically a partition, but it can do things a regular partition cannot
@@ -1265,29 +1265,29 @@ partition in Windows
     - can create new drive structures with software that are impossible with MBR drives
     - can implement RAID, span volumes over multiple drives and extend volumes on one or more
     - simple, spanned, striped and mirrored are compatible on all Windows/Server while RAID 5
-      is only compatible with Windows Server
+     is only compatible with Windows Server
     - **simple volumes**
-      + works a lot like primary partitions
-      + cannot install operating system
+       + works a lot like primary partitions
+       + cannot install operating system
     - **spanning volumes**
-      + use unallocated space on multiple drives to create a single volume but a bit risky
-      + can also extend the volume to grab extra space on completely different dynamic disks
+       + use unallocated space on multiple drives to create a single volume but a bit risky
+       + can also extend the volume to grab extra space on completely different dynamic disks
     - **striped volumes**
-      + RAID 0 volumes
-      + using tow or more drives in a group called *stipe set*, striping writes data first
-      to a certain number of clusters (allocation unit) on one drive and then to next
-      + all stripes must be same size on each drive
+       + RAID 0 volumes
+       + using tow or more drives in a group called *stipe set*, striping writes data first
+         to a certain number of clusters (allocation unit) on one drive and then to next
+       + all stripes must be same size on each drive
     - **mirrored volumes**: RAID 1 volumes
   * **GPT (GUID partition table)**
     - **GUID (globally unique identifier)**
-      + provides reference number for an object or process that has almost impossibly small
-      chance of duplication
+       + provides reference number for an object or process that has almost impossibly small
+         chance of duplication
     - shares a lot with MBR scheme but has **improvements**
-      + can have unlimited number of primary partitions (Windows is limited to 128)
-      + MBR partitions cannot be larger than 2.2TB but GPT is limited only in z
-      (almost no restrictions)
+       + can have unlimited number of primary partitions (Windows is limited to 128)
+       + MBR partitions cannot be larger than 2.2TB but GPT is limited only in z
+         (almost no restrictions)
     - arranged by [LBA](#lba) instead of sectors, LBA0 is protective MBR so that utilities
-      know it is GPT drive
+     know it is GPT drive
     - use GPT header and partition entry array, both located at beginning and end of drive
     - can configure 64bit Windows to boot from GPT only if using UEFI motherboard
     - most Linux distros can boot from GPT with older BIOS or UEFI
@@ -1306,7 +1306,7 @@ tools for partitioning
 ----------------------
   * Windows: FDISK (cli), Disk Management (GUI), diskpart (cli), Avanquest (third-party)
     - Disk Management does not enable to specify primary or extended partition when creating
-      a volume on MBR drives and can't do any nested RAID arrays (RAID 0+1 or RAID 1+0)
+     a volume on MBR drives and can't do any nested RAID arrays (RAID 0+1 or RAID 1+0)
   * Linux: fdisk, GParted
 * in early days, partition size or type cannot be changed once made with any Microsoft tools
 
@@ -1323,43 +1323,43 @@ File systems
     - APFS (Apple File System) default, HFS+ (Hierarchical File System Plus)
     - only read NTFS
   * Linux
-    - lots to choose; most used is ext4 (Fourth Extended File System)
+    -lots to choose; most used is ext4 (Fourth Extended File System)
     - older distros ext2 or ext3, enterprise level BTRFS, XFS, ZFS
     - ext4 supports volumes up to 1EB with file sizes up to 16TB and backward compatible
     - able to read/write to NTFS, FAT32, exFAT, HFS+, ext4
   * Windows
     - NTFS, FAT32, exFAT
     - all Windows fs organize blocks of data into groups called clusters (size varies with
-      file system and the size of partition)
+     file system and the size of partition)
   * **FAT32**<a id="fat32"></a>
     - each block stores up to 4096bytes of data
     - in small partition, each cluster is made up of 1 block
     - will use many clusters as needed if file is larger than 4096bytes
     - if a file smaller than 4096bytes is stored, rest of the cluster goes to waste (this
-      waste is acceptible as most files are larger than 4096)
+     waste is acceptible as most files are larger than 4096)
     - **FAT (file allocation table)**
-      + first supported in MS-DOS version 2.1
-      + data structure and indexing system to keep track of stored data on hard drive
+       + first supported in MS-DOS version 2.1
+       + data structure and indexing system to keep track of stored data on hard drive
     - **left column** gives each cluster a hexadecimal number from 00000000 to FFFFFFFF
-      + each hexa 4bits, eight hexa 32bits
+       + each hexa 4bits, eight hexa 32bits
     - **right column** contains info on the status of cluster
-      + even brand-new drives contain faulty blocks that cannot store data because of
-      imperfections in the construction of the drive
-      + high-level formatting: OS mapping bad blocks and marking them unusable
-      + quick format: creates the FAT and creates a blank root dir
-      + full format: testing every sector to mark unusable one in the FAT
-      + bad block: 0000FFF7
-      + good blocks: 00000000
+       + even brand-new drives contain faulty blocks that cannot store data because of
+         imperfections in the construction of the drive
+       + high-level formatting: OS mapping bad blocks and marking them unusable
+       + quick format: creates the FAT and creates a blank root dir
+       + full format: testing every sector to mark unusable one in the FAT
+       + bad block: 0000FFF7
+       + good blocks: 00000000
     - when **saving a file**
-      + starts at the beginning of the FAT to look for first space marked 00000000 and store
-      + if file fits within one cluster, cluster status area is marked with 0000FFFF (last
-      cluster), called end-of-file marker
-      + if require more than one cluster, searches for the next open cluster and places the
-      number of next cluster in the status area, repeat until entire file is saved
-      + after saving all clusters, Windows locate the file's folder (which are stored on
-      blocks but has different set of blocks), and records the filename, size, date/time,
-      starting cluster
-      + process is reversed if a program request a file
+       + starts at the beginning of the FAT to look for first space marked 00000000 and store
+       + if file fits within one cluster, cluster status area is marked with 0000FFFF (last
+         cluster), called end-of-file marker
+       + if require more than one cluster, searches for the next open cluster and places the
+         number of next cluster in the status area, repeat until entire file is saved
+       + after saving all clusters, Windows locate the file's folder (which are stored on
+         blocks but has different set of blocks), and records the filename, size, date/time,
+         starting cluster
+       + process is reversed if a program request a file
     - FAT32 auto makes two copies of the FAT
     - offers 4KB cluster sizes up to a partition size of 2GB (match the size of 4KB block)
     - supports dirves up to 2TB and files up to 4GB
@@ -1372,29 +1372,29 @@ File systems
     - >32GB              32KB
     - still commonly used but not for OS partitions
     - when **deleting a file**
-      + Windows only alter the info in the folder, changing the first letter of file to
-      lower Greek letter
-      + causes file to disappear to OS (won't show up in Explorer)
-      + does not actually delete files but move the file listing (not actual blocks) to
-      hidden dir that can be accessed via Recycle Bin
-      + in 1st gen SSDs
-      + once data was written into memory cell, it stayed there until dirve is full
-      + the cell wasn't immediately erase or overwritten even if contain deleted contents
-      + SSD controller don't know the cell's contents were deleted
-      + SSD memory cells have finite number of write times before wearing out
-      + waited until all the cells were filled before erasing and reusing previous cell
+       + Windows only alter the info in the folder, changing the first letter of file to
+         lower Greek letter
+       + causes file to disappear to OS (won't show up in Explorer)
+       + does not actually delete files but move the file listing (not actual blocks) to
+         hidden dir that can be accessed via Recycle Bin
+       + in 1st gen SSDs
+           + once data was written into memory cell, it stayed there until dirve is full
+           + the cell wasn't immediately erase or overwritten even if contain deleted contents
+           + SSD controller don't know the cell's contents were deleted
+           + SSD memory cells have finite number of write times before wearing out
+           + waited until all the cells were filled before erasing and reusing previous cell
   * **NTFS (New Technology File System)**
     - uses clusters of blocks and file allocation tables
     - improvements: redundancy, security, compression, encryption, disk quotas, cluster sizing
     - use enhanced file allocation table called *master file table (MFT)*, immovable chunk
     - keeps a backup copy of the most critical parts of the MFT in the middle of the disk
     - views individual files and folders as objects and provides security through a feature
-      called *Access Control List (ACL)*
+     called *Access Control List (ACL)*
     - enable to compress individual files and folders to save space
     - compression make access time to the data slower
     - in Windows, can encrypt with utility called *encrypting file system (EFS)*
     - disk quotas enable admins to set limits on drive space usage for users (usually used on
-      multi-user systems)
+     multi-user systems)
     - Drive Size         Cluster Size
     - 7MB to 16TB        4KB
     - 16TB to 32TB       8KB
@@ -1455,7 +1455,7 @@ storage spaces
   * **Mirrored spaces**
     - keep more than one copy of data like RAID mirror array
     - number of drives in the array determines mirror options (2 for two-way, 5 or more for
-      three-way)
+     three-way)
   * **Parity spaces**
     - add another layer of resiliency like RAID 5 or RAID 6
     - more space efficient than two-way mirroring
@@ -1533,7 +1533,7 @@ USB Ports
     - SuperSpeed: 10Gbps (flash-media drives, external storage, networking)
     - also referred to as USB3.1 Gen2
     - both Gen1 and Gen2 are backward compatible with USB2.0 devices but use separate host
-      controller
+     controller
   * must connect a USB device to a USB port at least as fast as the device
   * connectors: Type-A, Type-B, Mini-B, Micro-B, Micro-B3.0
   * USB A connectors plug upstream toward the host controller
@@ -1579,7 +1579,7 @@ common peripherals
 ------------------
   * **Keyboards**, Pointing devices (mouse, touchpad)
     - repeat delay: amount of time to hold down a key before the keyboard starts repeating
-      the character
+     the character
     - repeat rate: how quickly the character is repeated after the repeat delay
   * **Biometric devices**
     - recognition is different from security in that the device doesn't care who the person is
@@ -1592,7 +1592,7 @@ common peripherals
   * **KVM switches**
     - keyboard, video, mouse switch
     - hardware device that enables multiple computers to be viewed and controlled by single
-      mouse, keyboard and screen and vice versa
+     mouse, keyboard and screen and vice versa
     - can use single KVM switch to control multiple server systems
   * Game controllers and joysticks
   * **Digitizers**
@@ -1611,45 +1611,45 @@ common peripherals
     - PCM (pulse code modulation): grandaddy of all sound formats
     - WAV format: can be large when sampled at high frequency and depth
     - **codecs**
-      + compressor/decompressor programs for compressing and discarding unnecessary audio
-      qualities
-      + MP3: MPEG-1 Layer 3 codec, AAC (advanced audio encoding)
-      + MPEG-2 Part 2: for DVDs, broadcast TV
-      + H.264: from smartphone video and streaming video to Blu-ray movies
-      + H.265: half the size fo h.264 at same quality, used to support 4k
-      + VP9: google's competitor to h.265 used in android devices and YouTube
+       + compressor/decompressor programs for compressing and discarding unnecessary audio
+         qualities
+       + MP3: MPEG-1 Layer 3 codec, AAC (advanced audio encoding)
+       + MPEG-2 Part 2: for DVDs, broadcast TV
+       + H.264: from smartphone video and streaming video to Blu-ray movies
+       + H.265: half the size fo h.264 at same quality, used to support 4k
+       + VP9: google's competitor to h.265 used in android devices and YouTube
     - streaming media: broadcast of data that is played and immediately discarded
     - **MIDI**
-      + second processor of sound card to interpret standardized musical instrument digital
-      interface (MIDI) files
-      + not an independent music file like WAV
-      + a text file that takes advantage of the sound-processing hardware to enable the
-      computing device to produce sound
-      + tiny in comparison to equivalent WAV files
-      + hardware dependent
+       + second processor of sound card to interpret standardized musical instrument digital
+         interface (MIDI) files
+       + not an independent music file like WAV
+       + a text file that takes advantage of the sound-processing hardware to enable the
+         computing device to produce sound
+       + tiny in comparison to equivalent WAV files
+       + hardware dependent
     - most motherboards support five or more speakers in discrete channels
     - subwoofer: provides amazing low-frequency sounds
     - all modern systems support both surround sound and subwoofer (Dolby Digital or DTS)
     - 2.1 system: two satellites and a subwoofer, 5.1: five satellites and a sub
     - **audio jacks**
-      + main stereo: green, line in: blue, microphone: pink
-      + main speaker out: standard speaker connector
-      + line out: output sounds from the computer
-      + line in: import sounds into computer
-      + rear out: connect to rear speakers for surround sound output
-      + analog/digital out: special digital connection to external digital devices and as
-      analog connection to center and subwoofer channels
+       + main stereo: green, line in: blue, microphone: pink
+       + main speaker out: standard speaker connector
+       + line out: output sounds from the computer
+       + line in: import sounds into computer
+       + rear out: connect to rear speakers for surround sound output
+       + analog/digital out: special digital connection to external digital devices and as
+         analog connection to center and subwoofer channels
     - **SPDIF**
-      + S/PDIF, Sony/Philips Digital Interface
-      + comes in many sound processors to connect sound card directly to 5.1 speaker system
-      or receiver
-      + optical: square with a small door
-      + coaxial: standard RCA connector
+       + S/PDIF, Sony/Philips Digital Interface
+       + comes in many sound processors to connect sound card directly to 5.1 speaker system
+         or receiver
+       + optical: square with a small door
+       + coaxial: standard RCA connector
     - both HDMI and DisplayPort are capable of carrying audio
     - **container file or wrapper**
-      + wrap the compressed tracks of video after each video and audio tracks are compressed
-      + doesn't specify how the video or audio tracks were encoded
-      + AVI (windows), MOV (Apple QuickTime), MP4 (for h.264 and h.265 video)
+       + wrap the compressed tracks of video after each video and audio tracks are compressed
+       + doesn't specify how the video or audio tracks were encoded
+       + AVI (windows), MOV (Apple QuickTime), MP4 (for h.264 and h.265 video)
 
 Storage devices
 ---------------
@@ -1657,71 +1657,71 @@ Storage devices
     sharing programs and data
   * **flash memory**
     - **USB thumb drives**
-      + don't need external power source as they are USB devices
-      + nonvolatile flash memory is solid-state, shock resistant and retain data for decades
+       + don't need external power source as they are USB devices
+       + nonvolatile flash memory is solid-state, shock resistant and retain data for decades
     - CF (CompactFlash): CF I (3.3 mm thick), CF II (5mm thick)
     - **SD (SecureDigital) cards**
-      + miniSD, microSD
-      + standard SD cards: 4MB to 4GB
-      + SDHC (secure digital high capacity): from 4GB to 32GB
-      + SDXC (secure digital extended capacity): 32GB to 2TB
-      + first-gen cards use speed class (2, 4, 6 ,10), Class10 should write at minimum 10MB/s
-      + second-gen: Ultra High Speed (UHS) bus, Class U1 should both read and write at
-      minimum of 10MB/s, U3 cards should read and write at minimum of 30MB/s
-      + third-gen: Video Speed Class, to support 4k and 8k, V6 at 6MB/s, V90 at 90MB/s
-      + Application Performance Class ratings, A1 and A2 both a minimum of 10MB/s
-      + A1 at 1500IOPS read and 500 IOPS when write
-      + A2 at 4000IOPS read and 2000IOPS when write
-      + IOPS doesn't matter while writing but make difference when multiple apps are using
+       + miniSD, microSD
+       + standard SD cards: 4MB to 4GB
+       + SDHC (secure digital high capacity): from 4GB to 32GB
+       + SDXC (secure digital extended capacity): 32GB to 2TB
+       + first-gen cards use speed class (2, 4, 6 ,10), Class10 should write at minimum 10MB/s
+       + second-gen: Ultra High Speed (UHS) bus, Class U1 should both read and write at
+         minimum of 10MB/s, U3 cards should read and write at minimum of 30MB/s
+       + third-gen: Video Speed Class, to support 4k and 8k, V6 at 6MB/s, V90 at 90MB/s
+       + Application Performance Class ratings, A1 and A2 both a minimum of 10MB/s
+         + A1 at 1500IOPS read and 500 IOPS when write
+         + A2 at 4000IOPS read and 2000IOPS when write
+         + IOPS doesn't matter while writing but make difference when multiple apps are using
     - **Extreme Digital (xD) Picture Cards**
-      + half the size of SD card used in Olympus and Fujifilm cameras
-      + original, Standard (Type M), and Hi-Speed (Type H)
+       + half the size of SD card used in Olympus and Fujifilm cameras
+       + original, Standard (Type M), and Hi-Speed (Type H)
     - XQD: high-speed transfers and capacities of 2+ TB, used in Nikon cameras, replaced by
-      CFexpress which uses NVMe rather than PCIe
+     CFexpress which uses NVMe rather than PCIe
   * **optical discs**
     - from CD-ROMs (compact disc) to DVDs (digital versatile disc) and Blu-ray Discs
     - **CD**
-      + store data by using microscopic pits burned into glass master CD with powerful laser
-      + CDDA (CD-Digital Audio): lack advanced error checking, file support or directory
-      structure
-      + **CD-ROM**
-      + created not to tied to proprietary formats like FAT or NTFS
-      + divides CD into fixed sectors, each holding 2353bytes
-      + CDFS (CD File System): most used format
-      + original speed: 150KBps, same speed as CD-audio
-      + each increase in speed is measured in multiples of original 150KBps
-      + 1x 150KBps, 2x 300KBps, 24x 3600KBps, 72x 10800 KBps
-      + require specialized, expensive equipment
-      + **CD-R (CD-recordable)**
-      + enable affrodable CD-R drives/burners
-      + 74-minute disc with about 650MB, 80-minute disc with about 700MB
-      + burner must be designed for 80-minute CD-R format
-      + records data by using organic dyes embedded into the disc
-      + both record speed and read speed expressed as multiples of 150KBps speed
-      + 8x24x : burn at 8x and read at 24x
-      + **CD-RW (CD-rewritable)**
-      + enable to burn over existing data, colored bottom side
-      + CD-RW drive works by using laser to heat an amorphous substance which is cooled to
-      crystalline, which are relective areas
-      + has three multiplier values: write, rewrite, read (8x4x32x)
+       + store data by using microscopic pits burned into glass master CD with powerful laser
+       + CDDA (CD-Digital Audio): lack advanced error checking, file support or directory
+         structure
+       + **CD-ROM**
+         + created not to tied to proprietary formats like FAT or NTFS
+         + divides CD into fixed sectors, each holding 2353bytes
+         + CDFS (CD File System): most used format
+         + original speed: 150KBps, same speed as CD-audio
+         + each increase in speed is measured in multiples of original 150KBps
+         + 1x 150KBps, 2x 300KBps, 24x 3600KBps, 72x 10800 KBps
+         + require specialized, expensive equipment
+       + **CD-R (CD-recordable)**
+         + enable affrodable CD-R drives/burners
+         + 74-minute disc with about 650MB, 80-minute disc with about 700MB
+         + burner must be designed for 80-minute CD-R format
+         + records data by using organic dyes embedded into the disc
+         + both record speed and read speed expressed as multiples of 150KBps speed
+         + 8x24x : burn at 8x and read at 24x
+       + **CD-RW (CD-rewritable)**
+         + enable to burn over existing data, colored bottom side
+         + CD-RW drive works by using laser to heat an amorphous substance which is cooled to
+           crystalline, which are relective areas
+         + has three multiplier values: write, rewrite, read (8x4x32x)
     - **DVDs**
-      + lowest capacity holds 4.37GB of data or two hours standard video
-      + use smaller pits than CD
-      + SS (single-sided), DS (double-sided)
-      + SL (single-layer), DL (dual-layer)
-      + DVD version               Capacity
-      + DVD-5 (12cm, SS/SL)       4.37GB, more than 2hrs of video
-      + DVD-9 (12cm, SS/DL)       7.95GB, about 2hrs of video
-      + DVD-10 (12cm, DS/SL)      8.74GB, about 4.5hrs of video
-      + DVD-18 (12cm, DS/DL)      15.90GB, more than 8hrs of video
-      + DVD-ROM: up to almost 16GB, most drives sold with PCs are DVD-ROM drives
-      + DVD-R: works like CD-R, can write but not erase what's written
-      + DVD-RW: like CD-RW
-      + DVD-RW DL: can be written on two layers, doubling the capacity
+       + lowest capacity holds 4.37GB of data or two hours standard video
+       + use smaller pits than CD
+       + SS (single-sided), DS (double-sided)
+       + SL (single-layer), DL (dual-layer)
+       + DVD version               Capacity
+       + DVD-5 (12cm, SS/SL)       4.37GB, more than 2hrs of video
+       + DVD-9 (12cm, SS/DL)       7.95GB, about 2hrs of video
+       + DVD-10 (12cm, DS/SL)      8.74GB, about 4.5hrs of video
+       + DVD-18 (12cm, DS/DL)      15.90GB, more than 8hrs of video
+       + DVD-ROM: up to almost 16GB, most drives sold with PCs are DVD-ROM drives
+       + DVD-R: works like CD-R, can write but not erase what's written
+       + DVD-RW: like CD-RW
+       + DVD-RW DL: can be written on two layers, doubling the capacity
     - **Blu-ray Disc**
-      + up to 25GB (SL), 50GB (DL), 100GB (BDXL)
-      + popular until flash memory prices dropped in 2010
-      + BD-R (recordable), BD-RE (rewritable)
+       + up to 25GB (SL), 50GB (DL), 100GB (BDXL)
+       + popular until flash memory prices dropped in 2010
+       + BD-R (recordable), BD-RE (rewritable)
     - most internal optical drives use SATA
     - external optical drives often use USB or Thunderbolt connections
 `back to top <#a+top>`_
@@ -1735,7 +1735,7 @@ Windows Editions
   * Pro, Enterprise
     - can use Windows Domain/Active Directory for controlling network access and user accounts
     - offer much better control over files and folders with BitLocker and the Encrypting File
-      System (EFS)
+     System (EFS)
     - BranchCache: method for distributing apps to many locations in Enterprise edition
 * CPUs for older sockets tend to cost more than CPUs for current sockets
 * when choosing OS, think about customer's preferences to OS user interface
@@ -1768,8 +1768,8 @@ custom PC configurations
     - similar to those for graphics workstation
     - fast, multicore CPU, max RAM, large monitor, lots of fast storage
     - high-quality  **audio interface**
-      + a high-end sound card, usually connect via USB rather than plugging into motherboard
-      + to connect professional microphones and instruments
+       + a high-end sound card, usually connect via USB rather than plugging into motherboard
+       + to connect professional microphones and instruments
     - control surfaces: mimic the look and feel of analog mixing consoles
   * **Video Editing Workstations**
     - combine requirements of graphics and audio editing workstations
@@ -1777,7 +1777,7 @@ custom PC configurations
     - powerful CPU wit as much RAM as possible
     - more intensive process than graphics or audio editing
     - multiple hard drives set up in RAID array for added storage capacity and enhanced
-      read/write speed
+     read/write speed
     - custom keyboards with special labels and controls for editing software
   * **NAS (Network Attached Storage) devices**
     - for media streaming, file sharing, print sharing
@@ -1804,8 +1804,8 @@ OS installation for large organizations
     - unattended installation: automating with scripts
   * **image deployment**
     - **image**
-      + complete copy of hard drive volume on which OS and any software preinstalled
-      + can be stored on servers, optical discs or flash-media drives
+       + complete copy of hard drive volume on which OS and any software preinstalled
+       + can be stored on servers, optical discs or flash-media drives
     - Symantec Ghost Solution Suite, Clonezilla, Acronis True Image
     - dism.exe: Deployment Image Servicing and Management cli tool
 * have to load drivers if installing Windows onto drives connected via RAID controller
@@ -1865,7 +1865,7 @@ data destruction
   * low-level format
     - create physical marks on the disk surface so that the drive knew where to store data
     - hard drive manufacturers disabled the ability to perform low-level formats outside the
-      factory
+     factory
     - used to describe a zero-fill or overwrite operation
   * drive wiping utility: overwrite free space with junk data that makes original data hard to
     recover
@@ -1887,17 +1887,17 @@ Registry
   * organized in a tree structure
   * **subgroups or root keys**
     - HKEY_CLASSES_ROOT
-      + defined standard class objects which are named groups of functions that defines what
-      you can do with the object they represents
-      + combines class objects from \Software\Classes under both HKEY_CURRENT_USER and
-      HKEY_LOCAL_MACHINE to provide backward compatibility for older apps
+       + defined standard class objects which are named groups of functions that defines what
+         you can do with the object they represents
+       + combines class objects from \Software\Classes under both HKEY_CURRENT_USER and
+         HKEY_LOCAL_MACHINE to provide backward compatibility for older apps
     - HKEY_CURRENT_USER, HKEY_USERS
-      + stores current user settings and all of the personalized information for each user
+       + stores current user settings and all of the personalized information for each user
     - HKEY_LOCAL_MACHINE
-      + contains all data for system's non-user-specific configs
+       + contains all data for system's non-user-specific configs
     - HKEY_CURRENT_CONFIG
-      + defines which value is currently used
-      + almost never touch
+       + defines which value is currently used
+       + almost never touch
   * **values**
     - String
     - Binary
@@ -1910,12 +1910,12 @@ Registry
   * *reg*
     - cli registry editing tool
     - can view registry keys and values, import and export, and even compare two different
-      versions of a Registry
+     versions of a Registry
   * *regsvr32*
     - can modify registry in only one way, adding (or registering) dynamic link library (DLL)
-      files as command components in the Registry
+     files as command components in the Registry
     - can cause problems if try to add 32bit DLL on with 64bit version of regsvr32, which is
-      default
+     default
     - to edit 32bit DLL, run regsvr32.exe file in the %SystemRoot%Syswow64 folder
 
 boot process
@@ -1926,7 +1926,7 @@ boot process
   * **bootmgr**
     - when starts, it reads data from a BCD (Boot Configuration Data) file
     - once an OS is selected, loads a program called winload.exe, which ready the system to
-      load ntoskrnl.exe
+     load ntoskrnl.exe
     - by loading into memory hardware abstraction layer, system Registry and drivers
   * "bootmgr is missing" error shows when boot sector code cannot locate bootmgr
   * Windows logo comes up once the OS takes overs and lodas up all processes and systems
@@ -1956,28 +1956,28 @@ Task Manager
     - by default, only shows processes associated with the current user
     - Debug is grayed out, unless Windows debugger program is running
     - UAC Virtualization gives older programs that weren't written to avoid accessing protected
-      folders a way to do so by making a fake protected folder
+     folders a way to do so by making a fake protected folder
     - dump files show the status of program at the moment when clicked
     - setting any single process to Realtime priority will often slow the system
     - Set Affinity: enables to specify which PCU cores a process can run on
     - Task Manager doesn't show what processes depend on other processes
     - End Process Tree: ends not only the process but any process it depends on but will not kill
-      a process tree for important system processes
+     a process tree for important system processes
     - Process Explorer: written by Mark Russinovitch shows process dependicies
     - Services: General tab provides name of the service, describes the service and enable to
-      stop, start, pause or resume the service
+     stop, start, pause or resume the service
     - **staring service from command prompt**
-      + net start <service name>
+       + net start <service name>
     - Users tab: enables to log off any user (even current)
   * Networking tab has been merged into Performance tab
   * three new tabs
     - App history: collects recent statistics on CPU time and network usage
     - Startup: can also be used in *msconfig*
     - Details
-      + list processes by executable name, and includes PID, status, the user running them,
-      CPU/memory use, and a description
-      + context menu also introduces a debugging option called *Analyze wait chain* to
-      identify why a program is frozen
+       + list processes by executable name, and includes PID, status, the user running them,
+         CPU/memory use, and a description
+       + context menu also introduces a debugging option called *Analyze wait chain* to
+         identify why a program is frozen
   * **Processes tab**
     - broken down into three sections: Apps, Background processes, Windows processes
     - by default, list a process description, status and resource use
@@ -2001,7 +2001,7 @@ Perfomance Monitor
   * *perfmon.msc*, primary tool for tracking system resources overtime
   * requires an understanding of **objects and counters**
     - objects: system component that is given as set of characteristics and can be managed by
-      the OS as single entity
+     the OS as single entity
     - counter: tracks specific info about an object
     - many counters can be associated with an object
   * **Data Collector Sets**
@@ -2018,8 +2018,8 @@ ODBC Data Source Administrator
 ------------------------------
   * **ODBC (Open Database Connectivity)**
     - coding standard that enable programmers to write databases and apps that use them in a
-      way that they can query ODBC on how to locate and access a database without any concern
-      about what app or OS is used
+     way that they can query ODBC on how to locate and access a database without any concern
+     about what app or OS is used
   * enables to create and manage entries called **Data Source Names (DSNs)**
     - points ODBC to a database
     - used by ODBC-awars apps to query ODBC to find their databases
@@ -2069,18 +2069,18 @@ Groups
   * Windows Home editions handle groups very differently than more advanced editions
   * **Administrators**
     - any account memeber of this group has complete admin privileges and grant complete
-      control of machine
+     control of machine
     - common for primary user to have the account in Admin group
   * **Power Users**
     - almost as powerful as members of Administrators but cannot install new devices or access
-      other users' files or folders
+     other users' files or folders
   * **Users**
     - members of this group are called *standard users*
     - cannot edit the Registry or access critical system files
     - can create groups but only manage those they create
   * **Guests**
     - enables someone who does not have an account on the system to log on by using guest
-      account
+     account
     - guest account remains disabled most often
 * Windows machine will usually have single primary user account, a standard user and a local
   administrator account
@@ -2096,8 +2096,8 @@ NTFS Permissions
 ----------------
   * authorization process use the NT File System (NTFS) as the primary tool
   * every file and folder on an NTFS partition has a list that contains **two sets of data**
-      1. details every user and group that has access to that file or folder
-      2. specifies the level of access that each user or group has to that file or folder
+    1. details every user and group that has access to that file or folder
+    2. specifies the level of access that each user or group has to that file or folder
   * levle of access is defined by a set of restrictions called NTFS permissions
   * **Ownership**
     - creator is the owner of that file or folder
@@ -2139,7 +2139,7 @@ Permission propagation
 ----------------------
   * determines what NTFS permissions are applied to files that are moved or copied
   * copying creates two copies of the object, moving creates one copy of the object
-    - Same Volume                             Different Volume
+    -          Same Volume                             Different Volume
     - Move     keeps original permissions              inherits new permissions
     - Copy     inherits new permissions                inherits new permissions
   * any object that is put on a FAT partition loses any permissions because FAT doesn't support
@@ -2173,13 +2173,13 @@ sharing resources
   * **locating shared resources**
     - check for any unnecessary or unknown shared folders on the hard drives
     - **Computer Management console**
-      + a tool in the Administrative Tools has a Shared Folders option under System Tools
-      + Shares, Sessions, Open Files
+       + a tool in the Administrative Tools has a Shared Folders option under System Tools
+       + Shares, Sessions, Open Files
   * shares added manually are called local shares
   * **administrative shares**
     - default shares
     - give local admins administrative access to shared resources, whether they log on
-      locally or remotely
+     locally or remotely
     - can delete them but Windows will auto re-create every reboot
     - won't affect the overall security
 
@@ -2193,20 +2193,20 @@ data encryption
     - Properties > General > Advanced
     - must have a valid password reset disk
     - if password is lost or an admin resets the password, you're locked out of encrypted files
-      permanently
+     permanently
     - if computer dies, installing the hard drive in another system won't bring back data, even
-      with identical user name (as security ID of that user account will differ)
+     with identical user name (as security ID of that user account will differ)
     - encryption only stays if the file is copied to a drive with NTFS
   * **BitLocker Drive Encryption**
     - encrypts the whole drive, including every user's files, not dependent on any account
     - all data on the hard drive is safe even when stolen
     - requires special **TPM (Trusted Platform Module)** chip
-      + validates on boot that the computer has not changed
-      + also works in cases where the BitLocker drive is moved from one system to another
+       + validates on boot that the computer has not changed
+       + also works in cases where the BitLocker drive is moved from one system to another
     - can use flash drive to store recovery key if TPM chip is not available
     - **BitLocker To Go**
-      + enables to apply BitLocker encryption to removable dirves
-      + applies encryption and password protection but doesn't require TPM chip
+       + enables to apply BitLocker encryption to removable dirves
+       + applies encryption and password protection but doesn't require TPM chip
 
 Security Policies
 -----------------
@@ -2242,9 +2242,9 @@ patch management
   * **Windows 7**
     - service pack: large bundle of updates
     - updates: individual fixes that come out often
-      + Important: for security or stability issues, most critical
-      + Recommended: added feature or enhancement, not critical
-      + Optional: drivers, language packs and other nonessential updates, manual install
+       + Important: for security or stability issues, most critical
+       + Recommended: added feature or enhancement, not critical
+       + Optional: drivers, language packs and other nonessential updates, manual install
     - can choose which updates to download
     - can review installed updates by clicking View update history
   * **Windows 10**
@@ -2253,9 +2253,9 @@ patch management
     - individual users cannot turn off update, but may only pause updates for up to 35 days
     - Quality updates: classic patches, each update includes all changes from all previous
     - Feature updates
-      + new versions of Windows, released in spring and fall
-      + reinstall of Windows, named by year and month, marketing names (Creators update)
-      + controlled by channel (Insiders, Semi-Annual, LTSB)
+       + new versions of Windows, released in spring and fall
+       + reinstall of Windows, named by year and month, marketing names (Creators update)
+       + controlled by channel (Insiders, Semi-Annual, LTSB)
     - may uninstall some non-system updates
 
 Disk Cleanup
@@ -2340,11 +2340,11 @@ Autorun
   * This PC > Properties > Tasks list > Advanced system settings
   * three tabs: Visual Effects, Advanced, Data Execution Prevention
     - Advanced tab
-      + processor scheduling and virtual memory
+       + processor scheduling and virtual memory
     - DEP
-      + works in background to stop viruses and other malware from taking over programs
-      loaded in system memory
-      + only enabled for critical OS files in RAM
+       + works in background to stop viruses and other malware from taking over programs
+         loaded in system memory
+       + only enabled for critical OS files in RAM
 
 System Restore
 --------------
@@ -2420,8 +2420,8 @@ Windows
     - copy files and folders from one computer to another across a network
     - syntax: robocopy [source] [destination] [options]
     - robocopy /mir
-      + copy everthing from source and make the destination mirror
-      + will delete anything in the destination that doesn't match the source
+       + copy everthing from source and make the destination mirror
+       + will delete anything in the destination that doesn't match the source
     - can copy encrypted files even if the admin account is denied access
     - wil resume copying after an interruption
   * ``chkdsk``
@@ -2661,7 +2661,7 @@ Advanced Startup Options
     - status displayed for devices is the status for normal startup
     - can disalbe suspect device or perform other tasks such as remove or update driver
     - no safety or repair feature in any version of Windows that make the OS boot to Safe
-      Mode automatically, must set the System Configuration utility to force it
+     Mode automatically, must set the System Configuration utility to force it
   * **Safe Mode with Networking**
     - identical to plain Safe Mode but get network support
     - to test network drivers
@@ -2688,9 +2688,9 @@ Advanced Startup Options
     - can check erros after stop
   * **Disable Driver Signature Enforcement**
     - Windows require that all low-level drivers (kernel drivers) must have a Microsoft driver
-      signature
+     signature
     - can use this option if using older driver to connect the hard driver controller or other
-      low-level feature
+     low-level feature
 
 Rebuild Windows Profile
 -----------------------
@@ -2813,14 +2813,14 @@ LCDs
   * **early LCDs**
     - did not use rectangular pixels
     - use static charging, where each area as charged at the same time to create an image,
-      which is still used in displays such as calculators
+     which is still used in displays such as calculators
     - use a matrix of wires, vertical wires (Y wires) for every sub-pixel in column,
-      horizontal wires (X wires) for row sub-pixels
+     horizontal wires (X wires) for row sub-pixels
     - there had to be a charge on both X and Y wires to make enough voltage to light a single
-      sub-pixel
+     sub-pixel
   * passive matrix
     - three matrices intersected very close together, above which the glass was covered with
-      tiny red, green and blue dots
+     tiny red, green and blue dots
     - varying voltage of wires made different levels of red, green, blue, creating colors
   * thin film transistor (TFT) or active matrix: one or more tiny transistors control each
     color dot, used by current LCDs
@@ -2830,29 +2830,29 @@ LCDs
     - inverters: send power to backlights that need AC
   * **LCD panels**
     - twisted nematic (TN), in-plane switching (IPS), vertical alignment (VA)
-    - Plane to LIne Switching (PLS), proprietary IPS version by Samsung
+    -Plane to LIne Switching (PLS), proprietary IPS version by Samsung
   * **backlights**
     - current LCDs use light-emitting diode (LED) technology
     - older generations used CCFL technology
     - LED uses DC, like the logic boards and panels in LCDs, consume much less electricity
-      than CCFL, and give off no heat
+     than CCFL, and give off no heat
     - edge LED backlighting: can sometimes see the edges are brighter than the center
     - direct LED backlighting: puts a bank of LEDs behind the panel, more expensive and use
-      more electricity than edge LED backlighting
+     more electricity than edge LED backlighting
     - **CCFL**
-      + cold cathode fluorescent lamp used by early LCDs
-      + low power use, even brightness and long life
-      + needed high frequency AC and required the use of an inverter
+       + cold cathode fluorescent lamp used by early LCDs
+       + low power use, even brightness and long life
+       + needed high frequency AC and required the use of an inverter
   * **Resolution**
     - describe the number of pixels on a display
     - LCD monitors are designed to run at a single native resolution
     - interpolation: edge-blurring techique used in LCD to soften the jagged corners of the
-      pixels when running at lower than native resolution
+     pixels when running at lower than native resolution
     - aspect ratio: number of pixels arranged on the screen
     - **pixels per inch (PPI)**
-      + combination of the resolution and physical size of a display
-      + smaller, high-resolution monitor will look better than much larger monitor with same
-      resolution
+       + combination of the resolution and physical size of a display
+       + smaller, high-resolution monitor will look better than much larger monitor with same
+         resolution
   * **Brightness**
     - strength of LCD monitor's backlight, measured in nits
     - average LCD panels are around 300 nits
@@ -2863,10 +2863,10 @@ LCDs
     - IPS monitors, roughly 178 degrees
   * **Response rate**
     - amount of time it takes for all of the sub-pixels on the panel to change from one state
-      to another
+     to another
     - measured in milliseconds (ms), the lower the better
     - black-to-white (BtW): how long it takes the pixels to go from pure black to puer white
-      and balck again
+     and balck again
     - gray-to-gray (GtG): how long it takes the pixels to go from one gray state to another
     - GtG time will always be faster than BtW time
   * **Refresh rate**
@@ -2878,7 +2878,7 @@ LCDs
     - early LCDs could not produce the color saturation or richness of contrast of a CRT
     - good ratio 450:1, range from 250:1 to 1000:1
     - dynamic contrast ratio number: measures the difference between a full-on, all-white
-      screen and a full-of, or all-black screen
+     screen and a full-of, or all-black screen
     - dyanmic contrast ratio doesn't affect viewing on computer monitors
   * **Color depth**
     - amount of colors LCD panels can display
@@ -2905,7 +2905,7 @@ Projectos
     - use more electricity but not as heavy as LCD projectors
   * **Lumens**
     - amount of light given off by a light source from a certain angle that is perceived by
-      the human eye
+     the human eye
     - the greater lumen rating, the brighter the projector
     - 1000 to 1500 lumens will work well in small, darkened room
   * **Throw**
@@ -2920,17 +2920,17 @@ Projectos
     - the fan continues to run until the lamp if fully cooled when projector is turned off
     - lamp technologies: metal halide, LED or lasers
     - metal halide
-      + has been the standard for many years
-      + produce huge amount of lumens in a small form factor
-      + excessive heat and fan noise, life span of ~3000 hours
+       + has been the standard for many years
+       + produce huge amount of lumens in a small form factor
+       + excessive heat and fan noise, life span of ~3000 hours
     - LED-based projectors
-      + use red, green and blue LEDs to provide light
-      +require smaller and quieter fans as LEDs don't heat up
-      + require much darker room, life span of 20,000+ hours
+       + use red, green and blue LEDs to provide light
+       +require smaller and quieter fans as LEDs don't heat up
+       + require much darker room, life span of 20,000+ hours
     - laser-based projectors
-      + come from white lasers hitting color wheels to colored lasers
-      + produce vibrant, high-contrast images and very little heat
-      + can last 30,000+ hours
+       + come from white lasers hitting color wheels to colored lasers
+       + produce vibrant, high-contrast images and very little heat
+       + can last 30,000+ hours
 
 VR headsets
 -----------
@@ -2949,9 +2949,9 @@ Monitor connections
   * DVI
     - digital visual interface
     - three connectors that look very much alike: DVI-D for digital, DVI-A for analog, DVI-A/D
-      or DVI-I (interchangeable) for DVI-D or DVI-A
+     or DVI-I (interchangeable) for DVI-D or DVI-A
     - single-link DVI: maximum bandwidth of 165MHz, max resolution of 1920x1080 at 60HZ or
-      1280x1024 at 85Hz
+     1280x1024 at 85Hz
     - dual-link DVI: uses more pins to double throughput, res up to 2048x1536 at 60Hz
   * HDMI
     - high definition multimedia interface, carries both HD video and audio signals
@@ -2962,7 +2962,7 @@ Monitor connections
     - Thunderbolt 3 uses the USB Type-C connector
   * HDBaseT
     - enables long-range connectivity for uncompressed HD video and audio over Cat 5a or Cat
-      6 network cables
+     6 network cables
     - can use HDBaseT receiver to convert for projector
 * OSD (onscreen display) menu enable a number of adjustments for monitor
 
@@ -2996,7 +2996,7 @@ Graphics Processor
     - MSI: manufacturer
     - GeForce GTX 1080ti: graphics processor
     - 11GB 384bit GDDR5X: dedicated video RAM and connection between vido RAM and graphics
-      processor
+     processor
     - PCI Express 3.0: motherboard expansion slot the card requires
   * **HDCP**
     - High-bandwidth Digital Content Protection, digital anti-theft technology
@@ -3005,34 +3005,34 @@ Graphics Processor
   * **Video Memory**
     - video RAM constantly updates to reflect every change that takes place on the screen
     - most of the graphics rendering and processing is handled on the card by the video
-      processor chip rather than by the CPU
+     processor chip rather than by the CPU
     - video RAM can read and write data at the same time, not like DRAM
     - Acronym  Name                                    Purpose
     - DDR3     Double Data Rate SDRAM version 3        budget graphics cards, laptop video cards
     - GDDR3    Graphics Double Data Rate version 3     similar to DDR3, but runs at faster speed
-      different cooling requirements
+                                                       different cooling requirements
     - GDDR4    Graphics Double Data Rate version 4     upgrade of GDDR3, faster clock
     - GDDR5    Graphics Double Data Rate version 5     successor of GDDR4, double the
-      input/output rate of GDDR4
+                                                       input/output rate of GDDR4
     - GDDR5X    Graphics Double Data Rate version 5X   successor of GDDR5
     - GDDR6    Graphics Double Data Rate version 6     successor of GDDR5X
     - HBM      High Bandwidth Memory                   competitor of GDDR5
     - HBM2      High Bandwidth Memory version2         successor to HBM, competitor of GDDR6
     - HBM2 offers very different style of memory from DDR or GDDR by using stacked DRAM
-      connected via super-wide buses
+     connected via super-wide buses
     - GDDR has 32bit bush width, HBM 1024bit bus
     - huge amount of video RAM enables game developers to optimize their games and store more
-      essential data on the local video RAM
+     essential data on the local video RAM
   * **Integrated GPUs**
     - onboard video isn't very powerful, but common in laptops as it save space and power
     - Intel Grpahics Media Accelerator (GMA), AMD's Fusion processors
     - Intel's graphics support is gared to desktop performace, not gaming at all
     - NVIDIA's Tegra line is focused on gaming (Nintendo Switch) and automotive entertainment
-      systems
+     systems
     - connector types: VGA, DVI, HDMI (include mini & micro), DisplayPort (include full * mini
-      ), Thunderbolt (include Thunderbolt 1 & 2, USB Type-C Thunderbolt 3)
+     ), Thunderbolt (include Thunderbolt 1 & 2, USB Type-C Thunderbolt 3)
     - connector types for interfacing with other media devices such as camcorders, projectors,
-      television sets
+     television sets
   * issues when installing cards: long cards, proximity of nearest expansion card, presence of
     power connectors
   * many high-end video cards come as double-wide cards with built-in air vents
@@ -3048,17 +3048,17 @@ Graphics Processor
     - used by early 3D games
     - fixed 2D images to create the 3D world
     - games would calculate the position of an object from player's perspective and place a
-      sprite to represent the object
+     sprite to represent the object
   * 2nd generation of 3D games began to replace sprites with **true 3D objects**
     - composed of a group of points called vertices
     - transformation: computer tracking all the vertices of all the objects in the 3D world
-      including the one player cannot see
+     including the one player cannot see
     - filling in 3D object begins by drawing lines/edges between vertices to construct the 3D
-      object from many triangles (triangles make the most sense from mathematical standpoint)
+     object from many triangles (triangles make the most sense from mathematical standpoint)
     - 3D process groups triangles into various shapes called polygons
     - originally, CPU handled calculations to create triangles
     - with the introduction of GeForce 256 in 199, transform process was moved from CPU to the
-      video card
+     video card
   * **textures**
     - image files stored by every 3D game
     - program wraps textures around an object to give it a surface
@@ -3082,7 +3082,7 @@ APIs
     than DirectX
   * **DirectX**
     - in old days, many apps communicated directly with much of the PC hardware and it could
-      crash the system
+     crash the system
     - programmers use DirectX to control certain pieces of hardware and to talk directly to it
     - primary reason was to build a series of products to enable Windows to run 3D games
     - *dxdiag*, DirectX Diagnostic Tool to check DirectX info
@@ -3175,7 +3175,7 @@ Adaptive Sync
 -------------
   * tearing
     - different parts of the screen may showing different frames when the display and
-      graphics card are out of sync
+     graphics card are out of sync
   * V-sync
     - avoids tearing by using fixed refresh cycle, but higher latency
   * adaptive sync
@@ -3240,7 +3240,7 @@ Ethernet
     - most consumer-level switches have 4 or 8 ports, but business-level can have 32 or more
     - early Ethernet used a hub (stupid repeaters, anything sent went to all other devices)
     - switches memorize the MAC addresses of all connected devices and only send out repeated
-      signals to the correct host
+     signals to the correct host
     - segment: connection between computer and a switch
     - Ethernet segments are limited to 100m or less, cannot use a splitter to split
     - no hosts connected to a split segment will be able to communicate
@@ -3267,7 +3267,7 @@ Ethernet
     - Cat 6a: supports 10Gbps networks at 100m segments
     - Cat 6e: nonstandard term used by few manufacturers for Cat 6 or Cat 6a
     - Cat 7: supports 10Gbps at 100m segments; shielding ofr individual wire pairs reduces
-      crosstalk and noise problems, not an ANSI/TIA standard
+     crosstalk and noise problems, not an ANSI/TIA standard
     - most installers use Cat 5e, Cat 6 or Cat 6a
     - Pin  T568A             T568B
     - 1    White/Green       White/Orange
@@ -3295,14 +3295,14 @@ Ethernet
     - require two cables as half-duplex, data flows in one way
     - light can be sent down as regular light or laser light
     - multimode cables
-      + tansmits multiple light signals at same time, use LEDs to send signals
-      + used for relatively short distances
-      + multimode network runs at 10, 100, or 1000Mbps, distance usually max at ~600m
+       + tansmits multiple light signals at same time, use LEDs to send signals
+       + used for relatively short distances
+       + multimode network runs at 10, 100, or 1000Mbps, distance usually max at ~600m
     - single-mode cabling
-      + use laser light
-      + have high transfer rates over long distances
-      + recorded speed at 100Tbps over 100miles
-      and currently quite rare
+       + use laser light
+       + have high transfer rates over long distances
+       + recorded speed at 100Tbps over 100miles
+     and currently quite rare
     - cabling standards: 1000BaseSX, 10GBaseSR
     - need a fiber optic switch and fiber optic network cards
   * **Coaxial**
@@ -3311,7 +3311,7 @@ Ethernet
     - rated using RG by impedance, RG59 and RG6 both have 75&ohm; impedance
     - RG59 is thinner and does not carry data as far as RG6
     - RG6QS (quad shield): extra shielding reduces interference and enables stronger internal
-      signals
+     signals
     - use BNC connector (uncommon) and F-type connector
 
 LAN (local area network)
@@ -3337,42 +3337,42 @@ Structured cabling
     - goes more or less horizontally form a work area to the telecommunications room
     - use Cat 5e or better UTP
     - solid core UTP
-      + uses single solid wire
-      + better conductor but stiff and will break if handled too often
+       + uses single solid wire
+       + better conductor but stiff and will break if handled too often
     - stranded core UTP
-      + each wire is a bundle of tiny wire strands
-      + not quite good conductor but robust
+       + each wire is a bundle of tiny wire strands
+       + not quite good conductor but robust
     - horizontal cabling should always be solid core
   * **work area**
     - office or cubicle with a wall outlet that serves as the termination point for horizontal
-      network cables
+     network cables
     - wall outlet consists of one or two female jacks, a mounting bracket and a faceplate
     - female RJ-45 jacks outlets have Cat ratings
     - first place to look when broken cable is suspected
   * **telecommunications room**
     - heart of the basic star
     - **equipment racks**
-      + provides a safe, stable platform for all different hardware components
-      + 19 inches wide, but vary in height from two to three foot models that bolt onto wall
-      + evolved out of the railroad signaling racks from 19th century
-      + can mount almost any network hardware component
-      + aslo available rack-mounted UPSs (uninterruptible power supplies)
-      + all rack-mounted equipment uses height measurement U (1.75inches)
-      + a device that fits in a 1.75inch space is called a 1U
-      + most rack-mounted devices are 1U, 2U or 4U
+       + provides a safe, stable platform for all different hardware components
+       + 19 inches wide, but vary in height from two to three foot models that bolt onto wall
+       + evolved out of the railroad signaling racks from 19th century
+       + can mount almost any network hardware component
+       + aslo available rack-mounted UPSs (uninterruptible power supplies)
+       + all rack-mounted equipment uses height measurement U (1.75inches)
+       + a device that fits in a 1.75inch space is called a 1U
+       + most rack-mounted devices are 1U, 2U or 4U
     - **patch panel**
-      + a box with a row of female connectors (ports) in the front and permanent connections
-      in the back
-      + uses a special type of connector called 110 block or 110-punchdown block
-      + UTP cables connect to a 110 block using a punchdown tool (has a blunt end that forces
-      the wire into the groove)
-      + prevent horizontal cabling from being moved
-      + use a ANSI/TIA 606 labeling method
-      + can get UTP, STP or fiber ports and some manufacturers combine several different
-      types on the same patch panel
-      + UTP patch panels come with Cat ratings
-      + patch cables are short (2 to 5ft) stranded cables which require specific crimps
-      + a good patch cable should include a boot
+       + a box with a row of female connectors (ports) in the front and permanent connections
+         in the back
+       + uses a special type of connector called 110 block or 110-punchdown block
+       + UTP cables connect to a 110 block using a punchdown tool (has a blunt end that forces
+         the wire into the groove)
+       + prevent horizontal cabling from being moved
+       + use a ANSI/TIA 606 labeling method
+       + can get UTP, STP or fiber ports and some manufacturers combine several different
+         types on the same patch panel
+       + UTP patch panels come with Cat ratings
+       + patch cables are short (2 to 5ft) stranded cables which require specific crimps
+       + a good patch cable should include a boot
 
 WAN (wide area network)
 -----------------------
@@ -3403,15 +3403,15 @@ IP address
     - use dotted-decimal notation (202.34.16.11)
   * **Subnet mask**
     - used by NIC to distinguish which part of the IP address identifies the network ID and
-      which part identifies the host
+     which part identifies the host
     - 255.255.255.0, any part that's all 255s is the network ID, any part that's all zeros is
-      the host ID
+     the host ID
     - IP: 192.168.4.33, Subnet mask: 255.255.255.0, network ID: 192.168.4, host ID: 33
     - every computer on a single LAN must have the same network ID and unique host ID
     - subnets have classes: A (255.0.0.0), B (255.255.0.0), C (255.255.255.0)
   * **IP conflict**
-    - two computers having the same IP address and are not able to talk to each other and
-      other computers don't know where to send data
+    -two computers having the same IP address and are not able to talk to each other and
+     other computers don't know where to send data
     - can never have an IP address that ends with a 0 or 255
   * **CIDR**
     - Classless Inter-Domain Routing, works easily in binary
@@ -3422,23 +3422,23 @@ IP address
   * the router filters and forwards by IP address
   * **default gateway**
     - IP address of the LAN side of the router used by the computer to send data to outside
-      the network ID
+     the network ID
   * **DNS servers**
     - Domain Name Service, keep databases of IP addresses and their corresponding names
     - TLDs (top-level domains)
-      + .com (general business), .org (nonprofit orgs), .edu (educational orgs)
-      + .gov (government orgs), .mil (military orgs), .net (internet orgs)
-      + .int (international), .name, .biz, .info, .tv
+       + .com (general business), .org (nonprofit orgs), .edu (educational orgs)
+       + .gov (government orgs), .mil (military orgs), .net (internet orgs)
+       + .int (international), .name, .biz, .info, .tv
   * **DHCP server**
     - provides the computer with all the IP info it needs to get on the network
     - DHCP reservations: network ID of 192.168.4.x will reserve .1 for the default gateway
-      and .2 through .9 for servers
+     and .2 through .9 for servers
 * people who developed the applications decide which protocol to use
 
 TCP (Transmission Control Protocol)
 -----------------------------------
   * connection-oriented protocol used with TCP/IP
-  * HTTP is based on TCP
+  *  HTTP is based on TCP
   * comes with communication rules that require both sender and receiver to acknowledge the
     other's presence and readiness to send and receive data
   * supply other services than HTTP
@@ -3502,18 +3502,18 @@ IPv6
     - determine whether to send packets to a local MAC address or to the default gateway
     - last 64bits are generated by the NIC (no prefix is longer than /64)
     - RIRs give /48 prefixes to big ISPs and end users who need large allotments, ISPs and
-      others will borrow another 16bits for subnetting and pass out /64 to end users
+     others will borrow another 16bits for subnetting and pass out /64 to end users
   * **global unicast address**
     - second IPv4 address to get on the Internet
     - when th computer is plugged into network, it sends router solicitation (RS) message to
-      look for a router (uses ff02::2, is read only by other computers running IPv6, different
-      from a broadcast address and is called multicast address)
+     look for a router (uses ff02::2, is read only by other computers running IPv6, different
+     from a broadcast address and is called multicast address)
     - the router hears the message and responds with a router advertisement (RA) that tells
-      the computer its network ID and subnet and DNS server
+     the computer its network ID and subnet and DNS server
     - once the computer gets a prefix, it generates the rest of the address just like with
-      the link-local address
+     the link-local address
     - if another computer is running IPv6 and also has a global address, it can access the
-      system unless there's a firewall
+     system unless there's a firewall
     - computers using IPv6 need a global unicast address to access the Internet
 
 installing wired network
@@ -3531,7 +3531,7 @@ installing wired network
     - switches also have link lights
     - multispeed devices usually have a link light that tells the speed of the connection
     - properly functioning link light is always steady on when the NIC is connected to another
-      device
+     device
   * **activity light**
     - truns on when the card detects network traffic
   * solid green light: connectivity
@@ -3555,7 +3555,7 @@ connecting to a switch
   * VLAN (managed switch)
     - virtual local area network
     - special managed switch to break up or segment a single physical network into two or
-      more distinct networks
+     more distinct networks
     - can only talk to computers on the same VLAN
 
 network shares
@@ -3578,7 +3578,7 @@ Network Organizations
   * **Domains**
     - centralizes user accounts, passwords and access to resources
     - computer running Windows Server is configured as a domain controller, which stores a
-      set of domain accounts (also called an authentication server)
+     set of domain accounts (also called an authentication server)
     - modern versions of Windows use an Active Directory Domain
     - must have a computer running a version of Windows Server
     - create the Active Directory and each PC on the network needs to join the domain
@@ -3586,14 +3586,14 @@ Network Organizations
     - Active Directory Users and Computers utility provides basic Active Directory functions
     - folders: Builtin (sic), Computers, Domain Controllers, Users
     - cannot promote a local user or group to a domain user or group, domain admin must create
-      new domain account on the domain controller
+     new domain account on the domain controller
     - with domain account, can add a logon script that runs every time user logs in
     - from Active Directory, can pick where to store users home folders but requires the use
-      of roaming profiles rather than local profiles
+     of roaming profiles rather than local profiles
     - folder redirection: users able to access home folders on a remote server rather than
-      local machine and helps admins keep tighter control over network resources
+     local machine and helps admins keep tighter control over network resources
     - organizational units (OUs) enable to organize users and computers by function, location,
-      permissions, etc.
+     permissions, etc.
   * **Homegroups**
     - use the idea that people want to share data, not folders
     - skip folders completely and share Windows libraries
@@ -3627,7 +3627,7 @@ Cable testing
     - to trace cables
     - generic term for two separate devices
     - tone generator: connects to the cable using alligator clips, tiny hooks, or a network
-      jack and sends electrical signal along the wire at certain frequency
+     jack and sends electrical signal along the wire at certain frequency
     - tone probe: emits a sound when it is placed near a cable connected to the tone generator
     - each generator emits a separate frequency and the probe sounds different tone for each
 
@@ -3667,7 +3667,7 @@ WAP (wireless access point)
   * also acts as switches and Internet routers
   * **PoE (power over Ethernet)**
     - only need to plug a single Ethernet cable into the WAP to provide it with both power and
-      a network connection which are both supplied by a PoE-capable switch
+     a network connection which are both supplied by a PoE-capable switch
     - Power over Ethernet injector can extend a PoE connection up to 100m
 * use the *carrier sense multiple access/collision avoidance (CSMA/CA)* networking scheme
 * wireless node listens in on the wireless medium to see if another node is currently
@@ -3723,34 +3723,34 @@ Security
     - enables to limit access to wireless network based on the MAC address
     - same as creating a type of accepted users list
     - attacker can still use software to listen for the MAC addresses of nearby clients and
-      spoof the address of an accepted client
+     spoof the address of an accepted client
   * **Authentication**
     - **WEP (wired equivalent privacy) protocol**
-      + uses a standard 40bit encryption, same level as 64bit, to scramble data packets
-      + also 104bit encryption, same as 128bit, is supppported
-      + traffic is encrypted with the same key
-      + one user's traffic isn't protected from other members of the network
+       + uses a standard 40bit encryption, same level as 64bit, to scramble data packets
+       + also 104bit encryption, same as 128bit, is supppported
+       + traffic is encrypted with the same key
+       + one user's traffic isn't protected from other members of the network
     - **WPA (wifi protected access)**
-      + uses the *Temporal Key Integrity Protocol (TKIP)*, which provides new encryption key
-      for every sent packet
-      + Extensible Authentication Protocl (EAP): encryption key intergrity-checking and user
-      authentication feature offered to WEP
+       + uses the *Temporal Key Integrity Protocol (TKIP)*, which provides new encryption key
+         for every sent packet
+       + Extensible Authentication Protocl (EAP): encryption key intergrity-checking and user
+         authentication feature offered to WEP
     - **WPA2**
-      + IEEE 802.11i standard
-      + uses the Advanced Encryption Standard (AES)
+       + IEEE 802.11i standard
+       + uses the Advanced Encryption Standard (AES)
     - **WPA3**
-      + include encryption to protect the data of users on open (public) networks
+       + include encryption to protect the data of users on open (public) networks
     - **WPS (wifi protected setup)**
-      + standard included on most WAPs and clients to configure secure connections easier
-      + some devices use a push button, others a password or code
-      + WPS-capable WAP will have an eight-digit numeric code printed on the device
-      + code is easy to guess because of how it is set up
+       + standard included on most WAPs and clients to configure secure connections easier
+       + some devices use a push button, others a password or code
+       + WPS-capable WAP will have an eight-digit numeric code printed on the device
+       + code is easy to guess because of how it is set up
 * WPA/WPA2 can be setup with Personal/Pre-Shared Key (PSK) or Enterprise
   * Enterprise assume authentication be enabled by using **RADIUS server**
     - a protocl for authenticating
     - Remote Authentication Dial-In User Service is partially encrypted and uses UDP
     - Terminal Access Controller Access-Control System Plus (TACACS+) if full encrypted and
-      uses TCP, can handle authentication, authorization of resources and keep track of resources
+     uses TCP, can handle authentication, authorization of resources and keep track of resources
     - original TACACS has no encryption and uses TCP or UDP and only handles authentication
 
 speed and range issues
@@ -3792,12 +3792,12 @@ wirelss networking Standards
     - backward compatible with 802.11b
   * **802.11n**
     - multiple in/multiple out (MIMO): feature that enable the devices to make multiple
-      simultaneous connections
+     simultaneous connections
     - up to four antennas, speed up to 600Mbps, range 300+ft
     - transmit beamforming: multiple-antenna technology that helps get rid of dead spots
     - can run in 2.4GHz ISM band, supporting slower 802.11b/g devices
     - also support dual-band operation but need more advanced WAP that runs at both 5GHz and
-      2.4GHz simultaneously
+     2.4GHz simultaneously
   * **802.11ac**
     - only uses 5GHz band
     - multiuser MIMO (MU-MIMO): gives a WAP to broadcast to multiple users simultaneously
@@ -3912,7 +3912,7 @@ Internet tiers
     - even more regional and connect to Tier 2 providers
   * **Backbone routers**
     - connect to more than one other backbone router, creating a big, interwoven framework
-      for communication
+     for communication
     - to provide alternative pathways for data
 
 TCP/IP
@@ -3946,64 +3946,64 @@ Connecting to the Internet
     - ISP provides a dial-up telephone numbers, user name and password
     - Point-to-Point Protocol (PPP): streaming protocol developed for dial-up Internet access
     - **analog**
-      + the slowest, requires a telephone line and special networking device called modem
+       + the slowest, requires a telephone line and special networking device called modem
     - **ISDN**
-      + integrated services digital network, uses digital dial-up
-      + B channels carry data and voice information at 64Kbps
-      + D channels carry setup and config info and data at 16Kbps
-      + basic rate interface (BRI): two B/one D setup
-      + BRI uses only one physical line, but each B channel sends 64Kbps
-      + ISDN connects much faster than modems
-      + monthly cost per B channel is slightly more than regular phone line
-      + has steep initial fee and need to be within about 18,000 feet of a central office
-      + primary rate interface (PRI): composed of twenty-three 64Kbps B channels and one
-      64Kbps D channel, also known as T1 lines
-      + ISDN wall socket usually looks like standard RJ-45 jack
-      + terminal adapter (TA): common interface for computer, look like regular modems
+       + integrated services digital network, uses digital dial-up
+       + B channels carry data and voice information at 64Kbps
+       + D channels carry setup and config info and data at 16Kbps
+       + basic rate interface (BRI): two B/one D setup
+       + BRI uses only one physical line, but each B channel sends 64Kbps
+       + ISDN connects much faster than modems
+       + monthly cost per B channel is slightly more than regular phone line
+       + has steep initial fee and need to be within about 18,000 feet of a central office
+       + primary rate interface (PRI): composed of twenty-three 64Kbps B channels and one
+         64Kbps D channel, also known as T1 lines
+       + ISDN wall socket usually looks like standard RJ-45 jack
+       + terminal adapter (TA): common interface for computer, look like regular modems
   * **dedicated**
     - DSL and cable use a modem that connects to a regular Ethernet
     - **DSL**
-      + Digital subscriber line, use a standard telephone line with special equipment on each
-      end to create always-on Internet connections at speeds greater than dial-up
-      + at low end, speeds are generally single digits
-      + xDSL technologies offer competitive broadband speeds
-      + require DSL modem and need to hook up a wireless router
-      + DSL microfilters remove the high-pitch screech of the DSL signal
-      + receiver connects to the telephone line and the computer
-      + house has to be within a short distance from a main phone service switching center,
-      around 18,000 feet
-      + asymmetric (ADSL): differ between slow upload speed (384Kbps, 768Kbps, 1Mbps) and
-      faster download speed (3-15Mbps)
-      + symmetric (SDSL): has same upload and download speeds as ADSL but cost more
+       + Digital subscriber line, use a standard telephone line with special equipment on each
+         end to create always-on Internet connections at speeds greater than dial-up
+       + at low end, speeds are generally single digits
+       + xDSL technologies offer competitive broadband speeds
+       + require DSL modem and need to hook up a wireless router
+       + DSL microfilters remove the high-pitch screech of the DSL signal
+       + receiver connects to the telephone line and the computer
+       + house has to be within a short distance from a main phone service switching center,
+         around 18,000 feet
+       + asymmetric (ADSL): differ between slow upload speed (384Kbps, 768Kbps, 1Mbps) and
+         faster download speed (3-15Mbps)
+       + symmetric (SDSL): has same upload and download speeds as ADSL but cost more
     - **cable**
-      + use regular TV cables to serve up lightning-fast speeds
-      + upload speed from 5-35+Mbps and download speed from 15-1000+Mbps
-      + start with RG-6 or RG-59 cable coming into the house, connects to a cable modem that
-      connects to a small home router or NIC via Ethernet
+       + use regular TV cables to serve up lightning-fast speeds
+       + upload speed from 5-35+Mbps and download speed from 15-1000+Mbps
+       + start with RG-6 or RG-59 cable coming into the house, connects to a cable modem that
+         connects to a small home router or NIC via Ethernet
     - **fiber**
-      + fiber-to-the-node (FTTN)
-      + fiber connections runs from the provider to a box somewhere in the neighborhood
-      + box connects to the home or office using normal coaxial or Ethernet cabling
-      + fiber-to-the-premises (FTTP)
-      + runs from provider straight to a home or office, using fiber the whole way
+       + fiber-to-the-node (FTTN)
+         + fiber connections runs from the provider to a box somewhere in the neighborhood
+         + box connects to the home or office using normal coaxial or Ethernet cabling
+       + fiber-to-the-premises (FTTP)
+         + runs from provider straight to a home or office, using fiber the whole way
   * **wireless**
     - most open hotspots do not provide encryption
     - **line-of-sight wireless**: up to eight miles or more, can use 2.4GHz, 5GHz or 24GHz
     - **cellular**
-      + either wirelessly as mobile hotspot or directly using USB
-      + most carriers charge extra to enable tethering
-      + 1G, 2G, 2.5G (not 2G but also not quite 3G), 3G, 4G, 5G, just for marketing terms
-      + 1G data services was analog and not at all designed to carry packetized data until
-      GSM (Global System for Mobile Communications), CDMA (code division multiple access)
-      + GSM evolved into GPRS and EDGE (2.5G), CDMA introduced EV-DO (3G)
-      + Long Term Evolution (LTE): rolled out in early 2010s and now accepted as true 4G
-      + wireless wide area network (WWAN) works similar to wireless LAN (WLAN) but connects
-      multiple networks
-      + 5G started development push in 2018
+       + either wirelessly as mobile hotspot or directly using USB
+       + most carriers charge extra to enable tethering
+       + 1G, 2G, 2.5G (not 2G but also not quite 3G), 3G, 4G, 5G, just for marketing terms
+       + 1G data services was analog and not at all designed to carry packetized data until
+         GSM (Global System for Mobile Communications), CDMA (code division multiple access)
+       + GSM evolved into GPRS and EDGE (2.5G), CDMA introduced EV-DO (3G)
+       + Long Term Evolution (LTE): rolled out in early 2010s and now accepted as true 4G
+       + wireless wide area network (WWAN) works similar to wireless LAN (WLAN) but connects
+         multiple networks
+       + 5G started development push in 2018
   * **satellite**
     - may use either a modem or a NIC
     - get the data beam to a satellite dish, a receiver handles the flow of data and send it
-      through an Ethernet cable to the NIC
+     through an Ethernet cable to the NIC
     - need to make sure the satellite dish points toward satellites
     - satellite modem has an RJ-45 connection
     - has upfront cost of the dish and installation, distance create a satellite latency
@@ -4047,11 +4047,11 @@ proxy server
   - LDAP                   Querying directories                    TCP           389
   - SNMP                   Remote management of network devices    UDP           161, 162
   - SMB                    Windows naming/folder sharing, CIFS     TCP           445
-    UDP           137, 138, 139
+                                                                   UDP           137, 138, 139
   - AFP                    macOS file services                     TCP           548
   - SLP                    Services discovery protocol             TCP/UDP       427
   - NetBIOS/NetBT          NetBIOS over TCP/IP                     UDP           137, 138
-    TCP           137, 139
+                                                                   TCP           137, 139
 
 FTP (file transfer protocol)
 ----------------------------
@@ -4111,7 +4111,7 @@ VPN (virtual private network)
   * **PPTP (point-to-point tunneling protocol)**
     - advanced version of PPP, PPTP endpoints are on the client
     - Routing and Remote Access Service (RRAS): special remote access server program from
-      Microsoft
+     Microsoft
 
 File Sharing
 ------------
@@ -4119,7 +4119,7 @@ File Sharing
   * **BitTorrent**
     - peer-to-peer file sharing program
     - each computer that downloads a portion of shared resource will by default also share
-      that portion with everyone else trying to download the resource
+     that portion with everyone else trying to download the resource
 
 LDAP
 ----
@@ -4183,7 +4183,7 @@ benefits
     - complex desktop PCs can be replaced with simple but durable thin clients
   * **System management and security**
     - can setup new systems quickly with specific virtual machine with all of the software
-      needed installed
+     needed installed
     - host machine, hypervisor and any other VMs it runs are unaffected and uninfected
     - network VMs have security requirements similar to a physical system
   * **Research**
@@ -4213,7 +4213,7 @@ Hypervisor
     - callded Type-2 hypervisor (Type-1: applications such as VMware Workstation)
     - ESX: introduced by VMware in 2001
     - ESXi: successor of ESX, free hypervisor powerful enough to replace the hose OS,
-      everything is done through a Web interface
+     everything is done through a Web interface
   * a host running its hypervisor from flash memory can dedicate all of its available disk
     space to VM storage
 
@@ -4270,21 +4270,21 @@ Cloud
   * service is the key to understanding the cloud
   * **IaaS (Infrastructure as a Service)**
     - providers use virtualization to minimize idle hardware, protect against data loss and
-      donwtime, and respond to spikes in demand
+     donwtime, and respond to spikes in demand
     - no longer need to purchase expensive, heavy hardware
     - not responsible for the hardware, but still for configuring and maintaining the OS and
-      software of any VMs created
+     software of any VMs created
     - have flexibility to tune it for needs, but also requires knowledge of the underlying
-      OS and time to manage
+     OS and time to manage
   * **PaaS (Platform as a Service)**
     - providers gives programmers all the tools they need to deploy, administer and maintain
-      a Web app
+     a Web app
     - infrastructure underneath is largely invisible to the developer
     - provider is aware of their infrastructure but the developer cannot control it directly
-      and doesn't need to think about its complexity
+     and doesn't need to think about its complexity
     - just a place to deploy and run applications
     - eg. Heroku, one of the earliest PaaS providers, creates a simple interface on top of
-      the IaaS offerings of AWS
+     the IaaS offerings of AWS
   * **SaaS (Software as a Service)**
     - best examples are the Web applications
     - users of the Web apps don't own the software, no installation media or can download
@@ -4294,10 +4294,10 @@ Cloud
   * in cloud computing, there are trade-offs between cost, control, customization and privacy
   * **Public Cloud**
     - software, platforms, and infrastructure delivered through networks that the general
-      public can use
+     public can use
   * **Private Cloud**
-    - internal cloud that have some of the flexibility of the cloud and complete ownership of
-      the data
+    -internal cloud that have some of the flexibility of the cloud and complete ownership of
+     the data
     - can also contract a thrid party to maintain or host it
   * **Community Cloud**
     - more like a private cloud paid for and used by more than one organization
@@ -4305,7 +4305,7 @@ Cloud
   * **Hybrid Cloud**
     - not all data is crucial and not every document is a secret
     - connects some combination of public, private and community clouds, allowing
-      communication between them
+     communication between them
     - cloud bursting: an app growing into a public cloud instead of grinding to a halt
     - can also integrate services across different types of cloud
   * features
@@ -4395,11 +4395,11 @@ Low-Power Modes
     - system and all components, except real-time clock (RTC), are off
   * Soft power-off mode
     - system is mostly off except for components necessary for keyboard, LAN, or USB devices
-      to wake the system
+     to wake the system
   * sleep or standby mode
     - normal sleep mode: can wake quickly, also called suspend to RAM
     - hibernate: deeper sleep mode, wake more slowly, also called suspend to disk, saves more
-      power and won't lose its place if the device loses power
+     power and won't lose its place if the device loses power
 
 Power options
 -------------
@@ -4464,7 +4464,7 @@ Modern smartphone
     - well-standardized application programming interface (API)
     - consolidation of celluar data to the device, enable any app to exchange data over Internet
     - synchronization and distribution tools that enable users to install new apps and sync or
-      backup data
+     backup data
   * infrastructure and technologies that connect smartphones with a mesh of networked data and
     services must be fast, robust and secure
   * typically have no user-replaceable or field-replaceable components
@@ -4483,15 +4483,15 @@ Purpose-built mobile devices
     - limited hardware, pairs with a host device
     - not designed to replace smartphone but to augment by handling some of simpler functions
     - smart watches: minimizes the effort of frequent smartphone tasks such as notifications,
-      time, messages, weather, controlling music, fitness tracking
+     time, messages, weather, controlling music, fitness tracking
     - fitness monitors: count steps using accelerometers, register heart rate through sensors,
-      use GPS network to track exercise (comes in fobs that clip to the body and wristbands)
+     use GPS network to track exercise (comes in fobs that clip to the body and wristbands)
   * **VR/AR headsets**
     - augmented reality: additional elements added to what user can see or hear, does not
-      immerse in something artificial but can add details to physical input devices
-      Google Glass, one of the first but some public placesbanned the use of it
+     immerse in something artificial but can add details to physical input devices
+     Google Glass, one of the first but some public placesbanned the use of it
     - new devices focus more on specific hobbies or skill groups such as enabling cyclists to
-      track speed, pedaling cadence, heart rate , distance traveled, calories burned, elevation
+     track speed, pedaling cadence, heart rate , distance traveled, calories burned, elevation
 
 Screen technologies
 -------------------
@@ -4543,14 +4543,14 @@ Radio firmware
 --------------
   * **Preferred Roaming List (PRL) updates**
     - priority-ordered list of the other carrier networks and frequencies it should search
-      for when the phone can't locate its home carrier's network
+     for when the phone can't locate its home carrier's network
     - also called baseband updates or over-the-air updates through firmware updates
   * **Product Release Instrucion (PRI) updates**
     - modify a host of complex CDMA device settings
   * **IMEI**
     - International Mobile Equipment Identity
     - 15-digit number used to uniquely identify a mobile device and to block that device from
-      accessing the carrier's network
+     accessing the carrier's network
     - use GSM (global system for mobile communications)
   * **ICCID**
     - Integrated Circuit Card Identifier identifies a subscriber identity module (SIM)
@@ -4561,8 +4561,8 @@ Radio firmware
     - not normally accessible from the phone
   * MDM software
     - mobile device management collects the identifiers along with other device info  (such
-      as MAC address or phone number) during the provisioning process and stores them in device
-      inventory
+     as MAC address or phone number) during the provisioning process and stores them in device
+     inventory
 
 VPN
 ---
@@ -4614,7 +4614,7 @@ Synchronization methods
       partially synced
     - could result in incompletely downloaded e-mail or duplicate
     - authentication issues, OS version issues, incorrect config settings, remote end of the
-      connection problem or multiple sources trying to sync the same data can cause issues
+     connection problem or multiple sources trying to sync the same data can cause issues
 * Lightning connector
   * an 8pin connector, replaced the older 30pin dock connector on iPhones and iPads
   * licensed to toher manufacturers through the made for iPhone (MFi) program
@@ -4751,7 +4751,7 @@ BYOD vs Corporate-owned devices
   * others allow the use of personal devices to save money
   * how much control the corporation has versus the individual
     - if corporate data is stored on the device, the organization should have some degree of
-      control over it
+     control over it
     - if the device also belongs to the employee, then the employee should have some control
   * who pays for the device and its use
     - best solved via formal policy and procedures
@@ -4759,7 +4759,7 @@ BYOD vs Corporate-owned devices
     - can the organization see private data or remotely access user personal device
   * **MDM (mobile device management) policies**
     - often combine a specialized app on the device and specialized infrastructure to deal
-      with the devices
+     with the devices
     - infrom corporate versus end-user device configuration options
     - MDM policies are a big deal at the big organization level
 
@@ -4814,10 +4814,10 @@ Unintended connections
 ----------------------
   * **tower spoofing**
     - setting up equipment to spoof a carrier's tower and infrastructure and
-      cause a cellular device to sue it instead of the normal tower equipment
+     cause a cellular device to sue it instead of the normal tower equipment
     - can eaves drop on conversations, even encrypted
     - can fool the device into turning off encryption completely and sophisticated attacks can
-      even install malware
+     even install malware
     - Stingray: device to intercept a suspect's cell traffic using tower spoofing
     - Dirtbox: aircraft-mounted version of Stingray
   * geofencing: tacking when the user enter or exit a predefined area
@@ -4840,8 +4840,8 @@ Impact printers
   * POS (point of sale) machines use special impact paper that can print receipts in duplicate,
     triplicate or more
   * **dot-matrix printers**
-    - large installed base in business, can be used for multipart forms as they actually strike
-      the paper
+    -large installed base in business, can be used for multipart forms as they actually strike
+     the paper
     - printwires: a grid or matrix of tiny pins to strike an inked printer ribbon on paper
     - printhead: the case that holds the printwires
     - either 9 or 24 pins
@@ -4882,7 +4882,7 @@ Thermal printers
   * many retail businesses still use it as receipt printer
   * thermal wax printers
     - work similary to dye-sublimation printers but instead of using rolls of dyed-embedded
-      film, the film is coated with colored wax
+     film, the film is coated with colored wax
     - don't require special papers
     - output not quite good
     - also need to care for the wax ribbon
@@ -4905,12 +4905,12 @@ Laser printers
   * **primary corona/charge roller**
     - located close to the photosensitive drum, never touches the drum
     - when charged with high voltage, and electric field (corona) forms, enabling voltage to
-      pass to the drum and charge the photosensitive particles
+     pass to the drum and charge the photosensitive particles
     - uniform negative voltage of between ~600 and ~1000 volts
   * **laser**
     - acts as the writing mecahnism
     - when particles on the drum are struck by the laser, they are discharged and left with a
-      ~100volt negative charge
+     ~100volt negative charge
     - wirtes a positive image to the drum
   * **toner**
     - fine powder made up of plastic particles bonded to pigment particles
@@ -4919,7 +4919,7 @@ Laser printers
     - black toner is usually carbon mixed into polyester resin
   * **transfer coronoa/transfer roller**
     - in old printers, a thin wire applied a positive charge to the paper, drawing the
-      negatively charged toner particles onto the paper
+     negatively charged toner particles onto the paper
     - newer printers use transfer roller that draws the toner onto the paper
     - static charge eliminator: removes the charge from the paper to prevent the paper from
       wrapping around the drum
@@ -4930,7 +4930,7 @@ Laser printers
     - close to the bottom of the toner cartridge and usually has two rollers to fuse the toner
     - pressure roller: presse against the bottom of the page
     - heated roller: presse down on the top of the page, melting the toner into the paper, has
-      a nonstick coating such as Teflon to prevent the toner from sticking
+     a nonstick coating such as Teflon to prevent the toner from sticking
   * **turning gears**
     - *pickup roller* grab the paper and pass over to the *separation pad*
     - photosensitive roller is turned and the laser, or a mirror is moved back and forth
@@ -4951,7 +4951,7 @@ Laser printers
   * **raster images**
     - a pattern of dots of the page, representing what the final product should look like
     - printer has to paint the entire surface of photosensitive drum before it can begin to
-      transfer the image to paper
+     transfer the image to paper
     - raster image processor (RIP): translate the raster image into commands to the laser
     - inkjet printer also has a RIP but it's part of the driver instead of hardware
     - RIP needs memory to store the data that it must process
@@ -4959,12 +4959,12 @@ Laser printers
   * **resolution**
     - 2400x600 dpi, 1200x1200 dpi
     - first number, horizontal resolution, is determined by how fine a focus can be achieved
-      by the laser
+     by the laser
     - second number is determined by the smallest increment by which the drum can be turned
     - laser printers produce better quality than dot-matrix printers because of resolution
-      enhancement technology (RET)
+     enhancement technology (RET)
     - RET enables the printer to insert smaller dots among the characters, smoothing out the
-      jagged curves that are typical of printers that do not use RET
+     jagged curves that are typical of printers that do not use RET
     - RET enables laser printers to output high-quality print jobs but also requires RAM
     - disabling RET will sometimes free up enough memory to complete the print job
   * most models send each page through four different passes, adding one color at each pass
@@ -5017,7 +5017,7 @@ Virtual printers
   * print to PDF, print to Image
   * cloud and remote printing
     - sends the document over the Internet to a cloud server which ends up routing it to a
-      real printer
+     real printer
     - eg. Google Cloud Print
 
 Printer Languages
@@ -5038,12 +5038,12 @@ Printer Languages
     - commands must be supported by each individual printer model
   * **Windows GDI & XPS**
     - **Graphical Device Interface**
-      + component of the OS, uses the CPU rather than the printer
-      + processes the print job and sends bitmapped images of each page to the printer
+       + component of the OS, uses the CPU rather than the printer
+       + processes the print job and sends bitmapped images of each page to the printer
     - **XML Paper Specification**
-      + improvements over GDI, including enhanced color management
-      + requires a drive that supports XPS
-      + some printers natively support XPS
+       + improvements over GDI, including enhanced color management
+       + requires a drive that supports XPS
+       + some printers natively support XPS
 
 Scanners
 --------
@@ -5059,7 +5059,7 @@ Scanners
     - determines color, shade, hue
     - 24bit: can save up to 256 shades, total of 2^24 color variations
     - 48bit: up to 65536 shades per subpixel, total of 2^48 color variations, twice the size
-      of 24bit scans
+     of 24bit scans
   * **grayscale depth**
     - defines how many shades of gray the scanner can save per pixel
     - important if working with bnw images
@@ -5175,18 +5175,18 @@ Social engineering
     - use impersonation, tailgating is common form of infiltration
     - mantrap: facilities often install at the entrance to sensitive areas
     - a small room with a set of two doors, one to the outside, unsecured area and one to the
-      inner, secure area
+     inner, secure area
     - outdoor must be closed before the inner door can be opened
     - often controlled by a security who keeps an entry control roster, a document which keeps
-      record of all comings and goinds from the building
+     record of all comings and goinds from the building
   * **Telephone scams**
     - most common attack
   * **Phising**
     - act of trying to get people to give their user names, passwords, or other security info
-      by pretending to be someone else electronically
+     by pretending to be someone else electronically
     - most common form done today
     - spear phising: targeted attacks, the bait can be carefully tailored using details from
-      the target's life
+     the target's life
 
 Denial of Service
 -----------------
@@ -5215,7 +5215,7 @@ Physical theft
 
 Malware
 -------
-  * networks are the fastes and most efficient vehicles for transferring computer viruses
+  *  networks are the fastes and most efficient vehicles for transferring computer viruses
     among systems
   * **Virus**
     - program that replicate and activate
@@ -5257,9 +5257,9 @@ Malware
     - MAC address, IP address, e-mail address, web address, user names
   * **man-in-the-middle**
     - in MITM attack, attacker taps into communications between two systems, covertly
-      intercepting traffic thought to be only between those systems
+     intercepting traffic thought to be only between those systems
     - would be a person using software on a wireless network to make all clients think his
-      laptop is a WAP
+     laptop is a WAP
   * **session hijacking**
     - tries to intercept a valid computer session to get authentication info
     - only tries to grab authentication info, not listening in like MITM attack
@@ -5273,16 +5273,16 @@ Malware
     - hash tables: pre-computed large lookup tables of passwords
     - hash tables for passwords more than a few characters long use tons of storage space
     - rainbow tables: save space, use complicated math to condense dictionary tables with
-      hashed entries, binary files, not text files
+     hashed entries, binary files, not text files
     - rainbow tables are used to reverse password hashes, only a real threat to older/legacy
-      systems and useless for reversing properly salted hashes
+     systems and useless for reversing properly salted hashes
   * some pop-up browser windows are designed to mimic similar pop-up alerts from OS
   * drive-by downloads: unwanted, unknown or unplanned file downloads
   * **spams**
     - unsolicited e-mail, accounts for a huge percentage of traffic on the Internet
     - most e-mail programs can block from specific people, can block by subject or keywords
     - e-mail is still common source of viruses and opening infected one is a common way to get
-      infected
+     infected
   * malware's biggest strength is its flexibility, it can look like anything
   * malware doesn't always cause system crashes, some tries to rename system files, change file
     permissions, or hide files completely
@@ -5296,20 +5296,20 @@ Malware
     - only way to permanently protect is to disconnect from the Internet
     - keep systems under control patched and up to date through proper patch management
     - secure DNS can describe software or a remote DNS provider that implements additional
-      filtering to block devices from visiting all kinds of malicious sites
+     filtering to block devices from visiting all kinds of malicious sites
     - all antivirus programs include terminate-and-stay-resident programs (TSRs) that run
-      every time the PC is booted
+     every time the PC is booted
   * **recovery**
     - identify and research malware symptons
     - quarantine the infected systems
-      + PacketFence: auto monitors network traffic and can cut a machine off the network if
-      it starts sending suspicious packets
+       + PacketFence: auto monitors network traffic and can cut a machine off the network if
+         it starts sending suspicious packets
     - disable system restore (in Windows)
-      + not to let the virus to be included in any saved restore points
+       + not to let the virus to be included in any saved restore points
     - remediate the infected systems, update the anti-malware software, scan and use removal
-      techniques (safe mode, preinstallation environment)
-      + get to safe mode and run anti-malware software
-      + replace corrupted Windows Registry files or even startup files
+     techniques (safe mode, preinstallation environment)
+       + get to safe mode and run anti-malware software
+       + replace corrupted Windows Registry files or even startup files
     - schedule scans and run updates
     - enable system restore and create a restore point (in Windows)
     - educate the end user
@@ -5317,49 +5317,49 @@ Malware
     - work in an active seek-and-destroy mode and in a passive sentry mode
     - scans the computer's boot sector and files for viruses
     - operate as virus shields that passively monitor a computer's activity, checking for
-      viruses only when certain events occur
+     viruses only when certain events occur
     - detect boot sector viruses by comparing the drive's boot sector to a standard one as
-      most boot sectors are basically the same
+     most boot sectors are basically the same
     - executable viruses are more difficult to find because they can be on any file in drive
     - signature: code pattern of a known virus
     - the program compares an executable file to its library of signatures
     - definition file: list of virus signatures the program can recognize
   * **Polymorphic/Polymorphs**
     - attempts to change its signature to prevent detection by antivirus programs, usually by
-      continually scrambling a bit of useless code
+     continually scrambling a bit of useless code
     - scrambling code itself can be identified and used as the signature
     - to combat unknown ploymorphs, have the antivirus program create a checksum on every file
-      in the drive
+     in the drive
     - checksum: a number generated by the software based on the contents of the file rather
-      than the name, date or size
+     than the name, date or size
     - every time a program is run, the antivirus program calculates a new checksum and
-      compares it with earlier calculation
+     compares it with earlier calculation
   * **Stealth**
     - more of concept that an actual virus function
     - more stealth virus programs are boot sector viruses that use varous methods to hide
   * **Firewalls**
     - devices or software that protect an internal network from unauthorized access to and
-      from the Internet
+     from the Internet
     - use a number of methods to protect networks, such as hiding IP and blocking TCP/IP ports
     - hardware firewalls, often built into routers, and software firewalls
     - both types can be run at the same time
     - hardware firewall protect a LAN from outside threats by filtering the packets before
-      they reach internal machines, use Stateful Packet Inspection (SPI) to inspect each
-      incoming packet individually
+     they reach internal machines, use Stateful Packet Inspection (SPI) to inspect each
+     incoming packet individually
     - SPI also blocks any incoming traffic that isn't in response to outgoing traffic
     - Port forwarding enables to open a port in the firewall and direct incoming traffic on
-      that port to a specific IP address on LAN
+     that port to a specific IP address on LAN
     - Port triggering enables to open an incoming connection to one computer automatically
-      based on a specific outgoing connection
+     based on a specific outgoing connection
     - trigger port: outgoing connection, destination port: incoming connection
     - demilitarized zone (DMZ) puts systems with specified IP outside the protection of the
-      firewall, opening all ports and enabling all incoming traffics
+     firewall, opening all ports and enabling all incoming traffics
     - any PC inside the DMZ will be completely exposed to outside attacks
     - software firewall exceptions: choosing which programs and services can pass through
     - most programs installed auto add themselves to exceptions list
     - Windows network types: Domain, Private, Guest or Public
     - even with Network Discovery activated, several firewall settings can overrule certain
-      connections
+     connections
     - do nothing to stop interceptor hackers who monitor traffic on the public Internet
   * **Intrusion detection system (IDS)**
     - Internet app that inspects packes, looking for active intrusions
@@ -5375,7 +5375,7 @@ Malware
     - can block incoming packets on-the-fly based on IP, port number or app type
   * **Unified threat management (UTM)**
     - takes the traditional firewall and packaes it with many other security services such as
-      IPS, VPN, load balancing, antivirus
+     IPS, VPN, load balancing, antivirus
     - helps build robust security deep into the network, protecting the data
 
 Environmental threats
@@ -5393,20 +5393,20 @@ Access control
   * physical security: limit access to physical hardware
   * **authentication**
     - security tokens: devices that store unique info that the user carries on person, may be
-      digital certificates, passwords or biometric data
+     digital certificates, passwords or biometric data
     - RSA tokens: random-number generators that are used with user names and passwords to
-      ensure extra security
+     ensure extra security
     - most security hardware tokens come in the form of key fobs
   * **users and groups**
     - access control list (ACL): only extends to drives/cards formatted with modern file
-      systems such as NTFS, HFS+, ext3/4
+     systems such as NTFS, HFS+, ext3/4
     - accounts should have permission to access only the resources they need
     - in all OSs, permissions of the groups are combined into the effective permissions the
-      user has to access a resource
+     user has to access a resource
     - watch out for default user accounts and groups as they can become backdoors
     - always make sure the Guest account is disabled
     - never use default groups (Everyone, Guest, Users) unless intned to permit all to access
-      a resource
+     a resource
   * **security policies**
     - policies as permissions for activities
     - usually applied to a user account, a computer or a group
@@ -5414,16 +5414,16 @@ Access control
     - local policies work great for individual systems
     - set up to features of domain-based Windows Active Directory for large systems
     - use organizational units (OUs) that organize users and devices logically into a
-      folder-like hierarchy
+     folder-like hierarchy
     - group policy changes may not immediately apply to all systems
     - Windows wil fetch group policy when the system boots or someone logs in
     - refresh the policy from time to time while running
     - run "gpupdate /force" from cmd to update immediately
     - group policy can set default wallpaper for every PC, make certain tools inaccessible,
-      control access to the Internet, redirect home folders, run scripts, deploy software
+     control access to the Internet, redirect home folders, run scripts, deploy software
     - common policies on Windows: prevent registry edits, prevent access to the command
-      prompt, log on locally, shut down system, minimum password length, account lockout
-      threshold, disable windows installer, printer browsing
+     prompt, log on locally, shut down system, minimum password length, account lockout
+     threshold, disable windows installer, printer browsing
 
 Data classification & compliance
 --------------------------------
@@ -5457,7 +5457,7 @@ Incident Response
     - involves use of documentation changes
     - provides a record of work accomplished
     - provides a piece of info that, when combined with others, reveals a pattern or bigger
-      problems
+     problems
   * Acceptable Use Policy (AUP): defines what actions employees may or may not perfrom on
     company equipment
   * chain of custody: documented history of who has been in possession of the system, tracking
@@ -5525,7 +5525,7 @@ Company policies
   * **acceptable use policies**
     - AUP describe what employees can and cannot do with company property
     - often very detailed and specific documents that employees must agree to and sign as a
-      step in the employment process
+     step in the employment process
   * **password policies**
     - how long and complex passwords should be
     - how to compose passwords, when to use multifactor authentication
@@ -5538,9 +5538,9 @@ Inventory management
     - read-only
   * **asset tags**
     - can use the radio frequency identification (RFID) wireless networking protocol to keep
-      track of inventory
+     track of inventory
     - most RFID tags are passive, the tag receives all the power it needs fron the scanner's
-      signal
+     signal
     - active RFID uses a battery or external power source to send out and receive signals
     - info stored in an RFID tag can be updated
 
@@ -5561,7 +5561,7 @@ Change management process
     - end-user acceptance is vital for successful change
   * create a dedicated team to manage the change
     - change board consists of techs and representatives from management, IT security and
-      administration who meet on regular basis
+     administration who meet on regular basis
   * have a backout plan if change fails
     - defines the steps needed to return the infrastructure to its pre-change environment
   * document everything thoroughly
@@ -5586,7 +5586,7 @@ Backup options
   * **file level**
     - simple way to make sure important files and directories get backed up
     - to backup an installed app with file-level backup, need to know location of the
-      application files, Registry settings, temp file locations, startup files, and configs
+     application files, Registry settings, temp file locations, startup files, and configs
   * **image level**
     - backup a complete volume including the OS, boot files, all installed apps and all data
     - can restore image to a blank drive
@@ -5675,12 +5675,12 @@ Layer 2 (DataLink Layer)
     * without knowing the MAC address to begin with, the requesting computer will us an IP to
       pick the target computer out of the crowd
     * sending and receiving jobs NIC performs are broken down into **two jobs**
-        1. Logical Link Control (LLC)
-        + talks to the system's operating system, usually via device drivers
-        + handles multiple network protocols and provides flow control
-        2. MAC
-        + creates and address the frame
-        + it's sublayer adds or checks the FCS
+      1. Logical Link Control (LLC)
+           + talks to the system's operating system, usually via device drivers
+           + handles multiple network protocols and provides flow control
+      2. MAC
+           + creates and address the frame
+           + it's sublayer adds or checks the FCS
     * operates at both Layer 2 and Layer 1
   * transmit data into chunks called <a id="frame"></a>**frames**
     * encapsulates, puts a wrapper around, information and data for easier data transmission
@@ -5710,16 +5710,16 @@ Layer 3 (Network Layer)
 -----------------------
   * to move past the physical [MAC](#mac) addresses and start using logical addressing require
     a **network protocol**
-      has to create unique IDs for each system and a set of communication rules
+     has to create unique IDs for each system and a set of communication rules
   * *protocol suite*, **TCP/IP** (Transmission Control Protocol/Internet Protocol), is several
     network protocols designed to work together
     * **IP** is the primary logical addressing protocol for TCP/IP
       - makes sure that a piece of data gets to where it needs to go on the network
       - by giving each device a unique numeric id called IP address (logical address)
-        + IP uses dotted decimal notation based on four 8-bit numbers
-        + each 8-bit number ranges from 0 to 255
-        + no two systems on the same network share the same IP address
-        + routers use IP address, not the MAC address, to forward data
+           + IP uses dotted decimal notation based on four 8-bit numbers
+           + each 8-bit number ranges from 0 to 255
+           + no two systems on the same network share the same IP address
+           + routers use IP address, not the MAC address, to forward data
     * in TCP/IP, each system has two unique IDs, MAC address and IP address
   * containers called <a id="packet"></a>**packets** get created and addressed
     * PDU for Layer 3
@@ -5731,7 +5731,7 @@ Layer 3 (Network Layer)
 Layer 4 (Transport Layer)
 -------------------------
   * sending system does the **segmentation**
-      when the server receives a request for data, it chop the data into chunks to fit into a
+     when the server receives a request for data, it chop the data into chunks to fit into a
       [packet](#packet) (eventually into NIC's frame) and hand to the NIC for sending
   * receiving system does the **reassembly**
   * transport protocol breaks the data into segments and gives each segment sequence number
@@ -5757,7 +5757,7 @@ Layer 4 (Transport Layer)
 Layer 5 (Session Layer)
 -----------------------
   * handles all the sessions for a system
-      initiates sessions, accepts incoming sessions, and opens and closes existing sessions
+     initiates sessions, accepts incoming sessions, and opens and closes existing sessions
   * many OS represent a session using the combination of IP address and [port](#port)
     numbers for both sides of a TCP or [UDP](#udp) communication
 
@@ -5766,7 +5766,7 @@ Layer 6 (Presentation Layer)
   * translates data from lower layers into a format usable by the
     [Application layer](#layer-7-application-layer) and vice versa
   * a number of protocols function on more than one OSI layer and can include Layer 6
-      encryption protocol used in e-commerce, Transport Layer Security (**TLS**) seems to
+     encryption protocol used in e-commerce, Transport Layer Security (**TLS**) seems to
       initiate at [Layer 5](#layer-5-session-layer) and encrypt and decrypt at Layer 6
 
 Layer 7 (Application Layer)
@@ -5774,7 +5774,7 @@ Layer 7 (Application Layer)
   * doesn't refer to the applications themselves but to the code built into all operating
     systems that enables network-aware applications
   * **Application Programming Interfaces (APIs)** can be used to make programs network-aware
-      provides a standard way for programmers to enhance or extend application's capabilities
+     provides a standard way for programmers to enhance or extend application's capabilities
 * *encapsulation* (includes all the steps from Layer 7 to 2) encompasses the entire process
   of preparing data to go onto a network and reverse process is *decapsulation*
 * wireless access point (WAP) operate at Layer 1
@@ -5836,48 +5836,48 @@ Cabling and Connectors
   1. **Copper**
       - most common form, two primary types: *coaxial* and *twisted pair*
       - **Coaxial** (coax for short)
-        + contains central copper conductor wire surrounded by an insulating material,
-        which, in turn, is surrounded by a braided metal shield
-        + shield data transmissions from **electro magnetic interference (EMI)**
-        + when a metal wire encounters magnetic fields, electrical current is generated
-        along the wire
-        + can shut down a network because it is easily misinterpreted as a signal by
-        devices like NICs
-        + old ones use special bayonet-style connectors called **BNC connectors**
-        + British Naval Connector or Bayonet Neill-Concelman
-        + today primarily same type used to connect televisions to cable boxes or to
-        satellite receivers and use **F connectors**
-        + all coax cables have a *Radio Guide (RG) rating*
-        + only important measure of coax cabling is its **Ohm rating**
-        + describes the impedance, which describes a set of characteristics that define
-        how much a cable resists the flow of electricity
-        + cable modems connect using one of two coaxial cable types: *RG-59*, *RG-6* (both
-        cables are rated at 75 Ohms)
-        + can also connect two coax cables together easily using a *barrel connector*
-        + **Twinaxial** cable
-        + contains two central copper conductors wrapped around a single shield
-        + used as a substitute for short fiber connections, between equipment within rack
-        + cheaper than fiber and associated hardware
-        + also called *direct attached cable (DAC)*
-        + **Twisted Pair**
-        + each pair works as a team either transmitting or receiving data
-        + reduces a specific type of interference called *crosstalk*
-        + the more twists per foot, the less crosstalk
-        + **Shielded twisted pair (STP)**
-        + consists twisted pairs of wires surrounded by shielding to protect from EMI
-        + six types differentiated by which part gets shielding, *STP Standard*
-        + should use rather than UTP in high-EMI environments
-        + **Unshielded twisted pair (UTP)**<a id="utp"></a>
-        + consists twisted pairs of wires surrounded by plastic jacket
-        + does not provide any protection from EMI
-        + most cables come with stranded Kevlar fibers to give the cable added strength
+         + contains central copper conductor wire surrounded by an insulating material,
+           which, in turn, is surrounded by a braided metal shield
+         + shield data transmissions from **electro magnetic interference (EMI)**
+           + when a metal wire encounters magnetic fields, electrical current is generated
+                 along the wire
+           + can shut down a network because it is easily misinterpreted as a signal by
+                 devices like NICs
+         + old ones use special bayonet-style connectors called **BNC connectors**
+           + British Naval Connector or Bayonet Neill-Concelman
+         + today primarily same type used to connect televisions to cable boxes or to
+               satellite receivers and use **F connectors**
+         + all coax cables have a *Radio Guide (RG) rating*
+         + only important measure of coax cabling is its **Ohm rating**
+           + describes the impedance, which describes a set of characteristics that define
+                 how much a cable resists the flow of electricity
+         + cable modems connect using one of two coaxial cable types: *RG-59*, *RG-6* (both
+               cables are rated at 75 Ohms)
+         + can also connect two coax cables together easily using a *barrel connector*
+         + **Twinaxial** cable
+           + contains two central copper conductors wrapped around a single shield
+           + used as a substitute for short fiber connections, between equipment within rack
+           + cheaper than fiber and associated hardware
+           + also called *direct attached cable (DAC)*
+         + **Twisted Pair**
+           + each pair works as a team either transmitting or receiving data
+           + reduces a specific type of interference called *crosstalk*
+           + the more twists per foot, the less crosstalk
+           + **Shielded twisted pair (STP)**
+             + consists twisted pairs of wires surrounded by shielding to protect from EMI
+             + six types differentiated by which part gets shielding, *STP Standard*
+             + should use rather than UTP in high-EMI environments
+           + **Unshielded twisted pair (UTP)**<a id="utp"></a>
+             + consists twisted pairs of wires surrounded by plastic jacket
+             + does not provide any protection from EMI
+             + most cables come with stranded Kevlar fibers to give the cable added strength
   * several groups set the standard for cabling and networking
-      International Organization for Standardization (ISO), American National Standards
+     International Organization for Standardization (ISO), American National Standards
       Institute (ANSI), Telecommunications Industry Association (TIA)
   * **Category (Cat) ratings**
     - to help network installers get the right cable for right network technology
     - rated in *megahertz (MHz)*
-      Max Frequency | Max bandwidth  | Status with TIA
+     Max Frequency | Max bandwidth  | Status with TIA
     - Cat 5:  100 MHz  | 100Mbps        | No longer recognized
     - Cat 5e: 100 MHz  | 1 Gbps         | Recognized
     - Cat 6:  250 MHz  | 10 Gbps        | Recognized
@@ -5887,51 +5887,51 @@ Cabling and Connectors
   * **bandwidth**
     - maximum amount of data that goes through the cable per second
     - *bandwidth-efficient encoding scheme*
-      + squeezing more bits into the same signal as long as the cable can handle it
+       + squeezing more bits into the same signal as long as the cable can handle it
   * **Registered jack (RJ)**
     - used in old landline telephones
     - telephones used RJ-11, support up to two paris of UTP
     - current wired networks use four-pair 8 position 8 contact (8P8C) or refer to as *RJ-45*
   2. **Fiber-Optic**
       - transmits light rather than electricity, good for both high-EMI areas and
-        long-distance transmissions
+       long-distance transmissions
       - distances of up to tens of kilometers depending on the implementation
       - four components: glass fiber (the *core*), the *cladding* (part that makes light
-        reflect down the fiber), *buffer* material to give strength, the *insulating jacket*
+       reflect down the fiber), *buffer* material to give strength, the *insulating jacket*
       - manufacturers use a two-number designator to define cables according to their core
-        and cladding measurements
+       and cladding measurements
       - common sizes: 9/125 &micro;m, 50/125 &micro;m, 62.5/125 &micro;m
       - almost all network technologies that use fiber-optic cable require paris of fibers
-        for sending and receiving
+       for sending and receiving
       - manufacturers often connect two fibers to create *duplex* fiber-optic cabling
       - light can be sent as regular light or laser light
       - two types of light require different fiber-optic cables
       - color coding for various fiber types
       - **multimode fiber (MMF)**
-        + uses LEDs, standard prefix is "OM"
-        + can use a form of laser called *vertical-cavity surface-emitting laser (VCSEL)*
-        + transmit 850-nm or 1300-nm wavelengths
-        + color code: OM1 and OM2 "orange", OM3 and OM4 "sport aqua", OM5 "lime green"
+         + uses LEDs, standard prefix is "OM"
+         + can use a form of laser called *vertical-cavity surface-emitting laser (VCSEL)*
+         + transmit 850-nm or 1300-nm wavelengths
+         + color code: OM1 and OM2 "orange", OM3 and OM4 "sport aqua", OM5 "lime green"
       - **single-mode fiber (SMF)**
-        + uses lasers, standard prefix is "OS"
-        + prevents a problem unique to multimode fiber optics called *modal distortion*
-        + transmit 1310-nm or 1550-nm wavelengths
-        + color code "yellow"
+         + uses lasers, standard prefix is "OS"
+         + prevents a problem unique to multimode fiber optics called *modal distortion*
+         + transmit 1310-nm or 1550-nm wavelengths
+         + color code "yellow"
       - varous connector types, main four: **ST, SC, LC, MT-RJ**
-        + ST and SC connectors have unique ends
-        + LC and MT-RJ are always duplex
-        + no consensus about initials but,
-        + ST (bayonet-style): *straight tip* or *snap and twist*
-        + SC (push-in): *subscriber connector* or *standard connector* or *Siemon connector*
-        or *stick and click*
-        + LC (little): *local connector* or *Lucent connector* or *little connector*
+         + ST and SC connectors have unique ends
+         + LC and MT-RJ are always duplex
+         + no consensus about initials but,
+         + ST (bayonet-style): *straight tip* or *snap and twist*
+         + SC (push-in): *subscriber connector* or *standard connector* or *Siemon connector*
+           or *stick and click*
+         + LC (little): *local connector* or *Lucent connector* or *little connector*
       - **fire ratings**
-        + to reduce the risk of cables burning and creating noxious fumes and smoke
-        + most common are **poly vinyl cholride (PVC)** and **plenum**
-        + PVC ratings has no significant fire protection
-        + plenum-rated create much less smoke and fumes, but cost about three to five times
-        as much as PVC-rated
-        + third type: *riser* provides less protection than plenum
+         + to reduce the risk of cables burning and creating noxious fumes and smoke
+         + most common are **poly vinyl cholride (PVC)** and **plenum**
+         + PVC ratings has no significant fire protection
+         + plenum-rated create much less smoke and fumes, but cost about three to five times
+           as much as PVC-rated
+         + third type: *riser* provides less protection than plenum
   * IEEE 1284 committee set standards for parallel communication
   * IEEE 802 committee set standards for networking
 `back to top <#network+top>`_
@@ -5956,13 +5956,13 @@ Cabling and Connectors
     - disabled in modern full-duplex networks
     - **multiple access**: all machines have equal access to the wire
     - **collision**
-      + two machines simultaneously decided the cable is free and send a frame
-      + both node stop transmitting
-      + each generate a random number to determine how long to wait before trying again
-      + lowest number began retransmission first
+       + two machines simultaneously decided the cable is free and send a frame
+       + both node stop transmitting
+       + each generate a random number to determine how long to wait before trying again
+       + lowest number began retransmission first
     - **collision domain**
-      + a group of nodes that have the capability of sending frames at the same time as each
-      other, resulting in collisions
+       + a group of nodes that have the capability of sending frames at the same time as each
+         other, resulting in collisions
 
 Issues of frames
 ----------------
@@ -5972,9 +5972,9 @@ Issues of frames
   called a **pad**
   * **Preamble**
     - 7byte series of alternating ones and zeroes followed by a 1byte start frame
-      delimiter or an 8byte series of alternating ones and zeroes
+     delimiter or an 8byte series of alternating ones and zeroes
     - gives a receiving NIC time to realize a frame is coming and to know exactly where
-      the frame starts
+     the frame starts
 * `MAC Address`_
 
 Type
@@ -6004,26 +6004,26 @@ Early Ethernet Standards
     - 10: speed 10Mbps, BASE: signaling type baseband, T: type of cable used twisted pair
     - required the use of Cat3 or higher two-pair [UTP](#utp)
     - also introduced the **RJ-45** connector (8P8C)
-      + connects to a single wire inside the cable
-      + numbered from 1 to 8
-      + also called a *crimp*
-      + installing a crimp onto the end of UTP cable is called *crimping*
-      + tool used to secure a crimp is called a *crimper*
-      + each pair of wires consists of solid-colored and striped wire: blue/blue-white,
-      orange/orange-white, brown/brown-white, green/green-white
-      + TIA/EIA defines **termination standard** for correct crimping of four-pair UTP
-      + 568A: GW,G,OW,B,BW,O,BrW,Br <a id="568a"></a>
-      + 568B: OW,O,GW,B,BW,G,BrW,Br <a id="568b"></a>
+       + connects to a single wire inside the cable
+       + numbered from 1 to 8
+       + also called a *crimp*
+       + installing a crimp onto the end of UTP cable is called *crimping*
+       + tool used to secure a crimp is called a *crimper*
+       + each pair of wires consists of solid-colored and striped wire: blue/blue-white,
+         orange/orange-white, brown/brown-white, green/green-white
+       + TIA/EIA defines **termination standard** for correct crimping of four-pair UTP
+         + 568A: GW,G,OW,B,BW,O,BrW,Br <a id="568a"></a>
+         + 568B: OW,O,GW,B,BW,G,BrW,Br <a id="568b"></a>
     - 10BASE-T use pins 1 and 2 to send data, 3 and 6 to receive data
     - device that was connected to a hub could not send and receive simutaneously
     - **Limits**
-      + distance between hub and computer could not exceed 100m
-      + hub could not connect more than 1024 computers
+       + distance between hub and computer could not exceed 100m
+       + hub could not connect more than 1024 computers
   * **10BASE-FL**
     - maximum length up to 2km
     - better security
     - use multimode 62.5/125 &micro;m (OM1) fiber-optic cable, immune to electrical
-      interference, and employ SC or ST connector (two fiber connectors, send and receive)
+     interference, and employ SC or ST connector (two fiber connectors, send and receive)
     - hub could not connect more than 1024 computers
   * can use media converter to interconnect 10BASE-T and 10BASE-FL
 
@@ -6031,80 +6031,80 @@ Extending Ethernet Networks
 ---------------------------
   * **Issues with hubs**
     - in 10BASE-T network with hub, busy network become slow because all computers share
-      the same collision domain
+     the same collision domain
     - adding another hub enable to add more devices or connect networks using a **bridge**
-      + acts like a repeater to connect two networks
-      + filter and forward traffic between networks based on the MAC addresses
+       + acts like a repeater to connect two networks
+       + filter and forward traffic between networks based on the MAC addresses
   * **Switches**<a id="switch"></a>
     - sometimes called *Layer 2 switches*
     - effectively create point-to-point connections between two conversing computers
     - gives every converstaion between two computers full bandwidth of the network
     - when first turned on, it acts like a hub
     - as it forwards all frames, copies the source MAC addresses and creates a tables of MAC
-      addresses of connected computers called *MAC address table*
+     addresses of connected computers called *MAC address table*
     - difference with hub is in the repeating of frames during normal use
     - filter by MAC address once completed port mapping
     - each port is in its own collision domain
     - a switch can **buffer incoming frames**
-      + two nodes connected to the switch can send data at the same time and the switch will
-      hanlde it without any collision
+       + two nodes connected to the switch can send data at the same time and the switch will
+         hanlde it without any collision
     - unicast messages always go only to the intended recipient
     - sends all broadcast messages to all ports (except origin)
     - **broadcast domain**
-      + to contrast switch to the hub-based networks with their collision domains
+       + to contrast switch to the hub-based networks with their collision domains
     - a switch becomes a single point of failure if every node connects to the it
     - can connect switches via *uplink port* or *crossover cable*
-      + **Uplink Ports**
-      + enable to connect two switches using a *straight-through* cable
-      + modern switches do not have dedicated uplink port, instead auto-sense when another
-      switch is plugged in
-      + *auto-medium-dependent interface crossover (MDI-X)*
-      + **Crossover Cables**
-      + reverse the sending and receiving pairs on one end of the cable
-      + one end with [T568A](#568a) and other end with [T568B](#568b)
-      + modern switches with auto-sensing ports don't require crossover cable
-      + can use to connect two computers with no switch between
-      + answer for interconnecting ancient switches (10BASE-T/10BASE-FL)
+       + **Uplink Ports**
+         + enable to connect two switches using a *straight-through* cable
+         + modern switches do not have dedicated uplink port, instead auto-sense when another
+           switch is plugged in
+         + *auto-medium-dependent interface crossover (MDI-X)*
+       + **Crossover Cables**
+         + reverse the sending and receiving pairs on one end of the cable
+         + one end with [T568A](#568a) and other end with [T568B](#568b)
+         + modern switches with auto-sensing ports don't require crossover cable
+         + can use to connect two computers with no switch between
+         + answer for interconnecting ancient switches (10BASE-T/10BASE-FL)
     - **switching loops or bridge loops**
-      + redundant connections in a network
-      + would crash the network in early days
+       + redundant connections in a network
+       + would crash the network in early days
     - **Spanning Tree Protocol (STP)**
-      + to eliminate the problem of accidental switching loops
-      + enabled by default
+       + to eliminate the problem of accidental switching loops
+       + enabled by default
     - **Bridge Protocol Data Units (BPDUs)**
-      + used to communicate with other switches to prevent loops
-      + **Loop-free topology**
-      + established by configuring BPDUs
-      + one root switch act as center of STP and used by other switches as reference point
-      + have redundant links but certain ports will be placed in *blocking* state
-      + ports in the blocking state stil hear the configuration BPDUs
+       + used to communicate with other switches to prevent loops
+       + **Loop-free topology**
+         + established by configuring BPDUs
+         + one root switch act as center of STP and used by other switches as reference point
+         + have redundant links but certain ports will be placed in *blocking* state
+         + ports in the blocking state stil hear the configuration BPDUs
     - **Topology Change Notification (TNC) BPDU**
-      + another type of BPDU used by STP when a link or device goes down
-      + enables the switches to rework themselves around the failed interface or device
+       + another type of BPDU used by STP when a link or device goes down
+       + enables the switches to rework themselves around the failed interface or device
     - STP settings can be manually changed
     - switch port directly connected to a PC should never participate in STP, but instead
-      use a setting called **PortFast**
-      + a setting that enables the interface to come up right aways without normal latency
-      + also prevent TCN BPDUs being sent out of the switch every time a PC is on and off
-      (causes all switches to flush their source address table and relearn MAC addresses)
-      + *BPDU guard* will move a port configured with PortFast into an errdisable state
-      (erro occurred, disabled) if a BPDU is received on that port
-      + after errdisable state, requires an admin to manually bring the port back up
-      + PortFast ports should never receive a BPDU, which could start a switching loop
-      + *root guard* will move a port into root-inconsistent state
+     use a setting called **PortFast**
+       + a setting that enables the interface to come up right aways without normal latency
+       + also prevent TCN BPDUs being sent out of the switch every time a PC is on and off
+         (causes all switches to flush their source address table and relearn MAC addresses)
+       + *BPDU guard* will move a port configured with PortFast into an errdisable state
+         (erro occurred, disabled) if a BPDU is received on that port
+       + after errdisable state, requires an admin to manually bring the port back up
+       + PortFast ports should never receive a BPDU, which could start a switching loop
+       + *root guard* will move a port into root-inconsistent state
     - **Rapid Spanning Tree Protocol (RSTP)**
-      + replace SPT in 2001
-      + offers significantly faster convergence time following some kind of network change
+       + replace SPT in 2001
+       + offers significantly faster convergence time following some kind of network change
 
 Troubleshooting Switches
 ------------------------
   * two problem categories: Obvious physical damage, Dead ports
   * similar diagnostic pattern for both
-      1. recognizing a switch have problem because plugged in device can't connect to network
-      2. examine switch for obvious damage
-      3. look for link lights, try different port if no flashing
-      4. check cables (bent, broken or stepped on), replace if needed
-      5. use tried-and-true method of replacing the switch or the cable with good ones
+    1. recognizing a switch have problem because plugged in device can't connect to network
+    2. examine switch for obvious damage
+    3. look for link lights, try different port if no flashing
+    4. check cables (bent, broken or stepped on), replace if needed
+    5. use tried-and-true method of replacing the switch or the cable with good ones
 `back to top <#network+top>`_
 
 ### 4. Ethernet Standards
@@ -6160,18 +6160,18 @@ Gigabit Ethernet
   * **1000BASE-X**
     - 802.3z standard
     - **1000BASE-SX**
-      + uses multimode fiber-optic cabling, OM2 or better
-      + max cable length of 220 to 500m
-      + 850nm wavelength LED
-      + look similar to 100BASE-FX devices
-      + commonly use LC while 100BASE-FX use SC
+       + uses multimode fiber-optic cabling, OM2 or better
+       + max cable length of 220 to 500m
+       + 850nm wavelength LED
+       + look similar to 100BASE-FX devices
+       + commonly use LC while 100BASE-FX use SC
     - **1000BASE-LX**
-      + uses 1300nm lasers on single-mode cables, long distance carriers, OS1 or OS2
-      + distance up to 5km
-      + use special repeaters to increase distance to 70km
-      + some large carriers are beginning to adopt 1000BASE-LX as the Ethernet backbone
-      + connectors look like 1000BASE-SX
-      + commonly use LC and SC
+       + uses 1300nm lasers on single-mode cables, long distance carriers, OS1 or OS2
+       + distance up to 5km
+       + use special repeaters to increase distance to 70km
+       + some large carriers are beginning to adopt 1000BASE-LX as the Ethernet backbone
+       + connectors look like 1000BASE-SX
+       + commonly use LC and SC
   * ST connectors are relatively large, twist-on, requiring the installer to twist the cable
     when inserting or removing it
   * SC connectors snap in and out but large, more popular than STs
@@ -6220,27 +6220,27 @@ dedicated media converters
     - x: type of fiber and wavelength of laser signal
     - y: physical layer signaling standard (always R for LAN or W for SONET/WAN-based signaling)
     - 10GBASE-Sy
-      + uses short-wavelength (850nm) signal over multimode fiber, max fiber length
-      depend on th etype of multimode fiber used (OM1 for 33m, OM4 for 400m)
-      + 10GBASE-SR: multimode 850nm, LAN-based signaling, max signal length 33-400m
-      + 10GBASE-SW: multimode 850nm, SONET/WAN-based signaling, max signal length 33-400m
+       + uses short-wavelength (850nm) signal over multimode fiber, max fiber length
+         depend on th etype of multimode fiber used (OM1 for 33m, OM4 for 400m)
+       + 10GBASE-SR: multimode 850nm, LAN-based signaling, max signal length 33-400m
+       + 10GBASE-SW: multimode 850nm, SONET/WAN-based signaling, max signal length 33-400m
     - 10GBASE-Ly
-      + uses long-wavelength (1310nm) signal over single-mode fiber
-      + 10GABSE-LR: single-mode 1310nm, LAN, 10km, most popular and least expensive
-      + 10GBASE-LW: single-mode 1310nm, SONET/WAN, 10km
+       + uses long-wavelength (1310nm) signal over single-mode fiber
+       + 10GABSE-LR: single-mode 1310nm, LAN, 10km, most popular and least expensive
+       + 10GBASE-LW: single-mode 1310nm, SONET/WAN, 10km
     - 10GABSE-Ey
-      + uses extra-long wavelength (1550nm) signal over single-mode
-      + 10GBASE-ER: single-mode 1550nm, LAN, 40km
-      + 10GBASE-EW: single-mode 1550nm, SONET/WAN, 40km
+       + uses extra-long wavelength (1550nm) signal over single-mode
+       + 10GBASE-ER: single-mode 1550nm, LAN, 40km
+       + 10GBASE-EW: single-mode 1550nm, SONET/WAN, 40km
     - 10GBASE-L4
-      + uses four lasers at 1300nm wavelength over legacy fiber
-      + can support up to 300m on multimode cable
+       + uses four lasers at 1300nm wavelength over legacy fiber
+       + can support up to 300m on multimode cable
     - 10GABSE-LRM
-      + uses long-wavelength signal of 10GBASE-LR but over legacy multimode fiber
+       + uses long-wavelength signal of 10GBASE-LR but over legacy multimode fiber
     - 10GBASE-ZR
-      + not part of the IEEE standards
-      + uses 1550nm wavelength over single-mode fiber
-      + up to 80km, work with both Ethernet LAN and SONET/WAN infrastructure
+       + not part of the IEEE standards
+       + uses 1550nm wavelength over single-mode fiber
+       + up to 80km, work with both Ethernet LAN and SONET/WAN infrastructure
   * **10GBASE-T (copper based)**
     - looks and work exactly like slower versions of UTP Ethernet
     - on Cat 6 has a max length of only 55m
@@ -6265,7 +6265,7 @@ dedicated media converters
   * primarily used when lots of bandwidth is needed (connecting servers, switches, routers)
   * **40GbE**
     - common 40GbE runs on OM3 or better multimode fiber, uses laser light and various
-      four-channel connectors (QSFP+, enhanced quad small form-factor pluggable)
+     four-channel connectors (QSFP+, enhanced quad small form-factor pluggable)
     - other 40GbE run on single-mode and distances up to 10km, some run on Cat 8 UTP for 30m
   * **100GbE**
     - employ both MMF and SMF with various connectors
@@ -6358,7 +6358,7 @@ Demarc
   * NIU, NIB or NID: terms to describe devices that often mark the demarc in home or office
   * **CPE (customer-premises equipment)**
     - acts as the primary distribution tool for the building after the demarc, to which network
-      and telephone cables connect to
+     and telephone cables connect to
   * demarc extensions: any cabling that runs from the NIU to CPE
   * vertical cross-connect: main patch panel toto which switches with cabling connect to
   * MDF (main distribution frame): room that stores all demarc and LAN cross-connects
@@ -6396,7 +6396,7 @@ issues
     - long cables can degrade that it's no longer detectable
     - too much noise can degrade
     - broken or not connected in the crimp (open) wire will cause no continuity (complete
-      functioning network)
+     functioning network)
     - damaged or improperly crimped cables can cause shorts
   * **fiber-based network**
     - various imperfections in the glass fiber cause signal loss over distance
@@ -6405,13 +6405,13 @@ issues
     - dirty connector/optical cables can cause serious signal loss
     - small connector mismatch in either cladding or the core can cause loss
     - modal dispersion: wave signals traveling too far without help and causing attenuation
-      and dispersion
+     and dispersion
     - every piece of fiber has certain bend radius limitation
     - light leakage: part of signal goes out the cable
     - wavelength mismatch will stop the transmission
     - fiber-optic runs don't experience crosstalk or interference
     - OTDR (optical time-domain reflectometer): determine continuity and tell exactly how far
-      if there is a break
+     if there is a break
     - fusion splicer: enables the tech to combine two fiber-optic cables without losing quality
 * low end cable tester can only test for continuity
 * better testers can run a wire map test, which will pick up shorts, crossed wires and more
@@ -6459,7 +6459,7 @@ NICs
     - doesn't increase the speed but adds another lane of equal speed
     - use identical NICs and switches from the same companies to avoid incompatibility
     - LACP (link aggregation control protocol): controls how multiple network devices send
-      and receive data as a single connection
+     and receive data as a single connection
 * NICs and switches can have between one and four different link lights and LEDs can be any color
 * multispeed devices usually have a link light to show the speed of connection
 * activity light turns on when the card detects network traffic
@@ -6539,7 +6539,7 @@ TCP (Transmission Control Protocol)
     - Sequence number, Acknowledgment number (to keep track of various pieces of data)
     - Flags (give detailed info about the state of connection)
     - Checksum (recipient can use to check the TCP header for errors such as bits flipped or
-      lost)
+     lost)
 
 UDP (User Datagram Protocol)
 ----------------------------
@@ -6568,32 +6568,32 @@ IP addresses
   * each of 8-bit values is converted into decimal number between 0 and 255
   * no two computers on the same network may have the same IP address
   * **IP numbering system**
-      1. create network IDs
-      2. interconnect the LANs using routers and provide routers a way to use the network ID to
-      send packets
-      3. use a subnet mask to give each computer on the network to recognize a packet is for the
-      LAN or WAN
+    1. create network IDs
+    2. interconnect the LANs using routers and provide routers a way to use the network ID to
+     send packets
+    3. use a subnet mask to give each computer on the network to recognize a packet is for the
+     LAN or WAN
   * **network IDs**
     - needed by each LAN for a WAN to work
     - to differentiate LANs from one another, each computer on a single LAN must share a very
-      similar, but not identical IP address
+     similar, but not identical IP address
     - 202.120.10.x: network ID is 202.120.10.0, host ID is x
     - no individual computer can have an IP address that ends with 0 as it's reserved for
-      network IDs
+     network IDs
     - very flexible as long as no two interconnected networks share the same ID
     - enable to connect multiple LANs into a WAN
   * **interconnecting LANs**
     - every TCP/IP LAN that wants to connect to another TCP/IP LAN must have a router connection
     - **default gateway**
-      + both the router's interface on a LAN and the router itself that route traffic out to
-      other networks
-      + in the same network ID as the host
-      + most network admins give the LAN-side NIC on the default gateway the lowest or highest
-      host address in the network
-      + if network ID is 22.33.4.x, router is configured to 22.33.4.1 or 22.33.4.254
+       + both the router's interface on a LAN and the router itself that route traffic out to
+         other networks
+       + in the same network ID as the host
+       + most network admins give the LAN-side NIC on the default gateway the lowest or highest
+         host address in the network
+       + if network ID is 22.33.4.x, router is configured to 22.33.4.1 or 22.33.4.254
     - **routing table**
-      + actual instructions that tell the router what to do with incoming packets and where
-      to send them
+       + actual instructions that tell the router what to do with incoming packets and where
+         to send them
   * **subnet mask**
     - tells the sending computer whether the destination IP address is local or long distance
     - always totaling exactly 32 bits
@@ -6604,56 +6604,56 @@ IP addresses
     - Network ID     192.168.5.0     11000000.10101000.00000101.x
     - Host ID        x.x.x.23        x.x.x.00010111
     - before a computer sends out any data, it first compares its network ID to the
-      destination's network ID
+     destination's network ID
     - most people represent subnet masks using shorthand called **CIDR notation**
-      + 11111111111111111111111100000000 = /24 (24 ones)
+       + 11111111111111111111111100000000 = /24 (24 ones)
     - all computers on the same network have the same subnet mask and network ID
     - IANA (Internet Assigned Numbers Authority): track and disperse IP addresses
     - RIRs (Regional Internet Registries): parcel out IP addresses to ISPs and corporations
     - ICANNN (Internet Corporation for Assigned Names and Numbers): indirectly manages IANA
     - PTI (Public Technical Identifiers): perform IANA's techinal work
     - ways to send a packet
-      + broadcast: every computer on the LAN hears the message
-      + unicast: one computer sends a message directly to another
-      + anycast: multiple computers share a single address and routers direct messages to the
-      closest computer
-      + multicast: single computer sends a message to a group of interested computers
+       + broadcast: every computer on the LAN hears the message
+       + unicast: one computer sends a message directly to another
+       + anycast: multiple computers share a single address and routers direct messages to the
+         closest computer
+       + multicast: single computer sends a message to a group of interested computers
     - **Class IDs**
-      +           First Decimal Value     Addresses                     Host per Network ID
-      + Class A   1-126                   1.0.0.0-126.255.255.255       16,777,216
-      + Class B   128-191                 128.0.0.0-191.255.255.255     65,534
-      + Class C   192-223                 192.0.0.0-223.255.255.255     254
-      + Class D   224-239                 224.0.0.0-239.255.255.255     Multicast
-      + Class E   240-255                 240.0.0.0-255.255.255.255     Experimental
-      + multicast blocks are used for one-to-many communication such as streaming video
-      conferencing
-      + Class A: first binary octet always begins with a 0 (0xxxxxxx)
-      + Class B: first binary octet always begins with a 10 (10xxxxxx)
-      + Class C: first binary octet always begins with a 110 (110xxxxx)
-      + Class D: first binary octet always begins with a 1110 (1110xxxx)
-      + Class E: first binary octet always begins with a 1111 (1111xxxx)
-      + ip class blocks waste addresses as it had to take a single network block
+       +           First Decimal Value     Addresses                     Host per Network ID
+       + Class A   1-126                   1.0.0.0-126.255.255.255       16,777,216
+       + Class B   128-191                 128.0.0.0-191.255.255.255     65,534
+       + Class C   192-223                 192.0.0.0-223.255.255.255     254
+       + Class D   224-239                 224.0.0.0-239.255.255.255     Multicast
+       + Class E   240-255                 240.0.0.0-255.255.255.255     Experimental
+       + multicast blocks are used for one-to-many communication such as streaming video
+         conferencing
+       + Class A: first binary octet always begins with a 0 (0xxxxxxx)
+       + Class B: first binary octet always begins with a 10 (10xxxxxx)
+       + Class C: first binary octet always begins with a 110 (110xxxxx)
+       + Class D: first binary octet always begins with a 1110 (1110xxxx)
+       + Class E: first binary octet always begins with a 1111 (1111xxxx)
+       + ip class blocks waste addresses as it had to take a single network block
     - **CIDR & subnetting**
-      + foundation of CIDR is a concept called subnetting, taking single calss of IP addresses
-      and chopping it up into multiple smaller groups called subnets
-      + CIDR is also referred to as classless address
-      + CIDR makes it possible to extend the subnetting approach to the Internet as a whole
-      + subnetting enables to separate a network for security or for bandwidth control
-      + take an existing /8, /16 or /24 subnet and extend the subnet mask by replacing zeroes
-      with ones
-      + start with the given subnet mask and move it to the right until having the number of
-      subnets needed, forget the dots, cannot subnet without first converting to binary
-      + classful subnets were always /8, /16 or /24
-      + number of hosts = 2^x - 2, x = number of zeroes in the subnet mask
-      + all subnetting begins with a single network ID
-      + primary tool for subnetting is the existing subnet mask
-      + **subnetting 192.168.4.0/24**
-      1. convert to binary      11111111111111111111111100000000
-      2. move one bit to right  11111111111111111111111110000000
-      3. insert periods         11111111.11111111.11111111.10000000
-      4. convert to decimal     255.255.255.128
-      + number of subnets that can be created = 2^y, y = number of bits added to subnet mask
-      + goals of subnetting: efficiency and making multiple network IDs from a single ID
+       + foundation of CIDR is a concept called subnetting, taking single calss of IP addresses
+         and chopping it up into multiple smaller groups called subnets
+       + CIDR is also referred to as classless address
+       + CIDR makes it possible to extend the subnetting approach to the Internet as a whole
+       + subnetting enables to separate a network for security or for bandwidth control
+       + take an existing /8, /16 or /24 subnet and extend the subnet mask by replacing zeroes
+         with ones
+       + start with the given subnet mask and move it to the right until having the number of
+         subnets needed, forget the dots, cannot subnet without first converting to binary
+       + classful subnets were always /8, /16 or /24
+       + number of hosts = 2^x - 2, x = number of zeroes in the subnet mask
+       + all subnetting begins with a single network ID
+       + primary tool for subnetting is the existing subnet mask
+       + **subnetting 192.168.4.0/24**
+         1. convert to binary      11111111111111111111111100000000
+         2. move one bit to right  11111111111111111111111110000000
+         3. insert periods         11111111.11111111.11111111.10000000
+         4. convert to decimal     255.255.255.128
+       + number of subnets that can be created = 2^y, y = number of bits added to subnet mask
+       + goals of subnetting: efficiency and making multiple network IDs from a single ID
 
 Static IP addressing
 --------------------
@@ -6683,10 +6683,10 @@ Dynamic IP addressing
     - when a DHCP client boots up, it auto broadcasts a **DHCP Discovery message**
     - DHCP server hears the request and sends the DHCP client a **DHCP Offer message**
     - DHCP client sends out a **DHCP Request**, to verify the offer is still valid, DHCP request
-      is important as it tells the network that the client is accepting IP info from this and
-      only this DHCP server
+     is important as it tells the network that the client is accepting IP info from this and
+     only this DHCP server
     - DHCP server sends a **DCHP ACK (Acknowledgment)** and lists the client's MAC address as
-      well as IP info given to the DHCP client in a database
+     well as IP info given to the DHCP client in a database
   * after DORA, DHCP client gets a DHCP lease from the pool of available leases
   * DHCP lease is set for a fixed amount of time, often one to eight days
   * near the end of lease time, the DHCP client sends another DHCP Request message
@@ -6704,11 +6704,11 @@ Dynamic IP addressing
   * **DHCP relay**
     - DORA relies on broadcasting to work but all routers block broadcast traffic
     - when a client renews its DHCP lease, everything's unicast as the client already has a
-      valid IP address and knows the DHCP server's IP
+     valid IP address and knows the DHCP server's IP
     - DHCP relay enables a router to accept DHCP broadcasts from clients and use UDP forwarding
-      to send them on via unicast addresses directly to the DHCP server
+     to send them on via unicast addresses directly to the DHCP server
     - the relay device must have the IP address of the real DHCP server, also known as the IP
-      helper address or UDP helper address
+     helper address or UDP helper address
   * devices such as routers, switches, file servers, printers and cameras should never use
     dynamic IP addresses
   * set aside IP addresses for devices and subdivide the set-aside addresses into chinks for
@@ -6724,9 +6724,9 @@ Dynamic IP addressing
   * No DHCP Server
     - operating system will post some form of error
     - DHCP client will have a strange address generated by zeroconf or APIPA (Automatic Private
-      IP Addressing) in Windows
+     IP Addressing) in Windows
     - DHCP clients are designed to auto generate an APIPA address if they do not receive a
-      response to a DHCP Discover message
+     response to a DHCP Discover message
     - client only generates the last two octets of an APIPA address
     - APIPA cannot issue a default gateway
   * computer gets confused and won't grab an IP address
@@ -6735,24 +6735,24 @@ Dynamic IP addressing
     - ifconfig eth0 down, ifconfig eth0 up
   * **multiple DHCP servers**
     - bigger networks, enterprises, run more than on DHCP server and it doesn't matter which
-      server answers
+     server answers
     - network ID: 172,13.14.0
     - DHCP Server 1:Scope 172.13.14.200-172.13.14.255
     - DHCP Server 2:Scope 172.13.14.226-172.13.14.250
     - each DHCP server would still use the same subnet mask and default gateway
     - running two independent DHCP servers doubles the administrative load
     - **DHCP failover**
-      + only two DHCP servers work together to provide DHCP for the network
-      + in Windows Server 2012, DHCP failover pair consists of primary and secodary servers,
-      the pair shares a single scope, end users never notice a thing
-      + failover is quite common in large networks
+       + only two DHCP servers work together to provide DHCP for the network
+       + in Windows Server 2012, DHCP failover pair consists of primary and secodary servers,
+         the pair shares a single scope, end users never notice a thing
+       + failover is quite common in large networks
   * rogue DHCP server
     - DHCP client will accept IP info from the first DHCP server that responds
     - it's easy to add another DHCP server to network to pass out incorrect IP info to clients
     - unintentional rogue server is easy to detect
     - check for rogue DHCP server if some users can access resources and some cannot
     - malicious rogue DHCP servers can be hard to detect if they give out IP addresses in the
-      same scope as the legitimate server
+     same scope as the legitimate server
 
 Special IP addresses
 --------------------
@@ -6761,7 +6761,7 @@ Special IP addresses
     - entire 127.0.0.0/8 subnet is reserved for loopback addresses
   * private IP addresses
     - IETF set out specific ranges for networks that aren't connected to the Internet or for
-      networks that wants to hide
+     networks that wants to hide
     - all routers block private IP addresses
     - can never be used on the Internet
     - anyone can use private IP addresses but useless for those that need access to the Internet

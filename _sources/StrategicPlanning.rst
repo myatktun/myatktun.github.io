@@ -34,7 +34,7 @@ and the risk
 
 Opinion Leaders
 ---------------
-    * have influence on the customers in technology markets
+    *  have influence on the customers in technology markets
     * identify, engage and get them on the same side
     * it is worth to investigate whether it is possible to define market segments in terms of
     them
@@ -77,14 +77,14 @@ Business Goals
         - build credibility and experience, and get an understanding of how the market works
         - can start with some form of consulting business
         - lower risks, but selling consulting services to raise money for product development
-          can delay that development
+        can delay that development
     * **Higher Risk**
         - need financial resources, strong team and global market with significant potential
-          demand
+        demand
         - can make an objective to raise sums of money from venture capital and other sources
         - expecting the business to grow with speed to enable investors to realise value
-          through some form of exit, e.g. sale of shares to other business or via flotation on
-          the stock market
+        through some form of exit, e.g. sale of shares to other business or via flotation on
+        the stock market
 
 Business Models
 ---------------
@@ -94,24 +94,24 @@ Business Models
     * do not develop products and deliver consulting expertise
     * **Licensing Idea**
         - it may require to make further investment to prove that the technology works and
-          that there is a market for it
+        that there is a market for it
         - but can expect to receive a part of the value when the idea is brought to the market
-          by those who have licensed it
+        by those who have licensed it
         - need to find the right licensees, good legal advice on contracts and the protection
-          of intellectual property
+        of intellectual property
         - e.g. biotechnology companies develop potential new medicines and license them to
-          pharmaceutical companies
+        pharmaceutical companies
     * **Full Ownership**
         - own various forms of diluted ownership with co-investment by other firms and people
         - going it alone has the highest risks
         - must be fully committed, but can expect the greatest rewards if it all works out
         - fit teams who are experienced in business and have a desire to grow a large business
-          for a large return
+        for a large return
     * **Joint Ventures**
         - reduces the risks, but can be complicated to set up
         - need to find a company that is willing to co-develop the technology or the market
         - fit teams who are experienced in business and have a desire to grow a large business
-          for a large return
+        for a large return
         - e.g. shared flights in the airline industry
     * **Product Development & Sale**
         - growing a products business requires more capital than growing a services company
@@ -122,7 +122,7 @@ Business Models
         - staff numbers will need to double in order to double company revenue
     * **IP licensing**
         - very competitive and often does not appear to have more than one large player in
-          each market sector
+        each market sector
         - important to ensure to follow through with succeeding generations of IP
 
 Business Plan
@@ -132,11 +132,11 @@ Business Plan
     * **Internal Plan**
         - personal objectives, product or service to sell
         - itinerary to develop the technology, market research, recruit,and acquire other
-          resources
+        resources
         - should be reviewed continuously, and make simple budgets and cash flow forecasts
         - style and content reflect only the internal needs of the business
         - becomes more formal as the business develops, and a specific plan, based on the
-          internal plan, may be necessary
+        internal plan, may be necessary
     * important to understand that the needs of equity investors and bankers are different
     * **Plan Emphasis**
         - depends on the stage of the business
@@ -144,10 +144,10 @@ Business Plan
         - developed business: emphasise its track record
     * **External Plan**
         - company and management background, staff structure, market, production, product and
-          details of IP
+        details of IP
         - financial forecasts, competition, risk and reward for potential financiers
         - how the product will be sold, time scale and benchmarks, mainly for overcoming
-          barriers to market entry
+        barriers to market entry
         - if the plan is to raise equity, must include business's unique selling point
         - must be reviewed before going public
     * **Executive Summary**
@@ -155,7 +155,7 @@ Business Plan
         - has to attract attention and should be short, two or three pages
         - but must be sharp, bringing out the key selling points
         - write in a way that an investor with no special knowledge can quickly understand the
-          business and what is in it for him
+        business and what is in it for him
     * once potential investors form a negative perception of the business, it is often
     impossible to change it
 
@@ -220,7 +220,7 @@ Team Roles
         - also manage after-sales support
     * **Board of Directors**
         - Chair, CEO, CFO, CTO, COO, VPs of Marketing and Sales, and other non-executive
-          directors
+        directors
         - usually business or industry experts and representatives from the VC
         - each has responsibilities to the company, shareholders, creditors and employees
     * **Scientific Advisory Board**
@@ -293,10 +293,10 @@ Shareholders
         - what are the voting rights, what are the exit routes
         - what happens to shares of a deceased shareholder
         - in some where matters have reached a point that cannot move forward together, one
-          shareholder can require the others to buy him out or be bought out themselves
+        shareholder can require the others to buy him out or be bought out themselves
         - most articles restrict the freedom to transfer shares
         - e.g. the share seller must offer to the fellow shareholders at the same price
-          offered by an external purchaser, giving the opportunity to stop a third-party
-          shareholder being imposed on them
+        offered by an external purchaser, giving the opportunity to stop a third-party
+        shareholder being imposed on them
 
 `back to top <#strategic-planning>`_

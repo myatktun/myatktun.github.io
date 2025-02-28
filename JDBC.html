@@ -423,19 +423,19 @@ support multiple concurrent drivers connected to multiple heterogeneous dbs</p>
 <section id="components">
 <h3>Components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt><strong>DriverManager</strong></dt><dd><ul>
+<div><ul>
+<li><dl>
+<dt><strong>DriverManager</strong></dt><dd><ul class="simple">
 <li><p>a class that manages a list of db drivers</p></li>
-<li><p>match connection requests from application with proper db driver using communication
-subprotocol</p></li>
-<li><p>the first driver that recognizes certain subprotocol will be used for db connection</p></li>
+<li><p>match connection requests from application with proper db driver using communication</p></li>
 </ul>
+<p>subprotocol
+- the first driver that recognizes certain subprotocol will be used for db connection</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Driver</strong></dt><dd><ul>
+<dt><strong>Driver</strong></dt><dd><ul class="simple">
 <li><p>an interface that handles communications with db server</p></li>
 <li><p>DriverManager objects will be used to manage Driver objects</p></li>
 </ul>
@@ -443,7 +443,7 @@ subprotocol</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Connection</strong></dt><dd><ul>
+<dt><strong>Connection</strong></dt><dd><ul class="simple">
 <li><p>an interface with all methods for contacting a db</p></li>
 <li><p>all communication with db will be through Connection object only</p></li>
 </ul>
@@ -451,14 +451,14 @@ subprotocol</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Statement</strong></dt><dd><ul>
+<dt><strong>Statement</strong></dt><dd><ul class="simple">
 <li><p>an interface to submit SQL statements</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>ResultSet</strong></dt><dd><ul>
+<dt><strong>ResultSet</strong></dt><dd><ul class="simple">
 <li><p>object that holds data retrieved</p></li>
 <li><p>acts as an iterator to move through data</p></li>
 </ul>
@@ -466,7 +466,7 @@ subprotocol</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>SQLException</strong></dt><dd><ul>
+<dt><strong>SQLException</strong></dt><dd><ul class="simple">
 <li><p>a class that handles any errors</p></li>
 </ul>
 </dd>

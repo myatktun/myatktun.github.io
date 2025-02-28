@@ -364,32 +364,32 @@
 <section id="how-computer-operates">
 <h3>How Computer Operates<a class="headerlink" href="#how-computer-operates" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>computer contains one or more CPUs and device controllers that can execute concurrently</p></li>
 <li><p>a common bus provides access to shared memory</p></li>
 <li><p>memory controller ensure orderly access to the shared memory</p></li>
-<li><dl class="simple">
-<dt><strong>Bootstrap Program</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>Bootstrap Program</strong></dt><dd><ul class="simple">
 <li><p>initial program, firmware, that runs when a computer is powered up</p></li>
-<li><p>stored in ROM (read-only memory) or EEPROM (electrically erasable programmable
-read-only memory)</p></li>
+<li><p>stored in ROM (read-only memory) or EEPROM (electrically erasable programmable</p></li>
 </ul>
+<p>read-only memory)</p>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>Interrupt</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>Interrupt</strong></dt><dd><ul class="simple">
 <li><p>a signal sent when an event occurs</p></li>
 <li><p>hardware trigger it by sending a signal to CPU</p></li>
 <li><p>software trigger it by executing system call, also called monitor call</p></li>
-<li><p>when CPU receives an interrupt, it stops current execution and immediately transfer
-it to a fixed location</p></li>
-<li><p>interrupted execution resumes when the interrupt service routine completes</p></li>
-<li><p>interrupts must be handled quickly</p></li>
-<li><p>interrupt vector: a table of pointers to interrupt routines, there are only a number
-of predefined interrupts</p></li>
-<li><p>if necessary, interrupt routine must save CPU state and restore it before returning</p></li>
+<li><p>when CPU receives an interrupt, it stops current execution and immediately transfer</p></li>
 </ul>
+<p>it to a fixed location
+- interrupted execution resumes when the interrupt service routine completes
+- interrupts must be handled quickly
+- interrupt vector: a table of pointers to interrupt routines, there are only a number
+of predefined interrupts
+- if necessary, interrupt routine must save CPU state and restore it before returning</p>
 </dd>
 </dl>
 </li>
@@ -428,12 +428,12 @@ of predefined interrupts</p></li>
 <li><p>can be designed to be volatile or nonvolatile</p></li>
 <li><p>electronic disk stores data in large DRAM array during normal operation</p></li>
 <li><p>most devices contain hidden magnetic hard disk and battery for backup power</p></li>
-<li><p>when external power is interrupted, electronic disk controller copies data from RAM
-to magnetic disk, and vice versa when power is restored</p></li>
-<li><p>flash memory: a form of electronic disk, slower than DRAM but no power required to
-retain contents</p></li>
-<li><p>NVRAM: nonvolatile, DRAM with backup battery</p></li>
+<li><p>when external power is interrupted, electronic disk controller copies data from RAM</p></li>
 </ul>
+<p>to magnetic disk, and vice versa when power is restored
+- flash memory: a form of electronic disk, slower than DRAM but no power required to
+retain contents
+- NVRAM: nonvolatile, DRAM with backup battery</p>
 </div></blockquote>
 <ul class="simple">
 <li><p>register &gt; cache &gt; main memory &gt; electronic disk &gt; magnetic disk &gt; optical disk &gt;</p></li>
@@ -445,10 +445,10 @@ retain contents</p></li>
 <section id="i-o-structure">
 <h3>I/O Structure<a class="headerlink" href="#i-o-structure" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>CPUs and device controllers are connected through common bus</p></li>
 <li><dl class="simple">
-<dt><strong>Controllers</strong></dt><dd><ul>
+<dt><strong>Controllers</strong></dt><dd><ul class="simple">
 <li><p>each controller is in charge of specific type of device</p></li>
 <li><p>more than one device may be attached to a controller</p></li>
 <li><p>maintains local buffer storage and special-purpose registers</p></li>
@@ -458,15 +458,15 @@ retain contents</p></li>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>Example I/O Operation</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>Example I/O Operation</strong></dt><dd><ul class="simple">
 <li><p>driver loads the appropriate registers within controller</p></li>
 <li><p>controller check the contents to determine action to be taken</p></li>
 <li><p>controller transfer data from device to its local buffer</p></li>
 <li><p>controller informs the driver via interrupt upon transfer completion</p></li>
-<li><p>driver returns control to OS, also return data or pointer to data for read operation
-or status information for other operations</p></li>
+<li><p>driver returns control to OS, also return data or pointer to data for read operation</p></li>
 </ul>
+<p>or status information for other operations</p>
 </dd>
 </dl>
 </li>

@@ -356,7 +356,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-search">Binary Search</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recursion">Recursion</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#peak-finding">Peak Finding</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dijkstra-s-algorithm">Dijkstra’s Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dijkstra">Dijkstra</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bubble-sort">Bubble Sort</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-sort">Selection Sort</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#insertion-sort">Insertion Sort</a></li>
@@ -368,7 +368,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tree-traversals">Tree Traversals</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-traversals">Graph Traversals</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kmp">KMP</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kadane-algorithm">Kadane Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kadane">Kadane</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-programming">Dynamic Programming</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization">Optimization</a></li>
 </ul>
@@ -429,16 +429,16 @@ call stacks of recursive functions such as quicksort</p></li>
 <li><p>notations are originally a concept from mathematics</p></li>
 <li><p>concerned with algorithm’s performance as input data, “n”, increases</p></li>
 <li><p>algorithms that aren’t affected by increased input data are said to be constant, e.g O(1)</p></li>
-<li><p>constants in the functions are ignored and only highest order is used, e.g O(2n&lt;sup&gt;2&lt;/sup&gt;+3n+1)</p></li>
+<li><p>constants in the functions are ignored and only highest order is used, e.g O(2n&lt;sup&gt;2&lt;/sup&gt;+3n+1)
+becomes O(n&lt;sup&gt;2&lt;/sup&gt;)</p></li>
+<li><p>when two algorithms have same classification, further analysis is required to determine which
+is faster</p></li>
+<li><p>determining the current efficiency is the first step in optimizing the program</p></li>
+<li><p>most only consider time complexity</p></li>
+<li><p>for devices with limited memory, space complexity matter a lot</p></li>
+<li><p>should analyze whether to prioritize speed or memory and check all pros and cons of each
+algorithm</p></li>
 </ul>
-<p>becomes O(n&lt;sup&gt;2&lt;/sup&gt;)
-* when two algorithms have same classification, further analysis is required to determine which
-is faster
-* determining the current efficiency is the first step in optimizing the program
-* most only consider time complexity
-* for devices with limited memory, space complexity matter a lot
-* should analyze whether to prioritize speed or memory and check all pros and cons of each
-algorithm</p>
 </section>
 <section id="big-o">
 <h3>Big O<a class="headerlink" href="#big-o" title="Link to this heading">#</a></h3>
@@ -477,27 +477,26 @@ algorithm</p>
 <li><p><a class="reference internal" href="#tree">Tree</a>, <a class="reference internal" href="#binary-tree">Binary Tree</a>, <a class="reference internal" href="#binary-search-tree">Binary Search Tree</a>, <a class="reference internal" href="#heap">Heap</a>, <a class="reference internal" href="#prefix-tree">Prefix Tree</a></p></li>
 <li><p><a class="reference internal" href="#spanning-tree">Spanning Tree</a>, <a class="reference internal" href="#minimum-spanning-tree">Minimum Spanning Tree</a>, <a class="reference internal" href="#graph">Graph</a></p></li>
 <li><p>can operate read, search, insert and delete on data structures</p></li>
-<li><p>use a data structure that is consistently fast, rather than the one that is sometimes</p></li>
+<li><p>use a data structure that is consistently fast, rather than the one that is sometimes
+extremely fast and sometimes slow</p></li>
 </ul>
-<p>extremely fast and sometimes slow</p>
 <section id="array">
 <h3>Array<a class="headerlink" href="#array" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
 <li><p>a list of fixed length, used when number of data items is known</p></li>
 <li><p>can be used to implement any type of binary tree</p></li>
-<li><p>in most languages, array can be passed through a call stack as it remains the same object</p></li>
-</ul>
-<p>after modifying it
-* <strong>Pros</strong></p>
-<blockquote>
-<div><ul class="simple">
+<li><p>in most languages, array can be passed through a call stack as it remains the same object
+after modifying it</p></li>
+<li><dl class="simple">
+<dt><strong>Pros</strong></dt><dd><ul>
 <li><p>good for storing similar contiguous data</p></li>
 <li><p>O(1) accessing power</p></li>
 <li><p>very basic and easy to learn</p></li>
 </ul>
-</div></blockquote>
-<ul class="simple">
+</dd>
+</dl>
+</li>
 <li><dl class="simple">
 <dt><strong>Cons</strong></dt><dd><ul>
 <li><p>size cannot be changed once initialized</p></li>
@@ -545,12 +544,10 @@ as it requires to shift every element)</p></li>
 <li><p>used when number of items is unknown</p></li>
 <li><p>the pointer at the end, the tail, is set to null</p></li>
 <li><p>each node contains two memory cells, one for the actual data and other for the link</p></li>
-<li><p>a deleted node will still exist in memory, different languages handle the deleted nodes</p></li>
-</ul>
-<p>in various ways
-* <strong>Doubly Linked List</strong></p>
-<blockquote>
-<div><ul class="simple">
+<li><p>a deleted node will still exist in memory, different languages handle the deleted nodes
+in various ways</p></li>
+<li><dl class="simple">
+<dt><strong>Doubly Linked List</strong></dt><dd><ul>
 <li><p>root node has a pointer to both the first and last nodes</p></li>
 <li><p>each node has a pointer to the previous and the next node</p></li>
 <li><p>can traverse in both direction</p></li>
@@ -561,8 +558,9 @@ as it requires to shift every element)</p></li>
 <li><p>Inserting: O(n), (O(1) for inserting element at the head or end)</p></li>
 <li><p>Deleting: O(n), (O(1) for deleting element at the head or end)</p></li>
 </ul>
-</div></blockquote>
-<ul class="simple">
+</dd>
+</dl>
+</li>
 <li><dl class="simple">
 <dt><strong>Pros</strong></dt><dd><ul>
 <li><p>can easily change size to add or remove</p></li>
@@ -600,22 +598,21 @@ location</p></li>
 <div><ul class="simple">
 <li><p>also called circular buffer or ring buffer</p></li>
 <li><p>uses a single, fixed-size array as if it were connected end-to-end</p></li>
-<li><p>allows efficient and continuous writing and reading of data without the need for shifting</p></li>
-</ul>
-<p>elements
-* useful where data is continuously produced and consume at different rates
-* fixed size is determined at creation, has read and write pointers
-* when the end is reached, read and write continues from the beginning using modulo
-arithmetic, e.g. <cite>write_idx = (write_idx + 1) % SIZE</cite>
-* <strong>Pros</strong></p>
-<blockquote>
-<div><ul class="simple">
+<li><p>allows efficient and continuous writing and reading of data without the need for shifting
+elements</p></li>
+<li><p>useful where data is continuously produced and consume at different rates</p></li>
+<li><p>fixed size is determined at creation, has read and write pointers</p></li>
+<li><p>when the end is reached, read and write continues from the beginning using modulo
+arithmetic, e.g. <cite>write_idx = (write_idx + 1) % SIZE</cite></p></li>
+<li><dl class="simple">
+<dt><strong>Pros</strong></dt><dd><ul>
 <li><p>efficient use of memory</p></li>
 <li><p>constant time complexity due to wrap-around behaviour</p></li>
 <li><p>well-suited for real-time applications and concurrent programming</p></li>
 </ul>
-</div></blockquote>
-<ul class="simple">
+</dd>
+</dl>
+</li>
 <li><dl class="simple">
 <dt><strong>Cons</strong></dt><dd><ul>
 <li><p>fixed size, sequential access can be less efficient compared to linear arrays</p></li>
@@ -649,19 +646,18 @@ search</p></li>
 <li><p>each key must be unique, but can contain multiple values</p></li>
 <li><p>storing existing key will overwrite the value, but keep the same key</p></li>
 <li><p>hash value can be used for organizing and sorting the data</p></li>
-<li><p>efficiency depends on data amount to be stored, number of available cells in a table and</p></li>
-</ul>
-<p>hash function
-* <strong>Hash Function</strong></p>
-<blockquote>
-<div><ul class="simple">
+<li><p>efficiency depends on data amount to be stored, number of available cells in a table and
+hash function</p></li>
+<li><dl class="simple">
+<dt><strong>Hash Function</strong></dt><dd><ul>
 <li><p>process of converting characters to numbers</p></li>
 <li><p>must convert the same string to same number every time</p></li>
 <li><p>used to compute an index to store the value</p></li>
 <li><p>a good hash function must distribute data across all available cells</p></li>
 </ul>
-</div></blockquote>
-<ul class="simple">
+</dd>
+</dl>
+</li>
 <li><dl class="simple">
 <dt><strong>Collision</strong></dt><dd><ul>
 <li><p>adding data to a cell that is already filled</p></li>
@@ -829,16 +825,15 @@ O(n)</p></li>
 <li><p>a node can have descendants and ancestors</p></li>
 <li><p>each level of a tree is a row</p></li>
 <li><p>traversing a tree is always O(n)</p></li>
-<li><p>searching in a node is same as traversing the tree, except the method stops when target</p></li>
-</ul>
-<p>is found
-* <strong>Balanced Tree</strong></p>
-<blockquote>
-<div><ul class="simple">
+<li><p>searching in a node is same as traversing the tree, except the method stops when target
+is found</p></li>
+<li><dl class="simple">
+<dt><strong>Balanced Tree</strong></dt><dd><ul>
 <li><p>nodes’ subtrees have the same number of nodes</p></li>
 </ul>
-</div></blockquote>
-<ul class="simple">
+</dd>
+</dl>
+</li>
 <li><dl class="simple">
 <dt><strong>Complete Tree</strong></dt><dd><ul>
 <li><p>a tree completely filled with nodes</p></li>
@@ -925,13 +920,13 @@ O(n)</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Searching</strong></dt><dd><dl class="simple">
-<dt>1. set a node as current node, usually the root node is set as when start</dt><dd><p>2. check value of the current node
-3. search left subtree if current node value is less than the target value or search</p>
-</dd>
-<dt>right subtree if current node value is greater</dt><dd><p>4. repeat steps 1 to 3 until target is found or no nodes left to search for</p>
-</dd>
-</dl>
+<dt><strong>Searching</strong></dt><dd><ol class="arabic simple">
+<li><p>set a node as current node, usually the root node is set as when start</p></li>
+<li><p>check value of the current node</p></li>
+<li><p>search left subtree if current node value is less than the target value or search
+right subtree if current node value is greater</p></li>
+<li><p>repeat steps 1 to 3 until target is found or no nodes left to search for</p></li>
+</ol>
 </dd>
 </dl>
 </li>
@@ -966,24 +961,23 @@ parent of the successor node</p></li>
 <h3>Heap<a class="headerlink" href="#heap" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>binary tree with heap condition, each node must be greater or less than each of its</p></li>
-</ul>
-<p>descendants, and the tree must be complete, to ensure it remains well-balanced
-* visualized as a tree but usually implemented using Array, to find the last node
-efficiently
-* can also use linked-list to implement
-* last node is the rightmost node in the bottom level
-* trickling: process of moving the node up/down the heap
-* only delete the root node
-* <strong>Binary Heap</strong></p>
-<blockquote>
-<div><ul class="simple">
+<li><p>binary tree with heap condition, each node must be greater or less than each of its
+descendants, and the tree must be complete, to ensure it remains well-balanced</p></li>
+<li><p>visualized as a tree but usually implemented using Array, to find the last node
+efficiently</p></li>
+<li><p>can also use linked-list to implement</p></li>
+<li><p>last node is the rightmost node in the bottom level</p></li>
+<li><p>trickling: process of moving the node up/down the heap</p></li>
+<li><p>only delete the root node</p></li>
+<li><dl class="simple">
+<dt><strong>Binary Heap</strong></dt><dd><ul>
 <li><p>specific kind of binary tree</p></li>
 <li><p>min heap: minimum value is the root</p></li>
 <li><p>max heap: maximum value is the root</p></li>
 </ul>
-</div></blockquote>
-<ul class="simple">
+</dd>
+</dl>
+</li>
 <li><dl class="simple">
 <dt><strong>Pros</strong></dt><dd><ul>
 <li><p>elements are always in order</p></li>
@@ -1007,29 +1001,29 @@ inspecting every node</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Inserting</strong></dt><dd><dl class="simple">
-<dt>1. create a node and insert at the rightmost spot in the bottom level</dt><dd><p>2. compare the new node with its parent node
-3. swap the node with the parent if it is greater than the parent’s value
-4. repeat step 3 and move the node up the heap until parent with greater value is met</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Deleting</strong></dt><dd><dl class="simple">
-<dt>1. move the last node to the root node position</dt><dd><p>2. trickle the root node down to proper place</p>
-</dd>
-</dl>
+<dt><strong>Inserting</strong></dt><dd><ol class="arabic simple">
+<li><p>create a node and insert at the rightmost spot in the bottom level</p></li>
+<li><p>compare the new node with its parent node</p></li>
+<li><p>swap the node with the parent if it is greater than the parent’s value</p></li>
+<li><p>repeat step 3 and move the node up the heap until parent with greater value is met</p></li>
+</ol>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Trickling Down</strong></dt><dd><dl class="simple">
-<dt>1. check both children of the trickle node</dt><dd><p>2. swap the node with the larger one of the two child nodes
-3. repeat steps 1 and 2 until the trickle node has no greater children</p>
+<dt><strong>Deleting</strong></dt><dd><ol class="arabic simple">
+<li><p>move the last node to the root node position</p></li>
+<li><p>trickle the root node down to proper place</p></li>
+</ol>
 </dd>
 </dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Trickling Down</strong></dt><dd><ol class="arabic simple">
+<li><p>check both children of the trickle node</p></li>
+<li><p>swap the node with the larger one of the two child nodes</p></li>
+<li><p>repeat steps 1 and 2 until the trickle node has no greater children</p></li>
+</ol>
 </dd>
 </dl>
 </li>
@@ -1072,29 +1066,29 @@ inspecting every node</p></li>
 </li>
 <li><p><strong>Cons</strong></p></li>
 <li><dl class="simple">
-<dt><strong>Prefix Search</strong></dt><dd><dl class="simple">
-<dt>1. set a node as current node, usually the root node is set as when start</dt><dd><p>2. iterate over each character of the search string
-3. check if current node has a child with the character as a value
-4. return None if doesn’t exist and searching ends without finding the string
-5. if exists, update the child node as current node and repeat from step 2 to iterate</p>
-</dd>
-<dt>another character</dt><dd><p>6. string is found if end of search string is reached</p>
-</dd>
-</dl>
+<dt><strong>Prefix Search</strong></dt><dd><ol class="arabic simple">
+<li><p>set a node as current node, usually the root node is set as when start</p></li>
+<li><p>iterate over each character of the search string</p></li>
+<li><p>check if current node has a child with the character as a value</p></li>
+<li><p>return None if doesn’t exist and searching ends without finding the string</p></li>
+<li><p>if exists, update the child node as current node and repeat from step 2 to iterate
+another character</p></li>
+<li><p>string is found if end of search string is reached</p></li>
+</ol>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Inserting</strong></dt><dd><dl class="simple">
-<dt>1. set a node as current node, usually the root node is set as when start</dt><dd><p>2. iterate over each character of the search string
-3. check if current node has a child with the character as a value
-4. if exists, update the child node as current node and repeat from step 2 to iterate</p>
-</dd>
-<dt>another character</dt><dd><p>5. if doesn’t exist, create a child node with the character and update it as current</p>
-</dd>
-<dt>node and repeat from step 2</dt><dd><p>6. after inserting the final character, add a value to indicate the end of the word</p>
-</dd>
-</dl>
+<dt><strong>Inserting</strong></dt><dd><ol class="arabic simple">
+<li><p>set a node as current node, usually the root node is set as when start</p></li>
+<li><p>iterate over each character of the search string</p></li>
+<li><p>check if current node has a child with the character as a value</p></li>
+<li><p>if exists, update the child node as current node and repeat from step 2 to iterate
+another character</p></li>
+<li><p>if doesn’t exist, create a child node with the character and update it as current
+node and repeat from step 2</p></li>
+<li><p>after inserting the final character, add a value to indicate the end of the word</p></li>
+</ol>
 </dd>
 </dl>
 </li>
@@ -1132,18 +1126,17 @@ inspecting every node</p></li>
 <li><p>neighbors: vertices connected by an edge, adjacent vertices</p></li>
 <li><p>path: sequence of edges from one vertex to another</p></li>
 <li><p>can use hash table, adjaceny list or two-dimensional arrays/adjacency matrix to implement</p></li>
-<li><p>searching is traversing the graph to find connected vertices and can also operate on each</p></li>
-</ul>
-<p>vertex the same time
-* keep track of visited vertices when searching a graph, e.g use a hash table for visited
-* social networking applications use graph databases
-* <strong>Connected Graph</strong></p>
-<blockquote>
-<div><ul class="simple">
+<li><p>searching is traversing the graph to find connected vertices and can also operate on each
+vertex the same time</p></li>
+<li><p>keep track of visited vertices when searching a graph, e.g use a hash table for visited</p></li>
+<li><p>social networking applications use graph databases</p></li>
+<li><dl class="simple">
+<dt><strong>Connected Graph</strong></dt><dd><ul>
 <li><p>all vertices are connected</p></li>
 </ul>
-</div></blockquote>
-<ul class="simple">
+</dd>
+</dl>
+</li>
 <li><dl class="simple">
 <dt><strong>Directed Graph</strong></dt><dd><ul>
 <li><p>every edge has a direction</p></li>
@@ -1186,17 +1179,18 @@ moves far away from the starting vertex</p></li>
 </dd>
 </dl>
 </li>
-<li><p>for complexity, need to consider number of vertices and number of adjacent neighbors each</p></li>
-</ul>
-<p>vertex has
-* <strong>Complexity</strong></p>
-<blockquote>
-<div><ul class="simple">
+<li><p>for complexity, need to consider number of vertices and number of adjacent neighbors each
+vertex has</p></li>
+<li><dl class="simple">
+<dt><strong>Complexity</strong></dt><dd><ul>
 <li><p>Searching: O(v + e), (v = no. of vertices, e = no. of edges)</p></li>
 <li><p>Inserting:</p></li>
 <li><p>Deleting:</p></li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
+</li>
+</ul>
 </div></blockquote>
 <p><a class="reference external" href="#data-structure--algorithms">back to top</a></p>
 </section>
@@ -1204,11 +1198,11 @@ moves far away from the starting vertex</p></li>
 <section id="algorithms">
 <h2>Algorithms<a class="headerlink" href="#algorithms" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#binary-search">Binary Search</a>, <a class="reference internal" href="#recursion">Recursion</a>, <a class="reference internal" href="#peak-finding">Peak Finding</a>, <a class="reference internal" href="#dijkstra-s-algorithm">Dijkstra’s Algorithm</a></p></li>
+<li><p><a class="reference internal" href="#binary-search">Binary Search</a>, <a class="reference internal" href="#recursion">Recursion</a>, <a class="reference internal" href="#peak-finding">Peak Finding</a>, <a class="reference internal" href="#dijkstra">Dijkstra</a></p></li>
 <li><p><a class="reference internal" href="#bubble-sort">Bubble Sort</a>, <a class="reference internal" href="#selection-sort">Selection Sort</a>, <a class="reference internal" href="#insertion-sort">Insertion Sort</a>, <a class="reference internal" href="#quick-sort">Quick Sort</a>, <a class="reference internal" href="#heap-sort">Heap Sort</a></p></li>
 <li><p><a class="reference internal" href="#quick-select">Quick Select</a>, <a class="reference internal" href="#greedy-algorithm">Greedy Algorithm</a>, <a class="reference internal" href="#boyer-moore-voting-algorithm">Boyer-Moore Voting Algorithm</a></p></li>
 <li><p><a class="reference internal" href="#tree-traversals">Tree Traversals</a>, <a class="reference internal" href="#graph-traversals">Graph Traversals</a></p></li>
-<li><p><a class="reference internal" href="#kmp">KMP</a>, <a class="reference internal" href="#kadane-algorithm">Kadane Algorithm</a></p></li>
+<li><p><a class="reference internal" href="#kmp">KMP</a>, <a class="reference internal" href="#kadane">Kadane</a></p></li>
 <li><p><a class="reference internal" href="#dynamic-programming">Dynamic Programming</a></p></li>
 <li><p><a class="reference internal" href="#optimization">Optimization</a></p></li>
 <li><p>a set of instructions to operate a specific task</p></li>
@@ -1219,34 +1213,33 @@ moves far away from the starting vertex</p></li>
 <section id="binary-search">
 <h3>Binary Search<a class="headerlink" href="#binary-search" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul>
+<div><ul class="simple">
 <li><p>fastest search method for sorted search space, usually in ascending order</p></li>
 <li><p>split the search space into two halves and only keep the half that might have the target</p></li>
-<li><dl>
-<dt><strong>steps</strong></dt><dd><p>1. set left and right boundaries, min(search space) for left and max(search space)
-for right</p>
-<blockquote>
-<div><p>2. while left &lt; right, calculate middle value with (left + (right - left) / 2)
-3. if condition(mid) is true, set right = mid, else set left = mid + 1, condition</p>
-</div></blockquote>
-<dl class="simple">
-<dt>checking can be from simple comparison to complex calculations</dt><dd><p>4. return left or (left - 1) after exiting the while loop</p>
-</dd>
-</dl>
+<li><dl class="simple">
+<dt><strong>steps</strong></dt><dd><ol class="arabic simple">
+<li><p>set left and right boundaries, min(search space) for left and max(search space)
+for right</p></li>
+<li><p>while left &lt; right, calculate middle value with (left + (right - left) / 2)</p></li>
+<li><p>if condition(mid) is true, set right = mid, else set left = mid + 1, condition
+checking can be from simple comparison to complex calculations</p></li>
+<li><p>return left or (left - 1) after exiting the while loop</p></li>
+</ol>
 </dd>
 </dl>
 </li>
-<li><p>can use binary search if there is monotonicity, e.g if condition(k) is true then</p></li>
-</ul>
-<p>condition(k + 1) is true
-* <strong>Complexity</strong></p>
-<blockquote>
-<div><ul class="simple">
+<li><p>can use binary search if there is monotonicity, e.g if condition(k) is true then
+condition(k + 1) is true</p></li>
+<li><dl class="simple">
+<dt><strong>Complexity</strong></dt><dd><ul>
 <li><p>best: O(1), first middle element is the target element</p></li>
 <li><p>average: O(log n)</p></li>
 <li><p>worst: O(log n)</p></li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
+</li>
+</ul>
 </div></blockquote>
 </section>
 <section id="recursion">
@@ -1312,8 +1305,8 @@ memory, e.g storing calculated values of fibonacci in hash map</p></li>
 <section id="peak-finding">
 <h3>Peak Finding<a class="headerlink" href="#peak-finding" title="Link to this heading">#</a></h3>
 </section>
-<section id="dijkstra-s-algorithm">
-<h3>Dijkstra’s Algorithm<a class="headerlink" href="#dijkstra-s-algorithm" title="Link to this heading">#</a></h3>
+<section id="dijkstra">
+<h3>Dijkstra<a class="headerlink" href="#dijkstra" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
 <li><p>graph search algorithm</p></li>
@@ -1321,14 +1314,21 @@ memory, e.g storing calculated values of fibonacci in hash map</p></li>
 <li><p>has different implementations</p></li>
 <li><p>using simple array can cause to have O(v&lt;sup&gt;2&lt;/sup&gt;), priority queue can be faster</p></li>
 <li><dl class="simple">
-<dt><strong>steps</strong></dt><dd><dl class="simple">
-<dt>1. set starting vertex as current vertex</dt><dd><p>2. check weights of edges from the current to each of its adjacent vertices
-3. if weight from the starting vertex to adjacent vertex is less than the weight seen</p>
-</dd>
-<dt>before, update the current weight as the shortest weight</dt><dd><p>4. visit the next shortest vertex from the starting vertex and set it as current
-5. repeat steps 2 to 4 until every vertex is visited</p>
+<dt><strong>steps</strong></dt><dd><ol class="arabic simple">
+<li><p>set starting vertex as current vertex</p></li>
+<li><p>check weights of edges from the current to each of its adjacent vertices</p></li>
+<li><p>if weight from the starting vertex to adjacent vertex is less than the weight seen
+before, update the current weight as the shortest weight</p></li>
+<li><p>visit the next shortest vertex from the starting vertex and set it as current</p></li>
+<li><p>repeat steps 2 to 4 until every vertex is visited</p></li>
+</ol>
 </dd>
 </dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Complexity</strong></dt><dd><ul>
+<li><p>using priority queue, O(E log V + V), space O(V)</p></li>
+</ul>
 </dd>
 </dl>
 </li>
@@ -1340,13 +1340,13 @@ memory, e.g storing calculated values of fibonacci in hash map</p></li>
 <blockquote>
 <div><ul class="simple">
 <li><dl class="simple">
-<dt><strong>steps</strong></dt><dd><dl class="simple">
-<dt>1. compare first item with the second</dt><dd><p>2. swap if out of order
-3. move one to the right
-4. repeat steps 1 through 3 until the end of array
-5. go back to first two items and execute steps 1 through 4 until no swaps are needed</p>
-</dd>
-</dl>
+<dt><strong>steps</strong></dt><dd><ol class="arabic simple">
+<li><p>compare first item with the second</p></li>
+<li><p>swap if out of order</p></li>
+<li><p>move one to the right</p></li>
+<li><p>repeat steps 1 through 3 until the end of array</p></li>
+<li><p>go back to first two items and execute steps 1 through 4 until no swaps are needed</p></li>
+</ol>
 </dd>
 </dl>
 </li>
@@ -1366,20 +1366,20 @@ memory, e.g storing calculated values of fibonacci in hash map</p></li>
 <section id="selection-sort">
 <h3>Selection Sort<a class="headerlink" href="#selection-sort" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul>
-<li><dl>
-<dt><strong>steps</strong></dt><dd><dl class="simple">
-<dt>1. go from start to end and keep track of lowest value</dt><dd><p>2. swap the tracked lowest value with the value at the beginning of the pass-through</p>
-</dd>
-<dt>(will be first value for the first pass-through)</dt><dd><p>3. repeat pass-throughs with steps 1 and 2, each starting from the next that has been</p>
-</dd>
-</dl>
-<p>swapped in the previous, until a pass-through start at the final index</p>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>steps</strong></dt><dd><ol class="arabic simple">
+<li><p>go from start to end and keep track of lowest value</p></li>
+<li><p>swap the tracked lowest value with the value at the beginning of the pass-through
+(will be first value for the first pass-through)</p></li>
+<li><p>repeat pass-throughs with steps 1 and 2, each starting from the next that has been
+swapped in the previous, until a pass-through start at the final index</p></li>
+</ol>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Complexity</strong></dt><dd><ul class="simple">
+<dt><strong>Complexity</strong></dt><dd><ul>
 <li><p>all cases: O(n&lt;sup&gt;2&lt;/sup&gt;)</p></li>
 </ul>
 </dd>
@@ -1391,26 +1391,24 @@ memory, e.g storing calculated values of fibonacci in hash map</p></li>
 <section id="insertion-sort">
 <h3>Insertion Sort<a class="headerlink" href="#insertion-sort" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul>
-<li><dl>
-<dt><strong>steps</strong></dt><dd><p>1. at first pass-through, temporarily remove the second value and a gap will be made
-(remove values at the subsequent indexes for subsequent pass-throughs)</p>
-<blockquote>
-<div><p>2. compare the temp value with the value to the left of the gap, shift to the right</p>
-</div></blockquote>
-<p>if greater than the temp, the gap moves leftward as values shift, if a value lower
-than the temp value is found or the left end of the array is reached, stop shifting</p>
-<blockquote>
-<div><p>3. insert the temp value into the current gap
-4. repeat pass-throughs with steps 1 through 3 until a pass-through start at the</p>
-</div></blockquote>
-<p>final index</p>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>steps</strong></dt><dd><ol class="arabic simple">
+<li><p>at first pass-through, temporarily remove the second value and a gap will be made
+(remove values at the subsequent indexes for subsequent pass-throughs)</p></li>
+<li><p>compare the temp value with the value to the left of the gap, shift to the right
+if greater than the temp, the gap moves leftward as values shift, if a value lower
+than the temp or the left end of the array is reached, stop shifting</p></li>
+<li><p>insert the temp value into the current gap</p></li>
+<li><p>repeat pass-throughs with steps 1 through 3 until a pass-through start at the
+final index</p></li>
+</ol>
 </dd>
 </dl>
 </li>
 <li><p>in-place sort, O(1) auxiliary space</p></li>
 <li><dl class="simple">
-<dt><strong>Complexity</strong></dt><dd><ul class="simple">
+<dt><strong>Complexity</strong></dt><dd><ul>
 <li><p>best: O(n)</p></li>
 <li><p>average: O(n&lt;sup&gt;2&lt;/sup&gt;)</p></li>
 <li><p>worst: O(n&lt;sup&gt;2&lt;/sup&gt;)</p></li>
@@ -1424,38 +1422,35 @@ than the temp value is found or the left end of the array is reached, stop shift
 <section id="quick-sort">
 <h3>Quick Sort<a class="headerlink" href="#quick-sort" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul>
+<div><ul class="simple">
 <li><p>used by most languages</p></li>
 <li><p>very fast and efficient algorithm for average cases</p></li>
 <li><p>combination of partitioning and recursions</p></li>
-<li><dl>
-<dt><strong>Partitioning</strong></dt><dd><p>1. take random value as the pivot from array and move the left pointer to the right
-until value greater than or equal to the pivot is found</p>
-<blockquote>
-<div><p>2. move the right pointer to the left until value less than or equal to the pivot is</p>
-</div></blockquote>
-<dl class="simple">
-<dt>found</dt><dd><p>3. if left pointer reach or go beyond the right pointer, swap the values of left and</p>
-</dd>
-</dl>
-<p>right pointers and repeat steps 1, 2 and 3, other wise go to step 4
-4. swap the pivot with the value of left pointer</p>
+<li><dl class="simple">
+<dt><strong>Partitioning</strong></dt><dd><ol class="arabic simple">
+<li><p>take random value as the pivot from array and move the left pointer to the right
+until value greater than or equal to the pivot is found</p></li>
+<li><p>move the right pointer to the left until value less than or equal to the pivot is
+found</p></li>
+<li><p>if left pointer reach or go beyond the right pointer, swap the values of left and
+right pointers and repeat steps 1, 2 and 3, other wise go to step 4</p></li>
+<li><p>swap the pivot with the value of left pointer</p></li>
+</ol>
 </dd>
 </dl>
 </li>
-<li><p>after partitioning, all values to the left of the pivot are less than and all to the</p></li>
-</ul>
-<p>right are greater than it
-* partition time complexity O(n)
-* <strong>steps</strong></p>
-<blockquote>
-<div><dl class="simple">
-<dt>1. partition the array, the pivot will be in proper place</dt><dd><p>2. recurse the subarrays to the left and right of the pivot with steps 1 and 2
-3. done if subarray has zero or one element</p>
+<li><p>after partitioning, all values to the left of the pivot are less than and all to the
+right are greater than it</p></li>
+<li><p>partition time complexity O(n)</p></li>
+<li><dl class="simple">
+<dt><strong>steps</strong></dt><dd><ol class="arabic simple">
+<li><p>partition the array, the pivot will be in proper place</p></li>
+<li><p>recurse the subarrays to the left and right of the pivot with steps 1 and 2</p></li>
+<li><p>done if subarray has zero or one element</p></li>
+</ol>
 </dd>
 </dl>
-</div></blockquote>
-<ul class="simple">
+</li>
 <li><dl class="simple">
 <dt><strong>Complexity</strong></dt><dd><ul>
 <li><p>best: O(n log n), pivot ends up in the middle after partition</p></li>
@@ -1493,12 +1488,12 @@ until value greater than or equal to the pivot is found</p>
 <li><p>variation of quick sort and binary search and relies on partitioning</p></li>
 <li><p>can find correct value without sorting the entire array</p></li>
 <li><dl class="simple">
-<dt><strong>steps</strong></dt><dd><dl class="simple">
-<dt>1. partition the entire array, pivot will now be in the right place</dt><dd><p>2. divide the array in half from the pivot and use only left or right after comparing</p>
-</dd>
-<dt>the desired value with the pivot value</dt><dd><p>3. recurse that subarray until the value is found</p>
-</dd>
-</dl>
+<dt><strong>steps</strong></dt><dd><ol class="arabic simple">
+<li><p>partition the entire array, pivot will now be in the right place</p></li>
+<li><p>divide the array in half from the pivot and use only left or right after comparing
+the desired value with the pivot value</p></li>
+<li><p>recurse that subarray until the value is found</p></li>
+</ol>
 </dd>
 </dl>
 </li>
@@ -1525,22 +1520,22 @@ until value greater than or equal to the pivot is found</p>
 <section id="boyer-moore-voting-algorithm">
 <h3>Boyer-Moore Voting Algorithm<a class="headerlink" href="#boyer-moore-voting-algorithm" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul>
+<div><ul class="simple">
 <li><p>to find majority element in an array</p></li>
 <li><p>majority element: occured more than n/2 times</p></li>
-<li><dl>
-<dt><strong>steps</strong></dt><dd><dl class="simple">
-<dt>1. initialize count as 0 and iterate the array</dt><dd><p>2. if count is 0, set current number as majority number and increase count by 1
-3. else check if current number equal to the majority number, if equal, increase</p>
-</dd>
-</dl>
-<p>count by 1, if not decrease count by 1</p>
+<li><dl class="simple">
+<dt><strong>steps</strong></dt><dd><ol class="arabic simple">
+<li><p>initialize count as 0 and iterate the array</p></li>
+<li><p>if count is 0, set current number as majority number and increase count by 1</p></li>
+<li><p>else check if current number equal to the majority number, if equal, increase
+count by 1, if not decrease count by 1</p></li>
+</ol>
 </dd>
 </dl>
 </li>
 <li><p>can have extra loop to check if chosen number’s count is really greater than n/2 or not</p></li>
 <li><dl class="simple">
-<dt><strong>Complexity</strong></dt><dd><ul class="simple">
+<dt><strong>Complexity</strong></dt><dd><ul>
 <li><p>all cases: O(n), space O(1)</p></li>
 </ul>
 </dd>
@@ -1596,28 +1591,28 @@ subtree, visit the node</p></li>
 <blockquote>
 <div><ul class="simple">
 <li><dl class="simple">
-<dt><strong>Depth-first Search</strong></dt><dd><dl class="simple">
-<dt>1. start at any random vertex</dt><dd><p>2. mark current vertex as visited
-3. iterate current vertex’s adjacent vertices
-4. ignore if the adjacent vertex has been visited
-5. if the adjacent vertex is not visited, do recursive depth-first search on it</p>
-</dd>
-</dl>
+<dt><strong>Depth-first Search</strong></dt><dd><ol class="arabic simple">
+<li><p>start at any random vertex</p></li>
+<li><p>mark current vertex as visited</p></li>
+<li><p>iterate current vertex’s adjacent vertices</p></li>
+<li><p>ignore if the adjacent vertex has been visited</p></li>
+<li><p>if the adjacent vertex is not visited, do recursive depth-first search on it</p></li>
+</ol>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Breadth-first Search</strong></dt><dd><dl class="simple">
-<dt>1. start at any random vertex</dt><dd><p>2. mark the starting vertex as visited
-3. add the starting vertex to a queue
-4. run a loop while the queue isn’t empty
-5. in the loop, remove and use the first vertex as current vertex
-6. iterate all adjacent vertices of the current
-7. ignore if the adjacent vertex has been visited
-8. if the adjacent vertex is not visited, mark it as visited and add it to the queue
-9. repeat the loop from step 4 until the queue is empty</p>
-</dd>
-</dl>
+<dt><strong>Breadth-first Search</strong></dt><dd><ol class="arabic simple">
+<li><p>start at any random vertex</p></li>
+<li><p>mark the starting vertex as visited</p></li>
+<li><p>add the starting vertex to a queue</p></li>
+<li><p>run a loop while the queue isn’t empty</p></li>
+<li><p>in the loop, remove and use the first vertex as current vertex</p></li>
+<li><p>iterate all adjacent vertices of the current</p></li>
+<li><p>ignore if the adjacent vertex has been visited</p></li>
+<li><p>if the adjacent vertex is not visited, mark it as visited and add it to the queue</p></li>
+<li><p>repeat the loop from step 4 until the queue is empty</p></li>
+</ol>
 </dd>
 </dl>
 </li>
@@ -1670,8 +1665,8 @@ increment <code class="docutils literal notranslate"><span class="pre">search_pt
 </ul>
 </div></blockquote>
 </section>
-<section id="kadane-algorithm">
-<h3>Kadane Algorithm<a class="headerlink" href="#kadane-algorithm" title="Link to this heading">#</a></h3>
+<section id="kadane">
+<h3>Kadane<a class="headerlink" href="#kadane" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
 <li><p>finding the maximum subarray sum</p></li>
@@ -1696,17 +1691,18 @@ element</p></li>
 <h3>Dynamic Programming<a class="headerlink" href="#dynamic-programming" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>problems have patterns such as find min/max, distinct ways, merging intervals, dp on</p></li>
-</ul>
-<p>strings or decision making
-* <strong>min/max</strong></p>
-<blockquote>
-<div><ul class="simple">
+<li><p>problems have patterns such as find min/max, distinct ways, merging intervals, dp on
+strings or decision making</p></li>
+<li><dl class="simple">
+<dt><strong>min/max</strong></dt><dd><ul>
 <li><p>find min/max cost, path or sum to reach the target</p></li>
 <li><p>approach: choose min/max path among all possible paths before the current state,
 then add value for the current state</p></li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
+</li>
+</ul>
 </div></blockquote>
 </section>
 <section id="optimization">
@@ -1892,7 +1888,7 @@ multiplication, <code class="docutils literal notranslate"><span class="pre">((a
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-search">Binary Search</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recursion">Recursion</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#peak-finding">Peak Finding</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dijkstra-s-algorithm">Dijkstra’s Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dijkstra">Dijkstra</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bubble-sort">Bubble Sort</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-sort">Selection Sort</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#insertion-sort">Insertion Sort</a></li>
@@ -1904,7 +1900,7 @@ multiplication, <code class="docutils literal notranslate"><span class="pre">((a
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tree-traversals">Tree Traversals</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-traversals">Graph Traversals</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kmp">KMP</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kadane-algorithm">Kadane Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kadane">Kadane</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-programming">Dynamic Programming</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization">Optimization</a></li>
 </ul>

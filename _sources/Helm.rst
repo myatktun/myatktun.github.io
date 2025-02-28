@@ -28,7 +28,7 @@ Helm 2 vs 3
     * Helm 3 is simpler and better designed
     * **3-Way Strategic Merge Patch**
         - Helm 2 does not create new revision when objects are manually changed from kubectl,
-          so rollback is not possible after manual change
+        so rollback is not possible after manual change
         - Helm 3 compares current chart, previous chart and live state, 3-way, for rollbacks
 
 `back to top <#helm>`_

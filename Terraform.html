@@ -528,37 +528,37 @@ instance_type = “t2.micro”</p>
 </div></blockquote>
 <p>}</p>
 </div></blockquote>
-<ul class="simple">
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">{}</span></code></dt><dd><ul>
+<ul>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">{}</span></code></dt><dd><ul class="simple">
 <li><p>contains Terraform settings such as required providers that will be used</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">source</span></code> of each provider defines optional hostname, namespace and provider type</p></li>
-<li><p>providers are installed from Terraform Registry by default,
-<code class="docutils literal notranslate"><span class="pre">registry.terraform.io/hashicorp/aws</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">version</span></code> attribute is optional, but recommended to use to have provider version
-that works well with the configuration, most recent version is downloaded if not
-specified</p></li>
+<li><p>providers are installed from Terraform Registry by default,</p></li>
 </ul>
+<p><code class="docutils literal notranslate"><span class="pre">registry.terraform.io/hashicorp/aws</span></code>
+- <code class="docutils literal notranslate"><span class="pre">version</span></code> attribute is optional, but recommended to use to have provider version
+that works well with the configuration, most recent version is downloaded if not
+specified</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">provider</span> <span class="pre">&quot;PROVIDER_NAME&quot;</span> <span class="pre">{}</span></code></dt><dd><ul>
+<dt><code class="docutils literal notranslate"><span class="pre">provider</span> <span class="pre">&quot;PROVIDER_NAME&quot;</span> <span class="pre">{}</span></code></dt><dd><ul class="simple">
 <li><p>configure the specified provider</p></li>
 <li><p>can use multiple provider blocks to manage resources from different providers</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">resource</span> <span class="pre">&quot;RESOURCE_TYPE&quot;</span> <span class="pre">&quot;RESOURCE_NAME&quot;</span> <span class="pre">{}</span></code></dt><dd><ul>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">resource</span> <span class="pre">&quot;RESOURCE_TYPE&quot;</span> <span class="pre">&quot;RESOURCE_NAME&quot;</span> <span class="pre">{}</span></code></dt><dd><ul class="simple">
 <li><p>define components of infrastructure, can be physical, virtual or logical resource</p></li>
 <li><p>prefix of the <code class="docutils literal notranslate"><span class="pre">TYPE</span></code> maps to the name of the provider</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RESORUCE_TYPE</span></code> and <code class="docutils literal notranslate"><span class="pre">RESOURCE_NAME</span></code> form a unique ID for the resource, e.g
-<code class="docutils literal notranslate"><span class="pre">aws_instance.app_server</span></code></p></li>
-<li><p>the block contains arguments to configure the resource, such as machine size, disk
-image names or VPC IDs</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RESORUCE_TYPE</span></code> and <code class="docutils literal notranslate"><span class="pre">RESOURCE_NAME</span></code> form a unique ID for the resource, e.g</p></li>
 </ul>
+<p><code class="docutils literal notranslate"><span class="pre">aws_instance.app_server</span></code>
+- the block contains arguments to configure the resource, such as machine size, disk
+image names or VPC IDs</p>
 </dd>
 </dl>
 </li>
@@ -644,12 +644,12 @@ terraform<span class="w"> </span>import<span class="w"> </span>docker_container.
 </li>
 <li><p>resources defined by single unique ID or tag can be imported without using <code class="docutils literal notranslate"><span class="pre">import</span></code></p></li>
 </ul>
-<dl class="simple">
+<dl>
 <dt>command</dt><dd><ul class="simple">
 <li><p>such as docker images (<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">image</span> <span class="pre">inspect</span> <span class="pre">sha256:ID</span> <span class="pre">-f</span> <span class="pre">{{.RepoTags}}</span></code>)</p></li>
-<li><p>create <code class="docutils literal notranslate"><span class="pre">docker_image</span></code> resource first and update the <code class="docutils literal notranslate"><span class="pre">image</span></code> attribute in
-<code class="docutils literal notranslate"><span class="pre">docker_container</span></code> resource to avoid recreating</p></li>
+<li><p>create <code class="docutils literal notranslate"><span class="pre">docker_image</span></code> resource first and update the <code class="docutils literal notranslate"><span class="pre">image</span></code> attribute in</p></li>
 </ul>
+<p><code class="docutils literal notranslate"><span class="pre">docker_container</span></code> resource to avoid recreating</p>
 </dd>
 </dl>
 <ul class="simple">
@@ -666,9 +666,9 @@ terraform<span class="w"> </span>import<span class="w"> </span>docker_container.
 <section id="troubleshoot">
 <h3>Troubleshoot<a class="headerlink" href="#troubleshoot" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><dl class="simple">
-<dt><strong>Language</strong></dt><dd><ul>
+<dt><strong>Language</strong></dt><dd><ul class="simple">
 <li><p>HCL syntax error in configuration file</p></li>
 <li><p>will print out line numbers and description of error</p></li>
 <li><p>check with <code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">fmt</span></code> and <code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">validate</span></code></p></li>
@@ -678,7 +678,7 @@ terraform<span class="w"> </span>import<span class="w"> </span>docker_container.
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>State</strong></dt><dd><ul>
+<dt><strong>State</strong></dt><dd><ul class="simple">
 <li><p>state out of sync, may destroy or change existing resources</p></li>
 <li><p>after fixing configuration errors, always review the state</p></li>
 <li><p>ensure state is in sync by refreshing, importing or replacing resources</p></li>
@@ -687,7 +687,7 @@ terraform<span class="w"> </span>import<span class="w"> </span>docker_container.
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Core</strong></dt><dd><ul>
+<dt><strong>Core</strong></dt><dd><ul class="simple">
 <li><p>Terraform core erros can be bugs</p></li>
 <li><p>open GitHub issue if necessary</p></li>
 </ul>
@@ -695,22 +695,22 @@ terraform<span class="w"> </span>import<span class="w"> </span>docker_container.
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Provider</strong></dt><dd><ul>
+<dt><strong>Provider</strong></dt><dd><ul class="simple">
 <li><p>authentication, API calls and mapping resources to services errors</p></li>
 <li><p>open GitHub issue for provider development team if necessary</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>opening GitHub issue</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>opening GitHub issue</strong></dt><dd><ul class="simple">
 <li><p>confirm Terraform and providers version with <code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">version</span></code></p></li>
-<li><p>enable logging by setting environment variables <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">TF_LOG_COR=TRACE</span></code>,
-<code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">TF_LOG_PROVIDER=TRACE</span></code>, <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">TF_LOG_PATH=logs.txt</span></code> and run a command such
-as <code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">refresh</span></code> to generate log file, unset the environment variables to
-disable logging</p></li>
-<li><p>can submit issue as forum topic before opening in the repository</p></li>
+<li><p>enable logging by setting environment variables <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">TF_LOG_COR=TRACE</span></code>,</p></li>
 </ul>
+<p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">TF_LOG_PROVIDER=TRACE</span></code>, <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">TF_LOG_PATH=logs.txt</span></code> and run a command such
+as <code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">refresh</span></code> to generate log file, unset the environment variables to
+disable logging
+- can submit issue as forum topic before opening in the repository</p>
 </dd>
 </dl>
 </li>
@@ -748,14 +748,14 @@ disable logging</p></li>
 <li><p>string: string value</p></li>
 <li><p>bool: true or false</p></li>
 <li><p>number: numeric value</p></li>
-<li><p>list: values of same type (start from index 0, can use functions on it,
-slice(var.LIST_VAR, start, end_exclusive)</p></li>
-<li><p>map: key/values of same type</p></li>
-<li><p>null: absence or omission</p></li>
-<li><p>set: unordered collection of unique values of same type</p></li>
-<li><p>tuple: fixed-length values of specified types</p></li>
-<li><p>object: fixed set of keys/values of specified types</p></li>
+<li><p>list: values of same type (start from index 0, can use functions on it,</p></li>
 </ul>
+<p>slice(var.LIST_VAR, start, end_exclusive)
+- map: key/values of same type
+- null: absence or omission
+- set: unordered collection of unique values of same type
+- tuple: fixed-length values of specified types
+- object: fixed set of keys/values of specified types</p>
 </div></blockquote>
 <ul>
 <li><p><strong>defining input variables</strong></p>
@@ -1298,32 +1298,32 @@ required_version = “&gt;= 1.2.0”</p>
 <section id="workflows">
 <h3>Workflows<a class="headerlink" href="#workflows" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt>CLI-driven</dt><dd><ul>
+<div><ul>
+<li><dl>
+<dt>CLI-driven</dt><dd><ul class="simple">
 <li><p>initiate operations in the terminal and run Terraform remotely or locally</p></li>
-<li><p>using local execution will execute Terraform on local machine and remotely store the
-state file in the Cloud</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">init</span></code> will create workspace defined in <code class="docutils literal notranslate"><span class="pre">cloud{}</span></code> if needed</p></li>
-<li><p>remote execution can be confirmed from UI or API</p></li>
+<li><p>using local execution will execute Terraform on local machine and remotely store the</p></li>
 </ul>
+<p>state file in the Cloud
+- <code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">init</span></code> will create workspace defined in <code class="docutils literal notranslate"><span class="pre">cloud{}</span></code> if needed
+- remote execution can be confirmed from UI or API</p>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt>VCS-driven</dt><dd><ul>
+<li><dl>
+<dt>VCS-driven</dt><dd><ul class="simple">
 <li><p>changes pushed trigger runs in the workspace</p></li>
 <li><p>must configure VCS access, create workspace and associate it with a repository</p></li>
-<li><p>Speculative plans: non-destructive, plan-only runs that show the changes if a PR is
-created and runs will not show in Cloud logs, can only access from direct link attached
-to a PR</p></li>
-<li><p>speculative plans can only be applied by merging to main branch</p></li>
+<li><p>Speculative plans: non-destructive, plan-only runs that show the changes if a PR is</p></li>
 </ul>
+<p>created and runs will not show in Cloud logs, can only access from direct link attached
+to a PR
+- speculative plans can only be applied by merging to main branch</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>API-driven</dt><dd><ul>
+<dt>API-driven</dt><dd><ul class="simple">
 <li><p>create tools to interact with [Terraform Cloud API](<a class="reference external" href="https://developer.hashicorp.com/terraform/cloud-docs/api-docs">https://developer.hashicorp.com/terraform/cloud-docs/api-docs</a>)</p></li>
 </ul>
 </dd>
@@ -1388,10 +1388,10 @@ to a PR</p></li>
 <blockquote>
 <div><ul class="simple">
 <li><p>hard-mandatory: policy needs to be passed, run is halted if fails</p></li>
-<li><p>soft-mandatory: similar to hard-mandatory, but allow admin to override policy
-failures</p></li>
-<li><p>advisory: never interrupt the run, only show policy failures as information</p></li>
+<li><p>soft-mandatory: similar to hard-mandatory, but allow admin to override policy</p></li>
 </ul>
+<p>failures
+- advisory: never interrupt the run, only show policy failures as information</p>
 </div></blockquote>
 <ul class="simple">
 <li><p>file must follow the naming convention of <code class="docutils literal notranslate"><span class="pre">&lt;policy-name&gt;.sentinel</span></code></p></li>
@@ -1419,18 +1419,18 @@ failures</p></li>
 <section id="workflow">
 <h3>workflow<a class="headerlink" href="#workflow" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt>initialize the Terraform working directory</dt><dd><ul>
+<div><ul>
+<li><dl>
+<dt>initialize the Terraform working directory</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">init</span> <span class="pre">-input=false</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-input=false</span></code> makes Terraform not to prompt for input as all necessary values will
-provided</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-input=false</span></code> makes Terraform not to prompt for input as all necessary values will</p></li>
 </ul>
+<p>provided</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>make a plan to match current configuration</dt><dd><ul>
+<dt>make a plan to match current configuration</dt><dd><ul class="simple">
 <li><p>save the plan to local file</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">plan</span> <span class="pre">-out-tfplan</span> <span class="pre">-input=false</span></code></p></li>
 <li><p>use additional flags such as <code class="docutils literal notranslate"><span class="pre">-var</span></code> or <code class="docutils literal notranslate"><span class="pre">-var-file</span></code></p></li>
@@ -1440,7 +1440,7 @@ provided</p></li>
 </li>
 <li><p>let operator review the plan</p></li>
 <li><dl class="simple">
-<dt>apply the changes</dt><dd><ul>
+<dt>apply the changes</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">apply</span> <span class="pre">-input=false</span> <span class="pre">tfplan</span></code></p></li>
 </ul>
 </dd>

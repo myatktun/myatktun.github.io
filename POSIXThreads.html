@@ -432,12 +432,12 @@
 <blockquote>
 <div><ul class="simple">
 <li><p>can be less efficient by using synchronisation too much</p></li>
-<li><p>threads writing to the same memory locations may spend more time synchronising the
-memory on processors with read/write ordering</p></li>
-<li><p>adding threads to remove a bottleneck can give rise to another</p></li>
-<li><p>performance decrease when using too many compute-bound threads</p></li>
-<li><p>a bug might not occur if one thread runs slower than another due to debugger trap</p></li>
+<li><p>threads writing to the same memory locations may spend more time synchronising the</p></li>
 </ul>
+<p>memory on processors with read/write ordering
+- adding threads to remove a bottleneck can give rise to another
+- performance decrease when using too many compute-bound threads
+- a bug might not occur if one thread runs slower than another due to debugger trap</p>
 </div></blockquote>
 <ul class="simple">
 <li><dl class="simple">
@@ -474,33 +474,33 @@ system
 * <strong>Execution Context</strong></p>
 <blockquote>
 <div><ul class="simple">
-<li><p>state of concurrent entity, must be able to create and delete it, and maintain state
-independently</p></li>
-<li><p>must be able to save the state of one context and dispatch to another at various
-times</p></li>
-<li><p>must be able to continue a context from the last execution, with same register
-contents</p></li>
+<li><p>state of concurrent entity, must be able to create and delete it, and maintain state</p></li>
 </ul>
+<p>independently
+- must be able to save the state of one context and dispatch to another at various
+times
+- must be able to continue a context from the last execution, with same register
+contents</p>
 </div></blockquote>
-<ul class="simple">
-<li><dl class="simple">
-<dt><strong>Scheduling</strong></dt><dd><ul>
+<ul>
+<li><dl>
+<dt><strong>Scheduling</strong></dt><dd><ul class="simple">
 <li><p>determine which context should be executed, switches between contexts when necessary</p></li>
-<li><p>may allow each thread to run until block, round-robin, class scheduler or other
-scheduling policies</p></li>
+<li><p>may allow each thread to run until block, round-robin, class scheduler or other</p></li>
 </ul>
+<p>scheduling policies</p>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>Synchronisation</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>Synchronisation</strong></dt><dd><ul class="simple">
 <li><p>threads cooperating to accomplish a task</p></li>
 <li><p>a way to coordinate shared resources usage of concurrent execution contexts</p></li>
-<li><p>common forms are mutexes, condition variables, semaphores, events, UNIX pipes,
-sockets, POSIX message queues, or other communication protocols between asynchronous
-processes</p></li>
-<li><p>any form of communication protocol contains some form of synchronisation</p></li>
+<li><p>common forms are mutexes, condition variables, semaphores, events, UNIX pipes,</p></li>
 </ul>
+<p>sockets, POSIX message queues, or other communication protocols between asynchronous
+processes
+- any form of communication protocol contains some form of synchronisation</p>
 </dd>
 </dl>
 </li>
@@ -524,16 +524,16 @@ executing at the same time
 <blockquote>
 <div><ul class="simple">
 <li><p>overhead of creating the extra threads and performing synchronisation</p></li>
-<li><p>e.g. dual core may be 1.95 times faster than single core, quad core 3.8 times faster
-than triple core</p></li>
-<li><p>scaling falls off as the number of processors increases, due to more chance of lock
-and memory collisions</p></li>
-<li><p>Amdahl’s law: $Speedup = frac{1}{(1 - p) + frac{p}{n}}$,
-(p = $frac{Parallelizable Code}{Total Execution Time}$, n = number of processors)</p></li>
-<li><p>Amdahl’s law shows parallelism is limited by the amount of serialisation needed</p></li>
-<li><p>with more synchronisation, parallelism has less benefit</p></li>
-<li><p>better scaling with independent activities than highly dependent ones</p></li>
+<li><p>e.g. dual core may be 1.95 times faster than single core, quad core 3.8 times faster</p></li>
 </ul>
+<p>than triple core
+- scaling falls off as the number of processors increases, due to more chance of lock
+and memory collisions
+- Amdahl’s law: $Speedup = frac{1}{(1 - p) + frac{p}{n}}$,
+(p = $frac{Parallelizable Code}{Total Execution Time}$, n = number of processors)
+- Amdahl’s law shows parallelism is limited by the amount of serialisation needed
+- with more synchronisation, parallelism has less benefit
+- better scaling with independent activities than highly dependent ones</p>
 </div></blockquote>
 <ul class="simple">
 <li><dl class="simple">
@@ -568,11 +568,11 @@ and memory collisions</p></li>
 <dt><strong>Example Thread-Safe Function</strong></dt><dd><ul class="simple">
 <li><p>multiple invocations can safely be run concurrently</p></li>
 <li><p>granularity: amount of data that a mutex protects</p></li>
-<li><p>inefficient way is to give a function its own mutex and lock it right away to make
-it thread-safe</p></li>
-<li><p>multi-threaded programs usually add a mutex as member variable to data structures,
-to associate the lock with its data</p></li>
+<li><p>inefficient way is to give a function its own mutex and lock it right away to make</p></li>
 </ul>
+<p>it thread-safe
+- multi-threaded programs usually add a mutex as member variable to data structures,
+to associate the lock with its data</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">pthread_mutex_t</span><span class="w"> </span><span class="n">foo_mtx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PTHREAD_MUTEX_INITIALIZER</span><span class="p">;</span>
 <span class="c1">// takes a global lock, and no two thread can run it at once</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span>
@@ -588,14 +588,14 @@ to associate the lock with its data</p></li>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
+<li><dl>
 <dt><strong>Reentrancy</strong></dt><dd><ul class="simple">
 <li><p>efficient thread-safe code with more sophisticated measures</p></li>
 <li><p>often necessary to change the function interface to make it reentrant</p></li>
 <li><p>should avoid relying on static data and any form of thread synchronisation</p></li>
-<li><p>save state in a context structure controlled by the caller, which is responsible for
-synchronisation of the data</p></li>
+<li><p>save state in a context structure controlled by the caller, which is responsible for</p></li>
 </ul>
+<p>synchronisation of the data</p>
 </dd>
 </dl>
 </li>
@@ -629,15 +629,15 @@ operation is cheaper than a thread</p>
 <section id="thread-evaporation">
 <h3>Thread Evaporation<a class="headerlink" href="#thread-evaporation" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt><strong>Initial Thread</strong></dt><dd><ul>
+<div><ul>
+<li><dl>
+<dt><strong>Initial Thread</strong></dt><dd><ul class="simple">
 <li><p>execution of main() in a C program, also called main thread</p></li>
 <li><p>can do anything like other threads, e.g. get thread ID with <code class="docutils literal notranslate"><span class="pre">pthread_self()</span></code></p></li>
 <li><p>if ID is accessible, another thread can wait or detach the initial thread</p></li>
-<li><p>when <code class="docutils literal notranslate"><span class="pre">main()</span></code> returns, the process terminates without allowing other threads to
-complete</p></li>
+<li><p>when <code class="docutils literal notranslate"><span class="pre">main()</span></code> returns, the process terminates without allowing other threads to</p></li>
 </ul>
+<p>complete</p>
 </dd>
 </dl>
 </li>
@@ -686,9 +686,9 @@ resources
 <section id="states">
 <h3>States<a class="headerlink" href="#states" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><dl class="simple">
-<dt><strong>Ready</strong></dt><dd><ul>
+<dt><strong>Ready</strong></dt><dd><ul class="simple">
 <li><p>thread able to run, but waiting for the processor</p></li>
 <li><p>may have just started, unblocked, or preempted by other thread</p></li>
 <li><p>timesliced: preempted for running too long</p></li>
@@ -697,7 +697,7 @@ resources
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Running</strong></dt><dd><ul>
+<dt><strong>Running</strong></dt><dd><ul class="simple">
 <li><p>currently running, can be more than one thread on multiprocessor system</p></li>
 <li><p>was ready, and selected by processor for execution</p></li>
 <li><p>one thread running usually means the other was blocked, or preempted</p></li>
@@ -705,18 +705,18 @@ resources
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>Blocked</strong> &lt;a id=”blocked”&gt;&lt;/a&gt;</dt><dd><ul>
+<li><dl>
+<dt><strong>Blocked</strong> &lt;a id=”blocked”&gt;&lt;/a&gt;</dt><dd><ul class="simple">
 <li><p>not able to run as it is waiting, e.g. condition variable, mutex, I/O to complete,</p></li>
-<li><p>can also be blocked when it calls <code class="docutils literal notranslate"><span class="pre">sigwait</span></code> for a signal that is not currently
-pending, or system operations such as page fault</p></li>
-<li><p>becomes ready again when it is unblocked</p></li>
+<li><p>can also be blocked when it calls <code class="docutils literal notranslate"><span class="pre">sigwait</span></code> for a signal that is not currently</p></li>
 </ul>
+<p>pending, or system operations such as page fault
+- becomes ready again when it is unblocked</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Terminated</strong></dt><dd><ul>
+<dt><strong>Terminated</strong></dt><dd><ul class="simple">
 <li><p>terminated by calling <code class="docutils literal notranslate"><span class="pre">pthread_exit()</span></code> and return, or cancelled and handle cleanup</p></li>
 <li><p>stays in terminated state until detached or joined</p></li>
 <li><p>will be immediately recycled once detached</p></li>

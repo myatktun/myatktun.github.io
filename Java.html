@@ -499,9 +499,9 @@
 <section id="modifiers">
 <h3>Modifiers<a class="headerlink" href="#modifiers" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><dl class="simple">
-<dt><strong>Access modifiers</strong></dt><dd><ul>
+<dt><strong>Access modifiers</strong></dt><dd><ul class="simple">
 <li><p>default: visible to the package, no modifiers</p></li>
 <li><p>private: visible to the class only</p></li>
 <li><p>public: visible to the world</p></li>
@@ -510,16 +510,16 @@
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>Non-access modifiers</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>Non-access modifiers</strong></dt><dd><ul class="simple">
 <li><p>static: creating class methods and variables</p></li>
 <li><p>final: finalizing the implementation of classes, methods and variables</p></li>
 <li><p>abstract: for abstract classes and methods</p></li>
 <li><p>strictfp: strict floating-point, to get same floating-point result on any platforms</p></li>
-<li><p>synchronized: for threads, guarantees both atomicity and visibility, can be applied
-to blocks or methods</p></li>
-<li><p>volatile: for threads, guarantees visibility, can only be applied to variables</p></li>
+<li><p>synchronized: for threads, guarantees both atomicity and visibility, can be applied</p></li>
 </ul>
+<p>to blocks or methods
+- volatile: for threads, guarantees visibility, can only be applied to variables</p>
 </dd>
 </dl>
 </li>
@@ -529,9 +529,9 @@ to blocks or methods</p></li>
 <section id="variables">
 <h3>Variables<a class="headerlink" href="#variables" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><dl class="simple">
-<dt><strong>Local</strong></dt><dd><ul>
+<dt><strong>Local</strong></dt><dd><ul class="simple">
 <li><p>declared in methods, constructors or blocks and visible only within</p></li>
 <li><p>destroyed once it exits the block</p></li>
 <li><p>cannot use access modifiers</p></li>
@@ -541,8 +541,8 @@ to blocks or methods</p></li>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>Instance/Non-static</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>Instance/Non-static</strong></dt><dd><ul class="simple">
 <li><p>declared in a class, but outside a method, constructor or any block</p></li>
 <li><p>created when object is created and destroyed as well</p></li>
 <li><p>when object is created in the heap, space for each variable is also allocated in it</p></li>
@@ -550,26 +550,26 @@ to blocks or methods</p></li>
 <li><p>access modifiers can be given</p></li>
 <li><p>visible for all methods, constructors and blocks in the class</p></li>
 <li><p>have default values, but can be assigned during declaration or in constructor</p></li>
-<li><p>can be accessed directly inside the class, but should called using <code class="docutils literal notranslate"><span class="pre">Object.Variable</span></code>
-in static methods</p></li>
+<li><p>can be accessed directly inside the class, but should called using <code class="docutils literal notranslate"><span class="pre">Object.Variable</span></code></p></li>
 </ul>
+<p>in static methods</p>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>Class/Static</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>Class/Static</strong></dt><dd><ul class="simple">
 <li><p>declared with static keyword in class, but outside a method, constructor or block</p></li>
 <li><p>only one copy per class, no matter how many objects are created</p></li>
 <li><p>rarely used other than as constants</p></li>
 <li><p>stored in static memory</p></li>
 <li><p>created when program starts and destroyed when it stops</p></li>
-<li><p>similar visibility to instance variables, but mostly declared public for users of the
-class</p></li>
-<li><p>same default values as instance variables, and can be assigned in static initializer
-blocks</p></li>
-<li><p>can be called using <code class="docutils literal notranslate"><span class="pre">ClassName.VariableName</span></code></p></li>
-<li><p>should be all upper case when declaring as <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">final</span></code></p></li>
+<li><p>similar visibility to instance variables, but mostly declared public for users of the</p></li>
 </ul>
+<p>class
+- same default values as instance variables, and can be assigned in static initializer
+blocks
+- can be called using <code class="docutils literal notranslate"><span class="pre">ClassName.VariableName</span></code>
+- should be all upper case when declaring as <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">final</span></code></p>
 </dd>
 </dl>
 </li>
@@ -630,48 +630,48 @@ blocks</p></li>
 <section id="operators">
 <h3>Operators<a class="headerlink" href="#operators" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><dl class="simple">
-<dt><strong>arithmetic</strong></dt><dd><ul>
+<dt><strong>arithmetic</strong></dt><dd><ul class="simple">
 <li><p>+, -, &amp;ast;, /, %, ++, –</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>relational</strong></dt><dd><ul>
+<dt><strong>relational</strong></dt><dd><ul class="simple">
 <li><p>==, !=, &gt;, &lt;, &gt;=, &lt;=</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>bitwise</strong></dt><dd><ul>
+<dt><strong>bitwise</strong></dt><dd><ul class="simple">
 <li><p>&amp;, <a href="#id1"><span class="problematic" id="id2">|</span></a>, ^, ~ (complement), &lt;&lt;, &gt;&gt;, &gt;&gt;&gt; (zero fill right shift)</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>logical</strong></dt><dd><ul>
+<dt><strong>logical</strong></dt><dd><ul class="simple">
 <li><p>&amp;&amp;, ||, !</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>assignment</strong></dt><dd><ul>
+<dt><strong>assignment</strong></dt><dd><ul class="simple">
 <li><p>=, +=, -=, /=, %=, &lt;&lt;=, &gt;&gt;=, &amp;=, ^=, <a href="#id3"><span class="problematic" id="id4">|</span></a>=</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>misc</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>misc</strong></dt><dd><ul class="simple">
 <li><p>?: (conditional)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">instance</span> <span class="pre">of</span></code> (only for object reference variables, check object is of or compatible
-with particular type)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">instance</span> <span class="pre">of</span></code> (only for object reference variables, check object is of or compatible</p></li>
 </ul>
+<p>with particular type)</p>
 </dd>
 </dl>
 </li>
@@ -766,9 +766,9 @@ with particular type)</p></li>
 <span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// unbox Integer to int</span>
 </pre></div>
 </div>
-<ul class="simple">
+<ul>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">xxxValue()</span></code></dt><dd><ul>
+<dt><code class="docutils literal notranslate"><span class="pre">xxxValue()</span></code></dt><dd><ul class="simple">
 <li><p>convert value of the Number object to primitive data type and return</p></li>
 <li><p>byte, short, int, long, float, double</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">x.byteValue()</span></code></p></li>
@@ -777,7 +777,7 @@ with particular type)</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">compareTo()</span></code></dt><dd><ul>
+<dt><code class="docutils literal notranslate"><span class="pre">compareTo()</span></code></dt><dd><ul class="simple">
 <li><p>compare Number object to the argument</p></li>
 <li><p>two different types cannot be compared</p></li>
 <li><p>return 1 if greater, 0 if equal, -1 if less than the argument</p></li>
@@ -786,15 +786,15 @@ with particular type)</p></li>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">equals()</span></code></dt><dd><ul>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">equals()</span></code></dt><dd><ul class="simple">
 <li><p>determine if Number object is equal to the argument object</p></li>
 <li><p>argument can be of any object</p></li>
-<li><p>return true if argument is not null and is an object of same type with same numeric
-value</p></li>
-<li><p>extra requirements for Double and Float</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">x.equals(y)</span></code></p></li>
+<li><p>return true if argument is not null and is an object of same type with same numeric</p></li>
 </ul>
+<p>value
+- extra requirements for Double and Float
+- <code class="docutils literal notranslate"><span class="pre">x.equals(y)</span></code></p>
 </dd>
 </dl>
 </li>
@@ -1054,48 +1054,48 @@ memory
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Thread.sleep()</span></code>: sleep for any period, <code class="docutils literal notranslate"><span class="pre">Thead.sleep(time</span> <span class="pre">in</span> <span class="pre">ms)</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">System.currentTimeMillis()</span></code>: get current time in ms, used for measuring elapsed time</p></li>
-<li><dl class="simple">
+<li><dl>
 <dt><strong>GregorianCalendar</strong></dt><dd><ul class="simple">
 <li><p>concrete implementation of Calendar class in Gregorian</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GregorianCalendar()</span></code>: initialize default GregorianCalendar using current time in
-default time zone and default locale or <code class="docutils literal notranslate"><span class="pre">GregorianCalendar(int</span> <span class="pre">yr,</span> <span class="pre">int</span> <span class="pre">month,</span> <span class="pre">int</span> <span class="pre">date)</span></code>
+<li><p><code class="docutils literal notranslate"><span class="pre">GregorianCalendar()</span></code>: initialize default GregorianCalendar using current time in</p></li>
+</ul>
+<p>default time zone and default locale or <code class="docutils literal notranslate"><span class="pre">GregorianCalendar(int</span> <span class="pre">yr,</span> <span class="pre">int</span> <span class="pre">month,</span> <span class="pre">int</span> <span class="pre">date)</span></code>
 or <code class="docutils literal notranslate"><span class="pre">GregorianCalendar(int</span> <span class="pre">yr,</span> <span class="pre">int</span> <span class="pre">month,</span> <span class="pre">int</span> <span class="pre">date,</span> <span class="pre">int</span> <span class="pre">hr,</span> <span class="pre">int</span> <span class="pre">min,</span> <span class="pre">int</span> <span class="pre">second)</span></code> or
 <code class="docutils literal notranslate"><span class="pre">GregorianCalendar(Locale</span> <span class="pre">l)</span></code> or <code class="docutils literal notranslate"><span class="pre">GregorianCalendar(TimeZone</span> <span class="pre">zone)</span></code> or
-<code class="docutils literal notranslate"><span class="pre">GregorianCalendar(TimeZone</span> <span class="pre">z,</span> <span class="pre">Locale</span> <span class="pre">l)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">add(int</span> <span class="pre">field,</span> <span class="pre">int</span> <span class="pre">amnt)</span></code>: add amount of time to given field,
-<code class="docutils literal notranslate"><span class="pre">c.add(GregorianCalendar.MONTH,</span> <span class="pre">2)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">computeFields()</span></code>: converts UTC as ms to time field values</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">computeTime()</span></code>: Overrides Calendar Converts time field values to UTC as ms</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">equals()</span></code>: true if equal, <code class="docutils literal notranslate"><span class="pre">c1.equals(c2)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">get()</span></code>: get value of given time field, <code class="docutils literal notranslate"><span class="pre">c.get(Calendar.YEAR)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getActualMaximum()</span></code>: get max value a field can have,
-<code class="docutils literal notranslate"><span class="pre">c.getActualMaximum(Calendar.YEAR)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getActualMinimum()</span></code>: get minimum value a field can have,
-<code class="docutils literal notranslate"><span class="pre">c.getActualMinimum(Calendar.YEAR)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getGreatestMinimum()</span></code>: get highest minimum value of a field,
-<code class="docutils literal notranslate"><span class="pre">c.getGreatestMinimum(Calendar.AM_PM)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getGregorianChange()</span></code>: get date change from Julian Calendar to Gregorian</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setGregorianChange()</span></code>: set Gregorian Calendar change date,
-<code class="docutils literal notranslate"><span class="pre">c.setGregorianChange(new</span> <span class="pre">Date())</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getLeastMaximum()</span></code>: get lowest max value of a field,
-<code class="docutils literal notranslate"><span class="pre">c.getLeastMaximum(Calendar.PM)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getMaximum()</span></code>: get max value for a field, <code class="docutils literal notranslate"><span class="pre">c.getMaximum(Calendar.YEAR)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getTime()</span></code>: get this Calendar current time, <code class="docutils literal notranslate"><span class="pre">c.getTime()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getTimeInMillis()</span></code>: get this Calendar current time in ms, <code class="docutils literal notranslate"><span class="pre">c.getTimeInMillis()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getTimeZone()</span></code>: return TimeZone object, <code class="docutils literal notranslate"><span class="pre">TimeZone</span> <span class="pre">t</span> <span class="pre">=</span> <span class="pre">c.getTimezone()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">hashCode()</span></code>: get hash code, <code class="docutils literal notranslate"><span class="pre">c.hashCode()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">isLeapYear()</span></code>: true if argument is leap year, <code class="docutils literal notranslate"><span class="pre">c.isLeapYear(2000)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">roll()</span></code>: add/subtract single unit of time on given field,
+<code class="docutils literal notranslate"><span class="pre">GregorianCalendar(TimeZone</span> <span class="pre">z,</span> <span class="pre">Locale</span> <span class="pre">l)</span></code>
+- <code class="docutils literal notranslate"><span class="pre">add(int</span> <span class="pre">field,</span> <span class="pre">int</span> <span class="pre">amnt)</span></code>: add amount of time to given field,
+<code class="docutils literal notranslate"><span class="pre">c.add(GregorianCalendar.MONTH,</span> <span class="pre">2)</span></code>
+- <code class="docutils literal notranslate"><span class="pre">computeFields()</span></code>: converts UTC as ms to time field values
+- <code class="docutils literal notranslate"><span class="pre">computeTime()</span></code>: Overrides Calendar Converts time field values to UTC as ms
+- <code class="docutils literal notranslate"><span class="pre">equals()</span></code>: true if equal, <code class="docutils literal notranslate"><span class="pre">c1.equals(c2)</span></code>
+- <code class="docutils literal notranslate"><span class="pre">get()</span></code>: get value of given time field, <code class="docutils literal notranslate"><span class="pre">c.get(Calendar.YEAR)</span></code>
+- <code class="docutils literal notranslate"><span class="pre">getActualMaximum()</span></code>: get max value a field can have,
+<code class="docutils literal notranslate"><span class="pre">c.getActualMaximum(Calendar.YEAR)</span></code>
+- <code class="docutils literal notranslate"><span class="pre">getActualMinimum()</span></code>: get minimum value a field can have,
+<code class="docutils literal notranslate"><span class="pre">c.getActualMinimum(Calendar.YEAR)</span></code>
+- <code class="docutils literal notranslate"><span class="pre">getGreatestMinimum()</span></code>: get highest minimum value of a field,
+<code class="docutils literal notranslate"><span class="pre">c.getGreatestMinimum(Calendar.AM_PM)</span></code>
+- <code class="docutils literal notranslate"><span class="pre">getGregorianChange()</span></code>: get date change from Julian Calendar to Gregorian
+- <code class="docutils literal notranslate"><span class="pre">setGregorianChange()</span></code>: set Gregorian Calendar change date,
+<code class="docutils literal notranslate"><span class="pre">c.setGregorianChange(new</span> <span class="pre">Date())</span></code>
+- <code class="docutils literal notranslate"><span class="pre">getLeastMaximum()</span></code>: get lowest max value of a field,
+<code class="docutils literal notranslate"><span class="pre">c.getLeastMaximum(Calendar.PM)</span></code>
+- <code class="docutils literal notranslate"><span class="pre">getMaximum()</span></code>: get max value for a field, <code class="docutils literal notranslate"><span class="pre">c.getMaximum(Calendar.YEAR)</span></code>
+- <code class="docutils literal notranslate"><span class="pre">getTime()</span></code>: get this Calendar current time, <code class="docutils literal notranslate"><span class="pre">c.getTime()</span></code>
+- <code class="docutils literal notranslate"><span class="pre">getTimeInMillis()</span></code>: get this Calendar current time in ms, <code class="docutils literal notranslate"><span class="pre">c.getTimeInMillis()</span></code>
+- <code class="docutils literal notranslate"><span class="pre">getTimeZone()</span></code>: return TimeZone object, <code class="docutils literal notranslate"><span class="pre">TimeZone</span> <span class="pre">t</span> <span class="pre">=</span> <span class="pre">c.getTimezone()</span></code>
+- <code class="docutils literal notranslate"><span class="pre">hashCode()</span></code>: get hash code, <code class="docutils literal notranslate"><span class="pre">c.hashCode()</span></code>
+- <code class="docutils literal notranslate"><span class="pre">isLeapYear()</span></code>: true if argument is leap year, <code class="docutils literal notranslate"><span class="pre">c.isLeapYear(2000)</span></code>
+- <code class="docutils literal notranslate"><span class="pre">roll()</span></code>: add/subtract single unit of time on given field,
 <code class="docutils literal notranslate"><span class="pre">c.roll(Calendar.YEAR,</span> <span class="pre">true)</span></code> increase year by one, <code class="docutils literal notranslate"><span class="pre">c.roll(Calendar.YEAR,</span> <span class="pre">false)</span></code>
-decrease year by one</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">set()</span></code>: set time field with given value, <code class="docutils literal notranslate"><span class="pre">c.set(Calendar.YEAR,</span> <span class="pre">22)</span></code> or
+decrease year by one
+- <code class="docutils literal notranslate"><span class="pre">set()</span></code>: set time field with given value, <code class="docutils literal notranslate"><span class="pre">c.set(Calendar.YEAR,</span> <span class="pre">22)</span></code> or
 <code class="docutils literal notranslate"><span class="pre">c.set(yr,</span> <span class="pre">month,</span> <span class="pre">date)</span></code> or <code class="docutils literal notranslate"><span class="pre">c.set(yr,</span> <span class="pre">month,</span> <span class="pre">date,</span> <span class="pre">hr,</span> <span class="pre">min)</span></code> or
-<code class="docutils literal notranslate"><span class="pre">c.set(yr,</span> <span class="pre">month,</span> <span class="pre">date,</span> <span class="pre">hr,</span> <span class="pre">min,</span> <span class="pre">second)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setTime()</span></code>: set this Calendar current time with given Date object, <code class="docutils literal notranslate"><span class="pre">c.setTime(Date())</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setTimeinMillis()</span></code>: set this Calendar current time in given long value</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setTimeZone()</span></code>: set time zone with given TimeZone object, <code class="docutils literal notranslate"><span class="pre">c.setTimeZone(TimeZone)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">toString()</span></code>: return string representation of this Calendar</p></li>
-</ul>
+<code class="docutils literal notranslate"><span class="pre">c.set(yr,</span> <span class="pre">month,</span> <span class="pre">date,</span> <span class="pre">hr,</span> <span class="pre">min,</span> <span class="pre">second)</span></code>
+- <code class="docutils literal notranslate"><span class="pre">setTime()</span></code>: set this Calendar current time with given Date object, <code class="docutils literal notranslate"><span class="pre">c.setTime(Date())</span></code>
+- <code class="docutils literal notranslate"><span class="pre">setTimeinMillis()</span></code>: set this Calendar current time in given long value
+- <code class="docutils literal notranslate"><span class="pre">setTimeZone()</span></code>: set time zone with given TimeZone object, <code class="docutils literal notranslate"><span class="pre">c.setTimeZone(TimeZone)</span></code>
+- <code class="docutils literal notranslate"><span class="pre">toString()</span></code>: return string representation of this Calendar</p>
 </dd>
 </dl>
 </li>
@@ -1105,52 +1105,52 @@ decrease year by one</p></li>
 <section id="regex">
 <h3>Regex<a class="headerlink" href="#regex" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>in <code class="docutils literal notranslate"><span class="pre">java.util.regex</span></code> package</p></li>
 <li><dl class="simple">
-<dt><strong>Pattern Class</strong></dt><dd><ul>
+<dt><strong>Pattern Class</strong></dt><dd><ul class="simple">
 <li><p>compiled representation of regex, no public constructors</p></li>
 <li><p>must invoke <code class="docutils literal notranslate"><span class="pre">compile()</span></code>, which returns Pattern object</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>Matcher Class</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>Matcher Class</strong></dt><dd><ul class="simple">
 <li><p>interpret pattern and preform match operations on input string</p></li>
 <li><p>no public constructors, must invoke <code class="docutils literal notranslate"><span class="pre">matcher()</span></code> on Pattern object</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">groupCount()</span></code>: return number of capturing groups, does not include group 0,
-<code class="docutils literal notranslate"><span class="pre">m.groupCount()</span></code></p></li>
-<li><p>capturing group 0 represents entire expression</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">start()</span></code>: return start index of previous match, <code class="docutils literal notranslate"><span class="pre">m.start()</span></code> or <code class="docutils literal notranslate"><span class="pre">m.start(int</span> <span class="pre">group)</span></code>,
-which returns start index of subsequence captured by given group</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">end()</span></code>: return offset after the last char matched, <code class="docutils literal notranslate"><span class="pre">m.end()</span></code> or <code class="docutils literal notranslate"><span class="pre">m.end(int</span> <span class="pre">group)</span></code>,
-which returns offset after the last char of subsequence captured by given group</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lookingAt()</span></code>: true if pattern is matched, starting at the beginning, <code class="docutils literal notranslate"><span class="pre">m.lookingAt()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">find()</span></code>: true if next subsequence of matched pattern is found, <code class="docutils literal notranslate"><span class="pre">m.find()</span></code> or
-<code class="docutils literal notranslate"><span class="pre">m.find(int</span> <span class="pre">start)</span></code>, which find next subsequence at given index</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">matches()</span></code>: true if entire region matches the pattern</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">appendReplacement(StringBuffer,</span> <span class="pre">String)</span></code>: non-terminal append and replace return
-Matcher object, <code class="docutils literal notranslate"><span class="pre">m.appendReplacement()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">appendTail(StringBuffer)</span></code>: terminal append and replace, return StringBuffer object</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">replaceAll(String)</span></code>: replace every subsequence that matches with given string,
-return String object</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">replaceFirst(String)</span></code>: replace first subsequence, <code class="docutils literal notranslate"><span class="pre">m.replaceFirst()</span></code>, return String</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">quoteReplacement(String)</span></code>: return literal replacement String for specified String,
-act as intermediate in replace methods, <code class="docutils literal notranslate"><span class="pre">m.quoteReplacement()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">groupCount()</span></code>: return number of capturing groups, does not include group 0,</p></li>
 </ul>
+<p><code class="docutils literal notranslate"><span class="pre">m.groupCount()</span></code>
+- capturing group 0 represents entire expression
+- <code class="docutils literal notranslate"><span class="pre">start()</span></code>: return start index of previous match, <code class="docutils literal notranslate"><span class="pre">m.start()</span></code> or <code class="docutils literal notranslate"><span class="pre">m.start(int</span> <span class="pre">group)</span></code>,
+which returns start index of subsequence captured by given group
+- <code class="docutils literal notranslate"><span class="pre">end()</span></code>: return offset after the last char matched, <code class="docutils literal notranslate"><span class="pre">m.end()</span></code> or <code class="docutils literal notranslate"><span class="pre">m.end(int</span> <span class="pre">group)</span></code>,
+which returns offset after the last char of subsequence captured by given group
+- <code class="docutils literal notranslate"><span class="pre">lookingAt()</span></code>: true if pattern is matched, starting at the beginning, <code class="docutils literal notranslate"><span class="pre">m.lookingAt()</span></code>
+- <code class="docutils literal notranslate"><span class="pre">find()</span></code>: true if next subsequence of matched pattern is found, <code class="docutils literal notranslate"><span class="pre">m.find()</span></code> or
+<code class="docutils literal notranslate"><span class="pre">m.find(int</span> <span class="pre">start)</span></code>, which find next subsequence at given index
+- <code class="docutils literal notranslate"><span class="pre">matches()</span></code>: true if entire region matches the pattern
+- <code class="docutils literal notranslate"><span class="pre">appendReplacement(StringBuffer,</span> <span class="pre">String)</span></code>: non-terminal append and replace return
+Matcher object, <code class="docutils literal notranslate"><span class="pre">m.appendReplacement()</span></code>
+- <code class="docutils literal notranslate"><span class="pre">appendTail(StringBuffer)</span></code>: terminal append and replace, return StringBuffer object
+- <code class="docutils literal notranslate"><span class="pre">replaceAll(String)</span></code>: replace every subsequence that matches with given string,
+return String object
+- <code class="docutils literal notranslate"><span class="pre">replaceFirst(String)</span></code>: replace first subsequence, <code class="docutils literal notranslate"><span class="pre">m.replaceFirst()</span></code>, return String
+- <code class="docutils literal notranslate"><span class="pre">quoteReplacement(String)</span></code>: return literal replacement String for specified String,
+act as intermediate in replace methods, <code class="docutils literal notranslate"><span class="pre">m.quoteReplacement()</span></code></p>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>PatternSyntaxException</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>PatternSyntaxException</strong></dt><dd><ul class="simple">
 <li><p>unchecked exception that indicates syntax error in regex</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">getDescription()</span></code>: return description of error</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">getIndex()</span></code>: return error index</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">getPattern()</span></code>: return incorrect regex pattern</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getMessage()</span></code>: return description of syntax error and index, incorrect regex
-pattern and visual indication of error index within pattern</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getMessage()</span></code>: return description of syntax error and index, incorrect regex</p></li>
 </ul>
+<p>pattern and visual indication of error index within pattern</p>
 </dd>
 </dl>
 </li>
@@ -1225,11 +1225,11 @@ pattern and visual indication of error index within pattern</p></li>
 </li>
 <li><dl>
 <dt><strong>this</strong></dt><dd><ul class="simple">
-<li><p>used as reference to the object of current class, only within instance method or
-constructor</p></li>
-<li><p>can refer the members of class such as constructors, variables and methods</p></li>
-<li><p>to differentiate instance variables from local variables that have same names</p></li>
+<li><p>used as reference to the object of current class, only within instance method or</p></li>
 </ul>
+<p>constructor
+- can refer the members of class such as constructors, variables and methods
+- to differentiate instance variables from local variables that have same names</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 
@@ -1306,9 +1306,9 @@ constructor</p></li>
 <li><dl>
 <dt><strong>character streams</strong></dt><dd><ul class="simple">
 <li><p>for I/O of 16-bit unicode</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FileReader</span></code> and <code class="docutils literal notranslate"><span class="pre">FileWriter</span></code> use <code class="docutils literal notranslate"><span class="pre">FileInputStream</span></code> and <code class="docutils literal notranslate"><span class="pre">FileOutputStream</span></code>
-internally, but read and write 2 bytes at a time</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FileReader</span></code> and <code class="docutils literal notranslate"><span class="pre">FileWriter</span></code> use <code class="docutils literal notranslate"><span class="pre">FileInputStream</span></code> and <code class="docutils literal notranslate"><span class="pre">FileOutputStream</span></code></p></li>
 </ul>
+<p>internally, but read and write 2 bytes at a time</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">FileReader</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
 <span class="n">FileWriter</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
 </pre></div>
@@ -1347,14 +1347,14 @@ internally, but read and write 2 bytes at a time</p></li>
 <li><p>objects can be created, and several types of constructors available</p></li>
 <li><p>all methods throw IOException</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">close()</span></code>: close file input stream, <code class="docutils literal notranslate"><span class="pre">in.close()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">finalize()</span></code>: protected method, clean the connection to the file, ensure <code class="docutils literal notranslate"><span class="pre">close()</span></code>
-is called when there are no more references to the stream</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">read(int</span> <span class="pre">r)</span></code>: read specified byte of data from InputStream, return the next byte of
-data or -1 if end of file</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">read(byte[]</span> <span class="pre">r)</span></code>: read r.length bytes from InputStream into array, return total
-number of bytes read or -1 if end of file</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">available()</span></code>: return number of bytes that can be read from the file input stream</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">finalize()</span></code>: protected method, clean the connection to the file, ensure <code class="docutils literal notranslate"><span class="pre">close()</span></code></p></li>
 </ul>
+<p>is called when there are no more references to the stream
+- <code class="docutils literal notranslate"><span class="pre">read(int</span> <span class="pre">r)</span></code>: read specified byte of data from InputStream, return the next byte of
+data or -1 if end of file
+- <code class="docutils literal notranslate"><span class="pre">read(byte[]</span> <span class="pre">r)</span></code>: read r.length bytes from InputStream into array, return total
+number of bytes read or -1 if end of file
+- <code class="docutils literal notranslate"><span class="pre">available()</span></code>: return number of bytes that can be read from the file input stream</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">InputStream</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileInputStream</span><span class="p">(</span><span class="s">&quot;filename&quot;</span><span class="p">);</span>
 
 <span class="c1">// using File object</span>
@@ -1371,11 +1371,11 @@ number of bytes read or -1 if end of file</p></li>
 <li><p>will create new file if not exist, before opening it for output</p></li>
 <li><p>all methods throw IOException</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">close()</span></code>: file file output stream, <code class="docutils literal notranslate"><span class="pre">out.close()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">finalize()</span></code>: protected method, clean the connection to the file, ensure <code class="docutils literal notranslate"><span class="pre">close()</span></code>
-is called when there are no more references to the stream</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">write(int</span> <span class="pre">w)</span></code>: write specified byte to output stream</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">write(byte[]</span> <span class="pre">w)</span></code>: write w.length bytes from byte array to OutputStream</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">finalize()</span></code>: protected method, clean the connection to the file, ensure <code class="docutils literal notranslate"><span class="pre">close()</span></code></p></li>
 </ul>
+<p>is called when there are no more references to the stream
+- <code class="docutils literal notranslate"><span class="pre">write(int</span> <span class="pre">w)</span></code>: write specified byte to output stream
+- <code class="docutils literal notranslate"><span class="pre">write(byte[]</span> <span class="pre">w)</span></code>: write w.length bytes from byte array to OutputStream</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">OutputStream</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileOutputStream</span><span class="p">(</span><span class="s">&quot;filename&quot;</span><span class="p">)</span>
 
 <span class="c1">// using file object</span>
@@ -1389,12 +1389,12 @@ is called when there are no more references to the stream</p></li>
 <li><dl>
 <dt><strong>Directories</strong></dt><dd><ul class="simple">
 <li><p>can use File object to create directories and list files in a directory</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mkdir()</span></code>: create a directory, return true on success and false on failure, which
-means path specified already exists or entire path does not exist yet, <code class="docutils literal notranslate"><span class="pre">d.mkdir(/foo)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mkdirs()</span></code>: create both directory and parents of the directory, <code class="docutils literal notranslate"><span class="pre">d.mkdirs(/foo/bar)</span></code></p></li>
-<li><p>path separators of UNIX and Windows are resolved correctly by Java</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">list()</span></code>: list all files</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mkdir()</span></code>: create a directory, return true on success and false on failure, which</p></li>
 </ul>
+<p>means path specified already exists or entire path does not exist yet, <code class="docutils literal notranslate"><span class="pre">d.mkdir(/foo)</span></code>
+- <code class="docutils literal notranslate"><span class="pre">mkdirs()</span></code>: create both directory and parents of the directory, <code class="docutils literal notranslate"><span class="pre">d.mkdirs(/foo/bar)</span></code>
+- path separators of UNIX and Windows are resolved correctly by Java
+- <code class="docutils literal notranslate"><span class="pre">list()</span></code>: list all files</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">File</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;/foo/bar&quot;</span><span class="p">);</span>
 <span class="n">d</span><span class="p">.</span><span class="na">mkdirs</span><span class="p">();</span>
 
@@ -1410,18 +1410,18 @@ means path specified already exists or entire path does not exist yet, <code cla
 <li><dl>
 <dt><strong>ByteArrayInputStream</strong></dt><dd><ul class="simple">
 <li><p>allow buffer in memory to be used as InputStream, byte array as input source</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ByteArrayInputStream(byte[]</span> <span class="pre">a)</span></code> or <code class="docutils literal notranslate"><span class="pre">ByteArrayInputStream(byte[]</span> <span class="pre">a,</span> <span class="pre">int</span> <span class="pre">off,</span> <span class="pre">int</span> <span class="pre">len)</span></code>:
-constructor take byte array, first byte to be read and number of bytes to be read</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">read()</span></code>: read next byte from InputStream, return int as next byte of data, -1 if
-end of file</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">read(byte[]</span> <span class="pre">r,</span> <span class="pre">int</span> <span class="pre">off,</span> <span class="pre">int</span> <span class="pre">len)</span></code>: read from input stream starting from off till
-len into an array, return total number of bytes read or -1 if end of file</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">available()</span></code>: return number of readable bytes from input stream</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mark(int</span> <span class="pre">r)</span></code>: set current marked position in the stream, max limit of readable
-bytes as argument</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">skip(long</span> <span class="pre">n)</span></code>: skip n numbers of bytes from stream, return actual number of bytes
-skipped</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ByteArrayInputStream(byte[]</span> <span class="pre">a)</span></code> or <code class="docutils literal notranslate"><span class="pre">ByteArrayInputStream(byte[]</span> <span class="pre">a,</span> <span class="pre">int</span> <span class="pre">off,</span> <span class="pre">int</span> <span class="pre">len)</span></code>:</p></li>
 </ul>
+<p>constructor take byte array, first byte to be read and number of bytes to be read
+- <code class="docutils literal notranslate"><span class="pre">read()</span></code>: read next byte from InputStream, return int as next byte of data, -1 if
+end of file
+- <code class="docutils literal notranslate"><span class="pre">read(byte[]</span> <span class="pre">r,</span> <span class="pre">int</span> <span class="pre">off,</span> <span class="pre">int</span> <span class="pre">len)</span></code>: read from input stream starting from off till
+len into an array, return total number of bytes read or -1 if end of file
+- <code class="docutils literal notranslate"><span class="pre">available()</span></code>: return number of readable bytes from input stream
+- <code class="docutils literal notranslate"><span class="pre">mark(int</span> <span class="pre">r)</span></code>: set current marked position in the stream, max limit of readable
+bytes as argument
+- <code class="docutils literal notranslate"><span class="pre">skip(long</span> <span class="pre">n)</span></code>: skip n numbers of bytes from stream, return actual number of bytes
+skipped</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">ByteArrayInputStream</span><span class="w"> </span><span class="n">bInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ByteArrayInputStream</span><span class="p">(</span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bInput</span><span class="p">.</span><span class="na">read</span><span class="p">())</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -1439,15 +1439,15 @@ skipped</p></li>
 <li><p>create buffer in memory, all data sent to the stream is stored in the buffer</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ByteArrayOutputStream()</span></code>: create ByteArrayOutputStream having buffer of 32 bytes</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ByteArrayOutputStream(int</span> <span class="pre">s)</span></code>: having buffer of given size</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">reset()</span></code>: reset number of valid bytes of the stream to zero, all output in the
-stream is discarded</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">toByteArray()</span></code>: return newly allocated byte array, with size and content of current
-output stream</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">toString()</span></code>: return buffer content as string</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">write(byte[]</span> <span class="pre">b)</span></code>: write given array to output stream</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">write(byte[]</span> <span class="pre">b,</span> <span class="pre">int</span> <span class="pre">off,</span> <span class="pre">int</span> <span class="pre">lent)</span></code>: write len of bytes starting from off</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">writeTo(OutputStream</span> <span class="pre">o)</span></code>: write entire content of this Stream to given stream</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reset()</span></code>: reset number of valid bytes of the stream to zero, all output in the</p></li>
 </ul>
+<p>stream is discarded
+- <code class="docutils literal notranslate"><span class="pre">toByteArray()</span></code>: return newly allocated byte array, with size and content of current
+output stream
+- <code class="docutils literal notranslate"><span class="pre">toString()</span></code>: return buffer content as string
+- <code class="docutils literal notranslate"><span class="pre">write(byte[]</span> <span class="pre">b)</span></code>: write given array to output stream
+- <code class="docutils literal notranslate"><span class="pre">write(byte[]</span> <span class="pre">b,</span> <span class="pre">int</span> <span class="pre">off,</span> <span class="pre">int</span> <span class="pre">lent)</span></code>: write len of bytes starting from off
+- <code class="docutils literal notranslate"><span class="pre">writeTo(OutputStream</span> <span class="pre">o)</span></code>: write entire content of this Stream to given stream</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">ByteArrayOutputStream</span><span class="w"> </span><span class="n">bOutput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ByteArrayOutputStream</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
 
 <span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">bOutput</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
@@ -1464,15 +1464,15 @@ output stream</p></li>
 <li><p>to read primitives</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">DataInputStream(InputStream</span> <span class="pre">in)</span></code>: create InputStream object</p></li>
 <li><p>all methods throw IOException</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">read(byte[]</span> <span class="pre">b)</span></code>: read bytes from input stream into the byte array, return total
-number of bytes read or -1 if end of file</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">read(byte[]</span> <span class="pre">b,</span> <span class="pre">int</span> <span class="pre">off,</span> <span class="pre">int</span> <span class="pre">len)</span></code>: read len of bytes starting from off</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">readBoolean()</span></code>, <code class="docutils literal notranslate"><span class="pre">readByte()</span></code>, <code class="docutils literal notranslate"><span class="pre">readShort()</span></code>, <code class="docutils literal notranslate"><span class="pre">readInt()</span></code>: read bytes from the
-contained InputStream, return next two bytes of InputStream as specific primitive type</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">readLine()</span></code>: read next line of text from InputStream, read successive bytes by
-converting each into char, until line terminator or end of file, return chars read as
-String</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read(byte[]</span> <span class="pre">b)</span></code>: read bytes from input stream into the byte array, return total</p></li>
 </ul>
+<p>number of bytes read or -1 if end of file
+- <code class="docutils literal notranslate"><span class="pre">read(byte[]</span> <span class="pre">b,</span> <span class="pre">int</span> <span class="pre">off,</span> <span class="pre">int</span> <span class="pre">len)</span></code>: read len of bytes starting from off
+- <code class="docutils literal notranslate"><span class="pre">readBoolean()</span></code>, <code class="docutils literal notranslate"><span class="pre">readByte()</span></code>, <code class="docutils literal notranslate"><span class="pre">readShort()</span></code>, <code class="docutils literal notranslate"><span class="pre">readInt()</span></code>: read bytes from the
+contained InputStream, return next two bytes of InputStream as specific primitive type
+- <code class="docutils literal notranslate"><span class="pre">readLine()</span></code>: read next line of text from InputStream, read successive bytes by
+converting each into char, until line terminator or end of file, return chars read as
+String</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">DataInputStream</span><span class="w"> </span><span class="n">dataIn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DataInputStream</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileInputStream</span><span class="p">(</span><span class="s">&quot;filename&quot;</span><span class="p">));</span>
 
 <span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">dataIn</span><span class="p">.</span><span class="na">available</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1488,16 +1488,16 @@ String</p></li>
 <li><p>write primitives to output source</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">DataOutputStream(OutputStream</span> <span class="pre">out)</span></code>: create OutputStream object</p></li>
 <li><p>all methods throw IOException</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">write(byte[]</span> <span class="pre">w)</span></code>: write number of bytes to output stream, return number bytes
-written to buffer</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">write(byte[]</span> <span class="pre">w,</span> <span class="pre">int</span> <span class="pre">off,</span> <span class="pre">int</span> <span class="pre">len)</span></code>: write len bytes from byte array at starting
-point off</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">writeBoolean()</span></code>, <code class="docutils literal notranslate"><span class="pre">writeByte()</span></code>, <code class="docutils literal notranslate"><span class="pre">writeShort()</span></code>, <code class="docutils literal notranslate"><span class="pre">writeInt()</span></code>: write specific
-primitive type data into output stream as bytes</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">flush()</span></code>: flush data output stream</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">wrtieBytes(String</span> <span class="pre">s)</span></code>: write the string to output stream as sequence of bytes, by
-discarding each char high eight bits</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write(byte[]</span> <span class="pre">w)</span></code>: write number of bytes to output stream, return number bytes</p></li>
 </ul>
+<p>written to buffer
+- <code class="docutils literal notranslate"><span class="pre">write(byte[]</span> <span class="pre">w,</span> <span class="pre">int</span> <span class="pre">off,</span> <span class="pre">int</span> <span class="pre">len)</span></code>: write len bytes from byte array at starting
+point off
+- <code class="docutils literal notranslate"><span class="pre">writeBoolean()</span></code>, <code class="docutils literal notranslate"><span class="pre">writeByte()</span></code>, <code class="docutils literal notranslate"><span class="pre">writeShort()</span></code>, <code class="docutils literal notranslate"><span class="pre">writeInt()</span></code>: write specific
+primitive type data into output stream as bytes
+- <code class="docutils literal notranslate"><span class="pre">flush()</span></code>: flush data output stream
+- <code class="docutils literal notranslate"><span class="pre">wrtieBytes(String</span> <span class="pre">s)</span></code>: write the string to output stream as sequence of bytes, by
+discarding each char high eight bits</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">DataOutputStream</span><span class="w"> </span><span class="n">dataOut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DataOutputStream</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileOutputStream</span><span class="p">(</span><span class="s">&quot;filename&quot;</span><span class="p">));</span>
 <span class="n">dataOut</span><span class="p">.</span><span class="na">writeUTF</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span>
 </pre></div>
@@ -1509,54 +1509,54 @@ discarding each char high eight bits</p></li>
 <dt><strong>File</strong></dt><dd><ul class="simple">
 <li><p>class to create files and directories, file searching, file deletion, etc.</p></li>
 <li><p>File object represents actual file/dir on the disk</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">File(File</span> <span class="pre">parent,</span> <span class="pre">String</span> <span class="pre">child)</span></code>: create File instance from parent abstract
-pathname and child pathname</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">File(String</span> <span class="pre">pathname)</span></code>: create File instance by converting given pathname into
-abstract pathname</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">File(String</span> <span class="pre">parent,</span> <span class="pre">String</span> <span class="pre">child)</span></code>: create File instance from parent and child
-pathname string</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">File(URI</span> <span class="pre">uri)</span></code>: create File instance by converting given URI into abstract pathname</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getName()</span></code>: return name of file or dir</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getParent()</span></code>: return pathname’s parent or null if parent dir not exist</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getParentFile()</span></code>: return abstract pathname of pathname’s parent, null if parent
-dir does not exist</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getPath()</span></code>: return pathname string</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">isAbsolute()</span></code>: true if pathname is absolute</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getAbsolutePath()</span></code>: return absolute pathname string</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">canRead()</span></code>: true if and only if file exists and can be read</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">canWrite()</span></code>:true if and only if file exists and is allowed to write</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">exists()</span></code>: true if file or dir exists</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">isDirectory()</span></code>: true if and only if pathname exists and is a dir</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">isFile()</span></code>: true if and only if file exists and is normal file, which is not a dir
-and satisfy other system-dependent criteria</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lastModified()</span></code>: return last modified time in ms since epoch (Jan 1, 1970)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">length()</span></code>: return length of file, return unspecified value if pathname is dir</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">createNewFile()</span></code>: auto create new, empty file only if it does not exist, return
-true if file not exist and created successfully, throw IOException</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">delete()</span></code>: delete file or dir, dir must be empty, return true if success</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">deleteOnExit()</span></code>: request file or dir be deleted when the VM terminates</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">list()</span></code>: return array of strings of files and dirs</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">list(FilenameFilter</span> <span class="pre">f)</span></code>: return array of strings of files and dirs that satisfy
-given filter</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">listFiles()</span></code> or <code class="docutils literal notranslate"><span class="pre">listFiles(FileFilter)</span></code>: return array of File objects</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mkdir()</span></code>: create dir, return true if dir is created</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mkdirs()</span></code>: create dir, with necessary parent dirs if not exist, return true if
-dir with parent dirs is created</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">renameTo(File</span> <span class="pre">f)</span></code>: rename the file, return true if success</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setLastModified(long</span> <span class="pre">time)</span></code>: set last modified time of file or dir, return true if
-success</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setReadOnly()</span></code>: mark file or dir read only, return true if success</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">createTempFile(String</span> <span class="pre">prefix,</span> <span class="pre">String</span> <span class="pre">suffix)</span></code> or
+<li><p><code class="docutils literal notranslate"><span class="pre">File(File</span> <span class="pre">parent,</span> <span class="pre">String</span> <span class="pre">child)</span></code>: create File instance from parent abstract</p></li>
+</ul>
+<p>pathname and child pathname
+- <code class="docutils literal notranslate"><span class="pre">File(String</span> <span class="pre">pathname)</span></code>: create File instance by converting given pathname into
+abstract pathname
+- <code class="docutils literal notranslate"><span class="pre">File(String</span> <span class="pre">parent,</span> <span class="pre">String</span> <span class="pre">child)</span></code>: create File instance from parent and child
+pathname string
+- <code class="docutils literal notranslate"><span class="pre">File(URI</span> <span class="pre">uri)</span></code>: create File instance by converting given URI into abstract pathname
+- <code class="docutils literal notranslate"><span class="pre">getName()</span></code>: return name of file or dir
+- <code class="docutils literal notranslate"><span class="pre">getParent()</span></code>: return pathname’s parent or null if parent dir not exist
+- <code class="docutils literal notranslate"><span class="pre">getParentFile()</span></code>: return abstract pathname of pathname’s parent, null if parent
+dir does not exist
+- <code class="docutils literal notranslate"><span class="pre">getPath()</span></code>: return pathname string
+- <code class="docutils literal notranslate"><span class="pre">isAbsolute()</span></code>: true if pathname is absolute
+- <code class="docutils literal notranslate"><span class="pre">getAbsolutePath()</span></code>: return absolute pathname string
+- <code class="docutils literal notranslate"><span class="pre">canRead()</span></code>: true if and only if file exists and can be read
+- <code class="docutils literal notranslate"><span class="pre">canWrite()</span></code>:true if and only if file exists and is allowed to write
+- <code class="docutils literal notranslate"><span class="pre">exists()</span></code>: true if file or dir exists
+- <code class="docutils literal notranslate"><span class="pre">isDirectory()</span></code>: true if and only if pathname exists and is a dir
+- <code class="docutils literal notranslate"><span class="pre">isFile()</span></code>: true if and only if file exists and is normal file, which is not a dir
+and satisfy other system-dependent criteria
+- <code class="docutils literal notranslate"><span class="pre">lastModified()</span></code>: return last modified time in ms since epoch (Jan 1, 1970)
+- <code class="docutils literal notranslate"><span class="pre">length()</span></code>: return length of file, return unspecified value if pathname is dir
+- <code class="docutils literal notranslate"><span class="pre">createNewFile()</span></code>: auto create new, empty file only if it does not exist, return
+true if file not exist and created successfully, throw IOException
+- <code class="docutils literal notranslate"><span class="pre">delete()</span></code>: delete file or dir, dir must be empty, return true if success
+- <code class="docutils literal notranslate"><span class="pre">deleteOnExit()</span></code>: request file or dir be deleted when the VM terminates
+- <code class="docutils literal notranslate"><span class="pre">list()</span></code>: return array of strings of files and dirs
+- <code class="docutils literal notranslate"><span class="pre">list(FilenameFilter</span> <span class="pre">f)</span></code>: return array of strings of files and dirs that satisfy
+given filter
+- <code class="docutils literal notranslate"><span class="pre">listFiles()</span></code> or <code class="docutils literal notranslate"><span class="pre">listFiles(FileFilter)</span></code>: return array of File objects
+- <code class="docutils literal notranslate"><span class="pre">mkdir()</span></code>: create dir, return true if dir is created
+- <code class="docutils literal notranslate"><span class="pre">mkdirs()</span></code>: create dir, with necessary parent dirs if not exist, return true if
+dir with parent dirs is created
+- <code class="docutils literal notranslate"><span class="pre">renameTo(File</span> <span class="pre">f)</span></code>: rename the file, return true if success
+- <code class="docutils literal notranslate"><span class="pre">setLastModified(long</span> <span class="pre">time)</span></code>: set last modified time of file or dir, return true if
+success
+- <code class="docutils literal notranslate"><span class="pre">setReadOnly()</span></code>: mark file or dir read only, return true if success
+- <code class="docutils literal notranslate"><span class="pre">createTempFile(String</span> <span class="pre">prefix,</span> <span class="pre">String</span> <span class="pre">suffix)</span></code> or
 <code class="docutils literal notranslate"><span class="pre">createTempFile(String</span> <span class="pre">prefix,</span> <span class="pre">String</span> <span class="pre">suffix,</span> <span class="pre">File</span> <span class="pre">dir)</span></code>: create empty file in default
 tmp or specified directory, using prefix and suffix to generate name, return abstract
-pathname of created empty file</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">compareTo(File)</span></code>: compare two abstract pathnames lexicographically, return 0 if
-equal, &lt; 0 if argument is greater, &gt; 0 if argument is less</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">compareTo(Object)</span></code>: compare abstract pathname to another object, return 0 if equal,
-&lt; 0 if argument is greater, &gt; 0 if argument is less</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">equals(Object)</span></code>: true if argument is not null and same file or dir</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">toString()</span></code>: return pathname string, which is just the string returned by <code class="docutils literal notranslate"><span class="pre">getPath()</span></code></p></li>
-</ul>
+pathname of created empty file
+- <code class="docutils literal notranslate"><span class="pre">compareTo(File)</span></code>: compare two abstract pathnames lexicographically, return 0 if
+equal, &lt; 0 if argument is greater, &gt; 0 if argument is less
+- <code class="docutils literal notranslate"><span class="pre">compareTo(Object)</span></code>: compare abstract pathname to another object, return 0 if equal,
+&lt; 0 if argument is greater, &gt; 0 if argument is less
+- <code class="docutils literal notranslate"><span class="pre">equals(Object)</span></code>: true if argument is not null and same file or dir
+- <code class="docutils literal notranslate"><span class="pre">toString()</span></code>: return pathname string, which is just the string returned by <code class="docutils literal notranslate"><span class="pre">getPath()</span></code></p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">File</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
 <span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;filename&quot;</span><span class="p">);</span>
 <span class="kt">boolean</span><span class="w"> </span><span class="n">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="na">canExecute</span><span class="p">();</span>
@@ -1569,12 +1569,12 @@ equal, &lt; 0 if argument is greater, &gt; 0 if argument is less</p></li>
 <li><dl>
 <dt><strong>FileReader</strong></dt><dd><ul class="simple">
 <li><p>inherits from InputStreamReader, used to read streams of characters</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FileReader(File)</span></code>, <code class="docutils literal notranslate"><span class="pre">FileReader(FileDescriptor)</span></code>, <code class="docutils literal notranslate"><span class="pre">FileReader(String)</span></code>: create
-FileReader with given argument to read from</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">read()</span></code>: read single char, return int of char read, throws IOException</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">read(char[]</span> <span class="pre">c,</span> <span class="pre">int</span> <span class="pre">off,</span> <span class="pre">int</span> <span class="pre">len)</span></code>: read chars into array, return number of chars
-read</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FileReader(File)</span></code>, <code class="docutils literal notranslate"><span class="pre">FileReader(FileDescriptor)</span></code>, <code class="docutils literal notranslate"><span class="pre">FileReader(String)</span></code>: create</p></li>
 </ul>
+<p>FileReader with given argument to read from
+- <code class="docutils literal notranslate"><span class="pre">read()</span></code>: read single char, return int of char read, throws IOException
+- <code class="docutils literal notranslate"><span class="pre">read(char[]</span> <span class="pre">c,</span> <span class="pre">int</span> <span class="pre">off,</span> <span class="pre">int</span> <span class="pre">len)</span></code>: read chars into array, return number of chars
+read</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">FileReader</span><span class="w"> </span><span class="n">fr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileReader</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;filename&quot;</span><span class="p">));</span>
 <span class="kt">char</span><span class="o">[]</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">char</span><span class="o">[</span><span class="mi">50</span><span class="o">]</span><span class="p">;</span>
 <span class="n">fr</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w"> </span><span class="c1">// read content to the array</span>
@@ -1587,13 +1587,13 @@ read</p></li>
 <li><dl>
 <dt><strong>FileWriter</strong></dt><dd><ul class="simple">
 <li><p>inherits form OutputStreamWriter, used to write streams of characters</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FileWriter(File)</span></code>, <code class="docutils literal notranslate"><span class="pre">FileWriter(File,boolean</span> <span class="pre">append)</span></code>, <code class="docutils literal notranslate"><span class="pre">FileWriter(FileDescriptor)</span></code>,
-<code class="docutils literal notranslate"><span class="pre">FileWriter(String)</span></code>, <code class="docutils literal notranslate"><span class="pre">FileWriter(String,</span> <span class="pre">boolean</span> <span class="pre">append)</span></code>: create FileWriter object,
-accept boolean to append data or not</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">write(int</span> <span class="pre">c)</span></code>: write single char, throw IOException</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">write(char[]</span> <span class="pre">c,</span> <span class="pre">int</span> <span class="pre">off,</span> <span class="pre">int</span> <span class="pre">len)</span></code>: write len of array of chars starting from off</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">write(String</span> <span class="pre">s,</span> <span class="pre">int</span> <span class="pre">off,</span> <span class="pre">int</span> <span class="pre">len)</span></code>: write len of String starting from off</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FileWriter(File)</span></code>, <code class="docutils literal notranslate"><span class="pre">FileWriter(File,boolean</span> <span class="pre">append)</span></code>, <code class="docutils literal notranslate"><span class="pre">FileWriter(FileDescriptor)</span></code>,</p></li>
 </ul>
+<p><code class="docutils literal notranslate"><span class="pre">FileWriter(String)</span></code>, <code class="docutils literal notranslate"><span class="pre">FileWriter(String,</span> <span class="pre">boolean</span> <span class="pre">append)</span></code>: create FileWriter object,
+accept boolean to append data or not
+- <code class="docutils literal notranslate"><span class="pre">write(int</span> <span class="pre">c)</span></code>: write single char, throw IOException
+- <code class="docutils literal notranslate"><span class="pre">write(char[]</span> <span class="pre">c,</span> <span class="pre">int</span> <span class="pre">off,</span> <span class="pre">int</span> <span class="pre">len)</span></code>: write len of array of chars starting from off
+- <code class="docutils literal notranslate"><span class="pre">write(String</span> <span class="pre">s,</span> <span class="pre">int</span> <span class="pre">off,</span> <span class="pre">int</span> <span class="pre">len)</span></code>: write len of String starting from off</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">FileWriter</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileWriter</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;filename&quot;</span><span class="p">));</span>
 <span class="n">writer</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span>
 <span class="n">writer</span><span class="p">.</span><span class="na">flush</span><span class="p">();</span>
@@ -1613,16 +1613,16 @@ accept boolean to append data or not</p></li>
 <li><p>in <code class="docutils literal notranslate"><span class="pre">java.lang.Exception</span></code> package</p></li>
 <li><p>exceptions should be handled not to let programs terminate abnormally</p></li>
 <li><p>exceptions can be caused by users, programmer or other resources errors</p></li>
-<li><dl class="simple">
+<li><dl>
 <dt><strong>checked exceptions</strong></dt><dd><ul class="simple">
 <li><p>checked by the compiler at compilation time, aka compile time exceptions</p></li>
 <li><p>cannot be ignored and must be taken care of immediately</p></li>
-<li><p>e.g <code class="docutils literal notranslate"><span class="pre">FileNotFoundException</span></code> when creating <code class="docutils literal notranslate"><span class="pre">FileReader</span></code> object and the file doesn’t
-exist</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ClassNotFoundException</span></code>, <code class="docutils literal notranslate"><span class="pre">CloneNOtSupportedException</span></code>, <code class="docutils literal notranslate"><span class="pre">IllegalAccessException</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">InstantiationException</span></code>, <code class="docutils literal notranslate"><span class="pre">InterruptedException</span></code>, <code class="docutils literal notranslate"><span class="pre">NoSuchFieldException</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">NoSuchMethodException</span></code></p></li>
+<li><p>e.g <code class="docutils literal notranslate"><span class="pre">FileNotFoundException</span></code> when creating <code class="docutils literal notranslate"><span class="pre">FileReader</span></code> object and the file doesn’t</p></li>
 </ul>
+<p>exist
+- <code class="docutils literal notranslate"><span class="pre">ClassNotFoundException</span></code>, <code class="docutils literal notranslate"><span class="pre">CloneNOtSupportedException</span></code>, <code class="docutils literal notranslate"><span class="pre">IllegalAccessException</span></code>
+- <code class="docutils literal notranslate"><span class="pre">InstantiationException</span></code>, <code class="docutils literal notranslate"><span class="pre">InterruptedException</span></code>, <code class="docutils literal notranslate"><span class="pre">NoSuchFieldException</span></code>
+- <code class="docutils literal notranslate"><span class="pre">NoSuchMethodException</span></code></p>
 </dd>
 </dl>
 </li>
@@ -1667,17 +1667,17 @@ exist</p></li>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Exception</span></code> and <code class="docutils literal notranslate"><span class="pre">Error</span></code> classes are subclasses of <code class="docutils literal notranslate"><span class="pre">Throwable</span></code> class</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">IOException</span></code> and <code class="docutils literal notranslate"><span class="pre">RuntimeException</span></code> are two main subclasses of <code class="docutils literal notranslate"><span class="pre">Exception</span></code> class</p></li>
-<li><dl class="simple">
+<li><dl>
 <dt><strong>Throwable</strong></dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">getMessage()</span></code>: return detail message about exception</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">getCause()</span></code>: return cause of exception as Throwable object</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">toString()</span></code>: return name of the class from <code class="docutils literal notranslate"><span class="pre">getMessage()</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">printStackTrace()</span></code>: print result of <code class="docutils literal notranslate"><span class="pre">toString()</span></code> with stack trace to <code class="docutils literal notranslate"><span class="pre">System.err</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getStackTrace()</span></code>: return array with elements on stack trace, index 0 being the top
-of the call stack</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">fillInStackTrace()</span></code>: fill the stack trace of this Throwable object with current
-stack trace, return Throwable object</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getStackTrace()</span></code>: return array with elements on stack trace, index 0 being the top</p></li>
 </ul>
+<p>of the call stack
+- <code class="docutils literal notranslate"><span class="pre">fillInStackTrace()</span></code>: fill the stack trace of this Throwable object with current
+stack trace, return Throwable object</p>
 </dd>
 </dl>
 </li>
@@ -1685,13 +1685,13 @@ stack trace, return Throwable object</p></li>
 <dt><strong>try/catch</strong></dt><dd><ul class="simple">
 <li><p>placed around the code that might generate exception</p></li>
 <li><p>code within the block is called protected code</p></li>
-<li><p>every <code class="docutils literal notranslate"><span class="pre">try</span></code> block should be immediately followed by <code class="docutils literal notranslate"><span class="pre">catch</span></code> or <code class="docutils literal notranslate"><span class="pre">finally</span></code>, which is
-optional</p></li>
-<li><p>one <code class="docutils literal notranslate"><span class="pre">try</span></code> can have multiple <code class="docutils literal notranslate"><span class="pre">catch</span></code> blocks</p></li>
-<li><p>code in <code class="docutils literal notranslate"><span class="pre">finally</span></code> block always execute, even if exception does not occur</p></li>
-<li><p>can use <code class="docutils literal notranslate"><span class="pre">finally</span></code> to do cleanup, no matter what happens in the protected code, e.g
-closing a file</p></li>
+<li><p>every <code class="docutils literal notranslate"><span class="pre">try</span></code> block should be immediately followed by <code class="docutils literal notranslate"><span class="pre">catch</span></code> or <code class="docutils literal notranslate"><span class="pre">finally</span></code>, which is</p></li>
 </ul>
+<p>optional
+- one <code class="docutils literal notranslate"><span class="pre">try</span></code> can have multiple <code class="docutils literal notranslate"><span class="pre">catch</span></code> blocks
+- code in <code class="docutils literal notranslate"><span class="pre">finally</span></code> block always execute, even if exception does not occur
+- can use <code class="docutils literal notranslate"><span class="pre">finally</span></code> to do cleanup, no matter what happens in the protected code, e.g
+closing a file</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// protected code</span>
 <span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1729,9 +1729,9 @@ closing a file</p></li>
 <li><p>auto close the resources used within try/catch block</p></li>
 <li><p>a class should implement <code class="docutils literal notranslate"><span class="pre">AutoCloseable</span></code> interface to be used with</p></li>
 <li><p>can have multiple classes in <code class="docutils literal notranslate"><span class="pre">try</span></code> statement, which will be closed in reverse order</p></li>
-<li><p>resources declared in <code class="docutils literal notranslate"><span class="pre">try</span></code> statement are instantiated before the start of <code class="docutils literal notranslate"><span class="pre">try</span></code> block,
-and are implicitly declared as <code class="docutils literal notranslate"><span class="pre">final</span></code></p></li>
+<li><p>resources declared in <code class="docutils literal notranslate"><span class="pre">try</span></code> statement are instantiated before the start of <code class="docutils literal notranslate"><span class="pre">try</span></code> block,</p></li>
 </ul>
+<p>and are implicitly declared as <code class="docutils literal notranslate"><span class="pre">final</span></code></p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">FileReader</span><span class="w"> </span><span class="n">fr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileReader</span><span class="p">(</span><span class="s">&quot;filename&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// no need to invoke fr.close();</span>
 <span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1745,10 +1745,10 @@ and are implicitly declared as <code class="docutils literal notranslate"><span 
 <li><dl>
 <dt><strong>custom exceptions</strong></dt><dd><ul class="simple">
 <li><p>must be a child of <code class="docutils literal notranslate"><span class="pre">Throwable</span></code></p></li>
-<li><p>need to extend <code class="docutils literal notranslate"><span class="pre">Exception</span></code> class for a checked exception that is auto enforced by
-the Handle or Declare Rule</p></li>
-<li><p>need to extend <code class="docutils literal notranslate"><span class="pre">RuntimeException</span></code> for runtime exception</p></li>
+<li><p>need to extend <code class="docutils literal notranslate"><span class="pre">Exception</span></code> class for a checked exception that is auto enforced by</p></li>
 </ul>
+<p>the Handle or Declare Rule
+- need to extend <code class="docutils literal notranslate"><span class="pre">RuntimeException</span></code> for runtime exception</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyException</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{}</span>
 </pre></div>
 </div>
@@ -1829,13 +1829,13 @@ the Handle or Declare Rule</p></li>
 </div>
 </div></blockquote>
 </li>
-<li><dl class="simple">
+<li><dl>
 <dt><strong>tagging interface</strong></dt><dd><ul class="simple">
 <li><p>interface with no methods in it</p></li>
 <li><p>to create common parent among group of interfaces</p></li>
-<li><p>to add data type to a class: implementing class does not need to define any methods,
-but becomes an interface type through polymorphism</p></li>
+<li><p>to add data type to a class: implementing class does not need to define any methods,</p></li>
 </ul>
+<p>but becomes an interface type through polymorphism</p>
 </dd>
 </dl>
 </li>
@@ -1915,15 +1915,15 @@ but becomes an interface type through polymorphism</p></li>
 </li>
 <li><p>compiled <code class="docutils literal notranslate"><span class="pre">.class</span></code> files and <code class="docutils literal notranslate"><span class="pre">.java</span></code> source files do not need to have same path</p></li>
 <li><p>can give access to others without revealing source files</p></li>
-<li><dl class="simple">
+<li><dl>
 <dt><strong>CLASSPATH</strong></dt><dd><ul class="simple">
 <li><p>full path of the classes directory can be set with <code class="docutils literal notranslate"><span class="pre">CLASSPATH</span></code> system variable</p></li>
-<li><p>if class path is <code class="docutils literal notranslate"><span class="pre">path/classes</span></code> and package is <code class="docutils literal notranslate"><span class="pre">foo.MyPackage</span></code>, compiler and JVM will
-look for <code class="docutils literal notranslate"><span class="pre">.class</span></code> files in <code class="docutils literal notranslate"><span class="pre">path/classes/foo/MyPackage</span></code></p></li>
-<li><p>can have several class paths separated by semicolon (Windows) or colon (Unix)</p></li>
-<li><p>by default, compiler and JVM will search current directory and JAR files containing
-Java platform classes</p></li>
+<li><p>if class path is <code class="docutils literal notranslate"><span class="pre">path/classes</span></code> and package is <code class="docutils literal notranslate"><span class="pre">foo.MyPackage</span></code>, compiler and JVM will</p></li>
 </ul>
+<p>look for <code class="docutils literal notranslate"><span class="pre">.class</span></code> files in <code class="docutils literal notranslate"><span class="pre">path/classes/foo/MyPackage</span></code>
+- can have several class paths separated by semicolon (Windows) or colon (Unix)
+- by default, compiler and JVM will search current directory and JAR files containing
+Java platform classes</p>
 </dd>
 </dl>
 </li>
@@ -2158,9 +2158,9 @@ Java platform classes</p></li>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>can pass anonymous inner class as argument to a method that accepts object of an
-interface, abstract class or a concrete class</p></li>
+<li><p>can pass anonymous inner class as argument to a method that accepts object of an</p></li>
 </ul>
+<p>interface, abstract class or a concrete class</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">interface</span> <span class="nc">MyInterface</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">();</span>
 <span class="p">}</span>
@@ -2357,23 +2357,23 @@ differentiate members of superclass from members of subclass if same names</p>
 <div><ul class="simple">
 <li><p>overriding function of existing method</p></li>
 <li><p>allow subclass to implement parent class method based on its requirements</p></li>
-<li><p>argument list must be same, return type must be same or subtype of the one declared
-in original overridden method</p></li>
-<li><p>access level cannot be more restrictive than original, e.g if original method is
-<code class="docutils literal notranslate"><span class="pre">public</span></code>, overriding method cannot be <code class="docutils literal notranslate"><span class="pre">private</span></code> or <code class="docutils literal notranslate"><span class="pre">protected</span></code></p></li>
-<li><p>can only override instance methods if subclass inherits them</p></li>
-<li><p>method with <code class="docutils literal notranslate"><span class="pre">final</span></code> cannot be overridden</p></li>
-<li><p>method with <code class="docutils literal notranslate"><span class="pre">static</span></code> cannot be overridden, but can be re-declared</p></li>
-<li><p>cannot override if method cannot be inherited</p></li>
-<li><p>if same package as superclass, can override any method, unless <code class="docutils literal notranslate"><span class="pre">private</span></code> or <code class="docutils literal notranslate"><span class="pre">final</span></code></p></li>
-<li><p>if different package as superclass, can only override <code class="docutils literal notranslate"><span class="pre">public</span></code> or <code class="docutils literal notranslate"><span class="pre">protected</span></code>
-non-final methods</p></li>
-<li><p>overriding method can throw unchecked exceptions, even if the original method does
-not</p></li>
-<li><p>overriding method should not throw checked exceptions that are new or broader than
-the ones in original method</p></li>
-<li><p>constructors cannot be overridden</p></li>
+<li><p>argument list must be same, return type must be same or subtype of the one declared</p></li>
 </ul>
+<p>in original overridden method
+- access level cannot be more restrictive than original, e.g if original method is
+<code class="docutils literal notranslate"><span class="pre">public</span></code>, overriding method cannot be <code class="docutils literal notranslate"><span class="pre">private</span></code> or <code class="docutils literal notranslate"><span class="pre">protected</span></code>
+- can only override instance methods if subclass inherits them
+- method with <code class="docutils literal notranslate"><span class="pre">final</span></code> cannot be overridden
+- method with <code class="docutils literal notranslate"><span class="pre">static</span></code> cannot be overridden, but can be re-declared
+- cannot override if method cannot be inherited
+- if same package as superclass, can override any method, unless <code class="docutils literal notranslate"><span class="pre">private</span></code> or <code class="docutils literal notranslate"><span class="pre">final</span></code>
+- if different package as superclass, can only override <code class="docutils literal notranslate"><span class="pre">public</span></code> or <code class="docutils literal notranslate"><span class="pre">protected</span></code>
+non-final methods
+- overriding method can throw unchecked exceptions, even if the original method does
+not
+- overriding method should not throw checked exceptions that are new or broader than
+the ones in original method
+- constructors cannot be overridden</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">A</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">hello</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;hello from A&quot;</span><span class="p">);</span>
@@ -3159,9 +3159,9 @@ key-value pair into map
 <li><p><code class="docutils literal notranslate"><span class="pre">previous()</span></code>: return previous element</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">previousIndex()</span></code>: return index of previous index, return -1 if not exist</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">remove()</span></code>: remove current element</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">set(Object)</span></code>: assign argument to current element, which is the element returned by
-<code class="docutils literal notranslate"><span class="pre">next()</span></code> or <code class="docutils literal notranslate"><span class="pre">previous()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set(Object)</span></code>: assign argument to current element, which is the element returned by</p></li>
 </ul>
+<p><code class="docutils literal notranslate"><span class="pre">next()</span></code> or <code class="docutils literal notranslate"><span class="pre">previous()</span></code></p>
 </div></blockquote>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
 <span class="n">a</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
@@ -3387,59 +3387,59 @@ client’s OutputStream
 <li><p>use by server applications, all constructors throw <code class="docutils literal notranslate"><span class="pre">IOException</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ServerSocket()</span></code>: create unbound server socket, must use <code class="docutils literal notranslate"><span class="pre">bind()</span></code> when ready</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ServerSocket(int)</span></code>: create server socket with given port</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ServerSocket(int</span> <span class="pre">port,</span> <span class="pre">int</span> <span class="pre">backlog)</span></code>: create server socket with given port and
-backlog, number of incoming clients to store in a wait queue</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ServerSocket(int</span> <span class="pre">port,</span> <span class="pre">int</span> <span class="pre">backlog,</span> <span class="pre">InetAddress</span> <span class="pre">addr)</span></code>: create server socket with
-local IP address to bind to, InetAddress is used for servers that may have multiple IP</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getLocalPort()</span></code>: return listening port</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">accept()</span></code>: wait for incoming client, block until client connect or socket time out,
-must set timeout value with <code class="docutils literal notranslate"><span class="pre">setSoTimeout()</span></code>, return Socket object if client connect,
-throw <code class="docutils literal notranslate"><span class="pre">IOException</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setSoTimeout(int)</span></code>: set timeout value during <code class="docutils literal notranslate"><span class="pre">accept()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">bind(SocketAddress,</span> <span class="pre">int</span> <span class="pre">backlog)</span></code>: bind socket to given SocketAddress object</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ServerSocket(int</span> <span class="pre">port,</span> <span class="pre">int</span> <span class="pre">backlog)</span></code>: create server socket with given port and</p></li>
 </ul>
+<p>backlog, number of incoming clients to store in a wait queue
+- <code class="docutils literal notranslate"><span class="pre">ServerSocket(int</span> <span class="pre">port,</span> <span class="pre">int</span> <span class="pre">backlog,</span> <span class="pre">InetAddress</span> <span class="pre">addr)</span></code>: create server socket with
+local IP address to bind to, InetAddress is used for servers that may have multiple IP
+- <code class="docutils literal notranslate"><span class="pre">getLocalPort()</span></code>: return listening port
+- <code class="docutils literal notranslate"><span class="pre">accept()</span></code>: wait for incoming client, block until client connect or socket time out,
+must set timeout value with <code class="docutils literal notranslate"><span class="pre">setSoTimeout()</span></code>, return Socket object if client connect,
+throw <code class="docutils literal notranslate"><span class="pre">IOException</span></code>
+- <code class="docutils literal notranslate"><span class="pre">setSoTimeout(int)</span></code>: set timeout value during <code class="docutils literal notranslate"><span class="pre">accept()</span></code>
+- <code class="docutils literal notranslate"><span class="pre">bind(SocketAddress,</span> <span class="pre">int</span> <span class="pre">backlog)</span></code>: bind socket to given SocketAddress object</p>
 </div></blockquote>
 <ul>
-<li><dl class="simple">
+<li><dl>
 <dt><strong>Socket</strong></dt><dd><ul class="simple">
-<li><p>use by both client and server, client instantiate one and server obtain one from
-<code class="docutils literal notranslate"><span class="pre">accept()</span></code></p></li>
-<li><p>all constructors, except default one, throw <code class="docutils literal notranslate"><span class="pre">IOException</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Socket(String,</span> <span class="pre">int)</span></code>: connect to given server at given port, throw
-<code class="docutils literal notranslate"><span class="pre">UnknownHostException</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Socket(InetAddress,</span> <span class="pre">int)</span></code>: connect to given server, using InetAddress, at given port</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Socket(String</span> <span class="pre">host,</span> <span class="pre">int</span> <span class="pre">port,</span> <span class="pre">InetAddress</span> <span class="pre">local,</span> <span class="pre">int</span> <span class="pre">localPort)</span></code>: connect to given
-host and port, creating socket on local host at given address and port</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Socket(InetAddress</span> <span class="pre">host,</span> <span class="pre">int</span> <span class="pre">port,</span> <span class="pre">InetAddress</span> <span class="pre">local,</span> <span class="pre">int</span> <span class="pre">localPort)</span></code>: connect to
-given host, using InetAddress, and port, creating socket on local host at given
-address and port</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Socket()</span></code>: create unconnected socket, need to use <code class="docutils literal notranslate"><span class="pre">connect()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">connect(SocketAddress,</span> <span class="pre">int</span> <span class="pre">timeout)</span></code>: connect socket to given host, throw
-<code class="docutils literal notranslate"><span class="pre">IOException</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getInetAddress()</span></code>: return address to which the socket is connected</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getPort()</span></code>: return port of the socket bounded on remote machine</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getLocalPort()</span></code>: return port of socket on local machine</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getRemoteSocketAddress()</span></code>: return address of remote socket</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getInputStream()</span></code>: return InputStream of socket, which is connected to OutputStream
-of remote socket, throw <code class="docutils literal notranslate"><span class="pre">IOException</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getOutputStream()</span></code>: return OutputStream of socket, which is connected to InputStream
-of remote socket, throw <code class="docutils literal notranslate"><span class="pre">IOException</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">close()</span></code>: close the socket, throw <code class="docutils literal notranslate"><span class="pre">IOException</span></code></p></li>
+<li><p>use by both client and server, client instantiate one and server obtain one from</p></li>
 </ul>
+<p><code class="docutils literal notranslate"><span class="pre">accept()</span></code>
+- all constructors, except default one, throw <code class="docutils literal notranslate"><span class="pre">IOException</span></code>
+- <code class="docutils literal notranslate"><span class="pre">Socket(String,</span> <span class="pre">int)</span></code>: connect to given server at given port, throw
+<code class="docutils literal notranslate"><span class="pre">UnknownHostException</span></code>
+- <code class="docutils literal notranslate"><span class="pre">Socket(InetAddress,</span> <span class="pre">int)</span></code>: connect to given server, using InetAddress, at given port
+- <code class="docutils literal notranslate"><span class="pre">Socket(String</span> <span class="pre">host,</span> <span class="pre">int</span> <span class="pre">port,</span> <span class="pre">InetAddress</span> <span class="pre">local,</span> <span class="pre">int</span> <span class="pre">localPort)</span></code>: connect to given
+host and port, creating socket on local host at given address and port
+- <code class="docutils literal notranslate"><span class="pre">Socket(InetAddress</span> <span class="pre">host,</span> <span class="pre">int</span> <span class="pre">port,</span> <span class="pre">InetAddress</span> <span class="pre">local,</span> <span class="pre">int</span> <span class="pre">localPort)</span></code>: connect to
+given host, using InetAddress, and port, creating socket on local host at given
+address and port
+- <code class="docutils literal notranslate"><span class="pre">Socket()</span></code>: create unconnected socket, need to use <code class="docutils literal notranslate"><span class="pre">connect()</span></code>
+- <code class="docutils literal notranslate"><span class="pre">connect(SocketAddress,</span> <span class="pre">int</span> <span class="pre">timeout)</span></code>: connect socket to given host, throw
+<code class="docutils literal notranslate"><span class="pre">IOException</span></code>
+- <code class="docutils literal notranslate"><span class="pre">getInetAddress()</span></code>: return address to which the socket is connected
+- <code class="docutils literal notranslate"><span class="pre">getPort()</span></code>: return port of the socket bounded on remote machine
+- <code class="docutils literal notranslate"><span class="pre">getLocalPort()</span></code>: return port of socket on local machine
+- <code class="docutils literal notranslate"><span class="pre">getRemoteSocketAddress()</span></code>: return address of remote socket
+- <code class="docutils literal notranslate"><span class="pre">getInputStream()</span></code>: return InputStream of socket, which is connected to OutputStream
+of remote socket, throw <code class="docutils literal notranslate"><span class="pre">IOException</span></code>
+- <code class="docutils literal notranslate"><span class="pre">getOutputStream()</span></code>: return OutputStream of socket, which is connected to InputStream
+of remote socket, throw <code class="docutils literal notranslate"><span class="pre">IOException</span></code>
+- <code class="docutils literal notranslate"><span class="pre">close()</span></code>: close the socket, throw <code class="docutils literal notranslate"><span class="pre">IOException</span></code></p>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
+<li><dl>
 <dt><strong>InetAddress</strong></dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">InetAddress(byte[])</span></code>: create object with raw IP address, return InetAddress</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getByAddress(String,</span> <span class="pre">byte[])</span></code>: create object with given host name and IP address,
-return InetAddress</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getByName(String)</span></code>: return IP address, as InetAddress object, of given host</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getHostAddress()</span></code>: return IP address string</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getHostName()</span></code>: get host name string</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getLocalHost()</span></code>: return local host as InetAddress</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">toString()</span></code>: convert IP address to string</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getByAddress(String,</span> <span class="pre">byte[])</span></code>: create object with given host name and IP address,</p></li>
 </ul>
+<p>return InetAddress
+- <code class="docutils literal notranslate"><span class="pre">getByName(String)</span></code>: return IP address, as InetAddress object, of given host
+- <code class="docutils literal notranslate"><span class="pre">getHostAddress()</span></code>: return IP address string
+- <code class="docutils literal notranslate"><span class="pre">getHostName()</span></code>: get host name string
+- <code class="docutils literal notranslate"><span class="pre">getLocalHost()</span></code>: return local host as InetAddress
+- <code class="docutils literal notranslate"><span class="pre">toString()</span></code>: convert IP address to string</p>
 </dd>
 </dl>
 </li>
@@ -3573,17 +3573,13 @@ object, throw <cite>IOException</cite></p>
 <li><p><code class="docutils literal notranslate"><span class="pre">setDoInput(boolean)</span></code>: default argument true to denote the connection will be used</p></li>
 </ul>
 <p>for input
-- <code class="docutils literal notranslate"><span class="pre">setDoOutput(boolean)</span></code>: default argument false to denote connection will not be used</p>
-<blockquote>
-<div><p>for output</p>
-</div></blockquote>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">getInputStream()</span></code>: return InputStream of connection for reading from the resource,
-throw <code class="docutils literal notranslate"><span class="pre">IOException</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getOutputStream()</span></code>: return OutputStream of connection for writing to resource,
-throw <code class="docutils literal notranslate"><span class="pre">IOException</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getURL()</span></code>: return URL object of connection</p></li>
-</ul>
+- <code class="docutils literal notranslate"><span class="pre">setDoOutput(boolean)</span></code>: default argument false to denote connection will not be used
+for output
+- <code class="docutils literal notranslate"><span class="pre">getInputStream()</span></code>: return InputStream of connection for reading from the resource,
+throw <code class="docutils literal notranslate"><span class="pre">IOException</span></code>
+- <code class="docutils literal notranslate"><span class="pre">getOutputStream()</span></code>: return OutputStream of connection for writing to resource,
+throw <code class="docutils literal notranslate"><span class="pre">IOException</span></code>
+- <code class="docutils literal notranslate"><span class="pre">getURL()</span></code>: return URL object of connection</p>
 </dd>
 </dl>
 </li>
@@ -3731,11 +3727,11 @@ throw <code class="docutils literal notranslate"><span class="pre">IOException</
 <li><dl>
 <dt><strong>Using Runnable</strong></dt><dd><ul class="simple">
 <li><p>implement Runnable interface to execute class as a thread</p></li>
-<li><p>must implement <code class="docutils literal notranslate"><span class="pre">run()</span></code> provided by Runnable, which is an entry point for a thread,
-need to put complete business logic inside the method</p></li>
-<li><p>instantiate a Thread object, <code class="docutils literal notranslate"><span class="pre">Thread(Runnable,</span> <span class="pre">String</span> <span class="pre">name)</span></code></p></li>
-<li><p>can start the created Thread object with <code class="docutils literal notranslate"><span class="pre">start()</span></code></p></li>
+<li><p>must implement <code class="docutils literal notranslate"><span class="pre">run()</span></code> provided by Runnable, which is an entry point for a thread,</p></li>
 </ul>
+<p>need to put complete business logic inside the method
+- instantiate a Thread object, <code class="docutils literal notranslate"><span class="pre">Thread(Runnable,</span> <span class="pre">String</span> <span class="pre">name)</span></code>
+- can start the created Thread object with <code class="docutils literal notranslate"><span class="pre">start()</span></code></p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">MyRunnable</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Runnable</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Thread</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">threadName</span><span class="p">;</span>
@@ -3778,30 +3774,30 @@ need to put complete business logic inside the method</p></li>
 <li><dl>
 <dt><strong>Using Thread</strong></dt><dd><ul class="simple">
 <li><p>extending Thread class provide more flexibility</p></li>
-<li><p>override <code class="docutils literal notranslate"><span class="pre">run()</span></code>, which is an entry point for a thread, need to put complete
-business logic inside the method</p></li>
-<li><p>call <code class="docutils literal notranslate"><span class="pre">start()</span></code> once Thread object is created</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">start()</span></code>: start the thread in a separate path of execution, then invoke <code class="docutils literal notranslate"><span class="pre">run()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">run()</span></code>: invoked when this Thread object is instantiated using separate Runnable
-target</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setName(String)</span></code>: change the name of Thread object</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getName()</span></code>: return name of Thread object</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setPriority(int)</span></code>: set thread priority, between 1 and 10</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setDaemon(boolean)</span></code>: this Thread is daemon thread if argument is true</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">join(long)</span></code>: invoked on second thread, current thread is blocked until the second
-thread terminate or given time in ms passes</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">interrupt()</span></code>: interrupt this thread, will continue execution if it was blocked</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">isAlive()</span></code>: return true if alive, which is any time after the thread has been
-started</p></li>
-<li><p>below static methods perform operation on currently running thread</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">yield()</span></code>: yield to any other threads of same priority that are waiting to be
-scheduled</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sleep(long)</span></code>: block current thread for given amount of time in ms</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">holdsLock(Object)</span></code>: return true if current thread hold the lock on argument</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">currentThread()</span></code>: return reference to this thread</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dumpStack()</span></code>: print stack trace for current thread, useful for debugging
-multithreaded applications</p></li>
+<li><p>override <code class="docutils literal notranslate"><span class="pre">run()</span></code>, which is an entry point for a thread, need to put complete</p></li>
 </ul>
+<p>business logic inside the method
+- call <code class="docutils literal notranslate"><span class="pre">start()</span></code> once Thread object is created
+- <code class="docutils literal notranslate"><span class="pre">start()</span></code>: start the thread in a separate path of execution, then invoke <code class="docutils literal notranslate"><span class="pre">run()</span></code>
+- <code class="docutils literal notranslate"><span class="pre">run()</span></code>: invoked when this Thread object is instantiated using separate Runnable
+target
+- <code class="docutils literal notranslate"><span class="pre">setName(String)</span></code>: change the name of Thread object
+- <code class="docutils literal notranslate"><span class="pre">getName()</span></code>: return name of Thread object
+- <code class="docutils literal notranslate"><span class="pre">setPriority(int)</span></code>: set thread priority, between 1 and 10
+- <code class="docutils literal notranslate"><span class="pre">setDaemon(boolean)</span></code>: this Thread is daemon thread if argument is true
+- <code class="docutils literal notranslate"><span class="pre">join(long)</span></code>: invoked on second thread, current thread is blocked until the second
+thread terminate or given time in ms passes
+- <code class="docutils literal notranslate"><span class="pre">interrupt()</span></code>: interrupt this thread, will continue execution if it was blocked
+- <code class="docutils literal notranslate"><span class="pre">isAlive()</span></code>: return true if alive, which is any time after the thread has been
+started
+- below static methods perform operation on currently running thread
+- <code class="docutils literal notranslate"><span class="pre">yield()</span></code>: yield to any other threads of same priority that are waiting to be
+scheduled
+- <code class="docutils literal notranslate"><span class="pre">sleep(long)</span></code>: block current thread for given amount of time in ms
+- <code class="docutils literal notranslate"><span class="pre">holdsLock(Object)</span></code>: return true if current thread hold the lock on argument
+- <code class="docutils literal notranslate"><span class="pre">currentThread()</span></code>: return reference to this thread
+- <code class="docutils literal notranslate"><span class="pre">dumpStack()</span></code>: print stack trace for current thread, useful for debugging
+multithreaded applications</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">MyThread</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Thread</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Thread</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">threadName</span><span class="p">;</span>
@@ -4271,9 +4267,9 @@ method or call one using <cite>super</cite>
 <dt><strong>Collectors</strong></dt><dd><ul class="simple">
 <li><p>used to combine result of processing on elements of a stream</p></li>
 <li><p>can be used to return a list or a string</p></li>
-<li><p>can use statistics collectors to calculate all statistics when stream processing is
-done</p></li>
+<li><p>can use statistics collectors to calculate all statistics when stream processing is</p></li>
 </ul>
+<p>done</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myStringList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;world&quot;</span><span class="p">);</span>
 

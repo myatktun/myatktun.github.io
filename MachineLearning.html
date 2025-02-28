@@ -396,13 +396,13 @@
 <li><p>performing a classification task</p></li>
 </ul>
 </div></blockquote>
-<ul class="simple">
-<li><dl class="simple">
-<dt><strong>Continuous Label</strong></dt><dd><ul>
-<li><p>does not have a discrete set of possible values, potentially unlimited number of
-possibilities</p></li>
-<li><p>performing a regression task</p></li>
+<ul>
+<li><dl>
+<dt><strong>Continuous Label</strong></dt><dd><ul class="simple">
+<li><p>does not have a discrete set of possible values, potentially unlimited number of</p></li>
 </ul>
+<p>possibilities
+- performing a regression task</p>
 </dd>
 </dl>
 </li>
@@ -453,26 +453,26 @@ possibilities</p></li>
 <li><p>will always perform the same action for a given state</p></li>
 </ul>
 </div></blockquote>
-<ul class="simple">
+<ul>
 <li><dl class="simple">
-<dt><strong>Stochastic Policy</strong></dt><dd><ul>
+<dt><strong>Stochastic Policy</strong></dt><dd><ul class="simple">
 <li><p>range of possible actions with probabilities for a state</p></li>
 <li><p>an action for a state is selected based on the probability distribution</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>Value Function</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>Value Function</strong></dt><dd><ul class="simple">
 <li><p>determine possible future rewards given the current policy</p></li>
-<li><p>adjust to encourage desirable actions while discouraging others, also called policy
-update</p></li>
+<li><p>adjust to encourage desirable actions while discouraging others, also called policy</p></li>
 </ul>
+<p>update</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>PPO</strong></dt><dd><ul>
+<dt><strong>PPO</strong></dt><dd><ul class="simple">
 <li><p>Proximal Policy Optimisation, uses on-policy learning</p></li>
 <li><p>learn only from observations made by current policy, most recent and relevant data</p></li>
 <li><p>need more data as it does not consider historical data</p></li>
@@ -482,7 +482,7 @@ update</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>SAC</strong></dt><dd><ul>
+<dt><strong>SAC</strong></dt><dd><ul class="simple">
 <li><p>Soft Actor Critic, uses off-policy learning</p></li>
 <li><p>use observations from previous policies, old data</p></li>
 <li><p>data efficient, need less new data as it consider historical data</p></li>
@@ -557,9 +557,9 @@ neuron to the next
 <li><p>each neuron in a layer contain weights to all neurons in the previous layer</p></li>
 </ul>
 </div></blockquote>
-<ul class="simple">
+<ul>
 <li><dl class="simple">
-<dt><strong>CNN</strong></dt><dd><ul>
+<dt><strong>CNN</strong></dt><dd><ul class="simple">
 <li><p>Convolutional Neural Network</p></li>
 <li><p>represent nested filters over grid-organized data</p></li>
 <li><p>most commonly used type of model when processing images</p></li>
@@ -567,18 +567,18 @@ neuron to the next
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>RNN/LSTM</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>RNN/LSTM</strong></dt><dd><ul class="simple">
 <li><p>Recurrent Neural Networks and the related Long Short-Term Memory</p></li>
-<li><p>to effectively represent for loops in traditional computing, collecting state while
-iterating over some object</p></li>
-<li><p>can be used for processing sequences of data</p></li>
+<li><p>to effectively represent for loops in traditional computing, collecting state while</p></li>
 </ul>
+<p>iterating over some object
+- can be used for processing sequences of data</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Transformer</strong></dt><dd><ul>
+<dt><strong>Transformer</strong></dt><dd><ul class="simple">
 <li><p>more modern replacement for RNN/LSTMs</p></li>
 <li><p>enables training over larger datasets involving sequences of data</p></li>
 </ul>
@@ -607,11 +607,11 @@ iterating over some object</p></li>
 * <strong>Machine Learning Tasks</strong></p>
 <blockquote>
 <div><ul class="simple">
-<li><p>output of a task can be different and classified into different groups based on the
-task</p></li>
-<li><p>characteristics of the input data can help to define which ML task to be used</p></li>
-<li><p>Supervised and Unsupervised learning are two common tasks</p></li>
+<li><p>output of a task can be different and classified into different groups based on the</p></li>
 </ul>
+<p>task
+- characteristics of the input data can help to define which ML task to be used
+- Supervised and Unsupervised learning are two common tasks</p>
 </div></blockquote>
 </div></blockquote>
 </section>
@@ -633,13 +633,13 @@ calculate missing values from dataset
 <div><ul class="simple">
 <li><p>collect data related to the problem defined</p></li>
 <li><p>search and use publicly available data in early exploration</p></li>
-<li><p>the format of data, labeled or unlabeled, and availability of data will determine
-the ML task</p></li>
+<li><p>the format of data, labeled or unlabeled, and availability of data will determine</p></li>
 </ul>
+<p>the ML task</p>
 </div></blockquote>
-<ul class="simple">
+<ul>
 <li><dl class="simple">
-<dt><strong>Data Inspection</strong></dt><dd><ul>
+<dt><strong>Data Inspection</strong></dt><dd><ul class="simple">
 <li><p>inspect the integrity of the data, not all data found are high quality</p></li>
 <li><p>quality of the data has a massive impact of how well the model performs</p></li>
 <li><p>identify anything that are outside the norm</p></li>
@@ -652,19 +652,19 @@ the ML task</p></li>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>Summary Statistics</strong></dt><dd><ul>
-<li><p>helps understand what the data is communicating or in line with the underlying
-assumptions of the ML model</p></li>
-<li><p>allows to see insights such as scope, scale and shape of the data</p></li>
-<li><p>there are many tools to calculate things such as mean, IQR (inner-quartile range)
-and standard deviation</p></li>
+<li><dl>
+<dt><strong>Summary Statistics</strong></dt><dd><ul class="simple">
+<li><p>helps understand what the data is communicating or in line with the underlying</p></li>
 </ul>
+<p>assumptions of the ML model
+- allows to see insights such as scope, scale and shape of the data
+- there are many tools to calculate things such as mean, IQR (inner-quartile range)
+and standard deviation</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Data Visualization</strong></dt><dd><ul>
+<dt><strong>Data Visualization</strong></dt><dd><ul class="simple">
 <li><p>communicate the findings, such as outliers and trends, to project stakeholders</p></li>
 </ul>
 </dd>
@@ -676,22 +676,22 @@ and standard deviation</p></li>
 <section id="model-training">
 <h3>Model Training<a class="headerlink" href="#model-training" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>procedure to use data to shape a model</p></li>
 <li><p>uses the model to process data, compares the result against the goal</p></li>
 <li><p>determine what changes are required and makes small changes to the model parameters</p></li>
 <li><p>the steps are repeated to bring the model closer to achieving the goal</p></li>
 <li><p>model training algorithm adjusts the model to real-world data</p></li>
 <li><p>the trained model can be used to predict outcomes which are not part of training dataset</p></li>
-<li><dl class="simple">
-<dt><strong>Splitting Dataset</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>Splitting Dataset</strong></dt><dd><ul class="simple">
 <li><p>randomly split the dataset before training</p></li>
 <li><p>majority of the data is in training dataset, usually 80%</p></li>
-<li><p>test dataset is withheld from training and used later to evaluate the model before
-production</p></li>
-<li><p>test the data against the bias-variance trade-off and how well the model will
-generalize to new data</p></li>
+<li><p>test dataset is withheld from training and used later to evaluate the model before</p></li>
 </ul>
+<p>production
+- test the data against the bias-variance trade-off and how well the model will
+generalize to new data</p>
 </dd>
 </dl>
 </li>
@@ -700,19 +700,19 @@ generalize to new data</p></li>
 <blockquote>
 <div><p>iteratively updating model parameters to minimize some loss function</p>
 </div></blockquote>
-<ul class="simple">
+<ul>
 <li><p>models are trained by slowly changing model parameters to move it closer to some goal</p></li>
-<li><dl class="simple">
-<dt><strong>Model Parameters</strong></dt><dd><ul>
-<li><p>settings, knobs, configurations, weights or biases that are updated to change how
-the model behaves</p></li>
-<li><p>weights are values that change as the model learns, specific to neural networks</p></li>
+<li><dl>
+<dt><strong>Model Parameters</strong></dt><dd><ul class="simple">
+<li><p>settings, knobs, configurations, weights or biases that are updated to change how</p></li>
 </ul>
+<p>the model behaves
+- weights are values that change as the model learns, specific to neural networks</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Loss Function</strong></dt><dd><ul>
+<dt><strong>Loss Function</strong></dt><dd><ul class="simple">
 <li><p>measure how close the model is to its goal</p></li>
 <li><p>used to codify the model’s distance from a goal</p></li>
 </ul>
@@ -745,12 +745,12 @@ the model behaves</p></li>
 <blockquote>
 <div><ul class="simple">
 <li><p>accuracy: how often the model predicts correctly</p></li>
-<li><p>log loss: to understand model’s uncertainty about a given prediction, how strongly
-the model believes its prediction is accurate</p></li>
-<li><p>silhouette coefficient: shows how well the data is clustered by the model, score
-near 0 show overlapping clusters, score &lt; 0 show data points assigned to incorrect
-clusters, and score near 1 show successful identification</p></li>
+<li><p>log loss: to understand model’s uncertainty about a given prediction, how strongly</p></li>
 </ul>
+<p>the model believes its prediction is accurate
+- silhouette coefficient: shows how well the data is clustered by the model, score
+near 0 show overlapping clusters, score &lt; 0 show data points assigned to incorrect
+clusters, and score near 1 show successful identification</p>
 </div></blockquote>
 </div></blockquote>
 </section>
@@ -768,18 +768,18 @@ clusters, and score near 1 show successful identification</p></li>
 <div><ul class="simple">
 <li><p>number of inferences per second, need to maximise</p></li>
 <li><p>depend on performances such as CPU, GPU, RAM, and machine learning framework</p></li>
-<li><p>cost-effective to centralise in one place, where data is fed from edge devices to a
-central server for processing</p></li>
-<li><p>inference at edge, performing inference locally is crucial for real-time devices</p></li>
+<li><p>cost-effective to centralise in one place, where data is fed from edge devices to a</p></li>
 </ul>
+<p>central server for processing
+- inference at edge, performing inference locally is crucial for real-time devices</p>
 </div></blockquote>
-<ul class="simple">
-<li><dl class="simple">
-<dt><strong>Inference Time/Latency</strong></dt><dd><ul>
+<ul>
+<li><dl>
+<dt><strong>Inference Time/Latency</strong></dt><dd><ul class="simple">
 <li><p>time taken to run a single inference</p></li>
-<li><p>inference at edge reduces latency as data does not need to travel to the server for
-processing</p></li>
+<li><p>inference at edge reduces latency as data does not need to travel to the server for</p></li>
 </ul>
+<p>processing</p>
 </dd>
 </dl>
 </li>

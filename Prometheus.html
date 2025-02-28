@@ -616,9 +616,9 @@
 <section id="monitoring-systems">
 <h3>monitoring systems<a class="headerlink" href="#monitoring-systems" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><dl class="simple">
-<dt><strong>pull system</strong></dt><dd><ul>
+<dt><strong>pull system</strong></dt><dd><ul class="simple">
 <li><p>Prometheus default model</p></li>
 <li><p>multiple Prometheus instances can pull metrics data</p></li>
 <li><p>can detect if service is up and running</p></li>
@@ -626,21 +626,25 @@
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>push system</strong></dt><dd><ul>
-<li><p>apps and servers are responsible for pushing metrics data to centralized collection
-platform (e.g., Amazon Cloud Watch, Relic)</p></li>
-<li><p>can cause high load of network traffic as services constantly push data</p></li>
-<li><p>service not pushing metrics can be caused by many reasons other than service not
-running</p></li>
-<li><p>can’t have insight what is happening to the service</p></li>
-<li><p>usually used in event-based systems</p></li>
+<li><dl>
+<dt><strong>push system</strong></dt><dd><ul class="simple">
+<li><p>apps and servers are responsible for pushing metrics data to centralized collection</p></li>
 </ul>
+<blockquote>
+<div><p>platform (e.g., Amazon Cloud Watch, Relic)</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>can cause high load of network traffic as services constantly push data</p></li>
+<li><p>service not pushing metrics can be caused by many reasons other than service not</p></li>
+</ul>
+<p>running
+- can’t have insight what is happening to the service
+- usually used in event-based systems</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>pushgateway</strong></dt><dd><ul>
+<dt><strong>pushgateway</strong></dt><dd><ul class="simple">
 <li><p>for a target that runs only for a short time</p></li>
 <li><p>e.g., batch job or scheduled job that cleans up data</p></li>
 <li><p>using pushgateway in Prometheus should be an exception</p></li>
@@ -1205,9 +1209,9 @@ promtool<span class="w"> </span>check<span class="w"> </span>config<span class="
 <blockquote>
 <div><ul class="simple">
 <li><p>messages from notifiers can be configured with Go templating system</p></li>
-<li><p>GroupLabels, CommonLabels, CommonAnnotations, ExternalURL, Status, resolved,
-Receiver, Alerts (Labels, Annotations, status, StartsAt, EndsAt)</p></li>
+<li><p>GroupLabels, CommonLabels, CommonAnnotations, ExternalURL, Status, resolved,</p></li>
 </ul>
+<p>Receiver, Alerts (Labels, Annotations, status, StartsAt, EndsAt)</p>
 </div></blockquote>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">global</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">smtp_smarthost</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;mail.example.com&#39;</span>
@@ -1263,37 +1267,35 @@ rate<span class="o">(</span>http_requests_total<span class="o">[</span>5m<span c
 <section id="types">
 <h3>Types<a class="headerlink" href="#types" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><dl class="simple">
-<dt>string</dt><dd><ul>
+<dt>string</dt><dd><ul class="simple">
 <li><p>currently unused</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>scalar</dt><dd><ul>
+<dt>scalar</dt><dd><ul class="simple">
 <li><p>numeric floating point value</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt>instant vector</dt><dd><ul>
-<li><p>set of time series containing single sample for each series, all share same
-timestamp</p></li>
-<li><p>e.g query of <code class="docutils literal notranslate"><span class="pre">METRICS</span></code> returning multiple <code class="docutils literal notranslate"><span class="pre">METRICS{LABELS}</span> <span class="pre">VALUE</span></code> with same
-<code class="docutils literal notranslate"><span class="pre">TIMESTAMP</span></code></p></li>
+<li><dl>
+<dt>instant vector</dt><dd><ul class="simple">
+<li><p>set of time series containing single sample for each series, all share same</p></li>
 </ul>
+<p>timestamp
+- e.g query of <code class="docutils literal notranslate"><span class="pre">METRICS</span></code> returning multiple <code class="docutils literal notranslate"><span class="pre">METRICS{LABELS}</span> <span class="pre">VALUE</span></code> with same
+<code class="docutils literal notranslate"><span class="pre">TIMESTAMP</span></code></p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>range vector</dt><dd><ul>
-<li><p>set of time series containing range of data points over time for each time series</p></li>
-<li><p>e.g query of <code class="docutils literal notranslate"><span class="pre">METRICS[time]</span></code> returning multiple <code class="docutils literal notranslate"><span class="pre">METRICS{LABELS}</span> <span class="pre">VALUE</span></code> with
-different <code class="docutils literal notranslate"><span class="pre">TIMESTAMP</span></code></p></li>
-</ul>
+<dt>range vector</dt><dd><p>-set of time series containing range of data points over time for each time series
+- e.g query of <code class="docutils literal notranslate"><span class="pre">METRICS[time]</span></code> returning multiple <code class="docutils literal notranslate"><span class="pre">METRICS{LABELS}</span> <span class="pre">VALUE</span></code> with
+different <code class="docutils literal notranslate"><span class="pre">TIMESTAMP</span></code></p>
 </dd>
 </dl>
 </li>
@@ -1303,22 +1305,22 @@ different <code class="docutils literal notranslate"><span class="pre">TIMESTAMP
 <section id="label-selectors-matchers">
 <h3>Label Selectors &amp; Matchers<a class="headerlink" href="#label-selectors-matchers" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><dl class="simple">
-<dt><strong>Matchers</strong></dt><dd><ul>
+<dt><strong>Matchers</strong></dt><dd><ul class="simple">
 <li><p>to match specific labels</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">=</span></code>: equal, <code class="docutils literal notranslate"><span class="pre">!=</span></code>: not equal, <code class="docutils literal notranslate"><span class="pre">=~</span></code>: regex match, <code class="docutils literal notranslate"><span class="pre">!~</span></code>: negate regex match</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>Selectors</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>Selectors</strong></dt><dd><ul class="simple">
 <li><p>can use multiple selectors by separating with comma</p></li>
 <li><p>e.g <code class="docutils literal notranslate"><span class="pre">node_filesystem_avail_bytes{instance=&quot;node1&quot;,</span> <span class="pre">device!=&quot;tmpfs&quot;}</span></code></p></li>
-<li><p>e.g <code class="docutils literal notranslate"><span class="pre">node_filesystem_avail_bytes{instance=&quot;node1&quot;,</span> <span class="pre">device!=&quot;tmpfs&quot;}[3m]</span></code>, using
-range vectors</p></li>
+<li><p>e.g <code class="docutils literal notranslate"><span class="pre">node_filesystem_avail_bytes{instance=&quot;node1&quot;,</span> <span class="pre">device!=&quot;tmpfs&quot;}[3m]</span></code>, using</p></li>
 </ul>
+<p>range vectors</p>
 </dd>
 </dl>
 </li>
@@ -1328,20 +1330,20 @@ range vectors</p></li>
 <section id="modifiers">
 <h3>Modifiers<a class="headerlink" href="#modifiers" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>a query returns most recent value by default</p></li>
 <li><p>can use modifier to get past data</p></li>
 <li><p>e.g offset modifier: <code class="docutils literal notranslate"><span class="pre">node_filesystem_avail_bytes{instance=&quot;node1&quot;}</span> <span class="pre">offset</span> <span class="pre">5m</span></code></p></li>
-<li><dl class="simple">
-<dt>to specific point in time</dt><dd><ul>
-<li><p>e.g &#64; modifier: <code class="docutils literal notranslate"><span class="pre">node_filesystem_avail_bytes{instance=&quot;node1&quot;}</span> <span class="pre">&#64;2132151523</span></code>, unix
-timestamp</p></li>
+<li><dl>
+<dt>to specific point in time</dt><dd><ul class="simple">
+<li><p>e.g &#64; modifier: <code class="docutils literal notranslate"><span class="pre">node_filesystem_avail_bytes{instance=&quot;node1&quot;}</span> <span class="pre">&#64;2132151523</span></code>, unix</p></li>
 </ul>
+<p>timestamp</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>can combine multiple modifiers</dt><dd><ul>
+<dt>can combine multiple modifiers</dt><dd><ul class="simple">
 <li><p>modifiers order does not matter</p></li>
 <li><p>e.g <code class="docutils literal notranslate"><span class="pre">node_filesystem_avail_bytes{instance=&quot;node1&quot;}</span> <span class="pre">&#64;2132151523</span> <span class="pre">offset</span> <span class="pre">3m</span></code></p></li>
 </ul>
@@ -1349,7 +1351,7 @@ timestamp</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>can combine with range vectors</dt><dd><ul>
+<dt>can combine with range vectors</dt><dd><ul class="simple">
 <li><p>e.g <code class="docutils literal notranslate"><span class="pre">node_filesystem_avail_bytes{instance=&quot;node1&quot;}[2m]</span> <span class="pre">&#64;2132151523</span> <span class="pre">offset</span> <span class="pre">3m</span></code></p></li>
 </ul>
 </dd>
@@ -1361,24 +1363,28 @@ timestamp</p></li>
 <section id="operators">
 <h3>Operators<a class="headerlink" href="#operators" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt>metric name is removed from output when it is modified</dt><dd><ul>
-<li><p>e.g <code class="docutils literal notranslate"><span class="pre">node_filesystem_avail_bytes{instance=&quot;node1&quot;}</span> <span class="pre">+</span> <span class="pre">10</span></code> will output
-<code class="docutils literal notranslate"><span class="pre">{instance=&quot;node1&quot;}</span> <span class="pre">VALUE</span></code></p></li>
+<div><ul>
+<li><dl>
+<dt>metric name is removed from output when it is modified</dt><dd><ul class="simple">
+<li><p>e.g <code class="docutils literal notranslate"><span class="pre">node_filesystem_avail_bytes{instance=&quot;node1&quot;}</span> <span class="pre">+</span> <span class="pre">10</span></code> will output</p></li>
 </ul>
+<p><code class="docutils literal notranslate"><span class="pre">{instance=&quot;node1&quot;}</span> <span class="pre">VALUE</span></code></p>
 </dd>
 </dl>
 </li>
 <li><p>Arithmetic: +, -, *, /, %, ^</p></li>
 <li><p>Comparison: ==, !==, &gt;, &lt;, &gt;=, &lt;=, bool (return 1 or 0, mostly used for alerts)</p></li>
 <li><p>Logical: or, and, unless</p></li>
-<li><dl class="simple">
-<dt>Aggregation</dt><dd><ul>
+<li><dl>
+<dt>Aggregation</dt><dd><ul class="simple">
 <li><p>take an instant vector and aggregate its elements, and result in new instant vector</p></li>
-<li><p>sum, min, max, avg, group, stddev, stdvar, count, count_values, bottomk, topk,
-quantile (determine how many values in distribution are above or below certain limit,
-90% quantile = at what value is 90% of the data less than)</p></li>
+<li><p>sum, min, max, avg, group, stddev, stdvar, count, count_values, bottomk, topk,</p></li>
+</ul>
+<dl class="simple">
+<dt>quantile (determine how many values in distribution are above or below certain limit,</dt><dd><p>90% quantile = at what value is 90% of the data less than)</p>
+</dd>
+</dl>
+<ul class="simple">
 <li><p>can use <code class="docutils literal notranslate"><span class="pre">by</span></code> to group labels and aggregate</p></li>
 <li><p>e.g <code class="docutils literal notranslate"><span class="pre">sum</span> <span class="pre">by(path)</span> <span class="pre">(http_requests)</span></code></p></li>
 <li><p>can use <code class="docutils literal notranslate"><span class="pre">without</span></code> to ignore labels and aggregate</p></li>
@@ -1392,9 +1398,9 @@ quantile (determine how many values in distribution are above or below certain l
 <section id="vector-matching">
 <h3>Vector Matching<a class="headerlink" href="#vector-matching" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><dl class="simple">
-<dt>vectors with exact same labels get matched and performed operations</dt><dd><ul>
+<dt>vectors with exact same labels get matched and performed operations</dt><dd><ul class="simple">
 <li><p>can use <code class="docutils literal notranslate"><span class="pre">ignoring</span></code> to ensure a match between vectors</p></li>
 <li><p>e.g <code class="docutils literal notranslate"><span class="pre">http_errors</span> <span class="pre">/</span> <span class="pre">ignoring(code)</span> <span class="pre">http_requests</span></code></p></li>
 <li><p>can use <code class="docutils literal notranslate"><span class="pre">on</span></code> to specify exact list of labels to match</p></li>
@@ -1404,20 +1410,20 @@ quantile (determine how many values in distribution are above or below certain l
 </dl>
 </li>
 <li><dl class="simple">
-<dt>one-to-one</dt><dd><ul>
+<dt>one-to-one</dt><dd><ul class="simple">
 <li><p>every element on the left vector try to find single matching element on the right</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt>one-to-many</dt><dd><ul>
+<li><dl>
+<dt>one-to-many</dt><dd><ul class="simple">
 <li><p>elements on the one side can match with multiple elements on the other/many side</p></li>
-<li><p>e.g <code class="docutils literal notranslate"><span class="pre">http_errors</span> <span class="pre">+</span> <span class="pre">on(method)</span> <span class="pre">group_left</span> <span class="pre">http_requests</span></code>, http_errors become many
-side</p></li>
-<li><p>e.g <code class="docutils literal notranslate"><span class="pre">http_requests</span> <span class="pre">+</span> <span class="pre">on(method)</span> <span class="pre">group_right</span> <span class="pre">http_errors</span></code>, http_errors become many
-side</p></li>
+<li><p>e.g <code class="docutils literal notranslate"><span class="pre">http_errors</span> <span class="pre">+</span> <span class="pre">on(method)</span> <span class="pre">group_left</span> <span class="pre">http_requests</span></code>, http_errors become many</p></li>
 </ul>
+<p>side
+- e.g <code class="docutils literal notranslate"><span class="pre">http_requests</span> <span class="pre">+</span> <span class="pre">on(method)</span> <span class="pre">group_right</span> <span class="pre">http_errors</span></code>, http_errors become many
+side</p>
 </dd>
 </dl>
 </li>
@@ -1427,24 +1433,26 @@ side</p></li>
 <section id="functions">
 <h3>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><dl class="simple">
-<dt>math</dt><dd><ul>
+<dt>math</dt><dd><ul class="simple">
 <li><p>e.g ceil, floor, abs, round</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt>date &amp; time</dt><dd><ul>
-<li><p>time (returns current time), minute, hour, day_of_week, day_of_month, days_in_month,
-month, year</p></li>
+<li><dl>
+<dt>date &amp; time</dt><dd><ul class="simple">
+<li><p>time (returns current time), minute, hour, day_of_week, day_of_month, days_in_month,</p></li>
 </ul>
+<blockquote>
+<div><p>month, year</p>
+</div></blockquote>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>vector</dt><dd><ul>
+<dt>vector</dt><dd><ul class="simple">
 <li><p>take scalar and return instant vector</p></li>
 <li><p>e.g <code class="docutils literal notranslate"><span class="pre">vector(4)</span></code> output <code class="docutils literal notranslate"><span class="pre">{}4</span></code></p></li>
 </ul>
@@ -1452,7 +1460,7 @@ month, year</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>scalar</dt><dd><ul>
+<dt>scalar</dt><dd><ul class="simple">
 <li><p>take vector and return scalar, vector must have exactly one element</p></li>
 <li><p>return <code class="docutils literal notranslate"><span class="pre">NaN</span></code> if vector has more than one element</p></li>
 </ul>
@@ -1460,28 +1468,28 @@ month, year</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>sort</dt><dd><ul>
+<dt>sort</dt><dd><ul class="simple">
 <li><p>ascending by default</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sort_desc()</span></code> to sort in descending order</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt>rate</dt><dd><ul>
+<li><dl>
+<dt>rate</dt><dd><ul class="simple">
 <li><p>return per second average rate of change</p></li>
-<li><p>rate: takes last and first value, an average rate over the range, mostly used for
-slow moving counters and alert rules</p></li>
-<li><p>e.g <code class="docutils literal notranslate"><span class="pre">rate(http_errors[1m])</span></code>, group values in 1m interval, (last - first)/60s and
-return the calculated value</p></li>
-<li><p>irate: takes last and value before last, instant rate, mostly used to graph volatile
-counters</p></li>
-<li><p>e.g <code class="docutils literal notranslate"><span class="pre">irate(http_errors[1m])</span></code>, group values in 1m interval, (last - before_last)/15s
-and return the calculated value, 15s is the interval between last two values</p></li>
-<li><p>should at least have 4 samples in a range to calculate rate and irate</p></li>
-<li><p>e.g 15s scrape interval 60s window give 4 samples</p></li>
-<li><p>always use rate function first when combining with aggregate</p></li>
+<li><p>rate: takes last and first value, an average rate over the range, mostly used for</p></li>
 </ul>
+<p>slow moving counters and alert rules
+- e.g <code class="docutils literal notranslate"><span class="pre">rate(http_errors[1m])</span></code>, group values in 1m interval, (last - first)/60s and
+return the calculated value
+- irate: takes last and value before last, instant rate, mostly used to graph volatile
+counters
+- e.g <code class="docutils literal notranslate"><span class="pre">irate(http_errors[1m])</span></code>, group values in 1m interval, (last - before_last)/15s
+and return the calculated value, 15s is the interval between last two values
+- should at least have 4 samples in a range to calculate rate and irate
+- e.g 15s scrape interval 60s window give 4 samples
+- always use rate function first when combining with aggregate</p>
 </dd>
 </dl>
 </li>
@@ -1491,13 +1499,13 @@ and return the calculated value, 15s is the interval between last two values</p>
 <section id="subquery">
 <h3>Subquery<a class="headerlink" href="#subquery" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>format: <code class="docutils literal notranslate"><span class="pre">&lt;instant</span> <span class="pre">query&gt;</span> <span class="pre">[&lt;range&gt;:&lt;resolution&gt;]</span> <span class="pre">[offset</span> <span class="pre">&lt;duration&gt;]</span></code></p></li>
-<li><dl class="simple">
-<dt>e.g <code class="docutils literal notranslate"><span class="pre">max_over_time(rate(http_requests_total[1m])</span> <span class="pre">[5m:30s])</span></code></dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">rate(http_requests_total[1m])</span> <span class="pre">[5m:30s]</span></code>, return range vector with 1m sample range,
-data from last 5m and 30s gap between each query</p></li>
+<li><dl>
+<dt>e.g <code class="docutils literal notranslate"><span class="pre">max_over_time(rate(http_requests_total[1m])</span> <span class="pre">[5m:30s])</span></code></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rate(http_requests_total[1m])</span> <span class="pre">[5m:30s]</span></code>, return range vector with 1m sample range,</p></li>
 </ul>
+<p>data from last 5m and 30s gap between each query</p>
 </dd>
 </dl>
 </li>
@@ -1507,18 +1515,18 @@ data from last 5m and 30s gap between each query</p></li>
 <section id="histogram">
 <h3>Histogram<a class="headerlink" href="#histogram" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>have 3 sub metrics: count, sum, bucket</p></li>
-<li><dl class="simple">
-<dt>histogram_quantile</dt><dd><ul>
+<li><dl>
+<dt>histogram_quantile</dt><dd><ul class="simple">
 <li><p>allow to calculate quantiles easily</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">histogram_quantile(&lt;percentile&gt;,</span> <span class="pre">&lt;histogram</span> <span class="pre">metric&gt;)</span></code></p></li>
-<li><p>e.g <code class="docutils literal notranslate"><span class="pre">histogram_quantile(0.75,</span> <span class="pre">request_latency_seconds_bucket)</span></code>, 75% of all requests
-had a latency of VALUE or less</p></li>
-<li><p>can be used to measure SLO, but only approximation as the function use linear
-interpolation</p></li>
-<li><p>for accurate SLO, make sure one bucket has the specific SLO value</p></li>
+<li><p>e.g <code class="docutils literal notranslate"><span class="pre">histogram_quantile(0.75,</span> <span class="pre">request_latency_seconds_bucket)</span></code>, 75% of all requests</p></li>
 </ul>
+<p>had a latency of VALUE or less
+- can be used to measure SLO, but only approximation as the function use linear
+interpolation
+- for accurate SLO, make sure one bucket has the specific SLO value</p>
 </dd>
 </dl>
 </li>
@@ -1544,22 +1552,22 @@ Prometheus server must calculate quantiles</p>
 <section id="recording-rules">
 <h3>Recording Rules<a class="headerlink" href="#recording-rules" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>allow Prometheus to periodically evaluate PromQL expression and store the result</p></li>
 <li><p>provide aggregate results to be used by others, such as Grafana</p></li>
 <li><p>define in separate file, can use globs to match files, <code class="docutils literal notranslate"><span class="pre">/etc/Prometheus/rules/*.yml</span></code></p></li>
 <li><p>changes in rule file require Prometheus server restart</p></li>
 <li><p>rules in a group are evaluated sequentially, one rule can reference previous rules</p></li>
 <li><p>groups run in parallel</p></li>
-<li><dl class="simple">
-<dt>naming practices</dt><dd><ul>
+<li><dl>
+<dt>naming practices</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">level:metric_name:operations</span></code></p></li>
 <li><p>level: aggregation level of the metric by the labels</p></li>
 <li><p>operations: list of functions applied to the metric</p></li>
-<li><p>e.g for http_errors with labels of “method” and “path”,
-expr: <code class="docutils literal notranslate"><span class="pre">sum</span> <span class="pre">without(instance)</span> <span class="pre">(rate(http_errors{job=&quot;api&quot;}[5m]))</span></code>,
-record: <code class="docutils literal notranslate"><span class="pre">job_method_path:http_errors:rate5m</span></code></p></li>
+<li><p>e.g for http_errors with labels of “method” and “path”,</p></li>
 </ul>
+<p>expr: <code class="docutils literal notranslate"><span class="pre">sum</span> <span class="pre">without(instance)</span> <span class="pre">(rate(http_errors{job=&quot;api&quot;}[5m]))</span></code>,
+record: <code class="docutils literal notranslate"><span class="pre">job_method_path:http_errors:rate5m</span></code></p>
 </dd>
 </dl>
 </li>
@@ -1633,7 +1641,7 @@ record: <code class="docutils literal notranslate"><span class="pre">job_method_
 <section id="client-libraries">
 <h3>Client Libraries<a class="headerlink" href="#client-libraries" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>to add instrumentation to application to track and expose metrics for Prometheus</p></li>
 <li><p>expose metrics via “/metrics” path</p></li>
 <li><p>official: Go, Java/Scala, Python, Ruby, Rust</p></li>
@@ -1641,7 +1649,7 @@ record: <code class="docutils literal notranslate"><span class="pre">job_method_
 <li><p>can write own client library</p></li>
 <li><p>use labels when defining metrics for application</p></li>
 <li><dl class="simple">
-<dt>naming convention</dt><dd><ul>
+<dt>naming convention</dt><dd><ul class="simple">
 <li><p>use snake case, <code class="docutils literal notranslate"><span class="pre">library_name_unit_suffix</span></code></p></li>
 <li><p>library: app/library the metric is used for</p></li>
 <li><p>name: description of the metric, can use more than one word</p></li>
@@ -1651,13 +1659,13 @@ record: <code class="docutils literal notranslate"><span class="pre">job_method_
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt>what to instrument</dt><dd><ul>
+<li><dl>
+<dt>what to instrument</dt><dd><ul class="simple">
 <li><p>online app: number of requests, errors, latency, in-progress requests</p></li>
 <li><p>offline app: amount of queued work, in-progress work, rate of processing, errors</p></li>
-<li><p>batch job (require pushgateway): process time for each stage, overall runtime, last
-completed job time</p></li>
+<li><p>batch job (require pushgateway): process time for each stage, overall runtime, last</p></li>
 </ul>
+<p>completed job time</p>
 </dd>
 </dl>
 </li>
@@ -1688,9 +1696,9 @@ components, kubelet, kube-state-metrics and node-exporter
 <li><p>helm install prometheus prometheus-community/kube-prometheus-stack</p></li>
 </ul>
 </div></blockquote>
-<ul class="simple">
+<ul>
 <li><dl class="simple">
-<dt><strong>Components installed from Helm chart</strong></dt><dd><ul>
+<dt><strong>Components installed from Helm chart</strong></dt><dd><ul class="simple">
 <li><p>stateful sets: Prometheus server, Alertmanager</p></li>
 <li><p>deployments and replica sets: Grafana, Prometheus Operator, kube-state-metrics</p></li>
 <li><p>daemon set: node-exporter</p></li>
@@ -1702,7 +1710,7 @@ components, kubelet, kube-state-metrics and node-exporter
 <li><p>can discover targets such as node, service, pod, endpoints</p></li>
 <li><p>using endpoints for service discovery can get any targets in the cluster</p></li>
 <li><dl class="simple">
-<dt><strong>Service monitors</strong></dt><dd><ul>
+<dt><strong>Service monitors</strong></dt><dd><ul class="simple">
 <li><p>define a set of targets for Prometheus to monitor and scrape</p></li>
 <li><p>allow to avoid modifying Prometheus configs directly</p></li>
 <li><p>give declarative Kubernetes syntax to define targets</p></li>
@@ -1710,21 +1718,23 @@ components, kubelet, kube-state-metrics and node-exporter
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>Applying scrape configs</strong></dt><dd><p>1. modifying Helm chart values of additionalScrapeConfigs
-2. more optimal way of using ServiceMonitor by providing endpoints to scrape, need to
+<li><dl>
+<dt><strong>Applying scrape configs</strong></dt><dd><ol class="arabic simple">
+<li><p>modifying Helm chart values of additionalScrapeConfigs</p></li>
+</ol>
+<p>#. more optimal way of using ServiceMonitor by providing endpoints to scrape, need to
 have same serviceMonitorSelector.matchLabels from Prometheus CRD for Prometheus to
 dynamically discover the ServiceMonitor</p>
 </dd>
 </dl>
 </li>
 <li><p>use PrometheusRule CRD to add rules, need to have same ruleSelector.matchLabels</p></li>
-<li><dl class="simple">
-<dt>use AlertmanagerConfig CRD to add Alertmanager rules</dt><dd><ul>
+<li><dl>
+<dt>use AlertmanagerConfig CRD to add Alertmanager rules</dt><dd><ul class="simple">
 <li><p>rule files for Kubernetes use camelCase</p></li>
-<li><p>need to add custom Helm value for alertmanagerConfigSelector.matchLabels, and have
-same label in AlertManager rule file</p></li>
+<li><p>need to add custom Helm value for alertmanagerConfigSelector.matchLabels, and have</p></li>
 </ul>
+<p>same label in AlertManager rule file</p>
 </dd>
 </dl>
 </li>
@@ -1818,26 +1828,26 @@ pushgateway</p>
 <ul>
 <li><dl>
 <dt>metrics can be pushed to it using</dt><dd><ul>
-<li><dl class="simple">
+<li><dl>
 <dt>HTTP requests</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">http://IP:PORT/metrics/job/JOB_NAME/LABEL1/VALUE1/LBAEL2/VALUE2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LABEL/VALUE</span></code> is used as a grouping key, to group metrics together and update
-multiple metrics at once</p></li>
-<li><p>POST: only metrics with same name as newly pushed metrics are replaced</p></li>
-<li><p>PUT: all metrics within specific group are replaced by new ones</p></li>
-<li><p>DELETE: delete all metrics within a group</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LABEL/VALUE</span></code> is used as a grouping key, to group metrics together and update</p></li>
 </ul>
+<p>multiple metrics at once
+- POST: only metrics with same name as newly pushed metrics are replaced
+- PUT: all metrics within specific group are replaced by new ones
+- DELETE: delete all metrics within a group</p>
 </dd>
 </dl>
 </li>
 <li><dl>
 <dt>Prometheus Client Libraries</dt><dd><ul class="simple">
-<li><p>push: existing metrics for the job are removed and pushed ones are added, same as
-HTTP PUT</p></li>
-<li><p>pushadd: pushed metrics override existing same ones, others remain unchanged, same
-as HTTP POST</p></li>
-<li><p>delete: delete all metrics for a group</p></li>
+<li><p>push: existing metrics for the job are removed and pushed ones are added, same as</p></li>
 </ul>
+<p>HTTP PUT
+- pushadd: pushed metrics override existing same ones, others remain unchanged, same
+as HTTP POST
+- delete: delete all metrics for a group</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">prometheus_client</span> <span class="kn">import</span> <span class="n">CollectorRegistry</span><span class="p">,</span> <span class="n">Gauge</span><span class="p">,</span> <span class="n">pushadd_to_gateway</span>
 
 <span class="n">registry</span> <span class="o">=</span> <span class="n">CollectorRegistry</span><span class="p">()</span>

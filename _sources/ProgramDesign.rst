@@ -69,7 +69,7 @@ Basic Steps
     * **Examples/Tests**
         - help understand what function must do, write multiple tests to illustrate behavior
         - run tests after the stub to see if they are well-formed, but do not consider the
-          stub is correct if all tests pass
+        stub is correct if all tests pass
         - tests might fail before the whole function is completely and correctly designed
         - test coverage: given all the tests, how much of the code is being evaluated
         - also write tests for boundary/corner cases

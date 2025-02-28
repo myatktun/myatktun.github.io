@@ -715,9 +715,14 @@ tasks with Event Loop.</p></li>
 <li><dl>
 <dt>send small amount of data using url</dt><dd><ul class="simple">
 <li><p><a class="reference external" href="http://hn.algolia.com/api/v1/users/:username">http://hn.algolia.com/api/v1/users/:username</a></p></li>
-<li><p><a class="reference external" href="http://hn.algolia.com/api/v1/search?query=foo&amp;tags=story">http://hn.algolia.com/api/v1/search?query=foo&amp;tags=story</a>
-+ everything after ? is not part of url and is sent to server to decide what to do
-+ will send {query: ‘foo’, tags: ‘story’}</p></li>
+<li><dl class="simple">
+<dt><a class="reference external" href="http://hn.algolia.com/api/v1/search?query=foo&amp;tags=story">http://hn.algolia.com/api/v1/search?query=foo&amp;tags=story</a></dt><dd><ul>
+<li><p>everything after ? is not part of url and is sent to server to decide what to do</p></li>
+<li><p>will send {query: ‘foo’, tags: ‘story’}</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/v1/query&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="c1">// req.query is object</span>

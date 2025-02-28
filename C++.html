@@ -535,13 +535,13 @@ Unix/Linux, it can be used to check program exit status
 </div></blockquote>
 </li>
 <li><p>functions and definitions consumes memory whereas declarations don’t</p></li>
-<li><dl class="simple">
+<li><dl>
 <dt>reasons to declare before using</dt><dd><ul class="simple">
 <li><p>simplifies reading for both humans and compiler</p></li>
-<li><p>having to know only the used declarations saves humans and compilers from looking
-through huge amounts of program text, especially when functions used are defined in
-other places</p></li>
+<li><p>having to know only the used declarations saves humans and compilers from looking</p></li>
 </ul>
+<p>through huge amounts of program text, especially when functions used are defined in
+other places</p>
 </dd>
 </dl>
 </li>
@@ -591,10 +591,10 @@ can be omitted
 <li><p>define a set of possible values and a set of operations</p></li>
 <li><p>bool, char, int, float, double, void, wchar_t (wide char type)</p></li>
 <li><p>definition without an initializer are initialized with NULL</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">extern</span></code> tells the compiler that the variable is defined in another source, outside of current
-scope</p></li>
-<li><p>omitting type with modifiers (signed, unsigned, long, short) auto implies int</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">extern</span></code> tells the compiler that the variable is defined in another source, outside of current</p></li>
 </ul>
+<p>scope
+- omitting type with modifiers (signed, unsigned, long, short) auto implies int</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
 <span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
 <span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.2</span><span class="p">;</span>
@@ -605,13 +605,13 @@ scope</p></li>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
+<li><dl>
 <dt><strong>type qualifiers</strong></dt><dd><ul class="simple">
 <li><p><em>const</em>: cannot be changed during execution</p></li>
 <li><p><em>volatile</em>: value may be changed in ways not specified by the program</p></li>
-<li><p><em>restrict</em>: qualified pointer is initially the only means by which the object it points
-to can be accessed</p></li>
+<li><p><em>restrict</em>: qualified pointer is initially the only means by which the object it points</p></li>
 </ul>
+<p>to can be accessed</p>
 </dd>
 </dl>
 </li>
@@ -636,43 +636,78 @@ to can be accessed</p></li>
 </li>
 <li><dl class="simple">
 <dt><strong>scopes</strong></dt><dd><ul class="simple">
-<li><p>global
-+ defined outside of all functions, usually on top of the program
-+ can be accessed by any function</p></li>
-<li><p>local
-+ declared inside a function or block
-+ can be used only by statements that are inside the function</p></li>
-<li><p>can have same name for local and global but value of local will take preference</p></li>
+<li><dl class="simple">
+<dt>global</dt><dd><ul>
+<li><p>defined outside of all functions, usually on top of the program</p></li>
+<li><p>can be accessed by any function</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>storage class</strong></dt><dd><ul class="simple">
+<dt>local</dt><dd><ul>
+<li><p>declared inside a function or block</p></li>
+<li><p>can be used only by statements that are inside the function</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>can have same name for local and global but value of local will take preference</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>storage class</strong></dt><dd><ul>
 <li><p>defines the scope and life-time of variables and functions</p></li>
-<li><p><em>auto</em>
-+ default class for all local variables
-+ can only be used in functions/locals</p></li>
-<li><p><em>register</em>
-+ for local variables to be stored in a register instead of RAM
-+ variable max size is equal to register size usually one word
-+ cannot have ‘&amp;’ operator applied to it as it does not have mem location
-+ should only be used for quick access such as counters
-+ not guaranteed to be stored in register depending on hardware restrictions</p></li>
-<li><p><em>static</em>
-+ keep local variable instead of creating and destroying
-+ maintain values between function calls
-+ applying to global causes it’s scope to be restricted to the declared file
-+ using on class data member causes only one copy of that member to be shared by all
-objects of its class</p></li>
-<li><p><em>extern</em>
-+ to give reference of global
-+ variable cannot be initialized as it only points the variable name at location that has
-been defined
-+ commonly used when tow or more files share the same globals</p></li>
-<li><p><em>mutable</em>
-+ applies only to class objects
-+ allows a member of object to override const member function</p></li>
+<li><dl class="simple">
+<dt><em>auto</em></dt><dd><ul class="simple">
+<li><p>default class for all local variables</p></li>
+<li><p>can only be used in functions/locals</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><em>register</em></dt><dd><ul class="simple">
+<li><p>for local variables to be stored in a register instead of RAM</p></li>
+<li><p>variable max size is equal to register size usually one word</p></li>
+<li><p>cannot have ‘&amp;’ operator applied to it as it does not have mem location</p></li>
+<li><p>should only be used for quick access such as counters</p></li>
+<li><p>not guaranteed to be stored in register depending on hardware restrictions</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><em>static</em></dt><dd><ul class="simple">
+<li><p>keep local variable instead of creating and destroying</p></li>
+<li><p>maintain values between function calls</p></li>
+<li><p>applying to global causes it’s scope to be restricted to the declared file</p></li>
+<li><p>using on class data member causes only one copy of that member to be shared by all</p></li>
+</ul>
+<p>objects of its class</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><em>extern</em></dt><dd><ul class="simple">
+<li><p>to give reference of global</p></li>
+<li><p>variable cannot be initialized as it only points the variable name at location that has</p></li>
+</ul>
+<p>been defined
++ commonly used when tow or more files share the same globals</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><em>mutable</em></dt><dd><ul class="simple">
+<li><p>applies only to class objects</p></li>
+<li><p>allows a member of object to override const member function</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </dd>
 </dl>
@@ -717,19 +752,39 @@ been defined
 <li><p>reading of strings is terminated by whitespace (space, newline, tab)</p></li>
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">&lt;iostream&gt;</span></code></dt><dd><ul class="simple">
-<li><p>cin (standard input)
-+ instance of istream class
-+ used with stream extraction operator, get from, ‘&gt;&gt;’</p></li>
-<li><p>cout (standard output)
-+ instance of ostream class
-+ used with stream insertion operator ‘&lt;&lt;’</p></li>
-<li><p>cerr (un-buffered standard error stream)
-+ instance of ostream class
-+ each stream insertion causes output to appear immediately
-+ more resilient to errors as it is not optimized</p></li>
-<li><p>clog (buffered standard error stream)
-+ instance of ostream class
-+ each stream insertion is held in a buffer till filled or flushed</p></li>
+<li><dl class="simple">
+<dt>cin (standard input)</dt><dd><ul>
+<li><p>instance of istream class</p></li>
+<li><p>used with stream extraction operator, get from, ‘&gt;&gt;’</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>cout (standard output)</dt><dd><ul>
+<li><p>instance of ostream class</p></li>
+<li><p>used with stream insertion operator ‘&lt;&lt;’</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>cerr (un-buffered standard error stream)</dt><dd><ul>
+<li><p>instance of ostream class</p></li>
+<li><p>each stream insertion causes output to appear immediately</p></li>
+<li><p>more resilient to errors as it is not optimized</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>clog (buffered standard error stream)</dt><dd><ul>
+<li><p>instance of ostream class</p></li>
+<li><p>each stream insertion is held in a buffer till filled or flushed</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </dd>
 </dl>
@@ -857,13 +912,13 @@ been defined
 </li>
 <li><dl>
 <dt><strong>fields</strong> for integers: <code class="docutils literal notranslate"><span class="pre">setw()</span></code></dt><dd><ul class="simple">
-<li><p>using scientific and fixed formats, how much space a value takes up on output by
-floating-point numbers can be controlled, which is useful for printing table</p></li>
-<li><p>same thing can be done for integers with <em>fields</em></p></li>
-<li><p>can specify exactly how many character positions an integer value or string value
-will occupy</p></li>
-<li><p>field sizes don’t stick</p></li>
+<li><p>using scientific and fixed formats, how much space a value takes up on output by</p></li>
 </ul>
+<p>floating-point numbers can be controlled, which is useful for printing table
+- same thing can be done for integers with <em>fields</em>
+- can specify exactly how many character positions an integer value or string value
+will occupy
+- field sizes don’t stick</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">12345</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;|&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setw</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">12345</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;|&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setw</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">12345</span><span class="p">;</span>
 <span class="c1">// 12345|12345|   12345</span>
 <span class="c1">// normal|doesn&#39;t fit in 4 field| three spaces in front</span>
@@ -888,9 +943,9 @@ will occupy</p></li>
 <section id="operators">
 <h3>Operators<a class="headerlink" href="#operators" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><dl class="simple">
-<dt><strong>arithmetic</strong></dt><dd><ul>
+<dt><strong>arithmetic</strong></dt><dd><ul class="simple">
 <li><p>+, -, &amp;ast;, /, %, ++, –</p></li>
 <li><p>modulo operator (%) cannot operate on floats, so use <code class="docutils literal notranslate"><span class="pre">fmod()</span></code> from <code class="docutils literal notranslate"><span class="pre">&lt;cmath&gt;</span></code></p></li>
 </ul>
@@ -898,21 +953,21 @@ will occupy</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>relational</strong></dt><dd><ul>
+<dt><strong>relational</strong></dt><dd><ul class="simple">
 <li><p>==, !=, &gt;, &lt;, &gt;=, &lt;=</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>logical</strong></dt><dd><ul>
+<dt><strong>logical</strong></dt><dd><ul class="simple">
 <li><p>&amp;&amp;, ||, !</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>bitwise</strong></dt><dd><ul>
+<dt><strong>bitwise</strong></dt><dd><ul class="simple">
 <li><p>perform bit-by-bit operation</p></li>
 <li><p>&amp;, <a href="#id1"><span class="problematic" id="id2">|</span></a>, ^ (XOR), ~ (complement), &lt;&lt;, &gt;&gt;</p></li>
 </ul>
@@ -920,31 +975,46 @@ will occupy</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>assignment</strong></dt><dd><ul>
+<dt><strong>assignment</strong></dt><dd><ul class="simple">
 <li><p>=, +=, -=, <a href="#id3"><span class="problematic" id="id4">*</span></a>=, /=, %=, &lt;&lt;=, &gt;&gt;=, &amp;=, ^=, <a href="#id5"><span class="problematic" id="id6">|</span></a>=</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>misc</strong></dt><dd><ul>
+<dt><strong>misc</strong></dt><dd><ul class="simple">
 <li><p>sizeof, conditional, comma, member (. &amp; -&gt;), cast, address (&amp;), indirection (*)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sizeof()</span></code> can be used on type name or expression
-+ for type, gives size of an object
-+ for expression, gives size of the type
-+ gives number of bytes
-+ size of a type can be different on various implementation of C++</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">sizeof()</span></code> can be used on type name or expression</dt><dd><ul>
+<li><p>for type, gives size of an object</p></li>
+<li><p>for expression, gives size of the type</p></li>
+<li><p>gives number of bytes</p></li>
+<li><p>size of a type can be different on various implementation of C++</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
 <dt>precedence</dt><dd><ul>
-<li><p>left to right
-+ postfix, multiplicative, additive, shift, relational, equality, bitwise (AND, OR,
-XOR), logical (AND, OR), comma</p></li>
-<li><p>right to left
-+ unary, conditional, assignment</p></li>
+<li><dl>
+<dt>left to right</dt><dd><ul class="simple">
+<li><p>postfix, multiplicative, additive, shift, relational, equality, bitwise (AND, OR,</p></li>
+</ul>
+<p>XOR), logical (AND, OR), comma</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>right to left</dt><dd><ul class="simple">
+<li><p>unary, conditional, assignment</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </dd>
 </dl>
@@ -960,10 +1030,15 @@ XOR), logical (AND, OR), comma</p></li>
 <div><ul>
 <li><dl>
 <dt><strong>integer</strong></dt><dd><ul class="simple">
-<li><p>prefix specifies the base or radix
-+ 0x or 0X for hexa
-+ 0 for octal
-+ nothing for decimal</p></li>
+<li><dl class="simple">
+<dt>prefix specifies the base or radix</dt><dd><ul>
+<li><p>0x or 0X for hexa</p></li>
+<li><p>0 for octal</p></li>
+<li><p>nothing for decimal</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>can have suffix combination of U/u and L/l for unsigned and long</p></li>
 </ul>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="mi">85</span><span class="w"> </span><span class="c1">//decimal</span>
@@ -991,33 +1066,41 @@ XOR), logical (AND, OR), comma</p></li>
 </dl>
 </li>
 <li><p><strong>boolean</strong>: true &amp; false, should not consider as 1 or 0</p></li>
-<li><dl class="simple">
+<li><dl>
 <dt><strong>character</strong></dt><dd><ul class="simple">
 <li><p>enclosed in single quote</p></li>
 <li><p>wide character begins with L and should be stored in <code class="docutils literal notranslate"><span class="pre">wchar_t</span></code></p></li>
-<li><p>on a PC, range of char values is [-128:127], but only [0:127]l can be used portably
-as not every computer is a PC and different computers have different ranges, [0:255]</p></li>
-<li><p>special meaning chars
-+ a       alert or bell
-+ b       backspace
-+ f       form feed
-+ r       carriage return
-+ t       horizontal tab
-+ v       vertical tab
-+ ooo     octal number of one to three digits
-+ xhh…  hexa number of one or more digits</p></li>
+<li><p>on a PC, range of char values is [-128:127], but only [0:127]l can be used portably</p></li>
 </ul>
+<p>as not every computer is a PC and different computers have different ranges, [0:255]
+- special meaning chars</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>a       alert or bell</p></li>
+<li><p>b       backspace</p></li>
+<li><p>f       form feed</p></li>
+<li><p>r       carriage return</p></li>
+<li><p>t       horizontal tab</p></li>
+<li><p>v       vertical tab</p></li>
+<li><p>ooo     octal number of one to three digits</p></li>
+<li><p>xhh…  hexa number of one or more digits</p></li>
+</ul>
+</div></blockquote>
 </dd>
 </dl>
 </li>
 <li><dl>
 <dt><strong>string</strong></dt><dd><ul class="simple">
 <li><p>enclosed in double quotes</p></li>
-<li><p>representation of a string is a bit more complicated than that of an int as a string
-keeps track of the number of characters it holds</p></li>
-<li><p>functions
-+ strcpy, strcat, strlen, strcmp, strchr, strstr</p></li>
+<li><p>representation of a string is a bit more complicated than that of an int as a string</p></li>
 </ul>
+<p>keeps track of the number of characters it holds
+- functions</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>strcpy, strcat, strlen, strcmp, strchr, strstr</p></li>
+</ul>
+</div></blockquote>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// C-style</span>
 <span class="kt">char</span><span class="w"> </span><span class="n">myStr</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;H&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;e&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;l&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;l&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;o&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">};</span>
 <span class="kt">char</span><span class="w"> </span><span class="n">myStr</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span>
@@ -1179,10 +1262,10 @@ keeps track of the number of characters it holds</p></li>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>the first program ever to run on a stored-program computer (the EDSAC), written and
-run by David Wheeler, was simple iteration of square numbers</p></li>
-<li><p>loop variable must be defined and initialized outside (before) the statement</p></li>
+<li><p>the first program ever to run on a stored-program computer (the EDSAC), written and</p></li>
 </ul>
+<p>run by David Wheeler, was simple iteration of square numbers
+- loop variable must be defined and initialized outside (before) the statement</p>
 </div></blockquote>
 </li>
 <li><p><strong>for</strong></p>
@@ -1404,23 +1487,23 @@ for functions that change several objects as functions can have only one return 
 <section id="run-time-errors">
 <h3>Run-time errors<a class="headerlink" href="#run-time-errors" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>found by checks in a running program</p></li>
 <li><p>detected by the computer, a library or user code</p></li>
 <li><p>called function, the callee, must check its own arguments as checking can be in one place</p></li>
-<li><dl class="simple">
-<dt>but checking in function isn’t always done when</dt><dd><ul>
+<li><dl>
+<dt>but checking in function isn’t always done when</dt><dd><ul class="simple">
 <li><p>cannot modify the function definition (using from library)</p></li>
-<li><p>called function doesn’t know what to do in case of error (library writer can detect
-errors, but only user know what to do with them)</p></li>
-<li><p>called function doesn’t know where it was called from</p></li>
-<li><p>performance cost of a check can be more than the cost of calculating the result</p></li>
+<li><p>called function doesn’t know what to do in case of error (library writer can detect</p></li>
 </ul>
+<p>errors, but only user know what to do with them)
+- called function doesn’t know where it was called from
+- performance cost of a check can be more than the cost of calculating the result</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>letting the called function send errors and the caller handling them can have problems</dt><dd><ul>
+<dt>letting the called function send errors and the caller handling them can have problems</dt><dd><ul class="simple">
 <li><p>both called function and caller must do tests</p></li>
 <li><p>caller can forget to test</p></li>
 <li><p>many functions do not have an extra return value to indicated an error</p></li>
@@ -1440,9 +1523,9 @@ errors, but only user know what to do with them)</p></li>
 <li><p>check, estimate, that the result is plausible as it is not easy to know what is reasonable</p></li>
 </ul>
 </div></blockquote>
-<ul class="simple">
+<ul>
 <li><dl class="simple">
-<dt>Sources of errors</dt><dd><ul>
+<dt>Sources of errors</dt><dd><ul class="simple">
 <li><p>poor or incomplete program specifications</p></li>
 <li><p>unexpected arguments, input or state (data)</p></li>
 <li><p>logical errors</p></li>
@@ -1450,26 +1533,31 @@ errors, but only user know what to do with them)</p></li>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
+<li><dl>
 <dt><code class="docutils literal notranslate"><span class="pre">std::exception</span></code> (provides <code class="docutils literal notranslate"><span class="pre">what()</span></code> method)</dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">std::bad_alloc</span></code> (can be thrown by new)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">std::bad_cast</span></code> (can be thrown by dynamic_cast)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">std::bad_typeid</span></code> (can be thrown by typeid)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">std::bad_exception</span></code> (useful to handle unexpected exceptions)</p></li>
-<li><dl class="simple">
+<li><dl>
 <dt><code class="docutils literal notranslate"><span class="pre">std::logic_error</span></code></dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">std::domain_error</span></code> (mathematically invalid domain used)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">std::invalid_argument</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">std::length_error</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">std::out_of_range</span></code> (off-by-one error, bounds error)
-+ subscript operation of vector knows its size and will check, if the check fails,
-the subscript operation throws ‘out_of_range’ exception</p></li>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">std::out_of_range</span></code> (off-by-one error, bounds error)</dt><dd><ul class="simple">
+<li><p>subscript operation of vector knows its size and will check, if the check fails,</p></li>
+</ul>
+<p>the subscript operation throws ‘out_of_range’ exception</p>
+</dd>
+</dl>
+</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">std::runtime_error</span></code></dt><dd><ul>
+<dt><code class="docutils literal notranslate"><span class="pre">std::runtime_error</span></code></dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">std::overflow_error</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">std::underflow_error</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">std::range_error</span></code></p></li>
@@ -1612,13 +1700,17 @@ the subscript operation throws ‘out_of_range’ exception</p></li>
 </ul>
 </dd>
 </dl>
-<ul class="simple">
+<ul>
 <li><p>compilers only allocate and deallocate memory necessary amount</p></li>
-<li><dl class="simple">
-<dt>never access the value of variable in an expression twice</dt><dd><ul>
+<li><dl>
+<dt>never access the value of variable in an expression twice</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">v[i]</span> <span class="pre">=</span> <span class="pre">++i</span></code></p></li>
-<li><p>not all compilers warn about the bad code and different compilers result different
-values</p></li>
+<li><p>not all compilers warn about the bad code and different compilers result different</p></li>
+</ul>
+<blockquote>
+<div><p>values</p>
+</div></blockquote>
+<ul class="simple">
 <li><p>left or right hand side of the assignment may be evaluated first</p></li>
 </ul>
 </dd>
@@ -1654,10 +1746,10 @@ values</p></li>
 </li>
 <li><dl>
 <dt><code class="docutils literal notranslate"><span class="pre">using</span></code> directive</dt><dd><ul class="simple">
-<li><p>avoid prepending of namespaces, tells the compiler that subsequent code is making
-use of names specified in namespace</p></li>
-<li><p>no declaration for a name in the scope means it is likely to be in <code class="docutils literal notranslate"><span class="pre">std</span></code></p></li>
+<li><p>avoid prepending of namespaces, tells the compiler that subsequent code is making</p></li>
 </ul>
+<p>use of names specified in namespace
+- no declaration for a name in the scope means it is likely to be in <code class="docutils literal notranslate"><span class="pre">std</span></code></p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">first_space</span><span class="p">;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -1676,12 +1768,12 @@ use of names specified in namespace</p></li>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>names introduced obey normal scope rules, entities with the same name defined in
-outer scope are hidden</p></li>
-<li><p>good idea to avoid <code class="docutils literal notranslate"><span class="pre">using</span></code> for namespaces except for well known ones such as <code class="docutils literal notranslate"><span class="pre">std</span></code></p></li>
-<li><p>may lose track to which names come from where</p></li>
-<li><p>putting <code class="docutils literal notranslate"><span class="pre">using</span></code> in header file is bad habit</p></li>
+<li><p>names introduced obey normal scope rules, entities with the same name defined in</p></li>
 </ul>
+<p>outer scope are hidden
+- good idea to avoid <code class="docutils literal notranslate"><span class="pre">using</span></code> for namespaces except for well known ones such as <code class="docutils literal notranslate"><span class="pre">std</span></code>
+- may lose track to which names come from where
+- putting <code class="docutils literal notranslate"><span class="pre">using</span></code> in header file is bad habit</p>
 </dd>
 </dl>
 </li>
@@ -1804,11 +1896,11 @@ their values do not implicitly convert to other types</p>
 <div><ul>
 <li><p>specifying more than one definition for function name or operator in the same scope</p></li>
 <li><p>both declarations have different arguments and definition</p></li>
-<li><dl class="simple">
+<li><dl>
 <dt>overload resolution</dt><dd><ul class="simple">
-<li><p>compiler determines the most appropriate definition to use by comparing argument types used
-to call the function with parameter types specified in the definitions</p></li>
+<li><p>compiler determines the most appropriate definition to use by comparing argument types used</p></li>
 </ul>
+<p>to call the function with parameter types specified in the definitions</p>
 </dd>
 </dl>
 </li>
@@ -1830,9 +1922,9 @@ to call the function with parameter types specified in the definitions</p></li>
 </div>
 <ul class="simple">
 <li><p><strong>cannot overload</strong> (::, .* , ., ?:, sizeof, typeid)</p></li>
-<li><p>need to make I/O operator overloading a friend of the class as it would be called
-without creating an object</p></li>
+<li><p>need to make I/O operator overloading a friend of the class as it would be called</p></li>
 </ul>
+<p>without creating an object</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">friend</span><span class="w"> </span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">osstream</span><span class="o">&amp;</span><span class="w"> </span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">MyClass</span><span class="o">&amp;</span><span class="w"> </span><span class="n">c</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">output</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
@@ -1847,9 +1939,9 @@ without creating an object</p></li>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>overloading function call operator () is not creating new way to call a function,
-it’s creating operator function that can be passed an arbitrary number of parameters</p></li>
+<li><p>overloading function call operator () is not creating new way to call a function,</p></li>
 </ul>
+<p>it’s creating operator function that can be passed an arbitrary number of parameters</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">MyClass</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">MyClass</span><span class="w"> </span><span class="n">C</span><span class="p">;</span>
@@ -1863,9 +1955,9 @@ it’s creating operator function that can be passed an arbitrary number of para
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>in overloading class member operator (-&gt;), operator -&gt; must be a member function and
-return type must be a pointer or an object of a class to which it can be applied</p></li>
+<li><p>in overloading class member operator (-&gt;), operator -&gt; must be a member function and</p></li>
 </ul>
+<p>return type must be a pointer or an object of a class to which it can be applied</p>
 </dd>
 </dl>
 </li>
@@ -2026,23 +2118,23 @@ good practice to close all opened files before termination</p>
 </pre></div>
 </div>
 </div></blockquote>
-<ul class="simple">
+<ul>
 <li><p>most common reason for failure to open a file for reading is that it doesn’t exist</p></li>
 <li><p>OS will create new file if nonexistent file is opened for output, will not for input</p></li>
 <li><p>stick to reading from files opened as <code class="docutils literal notranslate"><span class="pre">istreams</span></code> and writing to files opened as <code class="docutils literal notranslate"><span class="pre">ostreams</span></code></p></li>
-<li><dl class="simple">
-<dt>istream states</dt><dd><ul>
+<li><dl>
+<dt>istream states</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">good()</span></code>, <code class="docutils literal notranslate"><span class="pre">eof()</span></code>, <code class="docutils literal notranslate"><span class="pre">fail()</span></code>, <code class="docutils literal notranslate"><span class="pre">bad()</span></code></p></li>
 <li><p>difference between fail and bad is not precisely defined</p></li>
 <li><p>a stream that is <code class="docutils literal notranslate"><span class="pre">bad()</span></code> is also <code class="docutils literal notranslate"><span class="pre">fail()</span></code></p></li>
-<li><p>when a stream fails, it can be recovered by taking it out of the <code class="docutils literal notranslate"><span class="pre">fail()</span></code> state with
-<code class="docutils literal notranslate"><span class="pre">clear()</span></code></p></li>
-<li><p>stream state can be set back to <code class="docutils literal notranslate"><span class="pre">fail()</span></code> with <code class="docutils literal notranslate"><span class="pre">ist.clear(ios_base::failbit)</span></code>, which
-sets <code class="docutils literal notranslate"><span class="pre">iostream</span></code> state to flags mentioned but clear flags that are not</p></li>
-<li><p>character can be put back into <code class="docutils literal notranslate"><span class="pre">ist</span></code> using <code class="docutils literal notranslate"><span class="pre">unget()</span></code></p></li>
-<li><p>getting more data from <code class="docutils literal notranslate"><span class="pre">bad()</span></code> state is unlikely, but to throw an exception with
-<code class="docutils literal notranslate"><span class="pre">ist.exceptions(ist.exceptions()|ios_base::badbit)</span></code></p></li>
+<li><p>when a stream fails, it can be recovered by taking it out of the <code class="docutils literal notranslate"><span class="pre">fail()</span></code> state with</p></li>
 </ul>
+<p><code class="docutils literal notranslate"><span class="pre">clear()</span></code>
+- stream state can be set back to <code class="docutils literal notranslate"><span class="pre">fail()</span></code> with <code class="docutils literal notranslate"><span class="pre">ist.clear(ios_base::failbit)</span></code>, which
+sets <code class="docutils literal notranslate"><span class="pre">iostream</span></code> state to flags mentioned but clear flags that are not
+- character can be put back into <code class="docutils literal notranslate"><span class="pre">ist</span></code> using <code class="docutils literal notranslate"><span class="pre">unget()</span></code>
+- getting more data from <code class="docutils literal notranslate"><span class="pre">bad()</span></code> state is unlikely, but to throw an exception with
+<code class="docutils literal notranslate"><span class="pre">ist.exceptions(ist.exceptions()|ios_base::badbit)</span></code></p>
 </dd>
 </dl>
 </li>
@@ -2087,22 +2179,22 @@ of <cite>ostream</cite> if output devices have more chance of being unavailable 
 <li><p>string can be used as the source of <code class="docutils literal notranslate"><span class="pre">istream</span></code> or <code class="docutils literal notranslate"><span class="pre">ostream</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">istringstream</span></code> is useful for extracting numeric values from a string</p></li>
 <li><p>will go into <code class="docutils literal notranslate"><span class="pre">eof()</span></code> state if read beyond the end of <code class="docutils literal notranslate"><span class="pre">istringstream</span></code> string</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ostringstream</span></code> can be useful for formatting output for a system that requires
-simple string argument such as GUI system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ostringstream</span></code> can be useful for formatting output for a system that requires</p></li>
 </ul>
+<p>simple string argument such as GUI system</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">istringstream</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="p">{</span><span class="n">s</span><span class="p">};</span>
 <span class="n">ostringstream</span><span class="w"> </span><span class="n">os</span><span class="p">;</span>
 <span class="n">os</span><span class="p">.</span><span class="n">str</span><span class="p">().</span><span class="n">c_str</span><span class="p">();</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">str()</span></code> member function of <code class="docutils literal notranslate"><span class="pre">ostringstream</span></code> returns the string composed by output
-operations to an <code class="docutils literal notranslate"><span class="pre">ostringstream</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">c_str()</span></code> is member of <code class="docutils literal notranslate"><span class="pre">string</span></code> that returns C-style string</p></li>
-<li><p>stringstreams are used to separate actual I/O from processing, usually to filter
-characters out of input</p></li>
-<li><p>can use <code class="docutils literal notranslate"><span class="pre">ostringstream</span></code> to concatenate strings</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str()</span></code> member function of <code class="docutils literal notranslate"><span class="pre">ostringstream</span></code> returns the string composed by output</p></li>
 </ul>
+<p>operations to an <code class="docutils literal notranslate"><span class="pre">ostringstream</span></code>
+- <code class="docutils literal notranslate"><span class="pre">c_str()</span></code> is member of <code class="docutils literal notranslate"><span class="pre">string</span></code> that returns C-style string
+- stringstreams are used to separate actual I/O from processing, usually to filter
+characters out of input
+- can use <code class="docutils literal notranslate"><span class="pre">ostringstream</span></code> to concatenate strings</p>
 </dd>
 </dl>
 </li>
@@ -2321,9 +2413,9 @@ indexing
 </li>
 <li><dl>
 <dt>always return memory to free store after using</dt><dd><ul class="simple">
-<li><p>essential for long-running programs such as operating systems, embedded systems
-and libraries</p></li>
+<li><p>essential for long-running programs such as operating systems, embedded systems</p></li>
 </ul>
+<p>and libraries</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">// free array of objects</span>
 <span class="k">delete</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">// free individual object</span>
 </pre></div>
@@ -2629,11 +2721,11 @@ necessary</p>
 <div><ul class="simple">
 <li><p>has definition or prototype within the class definition</p></li>
 <li><p>can be defined within the class or separately using scope resolution operator (::)</p></li>
-<li><p>function definitions are implementations that specify how things are done, and
-usually specified outside the class so that they don’t distract</p></li>
-<li><p>within member function, a member name refers to the member of that name in the
-object for which the member function was called</p></li>
+<li><p>function definitions are implementations that specify how things are done, and</p></li>
 </ul>
+<p>usually specified outside the class so that they don’t distract
+- within member function, a member name refers to the member of that name in the
+object for which the member function was called</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// defined within class</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">public</span><span class="o">:</span>
@@ -2719,9 +2811,9 @@ object for which the member function was called</p></li>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>can use default arguments to provide several overloaded functions, but can only
-define default arguments for trailing parameters</p></li>
+<li><p>can use default arguments to provide several overloaded functions, but can only</p></li>
 </ul>
+<p>define default arguments for trailing parameters</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// &#39;a&#39; &amp; &#39;b&#39; are default arguments, with values to be used if not supplied</span>
 <span class="n">MyClass</span><span class="o">::</span><span class="n">MyClass</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="p">{</span><span class="n">y</span><span class="p">}</span><span class="w"> </span><span class="p">{}</span>
 
@@ -2735,9 +2827,9 @@ define default arguments for trailing parameters</p></li>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>for type T, T{} is the notation for the default value, as defined by the default
-constructor</p></li>
+<li><p>for type T, T{} is the notation for the default value, as defined by the default</p></li>
 </ul>
+<p>constructor</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string</span><span class="p">{};</span><span class="w"> </span><span class="c1">// empty string &quot;&quot;</span>
 <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="p">{};</span><span class="w"> </span><span class="c1">// empty vector, no elements</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">{};</span><span class="w"> </span><span class="c1">// 0</span>
@@ -2799,12 +2891,12 @@ parameters
 </div>
 </div></blockquote>
 </li>
-<li><dl class="simple">
+<li><dl>
 <dt>class with a virtual function needs a virtual destructor</dt><dd><ul class="simple">
 <li><p>as the class is likely to be used as base class</p></li>
-<li><p>derived classes are likely to be allocated using <code class="docutils literal notranslate"><span class="pre">new</span></code> and deleted through pointer
-to its base</p></li>
+<li><p>derived classes are likely to be allocated using <code class="docutils literal notranslate"><span class="pre">new</span></code> and deleted through pointer</p></li>
 </ul>
+<p>to its base</p>
 </dd>
 </dl>
 </li>
@@ -3054,17 +3146,17 @@ to its base</p></li>
 <blockquote>
 <div><ul class="simple">
 <li><p>public and protected members of base become public and protected of derived</p></li>
-<li><p>private members are only accessible through calls to public and protected members of
-base</p></li>
+<li><p>private members are only accessible through calls to public and protected members of</p></li>
 </ul>
+<p>base</p>
 </div></blockquote>
 <ul>
-<li><dl class="simple">
+<li><dl>
 <dt><strong>protected inheritance</strong></dt><dd><ul class="simple">
 <li><p>public and protected members of base become protected members of derived</p></li>
-<li><p>public and protected member names can be used by members of the class and derived
-classes</p></li>
+<li><p>public and protected member names can be used by members of the class and derived</p></li>
 </ul>
+<p>classes</p>
 </dd>
 </dl>
 </li>
@@ -3075,15 +3167,15 @@ classes</p></li>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
+<li><dl>
 <dt><strong>Virtual Table</strong></dt><dd><ul class="simple">
 <li><p>also called vtbl and its address is called virtual pointer, vptr</p></li>
-<li><p>when inheritance is used, the data members of derived class are simply added after
-those of a base</p></li>
-<li><p>the table tells which function is actually invoked when a function is called, with
-only two memory accesses for finding the right function</p></li>
-<li><p>only one vtbl for each class with a virtual function, not each object</p></li>
+<li><p>when inheritance is used, the data members of derived class are simply added after</p></li>
 </ul>
+<p>those of a base
+- the table tells which function is actually invoked when a function is called, with
+only two memory accesses for finding the right function
+- only one vtbl for each class with a virtual function, not each object</p>
 </dd>
 </dl>
 </li>
@@ -3114,12 +3206,12 @@ only two memory accesses for finding the right function</p></li>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
+<li><dl>
 <dt><strong>Implementation Inheritance</strong></dt><dd><ul class="simple">
 <li><p>simplify the implementation of derived classes by using what the base offers</p></li>
-<li><p>any change to the interface of the base require recompilation of all derived classes
-and their users</p></li>
+<li><p>any change to the interface of the base require recompilation of all derived classes</p></li>
 </ul>
+<p>and their users</p>
 </dd>
 </dl>
 </li>
@@ -3268,20 +3360,20 @@ virtual function
 </pre></div>
 </div>
 <ul>
-<li><dl class="simple">
+<li><dl>
 <dt>compiler now looks at the contents of the pointer instead of it’s type</dt><dd><ul class="simple">
-<li><p>since addresses of objects of tri and rec classes are stored in shape, respective
-area() function is called</p></li>
+<li><p>since addresses of objects of tri and rec classes are stored in shape, respective</p></li>
 </ul>
+<p>area() function is called</p>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
+<li><dl>
 <dt><strong>dynamic linkage</strong> or <strong>late binding</strong></dt><dd><ul class="simple">
-<li><p>function in the base class declared with <code class="docutils literal notranslate"><span class="pre">virtual</span></code> and signals the compiler not to have
-static linkage for the function</p></li>
-<li><p>only call functions based on the kind of object for which it is called</p></li>
+<li><p>function in the base class declared with <code class="docutils literal notranslate"><span class="pre">virtual</span></code> and signals the compiler not to have</p></li>
 </ul>
+<p>static linkage for the function
+- only call functions based on the kind of object for which it is called</p>
 </dd>
 </dl>
 </li>
@@ -3290,9 +3382,9 @@ static linkage for the function</p></li>
 <li><p>must be overridden</p></li>
 <li><p>cannot create objects of classes with pure virtual functions</p></li>
 <li><p>if all pure virtual functions are not overridden, derived class is still abstract</p></li>
-<li><p>classes with pure virtual function are pure interfaces, have no data members and
-constructors</p></li>
+<li><p>classes with pure virtual function are pure interfaces, have no data members and</p></li>
 </ul>
+<p>constructors</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Shape</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">area</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// tells the compiler that the function has no body</span>
@@ -3347,21 +3439,21 @@ disabled
 <li><p>inheritance will allow the use of members from the base</p></li>
 </ul>
 </div></blockquote>
-<ul class="simple">
-<li><dl class="simple">
-<dt><strong>Virtual Functions</strong></dt><dd><ul>
-<li><p>defining the same function in derived class so that it is called when a user calls
-the base class function</p></li>
-<li><p>must have exactly same name and type as the base class</p></li>
-<li><p>also called as run-time polymorphism, dynamic dispatch, run-time dispatch as the
-function called is determined at run time based on the type of the object</p></li>
-<li><p>must be declared <code class="docutils literal notranslate"><span class="pre">virtual</span></code> in the class declaration, but not when defining outside</p></li>
+<ul>
+<li><dl>
+<dt><strong>Virtual Functions</strong></dt><dd><ul class="simple">
+<li><p>defining the same function in derived class so that it is called when a user calls</p></li>
 </ul>
+<p>the base class function
+- must have exactly same name and type as the base class
+- also called as run-time polymorphism, dynamic dispatch, run-time dispatch as the
+function called is determined at run time based on the type of the object
+- must be declared <code class="docutils literal notranslate"><span class="pre">virtual</span></code> in the class declaration, but not when defining outside</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Private/Protected members</strong></dt><dd><ul>
+<dt><strong>Private/Protected members</strong></dt><dd><ul class="simple">
 <li><p>keeping implementation details private to protect direct use</p></li>
 <li><p>also called encapsulation</p></li>
 </ul>
@@ -4329,13 +4421,13 @@ in advance</p></li>
 <section id="vector-custom">
 <h3>Vector Custom<a class="headerlink" href="#vector-custom" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt>need data members to hold the size and elements</dt><dd><ul>
+<div><ul>
+<li><dl>
+<dt>need data members to hold the size and elements</dt><dd><ul class="simple">
 <li><p>functions such as <code class="docutils literal notranslate"><span class="pre">push_back()</span></code> cannot be implemented with fixed number of elements</p></li>
-<li><p>need data member that points to different sets of elements if more space is required
-, such as a pointer to the first element</p></li>
+<li><p>need data member that points to different sets of elements if more space is required</p></li>
 </ul>
+<p>, such as a pointer to the first element</p>
 </dd>
 </dl>
 </li>

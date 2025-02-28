@@ -42,7 +42,7 @@ Components
     * **DriverManager**
         - a class that manages a list of db drivers
         - match connection requests from application with proper db driver using communication
-          subprotocol
+        subprotocol
         - the first driver that recognizes certain subprotocol will be used for db connection
     * **Driver**
         - an interface that handles communications with db server

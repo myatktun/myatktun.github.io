@@ -386,13 +386,13 @@
 <div><ul class="simple">
 <li><p>infrastructure layer for handling communication between services without changing the</p></li>
 </ul>
-<dl class="simple">
+<dl>
 <dt>code in microservice architecture</dt><dd><ul class="simple">
 <li><p>replace all requirements, other than business logic, with proxy as sidecar container</p></li>
-<li><p>proxies communicate with each other through data plane and communicate to server
-side component, control plane, which manages all traffic into and out of services via
-proxies</p></li>
+<li><p>proxies communicate with each other through data plane and communicate to server</p></li>
 </ul>
+<p>side component, control plane, which manages all traffic into and out of services via
+proxies</p>
 </dd>
 </dl>
 <ul class="simple">
@@ -434,17 +434,17 @@ proxies</p></li>
 <section id="installation">
 <h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt><strong>Istioctl</strong></dt><dd><ul>
-<li><p>download from <a class="reference external" href="https://istio.io/latest/docs/setup/getting-started/#download">https://istio.io/latest/docs/setup/getting-started/#download</a>  and run
-<code class="docutils literal notranslate"><span class="pre">istioctl</span> <span class="pre">install</span> <span class="pre">--set</span> <span class="pre">profile=demo</span> <span class="pre">-y</span></code>, other profiles also available</p></li>
-<li><p>Istio will be deployed as deployment in the cluster as istiod, in the namespace
-istio-system</p></li>
-<li><p>also deploys istio-ingressgateway and istio-egressgateway services, and other
-necessary service objects</p></li>
-<li><p>verify installation with <code class="docutils literal notranslate"><span class="pre">istioctl</span> <span class="pre">verify-install</span></code></p></li>
+<div><ul>
+<li><dl>
+<dt><strong>Istioctl</strong></dt><dd><ul class="simple">
+<li><p>download from <a class="reference external" href="https://istio.io/latest/docs/setup/getting-started/#download">https://istio.io/latest/docs/setup/getting-started/#download</a>  and run</p></li>
 </ul>
+<p><code class="docutils literal notranslate"><span class="pre">istioctl</span> <span class="pre">install</span> <span class="pre">--set</span> <span class="pre">profile=demo</span> <span class="pre">-y</span></code>, other profiles also available
+- Istio will be deployed as deployment in the cluster as istiod, in the namespace
+istio-system
+- also deploys istio-ingressgateway and istio-egressgateway services, and other
+necessary service objects
+- verify installation with <code class="docutils literal notranslate"><span class="pre">istioctl</span> <span class="pre">verify-install</span></code></p>
 </dd>
 </dl>
 </li>

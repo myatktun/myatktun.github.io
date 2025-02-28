@@ -35,17 +35,17 @@ Levels of Protection
     * **Personal**
         - safeguard own identity, data and computing devices
         - personal data: any information that can be used to identify a person, offline or
-          online
+        online
         - e.g. choose a username appropriate for the type of account, do not reveal any
-          personal information unless necessary
+        personal information unless necessary
         - cybercriminals can use sensitive information to identify and impersonate
         - example personal data: medical and education records, employment and financial
-          records, social security number, driver license number
+        records, social security number, driver license number
         - information might be free online, but privacy is the price to pay
         - in identity theft, medical insurance and bank accounts are stolen by the thief to
-          use for himself
+        use for himself
         - ISP may track activity to sell data to advertisers, or legally require to share it
-          with government surveillance agencies
+        with government surveillance agencies
         - social media companies and search engines sell data to advertisers for profit
         - websites use cookies to track activities and sell to advertisers
         - advertisers monitor online activities to send targeted ads
@@ -53,13 +53,13 @@ Levels of Protection
         - everyone is responsible to protect organization's reputation, data and customers
         - transactional data: buy, sell, product activity and basic operations information
         - intellectual property: patents, trademarks, product plans, trade secrets that give
-          economic advantage over competitors
+        economic advantage over competitors
         - financial data: income, balance, cash flow, insight company data
         - big data: collected and shared data from IoT devices, including from cloud and
-          virtualization
+        virtualization
     * **Government**
         - digital information gathered and shared must be protected, more vital as national
-          security, economic stability and safety of citizens are at stake
+        security, economic stability and safety of citizens are at stake
 
 McCumber Cube
 -------------
@@ -75,12 +75,12 @@ McCumber Cube
         - give awareness, train and educate to users about potential security threats
         - use technology, software/hardware based such as firewalls, to protect systems
         - have policy and procedure to implement information assurance such as incident
-          response plans and practice guidelines
+        response plans and practice guidelines
     * **Confidentiality**
         - concerns with viewing and privacy in data and information
         - set of rules to prevent sensitive information from unauthorized ones
         - need to restrict certain people, devices or processes from seeing data such as
-          username and password combination
+        username and password combination
         - accomplished through encryption, identity proofing, two factor authentication
     * **Integrity**
         - data need to be safe during transmission, processing and storage
@@ -91,7 +91,7 @@ McCumber Cube
         - need to be secure from attacks such as DDoS (Distributed Denial-of-Service)
         - need to also have tolerance and load balancing
         - accomplished through maintaining equipment, hardware repair, keep up to date and
-          create backup
+        create backup
 
 AAA
 ---
@@ -99,7 +99,7 @@ AAA
         - process of proving to be valid
         - claiming as someone is identification, proving it is authentication
         - prove using something you know, such as password, something you have, such as a key,
-          and something you are, such as biometrics
+        and something you are, such as biometrics
         - using multiple forms is called multi-factor authentication
         - using two passwords is not multi-factor, as they are both of same form
         - false positives and false negatives can restrict or allow access in error
@@ -109,14 +109,14 @@ AAA
     * **Authorization**
         - only allowing a user to do certain things based on the credentials
         - principle of least privilege: users should only be granted enough permissions to do
-          required functions, not more
+        required functions, not more
         - never use root account on a system, but use one with limited privileges
         - allowing a user more privileges than required will lead to attacks or the attacker
-          can get privileges if he gets the account
+        can get privileges if he gets the account
     * **Accounting**
         - keeping track/logging of users and their actions
         - by accounting, actions of an attack can be traced, or even predict future attacks
-          based on previous actions
+        based on previous actions
         - multiple admins should not share a default account
         - accounting cannot tie actions to an individual
 
@@ -129,24 +129,24 @@ Hackers
         - may use basic tools, but attacks can still have devastating consequences
     * **White Hat**
         - with permission of a company to find and exploit vulnerabilities before a black hat
-          hacker does
+        hacker does
         - report back to the owner
     * **Gray Hat**
         - may sometimes violate laws, but usually do not have malicious intent like black hat
-          hacker
+        hacker
         - only report to the owner if the attack result match with their agenda
         - may publish the vulnerability on the internet for other attackers to exploit
     * **Black Hat**
         - malicious hacker and does damages
         - take advantage of any vulnerability for illegal personal, financial or political
-          gain
+        gain
     * **Organized Hackers**
         - organizations of cyber criminals, terrorists and state-sponsored hackers
         - highly organized and may provide cyber crime as a service
         - hacktivists make political statements to create awareness about issues important to
-          them
+        them
         - state-sponsored attackers are well-funded and gather intelligence on behalf of their
-          government
+        government
     * **Security Researcher**
         - find vulnerabilities anywhere
     * **Penetration Tester**
@@ -164,7 +164,7 @@ Threats
     * **Internal Threats**
         - caused by staffs or trusted partners accidentally or intentionally
         - may mishandle confidential data, invite attacks by using infected USB or clicking
-          malicious emails
+        malicious emails
         - some will threaten operations of internal servers or network infrastructure
     * **External Threats**
         - caused by attackers outside organization
@@ -193,27 +193,27 @@ Digital Forensics
         - foundation to identify, capture, and prosecute cyber criminals
         - information stored or transmitted in binary form, comprised of data and metadata
         - gather information about individuals, determine transpired events, identify affected
-          systems and networks, construct timeline, and discover tools and exploits used
+        systems and networks, construct timeline, and discover tools and exploits used
         - can sometimes reveal motivation of attackers
         - host-based evidence: volatile data from RAM, non-volatile data from HDD, optical
-          storage, removable devices
+        storage, removable devices
         - network evidence: live traffic, stored communication, and server logs
         - keyword searches can be effective when investigating large data set
         - check common locations such as IDS, IPS, firewall logs, app and server logs, HTTP
-          and FTP captures, and email
+        and FTP captures, and email
         - cloud-based evidence can be difficult to acquire, as companies do not give easily
     * **Gather and Image**
         - minimize loss, gather relevant evidence, maintain integrity
         - always create copies and only work on them
         - avoid destroying volatile data, missing critical data, altering data, using
-          untrusted commands, and system adjustments
+        untrusted commands, and system adjustments
         - evidence must be preserved in its original state
         - hash functions are used to verity files or drives have not been altered, and copies
-          are intact during investigation
+        are intact during investigation
         - bitstream copy: imaging a hard drive by making bit-for-bit copy of all sectors,
-          performed on hard drive level, not file system level
+        performed on hard drive level, not file system level
         - slack space: location of the end of a file on hard drive to the end of file cluster
-          that the file is stored in
+        that the file is stored in
         - in slack space, deleted files, or at least fragments, and hidden data can be found
         - evidence can also be found in unallocated space
     * **Analyse**
@@ -222,17 +222,17 @@ Digital Forensics
         - knowing damage, critical or sensitive systems or data, potential business impact
     * **Report**
         - step by step procedure of imaging, details of each test, tools used, and facts
-          uncovered
+        uncovered
         - missing item from the report, cannot be used in court
         - error of grammar or spelling can put doubt on the report
         - must document manufacturer, model, serial number of HDD and system components,
-          peripherals of system, description of evidence, case number, tag number of evidence,
-          hash algorithms and message digests
+        peripherals of system, description of evidence, case number, tag number of evidence,
+        hash algorithms and message digests
         - date and time of collection must be proven and clear
         - include full name and signature of people possessing the evidence, location and,
-          receipts and transfers of evidence
+        receipts and transfers of evidence
         - chain of custody: preservation process, from acquisition of evidence until used in
-          court
+        court
         - any gaps in chain of custody can cause evidence to be inadmissible
     * **Anti-Forensics**
         - to thwart discovery of information related to illegal activities of user
@@ -261,7 +261,7 @@ Certifications
         - test to look for weaknesses and vulnerabilities using tools
     * **CISSP**
         - ISC2 Certified Information Systems Security Professional, most recognizable and
-          popular
+        popular
         - need to have at least five years of relevant industry experience to take the exam
     * **Cisco Certified CyberOps Associate**
         - validates the associate-level analysts within security operations centers
@@ -285,25 +285,25 @@ Addresses
         - physical address of network interface card, NIC
         - globally unique, flat and permanent
         - 48 bits long, represented using 12 hexadecimal characters, first 6 characters for
-          manufacturer ID, OUI, and last 6 characters for device ID
+        manufacturer ID, OUI, and last 6 characters for device ID
     * **IPv4**
         - logical addresses, bound to NICs through software
         - 32 bits long, represented with 4 decimal numbers, first section for network ID, and
-          second section for host ID
+        second section for host ID
         - 32 bit subnet mask divide the addresses into two sections, 1s represent network
-          bits, and 0s represent host bits
+        bits, and 0s represent host bits
     * **Subnet Mask**
         - network bits are shared by all devices on the same network
         - host bits are unique to each host on the network
         - binary AND operation is performed on IP address and subnet mask to determine network
-          and host section
+        and host section
         - can span multiple octets, and do not need to be a multiple of eight bits
         - network ID, all host bits set to 0, and network broadcast address, all host bits set
-          to 1, cannot be assigned to a host
+        to 1, cannot be assigned to a host
         - another binary AND operation is performed on the destination IP address and source's
-          subnet mask to determine if same network or not
+        subnet mask to determine if same network or not
         - destination's subnet mask is unknown and never transmitted, but it's IP address is
-          known by the source or resolved using DNS
+        known by the source or resolved using DNS
     * IP addresses can be bound to and associated with MAC addresses for a duration, to keep
     track of which device is using which IP address of the network
     * **DNS**
@@ -312,13 +312,13 @@ Addresses
         - FQDN (Fully Qualified Domain Name) are stored in hosts file before DNS
         - DNS uses hierarchical distributed way to resolve names to IPs
         - if client's local DNS server cannot resolve, it will query to one of the 13 root DNS
-          servers
+        servers
         - the root server will give the IP address to the DNS server for top level domain
         - every top level domain, such as .com and .net, is maintained by a registry
         - each top level DNS servers are responsible for knowing the DNS servers for each
-          subdomain, e.g. in google.com, .com server is responsible for google subdomain
+        subdomain, e.g. in google.com, .com server is responsible for google subdomain
         - DNS server in home router is not as robust as enterprise level, it sends DNS queries
-          to ISP DNS server
+        to ISP DNS server
 
 Switch
 ------
@@ -336,40 +336,40 @@ Communication
     * **Local**
         - direct communication is possible on same network
         - the source sends broadcast message using ARP (Address Resolution Protocol), which resolve
-          a known IP address to MAC address
+        a known IP address to MAC address
         - all devices on the network receive the ARP request, and only the destination replies
         - ARP reply is unicast, only sent to the source, since source's MAC address is within the
-          ARP request
+        ARP request
         - the source now have the destination's MAC address and send the message
         - source and destination MAC addresses are found in layer 2 frame
         - IP addresses are the fields found in IP packet
     * **Remote**
         - direct communication is not possible on different networks
         - the source need to get the traffic to its default gateway, an interface on a router
-          connected to its network
+        connected to its network
         - statically or dynamically configured device also gets an IP address of a router
-          interface, which is responsible to take traffic between networks
+        interface, which is responsible to take traffic between networks
         - the source send broadcast ARP request, searching for default gateway MAC address
         - the gateway unicat ARP reply back to the source
         - the source send the traffic with gateway MAC address and the actual destination IP
-          address
+        address
         - routers never forward broadcasts to another network
     * **Packet Routing**
         - routers maintain routing tables, containing destination networks and directions
-          to send the traffic
+        to send the traffic
         - routers have a default route to send, if routing tables do not have enough data
         - if no routing table and default route, router will drop the packet and send error
-          message back to the source through ICMP (Internet Control Message Protocol)
+        message back to the source through ICMP (Internet Control Message Protocol)
         - same ARP process takes place, if routers are connected using Ethernet infrastructure
         - different frame type is used for different infrastructure, e.g. wireless NICs use
-          802.11 frames instead of Ethernet frames
+        802.11 frames instead of Ethernet frames
         - same IP packet can have different encapsulating frame
         - point-to-point directly connected serial interfaces, using PPP or HDLC, do not need
-          to deal with MAC addresses and their frames, since the connection is like a tunnel
+        to deal with MAC addresses and their frames, since the connection is like a tunnel
         - the frame is removed every time a packet passes through an interface, a new frame
-          is used if packet still needs another hop
+        is used if packet still needs another hop
         - IP addresses never change during the packet's path, only MAC addresses of a frame
-          change
+        change
 
 Ports
 -----
@@ -385,7 +385,7 @@ Ports
         - e.g. port 80 by HTTP
     * **Registered Ports**
         - from 1024 to 49151 are assigned by IANA for specific companies that want common port
-          to be used for their programs
+        to be used for their programs
         - but can be used by any system if not in use
         - locally significant to a system
     * **Dynamic Ports**
@@ -399,7 +399,7 @@ TCP and UDP
     * **TCP**
         - Transmission Control Protocol
         - connection between source and destination for reliable data transfer and flow
-          control
+        control
         - send data at acceptable rate, bytes sent are ordered and sequenced
         - guarantee integrity and processed in order
         - segments are acknowleged for sender to know the destination has received
@@ -413,7 +413,7 @@ TCP and UDP
         - streaming using UDP still need to be processed in correct order
         - RTSP, Real Time Streaming Protocol, at Layer 7, does the ordering for UDP
         - real time communication can slow down when using TCP, as it requires to maintain
-          connection, implement flow control and send acknowlegements
+        connection, implement flow control and send acknowlegements
         - less overhead than TCP, but has efficiency
 
 Autonomous System
@@ -430,16 +430,16 @@ Autonomous System
         - can register ASN (Autonomous System Number) to become independent of ISPs
         - maintain routing tables and exchange routing information with multiple ISPs
         - when traffic leaves the autonomous system, routers choose ISP for most efficient
-          packet delivery
+        packet delivery
         - IGP (Interior Gateway Protocol) allows routers within autonomous system to
-          communicate each other
+        communicate each other
         - with IGP, routers share information about directly or indirectly connected networks
         - metrics are used by routers to determine fastest path between networks
         - OSPF (Open Shortest Path First) and Cisco's EIGRP (Enhanced Interior Gateway Routing
-          Protocol) are two popular IGP
+        Protocol) are two popular IGP
         - OSPF and EIGRP use bandwidth as metric, but calculate it differently
         - EGP (Exterior Gateway Protocol) allows routers from different autonomous system to
-          communicate and exchange routing information
+        communicate and exchange routing information
         - BGP (Border Gateway Protocol) is the only EGP used across the entire internet
 
 Static Addressing
@@ -448,18 +448,18 @@ Static Addressing
     * **RARP**
         - Reverse Address Resolution Protocol, reverse of ARP
         - for diskless work stations, which have NIC and MAC address, and get IP address from
-          RARP server
+        RARP server
         - admins preconfigure a table on the server to match MAC and IP addresses, and
-          dynamically give them upon rquest
+        dynamically give them upon rquest
         - matches MAC address to IP address
         - Layer 2 protocol inside frames, no IP header and cannot send off a network
         - each and every network would need its own RARP server
     * **BOOTP**
         - Bootstrap Protocol, messages are encapsulated in Layer 4 UDP datgrams, which are in
-          Layer 3 IP packets
+        Layer 3 IP packets
         - messages can be sent off and routed on a network, remove overheads from RARP
         - relay agents: router interfaces on a network, also serve as full gateways, turn
-          broadcast BOOTP messages into unicast messages
+        broadcast BOOTP messages into unicast messages
         - can have two BOOTP servers on a network to give IP addresses for other networks
     * in both RARP and BOOTP, admins need to collect MAC addresses and manually associate with
     IP addresses
@@ -473,7 +473,7 @@ Dynamic Addressing
         - Dynamic Host Configuration Protocol, made to be an extension of BOOTP
         - scope: range of IP addresses for dynamically assigning
         - lease: DHCP server assigning IP to a client machine for a duration, if there are
-          addresses left in the dynamic pool
+        addresses left in the dynamic pool
         - the client must renew a lease before time not to lose network connectivity
         - admins do not need to collect MAC addresses
         - there can be excluded and reserved IP addresses in a scope
@@ -481,15 +481,15 @@ Dynamic Addressing
     * **DORA**
         - Discover, Offer, Request and ACK, client getting IP address from DHCP server
         - client broadcast Discover message at both Layer 2, source IP 0.0.0.0 and destination
-          IP FF-FF-FF-FF-FF-FF, and Layer 3, source's MAC and destination MAC 255.255.255.255
+        IP FF-FF-FF-FF-FF-FF, and Layer 3, source's MAC and destination MAC 255.255.255.255
         - relay agent need to be preconfigured about DHCP server
         - client sends Discover as broadcast, and relay agents turn them into unicast
         - each subnet has its own scope on the DHCP server
         - DHCP server knows which scope, based on IP address of relay agent
         - DHCP server also gives the client information such as subnet mask, default gateway
-          IP address, DHCP server address and DNS server address
+        IP address, DHCP server address and DNS server address
         - client will be able to send unicast messages after getting ACK from DHCP server,
-          using the assigned IP address
+        using the assigned IP address
     * DHCP server in home router is not as robust as enterprise level
 
 `back to top <#cyber-security>`_
@@ -576,7 +576,7 @@ Spyware
     * often bundle with legitimate software or Trojan horses
     * **Adware**
         - automatically play or display advertisements, mostly often on a browser, or
-          download promotional materials
+        download promotional materials
         - often bundled with product or package
         - common in shareware, a free software that might require payment after trial
     * **PUP**
@@ -584,7 +584,7 @@ Spyware
         - included by companies as extra to a user downloaded program
         - fall under spyware and adware categories, used to be called Trojan horses
         - but as companies mention the extras in EULA (End User License Agreement), name was
-          changed to PUP
+        changed to PUP
 
 Ransomware
 ----------
@@ -695,15 +695,15 @@ On-Path Attacks
     * **MITM**
         - Man In The Middle, attacker take control of a device without user's knowledge
         - attacker can intercept and capture user information before sending to the intended
-          destination
+        destination
         - often used to steal financial information
         - there are many types of malware that possess MITM attack capabilities
     * **MITMO**
         - Man In The Mobile, variation of MITM
         - used to take control over user's mobile device
         - mobile device is instructed to exfiltrate user-sensitive information and send to
-          attacker
-          = e.g. Zeus trojan that quietly capture two-step verification SMS
+        attacker
+        = e.g. Zeus trojan that quietly capture two-step verification SMS
 
 Phishing
 --------
@@ -725,7 +725,7 @@ Phishing
     * **Watering Hole**
         - attacking strategy in which victim is in particular group
         - hacker observes which websites the group often uses, infect those websites with
-          malware, and some member get infected eventually
+        malware, and some member get infected eventually
         - relying on websites that the group trust makes the strategy efficient
     * 90% of phishing emails are specifically designed to deliver ransomware
     * **Mitigate Phishing**
@@ -759,20 +759,20 @@ Password Attacks
         - allow attacker to remain undetected as they avoid frequent account lockouts
     * **Dictionary Attacks**
         - attacker systematically try every word in a dictionary or a list of commonly used
-          words
+        words
     * **Brute-force Attacks**
         - simplest and most commonly used way
         - attacker use all possible combination of letters, numbers and symbols until correct
         - has to calculate each hash on the fly, complex passwords can take much longer
     * **Rainbow Attacks**
         - rainbow table: large dictionary of precomputed hashes and the passwords from  which
-          they were calculated
+        they were calculated
         - compare the hash of a password with those stored in rainbow table
         - do not need to calculate each hash on the fly
     * **Traffic Interception**
         - plain text or unencrypted passwords can be easily read by intercepting communication
         - password stored in readable text can be read by anyone who has access to the account
-          or device
+        or device
     * e.g. Ophcrack, L0phtCrack, THC Hydra, RainbowCrack, Medusa
 
 APT
@@ -800,15 +800,15 @@ Cryptojacking
         - use strong encryption techniques to secure online transactions
         - owners keep their money in encrypted, virtual wallets
         - when transaction takes place, details are recorded in a blockchain systen, a
-          decentralized, electronic ledger
+        decentralized, electronic ledger
         - no third party, such as banks, interference
         - special computers collect data about latest transactions, turn them into
-          mathematical problems to maintain confidentiality
+        mathematical problems to maintain confidentiality
         - mining: verifying transactions through technical and highly complex process
         - miners work on high-end PCs to solve mathematical problems and authenticate
-          transactions
+        transactions
         - after verifying, the ledger is updated and copied to anyone belonging to the
-          blockchain network
+        blockchain network
     * cryptojacking is a technique to hide on user computing devices and use the resources to
     mine cryptocurrency
     * many victims do not know they had been hacked until too late
@@ -844,14 +844,14 @@ Hardware Vulnerabilities
     * **Rowhammer Exploit**
         - in RAM, changes in a capacitor can influence to those very close to it
         - Rowhammer uses the design flaw to trigger electrical interference to corrupt data
-          stored inside RAM, by repeatedly accessing a row of memory
+        stored inside RAM, by repeatedly accessing a row of memory
     * **Meltdown & Spectre**
         - two hardware vulnerabilities that affect almost all CPUs
         - Meltdown: read all memory from given system
         - Spectre: read data handled by applications
         - side-channel attack: attack enabled by leakage of information from computer system
         - can compromise large amount of memory data as the attacks can be run multiple times
-          with minimum crash or errors
+        with minimum crash or errors
 
 Software Vulnerabilities
 ------------------------
@@ -859,32 +859,32 @@ Software Vulnerabilities
     * **SYNful Knock Vulnerability**
         - discovered in Cisco IOS (Internetwork Operation System) in 2015
         - attacker can gain control of enterprise-grade routers, and monitor all network
-          communication and infect other network devices
+        communication and infect other network devices
         - to avoid, always verify the downloaded IOS image and limit physical access to
-          authorized personnel only
+        authorized personnel only
     * **Buffer Overflow**
         - buffer: memory area allocated to an application
         - by writing data beyond the limits of a buffer, application can access memory
-          allocated to other processes
+        allocated to other processes
         - can lead to system crash, data compromise or provide escalation of privileges
     * **Non-validated Input**
         - input data can have malicious content to force the program to do unintended way
         - e.g. maliciously created image with invalid dimensions can force the program to
-          allocate buffers of incorrect sizes
+        allocate buffers of incorrect sizes
     * **Race Conditions**
         - situation where output of an event depends on ordered or timed outputs
         - race condition can become source of vulnerability when required ordered events do
-          not occur in correct order or proper time
+        not occur in correct order or proper time
     * **Weak Security Practice**
         - developers should use security techniques and libraries created, tested and verified
         - should not use own security algorithms, as they can create new vulnerabilities
         - e.g. using well-known and widely-used authentication, authorization and encryption
     * **Access Control Problems**
         - Access Control: process of controlling who does what, ranging from accessing
-          physical equipment to resources such as files
+        physical equipment to resources such as files
         - improper use of access controls create security vulnerabilities
         - all access controls and security practices can be overcome if attacker has physical
-          access to equipment
+        access to equipment
 
 Software Updates
 ----------------
@@ -935,7 +935,7 @@ Encryption
         - slower than symmetric encryption, but more secure and no key distribution problem
         - public key is transmitted through insecure medium, hence the name, to only encrypt
         - since slower, it is only used for encrypting a shared secret, such as symmetric key,
-          not an actual message
+        not an actual message
         - e.g. RSA is widely used in areas such as SSL/TLS
 
 Kerckhoffs' Principle
@@ -964,7 +964,8 @@ Hashing
     too quick when using brute force attacks with GPUs, ASICs and FPGAs
     * PBKDF2, bcrypt, scrypt and Argon2 should be used for hashing passwords
     * **Checking File Integrity**
-        - 
+        -
+
 Certificate Authority
 ---------------------
     * a trusted public third party digital notary
@@ -978,14 +979,14 @@ Certificate Authority
         - browser verify that the certificate is not revoked or expired
         - if certificate is valid, browser extracts the server's public key from it
         - browser generates a random value, pre-master secret, encrypts it with the server's
-          public key and send it to the server
+        public key and send it to the server
         - the server decrypts with its private key to get the pre-master secret
         - browser and server use same pre-master secret to create a same master secret
         - the master secret is used by both to create symmetric session keys for encrypting,
-          decrypting and hashing
+        decrypting and hashing
     * **Verifying Certificate**
         - digital signature: hashed public key of a company, encrypted with the CA's private
-          key
+        key
         - browser gets the CA's digital certificate from trusted root certificate store
         - browser decrypts the encrypted hash with CA's public key, found on the certificate
         - browser also hashes the company's public key
@@ -1018,7 +1019,7 @@ Threat Agents
         - risk can be reduced or mitigated, not eliminated
         - some vulnerabilities can be eliminated, but that does not eliminate the risk 100%
         - encryption, hashing, VPN, firewall, intrusion detection and prevention can reduce
-          risk
+        risk
         - risk can be transferred, e.g. purchasing cyber security insurance, cloud computing
         - accept the risk if the cost to protect a resource outweigh the cost of losing
     * identify critical assets, what business processes require them
@@ -1031,7 +1032,7 @@ Mitigation
     * mitigation reduce but do not eliminate the potential for attacks
     * e.g. command injection vulnerability in ``/bin/sh``
         - mitigated by dropping privileges to rUID if ``/bin/sh`` is run as SUID with eUID as 0,
-          but rUID not 0
+        but rUID not 0
         - use ``sh -p`` to disable it
     * e.g. wireshark split into two programs to reduce attack surface
         - one that dumps traffic, which needs root privileges
@@ -1056,7 +1057,7 @@ Firewall
     * **Software Based**
         - also called host-based firewall
         - only protect single system, can mitigate the risk of attack spreading from one
-          machine to another
+        machine to another
         - most OS have software based firewall built in
         - anything other than the host can be considered unsafe
     * **Stateless Packet Filtering**
@@ -1071,13 +1072,13 @@ Firewall
         - after TCP connection is established, packets can flow without further checking
     * **ALG**
         - Application Layer Gateway, apply based on applications like HTTP, SSL/TLS, FTP, DNS
-          and VoIP
+        and VoIP
         - check deeper into protocols, understand how a protocol should work at Layer 7
         - stateful and can filter commands in the data stream
         - DPI (Deep Packet Inspection) looks into protocols and their behavior
         - some ISP use DPI to scan contents of packet to reroute or drop
         - DCI (Deep Content Inspection) examine entire file, such as email attachment, and
-          can decode and decompress files
+        can decode and decompress files
     * **Network Layer Firewall**
         - filter based on source and destination IP addresses
     * **Transport Layer Firewall**
@@ -1102,9 +1103,9 @@ Firewall
         - traffic can still flow even if IDS sensor goes down
         - can alert admin and automatically tell firewall to block traffic after observation
         - only to detect, log and report, will not take action and not prevent attacks from
-          happening
+        happening
         - can be considered as visibility device, dedicated network device or one of several
-          tools in a server
+        tools in a server
         - packets collected can be analysed
         - scanning performed can slow down network, and usually placed offline
         - data is copied by a switch and forwarded to IDS for offline detection
@@ -1114,7 +1115,7 @@ Firewall
         - has latency since traffic is processed live
         - traffic will stop if IPS goes down
         - can alert admin, automatically tell firewall to block traffic after observation, and
-          stop traffic in its tracks
+        stop traffic in its tracks
         - can be considered as control device
     * e.g. Snort, Cisco Sourcefire
     * vulnerable to false positives, normal activity flagged as malicious, and false
@@ -1151,7 +1152,7 @@ Wireless Security
     * **Public Wi-Fi**
         - best not to send personal data on public wifi
         - make sure device cannot share file and media, or require user authentication if
-          sharing is needed
+        sharing is needed
         - use VPN to prevent interception
     * turn off bluetooth if not using
 
@@ -1172,7 +1173,7 @@ Data Security
     * always encrypt data when transmitting, or even when stored, if data is sensitive
     * **Data Deletion**
         - data deleted, e.g. in recycle bin, can still be recovered with forensic tools, as there
-          is a magnetic trace left on the hard drive
+        is a magnetic trace left on the hard drive
         - to be unrecoverable, data must be overwritten with ones and zeros multiple times
         - e.g. SDelete, Shred, Secure Empty Trash
         - the most certain way is to physically destroy the storage device
@@ -1191,7 +1192,7 @@ Data Security
         - two factor authentication require second token to verify identity
         - e.g. physical object, biometric scan or verification code
         - OAuth: Open Authorization, standard protocol to use credentials to access
-          third-party applications without exposing password
+        third-party applications without exposing password
 
 Port Scanning
 -------------
@@ -1224,20 +1225,20 @@ Behaviour-Based Security
     * **Honeypot**
         - lure attacker by appealing to their predicted pattern of malicious behaviour
         - once attacker is inside, network admin can capture, log and analyse to build better
-          defense
+        defense
     * **Cisco Cyber Threat Defense Solution Architecture**
         - provide greater visibility, context and control
         - aim is to know who the attacker is, what type of attack and where, when and how the
-          attack is taking place
+        attack is taking place
         - the architecture use many security technologies
     * **NetFlow**
         - gather information about the flowing data
         - include who and what devices, when and how users and devices access the network
         - important component in behaviour-based detection and analysis
         - switches, routers and firewalls with NetFlow can report information about data
-          entering, leaving and travelling
+        entering, leaving and travelling
         - NetFlow collectors collect, store and analyse data, which can be used to establish
-          baseline behaviours on more than 90 attributes
+        baseline behaviours on more than 90 attributes
 
 Penetration Testing
 -------------------
@@ -1252,7 +1253,7 @@ Penetration Testing
     * **Scanning**
         - do active reconnaissance to probe target system and identify potential weakness
         - include port scanning, vulnerability scanning and establishing active connection to
-          the target
+        the target
     * **Gaining Access**
         - attempt to gain access to target system and sniff network traffic
         - launch exploit with payload, breach physical barriers
@@ -1263,7 +1264,7 @@ Penetration Testing
         - maintain access to the target to find out vulnerable data and systems
         - need to remain undetected, such as using backdoors, Trojans, rootkits
         - after setting the infrastructure, pen tester will gather data that are considered
-          valuable
+        valuable
     * **Analyse and Report**
         - pen tester provide feedback with reports
         - recommend updates to products, policies and training to improve security
@@ -1290,7 +1291,7 @@ Impact Reduction
         - make sure all systems are clean and nothing else has been compromised
     * **Educate**
         - raise awareness, train and educate employees, partners and clients on how to prevent
-          future breaches
+        future breaches
 
 Risk Management
 ---------------
@@ -1301,11 +1302,11 @@ Risk Management
         - identify threats that increase risk
         - processes, products, attacks, potential failure or disruption
         - negative >perception of organization reputation, potential legal liability or loss of
-          intellectual property
+        intellectual property
     * **Assess**
         - determine the severity of each threat
         - prioritise risk by assessing financial impact, quantitative, or scaled impact on
-          operation, qualitative
+        operation, qualitative
     * **Respond**
         - develop plan to reduce overall risk exposure
         - detail where risk can be eliminated, mitigated, transferred or accepted
@@ -1333,12 +1334,12 @@ Other Appliances
     * **VPN**
         - Virtual Private Network
         - let remote employees use a secure encrypted tunnel to connect to organization's
-          network
+        network
         - can securely interconnect branch offices with central office network
         - e.g. Cisco AnyConnect Secure Mobility Client
     * **Antimalware**
         - use signatures or behavioral analysis of applications to identify and block
-          malicious code
+        malicious code
         - e.g. Cisco Advanced Malware Protection (AMP)
     * web and email security appliances, decryption devices, client access control servers
     and security management systems are also available
@@ -1346,15 +1347,15 @@ Other Appliances
         - allow Cisco Secure Operations Center team to gather more accurate, actionable data
         - Incidence Response team has access to valid information to quickly analyse
         - Threat Intelligence team can use the analysis to improve organization's security
-          infrastructure
+        infrastructure
         - Security Infrastructure Engineering team can consume and act on threat information
-          faster, usually automated
+        faster, usually automated
     * **Cisco CSIRT**
         - Computer Security Incident Response Team, provide assessment, mitigation planning,
-          incident trend analysis and security architecture review
+        incident trend analysis and security architecture review
         - collaborate with FIRST (Forum of Incident Response and Security Teams), NSIE
-          (National Safety Information Exchange), DSIE (Defense Security Information Exchange),
-          and DNS-OARC (DNS Operations Analysis and Research Center)
+        (National Safety Information Exchange), DSIE (Defense Security Information Exchange),
+        and DNS-OARC (DNS Operations Analysis and Research Center)
     * there are other several national and public CSIRT organizations
     * **SIEM**
         - Security Information and Event Management, facilitate early detection of attacks
@@ -1396,10 +1397,10 @@ File System
     * **Paths**
         - absolute paths: start with ``/``, e.g. ``/usr/bin``, ``/home/hello/world``
         - relative paths: relative to current working directory, don't start with ``/``,
-          e.g. ``.``: current directory, ``..``: previous directory
+        e.g. ``.``: current directory, ``..``: previous directory
     * **Type of files**
         - ``-``: regular file, ``d``: directory, ``l``: symbolic link, ``p``: named pipe
-          ``c``: character device file, ``b``: block device file, ``s``: Unix socket
+         ``c``: character device file, ``b``: block device file, ``s``: Unix socket
     * **Symbolic/Soft Links**
         - file that reference another file
         - created with ``ln -s`` command
@@ -1455,7 +1456,7 @@ ELF
     * **Section Headers**
         - define what the segments have inside them
         - not strictly necessary part of ELF, as they are only metadata for introspection,
-          debugging, etc.
+        debugging, etc.
         - ``.text``: executable code of program
         - ``.plt``, ``.got``: to resolve and dispatch library calls
         - ``.data``: pre-initialized global writable data, e.g. global array with initial values
@@ -1488,29 +1489,29 @@ Processes
         - parent and child: ``fork`` and ``clone`` syscalls create nearly exact copy of calling process
         - child process uses ``execve`` syscall to replace itself with another process
         - e.g. when using ``/bin/cat`` in bash, bash forks itself into old parent process and
-          child process, and the child ``execve`` and replace itself with ``/bin/cat``
+        child process, and the child ``execve`` and replace itself with ``/bin/cat``
     * **Loading**
         - kernel checks for executable permissions, and if file is not executable, ``execve``
-          will fail
+        will fail
         - kernel reads the beginning of the file to make a decision
         - ``#!``: kernel extract the interpreter from the line and execute it with original file
-          as argument
+        as argument
         - one of ``/proc/sys/fs/binfmt_misc/`` formats: kernel execute the interpreter specified
-          for that format with original file as argument
+        for that format with original file as argument
         - dynamically-linked ELF: kernel read the defined interpreter/loader, load the
-          interpreter and original file, and give control to the interpreter
+        interpreter and original file, and give control to the interpreter
         - statically-linked ELF: kernel will load it
     * **Dynamically-Linked ELFs Loading**
         - kernel load program and its interpreter
         - interpreter locate libraries in ``LD_PRELOAD``, ``/etc/ld.so.preload``, ``LD_LIBRARY_PATH``,
-          ``DT_RUNPATH`` or ``DT_RPATH``, system-wide configuration ``/etc/ld.so.conf``, and ``/lib``
-          and ``/usr/lib``
+        ``DT_RUNPATH`` or ``DT_RPATH``, system-wide configuration ``/etc/ld.so.conf``, and ``/lib``
+        and ``/usr/lib``
         - interpreter load the libraries, which can cause to load other libraries, and update
-          relocations
+        relocations
     * **Virtual Memory**
         - dedicated to each process, physical memory is shared among whole system
         - contains binary, libraries, heap, stack, memory mapped by the program, helper
-          regions, kernel code in top half of memory which is inaccessible to the process
+        regions, kernel code in top half of memory which is inaccessible to the process
         - can view the memory at ``/proc/self/maps``
     * ``libc.so``: standard C library, linked by almost every process, provides functions such as
     printf, scanf, malloc, free
@@ -1518,7 +1519,7 @@ Processes
         - ELF can specify constructors, functions that run before the program is launched
         - e.g. libc can initialize memory regions for dynamic allocations
         - can specify own constructor with
-          ``__attribute__((constructor)) void foo() { puts("bar"); }``
+        ``__attribute__((constructor)) void foo() { puts("bar"); }``
         - specific constructors are especially used for ``LD_PRELOAD``
     * some exposed functionalities allow to inject library into a process
     * **Launch**
@@ -1526,7 +1527,7 @@ Processes
         - can override ``__libc_start_main()`` with custom using ``LD_PRELOAD``
     * **Reading Environment**
         - loaded objects such as binaries and libraries, arguments, and environment are the
-          only input from outside at launch
+        only input from outside at launch
         - e.g. ``int main(int argc, void** argv, void** envp);``
     * the binary's import symbols are resolved using the libraries' export symbols, done when
     the binary is loaded
@@ -1535,15 +1536,15 @@ Processes
         - can trace a process system calls using ``strace``
         - processes also interact by sharing memory with other processes
         - shared memory require system calls to establish, but after that, communicate without
-          syscalls
+        syscalls
         - e.g. use a shared memory-mapped file in ``/dev/shm``
     * **Termination**
         - processes only terminate by receiving unhandled signal or calling ``exit()`` syscall
         - after termination, a process remain in zombie state
         - when ``wait()`` is called by its parent, the exit code is returned to the parent and
-          the process is freed
+        the process is freed
         - if parent dies without ``wait()``, a process parent is changed to PID 1 until it is
-          cleaned up
+        cleaned up
 
 System Calls
 ------------
@@ -1554,7 +1555,7 @@ System Calls
         - ``read()``: read data from file descriptor
         - ``write()``: write data to file descriptor
         - ``fork()``: fork an identical child process, return 0 if child and PID of child if
-          parent
+        parent
         - ``execve()``: replace the process
         - ``wait()``: wait child termination, return its PID and write its status into ``*wstatus``
         - ``syscall()``: invoke specific syscall
@@ -1600,7 +1601,7 @@ Tabs
     * **Desktop**
         - desktop interface for some end devices
         - can access IP and wireless configuration, command prompt, web browser and other
-          applications
+        applications
     * **Services**
         - allow to configure a server with HTTP, DHCP, DNS, or other services
 * besides Ethernet and console cables, USB console cables can be used to connect devices

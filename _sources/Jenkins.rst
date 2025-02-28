@@ -19,7 +19,7 @@ CI (Continuous Integration)
 
 CD (Continuous Delivery/Deployment)
 -----------------------------------
-    * deploy the application to a system
+    *  deploy the application to a system
     * Delivery
         - consists manual intervention (such as button clicks)
     * Deployment

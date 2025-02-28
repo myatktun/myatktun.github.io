@@ -18,8 +18,8 @@ Service Mesh
     code in microservice architecture
         - replace all requirements, other than business logic, with proxy as sidecar container
         - proxies communicate with each other through data plane and communicate to server
-          side component, control plane, which manages all traffic into and out of services via
-          proxies
+        side component, control plane, which manages all traffic into and out of services via
+        proxies
     * can dynamically change how services communicate
     * **Control Plane**
         - citadel: manage certificate generation
@@ -42,11 +42,11 @@ Installation
 ------------
     * **Istioctl**
         - download from https://istio.io/latest/docs/setup/getting-started/#download  and run
-          ``istioctl install --set profile=demo -y``, other profiles also available
+        ``istioctl install --set profile=demo -y``, other profiles also available
         - Istio will be deployed as deployment in the cluster as istiod, in the namespace
-          istio-system
+        istio-system
         - also deploys istio-ingressgateway and istio-egressgateway services, and other
-          necessary service objects
+        necessary service objects
         - verify installation with ``istioctl verify-install``
     * **Istio Operator**
     * **Using Helm**

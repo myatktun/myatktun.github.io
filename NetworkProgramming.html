@@ -484,9 +484,9 @@ on a local node (Unix Sockets), and CCITT X.25 addresses (X.25 Sockets)</p>
 <section id="internet-sockets">
 <h3>Internet Sockets<a class="headerlink" href="#internet-sockets" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><dl class="simple">
-<dt><strong>Stream Sockets</strong></dt><dd><ul>
+<dt><strong>Stream Sockets</strong></dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SOCK_STREAM</span></code>, reliable two-way connected communication streams</p></li>
 <li><p>data arrives in order and will be error-free</p></li>
 <li><p>e.g. used by telnet, ssh, HTTP</p></li>
@@ -496,15 +496,15 @@ on a local node (Unix Sockets), and CCITT X.25 addresses (X.25 Sockets)</p>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>Datagram Sockets</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>Datagram Sockets</strong></dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SOCK_DGRAM</span></code>, sometimes called connectionless sockets</p></li>
 <li><p>data may arrive out of order, built on top of IP and UDP</p></li>
 <li><p>do not need to maintain an open connection</p></li>
 <li><p>e.g. used by tftp, dhcpcd, multiplayer games, streaming audio, video conferencing</p></li>
-<li><p>tftp and similar programs have own protocol on top of UDP that needs to send back
-ACK, or else the sender will re-transmit the packet until ACK</p></li>
+<li><p>tftp and similar programs have own protocol on top of UDP that needs to send back</p></li>
 </ul>
+<p>ACK, or else the sender will re-transmit the packet until ACK</p>
 </dd>
 </dl>
 </li>
@@ -611,9 +611,9 @@ ACK, or else the sender will re-transmit the packet until ACK</p></li>
 <dt><strong>inet_pton()</strong></dt><dd><ul class="simple">
 <li><p>presentation to network</p></li>
 <li><p>converts IP address in numbers-and-dots notation to <code class="docutils literal notranslate"><span class="pre">in_addr</span></code> or <code class="docutils literal notranslate"><span class="pre">in6_addr</span></code></p></li>
-<li><p>return value: 1 on success, 0 if not valid network address , and -1 if not valid
-address family</p></li>
+<li><p>return value: 1 on success, 0 if not valid network address , and -1 if not valid</p></li>
 </ul>
+<p>address family</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr_in</span><span class="w">  </span><span class="n">sa</span><span class="p">;</span><span class="w">  </span><span class="c1">// IPv4</span>
 <span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr_in6</span><span class="w"> </span><span class="n">sa6</span><span class="p">;</span><span class="w"> </span><span class="c1">// IPv6</span>
 
@@ -689,14 +689,14 @@ address family</p></li>
 <li><p>but the packet can be dropped by the destination’s router to prevent flooding</p></li>
 </ul>
 </div></blockquote>
-<ul class="simple">
-<li><dl class="simple">
-<dt><strong>To Global Broadcast Address</strong></dt><dd><ul>
+<ul>
+<li><dl>
+<dt><strong>To Global Broadcast Address</strong></dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">INADDR_BROADCAST</span></code>: 255.255.255.255</p></li>
-<li><p>many machines will bitwise AND it with the network number to convert it to a network
-broadcast address</p></li>
-<li><p>routers do not forward this type of broadcast packet off the local network</p></li>
+<li><p>many machines will bitwise AND it with the network number to convert it to a network</p></li>
 </ul>
+<p>broadcast address
+- routers do not forward this type of broadcast packet off the local network</p>
 </dd>
 </dl>
 </li>
@@ -1058,11 +1058,11 @@ depends on Unix flavour, do not rely on it to for portability
 * <strong>Linux Bugs</strong></p>
 <blockquote>
 <div><ul class="simple">
-<li><p>sometimes <code class="docutils literal notranslate"><span class="pre">select()</span></code> can return ready to read, and then not actually be ready, and it
-can block <code class="docutils literal notranslate"><span class="pre">read()</span></code></p></li>
-<li><p>to solve this, set <code class="docutils literal notranslate"><span class="pre">O_NONBLOCK</span></code> flag on the receiving socket to error with
-<code class="docutils literal notranslate"><span class="pre">EWOULDBLOCK</span></code></p></li>
+<li><p>sometimes <code class="docutils literal notranslate"><span class="pre">select()</span></code> can return ready to read, and then not actually be ready, and it</p></li>
 </ul>
+<p>can block <code class="docutils literal notranslate"><span class="pre">read()</span></code>
+- to solve this, set <code class="docutils literal notranslate"><span class="pre">O_NONBLOCK</span></code> flag on the receiving socket to error with
+<code class="docutils literal notranslate"><span class="pre">EWOULDBLOCK</span></code></p>
 </div></blockquote>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/select.h&gt;</span>
 
@@ -1172,7 +1172,7 @@ can block <code class="docutils literal notranslate"><span class="pre">read()</s
 <section id="example-packet-structure">
 <h3>Example Packet Structure<a class="headerlink" href="#example-packet-structure" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>packet order of <code class="docutils literal notranslate"><span class="pre">len</span> <span class="pre">name</span> <span class="pre">chatdata</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">len</span></code>: total length of the packet</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: user name, NULL-padded if necessary</p></li>
@@ -1180,27 +1180,27 @@ can block <code class="docutils literal notranslate"><span class="pre">read()</s
 <li><p>each field can have specific size</p></li>
 <li><p>the data muse be completely sent, even if it takes multiple calls to <code class="docutils literal notranslate"><span class="pre">send()</span></code></p></li>
 <li><p>always assume only partial packet is received, and call <code class="docutils literal notranslate"><span class="pre">recv()</span></code> multiple times</p></li>
-<li><dl class="simple">
-<dt><strong>Receive Method 1</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>Receive Method 1</strong></dt><dd><ul class="simple">
 <li><p>since every packet starts with a length, call <code class="docutils literal notranslate"><span class="pre">recv()</span></code> to get the packet length</p></li>
 <li><p>call it again specifying exactly the remaining length of the packet</p></li>
-<li><p>only need one buffer per packet, but need to call <code class="docutils literal notranslate"><span class="pre">recv()</span></code> at least twice to get all
-data</p></li>
+<li><p>only need one buffer per packet, but need to call <code class="docutils literal notranslate"><span class="pre">recv()</span></code> at least twice to get all</p></li>
 </ul>
+<p>data</p>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>Receive Method 2</strong></dt><dd><ul>
-<li><p>call <code class="docutils literal notranslate"><span class="pre">recv()</span></code> with maximum number of bytes in a packet, might get some of the next
-packet</p></li>
-<li><p>use a buffer big enough for two packets, and reconstruct the packets</p></li>
-<li><p>in every <code class="docutils literal notranslate"><span class="pre">recv()</span></code>, append the data into the buffer, and check if the packet is
-complete by comparing bytes in the buffer with the length specified in the header</p></li>
-<li><p>remove the packet after processing, and move the second packet, maybe partial of it,
-to the front of the buffer</p></li>
-<li><p>can use a circular buffer instead of removing and moving packets</p></li>
+<li><dl>
+<dt><strong>Receive Method 2</strong></dt><dd><ul class="simple">
+<li><p>call <code class="docutils literal notranslate"><span class="pre">recv()</span></code> with maximum number of bytes in a packet, might get some of the next</p></li>
 </ul>
+<p>packet
+- use a buffer big enough for two packets, and reconstruct the packets
+- in every <code class="docutils literal notranslate"><span class="pre">recv()</span></code>, append the data into the buffer, and check if the packet is
+complete by comparing bytes in the buffer with the length specified in the header
+- remove the packet after processing, and move the second packet, maybe partial of it,
+to the front of the buffer
+- can use a circular buffer instead of removing and moving packets</p>
 </dd>
 </dl>
 </li>

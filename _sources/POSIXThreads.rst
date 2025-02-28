@@ -36,7 +36,7 @@ Threads
     * **Cons**
         - can be less efficient by using synchronisation too much
         - threads writing to the same memory locations may spend more time synchronising the
-          memory on processors with read/write ordering
+        memory on processors with read/write ordering
         - adding threads to remove a bottleneck can give rise to another
         - performance decrease when using too many compute-bound threads
         - a bug might not occur if one thread runs slower than another due to debugger trap
@@ -61,21 +61,21 @@ Concurrency
     system
     * **Execution Context**
         - state of concurrent entity, must be able to create and delete it, and maintain state
-          independently
+        independently
         - must be able to save the state of one context and dispatch to another at various
-          times
+        times
         - must be able to continue a context from the last execution, with same register
-          contents
+        contents
     * **Scheduling**
         - determine which context should be executed, switches between contexts when necessary
         - may allow each thread to run until block, round-robin, class scheduler or other
-          scheduling policies
+        scheduling policies
     * **Synchronisation**
         - threads cooperating to accomplish a task
         - a way to coordinate shared resources usage of concurrent execution contexts
         - common forms are mutexes, condition variables, semaphores, events, UNIX pipes,
-          sockets, POSIX message queues, or other communication protocols between asynchronous
-          processes
+        sockets, POSIX message queues, or other communication protocols between asynchronous
+        processes
         - any form of communication protocol contains some form of synchronisation
 
 Parallelism
@@ -91,11 +91,11 @@ Parallelism
     * **Scaling**
         - overhead of creating the extra threads and performing synchronisation
         - e.g. dual core may be 1.95 times faster than single core, quad core 3.8 times faster
-          than triple core
+        than triple core
         - scaling falls off as the number of processors increases, due to more chance of lock
-          and memory collisions
+        and memory collisions
         - Amdahl's law: $Speedup = \frac{1}{(1 - p) + \frac{p}{n}}$,
-          (p = $\frac{Parallelizable Code}{Total Execution Time}$, n = number of processors)
+        (p = $\frac{Parallelizable Code}{Total Execution Time}$, n = number of processors)
         - Amdahl's law shows parallelism is limited by the amount of serialisation needed
         - with more synchronisation, parallelism has less benefit
         - better scaling with independent activities than highly dependent ones
@@ -116,9 +116,9 @@ Thread Safety
         - multiple invocations can safely be run concurrently
         - granularity: amount of data that a mutex protects
         - inefficient way is to give a function its own mutex and lock it right away to make
-          it thread-safe
+        it thread-safe
         - multi-threaded programs usually add a mutex as member variable to data structures,
-          to associate the lock with its data
+        to associate the lock with its data
 
         .. code-block:: c
 
@@ -139,7 +139,7 @@ Thread Safety
         - often necessary to change the function interface to make it reentrant
         - should avoid relying on static data and any form of thread synchronisation
         - save state in a context structure controlled by the caller, which is responsible for
-          synchronisation of the data
+        synchronisation of the data
 
 Asynchrony
 ----------
@@ -168,7 +168,7 @@ Thread Evaporation
         - can do anything like other threads, e.g. get thread ID with ``pthread_self()``
         - if ID is accessible, another thread can wait or detach the initial thread
         - when ``main()`` returns, the process terminates without allowing other threads to
-          complete
+        complete
     * Evaporation: threads state released when the process exits
     * detaching a running thread only informs the system to reclaim resources when it
     terminates
@@ -214,7 +214,7 @@ States
     * **Blocked** <a id="blocked"></a>
         - not able to run as it is waiting, e.g. condition variable, mutex, I/O to complete,
         - can also be blocked when it calls ``sigwait`` for a signal that is not currently
-          pending, or system operations such as page fault
+        pending, or system operations such as page fault
         - becomes ready again when it is unblocked
     * **Terminated**
         - terminated by calling ``pthread_exit()`` and return, or cancelled and handle cleanup

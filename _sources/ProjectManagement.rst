@@ -31,14 +31,14 @@ Project
     * **Constraints**
         - some project managers focus on the triple constraint
         - Scope: work to do as part of the project, a unique product, service, or result
-          expected from customer
+        expected from customer
         - Time: timeline of the project and how long it should take to complete
         - Cost: project's budget, and resources needed
         - Quality, Risk, Resources
     * **Stakeholders**
         - people involved or affected by project activities
         - e.g. sponsor, project manager and team, support staff, customers, suppliers, and
-          opponents
+        opponents
 
 Project Management Knowledge Areas
 ----------------------------------
@@ -74,25 +74,25 @@ Team Performance Plan
     for feedback and consultation
     * **Team Charter**
         - document of purpose and structure of group or organisation, made in negotiation with
-          a team sponsor, leader and relevant members
+        a team sponsor, leader and relevant members
         - establish when a team is formed, or is in trouble to see the big picture
         - a general format includes context, mission and objectives, composition and roles,
-          support framework
+        support framework
     * performance plan contains KPIs, goals and actions required, schedule for each goal, and
     methods to monitor, evaluate and reward performance
     * define expectations, determine milestones to assist in monitoring progress, and agree on
     a set of terms
     * **KPIs**
         - collaborate with stakeholders when developing KPIs, concise KPIs are less likely to
-          be misunderstood
+        be misunderstood
         - need to be SMART: Specific, Measureable, Attainable, Realistic and Time-framed
     * provide encouragement when poor performance, and praise for exemplary behaviour
     * **Performance Deficiency**
         - do not let a performance problem become bigger or affect other areas
         - gather information, meet with relevant team member, develop and improvement plan,
-          and monitor the performance
+        and monitor the performance
         - Performance Improvement Plan contains area to improve, actions to be taken,
-          necessary support, follow-up by team leader, deadline for improvement, and assessment
-          for improvement
+        necessary support, follow-up by team leader, deadline for improvement, and assessment
+        for improvement
 
 `back to top <#project-management>`_

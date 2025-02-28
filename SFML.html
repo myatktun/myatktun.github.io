@@ -545,23 +545,23 @@ such as rendering, physics, to a separate thread
 <section id="drawing">
 <h3>Drawing<a class="headerlink" href="#drawing" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>must use [<code class="docutils literal notranslate"><span class="pre">sf::RenderWindow</span></code>](<a class="reference external" href="https://www.sfml-dev.org/documentation/2.5.1/classsf_1_1RenderWindow.php">https://www.sfml-dev.org/documentation/2.5.1/classsf_1_1RenderWindow.php</a>) class, which is derived from <code class="docutils literal notranslate"><span class="pre">sf::Window</span></code></p></li>
 <li><p>adds high-level functions to help draw easily</p></li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">clear()</span></code></dt><dd><ul>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">clear()</span></code></dt><dd><ul class="simple">
 <li><p>clears the whole window</p></li>
 <li><p>calling it before drawing anything is mandatory</p></li>
 <li><p>without clearing, contents from previous frames will be present</p></li>
-<li><p>can cover entire window with drawing and not call <code class="docutils literal notranslate"><span class="pre">clear()</span></code>, but will have
-performance impact</p></li>
+<li><p>can cover entire window with drawing and not call <code class="docutils literal notranslate"><span class="pre">clear()</span></code>, but will have</p></li>
 </ul>
+<p>performance impact</p>
 </dd>
 </dl>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">draw()</span></code>: draws any object passed to it</p></li>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">display()</span></code></dt><dd><ul>
+<dt><code class="docutils literal notranslate"><span class="pre">display()</span></code></dt><dd><ul class="simple">
 <li><p>calling it is mandatory</p></li>
 <li><p>takes what was drawn since the last call to <code class="docutils literal notranslate"><span class="pre">display()</span></code> and displays it on window</p></li>
 <li><p>objects are not drawn directly to the window, but to a hidden buffer</p></li>
@@ -636,9 +636,9 @@ performance impact</p></li>
 </li>
 <li><dl>
 <dt>SFML supports multi-threaded drawing</dt><dd><ul class="simple">
-<li><p>need to deactivate a window before using it in another thread, as OpenGL context
-cannot be active in more than one thread at the same time</p></li>
+<li><p>need to deactivate a window before using it in another thread, as OpenGL context</p></li>
 </ul>
+<p>cannot be active in more than one thread at the same time</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;SFML/Graphics.hpp&gt;</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">renderingThread</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">RenderWindow</span><span class="o">*</span><span class="w"> </span><span class="n">window</span><span class="p">)</span>
@@ -688,11 +688,11 @@ cannot be active in more than one thread at the same time</p></li>
 <li><p>make sure to check stdout as <code class="docutils literal notranslate"><span class="pre">loadFromFile()</span></code> can fail with no obvious reason</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">loadFromMemory()</span></code>: load image file from memory</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">loadFromStream()</span></code>: load image file from custom input stream</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">loadFromImage()</span></code>: load from already loaded image, which loads the texture from
-<code class="docutils literal notranslate"><span class="pre">sf::Image</span></code></p></li>
-<li><p>pixels of <code class="docutils literal notranslate"><span class="pre">sf::Image</span></code> stay in system memory and operations are as fast as possible</p></li>
-<li><p>pixels of texture in video memory are slow to retrieve but fast to draw</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loadFromImage()</span></code>: load from already loaded image, which loads the texture from</p></li>
 </ul>
+<p><code class="docutils literal notranslate"><span class="pre">sf::Image</span></code>
+- pixels of <code class="docutils literal notranslate"><span class="pre">sf::Image</span></code> stay in system memory and operations are as fast as possible
+- pixels of texture in video memory are slow to retrieve but fast to draw</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sf</span><span class="o">::</span><span class="n">Texture</span><span class="w"> </span><span class="n">texture</span><span class="p">;</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">texture</span><span class="p">.</span><span class="n">loadFromFile</span><span class="p">(</span><span class="s">&quot;image.png&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// error</span>
@@ -729,21 +729,21 @@ cannot be active in more than one thread at the same time</p></li>
 </div></blockquote>
 </li>
 <li><p>can also specify coordinates and update only a part of texture</p></li>
-<li><dl class="simple">
+<li><dl>
 <dt>texture has two properties that change how it is rendered</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">texture.setSmooth(true)</span></code>: smooth texture that makes pixel boundaries less visible,
-but blur the image a little</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">texture.setRepeated(true)</span></code>: allow texture to be repeatedly tiled within a single
-sprite, only works if sprite is configured to show a rectangle larger than the texture</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">texture.setSmooth(true)</span></code>: smooth texture that makes pixel boundaries less visible,</p></li>
 </ul>
+<p>but blur the image a little
+- <code class="docutils literal notranslate"><span class="pre">texture.setRepeated(true)</span></code>: allow texture to be repeatedly tiled within a single
+sprite, only works if sprite is configured to show a rectangle larger than the texture</p>
 </dd>
 </dl>
 </li>
 <li><dl>
 <dt>after creating texture, can create a sprite</dt><dd><ul class="simple">
-<li><p>color of sprite is modulated/multiplied with its texture, and can be used to change
-global transparency, alpha, of sprite</p></li>
+<li><p>color of sprite is modulated/multiplied with its texture, and can be used to change</p></li>
 </ul>
+<p>global transparency, alpha, of sprite</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sf</span><span class="o">::</span><span class="n">Sprite</span><span class="w"> </span><span class="n">sprite</span><span class="p">;</span>
 <span class="n">sprite</span><span class="p">.</span><span class="n">setTexture</span><span class="p">(</span><span class="n">texture</span><span class="p">);</span>
 
@@ -784,11 +784,11 @@ global transparency, alpha, of sprite</p></li>
 </li>
 <li><dl>
 <dt>if texture is destroyed or move in memory, sprite ends up with invalid texture pointer</dt><dd><ul class="simple">
-<li><p>when texture of a sprite is set, it internally stores a pointer to the texture
-instance</p></li>
-<li><p>invalid texture pointer causes to show only a white square</p></li>
-<li><p>must correctly manage the lifetime of texture to be as long as the sprite using it</p></li>
+<li><p>when texture of a sprite is set, it internally stores a pointer to the texture</p></li>
 </ul>
+<p>instance
+- invalid texture pointer causes to show only a white square
+- must correctly manage the lifetime of texture to be as long as the sprite using it</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sf</span><span class="o">::</span><span class="n">Sprite</span><span class="w"> </span><span class="nf">loadSprite</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">filename</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">sf</span><span class="o">::</span><span class="n">Texture</span><span class="w"> </span><span class="n">texture</span><span class="p">;</span>
@@ -866,25 +866,25 @@ instance</p></li>
 </div></blockquote>
 </li>
 <li><p>text can be transformed, as they have position, orientation and scale</p></li>
-<li><dl class="simple">
+<li><dl>
 <dt><strong>Wide Strings</strong></dt><dd><ul class="simple">
 <li><p>handling non-ASCII characters is tricky, as it require understanding of encodings</p></li>
 <li><p>use wide literal strings to avoid bothering with encodings</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">text.setString(L&quot;יטאח&quot;)</span></code>, the prefix <code class="docutils literal notranslate"><span class="pre">L</span></code> tells the compiler to produce wide string</p></li>
-<li><p>on most platforms, wide strings produce Unicode strings, which SFML can handle
-correctly</p></li>
+<li><p>on most platforms, wide strings produce Unicode strings, which SFML can handle</p></li>
 </ul>
+<p>correctly</p>
 </dd>
 </dl>
 </li>
 <li><dl>
 <dt><strong>Custom Text Class</strong></dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">sf::Font</span></code> provides feature to retrieve texture that contains pre-rendered glyphs of
-certain size</p></li>
-<li><p>glyphs are added to the texture when they are requested</p></li>
-<li><p>characters that can be generated when font is loaded are rendered on the fly when
-<code class="docutils literal notranslate"><span class="pre">getGlyph()</span></code> is called</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sf::Font</span></code> provides feature to retrieve texture that contains pre-rendered glyphs of</p></li>
 </ul>
+<p>certain size
+- glyphs are added to the texture when they are requested
+- characters that can be generated when font is loaded are rendered on the fly when
+<code class="docutils literal notranslate"><span class="pre">getGlyph()</span></code> is called</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">Texture</span><span class="o">&amp;</span><span class="w"> </span><span class="n">texture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">font</span><span class="p">.</span><span class="n">getTexture</span><span class="p">(</span><span class="n">characterSize</span><span class="p">);</span>
 
 <span class="c1">// to do something with font texture, need to get texture coordinates of glyphs</span>
@@ -895,14 +895,14 @@ certain size</p></li>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
+<li><dl>
 <dt><code class="docutils literal notranslate"><span class="pre">sf::Glyph</span></code> members</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">textureRect</span></code>: contains texture coordinates of glyph within texture</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">bounds</span></code>: contains bounding rectangle of glyph, which helps position it relative to
-baseline of text</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">advance</span></code>: horizontal offset to apply to get starting position of the next glyph in
-the text</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bounds</span></code>: contains bounding rectangle of glyph, which helps position it relative to</p></li>
 </ul>
+<p>baseline of text
+- <code class="docutils literal notranslate"><span class="pre">advance</span></code>: horizontal offset to apply to get starting position of the next glyph in
+the text</p>
 </dd>
 </dl>
 </li>
@@ -927,10 +927,10 @@ the text</p></li>
 </li>
 <li><dl>
 <dt>shapes can have outline</dt><dd><ul class="simple">
-<li><p>outline is extruded outwards by default, e.g. circle radius 10 and outline thickness
-5 will make total circle radius of 15</p></li>
-<li><p>set negative thickness to extrude towards the center of the shape</p></li>
+<li><p>outline is extruded outwards by default, e.g. circle radius 10 and outline thickness</p></li>
 </ul>
+<p>5 will make total circle radius of 15
+- set negative thickness to extrude towards the center of the shape</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sf</span><span class="o">::</span><span class="n">CircleShape</span><span class="w"> </span><span class="nf">shape</span><span class="p">(</span><span class="mf">50.f</span><span class="p">);</span>
 <span class="n">shape</span><span class="p">.</span><span class="n">setFillColor</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Color</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">250</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">));</span>
 <span class="n">shape</span><span class="p">.</span><span class="n">setOutlineThickness</span><span class="p">(</span><span class="mf">10.f</span><span class="p">);</span><span class="w"> </span><span class="c1">// outline extrude outwards</span>
@@ -951,14 +951,14 @@ the text</p></li>
 </li>
 <li><dl>
 <dt>shapes can also be textured like sprites</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">setTextureRect()</span></code>: map the texture rectangle to the bounding rectangle of shape,
-not maximum flexibility, but easier than individually setting texture coordinates of
-each point of the shape</p></li>
-<li><p>outline is not textured</p></li>
-<li><p>texture is modulated/multiplied with shape’s fill color</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sf::Color::White</span></code> will cause texture appear unmodified</p></li>
-<li><p>use <code class="docutils literal notranslate"><span class="pre">setTexture(NULL)</span></code> to disable texturing</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setTextureRect()</span></code>: map the texture rectangle to the bounding rectangle of shape,</p></li>
 </ul>
+<p>not maximum flexibility, but easier than individually setting texture coordinates of
+each point of the shape
+- outline is not textured
+- texture is modulated/multiplied with shape’s fill color
+- <code class="docutils literal notranslate"><span class="pre">sf::Color::White</span></code> will cause texture appear unmodified
+- use <code class="docutils literal notranslate"><span class="pre">setTexture(NULL)</span></code> to disable texturing</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// map 100x100 textured rectangle to shape</span>
 <span class="n">shape</span><span class="p">.</span><span class="n">setTexture</span><span class="p">(</span><span class="o">&amp;</span><span class="n">texture</span><span class="p">);</span><span class="w"> </span><span class="c1">// must be of &#39;sf::Texture&#39;</span>
 <span class="n">shape</span><span class="p">.</span><span class="n">setTextureRect</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">IntRect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">));</span>
@@ -981,9 +981,9 @@ each point of the shape</p></li>
 <li><dl>
 <dt><strong>Circle</strong></dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">sf::CircleShape</span></code>, has radius and number of sides attributes</p></li>
-<li><p>number of sides: optional, to adjust quality of the circle as circles have to be
-approximated by polygons with many sides</p></li>
+<li><p>number of sides: optional, to adjust quality of the circle as circles have to be</p></li>
 </ul>
+<p>approximated by polygons with many sides</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">circle</span><span class="p">.</span><span class="n">setRadius</span><span class="p">(</span><span class="mf">50.f</span><span class="p">);</span><span class="w"> </span><span class="c1">// change radius</span>
 <span class="n">circle</span><span class="p">.</span><span class="n">setPointCount</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span><span class="w"> </span><span class="c1">// change number of sides</span>
 </pre></div>
@@ -994,9 +994,9 @@ approximated by polygons with many sides</p></li>
 <li><dl>
 <dt><strong>Regular Ploygons</strong></dt><dd><ul class="simple">
 <li><p>no dedicated class</p></li>
-<li><p>use <code class="docutils literal notranslate"><span class="pre">sf::CircleShape</span></code> with specific number of sides, as circles are approximated by
-polygons with many sides</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">sf::CircleShape</span></code> with specific number of sides, as circles are approximated by</p></li>
 </ul>
+<p>polygons with many sides</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sf</span><span class="o">::</span><span class="n">CircleShape</span><span class="w"> </span><span class="nf">triangle</span><span class="p">(</span><span class="mf">50.f</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 <span class="n">sf</span><span class="o">::</span><span class="n">CircleShape</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="mf">50.f</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
 <span class="n">sf</span><span class="o">::</span><span class="n">CircleShape</span><span class="w"> </span><span class="nf">octagon</span><span class="p">(</span><span class="mf">50.f</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
@@ -1045,9 +1045,9 @@ polygons with many sides</p></li>
 <li><dl>
 <dt><strong>Custom Shapes</strong></dt><dd><ul class="simple">
 <li><p>extend <code class="docutils literal notranslate"><span class="pre">sf::Shape</span></code> and override <code class="docutils literal notranslate"><span class="pre">getPointCount()</span></code> and <code class="docutils literal notranslate"><span class="pre">getPoint()</span></code></p></li>
-<li><p>call protected <code class="docutils literal notranslate"><span class="pre">update()</span></code> whenever any point in the shape changes, so that the base
-class is informed and can update its internal geometry</p></li>
+<li><p>call protected <code class="docutils literal notranslate"><span class="pre">update()</span></code> whenever any point in the shape changes, so that the base</p></li>
 </ul>
+<p>class is informed and can update its internal geometry</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">EllipseShape</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">Shape</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
 <span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">EllipseShape</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="o">&amp;</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="p">(</span><span class="mf">0.f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.f</span><span class="p">))</span>
@@ -1090,10 +1090,10 @@ class is informed and can update its internal geometry</p></li>
 <li><dl>
 <dt><strong>Antialiasing</strong></dt><dd><ul class="simple">
 <li><p>cannot anti-alias, smooth edges, single shape</p></li>
-<li><p>need to enable anti-aliasing globally when creating the window, with
-<code class="docutils literal notranslate"><span class="pre">sf::ContextSettings</span></code></p></li>
-<li><p>anti-aliasing availability depends on GPU, or might be disabled in GPU settings</p></li>
+<li><p>need to enable anti-aliasing globally when creating the window, with</p></li>
 </ul>
+<p><code class="docutils literal notranslate"><span class="pre">sf::ContextSettings</span></code>
+- anti-aliasing availability depends on GPU, or might be disabled in GPU settings</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sf</span><span class="o">::</span><span class="n">ContextSettings</span><span class="w"> </span><span class="n">settings</span><span class="p">;</span>
 <span class="n">settings</span><span class="p">.</span><span class="n">antialiasingLevel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
 <span class="n">sf</span><span class="o">::</span><span class="n">RenderWindow</span><span class="w"> </span><span class="n">window</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">VideoMode</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span><span class="w"> </span><span class="mi">600</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;My Window&quot;</span><span class="p">,</span>
@@ -1114,9 +1114,9 @@ class is informed and can update its internal geometry</p></li>
 <li><p>the class defines position, rotation, scale and origin</p></li>
 <li><dl>
 <dt><strong>Position</strong></dt><dd><ul class="simple">
-<li><p>entities are positioned relative to their top-left corner by default, but can change
-by setting origin</p></li>
+<li><p>entities are positioned relative to their top-left corner by default, but can change</p></li>
 </ul>
+<p>by setting origin</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">entity</span><span class="p">.</span><span class="n">setPosition</span><span class="p">(</span><span class="mf">10.f</span><span class="p">,</span><span class="w"> </span><span class="mf">5.f</span><span class="p">);</span><span class="w"> </span><span class="c1">// set absolute position</span>
 <span class="n">entity</span><span class="p">.</span><span class="n">move</span><span class="p">(</span><span class="mf">5.f</span><span class="p">,</span><span class="w"> </span><span class="mf">5.f</span><span class="p">);</span><span class="w"> </span><span class="c1">// move relative to current position</span>
 <span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="w"> </span><span class="n">position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entity</span><span class="p">.</span><span class="n">getPosition</span><span class="p">();</span><span class="w"> </span><span class="c1">// get absolute position</span>
@@ -1130,9 +1130,9 @@ by setting origin</p></li>
 <li><p>orientation defined in degrees</p></li>
 <li><p>in clockwise order, as Y axis is pointing down</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">getRotation()</span></code> returns angle in range [0, 360)</p></li>
-<li><p>rotation is performed around the top-left corner by default, but can change by
-setting origin</p></li>
+<li><p>rotation is performed around the top-left corner by default, but can change by</p></li>
 </ul>
+<p>setting origin</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">entity</span><span class="p">.</span><span class="n">setRotation</span><span class="p">(</span><span class="mf">5.f</span><span class="p">);</span><span class="w"> </span><span class="c1">// set absolute rotation</span>
 <span class="n">entity</span><span class="p">.</span><span class="n">rotate</span><span class="p">(</span><span class="mf">5.f</span><span class="p">);</span><span class="w"> </span><span class="c1">// rotate relative to current orientation</span>
 <span class="kt">float</span><span class="w"> </span><span class="n">rotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entity</span><span class="p">.</span><span class="n">getRotation</span><span class="p">();</span><span class="w"> </span><span class="c1">// get absolute rotation</span>
@@ -1157,13 +1157,13 @@ setting origin</p></li>
 <li><dl>
 <dt><strong>Origin</strong></dt><dd><ul class="simple">
 <li><p>center point of three other transformations</p></li>
-<li><p>entity’s position is the position of its origin, rotation is performed around the
-origin, scale is applied relative to the origin</p></li>
-<li><p>origin is top-left corner by default, can set it to center or any other corner</p></li>
-<li><p>only single origin for all three transformations, cannot position relative to
-top-left corner and rotate around the center</p></li>
-<li><p>changing the origin also changes where the entity is drawn on screen</p></li>
+<li><p>entity’s position is the position of its origin, rotation is performed around the</p></li>
 </ul>
+<p>origin, scale is applied relative to the origin
+- origin is top-left corner by default, can set it to center or any other corner
+- only single origin for all three transformations, cannot position relative to
+top-left corner and rotate around the center
+- changing the origin also changes where the entity is drawn on screen</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">entity</span><span class="p">.</span><span class="n">setOrigin</span><span class="p">(</span><span class="mf">10.f</span><span class="p">,</span><span class="w"> </span><span class="mf">20.f</span><span class="p">);</span>
 <span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entity</span><span class="p">.</span><span class="n">getOrigin</span><span class="p">();</span>
 </pre></div>

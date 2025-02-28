@@ -12,14 +12,14 @@ They are immutable.
 * blob (binary large object)
 * tree
 * commit
-  In staging area (when git add), git takes contents of the file and puts it as a copy into a
-  file as blob in the objects directory. Blobs don't have names, they are just raw data.
-  The raw data is edited to have more info and ran through SHA, which always outputs 40 chars.
-    The file name of the file is not stored in blob object but in the tree. With this system,
-  multiple files with the same content are allowed to be stored. When the file name is changed,
-  git only needs to create new tree object with the new file name.The blob (raw data) doesn't
-  need to be changed.Files can be easily renamed without high cost.
-    Git uses compression algorithm to reduce total size of objects.
+In staging area (when git add), git takes contents of the file and puts it as a copy into a
+file as blob in the objects directory. Blobs don't have names, they are just raw data.
+The raw data is edited to have more info and ran through SHA, which always outputs 40 chars.
+The file name of the file is not stored in blob object but in the tree. With this system,
+multiple files with the same content are allowed to be stored. When the file name is changed,
+git only needs to create new tree object with the new file name.The blob (raw data) doesn't
+need to be changed.Files can be easily renamed without high cost.
+Git uses compression algorithm to reduce total size of objects.
 
 Branches
 ========

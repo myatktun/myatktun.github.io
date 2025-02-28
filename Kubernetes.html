@@ -559,7 +559,7 @@
 <li><p><a class="reference internal" href="#observability">Observability</a></p></li>
 <li><p><a class="reference internal" href="#cluster-maintenance">Cluster Maintenance</a></p></li>
 <li><p><a class="reference internal" href="#microservices-architecture">Microservices Architecture</a></p></li>
-<li><p><a href="#id27"><span class="problematic" id="id28">`Designing a Cluster`_</span></a></p></li>
+<li><p><a href="#id29"><span class="problematic" id="id30">`Designing a Cluster`_</span></a></p></li>
 <li><p><a class="reference internal" href="#system-hardening">System Hardening</a></p></li>
 <li><p><a class="reference internal" href="#tools">Tools</a></p></li>
 <li><p><a class="reference internal" href="#exam-guide">Exam Guide</a></p></li>
@@ -644,7 +644,7 @@ architectures easier</p>
 <h2>Basics<a class="headerlink" href="#basics" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#velocity">Velocity</a>, <a class="reference internal" href="#project-maturity">Project Maturity</a>, <a class="reference internal" href="#yaml">YAML</a>, <a class="reference internal" href="#tls-basics">TLS Basics</a>, <a class="reference internal" href="#switching-routing">Switching &amp; Routing</a>, <a class="reference internal" href="#dns">DNS</a>, <a class="reference internal" href="#network-namespace">Network Namespace</a></p></li>
-<li><p><a href="#id29"><span class="problematic" id="id30">`Container Network Configuration`_</span></a>, <a href="#id31"><span class="problematic" id="id32">`CRI`_</span></a>, <a href="#id33"><span class="problematic" id="id34">`CSI`_</span></a>, <a href="#id35"><span class="problematic" id="id36">`CNI`_</span></a>, <a class="reference internal" href="#container-sandboxing">Container Sandboxing</a></p></li>
+<li><p><a href="#id31"><span class="problematic" id="id32">`Container Network Configuration`_</span></a>, <a href="#id33"><span class="problematic" id="id34">`CRI`_</span></a>, <a href="#id35"><span class="problematic" id="id36">`CSI`_</span></a>, <a href="#id37"><span class="problematic" id="id38">`CNI`_</span></a>, <a class="reference internal" href="#container-sandboxing">Container Sandboxing</a></p></li>
 <li><p><a class="reference internal" href="#system-calls">System Calls</a>, <a class="reference internal" href="#apparmor">AppArmor</a></p></li>
 </ul>
 <section id="velocity">
@@ -738,18 +738,38 @@ architectures easier</p>
 </li>
 <li><dl class="simple">
 <dt>K8s YAML contains four top definition fields</dt><dd><ul class="simple">
-<li><p><strong>apiVersion</strong>
-+ K8s api used to create objects</p></li>
-<li><p><strong>kind</strong>
-+ type of object to create
-+ e.g Pod (v1), ReplicaSet (apps/v1), Service (v1), Deployment (apps/v1)</p></li>
-<li><p><strong>metadata</strong>
-+ data about object such as name, labels
-+ every data is in the form of dictionary
-+ indent doesn’t matter as long as they are same
-+ labels can have any key/value pairs and make pods easier to group</p></li>
-<li><p><strong>spec</strong>
-+ remaining details such as containers, which contains arrays</p></li>
+<li><dl class="simple">
+<dt><strong>apiVersion</strong></dt><dd><ul>
+<li><p>K8s api used to create objects</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>kind</strong></dt><dd><ul>
+<li><p>type of object to create</p></li>
+<li><p>e.g Pod (v1), ReplicaSet (apps/v1), Service (v1), Deployment (apps/v1)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>metadata</strong></dt><dd><ul>
+<li><p>data about object such as name, labels</p></li>
+<li><p>every data is in the form of dictionary</p></li>
+<li><p>indent doesn’t matter as long as they are same</p></li>
+<li><p>labels can have any key/value pairs and make pods easier to group</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>spec</strong></dt><dd><ul>
+<li><p>remaining details such as containers, which contains arrays</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </dd>
 </dl>
@@ -760,48 +780,48 @@ architectures easier</p>
 <section id="tls-basics">
 <h3>TLS Basics<a class="headerlink" href="#tls-basics" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>used to guarantee trust during transactions</p></li>
-<li><dl class="simple">
-<dt>symmetric encryption</dt><dd><ul>
-<li><p>using same key to encrypt and decrypt, key has to be exchanged between receiver and
-sender</p></li>
-<li><p>data is encrypted using a key</p></li>
-<li><p>a copy of the key must also be on server</p></li>
-<li><p>e.g data transaction between user and web server</p></li>
+<li><dl>
+<dt>symmetric encryption</dt><dd><ul class="simple">
+<li><p>using same key to encrypt and decrypt, key has to be exchanged between receiver and</p></li>
 </ul>
+<p>sender
+- data is encrypted using a key
+- a copy of the key must also be on server
+- e.g data transaction between user and web server</p>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt>asymmetric encryption</dt><dd><ul>
+<li><dl>
+<dt>asymmetric encryption</dt><dd><ul class="simple">
 <li><p>uses a pair of keys, private and public</p></li>
 <li><p>data encrypted with public key, can only be decrypted with it’s private key</p></li>
 <li><p>public key can be shared</p></li>
 <li><p>cannot encrypt and decrypt with the same key</p></li>
 <li><p>use one to decrypt and the other to decrypt</p></li>
-<li><p>if data is encrypted using private key, public key can be used to decrypt and since
-public key has been shared, deciding which key to use to decrypt is important</p></li>
-<li><p>e.g safely transfer symmetric key between user and web server</p></li>
+<li><p>if data is encrypted using private key, public key can be used to decrypt and since</p></li>
 </ul>
+<p>public key has been shared, deciding which key to use to decrypt is important
+- e.g safely transfer symmetric key between user and web server</p>
 </dd>
 </dl>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ssh-keygen</span></code> is for ssh purposes, format is different</p></li>
-<li><dl class="simple">
-<dt>use <code class="docutils literal notranslate"><span class="pre">openssl</span></code> for web servers</dt><dd><ul>
+<li><dl>
+<dt>use <code class="docutils literal notranslate"><span class="pre">openssl</span></code> for web servers</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">openssl</span> <span class="pre">genrsa</span> <span class="pre">-out</span> <span class="pre">my.key</span> <span class="pre">1024</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">openssl</span> <span class="pre">rsa</span> <span class="pre">-in</span> <span class="pre">my.key</span> <span class="pre">-pubout</span> <span class="pre">&gt;</span> <span class="pre">myPub.pem</span></code></p></li>
-<li><p>when the user first access the web server using https, he gets the public key from
-the server, hackers can get the public key</p></li>
-<li><p>the user’s browser encrypt the symmetric key using the public key provided by the
-server</p></li>
-<li><p>the user sends the encrypted key to the server, hacker also gets the copy</p></li>
-<li><p>the server decrypt the symmetric key using it’s private key, since the hacker does
-not have the private key, he cannot decrypt it</p></li>
-<li><p>the symmetric key now be used to send data between user and server, the server can
-use the same encrypted symmetric key to decrypt the data</p></li>
+<li><p>when the user first access the web server using https, he gets the public key from</p></li>
 </ul>
+<p>the server, hackers can get the public key
+- the user’s browser encrypt the symmetric key using the public key provided by the
+server
+- the user sends the encrypted key to the server, hacker also gets the copy
+- the server decrypt the symmetric key using it’s private key, since the hacker does
+not have the private key, he cannot decrypt it
+- the symmetric key now be used to send data between user and server, the server can
+use the same encrypted symmetric key to decrypt the data</p>
 </dd>
 </dl>
 </li>
@@ -809,67 +829,67 @@ use the same encrypted symmetric key to decrypt the data</p></li>
 <li><p>who signed and issued the certificate is very important</p></li>
 <li><p>everyone can look at the certificate and know if the persons signed is authorized or not</p></li>
 <li><p>all the browsers have built-in certificate validation</p></li>
-<li><dl class="simple">
-<dt>Certificate Authority (CA)</dt><dd><ul>
+<li><dl>
+<dt>Certificate Authority (CA)</dt><dd><ul class="simple">
 <li><p>well-known organizations that can sign and validate the certificate</p></li>
 <li><p>e.g Symantec, Digicert, Comodo, GlobalSign</p></li>
-<li><p>generate a CSR (Certificate Signing Request) using the key generated and the domain
-name of the website</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">openssl</span> <span class="pre">req</span> <span class="pre">-new</span> <span class="pre">-key</span> <span class="pre">my.key</span> <span class="pre">-out</span> <span class="pre">my.csr</span> <span class="pre">-subj</span> <span class="pre">&quot;/C=US/ST=CA/O=MyOrg,</span> <span class="pre">Inc./CN=mydomain.com</span></code></p></li>
-<li><p>CA verifies the details and sign the certificate and send it back</p></li>
-<li><p>now have a certificate that the browsers trust</p></li>
-<li><p>CAs make sure that the sender is the actual owner of the domain</p></li>
-<li><p>CAs use their private key to sign the certificate</p></li>
-<li><p>their public keys are built-in to the browser</p></li>
-<li><p>the browser uses the CAs public key to validate the certificate</p></li>
-<li><p>public CAs don’t help to validate sites hosted privately</p></li>
-<li><p>can host private CAs within organization and use the keys</p></li>
+<li><p>generate a CSR (Certificate Signing Request) using the key generated and the domain</p></li>
 </ul>
+<p>name of the website
+- <code class="docutils literal notranslate"><span class="pre">openssl</span> <span class="pre">req</span> <span class="pre">-new</span> <span class="pre">-key</span> <span class="pre">my.key</span> <span class="pre">-out</span> <span class="pre">my.csr</span> <span class="pre">-subj</span> <span class="pre">&quot;/C=US/ST=CA/O=MyOrg,</span> <span class="pre">Inc./CN=mydomain.com</span></code>
+- CA verifies the details and sign the certificate and send it back
+- now have a certificate that the browsers trust
+- CAs make sure that the sender is the actual owner of the domain
+- CAs use their private key to sign the certificate
+- their public keys are built-in to the browser
+- the browser uses the CAs public key to validate the certificate
+- public CAs don’t help to validate sites hosted privately
+- can host private CAs within organization and use the keys</p>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt>client certificates</dt><dd><ul>
+<li><dl>
+<dt>client certificates</dt><dd><ul class="simple">
 <li><p>the server does not know if the client can be trusted or not</p></li>
-<li><p>in initial trust building exercise, the server can request a certificate from the
-client</p></li>
-<li><p>the client generates a pair of keys and a signed certificate from a CA and send it
-to the server</p></li>
-<li><p>TLS client certificates are not generally implemented on web servers</p></li>
+<li><p>in initial trust building exercise, the server can request a certificate from the</p></li>
 </ul>
+<p>client
+- the client generates a pair of keys and a signed certificate from a CA and send it
+to the server
+- TLS client certificates are not generally implemented on web servers</p>
 </dd>
 </dl>
 </li>
 <li><p>certificates with public key are usually named <code class="docutils literal notranslate"><span class="pre">*.crt</span></code> or <code class="docutils literal notranslate"><span class="pre">*.pem</span></code></p></li>
 <li><p>private keys are usually named <code class="docutils literal notranslate"><span class="pre">*.key</span></code> or <code class="docutils literal notranslate"><span class="pre">*-key.pem</span></code></p></li>
-<li><dl class="simple">
-<dt>PKI (Public Key Infrastructure)</dt><dd><ul>
-<li><p>CAs, servers, clients and the process of generating, distributing and maintaining
-digital certificates</p></li>
+<li><dl>
+<dt>PKI (Public Key Infrastructure)</dt><dd><ul class="simple">
+<li><p>CAs, servers, clients and the process of generating, distributing and maintaining</p></li>
 </ul>
+<p>digital certificates</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Oneway SSL</strong></dt><dd><ul>
+<dt><strong>Oneway SSL</strong></dt><dd><ul class="simple">
 <li><p>client verifies server’s certificate, the server does not verify client’s certificate</p></li>
 <li><p>the server only verifies the user based on the data sent, such as username, password</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>Mutual SSL</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>Mutual SSL</strong></dt><dd><ul class="simple">
 <li><p>both client and server verify authenticity of each other</p></li>
 <li><p>client first request server’s public certificate</p></li>
-<li><p>the server replies with it’s public certificate and requests for the client’s public
-certificate</p></li>
-<li><p>the client checks the server’s certificate with the CA</p></li>
-<li><p>the client then sends its public certificate and a symmetric key encrypted with the
-public key of the server</p></li>
-<li><p>the server verifies the client’s certificate with the CA</p></li>
-<li><p>all communication can now be encrypted with symmetric keys</p></li>
+<li><p>the server replies with it’s public certificate and requests for the client’s public</p></li>
 </ul>
+<p>certificate
+- the client checks the server’s certificate with the CA
+- the client then sends its public certificate and a symmetric key encrypted with the
+public key of the server
+- the server verifies the client’s certificate with the CA
+- all communication can now be encrypted with symmetric keys</p>
 </dd>
 </dl>
 </li>
@@ -922,10 +942,10 @@ ip<span class="w"> </span>route<span class="w"> </span>add<span class="w"> </spa
 <section id="dns">
 <h3>DNS<a class="headerlink" href="#dns" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>allow systems to communicate using names instead of IP addresses</p></li>
 <li><dl class="simple">
-<dt><strong>Name Resolution</strong></dt><dd><ul>
+<dt><strong>Name Resolution</strong></dt><dd><ul class="simple">
 <li><p>translating IP addresses to names</p></li>
 <li><p>edit <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> with IP address and name</p></li>
 <li><p>hostname on other system doesn’t matter, the system uses what’s defined in <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code></p></li>
@@ -933,25 +953,25 @@ ip<span class="w"> </span>route<span class="w"> </span>add<span class="w"> </spa
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>DNS server</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>DNS server</strong></dt><dd><ul class="simple">
 <li><p>as the environment grows, entries in <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> will also increase</p></li>
-<li><p>instead of managing entries on each system, let a single server, DNS server, manage
-all entries</p></li>
-<li><p>point all systems to look up on the DNS server if they need to resolve a name to IP
-address</p></li>
-<li><p>every system has DNS resolution configuration file at <code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code></p></li>
-<li><p>only need to update on the DNS server if IPs change</p></li>
-<li><p>if there is same entry on local and DNS server, the system will first look in local
-file and use it</p></li>
-<li><p>order that defines which file to look first is defined in <code class="docutils literal notranslate"><span class="pre">/etc/nsswitch.conf</span></code></p></li>
-<li><p>can configure the DNS server to forward all unknown names to the public nameserver</p></li>
+<li><p>instead of managing entries on each system, let a single server, DNS server, manage</p></li>
 </ul>
+<p>all entries
+- point all systems to look up on the DNS server if they need to resolve a name to IP
+address
+- every system has DNS resolution configuration file at <code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code>
+- only need to update on the DNS server if IPs change
+- if there is same entry on local and DNS server, the system will first look in local
+file and use it
+- order that defines which file to look first is defined in <code class="docutils literal notranslate"><span class="pre">/etc/nsswitch.conf</span></code>
+- can configure the DNS server to forward all unknown names to the public nameserver</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Domain Names</strong></dt><dd><ul>
+<dt><strong>Domain Names</strong></dt><dd><ul class="simple">
 <li><p>root: .</p></li>
 <li><p>top-level domains: .com, .net, .edu, .org, .io</p></li>
 <li><p>domain name: google</p></li>
@@ -962,7 +982,7 @@ file and use it</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Record Types</strong></dt><dd><ul>
+<dt><strong>Record Types</strong></dt><dd><ul class="simple">
 <li><p>A: storing IPs</p></li>
 <li><p>AAAA: storing IPv6</p></li>
 <li><p>CNAME: mapping one name to another name</p></li>
@@ -972,7 +992,7 @@ file and use it</p></li>
 </li>
 <li><p>can use tools such as ping, nslookup, dig</p></li>
 <li><dl class="simple">
-<dt><strong>CoreDNS</strong></dt><dd><ul>
+<dt><strong>CoreDNS</strong></dt><dd><ul class="simple">
 <li><p>DNS server solution, listens on port 53 by default</p></li>
 <li><p>put entries in <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code>, configure CoreDNS to use the file</p></li>
 <li><p>CoreDNS loads configurations from a file named Corefile</p></li>
@@ -1063,12 +1083,12 @@ ip<span class="w"> </span>-n<span class="w"> </span>namespace2<span class="w"> <
 <dt>gateway</dt><dd><ul class="simple">
 <li><p>the host now have two IPs, one on bridge and other on external</p></li>
 <li><p>gateway should be the one the namespace can reach, the bridge (192.168.15.5)</p></li>
-<li><p>the host must have net functionality for the outside network to know that the
-packets are coming from the host instead of the namespace, which is unknown it</p></li>
-<li><p>since the namespace can reach any network the host can, it can be setup so that
-the namespace talk to the host to reach any external network</p></li>
-<li><p>can use port forwarding for external network to reach the namespace</p></li>
+<li><p>the host must have net functionality for the outside network to know that the</p></li>
 </ul>
+<p>packets are coming from the host instead of the namespace, which is unknown it
+- since the namespace can reach any network the host can, it can be setup so that
+the namespace talk to the host to reach any external network
+- can use port forwarding for external network to reach the namespace</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># use host as gateway to reach 192.168.1.0</span>
 ip<span class="w"> </span>netns<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>namespace1<span class="w"> </span>ip<span class="w"> </span>route<span class="w"> </span>add<span class="w"> </span><span class="m">192</span>.168.1.0/24<span class="w"> </span>via<span class="w"> </span><span class="m">192</span>.168.15.5
 
@@ -1089,31 +1109,31 @@ iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </
 <section id="container-network-configurations">
 <h3>Container Network Configurations<a class="headerlink" href="#container-network-configurations" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><dl class="simple">
-<dt><strong>none</strong></dt><dd><ul>
+<dt><strong>none</strong></dt><dd><ul class="simple">
 <li><p>container is not part of any network</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>host</strong></dt><dd><ul>
-<li><p>container is attached to host network, no network isolation between host and
-container</p></li>
+<li><dl>
+<dt><strong>host</strong></dt><dd><ul class="simple">
+<li><p>container is attached to host network, no network isolation between host and</p></li>
 </ul>
+<p>container</p>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>bridge</strong></dt><dd><ul>
-<li><p>internal private network is created, which the host and containers attach to and
-containers get their own internal private IPs</p></li>
-<li><p>docker calls the default bridge as ‘bridge’, but the host sees it as ‘docker0’</p></li>
-<li><p>docker creates a network namespace for a container by default and attach it to the
-bridge, naming interfaces as odd/even pairs</p></li>
-<li><p>docker provides port mapping for external networks to reach the container</p></li>
+<li><dl>
+<dt><strong>bridge</strong></dt><dd><ul class="simple">
+<li><p>internal private network is created, which the host and containers attach to and</p></li>
 </ul>
+<p>containers get their own internal private IPs
+- docker calls the default bridge as ‘bridge’, but the host sees it as ‘docker0’
+- docker creates a network namespace for a container by default and attach it to the
+bridge, naming interfaces as odd/even pairs
+- docker provides port mapping for external networks to reach the container</p>
 </dd>
 </dl>
 </li>
@@ -1186,22 +1206,22 @@ bridge, naming interfaces as odd/even pairs</p></li>
 <section id="container-sandboxing">
 <h3>Container Sandboxing<a class="headerlink" href="#container-sandboxing" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>using Seccomp, AppArmor</p></li>
 <li><dl class="simple">
-<dt>allowlist</dt><dd><ul>
+<dt>allowlist</dt><dd><ul class="simple">
 <li><p>blocks everything by default</p></li>
 <li><p>useful when every syscalls of the application is known</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt>denylist</dt><dd><ul>
+<li><dl>
+<dt>denylist</dt><dd><ul class="simple">
 <li><p>allows everything by default</p></li>
-<li><p>useful when want to make rules not much restricted or want to apply the rules to
-different applications</p></li>
+<li><p>useful when want to make rules not much restricted or want to apply the rules to</p></li>
 </ul>
+<p>different applications</p>
 </dd>
 </dl>
 </li>
@@ -1227,26 +1247,26 @@ different applications</p></li>
 </ul>
 </div></blockquote>
 <ul>
-<li><dl class="simple">
+<li><dl>
 <dt><strong>Aquasec tracee</strong></dt><dd><ul class="simple">
-<li><p>make use of eBPF, which can run programs directly in kernel space without
-interfering with kernel code or loading modules</p></li>
-<li><p>need bind mounts when using as container, <code class="docutils literal notranslate"><span class="pre">/tmp/tracee</span></code>, <code class="docutils literal notranslate"><span class="pre">/lib/modules</span></code>, <code class="docutils literal notranslate"><span class="pre">/usr/src</span></code></p></li>
-<li><p>container also needs to privileged</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">trace</span> <span class="pre">comm=ls</span></code>, <code class="docutils literal notranslate"><span class="pre">trace</span> <span class="pre">pid=new</span></code>, <code class="docutils literal notranslate"><span class="pre">trace</span> <span class="pre">container=new</span></code></p></li>
+<li><p>make use of eBPF, which can run programs directly in kernel space without</p></li>
 </ul>
+<p>interfering with kernel code or loading modules
+- need bind mounts when using as container, <code class="docutils literal notranslate"><span class="pre">/tmp/tracee</span></code>, <code class="docutils literal notranslate"><span class="pre">/lib/modules</span></code>, <code class="docutils literal notranslate"><span class="pre">/usr/src</span></code>
+- container also needs to privileged
+- <code class="docutils literal notranslate"><span class="pre">trace</span> <span class="pre">comm=ls</span></code>, <code class="docutils literal notranslate"><span class="pre">trace</span> <span class="pre">pid=new</span></code>, <code class="docutils literal notranslate"><span class="pre">trace</span> <span class="pre">container=new</span></code></p>
 </dd>
 </dl>
 </li>
 <li><dl>
 <dt><strong>seccomp</strong></dt><dd><ul class="simple">
-<li><p>Secure Computing, kernel level feature to sandbox processes to only use necessary
-syscalls</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">Seccomp</span> <span class="pre">/proc/pid/status</span></code>, Seccomp value 2 means it is implemented</p></li>
-<li><p>modes: 0 (disabled), 1 (strict), 2 (filtered)</p></li>
-<li><p>docker has built-in seccomp filter used by default, if the host kernel has seccomp</p></li>
+<li><p>Secure Computing, kernel level feature to sandbox processes to only use necessary</p></li>
 </ul>
-<p>enabled
+<p>syscalls
+- <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">Seccomp</span> <span class="pre">/proc/pid/status</span></code>, Seccomp value 2 means it is implemented
+- modes: 0 (disabled), 1 (strict), 2 (filtered)
+- docker has built-in seccomp filter used by default, if the host kernel has seccomp
+enabled
 - using allowlist type will need to know every syscalls made by the application
 - denylist type are easier and flexible, but susceptible to attacks
 - container with custom seccomp, <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">--security-opt</span> <span class="pre">seccomp=/root/custom.json</span></code>
@@ -1552,7 +1572,7 @@ virtualization platform such as VirtualBox, KVM, HyperV</p></li>
 <section id="kubectl">
 <h2>kubectl<a class="headerlink" href="#kubectl" title="Link to this heading">#</a></h2>
 <ul>
-<li><p><a href="#id37"><span class="problematic" id="id38">`apply`_</span></a>, <a href="#id39"><span class="problematic" id="id40">`proxy`_</span></a>, <a href="#id41"><span class="problematic" id="id42">`port-forward`_</span></a></p></li>
+<li><p><a href="#id39"><span class="problematic" id="id40">`apply`_</span></a>, <a href="#id41"><span class="problematic" id="id42">`proxy`_</span></a>, <a href="#id43"><span class="problematic" id="id44">`port-forward`_</span></a></p></li>
 <li><p>tool used to deploy and manage applications, called API objects, on the cluster</p>
 <blockquote>
 <div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>run<span class="w"> </span>--replicas<span class="o">=</span><span class="m">1000</span><span class="w"> </span>my-app
@@ -1947,7 +1967,7 @@ to create a pod that is given as input
 view details about the pods, cannot edit or delete them
 * if the pod is part of the cluster, kubelet also creates a mirror object of the pod in
 kube-apiserver
-* as static pods are not part of the control-plane, they can be used to deploy
+*  as static pods are not part of the control-plane, they can be used to deploy
 control-plane components as pods on a node</p>
 </div></blockquote>
 </section>
@@ -2211,7 +2231,7 @@ host to rewrite the destinations of packets to direct them to the endpoints</p>
 <li><p>can be used to declare a K8s service with manually assigned IP address that is outside of</p></li>
 </ul>
 <p>the cluster
-* service discovery via DNS works as expected
+*  service discovery via DNS works as expected
 * to create, remove <code class="docutils literal notranslate"><span class="pre">spec.selecotr``field</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">resource,</span> <span class="pre">while</span> <span class="pre">leaving</span> <span class="pre">the</span> <span class="pre">``metadata</span></code>
 and <cite>ports</cite> section unchanged
 * endpoints must be added manually
@@ -2234,16 +2254,14 @@ and <cite>ports</cite> section unchanged
 <section id="connect-from-external">
 <h3>Connect from External<a class="headerlink" href="#connect-from-external" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul>
+<div><ul class="simple">
 <li><p>connecting external resources to K8s services is complex</p></li>
-<li><dl>
-<dt>if cloud provider supports</dt><dd><p>1. can create an internal load balancer in the virtual private network and deliver
+<li><dl class="simple">
+<dt>if cloud provider supports</dt><dd><p>#. can create an internal load balancer in the virtual private network and deliver
 traffic from a fixed IP address into the cluster and then use DNS to make the IP
-address available to the external resources</p>
-<blockquote>
-<div><p>2. can use <code class="docutils literal notranslate"><span class="pre">NodePort</span></code> service to expose the service on the IP addresses of the nodes in</p>
-</div></blockquote>
-<p>the cluster and program a physical load balancer to serve traffic to the nodes or use
+address available to the external resources
+#. can use <code class="docutils literal notranslate"><span class="pre">NodePort</span></code> service to expose the service on the IP addresses of the nodes in
+the cluster and program a physical load balancer to serve traffic to the nodes or use
 DNS-based load balancing to spread traffic between nodes</p>
 </dd>
 </dl>
@@ -2519,19 +2537,19 @@ kubeclt<span class="w"> </span>scale<span class="w"> </span>deployments<span cla
 </li>
 <li><dl>
 <dt><strong>Rollout</strong></dt><dd><ul class="simple">
-<li><p>when new Deployment is created, a new rollout is triggered, which creates a new
-revision</p></li>
-<li><p>updating will trigger a new rollout and revision</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">OldReplicaSets</span></code> and <code class="docutils literal notranslate"><span class="pre">NewReplicaSet</span></code> fields are set to values in the middle of the
-rollout</p></li>
-<li><p>annotations can be used to record information about the update</p></li>
-<li><p>do not update <code class="docutils literal notranslate"><span class="pre">change-cause</span></code> annotation when simple scaling</p></li>
-<li><p>can undo regardless of the rollout stage</p></li>
-<li><p>recommended to edit YAML files to revert versions, rather than imperative <code class="docutils literal notranslate"><span class="pre">undo</span></code></p></li>
-<li><p>roll back uses the previous template and renumbers it as the latest revision</p></li>
-<li><p>last 10 revisions are kept by default and can set maximum history size with
-<code class="docutils literal notranslate"><span class="pre">spec.revisionHistoryLimit</span></code></p></li>
+<li><p>when new Deployment is created, a new rollout is triggered, which creates a new</p></li>
 </ul>
+<p>revision
+- updating will trigger a new rollout and revision
+- <code class="docutils literal notranslate"><span class="pre">OldReplicaSets</span></code> and <code class="docutils literal notranslate"><span class="pre">NewReplicaSet</span></code> fields are set to values in the middle of the
+rollout
+- annotations can be used to record information about the update
+- do not update <code class="docutils literal notranslate"><span class="pre">change-cause</span></code> annotation when simple scaling
+- can undo regardless of the rollout stage
+- recommended to edit YAML files to revert versions, rather than imperative <code class="docutils literal notranslate"><span class="pre">undo</span></code>
+- roll back uses the previous template and renumbers it as the latest revision
+- last 10 revisions are kept by default and can set maximum history size with
+<code class="docutils literal notranslate"><span class="pre">spec.revisionHistoryLimit</span></code></p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># record change cause</span>
 kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>deployment-definition.yml<span class="w"> </span>--record
 
@@ -2563,16 +2581,16 @@ kubectl<span class="w"> </span>rollout<span class="w"> </span>undo<span class="w
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
+<li><dl>
 <dt>health checks</dt><dd><ul class="simple">
-<li><p>set <code class="docutils literal notranslate"><span class="pre">spec.minReadySeconds</span></code> to make the Deployment wait to update next pod after
-current pod passes health check</p></li>
-<li><p>set <code class="docutils literal notranslate"><span class="pre">spec.progessDeadlineSeconds</span></code> to time out the rollout and mark it as failed when
-there’s a bug and to avoid the Deployment being stalled forever</p></li>
-<li><p>timeout is defined as the time the Deployment creates or deletes a pod, not overall
-length of a Deployment</p></li>
-<li><p>check <code class="docutils literal notranslate"><span class="pre">status.conditions</span></code> to check the Deployment state</p></li>
+<li><p>set <code class="docutils literal notranslate"><span class="pre">spec.minReadySeconds</span></code> to make the Deployment wait to update next pod after</p></li>
 </ul>
+<p>current pod passes health check
+- set <code class="docutils literal notranslate"><span class="pre">spec.progessDeadlineSeconds</span></code> to time out the rollout and mark it as failed when
+there’s a bug and to avoid the Deployment being stalled forever
+- timeout is defined as the time the Deployment creates or deletes a pod, not overall
+length of a Deployment
+- check <code class="docutils literal notranslate"><span class="pre">status.conditions</span></code> to check the Deployment state</p>
 </dd>
 </dl>
 </li>
@@ -2609,15 +2627,15 @@ length of a Deployment</p></li>
 <li><p>destroy old versions and create new versions one by one</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Deployment</span></code> create a new <code class="docutils literal notranslate"><span class="pre">replicaset</span></code> and upgrade one after another</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">rs</span></code> will show two <code class="docutils literal notranslate"><span class="pre">replicasets</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">maxUnavailable</span></code> sets the max pods that can be unavailable during update and allows
-to trade speed for availability (Recreate strategy can be considered as
-<code class="docutils literal notranslate"><span class="pre">maxUnavailable</span></code> set to 100%)</p></li>
-<li><p>can set <code class="docutils literal notranslate"><span class="pre">maxUnavailable</span></code> to 0 and use <code class="docutils literal notranslate"><span class="pre">maxSurge</span></code> to maintain 100% capacity and just
-use extra resources for rollout</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">maxSurge</span></code> controls how many extra resources can be created for a rollout (setting
-it to 100% is same a blue/green strategy)</p></li>
-<li><p>using percentage to set parameters is good approach</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maxUnavailable</span></code> sets the max pods that can be unavailable during update and allows</p></li>
 </ul>
+<p>to trade speed for availability (Recreate strategy can be considered as
+<code class="docutils literal notranslate"><span class="pre">maxUnavailable</span></code> set to 100%)
+- can set <code class="docutils literal notranslate"><span class="pre">maxUnavailable</span></code> to 0 and use <code class="docutils literal notranslate"><span class="pre">maxSurge</span></code> to maintain 100% capacity and just
+use extra resources for rollout
+- <code class="docutils literal notranslate"><span class="pre">maxSurge</span></code> controls how many extra resources can be created for a rollout (setting
+it to 100% is same a blue/green strategy)
+- using percentage to set parameters is good approach</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># deployment-definition.yml</span>
 <span class="nt">spec</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
@@ -2772,14 +2790,14 @@ kubectl<span class="w"> </span>delete<span class="w"> </span>statefulset<span cl
 <li><p>if volume is specified, all pods created by StatefulSet will try to use that volume</p></li>
 <li><dl>
 <dt><strong>volumeClaimTemplates</strong></dt><dd><ul class="simple">
-<li><p>is a PVC (Persistent Volume), ensure each pod created by StatefulSet gets a
-individual PVC (Persistent Volume Claim)</p></li>
-<li><p>defined in statefulset-definition.yml file under <code class="docutils literal notranslate"><span class="pre">spec</span></code></p></li>
-<li><p>during the creation of a pod, PVC is created and associated to a SC (Storage Class),
-the SC creates PV and binds the PVC to the PV</p></li>
-<li><p>StatefulSet do not auto delete the PVC and volume if the associated pod fails</p></li>
-<li><p>instead makes sure that the restarted pod is attached to the same PVC before</p></li>
+<li><p>is a PVC (Persistent Volume), ensure each pod created by StatefulSet gets a</p></li>
 </ul>
+<p>individual PVC (Persistent Volume Claim)
+- defined in statefulset-definition.yml file under <code class="docutils literal notranslate"><span class="pre">spec</span></code>
+- during the creation of a pod, PVC is created and associated to a SC (Storage Class),
+the SC creates PV and binds the PVC to the PV
+- StatefulSet do not auto delete the PVC and volume if the associated pod fails
+- instead makes sure that the restarted pod is attached to the same PVC before</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># statefulset-definition.yml</span>
 <span class="nt">spec</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">volumeClaimTemplates</span><span class="p">:</span>
@@ -2945,43 +2963,43 @@ kubectl<span class="w"> </span>get<span class="w"> </span>cronjobs
 <section id="storage-volumes">
 <h2>Storage &amp; Volumes<a class="headerlink" href="#storage-volumes" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#recommended-patterns">Recommended Patterns</a>, <a href="#id43"><span class="problematic" id="id44">`Persistent Volume`_</span></a>, <a href="#id45"><span class="problematic" id="id46">`Persistent Volume Claims`_</span></a>, <a class="reference internal" href="#storage-classes">Storage Classes</a></p></li>
+<li><p><a class="reference internal" href="#recommended-patterns">Recommended Patterns</a>, <a href="#id45"><span class="problematic" id="id46">`Persistent Volume`_</span></a>, <a href="#id47"><span class="problematic" id="id48">`Persistent Volume Claims`_</span></a>, <a class="reference internal" href="#storage-classes">Storage Classes</a></p></li>
 <li><p>containers and pods are transient by nature</p></li>
 <li><p>to have data persistence, volumes must be created and mounted to a pod</p></li>
 </ul>
 <section id="recommended-patterns">
 <h3>Recommended Patterns<a class="headerlink" href="#recommended-patterns" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt>Communication/Synchronization</dt><dd><ul>
-<li><p>e.g using <code class="docutils literal notranslate"><span class="pre">emptyDir</span></code> volume which only has the scope of pod’s lifespan but can be
-shared between two containers</p></li>
+<div><ul>
+<li><dl>
+<dt>Communication/Synchronization</dt><dd><ul class="simple">
+<li><p>e.g using <code class="docutils literal notranslate"><span class="pre">emptyDir</span></code> volume which only has the scope of pod’s lifespan but can be</p></li>
 </ul>
+<p>shared between two containers</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Cache</dt><dd><ul>
+<dt>Cache</dt><dd><ul class="simple">
 <li><p>cache must survive a container restart and <code class="docutils literal notranslate"><span class="pre">emptyDir</span></code> can also be used</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Persistent data</dt><dd><ul>
+<dt>Persistent data</dt><dd><ul class="simple">
 <li><p>independent of the lifespan of a pod</p></li>
 <li><p>e.g NFS, iSCSI, cloud provider storage</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt>Mounting the host filesystem</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">hostPath</span></code> volume, which can mount arbitrary locations on the worker node into the
-container</p></li>
-<li><p>not recommended unless there are specific reasons</p></li>
+<li><dl>
+<dt>Mounting the host filesystem</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">hostPath</span></code> volume, which can mount arbitrary locations on the worker node into the</p></li>
 </ul>
+<p>container
+- not recommended unless there are specific reasons</p>
 </dd>
 </dl>
 </li>
@@ -3283,15 +3301,15 @@ ps<span class="w"> </span>-ef<span class="w"> </span><span class="p">|</span><sp
 <section id="operator-framework">
 <h3>Operator Framework<a class="headerlink" href="#operator-framework" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>package CRD and Custom Controller and deploy as single entity</p></li>
-<li><dl class="simple">
-<dt>etcd operator</dt><dd><ul>
+<li><dl>
+<dt>etcd operator</dt><dd><ul class="simple">
 <li><p>popular operator framework to deploy and manage etcd cluster within K8s</p></li>
 <li><p>has EtcdCluster CRD and ETCD Controller</p></li>
-<li><p>can also take backup (EtcdBackup, Backup Operator), restore (EtcdRestore, Restore
-Operator)</p></li>
+<li><p>can also take backup (EtcdBackup, Backup Operator), restore (EtcdRestore, Restore</p></li>
 </ul>
+<p>Operator)</p>
 </dd>
 </dl>
 </li>
@@ -3304,7 +3322,7 @@ Operator)</p></li>
 <section id="scheduler">
 <h2>Scheduler<a class="headerlink" href="#scheduler" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#binding">Binding</a>, <a href="#id47"><span class="problematic" id="id48">`Multiple Schedulers`_</span></a></p></li>
+<li><p><a class="reference internal" href="#binding">Binding</a>, <a href="#id49"><span class="problematic" id="id50">`Multiple Schedulers`_</span></a></p></li>
 <li><p>looks at each pod and try to find the best node</p></li>
 <li><p>first filter the nodes that do not fit the pod</p></li>
 <li><p>from the remaining nodes, it calculates amount of resources that will be free on the</p></li>
@@ -3408,7 +3426,7 @@ type: front-end</p>
 </dd>
 </dl>
 </li>
-<li><p><a href="#id49"><span class="problematic" id="id50">`Scheduler code hierarchy overview`_</span></a>, <a href="#id51"><span class="problematic" id="id52">`Advanced Scheduling`_</span></a></p></li>
+<li><p><a href="#id51"><span class="problematic" id="id52">`Scheduler code hierarchy overview`_</span></a>, <a href="#id53"><span class="problematic" id="id54">`Advanced Scheduling`_</span></a></p></li>
 <li><p>How the Scheduler works: [jvns](<a class="reference external" href="https://jvns.ca/blog/2017/07/27/how-does-the-kubernetes-scheduler-work/">https://jvns.ca/blog/2017/07/27/how-does-the-kubernetes-scheduler-work/</a>), [stack over flow](<a class="reference external" href="https://stackoverflow.com/questions/28857993/how-does-kubernetes-scheduler-work">https://stackoverflow.com/questions/28857993/how-does-kubernetes-scheduler-work</a>)</p></li>
 </ul>
 <p><a class="reference external" href="#kubernetes">back to top</a></p>
@@ -3560,51 +3578,51 @@ iptables<span class="w"> </span>-L<span class="w"> </span>-t<span class="w"> </s
 <section id="dns-in-k8s">
 <h3>DNS in K8s<a class="headerlink" href="#dns-in-k8s" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>K8s deploy built-in DNS server by default</p></li>
 <li><p>coredns is recommended, kube-dns was used before</p></li>
-<li><dl class="simple">
-<dt><strong>services</strong></dt><dd><ul>
-<li><p>when a service is created, DNS service auto creates a record for it so that any pod
-can reach the service using the service name</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cluster.local</span></code>: domain name</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">svc</span></code>: sub domain for service</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dev</span></code>: namespace</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">my-service</span></code>: service name</p></li>
-<li><p>if same namespace, the service can be easily reached by using its name, <code class="docutils literal notranslate"><span class="pre">myservice</span></code></p></li>
-<li><p>for separate namespace, <code class="docutils literal notranslate"><span class="pre">my-service.namespace1</span></code></p></li>
-<li><p>all services are grouped together into <code class="docutils literal notranslate"><span class="pre">svc</span></code> subdomain</p></li>
-<li><p>all services and pods are grouped together into <code class="docutils literal notranslate"><span class="pre">cluster.local</span></code> root domain</p></li>
-<li><p>full domain name of a service, <code class="docutils literal notranslate"><span class="pre">my-service.namespace1.svc.cluster.local</span></code></p></li>
+<li><dl>
+<dt><strong>services</strong></dt><dd><ul class="simple">
+<li><p>when a service is created, DNS service auto creates a record for it so that any pod</p></li>
 </ul>
+<p>can reach the service using the service name
+- <code class="docutils literal notranslate"><span class="pre">cluster.local</span></code>: domain name
+- <code class="docutils literal notranslate"><span class="pre">svc</span></code>: sub domain for service
+- <code class="docutils literal notranslate"><span class="pre">dev</span></code>: namespace
+- <code class="docutils literal notranslate"><span class="pre">my-service</span></code>: service name
+- if same namespace, the service can be easily reached by using its name, <code class="docutils literal notranslate"><span class="pre">myservice</span></code>
+- for separate namespace, <code class="docutils literal notranslate"><span class="pre">my-service.namespace1</span></code>
+- all services are grouped together into <code class="docutils literal notranslate"><span class="pre">svc</span></code> subdomain
+- all services and pods are grouped together into <code class="docutils literal notranslate"><span class="pre">cluster.local</span></code> root domain
+- full domain name of a service, <code class="docutils literal notranslate"><span class="pre">my-service.namespace1.svc.cluster.local</span></code></p>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>pods</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>pods</strong></dt><dd><ul class="simple">
 <li><p>records for pods are not created by default</p></li>
-<li><p>full domain name of a pod, <code class="docutils literal notranslate"><span class="pre">10-244-2-5.namespace1.type.cluster.local</span></code>, dots in pod’s
-IP are replaced by dashes</p></li>
+<li><p>full domain name of a pod, <code class="docutils literal notranslate"><span class="pre">10-244-2-5.namespace1.type.cluster.local</span></code>, dots in pod’s</p></li>
 </ul>
+<p>IP are replaced by dashes</p>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>coredns</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>coredns</strong></dt><dd><ul class="simple">
 <li><p>deployed as pod which runs Coredns executable</p></li>
 <li><p>K8s uses <code class="docutils literal notranslate"><span class="pre">/etc/coredns/Corefile</span></code> for configuration file</p></li>
 <li><p>multiple plugins are enabled in the file</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">kubernetes</span></code> plugin makes CoreDNS work with K8s, where top level domain name of the
-cluster is set</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pods</span></code> options in the file is responsible for creating records for pods</p></li>
-<li><p>any record that the DNS server can’t solve is forwarded to the nameserver specified
-in <code class="docutils literal notranslate"><span class="pre">proxy</span></code> in the Corefile</p></li>
-<li><p>the Corefile is also passed in to the pods as configmap object</p></li>
-<li><p>when coredns is deployed as pod, a service called <code class="docutils literal notranslate"><span class="pre">kube-dns</span></code> is also deployed</p></li>
-<li><p>IP of kube-dns is configured as nameserver and default search entry is also added in
-<code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code> on pods, which is done by kubelet automatically</p></li>
-<li><p>IP of DNS server and domain can be found in <code class="docutils literal notranslate"><span class="pre">/var/lib/kubelet/config.yml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kubernetes</span></code> plugin makes CoreDNS work with K8s, where top level domain name of the</p></li>
 </ul>
+<p>cluster is set
+- <code class="docutils literal notranslate"><span class="pre">pods</span></code> options in the file is responsible for creating records for pods
+- any record that the DNS server can’t solve is forwarded to the nameserver specified
+in <code class="docutils literal notranslate"><span class="pre">proxy</span></code> in the Corefile
+- the Corefile is also passed in to the pods as configmap object
+- when coredns is deployed as pod, a service called <code class="docutils literal notranslate"><span class="pre">kube-dns</span></code> is also deployed
+- IP of kube-dns is configured as nameserver and default search entry is also added in
+<code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code> on pods, which is done by kubelet automatically
+- IP of DNS server and domain can be found in <code class="docutils literal notranslate"><span class="pre">/var/lib/kubelet/config.yml</span></code></p>
 </dd>
 </dl>
 </li>
@@ -3705,16 +3723,16 @@ kubectl<span class="w"> </span>describe<span class="w"> </span>netpol
 <blockquote>
 <div><ul class="simple">
 <li><p><strong>Ingress proxy</strong>: exposed outside the cluster using <code class="docutils literal notranslate"><span class="pre">LoadBalancer</span></code> type service</p></li>
-<li><p><strong>Ingress reconciler/operator</strong>: read and monitor ingress objects and reconfigure
-Ingress proxy to route traffic</p></li>
-<li><p>the solution deployed, does not come with K8s by default</p></li>
-<li><p>must be deployed using third-party as no single load balancer can be set as standard
-and Ingress was added to K8s before other extensibility capabilities</p></li>
-<li><p>GCE and Nginx are supported and maintained by K8s</p></li>
-<li><p>need a service to expose the ingress controller</p></li>
-<li><p>intelligent enough to monitor cluster’s ingress resources and configure underlying
-nginx server if needed, but requires a <code class="docutils literal notranslate"><span class="pre">ServiceAccount</span></code> with right permissions</p></li>
+<li><p><strong>Ingress reconciler/operator</strong>: read and monitor ingress objects and reconfigure</p></li>
 </ul>
+<p>Ingress proxy to route traffic
+- the solution deployed, does not come with K8s by default
+- must be deployed using third-party as no single load balancer can be set as standard
+and Ingress was added to K8s before other extensibility capabilities
+- GCE and Nginx are supported and maintained by K8s
+- need a service to expose the ingress controller
+- intelligent enough to monitor cluster’s ingress resources and configure underlying
+nginx server if needed, but requires a <code class="docutils literal notranslate"><span class="pre">ServiceAccount</span></code> with right permissions</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># nginx-ingress-controller.yml</span>
 <span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
@@ -3796,21 +3814,21 @@ nginx server if needed, but requires a <code class="docutils literal notranslate
 <li><p>can set rules on each pod based on URL</p></li>
 <li><p>has a <code class="docutils literal notranslate"><span class="pre">Default</span> <span class="pre">backend</span></code> where the user will be routed to if rules are not matched</p></li>
 <li><p>should deploy a service for <code class="docutils literal notranslate"><span class="pre">Default</span> <span class="pre">backend</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">paths</span></code>: to direct traffic based on the path in HTTP request, can be used to host
-multiple services on different paths of single domain, longest prefix matches if
-multiple paths are on the same host</p></li>
-<li><p>add <code class="docutils literal notranslate"><span class="pre">host:</span></code> in each rule to split traffic by domain name and route appropriately</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">rewrite-target</span></code>: to write and forward internally to the correct URL on the
-application, rewrites the URL by replacing the defined <code class="docutils literal notranslate"><span class="pre">rule-&gt;http-&gt;paths-&gt;path</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">spec.ingressClassName</span></code>: to enable single Ingress resource to request particular
-implementation and allowing to run multiple Ingress controllers on single cluster,
-default controller will be used if not specified</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nginx.ingress.kubernetes.io/rewrite-target</span></code>, modify/rewrite path in the proxied
-request with an annotation on the Ingress object, which applies to all requests
-specified by that object and can make upstream services work on a subpath</p></li>
-<li><p>can also use regular expressions when rewriting path</p></li>
-<li><p>better to avoid path rewriting complicated applications as it can lead to bugs</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">paths</span></code>: to direct traffic based on the path in HTTP request, can be used to host</p></li>
 </ul>
+<p>multiple services on different paths of single domain, longest prefix matches if
+multiple paths are on the same host
+- add <code class="docutils literal notranslate"><span class="pre">host:</span></code> in each rule to split traffic by domain name and route appropriately
+- <code class="docutils literal notranslate"><span class="pre">rewrite-target</span></code>: to write and forward internally to the correct URL on the
+application, rewrites the URL by replacing the defined <code class="docutils literal notranslate"><span class="pre">rule-&gt;http-&gt;paths-&gt;path</span></code>
+- <code class="docutils literal notranslate"><span class="pre">spec.ingressClassName</span></code>: to enable single Ingress resource to request particular
+implementation and allowing to run multiple Ingress controllers on single cluster,
+default controller will be used if not specified
+- <code class="docutils literal notranslate"><span class="pre">nginx.ingress.kubernetes.io/rewrite-target</span></code>, modify/rewrite path in the proxied
+request with an annotation on the Ingress object, which applies to all requests
+specified by that object and can make upstream services work on a subpath
+- can also use regular expressions when rewriting path
+- better to avoid path rewriting complicated applications as it can lead to bugs</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ingress-wear.yml</span>
 <span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networking.k8s.io/v1</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ingress</span>
@@ -3871,17 +3889,17 @@ Ingress must be coordinated globally across the cluster
 <li><p>can use API-driven [Let’s Encrypt](<a class="reference external" href="https://letsencrypt.org/">https://letsencrypt.org/</a>) and [cer-manager](<a class="reference external" href="https://cert-manager.io/">https://cert-manager.io/</a>)</p></li>
 </ul>
 </div></blockquote>
-<ul class="simple">
-<li><dl class="simple">
-<dt>implementations</dt><dd><ul>
-<li><p>each provider has cloud-based L7 load balancer Ingress implementation that take
-Ingress objects and configure via API</p></li>
-<li><p>reduces the cluster and management load for the operators</p></li>
-<li><p>GCE, Nginx, Contour, HAProxy, Traefik, Istio</p></li>
-<li><p>NGINX Ingress controller has many features exposed via annotations</p></li>
-<li><p>Envoy-based Emissary and Gloo focus on being API gateways, which includes resources
-for controlling Layer 4 balancing</p></li>
+<ul>
+<li><dl>
+<dt>implementations</dt><dd><ul class="simple">
+<li><p>each provider has cloud-based L7 load balancer Ingress implementation that take</p></li>
 </ul>
+<p>Ingress objects and configure via API
+- reduces the cluster and management load for the operators
+- GCE, Nginx, Contour, HAProxy, Traefik, Istio
+- NGINX Ingress controller has many features exposed via annotations
+- Envoy-based Emissary and Gloo focus on being API gateways, which includes resources
+for controlling Layer 4 balancing</p>
 </dd>
 </dl>
 </li>
@@ -3968,17 +3986,17 @@ kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </sp
 <li><p>can use tokens instead of passwords, use <code class="docutils literal notranslate"><span class="pre">--token-auth-file</span></code></p></li>
 </ul>
 </div></blockquote>
-<ul class="simple">
-<li><dl class="simple">
-<dt>using kubeadm</dt><dd><ul>
-<li><p>the kube-apiserver pod will be restarted once the <code class="docutils literal notranslate"><span class="pre">kube-apiserver.yml</span></code> file is
-modified</p></li>
+<ul>
+<li><dl>
+<dt>using kubeadm</dt><dd><ul class="simple">
+<li><p>the kube-apiserver pod will be restarted once the <code class="docutils literal notranslate"><span class="pre">kube-apiserver.yml</span></code> file is</p></li>
 </ul>
+<p>modified</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>using curl</dt><dd><ul>
+<dt>using curl</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-v</span> <span class="pre">-k</span> <span class="pre">https://main-node-ip:6443/api/v1/pods</span> <span class="pre">-u</span> <span class="pre">&quot;user1:password</span></code></p></li>
 </ul>
 </dd>
@@ -4158,21 +4176,21 @@ kubectl<span class="w"> </span>auth<span class="w"> </span>can-i<span class="w">
 </div></blockquote>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">roles</span></code> and <code class="docutils literal notranslate"><span class="pre">rolebindings</span></code> are for authorizing users to namespaced resources</p></li>
-<li><dl class="simple">
+<li><dl>
 <dt>Namespace scoped</dt><dd><ul class="simple">
 <li><p>resources that can specify namespace</p></li>
-<li><p>pods, replicasets, jobs, deployments, services, sercrets, roles, rolebindings,
-configmaps, PVC</p></li>
+<li><p>pods, replicasets, jobs, deployments, services, sercrets, roles, rolebindings,</p></li>
 </ul>
+<p>configmaps, PVC</p>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
+<li><dl>
 <dt>Cluster scoped</dt><dd><ul class="simple">
 <li><p>resources that don’t need to specify namespace</p></li>
-<li><p>such as nodes, PV, clusterroles, clusterrolebindings, certificatesigningrequests,
-namespaces</p></li>
+<li><p>such as nodes, PV, clusterroles, clusterrolebindings, certificatesigningrequests,</p></li>
 </ul>
+<p>namespaces</p>
 </dd>
 </dl>
 </li>
@@ -4248,32 +4266,24 @@ openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> 
 </div></blockquote>
 <ul>
 <li><dl>
-<dt>client certificates</dt><dd><blockquote>
-<div><dl class="simple">
-<dt>1. admin user requires <code class="docutils literal notranslate"><span class="pre">admin.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">admin.key</span></code> to communicate with kube-apiserver</dt><dd><p>2. kube-scheduler requires <code class="docutils literal notranslate"><span class="pre">scheduler.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">scheduler.key</span></code>
-3. kube-controller-manager requires <code class="docutils literal notranslate"><span class="pre">controller-manager.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">controller-manager.key</span></code>
-4. kube-proxy requires <code class="docutils literal notranslate"><span class="pre">kube-proxy.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">kube-proxy.key</span></code>
-5. kube-apiserver is also a client from etcdserver point of view, as it is the only</p>
-</dd>
-</dl>
-<p>component that communicates to it, kube-apiserver can use the keys generated or
-generate <code class="docutils literal notranslate"><span class="pre">apiserver-etcd-client.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">apiserver-etcd-client.key</span></code></p>
-<blockquote>
-<div><p>6. kube-apiserver is also a client from kubelet server point of view, as it</p>
-</div></blockquote>
-<p>communicates to it, kube-apiserver can use the keys generated or
-generate <code class="docutils literal notranslate"><span class="pre">apiserver-kubelet-client.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">apiserver-kubelet-client.key</span></code></p>
-<blockquote>
-<div><p>7. kubelet-server is also a client from kube-apiserver point of view, as it</p>
-</div></blockquote>
-<p>communicates to it, kubelet-server can use the keys generated or
-generate <code class="docutils literal notranslate"><span class="pre">kubelet-client.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">kubelet-client.key</span></code></p>
-</div></blockquote>
-<ul class="simple">
-<li><p>kube-apiserver needs to know which node is authenticating</p></li>
-<li><p>certificates are named <code class="docutils literal notranslate"><span class="pre">system:node:NODE_NAME</span></code></p></li>
-<li><p>group names must be added, <code class="docutils literal notranslate"><span class="pre">system:nodes</span></code>, for API server to give right permissions</p></li>
-</ul>
+<dt>client certificates</dt><dd><ol class="arabic simple">
+<li><p>admin user requires <code class="docutils literal notranslate"><span class="pre">admin.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">admin.key</span></code> to communicate with kube-apiserver</p></li>
+<li><p>kube-scheduler requires <code class="docutils literal notranslate"><span class="pre">scheduler.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">scheduler.key</span></code></p></li>
+<li><p>kube-controller-manager requires <code class="docutils literal notranslate"><span class="pre">controller-manager.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">controller-manager.key</span></code></p></li>
+<li><p>kube-proxy requires <code class="docutils literal notranslate"><span class="pre">kube-proxy.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">kube-proxy.key</span></code></p></li>
+</ol>
+<p>#. kube-apiserver is also a client from etcdserver point of view, as it is the only
+component that communicates to it, kube-apiserver can use the keys generated or
+generate <code class="docutils literal notranslate"><span class="pre">apiserver-etcd-client.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">apiserver-etcd-client.key</span></code>
+#. kube-apiserver is also a client from kubelet server point of view, as it
+communicates to it, kube-apiserver can use the keys generated or
+generate <code class="docutils literal notranslate"><span class="pre">apiserver-kubelet-client.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">apiserver-kubelet-client.key</span></code>
+#. kubelet-server is also a client from kube-apiserver point of view, as it
+communicates to it, kubelet-server can use the keys generated or
+generate <code class="docutils literal notranslate"><span class="pre">kubelet-client.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">kubelet-client.key</span></code>
+- kube-apiserver needs to know which node is authenticating
+- certificates are named <code class="docutils literal notranslate"><span class="pre">system:node:NODE_NAME</span></code>
+- group names must be added, <code class="docutils literal notranslate"><span class="pre">system:nodes</span></code>, for API server to give right permissions</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Admin</span>
 <span class="c1"># admin must add group details in the certificate to differentiate from other users</span>
 <span class="c1"># &quot;system:masters&quot; group, with admin privileges, exists on K8s</span>
@@ -4291,37 +4301,27 @@ openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> 
 </dl>
 </li>
 <li><dl>
-<dt>server certificates</dt><dd><blockquote>
-<div><p>1. kube-apiserver exposes https service, so <code class="docutils literal notranslate"><span class="pre">apiserver.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">apiserver.key</span></code> must be
-generated</p>
-</div></blockquote>
-<ul>
-<li><p>kube-apiserver is also called kubernetes, kubernetes.default, kubernetes.default.svc
+<dt>server certificates</dt><dd><p>#. kube-apiserver exposes https service, so <code class="docutils literal notranslate"><span class="pre">apiserver.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">apiserver.key</span></code> must be
+generated
+- kube-apiserver is also called kubernetes, kubernetes.default, kubernetes.default.svc
 kubernetes.default.svc.cluster.local or IP address of the host running kube-apiserver
-or that of the pod running it</p></li>
-<li><p>all the names must be present in certificate generated</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--etcd-cafile</span></code>, <code class="docutils literal notranslate"><span class="pre">--etcd-certfile</span></code>, <code class="docutils literal notranslate"><span class="pre">--etcd-keyfile</span></code>, <code class="docutils literal notranslate"><span class="pre">--client-ca-file</span></code>,
+or that of the pod running it
+- all the names must be present in certificate generated
+- <code class="docutils literal notranslate"><span class="pre">--etcd-cafile</span></code>, <code class="docutils literal notranslate"><span class="pre">--etcd-certfile</span></code>, <code class="docutils literal notranslate"><span class="pre">--etcd-keyfile</span></code>, <code class="docutils literal notranslate"><span class="pre">--client-ca-file</span></code>,
 <code class="docutils literal notranslate"><span class="pre">--tls-cert-file</span></code>, <code class="docutils literal notranslate"><span class="pre">--tls-private-key-file</span></code>, <code class="docutils literal notranslate"><span class="pre">--kubelet-certificate-authority</span></code>,
-<code class="docutils literal notranslate"><span class="pre">--kubelet-client-certificate</span></code>, <code class="docutils literal notranslate"><span class="pre">--kubelet-client-key</span></code></p>
-<blockquote>
-<div><p>2. etcd server also requires <code class="docutils literal notranslate"><span class="pre">etcdserver.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">etcdserver.key</span></code></p>
-</div></blockquote>
-</li>
-<li><p>since etcdserver can be deployed as cluster across multiple servers,
+<code class="docutils literal notranslate"><span class="pre">--kubelet-client-certificate</span></code>, <code class="docutils literal notranslate"><span class="pre">--kubelet-client-key</span></code>
+#. etcd server also requires <code class="docutils literal notranslate"><span class="pre">etcdserver.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">etcdserver.key</span></code>
+- since etcdserver can be deployed as cluster across multiple servers,
 additional peer certificates, <code class="docutils literal notranslate"><span class="pre">etcdpeer1.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">etcdpeer1.key</span></code>, must be
-generated to secure communication between each other</p></li>
-<li><p>require CA root certificate to verify clients are valid</p></li>
-<li><p>specify them while starting the server, <code class="docutils literal notranslate"><span class="pre">--key-file</span></code>, <code class="docutils literal notranslate"><span class="pre">--cert-file</span></code>,
+generated to secure communication between each other
+- require CA root certificate to verify clients are valid
+- specify them while starting the server, <code class="docutils literal notranslate"><span class="pre">--key-file</span></code>, <code class="docutils literal notranslate"><span class="pre">--cert-file</span></code>,
 <code class="docutils literal notranslate"><span class="pre">--peer-cert-file</span></code>, <code class="docutils literal notranslate"><span class="pre">--peer-client-cert</span></code>, <code class="docutils literal notranslate"><span class="pre">--peer-key-file</span></code>,
-<code class="docutils literal notranslate"><span class="pre">--peer-trusted-ca-file</span></code>, <code class="docutils literal notranslate"><span class="pre">--trusted-ca-file</span></code></p>
-<blockquote>
-<div><p>3. kubelet server also requires <code class="docutils literal notranslate"><span class="pre">kubelet.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">kubelet.key</span></code></p>
-</div></blockquote>
-</li>
-<li><p>need certificates for each in the node of the cluster</p></li>
-<li><p>certificates will be named after nodes</p></li>
-<li><p>must use the certificates in definition file for each node</p></li>
-</ul>
+<code class="docutils literal notranslate"><span class="pre">--peer-trusted-ca-file</span></code>, <code class="docutils literal notranslate"><span class="pre">--trusted-ca-file</span></code>
+#. kubelet server also requires <code class="docutils literal notranslate"><span class="pre">kubelet.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">kubelet.key</span></code>
+- need certificates for each in the node of the cluster
+- certificates will be named after nodes
+- must use the certificates in definition file for each node</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># etcdserver</span>
 <span class="c1"># use same methods to generate</span>
 
@@ -4443,12 +4443,12 @@ kubectl<span class="w"> </span>get<span class="w"> </span>csr<span class="w"> </
 <dt><strong>Viewing Certificate Details</strong></dt><dd><ul class="simple">
 <li><p>look for <code class="docutils literal notranslate"><span class="pre">/etc/kubernetes/manifests/kube-apiserver.yml</span></code> file</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">command:</span></code> under <code class="docutils literal notranslate"><span class="pre">containers:</span></code> has all the information</p></li>
-<li><p>after decoding the certificate, start by looking <code class="docutils literal notranslate"><span class="pre">subject:</span></code>, which has certificate
-name, then look for <code class="docutils literal notranslate"><span class="pre">X509v3</span> <span class="pre">Subject</span> <span class="pre">Alternative</span> <span class="pre">Name</span></code>, <code class="docutils literal notranslate"><span class="pre">Not</span> <span class="pre">After</span></code>, <code class="docutils literal notranslate"><span class="pre">Issuer</span></code></p></li>
-<li><p>when built from scratch, view logs with <code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">etcd.service</span> <span class="pre">-l</span></code></p></li>
-<li><p>in kubeadm, <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">logs</span> <span class="pre">etcd-controlplane</span></code></p></li>
-<li><p>if the core components are down, <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">logs</span> <span class="pre">CONTAINER_ID</span></code></p></li>
+<li><p>after decoding the certificate, start by looking <code class="docutils literal notranslate"><span class="pre">subject:</span></code>, which has certificate</p></li>
 </ul>
+<p>name, then look for <code class="docutils literal notranslate"><span class="pre">X509v3</span> <span class="pre">Subject</span> <span class="pre">Alternative</span> <span class="pre">Name</span></code>, <code class="docutils literal notranslate"><span class="pre">Not</span> <span class="pre">After</span></code>, <code class="docutils literal notranslate"><span class="pre">Issuer</span></code>
+- when built from scratch, view logs with <code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">etcd.service</span> <span class="pre">-l</span></code>
+- in kubeadm, <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">logs</span> <span class="pre">etcd-controlplane</span></code>
+- if the core components are down, <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">logs</span> <span class="pre">CONTAINER_ID</span></code></p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># /etc/kubernetes/pki/apiserver.crt</span>
 <span class="c1"># decode and view details</span>
 openssl<span class="w"> </span>x509<span class="w"> </span>-in<span class="w"> </span>/etc/kubernetes/pki/apiserver.crt<span class="w"> </span>-text<span class="w"> </span>-noout
@@ -4492,32 +4492,32 @@ openssl<span class="w"> </span>x509<span class="w"> </span>-in<span class="w"> <
 <section id="k8s-attack-surface">
 <h3>K8s Attack Surface<a class="headerlink" href="#k8s-attack-surface" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt>example attack</dt><dd><ul>
-<li><p>attacker tries to find the IP address of the application, <code class="docutils literal notranslate"><span class="pre">ping</span> <span class="pre">www.site.com</span></code> and
-the site responds with IP</p></li>
-<li><p>then port scan the server and one port is opened, e.g docker port</p></li>
-<li><p>run docker command with the hostname, <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">-H</span> <span class="pre">www.site.com</span> <span class="pre">ps</span></code>, and success</p></li>
-<li><p>run a new privileged container in the environment,
-<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">-H</span> <span class="pre">www.site.com</span> <span class="pre">run</span> <span class="pre">--privileged</span> <span class="pre">-it</span> <span class="pre">ubuntu</span> <span class="pre">bash</span></code></p></li>
-<li><p>from the container, install the necessary utilities and download the attack script</p></li>
-<li><p>runs the script to escape from the container onto the host</p></li>
-<li><p>run various commands on the host to get more information about the infrastructure</p></li>
-<li><p>find out about K8s dashboard, <code class="docutils literal notranslate"><span class="pre">iptables</span> <span class="pre">-L</span> <span class="pre">-t</span> <span class="pre">nat</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">kubernetes-dashboard</span></code></p></li>
-<li><p>can visit the K8s dashboard as it is setup without security</p></li>
-<li><p>information about the whole cluster is now exposed</p></li>
+<div><ul>
+<li><dl>
+<dt>example attack</dt><dd><ul class="simple">
+<li><p>attacker tries to find the IP address of the application, <code class="docutils literal notranslate"><span class="pre">ping</span> <span class="pre">www.site.com</span></code> and</p></li>
 </ul>
+<p>the site responds with IP
+- then port scan the server and one port is opened, e.g docker port
+- run docker command with the hostname, <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">-H</span> <span class="pre">www.site.com</span> <span class="pre">ps</span></code>, and success
+- run a new privileged container in the environment,
+<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">-H</span> <span class="pre">www.site.com</span> <span class="pre">run</span> <span class="pre">--privileged</span> <span class="pre">-it</span> <span class="pre">ubuntu</span> <span class="pre">bash</span></code>
+- from the container, install the necessary utilities and download the attack script
+- runs the script to escape from the container onto the host
+- run various commands on the host to get more information about the infrastructure
+- find out about K8s dashboard, <code class="docutils literal notranslate"><span class="pre">iptables</span> <span class="pre">-L</span> <span class="pre">-t</span> <span class="pre">nat</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">kubernetes-dashboard</span></code>
+- can visit the K8s dashboard as it is setup without security
+- information about the whole cluster is now exposed</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>4C’s of Cloud Native Security</dt><dd><dl class="simple">
-<dt>1. Cloud: security of the entire infrastructure, e.g data center, network, servers</dt><dd><p>2. Cluster: e.g authentication, authorization, admission, network policy
-3. Container: e.g restrict images, supply chain, sandboxing, privileged
-4. Code: code with security best practices</p>
-</dd>
-</dl>
+<dt>4C’s of Cloud Native Security</dt><dd><ol class="arabic simple">
+<li><p>Cloud: security of the entire infrastructure, e.g data center, network, servers</p></li>
+<li><p>Cluster: e.g authentication, authorization, admission, network policy</p></li>
+<li><p>Container: e.g restrict images, supply chain, sandboxing, privileged</p></li>
+<li><p>Code: code with security best practices</p></li>
+</ol>
 </dd>
 </dl>
 </li>
@@ -4987,34 +4987,34 @@ kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> <
 <section id="annotations">
 <h3>Annotations<a class="headerlink" href="#annotations" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>not meant for querying, filtering or differentiating pods from each other</p></li>
 <li><p>a place to store additional metadata only to assist tools and libraries</p></li>
 <li><p>can be used for the tool itself or pass information between external systems</p></li>
 <li><p>add information as annotation and change to label if it will be used as selector</p></li>
-<li><dl class="simple">
-<dt>use cases</dt><dd><ul>
+<li><dl>
+<dt>use cases</dt><dd><ul class="simple">
 <li><p>track/detect change cause, communicate policy to specialized scheduler</p></li>
 <li><p>attach build, release, or image information</p></li>
 <li><p>provide extra data for a UI</p></li>
 <li><p>encode parameters for alpha functionality</p></li>
-<li><p>enable Deployment object to keep track of ReplicaSet for rollout status and provide
-necessary data to roll back</p></li>
+<li><p>enable Deployment object to keep track of ReplicaSet for rollout status and provide</p></li>
 </ul>
+<p>necessary data to roll back</p>
 </dd>
 </dl>
 </li>
 <li><p>good for small bits of data that are associated with specific resource</p></li>
-<li><dl class="simple">
-<dt>key</dt><dd><ul>
-<li><p>‘namespace’ part is more important as they are used to communicate information
-between tools</p></li>
+<li><dl>
+<dt>key</dt><dd><ul class="simple">
+<li><p>‘namespace’ part is more important as they are used to communicate information</p></li>
 </ul>
+<p>between tools</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>value</dt><dd><ul>
+<dt>value</dt><dd><ul class="simple">
 <li><p>free-form string field to store arbitrary data of any format</p></li>
 </ul>
 </dd>
@@ -5292,17 +5292,17 @@ available memory
 <section id="service-accounts">
 <h3>Service Accounts<a class="headerlink" href="#service-accounts" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>used by applications to interact with K8s cluster</p></li>
 <li><p>e.g used by Jenkins to deploy on the cluster</p></li>
-<li><dl class="simple">
-<dt><strong>token</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>token</strong></dt><dd><ul class="simple">
 <li><p>auto created when a service account is created</p></li>
 <li><p>must be used by external applications to authenticate</p></li>
 <li><p>stored as secret object which is linked to the service account</p></li>
-<li><p>token can be mounted as volume to the pod if the third-party application is also
-hosted on K8s cluster</p></li>
+<li><p>token can be mounted as volume to the pod if the third-party application is also</p></li>
 </ul>
+<p>hosted on K8s cluster</p>
 </dd>
 </dl>
 </li>
@@ -5332,17 +5332,17 @@ kubectl<span class="w"> </span>get<span class="w"> </span>rolesbinding
 <section id="taints-tolerations">
 <h3>Taints &amp; Tolerations<a class="headerlink" href="#taints-tolerations" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>to set restrictions on what pods can be scheduled on a node</p></li>
 <li><p>pods do not have toleration by default</p></li>
 <li><p>must specify which pods are tolerant to a taint</p></li>
 <li><p>taints are set on nodes, tolerations are set on pods</p></li>
-<li><dl class="simple">
-<dt>taint effects</dt><dd><ul>
+<li><dl>
+<dt>taint effects</dt><dd><ul class="simple">
 <li><p>NoSchedule, PreferNoSchedule</p></li>
-<li><p>NoExecute: new pods will not be scheduled, existing pods on the node will be evicted
-if they do not tolerate</p></li>
+<li><p>NoExecute: new pods will not be scheduled, existing pods on the node will be evicted</p></li>
 </ul>
+<p>if they do not tolerate</p>
 </dd>
 </dl>
 </li>
@@ -5428,26 +5428,26 @@ kubectl<span class="w"> </span>label<span class="w"> </span>nodes<span class="w"
 <li><p><code class="docutils literal notranslate"><span class="pre">requiredDuringSchedulingRequiredDuringExecution</span></code></p></li>
 </ul>
 </div></blockquote>
-<ul class="simple">
-<li><dl class="simple">
-<dt><strong>DuringScheduling</strong></dt><dd><ul>
+<ul>
+<li><dl>
+<dt><strong>DuringScheduling</strong></dt><dd><ul class="simple">
 <li><p>state where a pod does not exist and created for the first time</p></li>
-<li><p>“Required”: scheduler mandates that the pod be placed on a node with the given
-affinity rules, pod will not be scheduled if cannot match the label, used when the
-placement of the pod is important</p></li>
-<li><p>“Preferred”: if no matching node is found, scheduler ignores the affinity rules and
-place the pod on any available node</p></li>
+<li><p>“Required”: scheduler mandates that the pod be placed on a node with the given</p></li>
 </ul>
+<p>affinity rules, pod will not be scheduled if cannot match the label, used when the
+placement of the pod is important
+- “Preferred”: if no matching node is found, scheduler ignores the affinity rules and
+place the pod on any available node</p>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>DuringExecution</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>DuringExecution</strong></dt><dd><ul class="simple">
 <li><p>state where a pod is running and a change is made that affect the node affinity</p></li>
-<li><p>“Ignored”: pod will still run and node affinity changes will not affect once they
-are scheduled</p></li>
-<li><p>“Required”: running pods will be evicted if they do not match</p></li>
+<li><p>“Ignored”: pod will still run and node affinity changes will not affect once they</p></li>
 </ul>
+<p>are scheduled
+- “Required”: running pods will be evicted if they do not match</p>
 </dd>
 </dl>
 </li>
@@ -5691,9 +5691,9 @@ kubectl<span class="w"> </span>top<span class="w"> </span>pods
 <section id="application-failure">
 <h3>Application Failure<a class="headerlink" href="#application-failure" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><dl class="simple">
-<dt>check accessibility</dt><dd><ul>
+<dt>check accessibility</dt><dd><ul class="simple">
 <li><p>draw a map or chart of the application depending on information of failure</p></li>
 <li><p>check every object in the map until the root cause of issue is found</p></li>
 </ul>
@@ -5701,24 +5701,24 @@ kubectl<span class="w"> </span>top<span class="w"> </span>pods
 </dl>
 </li>
 <li><dl class="simple">
-<dt>check front-end</dt><dd><ul>
+<dt>check front-end</dt><dd><ul class="simple">
 <li><p>use standard testings if accessible</p></li>
 <li><p>use <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">http://web-service-ip:node-port</span></code> if web application</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt>check services</dt><dd><ul>
-<li><p>check the service, <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">describe</span> <span class="pre">service</span> <span class="pre">web-service</span></code>, to see if endpoints are
-reached</p></li>
-<li><p>compare the selectors and labels on pod and service</p></li>
+<li><dl>
+<dt>check services</dt><dd><ul class="simple">
+<li><p>check the service, <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">describe</span> <span class="pre">service</span> <span class="pre">web-service</span></code>, to see if endpoints are</p></li>
 </ul>
+<p>reached
+- compare the selectors and labels on pod and service</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>check pod</dt><dd><ul>
+<dt>check pod</dt><dd><ul class="simple">
 <li><p>make sure the pod is in a running state, <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">pod</span></code></p></li>
 <li><p>check if there are any restarts</p></li>
 <li><p>check the events, <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">describe</span> <span class="pre">pod</span> <span class="pre">web</span></code></p></li>
@@ -5830,21 +5830,21 @@ reached</p></li>
 <li><p>service named <code class="docutils literal notranslate"><span class="pre">kube-dns</span></code></p></li>
 </ul>
 </div></blockquote>
-<ul class="simple">
+<ul>
 <li><p>port 53 is used for DNS resolution</p></li>
 <li><p>if coredns pods are in pending state, check network plugin is installed or not</p></li>
-<li><dl class="simple">
-<dt>if coredns pods have <code class="docutils literal notranslate"><span class="pre">CrashLoopBackOff</span></code> or <code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">state</span></code></dt><dd><ul>
+<li><dl>
+<dt>if coredns pods have <code class="docutils literal notranslate"><span class="pre">CrashLoopBackOff</span></code> or <code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">state</span></code></dt><dd><ul class="simple">
 <li><p>check or add <code class="docutils literal notranslate"><span class="pre">resolvConf</span></code> in kubelet config yaml</p></li>
 <li><p>disable local DNS cache on host nodes and restore <code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code></p></li>
-<li><p>edit the <code class="docutils literal notranslate"><span class="pre">Corefile</span></code>, replacing forward <code class="docutils literal notranslate"><span class="pre">./etc/resolv.conf</span></code> with the IP address of
-upstream DNS</p></li>
+<li><p>edit the <code class="docutils literal notranslate"><span class="pre">Corefile</span></code>, replacing forward <code class="docutils literal notranslate"><span class="pre">./etc/resolv.conf</span></code> with the IP address of</p></li>
 </ul>
+<p>upstream DNS</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>check kube-dns service endpoints</dt><dd><ul>
+<dt>check kube-dns service endpoints</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">-n</span> <span class="pre">kube-system</span> <span class="pre">get</span> <span class="pre">ep</span> <span class="pre">kube-dns</span></code></p></li>
 </ul>
 </dd>
@@ -5950,52 +5950,52 @@ upstream DNS</p></li>
 <section id="json-path">
 <h3>JSON Path<a class="headerlink" href="#json-path" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>makes filtering data across large data sets using complex queries easier</p></li>
 <li><p>kube-apiserver responds in JSON format and kubectl convert it to human readable format</p></li>
 <li><p>during the conversion, a lot of information is hidden to make readable</p></li>
 <li><p>hierarchy same as in definition files</p></li>
-<li><dl class="simple">
-<dt>using JSON Path</dt><dd><ul>
+<li><dl>
+<dt>using JSON Path</dt><dd><ul class="simple">
 <li><p>identify kubectl commands</p></li>
 <li><p>familiarize with JSON output, <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">pods</span> <span class="pre">-o</span> <span class="pre">json</span></code></p></li>
 <li><p>form JSON Path query, <code class="docutils literal notranslate"><span class="pre">.items[0].spec.containers[0].image</span></code> (kubectl auto add ‘$’)</p></li>
-<li><p>use the JSON Path query with kubectl command
-<code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">pods</span> <span class="pre">-o=jsonpath='{</span> <span class="pre">.items[0].spec.containers[0].image</span> <span class="pre">}'</span></code></p></li>
+<li><p>use the JSON Path query with kubectl command</p></li>
 </ul>
+<p><code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">pods</span> <span class="pre">-o=jsonpath='{</span> <span class="pre">.items[0].spec.containers[0].image</span> <span class="pre">}'</span></code></p>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt>examples</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">pods</span> <span class="pre">nginx</span> <span class="pre">-o=jsonpath={.status.podIP}</span></code> or
-<code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">pods</span> <span class="pre">nginx</span> <span class="pre">-o</span> <span class="pre">jsonpath</span> <span class="pre">--template={.status.podIP}</span></code> or
-<code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">pods</span> <span class="pre">nginx</span> <span class="pre">-o</span> <span class="pre">jsonpath={.status.podIP}</span></code>, get IP of a pod</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">nodes</span> <span class="pre">-o=jsonpath='{.items[*].metadata.name}'</span></code>, returns the names of
-the nodes in the cluster</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">nodes</span> <span class="pre">-o=jsonpath='{.items[*].status.nodeInfo.architecture}'</span></code>, returns
-hardware architecture of the nodes</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">nodes</span> <span class="pre">-o=jsonpath='{.items[*].status.capacity.cpu}'</span></code>, returns cpu
-counts on the nodes</p></li>
-<li><p>can combine queries,
+<li><dl>
+<dt>examples</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">pods</span> <span class="pre">nginx</span> <span class="pre">-o=jsonpath={.status.podIP}</span></code> or</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">pods</span> <span class="pre">nginx</span> <span class="pre">-o</span> <span class="pre">jsonpath</span> <span class="pre">--template={.status.podIP}</span></code> or
+<code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">pods</span> <span class="pre">nginx</span> <span class="pre">-o</span> <span class="pre">jsonpath={.status.podIP}</span></code>, get IP of a pod
+- <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">nodes</span> <span class="pre">-o=jsonpath='{.items[*].metadata.name}'</span></code>, returns the names of
+the nodes in the cluster
+- <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">nodes</span> <span class="pre">-o=jsonpath='{.items[*].status.nodeInfo.architecture}'</span></code>, returns
+hardware architecture of the nodes
+- <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">nodes</span> <span class="pre">-o=jsonpath='{.items[*].status.capacity.cpu}'</span></code>, returns cpu
+counts on the nodes
+- can combine queries,
 <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">nodes</span> <span class="pre">-o=jsonpath='{.items[*].metadata.name}{.items[*].status.capacity.cpu}'</span></code>,
-returns the names of the nodes and cpu counts</p></li>
-<li><p>can add <code class="docutils literal notranslate"><span class="pre">{&quot;\n&quot;}</span></code>, <code class="docutils literal notranslate"><span class="pre">{&quot;\t&quot;}</span></code> between queries for better output</p></li>
+returns the names of the nodes and cpu counts
+- can add <code class="docutils literal notranslate"><span class="pre">{&quot;\n&quot;}</span></code>, <code class="docutils literal notranslate"><span class="pre">{&quot;\t&quot;}</span></code> between queries for better output</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>using loop, <code class="docutils literal notranslate"><span class="pre">range</span></code></dt><dd><ul class="simple">
+<li><p>for each item in the node, print the node name, insert a tab, print cpu count, print</p></li>
 </ul>
+<p>new line character
+- <code class="docutils literal notranslate"><span class="pre">'{range</span> <span class="pre">.items[*]}</span> <span class="pre">{.metadata.name}{&quot;\t&quot;}{.status.capacity.cpu}{&quot;\n&quot;}</span> <span class="pre">{end}'</span></code></p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>using loop, <code class="docutils literal notranslate"><span class="pre">range</span></code></dt><dd><ul>
-<li><p>for each item in the node, print the node name, insert a tab, print cpu count, print
-new line character</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">'{range</span> <span class="pre">.items[*]}</span> <span class="pre">{.metadata.name}{&quot;\t&quot;}{.status.capacity.cpu}{&quot;\n&quot;}</span> <span class="pre">{end}'</span></code></p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>can print custom columns</dt><dd><ul>
+<dt>can print custom columns</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">nodes</span> <span class="pre">-o=custom-columns=&lt;COLUMN</span> <span class="pre">NAME&gt;:&lt;JSON</span> <span class="pre">PATH&gt;</span></code></p></li>
 <li><p>can sometimes be easier approach compare to loop method</p></li>
 <li><p>must exclude <code class="docutils literal notranslate"><span class="pre">.items</span></code> as the custom-columns assume the query is for each item</p></li>
@@ -6005,7 +6005,7 @@ new line character</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>can sort the output</dt><dd><ul>
+<dt>can sort the output</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">nodes</span> <span class="pre">--sort-by=.metadata.name</span></code></p></li>
 </ul>
 </dd>
@@ -6087,12 +6087,12 @@ kubectl<span class="w"> </span>cordon<span class="w"> </span>node-2
 </div></blockquote>
 <ul>
 <li><dl>
-<dt>after the controlplane is upgraded, upgrade the worker nodes</dt><dd><dl class="simple">
-<dt>1. upgrade all worker nodes at the same time</dt><dd><p>2. upgrade one node at a time
-3. add new nodes with newer version to the cluster and remove the old ones, strategy</p>
-</dd>
-</dl>
-<p>easy to use if on cloud</p>
+<dt>after the controlplane is upgraded, upgrade the worker nodes</dt><dd><ol class="arabic simple">
+<li><p>upgrade all worker nodes at the same time</p></li>
+<li><p>upgrade one node at a time</p></li>
+</ol>
+<p>#. add new nodes with newer version to the cluster and remove the old ones, strategy
+easy to use if on cloud</p>
 </dd>
 </dl>
 </li>
@@ -6100,13 +6100,13 @@ kubectl<span class="w"> </span>cordon<span class="w"> </span>node-2
 <dt><strong>upgrading with kubeadm</strong></dt><dd><ul class="simple">
 <li><p>does not install or upgrade kubelet on the nodes</p></li>
 <li><p>upgrade the kubeadm tool first</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">VERSION</span></code> output from <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">nodes</span></code> is the version kubelet is registered to
-the API server, not the version of the API server</p></li>
-<li><p>upgrade kubelet on controlplane, if exists</p></li>
-<li><p>move the workloads on worker node to another with <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">drain</span> <span class="pre">node-1</span></code>, and
-upgrade the necessary components</p></li>
-<li><p>do the same on other nodes, one after another</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VERSION</span></code> output from <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">nodes</span></code> is the version kubelet is registered to</p></li>
 </ul>
+<p>the API server, not the version of the API server
+- upgrade kubelet on controlplane, if exists
+- move the workloads on worker node to another with <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">drain</span> <span class="pre">node-1</span></code>, and
+upgrade the necessary components
+- do the same on other nodes, one after another</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># on controlplane node</span>
 kubectl<span class="w"> </span>drain<span class="w"> </span>controlplane<span class="w"> </span>--ignore-daemonsets
 kubeadm<span class="w"> </span>upgrade<span class="w"> </span>plan
@@ -6144,12 +6144,12 @@ kubectl<span class="w"> </span>uncordon<span class="w"> </span>node-1
 <li><p>the only component that interact directly with etcd</p></li>
 <li><p>has multiple groups for different purposes</p></li>
 <li><p>/metrics, /healthz, /version, /api, /apis, /logs</p></li>
-<li><dl class="simple">
+<li><dl>
 <dt><strong>/api</strong></dt><dd><ul class="simple">
 <li><p>core group, /v1</p></li>
-<li><p>such as namespaces, pods, rc, events, endpoints, nodes, bindings, PV, PVC,
-configmaps, secrets, services</p></li>
+<li><p>such as namespaces, pods, rc, events, endpoints, nodes, bindings, PV, PVC,</p></li>
 </ul>
+<p>configmaps, secrets, services</p>
 </dd>
 </dl>
 </li>
@@ -6172,52 +6172,38 @@ configmaps, secrets, services</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">proxy</span></code> will start a kubectl proxy, which doesn’t need credentials</p></li>
 <li><p>kubectl proxy is not same as kube proxy, which is used to proxy pods</p></li>
 <li><p>can enable API groups by editing <code class="docutils literal notranslate"><span class="pre">--runtime-config</span></code></p></li>
-<li><dl class="simple">
+<li><dl>
 <dt>versions</dt><dd><ul class="simple">
 <li><p>major.minor.patch</p></li>
-<li><p>v1alpha1: not enabled by default, have bugs, lack e2e tests, may be dropped later,
-for expert users</p></li>
-<li><p>v1beta1: minor bugs, has e2e tests, for beta testers</p></li>
-<li><p>v1: GA/Stable, conformance tests, highly reliable, for all users</p></li>
-<li><p>objects with different versions can run at the same time</p></li>
-<li><p>only one can be <code class="docutils literal notranslate"><span class="pre">preferredVersion</span></code>, to which API commands will be run on (can
-check by viewing groups and resources with API URL)</p></li>
-<li><p>only one can be <code class="docutils literal notranslate"><span class="pre">storageVersion</span></code>, to be stored in etcd (can only check by
-querying etcd database)</p></li>
+<li><p>v1alpha1: not enabled by default, have bugs, lack e2e tests, may be dropped later,</p></li>
 </ul>
+<p>for expert users
+- v1beta1: minor bugs, has e2e tests, for beta testers
+- v1: GA/Stable, conformance tests, highly reliable, for all users
+- objects with different versions can run at the same time
+- only one can be <code class="docutils literal notranslate"><span class="pre">preferredVersion</span></code>, to which API commands will be run on (can
+check by viewing groups and resources with API URL)
+- only one can be <code class="docutils literal notranslate"><span class="pre">storageVersion</span></code>, to be stored in etcd (can only check by
+querying etcd database)</p>
 </dd>
 </dl>
 </li>
-<li><dl>
-<dt><strong>API Deprecation Policies</strong></dt><dd><blockquote>
-<div><p>1. API elements may only be removed by incrementing the version of the API group</p>
-</div></blockquote>
-<ul>
 <li><dl class="simple">
-<dt>e.g element in v1alpha1 can only be removed in v1alpha2, still present in v1alpha1</dt><dd><p>2. API objects must be able to round-trip between API versions in a given release</p>
-</dd>
-</dl>
-<p>without information loss, with the exception of whole REST resources that do not exist
-in some versions</p>
-</li>
-<li><p>e.g objects converted from v1alpha1 to v1alpha2, then back to v1alpha1, should be
-the same as v1alpha1 version</p>
-<blockquote>
-<div><p>3. API version in a given track may not be deprecated until a new API version at</p>
-</div></blockquote>
-<dl class="simple">
-<dt>least as stable is released</dt><dd><p>4a. Other than the most recent API versions in each track, older API versions must</p>
-</dd>
-</dl>
-<p>be supported after their announced deprecation for a duration of no less than:
-GA: 12 months or 3 releases, Beta: 9 months or 3 releases, Alpha: 0 releases</p>
-<blockquote>
-<div><p>4b. The “preferred” API version and the “storage version” for a given group may not</p>
-</div></blockquote>
-<p>advance until after a release has been made that supports both the new version and the
+<dt><strong>API Deprecation Policies</strong></dt><dd><p>#. API elements may only be removed by incrementing the version of the API group
+- e.g element in v1alpha1 can only be removed in v1alpha2, still present in v1alpha1
+#. API objects must be able to round-trip between API versions in a given release
+without information loss, with the exception of whole REST resources that do not exist
+in some versions
+- e.g objects converted from v1alpha1 to v1alpha2, then back to v1alpha1, should be
+the same as v1alpha1 version
+#. API version in a given track may not be deprecated until a new API version at
+least as stable is released
+4a. Other than the most recent API versions in each track, older API versions must
+be supported after their announced deprecation for a duration of no less than:
+GA: 12 months or 3 releases, Beta: 9 months or 3 releases, Alpha: 0 releases
+4b. The “preferred” API version and the “storage version” for a given group may not
+advance until after a release has been made that supports both the new version and the
 previous version</p>
-</li>
-</ul>
 </dd>
 </dl>
 </li>
@@ -6261,17 +6247,17 @@ curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </spa
 <dt>can backup etcd instead of saving all resource definitions</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">--data-dir</span></code>, directory where all configurations will be stored</p></li>
 <li><p>etcd has built-in snapshot too, <code class="docutils literal notranslate"><span class="pre">etcdctl</span> <span class="pre">snapshot</span> <span class="pre">save</span> <span class="pre">snapshot.db</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">service</span> <span class="pre">kube-apiserver</span> <span class="pre">stop</span> <span class="pre">&amp;&amp;</span> <span class="pre">etcd</span> <span class="pre">snapshot</span> <span class="pre">restore</span> <span class="pre">snapshot.db</span> <span class="pre">--data-dir</span> <span class="pre">/dir</span></code>,
-new data directory is created in /dir, then configure the etcd.service to use the new
-data directory</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">daemon-reload</span> <span class="pre">&amp;&amp;</span> <span class="pre">service</span> <span class="pre">etcd</span> <span class="pre">restart</span> <span class="pre">&amp;&amp;</span> <span class="pre">service</span> <span class="pre">kube-apiserver</span> <span class="pre">start</span></code></p></li>
-<li><p>always authenticate etcd commands, <code class="docutils literal notranslate"><span class="pre">--endpoints,</span> <span class="pre">--cacert,</span> <span class="pre">--cert,</span> <span class="pre">--key</span></code></p></li>
-<li><p>when etcd restore, it initializes a new cluster config and configure the members</p></li>
-<li><p>as new members of the new cluster</p></li>
-<li><p>if etcd is running as a pod, ETCD is set up as a Stacked ETCD Topology where the
-distributed data storage cluster provided by etcd is stacked on top of the cluster
-formed by the nodes managed by kubeadm that run control plane components.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">service</span> <span class="pre">kube-apiserver</span> <span class="pre">stop</span> <span class="pre">&amp;&amp;</span> <span class="pre">etcd</span> <span class="pre">snapshot</span> <span class="pre">restore</span> <span class="pre">snapshot.db</span> <span class="pre">--data-dir</span> <span class="pre">/dir</span></code>,</p></li>
 </ul>
+<p>new data directory is created in /dir, then configure the etcd.service to use the new
+data directory
+- <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">daemon-reload</span> <span class="pre">&amp;&amp;</span> <span class="pre">service</span> <span class="pre">etcd</span> <span class="pre">restart</span> <span class="pre">&amp;&amp;</span> <span class="pre">service</span> <span class="pre">kube-apiserver</span> <span class="pre">start</span></code>
+- always authenticate etcd commands, <code class="docutils literal notranslate"><span class="pre">--endpoints,</span> <span class="pre">--cacert,</span> <span class="pre">--cert,</span> <span class="pre">--key</span></code>
+- when etcd restore, it initializes a new cluster config and configure the members
+- as new members of the new cluster
+- if etcd is running as a pod, ETCD is set up as a Stacked ETCD Topology where the
+distributed data storage cluster provided by etcd is stacked on top of the cluster
+formed by the nodes managed by kubeadm that run control plane components.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">ETCDCTL_API</span><span class="o">=</span><span class="m">3</span><span class="w"> </span>etcdctl<span class="w"> </span>--endpoints<span class="o">=</span>https://<span class="o">[</span><span class="m">127</span>.0.0.1<span class="o">]</span>:2379<span class="w"> </span><span class="se">\</span>
 --cacert<span class="o">=</span>/etc/kubernetes/pki/etcd/ca.crt<span class="w"> </span><span class="se">\</span>
 --cert<span class="o">=</span>/etc/kubernetes/pki/etcd/server.crt<span class="w"> </span><span class="se">\</span>
@@ -6292,7 +6278,7 @@ Snapshot<span class="w"> </span>saved<span class="w"> </span>at<span class="w"> 
 <section id="microservices-architecture">
 <h2>Microservices Architecture<a class="headerlink" href="#microservices-architecture" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a href="#id53"><span class="problematic" id="id54">`Sidecar`_</span></a>, <a href="#id55"><span class="problematic" id="id56">`Adapter`_</span></a>, <a href="#id57"><span class="problematic" id="id58">`Ambassador`_</span></a></p></li>
+<li><p><a href="#id55"><span class="problematic" id="id56">`Sidecar`_</span></a>, <a href="#id57"><span class="problematic" id="id58">`Adapter`_</span></a>, <a href="#id59"><span class="problematic" id="id60">`Ambassador`_</span></a></p></li>
 </ul>
 <section id="sidecar-pattern">
 <h3>Sidecar pattern<a class="headerlink" href="#sidecar-pattern" title="Link to this heading">#</a></h3>
@@ -6323,7 +6309,7 @@ depending on the environment, this process is handed to a separate container wit
 so that the application can refer to the correct database</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a href="#id59"><span class="problematic" id="id60">`example voting app on docker`_</span></a>, <a href="#id61"><span class="problematic" id="id62">`example voting app on K8s`_</span></a></p></li>
+<li><p><a href="#id61"><span class="problematic" id="id62">`example voting app on docker`_</span></a>, <a href="#id63"><span class="problematic" id="id64">`example voting app on K8s`_</span></a></p></li>
 </ul>
 <p><a class="reference external" href="#kubernetes">back to top</a></p>
 <p># Designing a Cluster</p>
@@ -6404,9 +6390,9 @@ so that the application can refer to the correct database</p>
 <section id="choosing-infrastructure">
 <h3>Choosing Infrastructure<a class="headerlink" href="#choosing-infrastructure" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><dl class="simple">
-<dt>local machines</dt><dd><ul>
+<dt>local machines</dt><dd><ul class="simple">
 <li><p>can setup natively on Linux, VM or WSL on Windows</p></li>
 <li><p>minikube: deploy VMs, single node cluster</p></li>
 <li><p>kubeadm: requries VMs to be ready, single/multi node cluster</p></li>
@@ -6414,18 +6400,18 @@ so that the application can refer to the correct database</p>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt>turnkey solutions</dt><dd><ul>
+<li><dl>
+<dt>turnkey solutions</dt><dd><ul class="simple">
 <li><p>provision, configure and maintain VMs and use scripts to deploy cluster</p></li>
 <li><p>e.g [Kubernetes on AWS](<a class="reference external" href="https://aws.amazon.com/kubernetes/">https://aws.amazon.com/kubernetes/</a>) using [kops](<a class="reference external" href="https://kops.sigs.k8s.io/">https://kops.sigs.k8s.io/</a>) or [KubeOne](<a class="reference external" href="https://www.kubermatic.com/products/kubermatic-kubeone/">https://www.kubermatic.com/products/kubermatic-kubeone/</a>)</p></li>
-<li><p>K8s certified solutions such as OpenShift, Cloud Foundry Container Runtime, VMware
-Cloud PKS, Vagrant</p></li>
+<li><p>K8s certified solutions such as OpenShift, Cloud Foundry Container Runtime, VMware</p></li>
 </ul>
+<p>Cloud PKS, Vagrant</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>hosted</dt><dd><ul>
+<dt>hosted</dt><dd><ul class="simple">
 <li><p>managed solutions, K8s-as-a-Service</p></li>
 <li><p>CSP provision and maintain VMs and install K8s</p></li>
 <li><p>e.g [AWS EKS](<a class="reference external" href="https://aws.amazon.com/eks/">https://aws.amazon.com/eks/</a>), [GKE](<a class="reference external" href="https://cloud.google.com/kubernetes-engine">https://cloud.google.com/kubernetes-engine</a>), [AKS](<a class="reference external" href="https://azure.microsoft.com/en-us/services/kubernetes-service/">https://azure.microsoft.com/en-us/services/kubernetes-service/</a>), [OpenShift](<a class="reference external" href="https://www.redhat.com/en/technologies/cloud-computing/openshift/kubernetes-engine">https://www.redhat.com/en/technologies/cloud-computing/openshift/kubernetes-engine</a>)</p></li>
@@ -6439,51 +6425,51 @@ Cloud PKS, Vagrant</p></li>
 <section id="high-availability">
 <h3>High Availability<a class="headerlink" href="#high-availability" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>have redundancy across every components</p></li>
-<li><dl class="simple">
-<dt>having two control-plane nodes</dt><dd><ul>
+<li><dl>
+<dt>having two control-plane nodes</dt><dd><ul class="simple">
 <li><p>running multiple instances of the same components</p></li>
 <li><p>bot kube-apiserver are in active-active mode</p></li>
 <li><p>have load balancer in front of the nodes using solutions such as Nginx, HA proxy</p></li>
 <li><p>then point kubectl to the load balancer</p></li>
-<li><p>two instances of each kube-controller-manager and kube-scheduler must run in
-active-standby mode, which is decided through leader election process</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--leader-elect</span></code> , <code class="docutils literal notranslate"><span class="pre">--leader-elect-lease-duration</span></code>, <code class="docutils literal notranslate"><span class="pre">--leader-elect-renew-deadline</span></code>,
-<code class="docutils literal notranslate"><span class="pre">--leader-elect-retry-period</span></code> options are available</p></li>
-<li><p>stacked topology: etcd is part of the control-plane node, easy to setup and manage,
-but both etcd go down if one node goes down</p></li>
-<li><p>external etcd topology: etcd is separated from control-plane node, hard to setup but
-less failure impact</p></li>
+<li><p>two instances of each kube-controller-manager and kube-scheduler must run in</p></li>
 </ul>
+<p>active-standby mode, which is decided through leader election process
+- <code class="docutils literal notranslate"><span class="pre">--leader-elect</span></code> , <code class="docutils literal notranslate"><span class="pre">--leader-elect-lease-duration</span></code>, <code class="docutils literal notranslate"><span class="pre">--leader-elect-renew-deadline</span></code>,
+<code class="docutils literal notranslate"><span class="pre">--leader-elect-retry-period</span></code> options are available
+- stacked topology: etcd is part of the control-plane node, easy to setup and manage,
+but both etcd go down if one node goes down
+- external etcd topology: etcd is separated from control-plane node, hard to setup but
+less failure impact</p>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt>etcd</dt><dd><ul>
+<li><dl>
+<dt>etcd</dt><dd><ul class="simple">
 <li><p>when distributing across multiple servers, data can be read from multiple nodes</p></li>
 <li><p>only one is responsible for processing the write</p></li>
 <li><p>one node is elected as leader, and others become followers</p></li>
-<li><p>leader makes sure other nodes have copy of the data if write request is sent to
-it</p></li>
-<li><p>if writes are sent to the followers, they are internally forwarded to the leader</p></li>
-<li><p>uses RAFT for leader election</p></li>
-<li><p>a write is complete if it can be written to majority of the nodes, Quorum = n/2 + 1</p></li>
-<li><p>recommended to have at least 3 or odd number (5, beyond 5 is unnecessary) of
-instances, as even number of
-nodes has the possibility of failing when network is segmented</p></li>
+<li><p>leader makes sure other nodes have copy of the data if write request is sent to</p></li>
 </ul>
+<p>it
+- if writes are sent to the followers, they are internally forwarded to the leader
+- uses RAFT for leader election
+- a write is complete if it can be written to majority of the nodes, Quorum = n/2 + 1
+- recommended to have at least 3 or odd number (5, beyond 5 is unnecessary) of
+instances, as even number of
+nodes has the possibility of failing when network is segmented</p>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt>RAFT</dt><dd><ul>
+<li><dl>
+<dt>RAFT</dt><dd><ul class="simple">
 <li><p>uses random timer for initiating requests</p></li>
 <li><p>the first one to finish the request sends permission to others to be a leader</p></li>
 <li><p>it sends notification to others that it will continue to be the leader</p></li>
-<li><p>if the other nodes do not receive notification from the leader, new leader election
-process is initiated among them</p></li>
+<li><p>if the other nodes do not receive notification from the leader, new leader election</p></li>
 </ul>
+<p>process is initiated among them</p>
 </dd>
 </dl>
 </li>
@@ -6493,22 +6479,22 @@ process is initiated among them</p></li>
 <section id="mutable-vs-immutable-infrastructure">
 <h3>Mutable vs Immutable Infrastructure<a class="headerlink" href="#mutable-vs-immutable-infrastructure" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt><strong>Mutable</strong></dt><dd><ul>
+<div><ul>
+<li><dl>
+<dt><strong>Mutable</strong></dt><dd><ul class="simple">
 <li><p>in-place update: updating software version by version on each server</p></li>
 <li><p>underlying infrastructure remains the same</p></li>
 <li><p>but software and configurations of the servers change as part of the update</p></li>
-<li><p>upgrade can fail on one or more of the servers because of unmet dependencies,
-network issues, file system full, different OS versions</p></li>
-<li><p>configuration drift: not all servers able to update leaving the infrastructure in
-a complex state, each server behaving different</p></li>
+<li><p>upgrade can fail on one or more of the servers because of unmet dependencies,</p></li>
 </ul>
+<p>network issues, file system full, different OS versions
+- configuration drift: not all servers able to update leaving the infrastructure in
+a complex state, each server behaving different</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Immutable</strong></dt><dd><ul>
+<dt><strong>Immutable</strong></dt><dd><ul class="simple">
 <li><p>deploy new servers with new software, and delete the old ones if the new ones succeed</p></li>
 <li><p>cannot carry out in-place updates</p></li>
 </ul>
@@ -6519,13 +6505,13 @@ a complex state, each server behaving different</p></li>
 <li><p>copying files statically into the pod, or log in into the container and making changes</p></li>
 <li><p>to prevent in-place updating, make sure file system cannot be written once the pod</p></li>
 </ul>
-<dl class="simple">
+<dl>
 <dt>started</dt><dd><ul class="simple">
-<li><p>using only <code class="docutils literal notranslate"><span class="pre">readOnlyRootFileSystem</span></code>, application might break if it has to write logs
-or cache data</p></li>
-<li><p>use volume mounts</p></li>
-<li><p>can still make changes to sudo file system if container is run in privileged mode</p></li>
+<li><p>using only <code class="docutils literal notranslate"><span class="pre">readOnlyRootFileSystem</span></code>, application might break if it has to write logs</p></li>
 </ul>
+<p>or cache data
+- use volume mounts
+- can still make changes to sudo file system if container is run in privileged mode</p>
 </dd>
 </dl>
 <ul>
@@ -6563,19 +6549,19 @@ or cache data</p></li>
 <section id="limit-access-to-nodes">
 <h3>Limit access to nodes<a class="headerlink" href="#limit-access-to-nodes" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>limit exposure of control-plane and the nodes to the Internet</p></li>
 <li><p>some managed clusters do not allow access to control-plane, varies on CSP</p></li>
 <li><p>some solutions use private networks, the cluster can then be accessed via VPN</p></li>
 <li><dl class="simple">
-<dt>enable authorized access within firewall if not able to setup VPN</dt><dd><ul>
+<dt>enable authorized access within firewall if not able to setup VPN</dt><dd><ul class="simple">
 <li><p>allow restricted access to the nodes based on source IP range</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>configure who can access</dt><dd><ul>
+<dt>configure who can access</dt><dd><ul class="simple">
 <li><p>admins need ssh access as they need to manage the nodes</p></li>
 <li><p>developers might have access in development environment but not in production</p></li>
 <li><p>end users should be restricted from having access</p></li>
@@ -6583,28 +6569,28 @@ or cache data</p></li>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt>accounts</dt><dd><ul>
+<li><dl>
+<dt>accounts</dt><dd><ul class="simple">
 <li><p>user account: individuals who need access to Linux system, e.g admins, developers</p></li>
 <li><p>superuser account: root account with UID 0, has unrestricted access</p></li>
-<li><p>system account: created during OS installation, used by services not run
-as superuser</p></li>
-<li><p>service account: created when services are installed</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">who</span></code>, <code class="docutils literal notranslate"><span class="pre">last</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">usermod</span> <span class="pre">-s</span> <span class="pre">/bin/nologin</span> <span class="pre">user1</span></code>, <code class="docutils literal notranslate"><span class="pre">userdel</span> <span class="pre">user1</span></code>, <code class="docutils literal notranslate"><span class="pre">deluser</span> <span class="pre">user1</span> <span class="pre">group1</span></code></p></li>
+<li><p>system account: created during OS installation, used by services not run</p></li>
 </ul>
+<p>as superuser
+- service account: created when services are installed
+- <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">who</span></code>, <code class="docutils literal notranslate"><span class="pre">last</span></code>
+- <code class="docutils literal notranslate"><span class="pre">usermod</span> <span class="pre">-s</span> <span class="pre">/bin/nologin</span> <span class="pre">user1</span></code>, <code class="docutils literal notranslate"><span class="pre">userdel</span> <span class="pre">user1</span></code>, <code class="docutils literal notranslate"><span class="pre">deluser</span> <span class="pre">user1</span> <span class="pre">group1</span></code></p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>access control files</dt><dd><ul>
+<dt>access control files</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code>, <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code>, <code class="docutils literal notranslate"><span class="pre">/etc/group</span></code></p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>SSH</dt><dd><ul>
+<dt>SSH</dt><dd><ul class="simple">
 <li><p>disable password authentication and use key pairs to authenticate</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">PermitRootLogin</span> <span class="pre">no</span></code>, <code class="docutils literal notranslate"><span class="pre">PasswordAuthentication</span> <span class="pre">no</span></code> in <code class="docutils literal notranslate"><span class="pre">/etc/ssh/sshd_config</span></code></p></li>
 </ul>
@@ -6809,8 +6795,8 @@ lean images for production
 <section id="tools">
 <h2>Tools<a class="headerlink" href="#tools" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#kubectx">kubectx</a>, <a class="reference internal" href="#kubesec">kubesec</a>, <a class="reference internal" href="#trivy">Trivy</a>, <a class="reference internal" href="#weaveworks">Weaveworks</a>, <a class="reference internal" href="#helm">Helm</a>, <a href="#id63"><span class="problematic" id="id64">`CIS Benchmark`_</span></a>, <a class="reference internal" href="#kube-bench">kube-bench</a></p></li>
-<li><p><a href="#id65"><span class="problematic" id="id66">`OPA`_</span></a>, <a class="reference internal" href="#gvisor">gVisor</a>, <a class="reference internal" href="#kata-containers">Kata Containers</a>, <a class="reference internal" href="#falco">Falco</a></p></li>
+<li><p><a class="reference internal" href="#kubectx">kubectx</a>, <a class="reference internal" href="#kubesec">kubesec</a>, <a class="reference internal" href="#trivy">Trivy</a>, <a class="reference internal" href="#weaveworks">Weaveworks</a>, <a class="reference internal" href="#helm">Helm</a>, <a href="#id65"><span class="problematic" id="id66">`CIS Benchmark`_</span></a>, <a class="reference internal" href="#kube-bench">kube-bench</a></p></li>
+<li><p><a href="#id67"><span class="problematic" id="id68">`OPA`_</span></a>, <a class="reference internal" href="#gvisor">gVisor</a>, <a class="reference internal" href="#kata-containers">Kata Containers</a>, <a class="reference internal" href="#falco">Falco</a></p></li>
 </ul>
 <section id="kubectx">
 <h3>kubectx<a class="headerlink" href="#kubectx" title="Link to this heading">#</a></h3>
@@ -6951,24 +6937,24 @@ kubens<span class="w"> </span>-
 <span class="nt">passwordEncoded</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">encoDedPasSwoRd</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><dl class="simple">
-<dt>Helm Chart</dt><dd><ul>
-<li><p>combination of templates, <code class="docutils literal notranslate"><span class="pre">values.yml</span></code> and Chart.yml, which has info about the chart
-itself</p></li>
-<li><p>single chart may be used to deploy simple application</p></li>
-<li><p>can create own chart or search from [ArtifactHUB](<a class="reference external" href="https://artifacthub.io/">https://artifacthub.io/</a>), which
-is a repository for Helm Charts</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">search</span> <span class="pre">hub</span> <span class="pre">wordpress</span></code> searches from ArtifactHUB</p></li>
-<li><p>other repositories such as [Bitnami]()</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">repo</span> <span class="pre">add</span> <span class="pre">bitnami</span> <span class="pre">https://charts.bitnami.com/bitnami</span></code>: must add repository to
-search from other than ArtifactHUB</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">search</span> <span class="pre">repo</span> <span class="pre">wordpress</span></code>: can now search</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">repo</span> <span class="pre">list</span></code> to list repos</p></li>
-<li><p>release: each installation of a chart</p></li>
-<li><p>each release has a release name</p></li>
-<li><p>can install multiple releases and each release is independent of each other</p></li>
+<ul>
+<li><dl>
+<dt>Helm Chart</dt><dd><ul class="simple">
+<li><p>combination of templates, <code class="docutils literal notranslate"><span class="pre">values.yml</span></code> and Chart.yml, which has info about the chart</p></li>
 </ul>
+<p>itself
+- single chart may be used to deploy simple application
+- can create own chart or search from [ArtifactHUB](<a class="reference external" href="https://artifacthub.io/">https://artifacthub.io/</a>), which
+is a repository for Helm Charts
+- <code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">search</span> <span class="pre">hub</span> <span class="pre">wordpress</span></code> searches from ArtifactHUB
+- other repositories such as [Bitnami]()
+- <code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">repo</span> <span class="pre">add</span> <span class="pre">bitnami</span> <span class="pre">https://charts.bitnami.com/bitnami</span></code>: must add repository to
+search from other than ArtifactHUB
+- <code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">search</span> <span class="pre">repo</span> <span class="pre">wordpress</span></code>: can now search
+- <code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">repo</span> <span class="pre">list</span></code> to list repos
+- release: each installation of a chart
+- each release has a release name
+- can install multiple releases and each release is independent of each other</p>
 </dd>
 </dl>
 </li>
@@ -7000,17 +6986,17 @@ helm<span class="w"> </span>install<span class="w"> </span>release-3<span class=
 <section id="cis-benchmark-center-for-internet-security">
 <h3>CIS Benchmark (Center for Internet Security)<a class="headerlink" href="#cis-benchmark-center-for-internet-security" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt>some necessary security benchmark</dt><dd><ul>
+<div><ul>
+<li><dl>
+<dt>some necessary security benchmark</dt><dd><ul class="simple">
 <li><p>physical access (e.g usb ports)</p></li>
-<li><p>user access: what users, which users, disable root user, use sudo if required, but
-only those who are configured to</p></li>
-<li><p>network: configure firewall, iptables, open only required ports</p></li>
-<li><p>services: enable only necessary services</p></li>
-<li><p>filesystems: right permission of files, disable unused file systems</p></li>
-<li><p>auditing, logging</p></li>
+<li><p>user access: what users, which users, disable root user, use sudo if required, but</p></li>
 </ul>
+<p>only those who are configured to
+- network: configure firewall, iptables, open only required ports
+- services: enable only necessary services
+- filesystems: right permission of files, disable unused file systems
+- auditing, logging</p>
 </dd>
 </dl>
 </li>
@@ -7021,12 +7007,12 @@ only those who are configured to</p></li>
 <li><p>also provides tools to run assessments and remediate</p></li>
 <li><p>e.g CIS-CAT tool helps in automated assessment of the server and output result in html</p></li>
 <li><p>CIS-CAT Lite tool only support for Windows 10, Ubuntu, Google Chrome, macOS</p></li>
-<li><dl class="simple">
-<dt><strong>CIS benchmark for K8s</strong></dt><dd><ul>
-<li><p>document contains recommendations for components, details to check current status
-and necessary commands to remediate</p></li>
-<li><p>CIS-CAT Pro tool is required</p></li>
+<li><dl>
+<dt><strong>CIS benchmark for K8s</strong></dt><dd><ul class="simple">
+<li><p>document contains recommendations for components, details to check current status</p></li>
 </ul>
+<p>and necessary commands to remediate
+- CIS-CAT Pro tool is required</p>
 </dd>
 </dl>
 </li>
@@ -7035,7 +7021,7 @@ and necessary commands to remediate</p></li>
 </div></blockquote>
 <p>on the master node and set the –terminated-pod-gc-threshold to an appropriate threshold,
 for example:
-* -terminated-pod-gc-threshold=10</p>
+<a href="#id24"><span class="problematic" id="id25">*</span></a>-terminated-pod-gc-threshold=10</p>
 </section>
 <section id="kube-bench">
 <h3>kube-bench<a class="headerlink" href="#kube-bench" title="Link to this heading">#</a></h3>
@@ -7186,9 +7172,9 @@ to detect in case of compromise
 <li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-fu</span> <span class="pre">falco</span></code>, on nodes, inspect events</p></li>
 </ul>
 </div></blockquote>
-<ul class="simple">
+<ul>
 <li><dl class="simple">
-<dt>sysdig filters</dt><dd><ul>
+<dt>sysdig filters</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">container.id</span></code>, <code class="docutils literal notranslate"><span class="pre">proc.name</span></code>, <code class="docutils literal notranslate"><span class="pre">fd.name</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">evt.type</span></code>, <code class="docutils literal notranslate"><span class="pre">user.name</span></code>, <code class="docutils literal notranslate"><span class="pre">container.image.repository</span></code></p></li>
 </ul>
@@ -7196,7 +7182,7 @@ to detect in case of compromise
 </dl>
 </li>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">priority</span></code> values</dt><dd><ul>
+<dt><code class="docutils literal notranslate"><span class="pre">priority</span></code> values</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>, <code class="docutils literal notranslate"><span class="pre">INFORMATIONAL</span></code>, <code class="docutils literal notranslate"><span class="pre">NOTICE</span></code>, <code class="docutils literal notranslate"><span class="pre">WARNING</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ERROR</span></code>, <code class="docutils literal notranslate"><span class="pre">CRITICAL</span></code>, <code class="docutils literal notranslate"><span class="pre">ALERT</span></code>, <code class="docutils literal notranslate"><span class="pre">EMERGENCY</span></code></p></li>
 </ul>
@@ -7205,23 +7191,23 @@ to detect in case of compromise
 </li>
 <li><p>use <code class="docutils literal notranslate"><span class="pre">list</span></code> instead of making rules for each process</p></li>
 <li><p>use <code class="docutils literal notranslate"><span class="pre">macro</span></code> to write simpler conditions</p></li>
-<li><dl class="simple">
-<dt>main falco configuration file, <code class="docutils literal notranslate"><span class="pre">/etc/falco/falco.yml</span></code></dt><dd><ul>
+<li><dl>
+<dt>main falco configuration file, <code class="docutils literal notranslate"><span class="pre">/etc/falco/falco.yml</span></code></dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">rules_file</span></code>, define rules files to be used, order matters, the last file is used</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">json_out</span></code>, logs events in json, false by default, so logs as text</p></li>
 <li><p>logging options, <code class="docutils literal notranslate"><span class="pre">log_stderr</span></code>, <code class="docutils literal notranslate"><span class="pre">log_syslog</span></code>, <code class="docutils literal notranslate"><span class="pre">log_level</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">priority</span></code>, related to falco rules, minimum to use all events, everything higher
-will be logged</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">stdout_output</span></code>, logs to stdout by default, can have multiple output channels</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">file_output</span></code>, logs to a file</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">program_output</span></code>, send output to programs</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">http_output</span></code>, send output to http endpoints</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">priority</span></code>, related to falco rules, minimum to use all events, everything higher</p></li>
 </ul>
+<p>will be logged
+- <code class="docutils literal notranslate"><span class="pre">stdout_output</span></code>, logs to stdout by default, can have multiple output channels
+- <code class="docutils literal notranslate"><span class="pre">file_output</span></code>, logs to a file
+- <code class="docutils literal notranslate"><span class="pre">program_output</span></code>, send output to programs
+- <code class="docutils literal notranslate"><span class="pre">http_output</span></code>, send output to http endpoints</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>main rules file, <code class="docutils literal notranslate"><span class="pre">/etc/falco/falco_rules.yml</span></code></dt><dd><ul>
+<dt>main rules file, <code class="docutils literal notranslate"><span class="pre">/etc/falco/falco_rules.yml</span></code></dt><dd><ul class="simple">
 <li><p>contain all built-in rules, macros and lists</p></li>
 <li><p>check which file is used, <code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-fu</span> <span class="pre">falco</span></code></p></li>
 <li><p>changes to the file will be overwritten when falco updates</p></li>
@@ -7256,7 +7242,7 @@ will be logged</p></li>
 <h2>Exam Guide<a class="headerlink" href="#exam-guide" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>certs are made by CNCF in collaboration with The Linux Foundation</p></li>
-<li><p><a href="#id67"><span class="problematic" id="id68">`exam instructions`_</span></a>, <a href="#id69"><span class="problematic" id="id70">`curriculum`_</span></a>, <a href="#id71"><span class="problematic" id="id72">`handbook`_</span></a></p></li>
+<li><p><a href="#id69"><span class="problematic" id="id70">`exam instructions`_</span></a>, <a href="#id71"><span class="problematic" id="id72">`curriculum`_</span></a>, <a href="#id73"><span class="problematic" id="id74">`handbook`_</span></a></p></li>
 <li><p>discount code: DEVOPS15</p></li>
 </ul>
 <section id="ckad">
@@ -7303,16 +7289,16 @@ will be logged</p></li>
 <section id="additional-resources">
 <h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a href="#id73"><span class="problematic" id="id74">`Kubernetes the hard way`_</span></a></p></li>
-<li><p><a href="#id75"><span class="problematic" id="id76">`K8s Documentation`_</span></a>, <a href="#id77"><span class="problematic" id="id78">`Glossary`_</span></a></p></li>
-<li><p><a href="#id79"><span class="problematic" id="id80">`kubectl conventions`_</span></a>, <a href="#id81"><span class="problematic" id="id82">`kubectl overview`_</span></a>, <a href="#id83"><span class="problematic" id="id84">`kubectl cheat sheet`_</span></a>, <a href="#id85"><span class="problematic" id="id86">`kubectl commands`_</span></a></p></li>
+<li><p><a href="#id75"><span class="problematic" id="id76">`Kubernetes the hard way`_</span></a></p></li>
+<li><p><a href="#id77"><span class="problematic" id="id78">`K8s Documentation`_</span></a>, <a href="#id79"><span class="problematic" id="id80">`Glossary`_</span></a></p></li>
+<li><p><a href="#id81"><span class="problematic" id="id82">`kubectl conventions`_</span></a>, <a href="#id83"><span class="problematic" id="id84">`kubectl overview`_</span></a>, <a href="#id85"><span class="problematic" id="id86">`kubectl cheat sheet`_</span></a>, <a href="#id87"><span class="problematic" id="id88">`kubectl commands`_</span></a></p></li>
 <li><p><a class="reference internal" href="#secrets">Secrets</a></p></li>
 <li><p><a class="reference internal" href="#init-containers">Init Containers</a></p></li>
-<li><p><a class="reference internal" href="#ingress">Ingress</a>, <a href="#id87"><span class="problematic" id="id88">`K8s DNS`_</span></a></p></li>
-<li><p><a href="#id89"><span class="problematic" id="id90">`Storage`_</span></a>, <a href="#id91"><span class="problematic" id="id92">`Object Management`_</span></a></p></li>
-<li><p><a href="#id93"><span class="problematic" id="id94">`API Conventions`_</span></a>, <a href="#id95"><span class="problematic" id="id96">`Changing the API`_</span></a></p></li>
-<li><p><a href="#id97"><span class="problematic" id="id98">`Addons`_</span></a></p></li>
-<li><p><a href="#id99"><span class="problematic" id="id100">`KodeKloud CKA notes`_</span></a>, <a href="#id101"><span class="problematic" id="id102">`KodeKloud CKS notes`_</span></a></p></li>
+<li><p><a class="reference internal" href="#ingress">Ingress</a>, <a href="#id89"><span class="problematic" id="id90">`K8s DNS`_</span></a></p></li>
+<li><p><a href="#id91"><span class="problematic" id="id92">`Storage`_</span></a>, <a href="#id93"><span class="problematic" id="id94">`Object Management`_</span></a></p></li>
+<li><p><a href="#id95"><span class="problematic" id="id96">`API Conventions`_</span></a>, <a href="#id97"><span class="problematic" id="id98">`Changing the API`_</span></a></p></li>
+<li><p><a href="#id99"><span class="problematic" id="id100">`Addons`_</span></a></p></li>
+<li><p><a href="#id101"><span class="problematic" id="id102">`KodeKloud CKA notes`_</span></a>, <a href="#id103"><span class="problematic" id="id104">`KodeKloud CKS notes`_</span></a></p></li>
 </ul>
 <p><a class="reference external" href="#kubernetes">back to top</a></p>
 </section>

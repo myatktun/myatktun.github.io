@@ -68,8 +68,8 @@ declaration
     * reasons to declare before using
         - simplifies reading for both humans and compiler
         - having to know only the used declarations saves humans and compilers from looking
-          through huge amounts of program text, especially when functions used are defined in
-          other places
+        through huge amounts of program text, especially when functions used are defined in
+        other places
 
 definition
 ----------
@@ -87,7 +87,7 @@ compiled separately
 header
 ------
     * collection of declarations, usually in another file
-    * to use headers, ``#include`` in (preprocess) source files, both in files that use its
+    *  to use headers, ``#include`` in (preprocess) source files, both in files that use its
     declarations and provide definitions
     * ``.h`` suffix is most common for headers, ``.cpp`` for source files
     * some compilers and most development environments insist on having suffixes although they
@@ -102,7 +102,7 @@ Variables
         - bool, char, int, float, double, void, wchar_t (wide char type)
         - definition without an initializer are initialized with NULL
         - ``extern`` tells the compiler that the variable is defined in another source, outside of current
-          scope
+        scope
         - omitting type with modifiers (signed, unsigned, long, short) auto implies int
 
         .. code-block:: cpp
@@ -118,7 +118,7 @@ Variables
         - *const*: cannot be changed during execution
         - *volatile*: value may be changed in ways not specified by the program
         - *restrict*: qualified pointer is initially the only means by which the object it points
-          to can be accessed
+        to can be accessed
     * **value**: a set of bits in memory interpreted according to a type
     * lvalue (variables)
         - expressions that refer to memory location
@@ -130,37 +130,37 @@ Variables
         - "values of object named by x"
     * **scopes**
         - global
-          + defined outside of all functions, usually on top of the program
-          + can be accessed by any function
+           + defined outside of all functions, usually on top of the program
+           + can be accessed by any function
         - local
-          + declared inside a function or block
-          + can be used only by statements that are inside the function
+           + declared inside a function or block
+           + can be used only by statements that are inside the function
         - can have same name for local and global but value of local will take preference
     * **storage class**
         - defines the scope and life-time of variables and functions
         - *auto*
-          + default class for all local variables
-          + can only be used in functions/locals
+           + default class for all local variables
+           + can only be used in functions/locals
         - *register*
-          + for local variables to be stored in a register instead of RAM
-          + variable max size is equal to register size usually one word
-          + cannot have '&' operator applied to it as it does not have mem location
-          + should only be used for quick access such as counters
-          + not guaranteed to be stored in register depending on hardware restrictions
+           + for local variables to be stored in a register instead of RAM
+           + variable max size is equal to register size usually one word
+           + cannot have '&' operator applied to it as it does not have mem location
+           + should only be used for quick access such as counters
+           + not guaranteed to be stored in register depending on hardware restrictions
         - *static*
-          + keep local variable instead of creating and destroying
-          + maintain values between function calls
-          + applying to global causes it's scope to be restricted to the declared file
-          + using on class data member causes only one copy of that member to be shared by all
-          objects of its class
+           + keep local variable instead of creating and destroying
+           + maintain values between function calls
+           + applying to global causes it's scope to be restricted to the declared file
+           + using on class data member causes only one copy of that member to be shared by all
+           objects of its class
         - *extern*
-          + to give reference of global
-          + variable cannot be initialized as it only points the variable name at location that has
-          been defined
-          + commonly used when tow or more files share the same globals
+           + to give reference of global
+           + variable cannot be initialized as it only points the variable name at location that has
+           been defined
+           + commonly used when tow or more files share the same globals
         - *mutable*
-          + applies only to class objects
-          + allows a member of object to override const member function
+           + applies only to class objects
+           + allows a member of object to override const member function
     * logically, assignment and initialization are different
     * **constexpr**
         - symbolic constant and must be given a value at compile time
@@ -187,18 +187,18 @@ I/O
     * reading of strings is terminated by whitespace (space, newline, tab)
     * ``<iostream>``
         - cin (standard input)
-          + instance of istream class
-          + used with stream extraction operator, get from, '>>'
+           + instance of istream class
+           + used with stream extraction operator, get from, '>>'
         - cout (standard output)
-          + instance of ostream class
-          + used with stream insertion operator '<<'
+           + instance of ostream class
+           + used with stream insertion operator '<<'
         - cerr (un-buffered standard error stream)
-          + instance of ostream class
-          + each stream insertion causes output to appear immediately
-          + more resilient to errors as it is not optimized
+           + instance of ostream class
+           + each stream insertion causes output to appear immediately
+           + more resilient to errors as it is not optimized
         - clog (buffered standard error stream)
-          + instance of ostream class
-          + each stream insertion is held in a buffer till filled or flushed
+           + instance of ostream class
+           + each stream insertion is held in a buffer till filled or flushed
     * ``<iomanip>``
         - services useful for formatted I/O with parameterized stream manipulators
         - setw, setprecision
@@ -312,10 +312,10 @@ I/O
 
     * **fields** for integers: ``setw()``
         - using scientific and fixed formats, how much space a value takes up on output by
-          floating-point numbers can be controlled, which is useful for printing table
+        floating-point numbers can be controlled, which is useful for printing table
         - same thing can be done for integers with *fields*
         - can specify exactly how many character positions an integer value or string value
-          will occupy
+        will occupy
         - field sizes don't stick
 
         .. code-block:: cpp
@@ -354,16 +354,16 @@ Operators
     * **misc**
         - sizeof, conditional, comma, member (. & ->), cast, address (&), indirection (*)
         - ``sizeof()`` can be used on type name or expression
-          + for type, gives size of an object
-          + for expression, gives size of the type
-          + gives number of bytes
-          + size of a type can be different on various implementation of C++
+           + for type, gives size of an object
+           + for expression, gives size of the type
+           + gives number of bytes
+           + size of a type can be different on various implementation of C++
     * precedence
         - left to right
-          + postfix, multiplicative, additive, shift, relational, equality, bitwise (AND, OR,
-          XOR), logical (AND, OR), comma
+           + postfix, multiplicative, additive, shift, relational, equality, bitwise (AND, OR,
+           XOR), logical (AND, OR), comma
         - right to left
-          + unary, conditional, assignment
+           + unary, conditional, assignment
     * ``*=`` & ``/=`` are referred to as scaling in many application domains
     * if an operator has an operand type of ``double``, floating-point arithmetic is used
 
@@ -371,9 +371,9 @@ Literals
 --------
     * **integer**
         - prefix specifies the base or radix
-          + 0x or 0X for hexa
-          + 0 for octal
-          + nothing for decimal
+           + 0x or 0X for hexa
+           + 0 for octal
+           + nothing for decimal
         - can have suffix combination of U/u and L/l for unsigned and long
 
         .. code-block:: cpp
@@ -402,22 +402,22 @@ Literals
         - enclosed in single quote
         - wide character begins with L and should be stored in ``wchar_t``
         - on a PC, range of char values is [-128:127], but only [0:127]l can be used portably
-          as not every computer is a PC and different computers have different ranges, [0:255]
+        as not every computer is a PC and different computers have different ranges, [0:255]
         - special meaning chars
-          + \a       alert or bell
-          + \b       backspace
-          + \f       form feed
-          + \r       carriage return
-          + \t       horizontal tab
-          + \v       vertical tab
-          + \ooo     octal number of one to three digits
-          + \xhh...  hexa number of one or more digits
+           + \a       alert or bell
+           + \b       backspace
+           + \f       form feed
+           + \r       carriage return
+           + \t       horizontal tab
+           + \v       vertical tab
+           + \ooo     octal number of one to three digits
+           + \xhh...  hexa number of one or more digits
     * **string**
         - enclosed in double quotes
         - representation of a string is a bit more complicated than that of an int as a string
-          keeps track of the number of characters it holds
+        keeps track of the number of characters it holds
         - functions
-          + strcpy, strcat, strlen, strcmp, strchr, strstr
+           + strcpy, strcat, strlen, strcmp, strchr, strstr
 
         .. code-block:: cpp
 
@@ -538,7 +538,7 @@ Loops
 
 
         - the first program ever to run on a stored-program computer (the EDSAC), written and
-          run by David Wheeler, was simple iteration of square numbers
+        run by David Wheeler, was simple iteration of square numbers
         - loop variable must be defined and initialized outside (before) the statement
     * **for**
 
@@ -706,7 +706,7 @@ Run-time errors
     * but checking in function isn't always done when
         - cannot modify the function definition (using from library)
         - called function doesn't know what to do in case of error (library writer can detect
-          errors, but only user know what to do with them)
+        errors, but only user know what to do with them)
         - called function doesn't know where it was called from
         - performance cost of a check can be more than the cost of calculating the result
     * letting the called function send errors and the caller handling them can have problems
@@ -733,8 +733,8 @@ Logic errors
         - ``std::invalid_argument``
         - ``std::length_error``
         - ``std::out_of_range`` (off-by-one error, bounds error)
-          + subscript operation of vector knows its size and will check, if the check fails,
-          the subscript operation throws 'out_of_range' exception
+           + subscript operation of vector knows its size and will check, if the check fails,
+           the subscript operation throws 'out_of_range' exception
     * ``std::runtime_error``
         - ``std::overflow_error``
         - ``std::underflow_error``
@@ -823,7 +823,7 @@ Program Evaluation
     * never access the value of variable in an expression twice
         - ``v[i] = ++i``
         - not all compilers warn about the bad code and different compilers result different
-          values
+         values
         - left or right hand side of the assignment may be evaluated first
 
 Namespaces
@@ -851,7 +851,7 @@ Namespaces
 
     * ``using`` directive
         - avoid prepending of namespaces, tells the compiler that subsequent code is making
-          use of names specified in namespace
+        use of names specified in namespace
         - no declaration for a name in the scope means it is likely to be in ``std``
 
         .. code-block:: cpp
@@ -875,7 +875,7 @@ Namespaces
 
 
         - names introduced obey normal scope rules, entities with the same name defined in
-          outer scope are hidden
+        outer scope are hidden
         - good idea to avoid ``using`` for namespaces except for well known ones such as ``std``
         - may lose track to which names come from where
         - putting ``using`` in header file is bad habit
@@ -982,7 +982,7 @@ Overloading
     * both declarations have different arguments and definition
     * overload resolution
         - compiler determines the most appropriate definition to use by comparing argument types used
-          to call the function with parameter types specified in the definitions
+        to call the function with parameter types specified in the definitions
     * **operator overloading**
         - functions starting with ``operator``
         - can define as ordinary non-member functions or as class member functions
@@ -1001,7 +1001,7 @@ Overloading
 
         - **cannot overload** (::, .* , ., ?:, sizeof, typeid)
         - need to make I/O operator overloading a friend of the class as it would be called
-          without creating an object
+        without creating an object
 
         .. code-block:: cpp
 
@@ -1019,7 +1019,7 @@ Overloading
 
 
         - overloading function call operator () is not creating new way to call a function,
-          it's creating operator function that can be passed an arbitrary number of parameters
+        it's creating operator function that can be passed an arbitrary number of parameters
 
         .. code-block:: cpp
 
@@ -1036,7 +1036,7 @@ Overloading
 
 
         - in overloading class member operator (->), operator -> must be a member function and
-          return type must be a pointer or an object of a class to which it can be applied
+        return type must be a pointer or an object of a class to which it can be applied
     * **function overloading**
         - can have multiple definitions for same function name in the same scope
         - definition of functions must differ by the types and/or number of arguments
@@ -1178,12 +1178,12 @@ Files
         - difference between fail and bad is not precisely defined
         - a stream that is ``bad()`` is also ``fail()``
         - when a stream fails, it can be recovered by taking it out of the ``fail()`` state with
-          ``clear()``
+        ``clear()``
         - stream state can be set back to ``fail()`` with ``ist.clear(ios_base::failbit)``, which
-          sets ``iostream`` state to flags mentioned but clear flags that are not
+        sets ``iostream`` state to flags mentioned but clear flags that are not
         - character can be put back into ``ist`` using ``unget()``
         - getting more data from ``bad()`` state is unlikely, but to throw an exception with
-          ``ist.exceptions(ist.exceptions()|ios_base::badbit)``
+        ``ist.exceptions(ist.exceptions()|ios_base::badbit)``
     * ``iostream`` can handle different character sets, implement different buffering strategies,
     and contain facilities for formatting monetary amounts in various languages
     * usually errors are much rarer for output than for input, only test each output operation
@@ -1216,7 +1216,7 @@ Files
         - ``istringstream`` is useful for extracting numeric values from a string
         - will go into ``eof()`` state if read beyond the end of ``istringstream`` string
         - ``ostringstream`` can be useful for formatting output for a system that requires
-          simple string argument such as GUI system
+        simple string argument such as GUI system
 
         .. code-block:: cpp
 
@@ -1226,10 +1226,10 @@ Files
 
 
         - ``str()`` member function of ``ostringstream`` returns the string composed by output
-          operations to an ``ostringstream``
+        operations to an ``ostringstream``
         - ``c_str()`` is member of ``string`` that returns C-style string
         - stringstreams are used to separate actual I/O from processing, usually to filter
-          characters out of input
+        characters out of input
         - can use ``ostringstream`` to concatenate strings
     * ``istream`` library provides to read individual characters and whole lines
 
@@ -1403,7 +1403,7 @@ Free Store
 
     * always return memory to free store after using
         - essential for long-running programs such as operating systems, embedded systems
-          and libraries
+        and libraries
 
         .. code-block:: cpp
 
@@ -1621,9 +1621,9 @@ Member Functions
     - has definition or prototype within the class definition
     - can be defined within the class or separately using scope resolution operator (::)
     - function definitions are implementations that specify how things are done, and
-      usually specified outside the class so that they don't distract
+    usually specified outside the class so that they don't distract
     - within member function, a member name refers to the member of that name in the
-      object for which the member function was called
+    object for which the member function was called
 
     .. code-block:: cpp
 
@@ -1699,7 +1699,7 @@ Constructor
 
 
     - can use default arguments to provide several overloaded functions, but can only
-      define default arguments for trailing parameters
+    define default arguments for trailing parameters
 
     .. code-block:: cpp
 
@@ -1716,7 +1716,7 @@ Constructor
 
 
     - for type T, T{} is the notation for the default value, as defined by the default
-      constructor
+    constructor
 
     .. code-block:: cpp
 
@@ -1778,7 +1778,7 @@ Destructor
     * class with a virtual function needs a virtual destructor
         - as the class is likely to be used as base class
         - derived classes are likely to be allocated using ``new`` and deleted through pointer
-          to its base
+        to its base
 
 Copy Constructor
 ----------------
@@ -2010,19 +2010,19 @@ Inheritance
     * **public inheritance**
         - public and protected members of base become public and protected of derived
         - private members are only accessible through calls to public and protected members of
-          base
+        base
     * **protected inheritance**
         - public and protected members of base become protected members of derived
         - public and protected member names can be used by members of the class and derived
-          classes
+        classes
     * **private inheritance**
         - public and protected member names can only be used by members of the class
     * **Virtual Table**
         - also called vtbl and its address is called virtual pointer, vptr
         - when inheritance is used, the data members of derived class are simply added after
-          those of a base
+        those of a base
         - the table tells which function is actually invoked when a function is called, with
-          only two memory accesses for finding the right function
+        only two memory accesses for finding the right function
         - only one vtbl for each class with a virtual function, not each object
     * **Overriding**
         - explicit use of ``override`` is useful in large, complicated class hierarchies
@@ -2047,7 +2047,7 @@ Inheritance
     * **Implementation Inheritance**
         - simplify the implementation of derived classes by using what the base offers
         - any change to the interface of the base require recompilation of all derived classes
-          and their users
+        and their users
 * programming by difference: program only the difference of derived class to the base class
 
 Data Encapsulation
@@ -2179,17 +2179,17 @@ Polymorphism
 
     * compiler now looks at the contents of the pointer instead of it's type
         - since addresses of objects of tri and rec classes are stored in shape, respective
-          area() function is called
+        area() function is called
     * **dynamic linkage** or **late binding**
         - function in the base class declared with ``virtual`` and signals the compiler not to have
-          static linkage for the function
+        static linkage for the function
         - only call functions based on the kind of object for which it is called
     * **pure virtual function**
         - must be overridden
         - cannot create objects of classes with pure virtual functions
         - if all pure virtual functions are not overridden, derived class is still abstract
         - classes with pure virtual function are pure interfaces, have no data members and
-          constructors
+        constructors
 
         .. code-block:: cpp
 
@@ -2227,10 +2227,10 @@ Designing Classes
         - inheritance will allow the use of members from the base
     * **Virtual Functions**
         - defining the same function in derived class so that it is called when a user calls
-          the base class function
+        the base class function
         - must have exactly same name and type as the base class
         - also called as run-time polymorphism, dynamic dispatch, run-time dispatch as the
-          function called is determined at run time based on the type of the object
+        function called is determined at run time based on the type of the object
         - must be declared ``virtual`` in the class declaration, but not when defining outside
     * **Private/Protected members**
         - keeping implementation details private to protect direct use
@@ -3092,7 +3092,7 @@ Vector Custom
     * need data members to hold the size and elements
         - functions such as ``push_back()`` cannot be implemented with fixed number of elements
         - need data member that points to different sets of elements if more space is required
-          , such as a pointer to the first element
+        , such as a pointer to the first element
 
     .. code-block:: cpp
 

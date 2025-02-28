@@ -32,7 +32,7 @@ Graphics API
         - such as in Direct3D and OpenGL, where drawing commands are part of software library
         - user-interface software is independent and might vary from system to system
         - can be problematic to write portable code, but possible to use portable library
-          layer
+        layer
 
 Making Code Fast
 ----------------
@@ -48,13 +48,13 @@ Designing Graphics Programs
     * have good classes or routines for geometric entities such as vectors and metrices
     * **Basic Classes**
         - vector2, vector3: 2D and 3D vectorss to store x and y components, should have
-          operations for vector addition, subtraction, dot product, cross product, scalar
-          multiplication and division
+        operations for vector addition, subtraction, dot product, cross product, scalar
+        multiplication and division
         - hvector: homogeneous vector with four components
         - rgb: to store RGB, three color components, should have operations for RGB addition,
-          RGB subtraction, RGB multiplication, scalar multiplication and division
+        RGB subtraction, RGB multiplication, scalar multiplication and division
         - transform: 4x4 matrix for transformations, should have matrix multiply, functions
-          to apply to locations, directions and surface normal vectors
+        to apply to locations, directions and surface normal vectors
         - image: 2D array of RGB pixels with output operation
     * best to keep memory usage down and maintain coherent memory access
     * consider tradeoffs between using single-precision data and double-precision arithmetic

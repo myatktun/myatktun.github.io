@@ -24,17 +24,17 @@ How Computer Operates
     * **Bootstrap Program**
         - initial program, firmware, that runs when a computer is powered up
         - stored in ROM (read-only memory) or EEPROM (electrically erasable programmable
-          read-only memory)
+        read-only memory)
     * **Interrupt**
         - a signal sent when an event occurs
         - hardware trigger it by sending a signal to CPU
         - software trigger it by executing system call, also called monitor call
         - when CPU receives an interrupt, it stops current execution and immediately transfer
-          it to a fixed location
+        it to a fixed location
         - interrupted execution resumes when the interrupt service routine completes
         - interrupts must be handled quickly
         - interrupt vector: a table of pointers to interrupt routines, there are only a number
-          of predefined interrupts
+        of predefined interrupts
         - if necessary, interrupt routine must save CPU state and restore it before returning
 
 Storage
@@ -59,9 +59,9 @@ Storage
         - electronic disk stores data in large DRAM array during normal operation
         - most devices contain hidden magnetic hard disk and battery for backup power
         - when external power is interrupted, electronic disk controller copies data from RAM
-          to magnetic disk, and vice versa when power is restored
+        to magnetic disk, and vice versa when power is restored
         - flash memory: a form of electronic disk, slower than DRAM but no power required to
-          retain contents
+        retain contents
         - NVRAM: nonvolatile, DRAM with backup battery
     * register > cache > main memory > electronic disk > magnetic disk > optical disk >
     magnetic tape
@@ -82,7 +82,7 @@ I/O Structure
         - controller transfer data from device to its local buffer
         - controller informs the driver via interrupt upon transfer completion
         - driver returns control to OS, also return data or pointer to data for read operation
-          or status information for other operations
+        or status information for other operations
     * interrupt-driven I/O is fine for small data, but not for large one, as one interrupt per
     byte is generated
     * **DMA (direct memory access)**

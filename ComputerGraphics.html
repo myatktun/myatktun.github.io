@@ -388,24 +388,24 @@ color</p></li>
 <section id="graphics-api">
 <h3>Graphics API<a class="headerlink" href="#graphics-api" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>API (Application Programming Interface): standard collection of functions</p></li>
 <li><p>graphics API: for visual output</p></li>
 <li><p>user-interface API: to get input from user</p></li>
 <li><dl class="simple">
-<dt><strong>Integrate Paradigm APIs</strong></dt><dd><ul>
+<dt><strong>Integrate Paradigm APIs</strong></dt><dd><ul class="simple">
 <li><p>such as in Java, where toolkits are integrated and portable packages</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>Library Paradigm APIs</strong></dt><dd><ul>
+<li><dl>
+<dt><strong>Library Paradigm APIs</strong></dt><dd><ul class="simple">
 <li><p>such as in Direct3D and OpenGL, where drawing commands are part of software library</p></li>
 <li><p>user-interface software is independent and might vary from system to system</p></li>
-<li><p>can be problematic to write portable code, but possible to use portable library
-layer</p></li>
+<li><p>can be problematic to write portable code, but possible to use portable library</p></li>
 </ul>
+<p>layer</p>
 </dd>
 </dl>
 </li>
@@ -428,20 +428,20 @@ layer</p></li>
 <section id="designing-graphics-programs">
 <h3>Designing Graphics Programs<a class="headerlink" href="#designing-graphics-programs" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>have good classes or routines for geometric entities such as vectors and metrices</p></li>
-<li><dl class="simple">
-<dt><strong>Basic Classes</strong></dt><dd><ul>
-<li><p>vector2, vector3: 2D and 3D vectorss to store x and y components, should have
-operations for vector addition, subtraction, dot product, cross product, scalar
-multiplication and division</p></li>
-<li><p>hvector: homogeneous vector with four components</p></li>
-<li><p>rgb: to store RGB, three color components, should have operations for RGB addition,
-RGB subtraction, RGB multiplication, scalar multiplication and division</p></li>
-<li><p>transform: 4x4 matrix for transformations, should have matrix multiply, functions
-to apply to locations, directions and surface normal vectors</p></li>
-<li><p>image: 2D array of RGB pixels with output operation</p></li>
+<li><dl>
+<dt><strong>Basic Classes</strong></dt><dd><ul class="simple">
+<li><p>vector2, vector3: 2D and 3D vectorss to store x and y components, should have</p></li>
 </ul>
+<p>operations for vector addition, subtraction, dot product, cross product, scalar
+multiplication and division
+- hvector: homogeneous vector with four components
+- rgb: to store RGB, three color components, should have operations for RGB addition,
+RGB subtraction, RGB multiplication, scalar multiplication and division
+- transform: 4x4 matrix for transformations, should have matrix multiply, functions
+to apply to locations, directions and surface normal vectors
+- image: 2D array of RGB pixels with output operation</p>
 </dd>
 </dl>
 </li>

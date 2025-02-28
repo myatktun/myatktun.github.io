@@ -1038,19 +1038,16 @@ docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> 
 </dl>
 </li>
 <li><dl>
-<dt>running end-to-end tests</dt><dd><ul>
+<dt>running end-to-end tests</dt><dd><ul class="simple">
 <li><p>create containers that bundle test tools together</p></li>
 <li><p>e.g. Selenium has images with bundled Firefox/Chrome browsers</p></li>
 <li><p>‘–exit-code-from’ flag will tell compose to watch one service, tear the stack down when it
 exits, and pass along the exit code</p></li>
-<li><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>
+<li></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose-test.yml<span class="w"> </span>-p<span class="w"> </span>tests<span class="w"> </span>up<span class="w"> </span>--exit-code-from<span class="w"> </span>tests
 </pre></div>
 </div>
-</li>
-</ul>
-<blockquote>
-<div><p>docker compose -f docker-compose-test.yml -p tests up –exit-code-from tests</p>
-</div></blockquote>
 </dd>
 </dl>
 </li>

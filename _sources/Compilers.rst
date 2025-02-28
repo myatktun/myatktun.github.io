@@ -113,48 +113,48 @@ Phases
 
           character stream
                 |
-         * -----------------
+         *-----------------
         | Lexical Analyzer |
-         * -----------------
+         *-----------------
                 |
            token stream
                 |
-         * -----------------
+         *-----------------
         | Syntax Analyzer |
-         * -----------------
+         *-----------------
                 |
            syntax tree
                 |
-         * -----------------
+         *-----------------
         | Semantic Analyzer |
-         * -----------------
+         *-----------------
                 |
           syntax tree
                 |
-         * -----------------
+         *-----------------
         | Intermediate Code |                 front-end
         | Generator         | -------------------------------------------------
-         * -----------------
+         *-----------------
                 |
       intermediate representation
                 |
-         * --------------------
+         *--------------------
         | Machine-Independent | (only some compilers have this phase)
         | Code Optimizer      | (for backend to produce better target program)
-         * --------------------
+         *--------------------
                 |
       intermediate representation
                 |
-         * ---------------                     back-end
+         *---------------                     back-end
         | Code Generator | ----------------------------------------------------
-         * ---------------
+         *---------------
                 |
         target-machine code
                 |
-         * ------------------
+         *------------------
         | Machine-Dependent |
         | Code Optimizer    |
-         * ------------------
+         *------------------
                 |
         target-machine code
 
@@ -165,15 +165,15 @@ Phases
 
                a = b + c * 9
                     |
-             * -----------------
+             *-----------------
             | Lexical Analyzer |
-             * -----------------
+             *-----------------
                     |
         <id, 1> <=> <id, 2> <+> <id, 3> <*> <9>
                     |
-             * -----------------
+             *-----------------
             | Syntax Analyzer |
-             * -----------------
+             *-----------------
                     |
                  =
                /   \
@@ -183,9 +183,9 @@ Phases
                       /   \
                   <id, 3>  9
                     |
-             * -----------------
+             *-----------------
             | Semantic Analyzer |
-             * -----------------
+             *-----------------
                     |
                  =
                /   \
@@ -197,26 +197,26 @@ Phases
                              |
                              9
                     |
-             * -----------------
+             *-----------------
             | Intermediate Code |
             | Generator         |
-             * -----------------
+             *-----------------
                     |
                 t1  = inttotfloat(9)
                 t2  = id3 * t1
                 t3  = id2 + t2
                 id1 = t3
                     |
-             * --------------------
+             *--------------------
             | Code Optimizer      |
-             * --------------------
+             *--------------------
                     |
                 t1  = id3 * 9.0
                 id1 = id2 + t1
                     |
-             * ---------------
+             *---------------
             | Code Generator |
-             * ---------------
+             *---------------
                     |
               LDF  R2, id3
               MULF R2, R2, #9.0
@@ -234,7 +234,7 @@ Lexical Analysis
         - a token, ``<token-name, attribute-value>``, is made from each lexeme
         - token-name: abstract symbol to use during syntax analysis
         - attribute-value: points to a symbol table entry, which is needed for semantic
-          analysis and code generation
+        analysis and code generation
         - symbol table entry for identifier has information such as name and type
     * blanks separating the lexemes are discarded by lexical anaylzer
 
@@ -260,7 +260,7 @@ Syntax Analysis
     * second phase of compiler, also called parsing
     * **Syntax Tree**
         - tree-like intermediate representation created from the tokens made by lexical
-          anaylzer
+        anaylzer
         - each node is an operation and the arguments of the operation as the children
 
 
@@ -298,7 +298,7 @@ Intermediate Code Generation
     * **Three-address Code**
         - consist sequence of assembly-like instructions with three operands per instruction
         - each assignment instruction has at most one operator on right side, fixing the order
-          of operations
+        of operations
         - compiler must generate temporary name to hold value computed by instruction
         - some instructions have fewer than three operands, e.g ``id1 = t3``
 
