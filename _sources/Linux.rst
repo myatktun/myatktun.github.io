@@ -210,7 +210,7 @@ Bootloader
     * **on EFI**
         - ``grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg``, make config on EFI
         - ``dnf reinstall grub2-efi grub2-efi-modules shim``, auto place config file in right
-        location
+          location
     * edit the file ``/etc/default/grub`` and use above commands to update grub config
 
 init
@@ -1253,7 +1253,7 @@ File Operations
         - called by mmap(2)
     * **``int (*open) (struct inode *, struct file *)``**
         - to open an inode, and create a new ``struct file``, driver is not required to declare
-        the method
+          the method
         - good place to initialise ``file->private_data`` to point to a device structure
         - NULL method always succeed opening the device, but driver is not notified
     * **``int (*flush) (struct file *, fl_ownder_t id)``**

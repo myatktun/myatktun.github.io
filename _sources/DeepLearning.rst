@@ -19,7 +19,6 @@ Tokenizer
 * contains encoder and decoder, which convert each element of array to specific type, e.g char
   to int
 
-
 Character Level Tokenizer
 -------------------------
     * takes a char and converts it to integer equivalent
@@ -40,7 +39,6 @@ Optimizer
 
 * `Mean Squared Error`_, `Gradient Descent`_, `Momentum`_, `RMSprop`_, `Adam`_, `AdamW`_
 * it is essential to know which optimizer to use based on a problem
-
 
 Mean Squared Error
 ------------------
@@ -69,7 +67,7 @@ RMSprop
     * Root Mean Square Propagation, uses a moving average of the square gradient to adapt
       learning rates of each parameter
     * helps to avoid oscillations in the parameter updates and can improve convergence in some
-    cases
+      cases
 
 Adam
 ----

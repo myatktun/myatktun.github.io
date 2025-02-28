@@ -397,7 +397,6 @@
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="#basics">Basics</a></p></li>
 <li><p><a class="reference internal" href="#thread-life-cycle">Thread Life Cycle</a></p></li>
-<li><p><a href="#id8"><span class="problematic" id="id9">`Thread Synchronisation`_</span></a></p></li>
 <li><p><a class="reference internal" href="#mutex">Mutex</a></p></li>
 <li><p><a class="reference internal" href="#condition-variables">Condition Variables</a></p></li>
 <li><p><a class="reference internal" href="#deadlock">Deadlock</a></p></li>
@@ -410,6 +409,8 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="#threads">Threads</a>, <a class="reference internal" href="#concurrency">Concurrency</a>, <a class="reference internal" href="#parallelism">Parallelism</a>, <a class="reference internal" href="#thread-safety">Thread Safety</a>, <a class="reference internal" href="#asynchrony">Asynchrony</a></p></li>
 <li><p><a class="reference internal" href="#thread-evaporation">Thread Evaporation</a>, <a class="reference internal" href="#invariants">Invariants</a>, <a class="reference internal" href="#critical-sections">Critical Sections</a></p></li>
+<li><p>Uniprocessor: single execution unit, even if it has vector processors or I/O coprocessors</p></li>
+<li><p>Multiprocessor: more than one processor sharing instruction set and physical memory</p></li>
 </ul>
 <section id="threads">
 <h3>Threads<a class="headerlink" href="#threads" title="Link to this heading">#</a></h3>
@@ -422,24 +423,23 @@
 <li><p>condition variables: used to signal or broadcast to indicate shared data state changes</p></li>
 <li><p>no threads per process limit, but a limit on total number of processes on the system</p></li>
 <li><p>threads force to think about and plan for synchronisation requirements</p></li>
-<li><p>threaded programming model isolates loosely couple functional execution streams, with</p></li>
-</ul>
-<p>each function having explicit synchronisation for dependencies
-* threads execute independently, but share address space and file descriptors
-* each thread can read and write variables in shared memory
-* data race: threads simultaneously read and write the same data
-* <strong>Cons</strong></p>
-<blockquote>
-<div><ul class="simple">
+<li><p>threaded programming model isolates loosely couple functional execution streams, with
+each function having explicit synchronisation for dependencies</p></li>
+<li><p>threads execute independently, but share address space and file descriptors</p></li>
+<li><p>each thread can read and write variables in shared memory</p></li>
+<li><p>data race: threads simultaneously read and write the same data</p></li>
+<li><dl class="simple">
+<dt><strong>Cons</strong></dt><dd><ul>
 <li><p>can be less efficient by using synchronisation too much</p></li>
-<li><p>threads writing to the same memory locations may spend more time synchronising the</p></li>
+<li><p>threads writing to the same memory locations may spend more time synchronising the
+memory on processors with read/write ordering</p></li>
+<li><p>adding threads to remove a bottleneck can give rise to another</p></li>
+<li><p>performance decrease when using too many compute-bound threads</p></li>
+<li><p>a bug might not occur if one thread runs slower than another due to debugger trap</p></li>
 </ul>
-<p>memory on processors with read/write ordering
-- adding threads to remove a bottleneck can give rise to another
-- performance decrease when using too many compute-bound threads
-- a bug might not occur if one thread runs slower than another due to debugger trap</p>
-</div></blockquote>
-<ul class="simple">
+</dd>
+</dl>
+</li>
 <li><dl class="simple">
 <dt><strong>When to use</strong></dt><dd><ul>
 <li><p>for code parallelizable into multiple threads, and written for multiprocessor</p></li>
@@ -451,10 +451,6 @@
 </li>
 </ul>
 </div></blockquote>
-<ul class="simple">
-<li><p>Uniprocessor: single execution unit, even if it has vector processors or I/O coprocessors</p></li>
-<li><p>Multiprocessor: more than one processor sharing instruction set and physical memory</p></li>
-</ul>
 </section>
 <section id="concurrency">
 <h3>Concurrency<a class="headerlink" href="#concurrency" title="Link to this heading">#</a></h3>
@@ -462,45 +458,44 @@
 <div><ul class="simple">
 <li><p>describes the behaviour of threads or processes on uniprocessor system</p></li>
 <li><p>appear to happen at the same time, but may occur serially</p></li>
-<li><p>does not imply that tasks proceed simultaneously, but rather correctly executed</p></li>
+<li><p>does not imply that tasks proceed simultaneously, but rather correctly executed
+alternatively</p></li>
+<li><p>allows a program to take advantage of asynchrony, progressing even when certain
+tasks are blocked</p></li>
+<li><p>e.g. during waiting for I/O, the system can switch to another task</p></li>
+<li><p>can be achieved on both uniprocessor and multiprocessor systems</p></li>
+<li><p>execution context, scheduling, and synchronisation are important for any concurrent
+system</p></li>
+<li><dl class="simple">
+<dt><strong>Execution Context</strong></dt><dd><ul>
+<li><p>state of concurrent entity, must be able to create and delete it, and maintain state
+independently</p></li>
+<li><p>must be able to save the state of one context and dispatch to another at various
+times</p></li>
+<li><p>must be able to continue a context from the last execution, with same register
+contents</p></li>
 </ul>
-<p>alternatively
-* allows a program to take advantage of asynchrony, progressing even when certain
-tasks are blocked
-* e.g. during waiting for I/O, the system can switch to another task
-* can be achieved on both uniprocessor and multiprocessor systems
-* execution context, scheduling, and synchronisation are important for any concurrent
-system
-* <strong>Execution Context</strong></p>
-<blockquote>
-<div><ul class="simple">
-<li><p>state of concurrent entity, must be able to create and delete it, and maintain state</p></li>
-</ul>
-<p>independently
-- must be able to save the state of one context and dispatch to another at various
-times
-- must be able to continue a context from the last execution, with same register
-contents</p>
-</div></blockquote>
-<ul>
-<li><dl>
-<dt><strong>Scheduling</strong></dt><dd><ul class="simple">
-<li><p>determine which context should be executed, switches between contexts when necessary</p></li>
-<li><p>may allow each thread to run until block, round-robin, class scheduler or other</p></li>
-</ul>
-<p>scheduling policies</p>
 </dd>
 </dl>
 </li>
-<li><dl>
-<dt><strong>Synchronisation</strong></dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Scheduling</strong></dt><dd><ul>
+<li><p>determine which context should be executed, switches between contexts when necessary</p></li>
+<li><p>may allow each thread to run until block, round-robin, class scheduler or other
+scheduling policies</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Synchronisation</strong></dt><dd><ul>
 <li><p>threads cooperating to accomplish a task</p></li>
 <li><p>a way to coordinate shared resources usage of concurrent execution contexts</p></li>
-<li><p>common forms are mutexes, condition variables, semaphores, events, UNIX pipes,</p></li>
+<li><p>common forms are mutexes, condition variables, semaphores, events, UNIX pipes,
+sockets, POSIX message queues, or other communication protocols between asynchronous
+processes</p></li>
+<li><p>any form of communication protocol contains some form of synchronisation</p></li>
 </ul>
-<p>sockets, POSIX message queues, or other communication protocols between asynchronous
-processes
-- any form of communication protocol contains some form of synchronisation</p>
 </dd>
 </dl>
 </li>
@@ -511,31 +506,30 @@ processes
 <h3>Parallelism<a class="headerlink" href="#parallelism" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>tasks are executed at the same time, multiple CPU cores can run instructions</p></li>
-</ul>
-<p>simultaneously
-* software parallelism is the same as the word “concurrency” meaning, but different
-from software concurrency
-* true parallelism can only occur on a multiprocessor system
-* even without hardware parallelism, fast enough concurrency can make the tasks look like
-executing at the same time
-* e.g. RUBY MRI and CPython use global interpreter lock (GIL) to limit threading
-* <strong>Scaling</strong></p>
-<blockquote>
-<div><ul class="simple">
+<li><p>tasks are executed at the same time, multiple CPU cores can run instructions
+simultaneously</p></li>
+<li><p>software parallelism is the same as the word “concurrency” meaning, but different
+from software concurrency</p></li>
+<li><p>true parallelism can only occur on a multiprocessor system</p></li>
+<li><p>even without hardware parallelism, fast enough concurrency can make the tasks look like
+executing at the same time</p></li>
+<li><p>e.g. RUBY MRI and CPython use global interpreter lock (GIL) to limit threading</p></li>
+<li><dl class="simple">
+<dt><strong>Scaling</strong></dt><dd><ul>
 <li><p>overhead of creating the extra threads and performing synchronisation</p></li>
-<li><p>e.g. dual core may be 1.95 times faster than single core, quad core 3.8 times faster</p></li>
+<li><p>e.g. dual core may be 1.95 times faster than single core, quad core 3.8 times faster
+than triple core</p></li>
+<li><p>scaling falls off as the number of processors increases, due to more chance of lock
+and memory collisions</p></li>
+<li><p>Amdahl’s law: $Speedup = frac{1}{(1 - p) + frac{p}{n}}$,
+(p = $frac{Parallelizable Code}{Total Execution Time}$, n = number of processors)</p></li>
+<li><p>Amdahl’s law shows parallelism is limited by the amount of serialisation needed</p></li>
+<li><p>with more synchronisation, parallelism has less benefit</p></li>
+<li><p>better scaling with independent activities than highly dependent ones</p></li>
 </ul>
-<p>than triple core
-- scaling falls off as the number of processors increases, due to more chance of lock
-and memory collisions
-- Amdahl’s law: $Speedup = frac{1}{(1 - p) + frac{p}{n}}$,
-(p = $frac{Parallelizable Code}{Total Execution Time}$, n = number of processors)
-- Amdahl’s law shows parallelism is limited by the amount of serialisation needed
-- with more synchronisation, parallelism has less benefit
-- better scaling with independent activities than highly dependent ones</p>
-</div></blockquote>
-<ul class="simple">
+</dd>
+</dl>
+</li>
 <li><dl class="simple">
 <dt><strong>Barrier</strong></dt><dd><ul>
 <li><p>synchronisation mechanism that blocks each thread until a certain number has reached</p></li>
@@ -550,29 +544,28 @@ and memory collisions
 <section id="thread-safety">
 <h3>Thread Safety<a class="headerlink" href="#thread-safety" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><p>code can be called safely, but does not require to run efficiently on multiple threads</p></li>
-<li><p>can use mutexes, condition variables, and thread-specific data to make existing functions</p></li>
-</ul>
-<p>thread-safe
-* <strong>Serialised Function</strong></p>
-<blockquote>
-<div><ul class="simple">
+<li><p>can use mutexes, condition variables, and thread-specific data to make existing functions
+thread-safe</p></li>
+<li><dl class="simple">
+<dt><strong>Serialised Function</strong></dt><dd><ul class="simple">
 <li><p>to make a function that doesn’t need persistent context thread-safe</p></li>
 <li><p>e.g locking a mutex on entry and unlocking before return</p></li>
 <li><p>can be called in multiple threads, but only one thread can truly perform at a time</p></li>
 </ul>
-</div></blockquote>
-<ul>
+</dd>
+</dl>
+</li>
 <li><dl>
 <dt><strong>Example Thread-Safe Function</strong></dt><dd><ul class="simple">
 <li><p>multiple invocations can safely be run concurrently</p></li>
 <li><p>granularity: amount of data that a mutex protects</p></li>
-<li><p>inefficient way is to give a function its own mutex and lock it right away to make</p></li>
+<li><p>inefficient way is to give a function its own mutex and lock it right away to make
+it thread-safe</p></li>
+<li><p>multi-threaded programs usually add a mutex as member variable to data structures,
+to associate the lock with its data</p></li>
 </ul>
-<p>it thread-safe
-- multi-threaded programs usually add a mutex as member variable to data structures,
-to associate the lock with its data</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">pthread_mutex_t</span><span class="w"> </span><span class="n">foo_mtx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PTHREAD_MUTEX_INITIALIZER</span><span class="p">;</span>
 <span class="c1">// takes a global lock, and no two thread can run it at once</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span>
@@ -588,14 +581,14 @@ to associate the lock with its data</p>
 </dd>
 </dl>
 </li>
-<li><dl>
+<li><dl class="simple">
 <dt><strong>Reentrancy</strong></dt><dd><ul class="simple">
 <li><p>efficient thread-safe code with more sophisticated measures</p></li>
 <li><p>often necessary to change the function interface to make it reentrant</p></li>
 <li><p>should avoid relying on static data and any form of thread synchronisation</p></li>
-<li><p>save state in a context structure controlled by the caller, which is responsible for</p></li>
+<li><p>save state in a context structure controlled by the caller, which is responsible for
+synchronisation of the data</p></li>
 </ul>
-<p>synchronisation of the data</p>
 </dd>
 </dl>
 </li>
@@ -609,47 +602,47 @@ to associate the lock with its data</p>
 <li><p>processes execute asynchronously with respect to each other in UNIX</p></li>
 <li><p>e.g. <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">|</span> <span class="pre">less</span></code> have synchronisation by data dependency, <code class="docutils literal notranslate"><span class="pre">less</span></code> cannot be ahead of <code class="docutils literal notranslate"><span class="pre">ls</span></code></p></li>
 <li><p>asynchronous process needs state to enable the OS to switch between them</p></li>
-<li><p>UNIX processes has all required information to execute code, and additional state</p></li>
+<li><p>UNIX processes has all required information to execute code, and additional state
+that is not directly related to execution context, e.g. address space, file descriptors</p></li>
+<li><p>a thread has a program counter, a pointer to it’s current instruction, pointer to
+the top of it’s stack, general registers, and floating-point or address registers</p></li>
+<li><p>a thread does not have most of the state associated with a process</p></li>
+<li><p>all threads in a process share files, and memory</p></li>
+<li><p>switching between two threads within a process is faster than switching between
+processes</p></li>
+<li><p>threads of the same process share virtual address space and all other process data</p></li>
+<li><p>non-blocking I/O is not same as async I/O</p></li>
+<li><p>non-blocking I/O: allow the program to delay I/O operation until it can complete
+without blocking</p></li>
+<li><p>async I/O: can proceed while the program does other things, context required for
+operation is cheaper than a thread</p></li>
 </ul>
-<p>that is not directly related to execution context, e.g. address space, file descriptors
-* a thread has a program counter, a pointer to it’s current instruction, pointer to
-the top of it’s stack, general registers, and floating-point or address registers
-* a thread does not have most of the state associated with a process
-* all threads in a process share files, and memory
-* switching between two threads within a process is faster than switching between
-processes
-* threads of the same process share virtual address space and all other process data
-* non-blocking I/O is not same as async I/O
-* non-blocking I/O: allow the program to delay I/O operation until it can complete
-without blocking
-* async I/O: can proceed while the program does other things, context required for
-operation is cheaper than a thread</p>
 </div></blockquote>
 </section>
 <section id="thread-evaporation">
 <h3>Thread Evaporation<a class="headerlink" href="#thread-evaporation" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul>
-<li><dl>
-<dt><strong>Initial Thread</strong></dt><dd><ul class="simple">
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Initial Thread</strong></dt><dd><ul>
 <li><p>execution of main() in a C program, also called main thread</p></li>
 <li><p>can do anything like other threads, e.g. get thread ID with <code class="docutils literal notranslate"><span class="pre">pthread_self()</span></code></p></li>
 <li><p>if ID is accessible, another thread can wait or detach the initial thread</p></li>
-<li><p>when <code class="docutils literal notranslate"><span class="pre">main()</span></code> returns, the process terminates without allowing other threads to</p></li>
+<li><p>when <code class="docutils literal notranslate"><span class="pre">main()</span></code> returns, the process terminates without allowing other threads to
+complete</p></li>
 </ul>
-<p>complete</p>
 </dd>
 </dl>
 </li>
 <li><p>Evaporation: threads state released when the process exits</p></li>
-<li><p>detaching a running thread only informs the system to reclaim resources when it</p></li>
+<li><p>detaching a running thread only informs the system to reclaim resources when it
+terminates</p></li>
+<li><p>as the process usually outlives the created threads, always detach each thread when
+finished to make resources used by terminated threads available to the process</p></li>
+<li><p>terminated but not detached threads may retain virtual memory, stacks, and other
+resources</p></li>
+<li><p>can use <code class="docutils literal notranslate"><span class="pre">attribute</span></code> to create a thread that will not be controlled</p></li>
 </ul>
-<p>terminates
-* as the process usually outlives the created threads, always detach each thread when
-finished to make resources used by terminated threads available to the process
-* terminated but not detached threads may retain virtual memory, stacks, and other
-resources
-* can use <code class="docutils literal notranslate"><span class="pre">attribute</span></code> to create a thread that will not be controlled</p>
 </div></blockquote>
 </section>
 <section id="invariants">
@@ -661,9 +654,9 @@ resources
 <li><p>invariants usually break, and  make incorrect results or fail the program</p></li>
 <li><p>make sure to fix broken invariants before other code encounter them</p></li>
 <li><p>synchronisation protects the program from broken invariants</p></li>
-<li><p>predicate: logical expression describing the state of invariants, may be a boolean,</p></li>
+<li><p>predicate: logical expression describing the state of invariants, may be a boolean,
+pointer NULL test result, more complicated expression, or return value from a function</p></li>
 </ul>
-<p>pointer NULL test result, more complicated expression, or return value from a function</p>
 </div></blockquote>
 </section>
 <section id="critical-sections">
@@ -686,9 +679,9 @@ resources
 <section id="states">
 <h3>States<a class="headerlink" href="#states" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul>
+<div><ul class="simple">
 <li><dl class="simple">
-<dt><strong>Ready</strong></dt><dd><ul class="simple">
+<dt><strong>Ready</strong></dt><dd><ul>
 <li><p>thread able to run, but waiting for the processor</p></li>
 <li><p>may have just started, unblocked, or preempted by other thread</p></li>
 <li><p>timesliced: preempted for running too long</p></li>
@@ -697,7 +690,7 @@ resources
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Running</strong></dt><dd><ul class="simple">
+<dt><strong>Running</strong></dt><dd><ul>
 <li><p>currently running, can be more than one thread on multiprocessor system</p></li>
 <li><p>was ready, and selected by processor for execution</p></li>
 <li><p>one thread running usually means the other was blocked, or preempted</p></li>
@@ -705,18 +698,18 @@ resources
 </dd>
 </dl>
 </li>
-<li><dl>
-<dt><strong>Blocked</strong> &lt;a id=”blocked”&gt;&lt;/a&gt;</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Blocked</strong> &lt;a id=”blocked”&gt;&lt;/a&gt;</dt><dd><ul>
 <li><p>not able to run as it is waiting, e.g. condition variable, mutex, I/O to complete,</p></li>
-<li><p>can also be blocked when it calls <code class="docutils literal notranslate"><span class="pre">sigwait</span></code> for a signal that is not currently</p></li>
+<li><p>can also be blocked when it calls <code class="docutils literal notranslate"><span class="pre">sigwait</span></code> for a signal that is not currently
+pending, or system operations such as page fault</p></li>
+<li><p>becomes ready again when it is unblocked</p></li>
 </ul>
-<p>pending, or system operations such as page fault
-- becomes ready again when it is unblocked</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Terminated</strong></dt><dd><ul class="simple">
+<dt><strong>Terminated</strong></dt><dd><ul>
 <li><p>terminated by calling <code class="docutils literal notranslate"><span class="pre">pthread_exit()</span></code> and return, or cancelled and handle cleanup</p></li>
 <li><p>stays in terminated state until detached or joined</p></li>
 <li><p>will be immediately recycled once detached</p></li>
@@ -724,10 +717,10 @@ resources
 </dd>
 </dl>
 </li>
-<li><p>threads sleep when it’s blocked, resource not available, or when preempted, the system</p></li>
+<li><p>threads sleep when it’s blocked, resource not available, or when preempted, the system
+reassign the processor on which it is running</p></li>
+<li><p>a thread spends most time in Ready, Running and Blocked states</p></li>
 </ul>
-<p>reassign the processor on which it is running
-* a thread spends most time in Ready, Running and Blocked states</p>
 </div></blockquote>
 </section>
 <section id="creation">
@@ -736,31 +729,31 @@ resources
 <div><ul class="simple">
 <li><p>initial thread is created when the process is created</p></li>
 <li><p>on systems that support threaded programming, cannot execute any code without a thread</p></li>
-<li><p>can also create a thread when a process receives POSIX signal if the process signal</p></li>
+<li><p>can also create a thread when a process receives POSIX signal if the process signal
+notify mechanism is set to <cite>SIGEV_THREAD</cite></p></li>
+<li><p>threads can be created using <code class="docutils literal notranslate"><span class="pre">pthread_create()</span></code>, or other non-standard mechanisms</p></li>
+<li><p>a thread is in ready state once created, and may remain in it before executing</p></li>
+<li><p>no synchronisation between creation and <code class="docutils literal notranslate"><span class="pre">pthread_create()</span></code> return</p></li>
+<li><p>thread may start, and even complete and terminate, before the function returns</p></li>
 </ul>
-<p>notify mechanism is set to <cite>SIGEV_THREAD</cite>
-* threads can be created using <code class="docutils literal notranslate"><span class="pre">pthread_create()</span></code>, or other non-standard mechanisms
-* a thread is in ready state once created, and may remain in it before executing
-* no synchronisation between creation and <code class="docutils literal notranslate"><span class="pre">pthread_create()</span></code> return
-* thread may start, and even complete and terminate, before the function returns</p>
 </div></blockquote>
 </section>
 <section id="startup">
 <h3>Startup<a class="headerlink" href="#startup" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>once created, will begin executing the thread start function with arguments given in</p></li>
+<li><p>once created, will begin executing the thread start function with arguments given in
+<code class="docutils literal notranslate"><span class="pre">pthread_create()</span></code></p></li>
+<li><p>for initial thread, <code class="docutils literal notranslate"><span class="pre">main()</span></code> is called from outside the program with <code class="docutils literal notranslate"><span class="pre">argc</span></code> and <code class="docutils literal notranslate"><span class="pre">argv</span></code>,
+instead of single <cite>void*</cite></p></li>
+<li><p>most UNIX systems link the program with <code class="docutils literal notranslate"><span class="pre">crt0.o</span></code>, that initialises the process and calls
+<code class="docutils literal notranslate"><span class="pre">main()</span></code></p></li>
+<li><p>only when the initial thread returns, the process is terminated</p></li>
+<li><p>call <code class="docutils literal notranslate"><span class="pre">pthread_exit()</span></code> instead of returning from <code class="docutils literal notranslate"><span class="pre">main()</span></code> to terminate the initial thread,
+and allow other threads to continue running</p></li>
+<li><p>initial thread runs on the default process stack</p></li>
+<li><p>if a thread overflows its stack, program will fail with a segmentation fault or bus error</p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">pthread_create()</span></code>
-* for initial thread, <code class="docutils literal notranslate"><span class="pre">main()</span></code> is called from outside the program with <code class="docutils literal notranslate"><span class="pre">argc</span></code> and <code class="docutils literal notranslate"><span class="pre">argv</span></code>,
-instead of single <cite>void*</cite>
-* most UNIX systems link the program with <code class="docutils literal notranslate"><span class="pre">crt0.o</span></code>, that initialises the process and calls
-<code class="docutils literal notranslate"><span class="pre">main()</span></code>
-* only when the initial thread returns, the process is terminated
-* call <code class="docutils literal notranslate"><span class="pre">pthread_exit()</span></code> instead of returning from <code class="docutils literal notranslate"><span class="pre">main()</span></code> to terminate the initial thread,
-and allow other threads to continue running
-* initial thread runs on the default process stack
-* if a thread overflows its stack, program will fail with a segmentation fault or bus error</p>
 </div></blockquote>
 </section>
 <section id="termination">
@@ -768,28 +761,28 @@ and allow other threads to continue running
 <blockquote>
 <div><ul class="simple">
 <li><p>usually terminate by returning from its start function</p></li>
-<li><p>using <code class="docutils literal notranslate"><span class="pre">pthread_exit()</span></code> or <code class="docutils literal notranslate"><span class="pre">pthread_cancel()</span></code> terminate after calling each cleanup handler</p></li>
+<li><p>using <code class="docutils literal notranslate"><span class="pre">pthread_exit()</span></code> or <code class="docutils literal notranslate"><span class="pre">pthread_cancel()</span></code> terminate after calling each cleanup handler
+registered with <cite>pthread_cleanup_push()</cite></p></li>
+<li><p>non-NULL thread-specific data is cleared by calling associated destructors</p></li>
+<li><p>threads in terminated state remain available for another thread to join</p></li>
+<li><p>terminated thread keeps <code class="docutils literal notranslate"><span class="pre">pthread_t</span></code> value, and the <code class="docutils literal notranslate"><span class="pre">void*</span></code> return value</p></li>
+<li><p>different from terminated with <code class="docutils literal notranslate"><span class="pre">pthread_exit()</span></code>, cancelled thread return value is always
+<code class="docutils literal notranslate"><span class="pre">PTHREAD_CANCELLED</span></code></p></li>
+<li><p>if the terminated thread is detached by <code class="docutils literal notranslate"><span class="pre">pthread_join()</span></code>, it may be recycled before
+<code class="docutils literal notranslate"><span class="pre">pthread_join()</span></code> returns</p></li>
+<li><p>return value should never be a stack address related with the terminated thread’s stack</p></li>
 </ul>
-<p>registered with <cite>pthread_cleanup_push()</cite>
-* non-NULL thread-specific data is cleared by calling associated destructors
-* threads in terminated state remain available for another thread to join
-* terminated thread keeps <code class="docutils literal notranslate"><span class="pre">pthread_t</span></code> value, and the <code class="docutils literal notranslate"><span class="pre">void*</span></code> return value
-* different from terminated with <code class="docutils literal notranslate"><span class="pre">pthread_exit()</span></code>, cancelled thread return value is always
-<code class="docutils literal notranslate"><span class="pre">PTHREAD_CANCELLED</span></code>
-* if the terminated thread is detached by <code class="docutils literal notranslate"><span class="pre">pthread_join()</span></code>, it may be recycled before
-<code class="docutils literal notranslate"><span class="pre">pthread_join()</span></code> returns
-* return value should never be a stack address related with the terminated thread’s stack</p>
 </div></blockquote>
 </section>
 <section id="recycling">
 <h3>Recycling<a class="headerlink" href="#recycling" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>if the thread is created with <code class="docutils literal notranslate"><span class="pre">PTHREAD_CREATE_DETACHED</span></code>, or other threads call</p></li>
+<li><p>if the thread is created with <code class="docutils literal notranslate"><span class="pre">PTHREAD_CREATE_DETACHED</span></code>, or other threads call
+<code class="docutils literal notranslate"><span class="pre">pthread_detach()</span></code>, it is immediately recycled when it becomes terminated</p></li>
+<li><p>when <code class="docutils literal notranslate"><span class="pre">pthread_join()</span></code> or <code class="docutils literal notranslate"><span class="pre">pthread_detach()</span></code> returns, the thread cannot be accessed again</p></li>
+<li><p>resources that remain at termination are released when recycled</p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">pthread_detach()</span></code>, it is immediately recycled when it becomes terminated
-* when <code class="docutils literal notranslate"><span class="pre">pthread_join()</span></code> or <code class="docutils literal notranslate"><span class="pre">pthread_detach()</span></code> returns, the thread cannot be accessed again
-* resources that remain at termination are released when recycled</p>
 </div></blockquote>
 <p><a class="reference external" href="#posix-threads">back to top</a></p>
 </section>
@@ -825,9 +818,8 @@ and allow other threads to continue running
 </div></blockquote>
 </li>
 <li><p>use <code class="docutils literal notranslate"><span class="pre">pthread_mutex_init()</span></code> when using <code class="docutils literal notranslate"><span class="pre">malloc()</span></code> to create a structure with mutex</p></li>
-<li><p>must use dynamic initialisation for a mutex with non-default attributes, and destroy with</p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">pthread_mutex_destroy()</span></code></p>
+<li><p>must use dynamic initialisation for a mutex with non-default attributes, and destroy with
+<code class="docutils literal notranslate"><span class="pre">pthread_mutex_destroy()</span></code></p>
 <blockquote>
 <div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">my_struct_t</span><span class="w"> </span><span class="o">*</span><span class="n">data</span><span class="p">;</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">status</span><span class="p">;</span>
@@ -842,34 +834,34 @@ and allow other threads to continue running
 </pre></div>
 </div>
 </div></blockquote>
-<ul class="simple">
+</li>
 <li><p>if possible, associate a mutex with the data it protects</p></li>
-<li><p>can destroy a mutex when no threads are blocked on it, and no additional threads will try</p></li>
+<li><p>can destroy a mutex when no threads are blocked on it, and no additional threads will try
+to lock it</p></li>
+<li><p>if in heap, unlock and destroy the mutex before freeing the storage of mutex</p></li>
 </ul>
-<p>to lock it
-* if in heap, unlock and destroy the mutex before freeing the storage of mutex</p>
 </div></blockquote>
 </section>
 <section id="lock-unlock">
 <h3>Lock &amp; Unlock<a class="headerlink" href="#lock-unlock" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>lock with <code class="docutils literal notranslate"><span class="pre">pthread_mutex_lock()</span></code> or <code class="docutils literal notranslate"><span class="pre">pthread_mutex_trylock()</span></code>, and unlock with</p></li>
+<li><p>lock with <code class="docutils literal notranslate"><span class="pre">pthread_mutex_lock()</span></code> or <code class="docutils literal notranslate"><span class="pre">pthread_mutex_trylock()</span></code>, and unlock with
+<code class="docutils literal notranslate"><span class="pre">pthread_mutex_unlock()</span></code></p></li>
+<li><p>need to lock around any code that read or write variables</p></li>
+<li><p>error or self-deadlock when trying to lock a mutex that the calling thread already has</p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">pthread_mutex_unlock()</span></code>
-* need to lock around any code that read or write variables
-* error or self-deadlock when trying to lock a mutex that the calling thread already has</p>
 </div></blockquote>
 </section>
 <section id="non-blocking-mutex-lock">
 <h3>Non-blocking Mutex Lock<a class="headerlink" href="#non-blocking-mutex-lock" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>use <code class="docutils literal notranslate"><span class="pre">pthread_mutex_trylock()</span></code>, return error status instead of blocking the caller if the</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">pthread_mutex_trylock()</span></code>, return error status instead of blocking the caller if the
+mutex is already locked</p></li>
+<li><p>unlock only if the function return with success</p></li>
+<li><p>unlocking with error can unlock the mutex while other thread is relying on it locked</p></li>
 </ul>
-<p>mutex is already locked
-* unlock only if the function return with success
-* unlocking with error can unlock the mutex while other thread is relying on it locked</p>
 </div></blockquote>
 </section>
 <section id="mutex-size-scope">
@@ -877,14 +869,14 @@ and allow other threads to continue running
 <blockquote>
 <div><ul class="simple">
 <li><p>the scope/size of mutex protection can be as big as necessary</p></li>
-<li><p>e.g. when protecting two shared variables, each variable can have a small mutex, or a</p></li>
+<li><p>e.g. when protecting two shared variables, each variable can have a small mutex, or a
+larger mutex can protect both</p></li>
+<li><p>as it takes time to lock and unlock mutexes, code that locks fewer mutexes will usually
+run faster</p></li>
+<li><p>in some situations, instead of threads waiting on one big mutex, splitting it into
+smaller ones can be effective</p></li>
+<li><p>it is best to apply two separate mutexes to independent data</p></li>
 </ul>
-<p>larger mutex can protect both
-* as it takes time to lock and unlock mutexes, code that locks fewer mutexes will usually
-run faster
-* in some situations, instead of threads waiting on one big mutex, splitting it into
-smaller ones can be effective
-* it is best to apply two separate mutexes to independent data</p>
 </div></blockquote>
 <p><a class="reference external" href="#posix-threads">back to top</a></p>
 </section>
@@ -895,32 +887,32 @@ smaller ones can be effective
 <li><p><a class="reference internal" href="#condition-wait">Condition Wait</a>, <a class="reference internal" href="#rules-for-condition-variables">Rules for Condition Variables</a></p></li>
 <li><p>wait for a predicate to become true, and communicate to other threads</p></li>
 <li><p>condition variables are not for mutual exclusion</p></li>
-<li><p>mutexes are used separately, and it is common for one mutex to have more than one condition</p></li>
+<li><p>mutexes are used separately, and it is common for one mutex to have more than one condition
+variables</p></li>
 </ul>
-<p>variables</p>
 <section id="condition-wait">
 <h3>Condition Wait<a class="headerlink" href="#condition-wait" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>automatically release the associated mutex, and wait until another thread signal or</p></li>
+<li><p>automatically release the associated mutex, and wait until another thread signal or
+broadcast the condition variable</p></li>
+<li><p>mutex must always be locked when waiting on a condition variable</p></li>
+<li><p>when a thread wake up from condition wait, it always resume with the mutex locked</p></li>
 </ul>
-<p>broadcast the condition variable
-* mutex must always be locked when waiting on a condition variable
-* when a thread wake up from condition wait, it always resume with the mutex locked</p>
 </div></blockquote>
 </section>
 <section id="rules-for-condition-variables">
 <h3>Rules for Condition Variables<a class="headerlink" href="#rules-for-condition-variables" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>one variable to one predicate if possible, using one-to-many or many-to-one can cause</p></li>
+<li><p>one variable to one predicate if possible, using one-to-many or many-to-one can cause
+deadlock or race problems</p></li>
+<li><p>when sharing a condition variable between multiple predicates, always broadcast although
+signal is more efficient</p></li>
+<li><p>both the condition variable and predicate are shared data in the program, and always
+controlled using the same mutex</p></li>
+<li><p>it is safer to signal or broadcast a condition variable with mutex locked</p></li>
 </ul>
-<p>deadlock or race problems
-* when sharing a condition variable between multiple predicates, always broadcast although
-signal is more efficient
-* both the condition variable and predicate are shared data in the program, and always
-controlled using the same mutex
-* it is safer to signal or broadcast a condition variable with mutex locked</p>
 </div></blockquote>
 <p><a class="reference external" href="#posix-threads">back to top</a></p>
 </section>
@@ -933,57 +925,56 @@ controlled using the same mutex
 <li><p>threads lock resources in different orders, and refuse to give locks up</p></li>
 <li><p>livelock: threads fight for access to the locks</p></li>
 <li><p>common solutions for deadlock are lock hierarchy and backoff</p></li>
+<li><p>can use lock hierarchy for well-defined code, and backoff for functions that need flexibility</p></li>
 </ul>
 <section id="lock-hierarchy">
 <h3>Lock Hierarchy<a class="headerlink" href="#lock-hierarchy" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>if there is no clear hierarchical order, make an arbitrary order for locks, and always</p></li>
-</ul>
-<p>take earlier locks before later ones
-* e.g. if <code class="docutils literal notranslate"><span class="pre">thread_1</span></code> and <code class="docutils literal notranslate"><span class="pre">thread_2</span></code> need both <code class="docutils literal notranslate"><span class="pre">mutex_a</span></code> and <code class="docutils literal notranslate"><span class="pre">mutex_b</span></code>, they must always lock
-<code class="docutils literal notranslate"><span class="pre">mutex_a</span></code> first and then <code class="docutils literal notranslate"><span class="pre">mutex_b</span></code>
-* most efficient way to prevent deadlock, but not always easy to design
-* can create coupling between different parts of the program
-* <strong>Creating Lock Hierarchy</strong></p>
-<blockquote>
-<div><ul class="simple">
+<li><p>if there is no clear hierarchical order, make an arbitrary order for locks, and always
+take earlier locks before later ones</p></li>
+<li><p>e.g. if <code class="docutils literal notranslate"><span class="pre">thread_1</span></code> and <code class="docutils literal notranslate"><span class="pre">thread_2</span></code> need both <code class="docutils literal notranslate"><span class="pre">mutex_a</span></code> and <code class="docutils literal notranslate"><span class="pre">mutex_b</span></code>, they must always lock
+<code class="docutils literal notranslate"><span class="pre">mutex_a</span></code> first and then <code class="docutils literal notranslate"><span class="pre">mutex_b</span></code></p></li>
+<li><p>most efficient way to prevent deadlock, but not always easy to design</p></li>
+<li><p>can create coupling between different parts of the program</p></li>
+<li><dl class="simple">
+<dt><strong>Creating Lock Hierarchy</strong></dt><dd><ul>
 <li><p>sort a list of mutexes in ID address order and lock them</p></li>
 <li><p>can also name mutexes, and lock in alphabetical or numerical order</p></li>
 <li><p>code with functional locking hierarchy will lock mutexes in proper order</p></li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
+</li>
+</ul>
 </div></blockquote>
 </section>
 <section id="backoff">
 <h3>Backoff<a class="headerlink" href="#backoff" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>take a lock, check other locks with <code class="docutils literal notranslate"><span class="pre">pthread_mutex_trylock()</span></code>, and if it fails, release</p></li>
+<li><p>take a lock, check other locks with <code class="docutils literal notranslate"><span class="pre">pthread_mutex_trylock()</span></code>, and if it fails, release
+all locks in reverse order and try again from the start</p></li>
+<li><p>unlocking in reverse order lower the chance that another thread will need to backoff</p></li>
+<li><p>less efficient than lock hierarchy as it can make waste calls to lock and unlock</p></li>
+<li><p>but flexible as there is no strict lock hierarchy</p></li>
+<li><p>need to use <code class="docutils literal notranslate"><span class="pre">sched_yield()</span></code> to put the calling thread to sleep and at the back of the
+scheduler’s run queue</p></li>
 </ul>
-<p>all locks in reverse order and try again from the start
-* unlocking in reverse order lower the chance that another thread will need to backoff
-* less efficient than lock hierarchy as it can make waste calls to lock and unlock
-* but flexible as there is no strict lock hierarchy
-* need to use <code class="docutils literal notranslate"><span class="pre">sched_yield()</span></code> to put the calling thread to sleep and at the back of the
-scheduler’s run queue</p>
 </div></blockquote>
-<ul class="simple">
-<li><p>can use lock hierarchy for well-defined code, and backoff for functions that need flexibility</p></li>
-</ul>
 </section>
 <section id="lock-chaining">
 <h3>Lock Chaining<a class="headerlink" href="#lock-chaining" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
 <li><p>special case of lock hierarchy, and compatible</p></li>
-<li><p>lock the first mutex, after the second mutex is locked successfully, the first is no</p></li>
+<li><p>lock the first mutex, after the second mutex is locked successfully, the first is no
+longer needed and released</p></li>
+<li><p>useful in traversing data structures such as trees or linked lists</p></li>
+<li><p>e.g. use lock hierarchy when balancing or pruning a tree, and chaining when searching</p></li>
+<li><p>without any purpose, chaining can waste time locking and unlocking</p></li>
+<li><p>use only when threads will always be active within different parts of the hierarchy</p></li>
 </ul>
-<p>longer needed and released
-* useful in traversing data structures such as trees or linked lists
-* e.g. use lock hierarchy when balancing or pruning a tree, and chaining when searching
-* without any purpose, chaining can waste time locking and unlocking
-* use only when threads will always be active within different parts of the hierarchy</p>
 </div></blockquote>
 <p><a class="reference external" href="#posix-threads">back to top</a></p>
 </section>
@@ -994,19 +985,19 @@ scheduler’s run queue</p>
 <li><p><a class="reference internal" href="#pthread-t">pthread_t</a>, <a class="reference internal" href="#pthread-create">pthread_create</a>, <a class="reference internal" href="#pthread-detach">pthread_detach</a>, <a class="reference internal" href="#pthread-equal">pthread_equal</a>, <a class="reference internal" href="#pthread-exit">pthread_exit</a></p></li>
 <li><p><a class="reference internal" href="#pthread-join">pthread_join</a>, <a class="reference internal" href="#pthread-self">pthread_self</a>, <a class="reference internal" href="#pthread-mutex-destroy">pthread_mutex_destroy</a>, <a class="reference internal" href="#pthread-mutex-init">pthread_mutex_init</a></p></li>
 <li><p><a class="reference internal" href="#pthread-mutex-lock">pthread_mutex_lock</a>, <a class="reference internal" href="#pthread-mutex-trylock">pthread_mutex_trylock</a>, <a class="reference internal" href="#pthread-mutex-unlock">pthread_mutex_unlock</a></p></li>
-<li><p>primary Pthreads synchronisation model uses mutexes for protection, and condition variables</p></li>
+<li><p>primary Pthreads synchronisation model uses mutexes for protection, and condition variables
+for communication</p></li>
+<li><p>functions return an error code from <code class="docutils literal notranslate"><span class="pre">&lt;errno.h&gt;</span></code>, per-thread <code class="docutils literal notranslate"><span class="pre">errno</span></code> also available, but
+setting or reading it has overhead</p></li>
 </ul>
-<p>for communication
-* functions return an error code from <code class="docutils literal notranslate"><span class="pre">&lt;errno.h&gt;</span></code>, per-thread <code class="docutils literal notranslate"><span class="pre">errno</span></code> also available, but
-setting or reading it has overhead</p>
 <section id="pthread-t">
 <h3>pthread_t<a class="headerlink" href="#pthread-t" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
 <li><p>to hold ID returned by <code class="docutils literal notranslate"><span class="pre">pthread_create()</span></code></p></li>
-<li><p>can declare with <code class="docutils literal notranslate"><span class="pre">auto</span></code> if ID is required only in a function, but mostly with <code class="docutils literal notranslate"><span class="pre">static</span></code></p></li>
+<li><p>can declare with <code class="docutils literal notranslate"><span class="pre">auto</span></code> if ID is required only in a function, but mostly with <code class="docutils literal notranslate"><span class="pre">static</span></code>
+or <cite>extern</cite></p></li>
 </ul>
-<p>or <cite>extern</cite></p>
 </div></blockquote>
 </section>
 <section id="pthread-create">
@@ -1015,12 +1006,12 @@ setting or reading it has overhead</p>
 <div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">pthread_create(thread,</span> <span class="pre">attr,</span> <span class="pre">thread_function,</span> <span class="pre">arg)</span></code></p></li>
 <li><p>create a new thread executing the third argument, thread function’s address</p></li>
-<li><p>return 0 on success and stores the ID of new thread in the buffer pointed to by the</p></li>
+<li><p>return 0 on success and stores the ID of new thread in the buffer pointed to by the
+thread, otherwise return error number on failure</p></li>
+<li><p>can specify scheduling parameters at creation time or later while the thread is running</p></li>
+<li><p>Thread Function: only expect single argument of type <code class="docutils literal notranslate"><span class="pre">void*</span></code>, and return same type</p></li>
+<li><p>cannot find the thread ID unless the creator or the thread itself stores it somewhere</p></li>
 </ul>
-<p>thread, otherwise return error number on failure
-* can specify scheduling parameters at creation time or later while the thread is running
-* Thread Function: only expect single argument of type <code class="docutils literal notranslate"><span class="pre">void*</span></code>, and return same type
-* cannot find the thread ID unless the creator or the thread itself stores it somewhere</p>
 </div></blockquote>
 </section>
 <section id="pthread-detach">
@@ -1030,13 +1021,13 @@ setting or reading it has overhead</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">pthread_detach(thread)</span></code></p></li>
 <li><p>mark the specified thread as detached, and release resources as soon as it terminates</p></li>
 <li><p>return 0 on success, otherwise error number</p></li>
-<li><p>if not detach, Pthreads can hold the thread’s resources for another thread to determine</p></li>
+<li><p>if not detach, Pthreads can hold the thread’s resources for another thread to determine
+it has exited, and retrieve a final result</p></li>
+<li><p>detached thread cannot be joined or made joinable again</p></li>
+<li><p>a thread can detach itself, or other thread that knows its ID can detach it</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EINVAL</span></code>: not joinable thread</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ESRCH</span></code>: invalid thread ID</p></li>
 </ul>
-<p>it has exited, and retrieve a final result
-* detached thread cannot be joined or made joinable again
-* a thread can detach itself, or other thread that knows its ID can detach it
-* <code class="docutils literal notranslate"><span class="pre">EINVAL</span></code>: not joinable thread
-* <code class="docutils literal notranslate"><span class="pre">ESRCH</span></code>: invalid thread ID</p>
 </div></blockquote>
 </section>
 <section id="pthread-equal">
@@ -1069,14 +1060,14 @@ setting or reading it has overhead</p>
 <li><p>can check the thread’s return value or completion status</p></li>
 <li><p>return 0 on success, otherwise error number</p></li>
 <li><p>will block the caller until the specified thread is terminated</p></li>
-<li><p>if the calling thread is canceled, the target thread will not be detached and remain</p></li>
+<li><p>if the calling thread is canceled, the target thread will not be detached and remain
+joinable</p></li>
+<li><p>if multiple threads need to know for termination, wait on a condition variable instead of
+calling <cite>pthread_join()</cite></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EDEADLK</span></code>: deadlock detected, or specified thread is the calling thread, thread may hang</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EINVAL</span></code>: not joinable thread, or another thread already waiting to join</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ESRCH</span></code>: invalid thread ID</p></li>
 </ul>
-<p>joinable
-* if multiple threads need to know for termination, wait on a condition variable instead of
-calling <cite>pthread_join()</cite>
-* <code class="docutils literal notranslate"><span class="pre">EDEADLK</span></code>: deadlock detected, or specified thread is the calling thread, thread may hang
-* <code class="docutils literal notranslate"><span class="pre">EINVAL</span></code>: not joinable thread, or another thread already waiting to join
-* <code class="docutils literal notranslate"><span class="pre">ESRCH</span></code>: invalid thread ID</p>
 </div></blockquote>
 </section>
 <section id="pthread-self">
@@ -1129,11 +1120,11 @@ calling <cite>pthread_join()</cite>
 <blockquote>
 <div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">pthread_mutex_trylock(mutex)</span></code></p></li>
-<li><p>same as <code class="docutils literal notranslate"><span class="pre">pthread_mutex_lock()</span></code>, but return immediately, and the caller is not blocked if</p></li>
+<li><p>same as <code class="docutils literal notranslate"><span class="pre">pthread_mutex_lock()</span></code>, but return immediately, and the caller is not blocked if
+the mutex is already locked by another thread</p></li>
+<li><p>return 0 on success, otherwise error number is returned</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EBUSY</span></code>: mutex already locked</p></li>
 </ul>
-<p>the mutex is already locked by another thread
-* return 0 on success, otherwise error number is returned
-* <code class="docutils literal notranslate"><span class="pre">EBUSY</span></code>: mutex already locked</p>
 </div></blockquote>
 </section>
 <section id="pthread-mutex-unlock">
@@ -1152,11 +1143,11 @@ calling <cite>pthread_join()</cite>
 <section id="reference-sources">
 <h2>Reference Sources<a class="headerlink" href="#reference-sources" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>begriffs. (2020). Concurrent programming, with examples [online].</p></li>
+<li><p>begriffs. (2020). Concurrent programming, with examples [online].
+Available at: <a class="reference external" href="https://begriffs.com/posts/2020-03-23-concurrent-programming.html">https://begriffs.com/posts/2020-03-23-concurrent-programming.html</a></p></li>
+<li><p>Butenhof, David R. (1997). Programming with POSIX Threads. Reading, Massachusetts:
+Addison-Wesley.</p></li>
 </ul>
-<p>Available at: [<a class="reference external" href="https://begriffs.com/posts/2020-03-23-concurrent-programming.html](https://begriffs.com/posts/2020-03-23-concurrent-programming.html">https://begriffs.com/posts/2020-03-23-concurrent-programming.html](https://begriffs.com/posts/2020-03-23-concurrent-programming.html</a>)
-* Butenhof, David R. (1997). Programming with POSIX Threads. Reading, Massachusetts:
-Addison-Wesley.</p>
 <p><a class="reference external" href="#posix-threads">back to top</a></p>
 </section>
 </section>

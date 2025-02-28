@@ -743,11 +743,11 @@ not set default</p></li>
 <section id="bootloader">
 <h3>Bootloader<a class="headerlink" href="#bootloader" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul>
+<div><ul class="simple">
 <li><p>purpose is to start the Linux kernel</p></li>
 <li><p>GRUB (Grand Unified Bootloader) is a popular one</p></li>
 <li><dl class="simple">
-<dt><strong>on BIOS</strong></dt><dd><ul class="simple">
+<dt><strong>on BIOS</strong></dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">grub2-mkconfig</span> <span class="pre">-o</span> <span class="pre">/boot/grub2/grub.cfg</span></code>, make config</p></li>
 <li><p>bootloader should be installed on first section of the block device</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">lsblk</span></code>, list block devices</p></li>
@@ -756,12 +756,12 @@ not set default</p></li>
 </dd>
 </dl>
 </li>
-<li><dl>
-<dt><strong>on EFI</strong></dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt><strong>on EFI</strong></dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">grub2-mkconfig</span> <span class="pre">-o</span> <span class="pre">/boot/efi/EFI/fedora/grub.cfg</span></code>, make config on EFI</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">reinstall</span> <span class="pre">grub2-efi</span> <span class="pre">grub2-efi-modules</span> <span class="pre">shim</span></code>, auto place config file in right</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">reinstall</span> <span class="pre">grub2-efi</span> <span class="pre">grub2-efi-modules</span> <span class="pre">shim</span></code>, auto place config file in right
+location</p></li>
 </ul>
-<p>location</p>
 </dd>
 </dl>
 </li>
@@ -2390,7 +2390,7 @@ argument for more info</p></li>
 <section id="file-operations">
 <h3>File Operations<a class="headerlink" href="#file-operations" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">file_operations</span></code> defined in <code class="docutils literal notranslate"><span class="pre">&lt;linux/fs.h&gt;</span></code></p></li>
 <li><p>a collection of function pointers, and set up the connection between device numbers and
 device driver’s operations</p></li>
@@ -2403,7 +2403,7 @@ directly dereferenced</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">__user</span></code> has no effect for normal compilation, but can be used to find misuse of
 user-space addresses</p></li>
 <li><dl class="simple">
-<dt><strong>``struct module *owner``</strong></dt><dd><ul class="simple">
+<dt><strong>``struct module *owner``</strong></dt><dd><ul>
 <li><p>pointer to the module that owns the structure</p></li>
 <li><p>used to prevent the module being unloaded while operations are in use</p></li>
 <li><p>almost always initialised to <code class="docutils literal notranslate"><span class="pre">THIS_MODULE</span></code> in <code class="docutils literal notranslate"><span class="pre">&lt;linux/module.h&gt;</span></code></p></li>
@@ -2412,7 +2412,7 @@ user-space addresses</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>``loff_t (*llseek) (struct file *, loff_t, int)``</strong></dt><dd><ul class="simple">
+<dt><strong>``loff_t (*llseek) (struct file *, loff_t, int)``</strong></dt><dd><ul>
 <li><p>to change current read write position in a file</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">loff_t</span></code>: long offset with at least 64 bits wide even on 32-bit platforms</p></li>
 <li><p>NULL method will modify the position counter in the <code class="docutils literal notranslate"><span class="pre">file</span></code> structure</p></li>
@@ -2422,7 +2422,7 @@ user-space addresses</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>``ssize_t (*read) (struct file *, char __user *, size_t, loff_t *)``</strong></dt><dd><ul class="simple">
+<dt><strong>``ssize_t (*read) (struct file *, char __user *, size_t, loff_t *)``</strong></dt><dd><ul>
 <li><p>to retrieve data from the device, NULL method will fail with <code class="docutils literal notranslate"><span class="pre">-EINVAL</span></code></p></li>
 <li><p>return number of bytes read on success</p></li>
 <li><p>called by read(2)</p></li>
@@ -2431,14 +2431,14 @@ user-space addresses</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>``ssize_t (*read_iter) (struct kiocb *, struct iov_iter *)``</strong></dt><dd><ul class="simple">
+<dt><strong>``ssize_t (*read_iter) (struct kiocb *, struct iov_iter *)``</strong></dt><dd><ul>
 <li><p>possibly async read with <code class="docutils literal notranslate"><span class="pre">iov_iter</span></code> as source</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>``ssize_t (*write) (struct file *, const char __user *, size_t, loff_t *)``</strong></dt><dd><ul class="simple">
+<dt><strong>``ssize_t (*write) (struct file *, const char __user *, size_t, loff_t *)``</strong></dt><dd><ul>
 <li><p>send data to the device, <code class="docutils literal notranslate"><span class="pre">-EINVAL</span></code> for NULL method</p></li>
 <li><p>return number of bytes written on success</p></li>
 <li><p>called by write(2)</p></li>
@@ -2447,14 +2447,14 @@ user-space addresses</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>``int (*iterate_shared) (struct file *, struct dir_context *)``</strong></dt><dd><ul class="simple">
+<dt><strong>``int (*iterate_shared) (struct file *, struct dir_context *)``</strong></dt><dd><ul>
 <li><p>to read directory contents, should be NULL method for device files</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>``__poll_t (*poll) (struct file *, struct poll_table_struct *)``</strong></dt><dd><ul class="simple">
+<dt><strong>``__poll_t (*poll) (struct file *, struct poll_table_struct *)``</strong></dt><dd><ul>
 <li><p>check activity on the file, and can go to sleep until I/O</p></li>
 <li><p>return a bit mask to indicate non-blocking read/write is possible</p></li>
 <li><p>NULL method means the device is readable and writable without blocking</p></li>
@@ -2464,7 +2464,7 @@ user-space addresses</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>``long (*unlocked_ioctl) (struct file *, unsinged int, unsinged long)``</strong></dt><dd><ul class="simple">
+<dt><strong>``long (*unlocked_ioctl) (struct file *, unsinged int, unsinged long)``</strong></dt><dd><ul>
 <li><p>to call device-specific commands</p></li>
 <li><p>called by ioctl(2)</p></li>
 </ul>
@@ -2472,7 +2472,7 @@ user-space addresses</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>``int (*mmap) (struct file *, struct vm_area_struct *)``</strong></dt><dd><ul class="simple">
+<dt><strong>``int (*mmap) (struct file *, struct vm_area_struct *)``</strong></dt><dd><ul>
 <li><p>to request a mapping of device memory to a process address space</p></li>
 <li><p>NULL method will return <code class="docutils literal notranslate"><span class="pre">-ENODEV</span></code></p></li>
 <li><p>called by mmap(2)</p></li>
@@ -2480,18 +2480,18 @@ user-space addresses</p></li>
 </dd>
 </dl>
 </li>
-<li><dl>
-<dt><strong>``int (*open) (struct inode *, struct file *)``</strong></dt><dd><ul class="simple">
-<li><p>to open an inode, and create a new <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">file</span></code>, driver is not required to declare</p></li>
+<li><dl class="simple">
+<dt><strong>``int (*open) (struct inode *, struct file *)``</strong></dt><dd><ul>
+<li><p>to open an inode, and create a new <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">file</span></code>, driver is not required to declare
+the method</p></li>
+<li><p>good place to initialise <code class="docutils literal notranslate"><span class="pre">file-&gt;private_data</span></code> to point to a device structure</p></li>
+<li><p>NULL method always succeed opening the device, but driver is not notified</p></li>
 </ul>
-<p>the method
-- good place to initialise <code class="docutils literal notranslate"><span class="pre">file-&gt;private_data</span></code> to point to a device structure
-- NULL method always succeed opening the device, but driver is not notified</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>``int (*flush) (struct file *, fl_ownder_t id)``</strong></dt><dd><ul class="simple">
+<dt><strong>``int (*flush) (struct file *, fl_ownder_t id)``</strong></dt><dd><ul>
 <li><p>to close a process copy of a file descriptor for a device, used in very few drivers</p></li>
 <li><p>should wait for any outstanding device operations</p></li>
 <li><p>NULL method will ignore the user application request</p></li>
@@ -2501,14 +2501,14 @@ user-space addresses</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>``int (*release) (struct inode *, struct file *)``</strong></dt><dd><ul class="simple">
+<dt><strong>``int (*release) (struct inode *, struct file *)``</strong></dt><dd><ul>
 <li><p>called when the last reference to an open file is closed, can be NULL like <code class="docutils literal notranslate"><span class="pre">open()</span></code></p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>``int (*fsync) (struct file *, loff_t, loff_t, int datasync)``</strong></dt><dd><ul class="simple">
+<dt><strong>``int (*fsync) (struct file *, loff_t, loff_t, int datasync)``</strong></dt><dd><ul>
 <li><p>to flush any pending data, NULL method return <code class="docutils literal notranslate"><span class="pre">-EINVAL</span></code></p></li>
 <li><p>called by fsync(2)</p></li>
 </ul>
@@ -2516,7 +2516,7 @@ user-space addresses</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>``int (*fasync) (int, struct file *, int)``</strong></dt><dd><ul class="simple">
+<dt><strong>``int (*fasync) (int, struct file *, int)``</strong></dt><dd><ul>
 <li><p>to notify the device of <code class="docutils literal notranslate"><span class="pre">FASYNC</span></code> flag change</p></li>
 <li><p>can be NULL method if the driver does not support async notification</p></li>
 <li><p>called by fcntl(2)</p></li>
@@ -2525,7 +2525,7 @@ user-space addresses</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>``int (*lock) (struct file *, int, struct file_lock *)``</strong></dt><dd><ul class="simple">
+<dt><strong>``int (*lock) (struct file *, int, struct file_lock *)``</strong></dt><dd><ul>
 <li><p>for file locking, necessary for regular files but not required by device drivers</p></li>
 <li><p>called by fcntl(2) for <code class="docutils literal notranslate"><span class="pre">F_GETLK,</span> <span class="pre">F_SETLK,</span> <span class="pre">F_SETLKW</span></code> commands</p></li>
 </ul>
@@ -2533,7 +2533,7 @@ user-space addresses</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>``unsigned long (*get_unmapped_area) (struct file *, unsigned long, unsinged long, unsinged long, unsinged long)``</strong></dt><dd><ul class="simple">
+<dt><strong>``unsigned long (*get_unmapped_area) (struct file *, unsigned long, unsinged long, unsinged long, unsinged long)``</strong></dt><dd><ul>
 <li><p>to find a location in process address space to map in a device memory, usually done
 by memory management code</p></li>
 <li><p>drivers can implement to enforce alignment requirements, most drivers can have NULL
@@ -2544,7 +2544,7 @@ method</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>``int (*check_flags) (int)``</strong></dt><dd><ul class="simple">
+<dt><strong>``int (*check_flags) (int)``</strong></dt><dd><ul>
 <li><p>allow a module to check the flags passed to fcntl</p></li>
 <li><p>called by fcntl(2) for <code class="docutils literal notranslate"><span class="pre">F_SETFL</span></code> command</p></li>
 </ul>

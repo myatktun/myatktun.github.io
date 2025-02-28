@@ -12,6 +12,7 @@ They are immutable.
 * blob (binary large object)
 * tree
 * commit
+
 In staging area (when git add), git takes contents of the file and puts it as a copy into a
 file as blob in the objects directory. Blobs don't have names, they are just raw data.
 The raw data is edited to have more info and ran through SHA, which always outputs 40 chars.
@@ -44,7 +45,7 @@ git checkout
 
 * git checkout commit
     * Git finds the commit, the tree that the commit references, and finds all subtrees or objects
-    referenced by the tree and make the working directory identical to that snapshot.
+      referenced by the tree and make the working directory identical to that snapshot.
 
 git rm
 ======
