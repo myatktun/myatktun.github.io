@@ -398,6 +398,7 @@
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-data-structures">Kernel Data Structures</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-operations">File Operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inode">Inode</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-modules">Kernel Modules</a><ul class="nav section-nav flex-column">
@@ -622,18 +623,12 @@ to be escaped</p></li>
 </li>
 <li><dl class="simple">
 <dt><strong>Regular Expressions</strong></dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">^</span></code>: starts with</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">$</span></code>: ends with</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">.</span></code>: match any 1 character</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">\</span></code>: escape character</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code>: match previous 0 or more times</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">+</span></code>: match previous 1 or more times</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">{X}</span></code>: previous can exist X times (<code class="docutils literal notranslate"><span class="pre">{MIN,MAX}</span></code>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">?</span></code>: previous can be optional</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">|</span></code>: match one or other</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[]</span></code>: range (<code class="docutils literal notranslate"><span class="pre">[a-z]</span></code>) or sets (<code class="docutils literal notranslate"><span class="pre">[abc123]</span></code>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[^]</span></code>: negated range or sets</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">()</span></code>: sub-expressions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">^</span></code>: starts with, <code class="docutils literal notranslate"><span class="pre">$</span></code>: ends with</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.</span></code>: match any 1 character, <code class="docutils literal notranslate"><span class="pre">\</span></code>: escape character</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code>: match previous 0 or more times, <code class="docutils literal notranslate"><span class="pre">+</span></code>: match previous 1 or more times</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{X}</span></code>: previous can exist X times (<code class="docutils literal notranslate"><span class="pre">{MIN,MAX}</span></code>), <code class="docutils literal notranslate"><span class="pre">?</span></code>: previous can be optional</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">|</span></code>: match one or other, <code class="docutils literal notranslate"><span class="pre">()</span></code>: sub-expressions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[]</span></code>: range (<code class="docutils literal notranslate"><span class="pre">[a-z]</span></code>) or sets (<code class="docutils literal notranslate"><span class="pre">[abc123]</span></code>), <code class="docutils literal notranslate"><span class="pre">[^]</span></code>: negated range or sets</p></li>
 </ul>
 </dd>
 </dl>
@@ -645,9 +640,7 @@ to be escaped</p></li>
 <h3>Input/Output<a class="headerlink" href="#input-output" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code>: stdin (0)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">1&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>: stdout</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">2&gt;</span></code>: stderr</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code>: stdin (0), <code class="docutils literal notranslate"><span class="pre">1&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>: stdout, <code class="docutils literal notranslate"><span class="pre">2&gt;</span></code>: stderr</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>: append</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">FILE.txt</span> <span class="pre">2&gt;&amp;1</span></code> or <code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">FILE.txt</span> <span class="pre">&gt;&amp;</span></code>: both stdout and stderr</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;EOF</span> <span class="pre">...any</span> <span class="pre">text</span> <span class="pre">here...</span> <span class="pre">&gt;</span> <span class="pre">EOF</span></code>: heredoc</p></li>
@@ -776,9 +769,7 @@ to be escaped</p></li>
 <h3>Boot Targets<a class="headerlink" href="#boot-targets" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">graphical</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">multi-user</span></code>: text based</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">emergency</span></code>: read-only root file system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">graphical</span></code>, <code class="docutils literal notranslate"><span class="pre">multi-user</span></code>: text based, <code class="docutils literal notranslate"><span class="pre">emergency</span></code>: read-only root file system</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">rescue</span></code>: more programs than <code class="docutils literal notranslate"><span class="pre">emergency</span></code>, but less than <code class="docutils literal notranslate"><span class="pre">multi-user</span></code></p></li>
 <li><p>root user password must be set to use <code class="docutils literal notranslate"><span class="pre">emergency</span></code> and <code class="docutils literal notranslate"><span class="pre">rescue</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">get-default</span></code>: list boot target</p></li>
@@ -985,29 +976,28 @@ cat<span class="w"> </span>/proc/version<span class="w"> </span>&gt;&gt;<span cl
 <h3>SELinux<a class="headerlink" href="#selinux" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>Security Enhanced Linux, a security module</p></li>
-<li><p>enabled by default, allow fine grain control</p></li>
+<li><p>Security Enhanced Linux, a security module enabled by default, and allow detailed control</p></li>
 <li><dl class="simple">
 <dt><strong>SELinux context label</strong></dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-Z</span></code>, list context labels for files</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">unconfined_u:object_r:user_home_t:s0</span></code>, ‘user:role:type:level’</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">axZ</span></code>, list context labels for processes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unconfined_u:object_r:user_home_t:s0</span></code>: ‘user:role:type:level’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">axZ</span></code>: list context labels for processes</p></li>
 <li><p>processes with <code class="docutils literal notranslate"><span class="pre">unconfined_t</span></code> domain are running unrestricted</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">id</span> <span class="pre">-Z</span></code>, list context for current user</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">semanage</span> <span class="pre">login</span> <span class="pre">-l</span></code>, check user mapping to SELinux ‘user’</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">semanage</span> <span class="pre">user</span> <span class="pre">-l</span></code>, check users mapping to SELinux ‘users’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span> <span class="pre">-Z</span></code>: list context for current user</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">semanage</span> <span class="pre">login</span> <span class="pre">-l</span></code>: check user mapping to SELinux ‘user’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">semanage</span> <span class="pre">user</span> <span class="pre">-l</span></code>: check users mapping to SELinux ‘users’</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><p>has policy configuration</p></li>
-<li><p>every user logged in is mapped to SELinux ‘user’</p></li>
-<li><p>each ‘user’ can only assume predefined ‘roles’</p></li>
+<li><p>every user logged in is mapped to SELinux ‘user’, and each ‘user’ can only assume
+predefined ‘roles’</p></li>
 <li><p>‘type’ restrict what an object can do, called ‘domain’ on processes</p></li>
 <li><p>‘level’ is never used on regular systems, only used in enterprises</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getenforce</span></code>, check SELinux enabled or not (<code class="docutils literal notranslate"><span class="pre">Enforcing</span></code>, <code class="docutils literal notranslate"><span class="pre">Permissive</span></code>, <code class="docutils literal notranslate"><span class="pre">Disabled</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getenforce</span></code>: check SELinux enabled or not (<code class="docutils literal notranslate"><span class="pre">Enforcing</span></code>, <code class="docutils literal notranslate"><span class="pre">Permissive</span></code>, <code class="docutils literal notranslate"><span class="pre">Disabled</span></code>)</p></li>
 <li><dl class="simple">
-<dt>benefits</dt><dd><ul>
+<dt><strong>Benefits</strong></dt><dd><ul>
 <li><p>only certain users can enter certain roles and types</p></li>
 <li><p>lets authorized users and processes do their job</p></li>
 <li><p>authorized users and processes are allowed to take only a limited set of actions</p></li>
@@ -1085,8 +1075,8 @@ programs, pop3 daemons must be Shadow-compliant</p></li>
 <h3>Environment Variables<a class="headerlink" href="#environment-variables" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">printenv</span></code> or <code class="docutils literal notranslate"><span class="pre">env</span></code>, list environment variables</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$HOME</span></code>, print an environment variable value</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">printenv</span></code> or <code class="docutils literal notranslate"><span class="pre">env</span></code>: list environment variables</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$HOME</span></code>: print an environment variable value</p></li>
 <li><p>can edit <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file to set variables</p></li>
 <li><p>place scripts in <code class="docutils literal notranslate"><span class="pre">/etc/profile.d/</span></code> to be executed at login</p></li>
 <li><p>place files in <code class="docutils literal notranslate"><span class="pre">/etc/skel/</span></code> to have default files for new users in their <code class="docutils literal notranslate"><span class="pre">/home</span></code></p></li>
@@ -1099,7 +1089,7 @@ programs, pop3 daemons must be Shadow-compliant</p></li>
 <blockquote>
 <div><ul class="simple">
 <li><p>edit <code class="docutils literal notranslate"><span class="pre">/etc/security/limits.conf</span></code> to limit users resources</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ulimit</span> <span class="pre">-a</span></code>, list current user limits</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ulimit</span> <span class="pre">-a</span></code>: list current user limits</p></li>
 <li><p>users can only lower limits by default</p></li>
 <li><p>users can raise to hard limit only once</p></li>
 </ul>
@@ -1110,13 +1100,13 @@ programs, pop3 daemons must be Shadow-compliant</p></li>
 <blockquote>
 <div><ul class="simple">
 <li><p>users part of <code class="docutils literal notranslate"><span class="pre">wheel</span></code> group are allowed to run commands as root</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">gpasswd</span> <span class="pre">-a</span> <span class="pre">user1</span> <span class="pre">wheel</span></code>, add user to <code class="docutils literal notranslate"><span class="pre">wheel</span></code> group</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">gpasswd</span> <span class="pre">-a</span> <span class="pre">user1</span> <span class="pre">wheel</span></code>:add user to <code class="docutils literal notranslate"><span class="pre">wheel</span></code> group</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">/etc/sudoers</span></code> defines who can use which commands with <code class="docutils literal notranslate"><span class="pre">sudo</span></code>, never edit directly</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">visudo</span></code>, edit <code class="docutils literal notranslate"><span class="pre">/etc/sudoers</span></code> file safely</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">-u</span> <span class="pre">user1</span> <span class="pre">ls</span></code>, run as commands ‘user1’</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">-iu</span> <span class="pre">user1</span></code>, login as user1</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">-i</span></code> or <code class="docutils literal notranslate"><span class="pre">su</span> <span class="pre">-l</span></code> or <code class="docutils literal notranslate"><span class="pre">su</span> <span class="pre">-</span></code>, login as root</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">passwd</span> <span class="pre">root</span></code>, set new password for root</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">visudo</span></code>: edit <code class="docutils literal notranslate"><span class="pre">/etc/sudoers</span></code> file safely</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">-u</span> <span class="pre">user1</span> <span class="pre">ls</span></code>: run as commands ‘user1’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">-iu</span> <span class="pre">user1</span></code>: login as user1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">-i</span></code> or <code class="docutils literal notranslate"><span class="pre">su</span> <span class="pre">-l</span></code> or <code class="docutils literal notranslate"><span class="pre">su</span> <span class="pre">-</span></code>: login as root</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">passwd</span> <span class="pre">root</span></code>: set new password for root</p></li>
 </ul>
 </div></blockquote>
 </section>
@@ -1125,23 +1115,18 @@ programs, pop3 daemons must be Shadow-compliant</p></li>
 <blockquote>
 <div><ul class="simple">
 <li><p>define specific permissions to two or more users/groups</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setfacl</span> <span class="pre">--modify</span> <span class="pre">user:user2:rw</span> <span class="pre">FILE</span></code>, ‘user2’ can access while other non-owners can’t</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setfacl</span> <span class="pre">--modify</span> <span class="pre">user:user2:rw</span> <span class="pre">FILE</span></code>: ‘user2’ can access while other non-owners can’t</p></li>
 <li><p>files with ACL will have <code class="docutils literal notranslate"><span class="pre">+</span></code> when <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code></p></li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">getfacl</span> <span class="pre">FILE</span></code>, check for ACL</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">getfacl</span> <span class="pre">FILE</span></code>: check for ACL</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">mask</span></code> defines maximum permissions file/directory can have, useful to limit
 existing permissions</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">setfacl</span> <span class="pre">--modify</span> <span class="pre">mask:r</span> <span class="pre">FILE</span></code></p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setfacl</span> <span class="pre">--modify</span> <span class="pre">group:gp1:rw</span> <span class="pre">FILE</span></code>, set ACL for ‘gp1’</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setfacl</span> <span class="pre">--modify</span> <span class="pre">user:user2:---</span> <span class="pre">FILE</span></code>, deny all permissions for ‘user2’</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setfacl</span> <span class="pre">--remove</span> <span class="pre">user:user2</span> <span class="pre">FILE</span></code>, remove ACL for ‘user2’</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setfacl</span> <span class="pre">--remove</span> <span class="pre">group:gp1</span> <span class="pre">FILE</span></code>, remove ACL for ‘gp1’</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setfacl</span> <span class="pre">--recursive</span> <span class="pre">-m</span> <span class="pre">user:user2:rwx</span> <span class="pre">DIR1/</span></code>, define ACL recursively</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setfacl</span> <span class="pre">--recursive</span> <span class="pre">--remove</span> <span class="pre">user:user2</span> <span class="pre">DIR1/</span></code>, remove ACL recursively</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setfacl</span> <span class="pre">--modify</span> <span class="pre">group:gp1:rw</span> <span class="pre">FILE</span></code>: set ACL for ‘gp1’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setfacl</span> <span class="pre">--modify</span> <span class="pre">user:user2:---</span> <span class="pre">FILE</span></code>: deny all permissions for ‘user2’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setfacl</span> <span class="pre">--remove</span> <span class="pre">user:user2</span> <span class="pre">FILE</span></code>: remove ACL for ‘user2’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setfacl</span> <span class="pre">--remove</span> <span class="pre">group:gp1</span> <span class="pre">FILE</span></code>: remove ACL for ‘gp1’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setfacl</span> <span class="pre">--recursive</span> <span class="pre">-m</span> <span class="pre">user:user2:rwx</span> <span class="pre">DIR1/</span></code>: define ACL recursively</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setfacl</span> <span class="pre">--recursive</span> <span class="pre">--remove</span> <span class="pre">user:user2</span> <span class="pre">DIR1/</span></code>: remove ACL recursively</p></li>
 </ul>
 </div></blockquote>
 </section>
@@ -1150,11 +1135,11 @@ existing permissions</p></li>
 <blockquote>
 <div><ul class="simple">
 <li><p>can make file or directory behave differently</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">chattr</span> <span class="pre">+a</span> <span class="pre">FILE</span></code>, can only append</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">chattr</span> <span class="pre">-a</span> <span class="pre">FILE</span></code>, remove append only attribute</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">chattr</span> <span class="pre">+i</span> <span class="pre">FILE</span></code>, file is immutable, even root user cannot modify</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lsattr</span> <span class="pre">FILE</span></code>, list attributes of file</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">chattr</span></code>, list all available attributes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chattr</span> <span class="pre">+a</span> <span class="pre">FILE</span></code>: can only append</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chattr</span> <span class="pre">-a</span> <span class="pre">FILE</span></code>: remove append only attribute</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chattr</span> <span class="pre">+i</span> <span class="pre">FILE</span></code>: file is immutable, even root user cannot modify</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lsattr</span> <span class="pre">FILE</span></code>: list attributes of file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">chattr</span></code>: list all available attributes</p></li>
 </ul>
 </div></blockquote>
 </section>
@@ -1166,8 +1151,8 @@ existing permissions</p></li>
 <li><p>can limit storage and how may files and directories can be created</p></li>
 <li><dl class="simple">
 <dt>for ext file system</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">quotacheck</span> <span class="pre">--create-files</span> <span class="pre">--user</span> <span class="pre">--group</span> <span class="pre">/dev/sdb2</span></code>, create files to track usage</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">quotaon</span> <span class="pre">/mnt/</span></code>, turn on quota if mounted on <code class="docutils literal notranslate"><span class="pre">/mnt/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">quotacheck</span> <span class="pre">--create-files</span> <span class="pre">--user</span> <span class="pre">--group</span> <span class="pre">/dev/sdb2</span></code>: create files to track usage</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">quotaon</span> <span class="pre">/mnt/</span></code>: turn on quota if mounted on <code class="docutils literal notranslate"><span class="pre">/mnt/</span></code></p></li>
 </ul>
 </dd>
 </dl>
@@ -1175,14 +1160,14 @@ existing permissions</p></li>
 <li><dl class="simple">
 <dt>for xfs file system</dt><dd><ul>
 <li><p>can edit <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code> to have <code class="docutils literal notranslate"><span class="pre">defaults,usrquota,grpquota</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">quota</span> <span class="pre">--user</span> <span class="pre">user1</span></code>, list quotas for ‘user1’</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">edquota</span> <span class="pre">--user</span> <span class="pre">user1</span></code>, edit quotas for ‘user1’</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">edquota</span> <span class="pre">--group</span> <span class="pre">gp1</span></code>, edit quotas for ‘gp1’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">quota</span> <span class="pre">--user</span> <span class="pre">user1</span></code>: list quotas for ‘user1’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">edquota</span> <span class="pre">--user</span> <span class="pre">user1</span></code>: edit quotas for ‘user1’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">edquota</span> <span class="pre">--group</span> <span class="pre">gp1</span></code>: edit quotas for ‘gp1’</p></li>
 <li><p>1 block is 1KB</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">fallocate</span> <span class="pre">--lenght</span> <span class="pre">100M</span> <span class="pre">FILE1</span></code>, create 100MB file to test quota</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fallocate</span> <span class="pre">--lenght</span> <span class="pre">100M</span> <span class="pre">FILE1</span></code>: create 100MB file to test quota</p></li>
 <li><p>allowed to exceed soft limit for specific days, <code class="docutils literal notranslate"><span class="pre">grace</span> <span class="pre">period</span></code></p></li>
 <li><p>set inodes limit to limit files and directories</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">quota</span> <span class="pre">--edit-period</span></code>, edit grace period</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">quota</span> <span class="pre">--edit-period</span></code>: edit grace period</p></li>
 </ul>
 </dd>
 </dl>
@@ -1240,15 +1225,15 @@ nmcli<span class="w"> </span>connection<span class="w"> </span>up<span class="w"
 <h3>Firewall<a class="headerlink" href="#firewall" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--get-default-zone</span></code>, list default zone</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--set-default-zone=public</span></code>, set default zone</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--list-all</span></code>, list current firewall rules</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--info-service=ssh</span></code>, list service details</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--add-service=http</span></code> or <code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--add-port=80/tcp</span></code>, allow traffic</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--remove-service=http</span></code> or <code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--remove-port=80/tcp</span></code>, remove</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--get-active-zones</span></code>, list active zones</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--add-source=10.11.12.0/24</span> <span class="pre">--zone=trusted</span></code>, allow traffic based on IP</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--remove-source=10.11.12.0/24</span> <span class="pre">--zone=trusted</span></code>, remove from zone</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--get-default-zone</span></code>: list default zone</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--set-default-zone=public</span></code>: set default zone</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--list-all</span></code>: list current firewall rules</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--info-service=ssh</span></code>: list service details</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--add-service=http</span></code> or <code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--add-port=80/tcp</span></code>: allow traffic</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--remove-service=http</span></code> or <code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--remove-port=80/tcp</span></code>: remove</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--get-active-zones</span></code>: list active zones</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--add-source=10.11.12.0/24</span> <span class="pre">--zone=trusted</span></code>: allow traffic based on IP</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--remove-source=10.11.12.0/24</span> <span class="pre">--zone=trusted</span></code>: remove from zone</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--runtime-to-permanent</span></code> or <code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--add-port=80/tcp</span> <span class="pre">--permanent</span></code></p></li>
 </ul>
 </div></blockquote>
@@ -1284,12 +1269,12 @@ nmcli<span class="w"> </span>connection<span class="w"> </span>up<span class="w"
 <blockquote>
 <div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">bind</span></code>, including <code class="docutils literal notranslate"><span class="pre">bind-utils</span></code>, is popular for hosting dns server</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/etc/named.conf</span></code>, configuration file</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">named.service</span></code>, start bind</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--add-service=dns</span> <span class="pre">--permanent</span></code>, allow connection to dns service</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dig</span> <span class="pre">&#64;localhost</span> <span class="pre">google.com</span></code>, check bind working or not</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/etc/named.conf</span></code>: configuration file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">named.service</span></code>: start bind</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--add-service=dns</span> <span class="pre">--permanent</span></code>: allow connection to dns service</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dig</span> <span class="pre">&#64;localhost</span> <span class="pre">google.com</span></code>: check bind working or not</p></li>
 <li><p>zone: group dns data for specific domain</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/var/named/</span></code>, contains example zone files</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/var/named/</span></code>: contains example zone files</p></li>
 </ul>
 </div></blockquote>
 </section>
@@ -1316,16 +1301,16 @@ nmcli<span class="w"> </span>connection<span class="w"> </span>up<span class="w"
 <blockquote>
 <div><ul class="simple">
 <li><p>listens on port <code class="docutils literal notranslate"><span class="pre">22</span></code> by default, <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">user&#64;IP</span></code> to SSH remote login</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/etc/ssh/ssh_config</span></code>, client configuration file</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/etc/ssh/sshd_config</span></code>, server configuration file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/etc/ssh/ssh_config</span></code>: client configuration file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/etc/ssh/sshd_config</span></code>: server configuration file</p></li>
 <li><p>edit files in <code class="docutils literal notranslate"><span class="pre">/etc/ssh/ssh_config.d/</span></code> and <code class="docutils literal notranslate"><span class="pre">/etc/ssh/sshd_config.d/</span></code> to prevent reset</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">$HOME/.ssh/config</span></code>, file to specify users and IP (use <code class="docutils literal notranslate"><span class="pre">600</span></code> permission)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ssh-keygen</span></code>, generate ssh key pairs which are stored in <code class="docutils literal notranslate"><span class="pre">$HOME/.ssh/</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ssh-copy-id</span> <span class="pre">user&#64;server</span></code>, copy the public key to the server</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$HOME/.ssh/config</span></code>: file to specify users and IP (use <code class="docutils literal notranslate"><span class="pre">600</span></code> permission)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssh-keygen</span></code>: generate ssh key pairs which are stored in <code class="docutils literal notranslate"><span class="pre">$HOME/.ssh/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssh-copy-id</span> <span class="pre">user&#64;server</span></code>: copy the public key to the server</p></li>
 <li><p>can also manually edit <code class="docutils literal notranslate"><span class="pre">$HOME/.ssh/authorized_keys</span></code> to copy public key</p></li>
 <li><p>it is better to generate ssh key pairs on the client, so that only public key has to
 be copied over the Internet</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ssh-keygen</span> <span class="pre">-R</span> <span class="pre">IP</span></code>, remove old finger prints from <code class="docutils literal notranslate"><span class="pre">known_hosts</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssh-keygen</span> <span class="pre">-R</span> <span class="pre">IP</span></code>: remove old finger prints from <code class="docutils literal notranslate"><span class="pre">known_hosts</span></code></p></li>
 </ul>
 </div></blockquote>
 </section>
@@ -1336,7 +1321,7 @@ be copied over the Internet</p></li>
 <li><dl class="simple">
 <dt><strong>HTTP Proxy</strong></dt><dd><ul>
 <li><p>can use <code class="docutils literal notranslate"><span class="pre">squid</span></code> daemon to setup http proxy server</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--add-service=squid</span> <span class="pre">--permanent</span></code>, allow connection to squid</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--add-service=squid</span> <span class="pre">--permanent</span></code>: allow connection to squid</p></li>
 <li><p>edit <code class="docutils literal notranslate"><span class="pre">etc/squid/squid.conf</span></code> for configuration</p></li>
 </ul>
 </dd>
@@ -1347,15 +1332,15 @@ be copied over the Internet</p></li>
 <li><p>Apache <code class="docutils literal notranslate"><span class="pre">httpd</span></code> daemon is widely used with <code class="docutils literal notranslate"><span class="pre">mod_ssl</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--add-service=http</span></code> and <code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--add-service=https</span></code></p></li>
 <li><p>configuration files are in <code class="docutils literal notranslate"><span class="pre">/etc/httpd/</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/etc/httpd/conf/httpd.conf</span></code>, primary configuration file</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">apachectl</span> <span class="pre">configtest</span></code>, check configuration</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/etc/httpd/conf.d/ssl.conf</span></code>, default ssl configuration</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/etc/httpd/conf/httpd.conf</span></code>: primary configuration file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">apachectl</span> <span class="pre">configtest</span></code>: check configuration</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/etc/httpd/conf.d/ssl.conf</span></code>: default ssl configuration</p></li>
 <li><p>most modules are auto enabled when installed</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/var/log/httpd/</span></code>, default log directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/var/log/httpd/</span></code>: default log directory</p></li>
 <li><p>logging is done by <code class="docutils literal notranslate"><span class="pre">log_config_module</span></code></p></li>
 <li><p>it is recommended to separate log files by each host</p></li>
 <li><p>can restrict access by editing <code class="docutils literal notranslate"><span class="pre">Options</span> <span class="pre">Indexes</span> <span class="pre">FollowSymLinks</span></code>, <code class="docutils literal notranslate"><span class="pre">Require</span> <span class="pre">all</span> <span class="pre">granted</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">htpasswd</span> <span class="pre">-c</span> <span class="pre">/etc/httpd/passwords</span> <span class="pre">user1</span></code>, create hashed password file for user1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">htpasswd</span> <span class="pre">-c</span> <span class="pre">/etc/httpd/passwords</span> <span class="pre">user1</span></code>: create hashed password file for user1</p></li>
 <li><p>generated password file can be used for authentication with <code class="docutils literal notranslate"><span class="pre">AuthType</span></code>,
 <code class="docutils literal notranslate"><span class="pre">AuthBasicProvider</span></code>, <code class="docutils literal notranslate"><span class="pre">AuthName</span></code>, <code class="docutils literal notranslate"><span class="pre">AuthUserFile</span></code> and <code class="docutils literal notranslate"><span class="pre">Require</span></code> options</p></li>
 </ul>
@@ -1369,10 +1354,10 @@ be copied over the Internet</p></li>
 <h3>Database Server<a class="headerlink" href="#database-server" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">mariadb</span></code>, a fork of mysql, can be used to setup database server</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--add-service=mysql</span> <span class="pre">--permanent</span></code>, open firewall if needed</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mysql_secure_installation</span></code>, setup to secure the database</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/etc/my.cnf.d/mariadb-server.cnf</span></code>, main configuration file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mariadb</span></code>: a fork of mysql, can be used to setup database server</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">firewall-cmd</span> <span class="pre">--add-service=mysql</span> <span class="pre">--permanent</span></code>: open firewall if needed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mysql_secure_installation</span></code>: setup to secure the database</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/etc/my.cnf.d/mariadb-server.cnf</span></code>: main configuration file</p></li>
 </ul>
 </div></blockquote>
 </section>
@@ -1422,30 +1407,15 @@ be copied over the Internet</p></li>
 <blockquote>
 <div><ul class="simple">
 <li><p>file system needs to be created before a partition can be used</p></li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">mkfs.xfs</span> <span class="pre">/dev/sdb1</span></code>, create xfs file system</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">xfs_admin</span></code>, modify xfs file system</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">mkfs.ext4</span> <span class="pre">/dev/sdb1</span></code>, create ext4 file system</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">tune2fs</span> <span class="pre">-l</span> <span class="pre">/dev/sdb1</span></code>, modify ext based file system</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">mount</span> <span class="pre">/dev/sdb1</span> <span class="pre">/mnt/</span></code>, mount a file system</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">umount</span> <span class="pre">/mnt/</span></code>, unmount a file system</p></li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code>, file that instructs which file systems to be mounted automatically</dt><dd><ul>
-<li><p>use UUID instead of device names</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">blkid</span> <span class="pre">/dev/sdb1</span></code>, check UUID</p></li>
-</ul>
-</dd>
-</dl>
-</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">mkfs.xfs</span> <span class="pre">/dev/sdb1</span></code>: create xfs file system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">xfs_admin</span></code>: modify xfs file system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">mkfs.ext4</span> <span class="pre">/dev/sdb1</span></code>: create ext4 file system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">tune2fs</span> <span class="pre">-l</span> <span class="pre">/dev/sdb1</span></code>: modify ext based file system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">mount</span> <span class="pre">/dev/sdb1</span> <span class="pre">/mnt/</span></code>: mount a file system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">umount</span> <span class="pre">/mnt/</span></code>: unmount a file system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code>: file that instructs which file systems to be mounted automatically, use
+UUID instead of device names</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">blkid</span> <span class="pre">/dev/sdb1</span></code>: check UUID</p></li>
 <li><dl class="simple">
 <dt><strong>On-demand Mounting</strong></dt><dd><ul>
 <li><p>only mount when needed, useful when using remote servers</p></li>
@@ -1462,19 +1432,11 @@ be copied over the Internet</p></li>
 <li><dl class="simple">
 <dt><strong>Checking File System</strong></dt><dd><ul>
 <li><p>must be unmounted before checking</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">xfs_repair</span> <span class="pre">-v</span> <span class="pre">/dev/sda1</span></code>, repair XFS file system</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">fsck.ext4</span> <span class="pre">-v</span> <span class="pre">-f</span> <span class="pre">-p</span> <span class="pre">/dev/sda1</span></code>, check ext4 file system</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">findmnt</span></code>, find file systems and mount points</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">findmnt</span> <span class="pre">-t</span> <span class="pre">xfs,ext4</span></code>, show only xfs and ext4</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xfs_repair</span> <span class="pre">-v</span> <span class="pre">/dev/sda1</span></code>: repair XFS file system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fsck.ext4</span> <span class="pre">-v</span> <span class="pre">-f</span> <span class="pre">-p</span> <span class="pre">/dev/sda1</span></code>: check ext4 file system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">findmnt</span></code>: find file systems and mount points</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">findmnt</span> <span class="pre">-t</span> <span class="pre">xfs,ext4</span></code>: show only xfs and ext4</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">df</span></code>: check file system usage, add <code class="docutils literal notranslate"><span class="pre">-h</span></code> to show in human-readable form</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Inode</strong></dt><dd><ul>
-<li><p>helps file systems keep track of data</p></li>
-<li><p>contains metadata about a file</p></li>
 </ul>
 </dd>
 </dl>
@@ -1489,22 +1451,22 @@ be copied over the Internet</p></li>
 <li><p>Logical Volume Manager, to create virtual block devices</p></li>
 <li><p>can represent separate physical devices as one continuous partition</p></li>
 <li><p>PV: physical volume, VG: volume group, LV: logical volume, PE: physical extent</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lvmdiskscan</span></code>, list available PV</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pvcreate</span> <span class="pre">/dev/sdb</span> <span class="pre">/dev/sdd</span></code>, create pv to be used by LVM</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pvs</span></code>, list current attached PV</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">vgcreate</span> <span class="pre">vg1</span> <span class="pre">/dev/sdb</span> <span class="pre">/dev/sdd</span></code>, add PV to VG</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">vgextend</span> <span class="pre">vg1</span> <span class="pre">/dev/sde</span></code>, add new PV to existing VG</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">vgreduce</span> <span class="pre">vg1</span> <span class="pre">/dev/sde</span></code>, remove PV from VG</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pvremove</span> <span class="pre">/dev/sde</span></code>, remove PV</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lvcreate</span> <span class="pre">--size</span> <span class="pre">8GB</span> <span class="pre">--name</span> <span class="pre">partition1</span> <span class="pre">vg1</span></code>, create LV from existing VG</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lvs</span></code>, list LV</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">vgs</span></code>, list VG</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lvmdiskscan</span></code>: list available PV</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pvcreate</span> <span class="pre">/dev/sdb</span> <span class="pre">/dev/sdd</span></code>: create pv to be used by LVM</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pvs</span></code>: list current attached PV</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vgcreate</span> <span class="pre">vg1</span> <span class="pre">/dev/sdb</span> <span class="pre">/dev/sdd</span></code>: add PV to VG</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vgextend</span> <span class="pre">vg1</span> <span class="pre">/dev/sde</span></code>: add new PV to existing VG</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vgreduce</span> <span class="pre">vg1</span> <span class="pre">/dev/sde</span></code>: remove PV from VG</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pvremove</span> <span class="pre">/dev/sde</span></code>: remove PV</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lvcreate</span> <span class="pre">--size</span> <span class="pre">8GB</span> <span class="pre">--name</span> <span class="pre">partition1</span> <span class="pre">vg1</span></code>: create LV from existing VG</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lvs</span></code>: list LV</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vgs</span></code>: list VG</p></li>
 <li><p>data in LVM is divided into multiple PEs</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lvresize</span> <span class="pre">--extents</span> <span class="pre">100%VG</span> <span class="pre">vg1/partition1</span></code>, resize LV</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lvresize</span> <span class="pre">--size</span> <span class="pre">8G</span> <span class="pre">vg1/partition1</span></code>, shrink LV</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lvdisplay</span></code>, information about LV</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mkfs.xfs</span> <span class="pre">/dev/vg1/partition1</span></code>, create file system on LV</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lvresize</span> <span class="pre">--resizefs</span> <span class="pre">--size</span> <span class="pre">3G</span> <span class="pre">vg1/partition1</span></code>, resize both LV and file system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lvresize</span> <span class="pre">--extents</span> <span class="pre">100%VG</span> <span class="pre">vg1/partition1</span></code>: resize LV</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lvresize</span> <span class="pre">--size</span> <span class="pre">8G</span> <span class="pre">vg1/partition1</span></code>: shrink LV</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lvdisplay</span></code>: information about LV</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mkfs.xfs</span> <span class="pre">/dev/vg1/partition1</span></code>: create file system on LV</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lvresize</span> <span class="pre">--resizefs</span> <span class="pre">--size</span> <span class="pre">3G</span> <span class="pre">vg1/partition1</span></code>: resize both LV and file system</p></li>
 </ul>
 </div></blockquote>
 </section>
@@ -1524,9 +1486,9 @@ be copied over the Internet</p></li>
 <li><dl class="simple">
 <dt><strong>Plain Mode</strong></dt><dd><ul>
 <li><p>takes password and encrypt all data with it</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cryptsetup</span> <span class="pre">--verify-passphrase</span> <span class="pre">open</span> <span class="pre">--type</span> <span class="pre">plain</span> <span class="pre">/dev/sda</span> <span class="pre">mysecuredisk</span></code>, can read
+<li><p><code class="docutils literal notranslate"><span class="pre">cryptsetup</span> <span class="pre">--verify-passphrase</span> <span class="pre">open</span> <span class="pre">--type</span> <span class="pre">plain</span> <span class="pre">/dev/sda</span> <span class="pre">mysecuredisk</span></code>: can read
 decrypted data</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cryptsetup</span> <span class="pre">close</span> <span class="pre">mysecuredisk</span></code>, can only read encrypted data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cryptsetup</span> <span class="pre">close</span> <span class="pre">mysecuredisk</span></code>: can only read encrypted data</p></li>
 <li><p>changing password requires encrypting all data again</p></li>
 </ul>
 </dd>
@@ -1536,9 +1498,9 @@ decrypted data</p></li>
 <dt><strong>LUKS Extension</strong></dt><dd><ul>
 <li><p>Linux Unified Key Setup, default mode and more user friendly to setup</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">cryptsetup</span> <span class="pre">luksFormat</span> <span class="pre">/dev/sda</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cryptsetup</span> <span class="pre">luksChangeKey</span></code>, change encryption key</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cryptsetup</span> <span class="pre">open</span> <span class="pre">/dev/sda</span> <span class="pre">mysecuredisk</span></code>, can read decrypted data</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cryptsetup</span> <span class="pre">close</span> <span class="pre">mysecuredisk</span></code>, can only read encrypted data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cryptsetup</span> <span class="pre">luksChangeKey</span></code>: change encryption key</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cryptsetup</span> <span class="pre">open</span> <span class="pre">/dev/sda</span> <span class="pre">mysecuredisk</span></code>: can read decrypted data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cryptsetup</span> <span class="pre">close</span> <span class="pre">mysecuredisk</span></code>: can only read encrypted data</p></li>
 </ul>
 </dd>
 </dl>
@@ -2338,7 +2300,7 @@ subroutines in C or C++</p></li>
 <section id="kernel-data-structures">
 <h2>Kernel Data Structures<a class="headerlink" href="#kernel-data-structures" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#file-operations">File Operations</a></p></li>
+<li><p><a class="reference internal" href="#file-operations">File Operations</a>, <a class="reference internal" href="#inode">Inode</a></p></li>
 </ul>
 <section id="file-operations">
 <h3>File Operations<a class="headerlink" href="#file-operations" title="Link to this heading">#</a></h3>
@@ -2504,6 +2466,14 @@ method</p></li>
 </dd>
 </dl>
 </li>
+</ul>
+</div></blockquote>
+</section>
+<section id="inode">
+<h3>Inode<a class="headerlink" href="#inode" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>helps file systems keep track of data, and contains metadata about a file</p></li>
 </ul>
 </div></blockquote>
 <p><a class="reference external" href="#linux">back to top</a></p>
@@ -3455,6 +3425,7 @@ Usama Anjum, Collabora. Available at: <a class="reference external" href="https:
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-data-structures">Kernel Data Structures</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-operations">File Operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inode">Inode</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-modules">Kernel Modules</a><ul class="nav section-nav flex-column">

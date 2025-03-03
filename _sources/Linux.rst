@@ -120,24 +120,16 @@ Search & Find
         - ``egrep`` or ``grep -E``: use extended regular expressions, meta-characters do not need
           to be escaped
     * **Regular Expressions**
-        - ``^``: starts with
-        - ``$``: ends with
-        - ``.``: match any 1 character
-        - ``\``: escape character
-        - ``*``: match previous 0 or more times
-        - ``+``: match previous 1 or more times
-        - ``{X}``: previous can exist X times (``{MIN,MAX}``)
-        - ``?``: previous can be optional
-        - ``|``: match one or other
-        - ``[]``: range (``[a-z]``) or sets (``[abc123]``)
-        - ``[^]``: negated range or sets
-        - ``()``: sub-expressions
+        - ``^``: starts with, ``$``: ends with
+        - ``.``: match any 1 character, ``\``: escape character
+        - ``*``: match previous 0 or more times, ``+``: match previous 1 or more times
+        - ``{X}``: previous can exist X times (``{MIN,MAX}``), ``?``: previous can be optional
+        - ``|``: match one or other, ``()``: sub-expressions
+        - ``[]``: range (``[a-z]``) or sets (``[abc123]``), ``[^]``: negated range or sets
 
 Input/Output
 ------------
-    * ``<``: stdin (0)
-    * ``1>`` or ``>``: stdout
-    * ``2>``: stderr
+    * ``<``: stdin (0), ``1>`` or ``>``: stdout, ``2>``: stderr
     * ``>>``: append
     * ``> FILE.txt 2>&1`` or ``> FILE.txt >&``: both stdout and stderr
     * ``<<EOF ...any text here... > EOF``: heredoc
@@ -221,9 +213,7 @@ Reboot & Shutdown
 
 Boot Targets
 ------------
-    * ``graphical``
-    * ``multi-user``: text based
-    * ``emergency``: read-only root file system
+    * ``graphical``, ``multi-user``: text based, ``emergency``: read-only root file system
     * ``rescue``: more programs than ``emergency``, but less than ``multi-user``
     * root user password must be set to use ``emergency`` and ``rescue``
     * ``systemctl get-default``: list boot target
@@ -359,23 +349,22 @@ Bash Scripts
 
 SELinux
 -------
-    * Security Enhanced Linux, a security module
-    * enabled by default, allow fine grain control
+    * Security Enhanced Linux, a security module enabled by default, and allow detailed control
     * **SELinux context label**
         - ``ls -Z``, list context labels for files
-        - ``unconfined_u:object_r:user_home_t:s0``, 'user:role:type:level'
-        - ``ps axZ``, list context labels for processes
+        - ``unconfined_u:object_r:user_home_t:s0``: 'user:role:type:level'
+        - ``ps axZ``: list context labels for processes
         - processes with ``unconfined_t`` domain are running unrestricted
-        - ``id -Z``, list context for current user
-        - ``semanage login -l``, check user mapping to SELinux 'user'
-        - ``semanage user -l``, check users mapping to SELinux 'users'
+        - ``id -Z``: list context for current user
+        - ``semanage login -l``: check user mapping to SELinux 'user'
+        - ``semanage user -l``: check users mapping to SELinux 'users'
     * has policy configuration
-    * every user logged in is mapped to SELinux 'user'
-    * each 'user' can only assume predefined 'roles'
+    * every user logged in is mapped to SELinux 'user', and each 'user' can only assume
+      predefined 'roles'
     * 'type' restrict what an object can do, called 'domain' on processes
     * 'level' is never used on regular systems, only used in enterprises
-    * ``getenforce``, check SELinux enabled or not (``Enforcing``, ``Permissive``, ``Disabled``)
-    * benefits
+    * ``getenforce``: check SELinux enabled or not (``Enforcing``, ``Permissive``, ``Disabled``)
+    * **Benefits**
         - only certain users can enter certain roles and types
         - lets authorized users and processes do their job
         - authorized users and processes are allowed to take only a limited set of actions
@@ -432,8 +421,8 @@ Groups
 
 Environment Variables
 ---------------------
-    * ``printenv`` or ``env``, list environment variables
-    * ``echo $HOME``, print an environment variable value
+    * ``printenv`` or ``env``: list environment variables
+    * ``echo $HOME``: print an environment variable value
     * can edit ``.bashrc`` file to set variables
     * place scripts in ``/etc/profile.d/`` to be executed at login
     * place files in ``/etc/skel/`` to have default files for new users in their ``/home``
@@ -442,63 +431,63 @@ Environment Variables
 Resource Limits
 ---------------
     * edit ``/etc/security/limits.conf`` to limit users resources
-    * ``ulimit -a``, list current user limits
+    * ``ulimit -a``: list current user limits
     * users can only lower limits by default
     * users can raise to hard limit only once
 
 Privileges
 ----------
     * users part of ``wheel`` group are allowed to run commands as root
-    * ``sudo gpasswd -a user1 wheel``, add user to ``wheel`` group
+    * ``sudo gpasswd -a user1 wheel``:add user to ``wheel`` group
     * ``/etc/sudoers`` defines who can use which commands with ``sudo``, never edit directly
-    * ``sudo visudo``, edit ``/etc/sudoers`` file safely
-    * ``sudo -u user1 ls``, run as commands 'user1'
-    * ``sudo -iu user1``, login as user1
-    * ``sudo -i`` or ``su -l`` or ``su -``, login as root
-    * ``sudo passwd root``, set new password for root
+    * ``sudo visudo``: edit ``/etc/sudoers`` file safely
+    * ``sudo -u user1 ls``: run as commands 'user1'
+    * ``sudo -iu user1``: login as user1
+    * ``sudo -i`` or ``su -l`` or ``su -``: login as root
+    * ``sudo passwd root``: set new password for root
 
 ACLs
 ----
     * define specific permissions to two or more users/groups
-    * ``setfacl --modify user:user2:rw FILE``, 'user2' can access while other non-owners can't
+    * ``setfacl --modify user:user2:rw FILE``: 'user2' can access while other non-owners can't
     * files with ACL will have ``+`` when ``ls -l``
-    * ``getfacl FILE``, check for ACL
-        - ``mask`` defines maximum permissions file/directory can have, useful to limit
-          existing permissions
-        - ``setfacl --modify mask:r FILE``
-    * ``setfacl --modify group:gp1:rw FILE``, set ACL for 'gp1'
-    * ``setfacl --modify user:user2:--- FILE``, deny all permissions for 'user2'
-    * ``setfacl --remove user:user2 FILE``, remove ACL for 'user2'
-    * ``setfacl --remove group:gp1 FILE``, remove ACL for 'gp1'
-    * ``setfacl --recursive -m user:user2:rwx DIR1/``, define ACL recursively
-    * ``setfacl --recursive --remove user:user2 DIR1/``, remove ACL recursively
+    * ``getfacl FILE``: check for ACL
+    * ``mask`` defines maximum permissions file/directory can have, useful to limit
+      existing permissions
+    * ``setfacl --modify mask:r FILE``
+    * ``setfacl --modify group:gp1:rw FILE``: set ACL for 'gp1'
+    * ``setfacl --modify user:user2:--- FILE``: deny all permissions for 'user2'
+    * ``setfacl --remove user:user2 FILE``: remove ACL for 'user2'
+    * ``setfacl --remove group:gp1 FILE``: remove ACL for 'gp1'
+    * ``setfacl --recursive -m user:user2:rwx DIR1/``: define ACL recursively
+    * ``setfacl --recursive --remove user:user2 DIR1/``: remove ACL recursively
 
 Attributes
 ----------
     * can make file or directory behave differently
-    * ``chattr +a FILE``, can only append
-    * ``chattr -a FILE``, remove append only attribute
-    * ``chattr +i FILE``, file is immutable, even root user cannot modify
-    * ``lsattr FILE``, list attributes of file
-    * ``man chattr``, list all available attributes
+    * ``chattr +a FILE``: can only append
+    * ``chattr -a FILE``: remove append only attribute
+    * ``chattr +i FILE``: file is immutable, even root user cannot modify
+    * ``lsattr FILE``: list attributes of file
+    * ``man chattr``: list all available attributes
 
 Disk Quotas
 -----------
     * can use ``quota`` to set quotas
     * can limit storage and how may files and directories can be created
     * for ext file system
-        - ``quotacheck --create-files --user --group /dev/sdb2``, create files to track usage
-        - ``quotaon /mnt/``, turn on quota if mounted on ``/mnt/``
+        - ``quotacheck --create-files --user --group /dev/sdb2``: create files to track usage
+        - ``quotaon /mnt/``: turn on quota if mounted on ``/mnt/``
     * for xfs file system
         - can edit ``/etc/fstab`` to have ``defaults,usrquota,grpquota``
-        - ``quota --user user1``, list quotas for 'user1'
-        - ``edquota --user user1``, edit quotas for 'user1'
-        - ``edquota --group gp1``, edit quotas for 'gp1'
+        - ``quota --user user1``: list quotas for 'user1'
+        - ``edquota --user user1``: edit quotas for 'user1'
+        - ``edquota --group gp1``: edit quotas for 'gp1'
         - 1 block is 1KB
-        - ``fallocate --lenght 100M FILE1``, create 100MB file to test quota
+        - ``fallocate --lenght 100M FILE1``: create 100MB file to test quota
         - allowed to exceed soft limit for specific days, ``grace period``
         - set inodes limit to limit files and directories
-        - ``quota --edit-period``, edit grace period
+        - ``quota --edit-period``: edit grace period
 
 Kernel Runtime Parameters
 -------------------------
@@ -535,15 +524,15 @@ Network Management
 
 Firewall
 --------
-    * ``firewall-cmd --get-default-zone``, list default zone
-    * ``firewall-cmd --set-default-zone=public``, set default zone
-    * ``firewall-cmd --list-all``, list current firewall rules
-    * ``firewall-cmd --info-service=ssh``, list service details
-    * ``firewall-cmd --add-service=http`` or ``firewall-cmd --add-port=80/tcp``, allow traffic
-    * ``firewall-cmd --remove-service=http`` or ``firewall-cmd --remove-port=80/tcp``, remove
-    * ``firewall-cmd --get-active-zones``, list active zones
-    * ``firewall-cmd --add-source=10.11.12.0/24 --zone=trusted``, allow traffic based on IP
-    * ``firewall-cmd --remove-source=10.11.12.0/24 --zone=trusted``, remove from zone
+    * ``firewall-cmd --get-default-zone``: list default zone
+    * ``firewall-cmd --set-default-zone=public``: set default zone
+    * ``firewall-cmd --list-all``: list current firewall rules
+    * ``firewall-cmd --info-service=ssh``: list service details
+    * ``firewall-cmd --add-service=http`` or ``firewall-cmd --add-port=80/tcp``: allow traffic
+    * ``firewall-cmd --remove-service=http`` or ``firewall-cmd --remove-port=80/tcp``: remove
+    * ``firewall-cmd --get-active-zones``: list active zones
+    * ``firewall-cmd --add-source=10.11.12.0/24 --zone=trusted``: allow traffic based on IP
+    * ``firewall-cmd --remove-source=10.11.12.0/24 --zone=trusted``: remove from zone
     * ``firewall-cmd --runtime-to-permanent`` or ``firewall-cmd --add-port=80/tcp --permanent``
 
 Static Routing
@@ -567,12 +556,12 @@ Time Synchronisation
 Bind
 ----
     * ``bind``, including ``bind-utils``, is popular for hosting dns server
-    * ``/etc/named.conf``, configuration file
-    * ``systemctl start named.service``, start bind
-    * ``firewall-cmd --add-service=dns --permanent``, allow connection to dns service
-    * ``dig @localhost google.com``, check bind working or not
+    * ``/etc/named.conf``: configuration file
+    * ``systemctl start named.service``: start bind
+    * ``firewall-cmd --add-service=dns --permanent``: allow connection to dns service
+    * ``dig @localhost google.com``: check bind working or not
     * zone: group dns data for specific domain
-    * ``/var/named/``, contains example zone files
+    * ``/var/named/``: contains example zone files
 
 Email
 -----
@@ -586,45 +575,45 @@ Email
 SSH
 ---
     * listens on port ``22`` by default, ``ssh user@IP`` to SSH remote login
-    * ``/etc/ssh/ssh_config``, client configuration file
-    * ``/etc/ssh/sshd_config``, server configuration file
+    * ``/etc/ssh/ssh_config``: client configuration file
+    * ``/etc/ssh/sshd_config``: server configuration file
     * edit files in ``/etc/ssh/ssh_config.d/`` and ``/etc/ssh/sshd_config.d/`` to prevent reset
-    * ``$HOME/.ssh/config``, file to specify users and IP (use ``600`` permission)
-    * ``ssh-keygen``, generate ssh key pairs which are stored in ``$HOME/.ssh/``
-    * ``ssh-copy-id user@server``, copy the public key to the server
+    * ``$HOME/.ssh/config``: file to specify users and IP (use ``600`` permission)
+    * ``ssh-keygen``: generate ssh key pairs which are stored in ``$HOME/.ssh/``
+    * ``ssh-copy-id user@server``: copy the public key to the server
     * can also manually edit ``$HOME/.ssh/authorized_keys`` to copy public key
     * it is better to generate ssh key pairs on the client, so that only public key has to
       be copied over the Internet
-    * ``ssh-keygen -R IP``, remove old finger prints from ``known_hosts``
+    * ``ssh-keygen -R IP``: remove old finger prints from ``known_hosts``
 
 HTTP
 ----
     * **HTTP Proxy**
         - can use ``squid`` daemon to setup http proxy server
-        - ``firewall-cmd --add-service=squid --permanent``, allow connection to squid
+        - ``firewall-cmd --add-service=squid --permanent``: allow connection to squid
         - edit ``etc/squid/squid.conf`` for configuration
     * **HTTP Server**
         - Apache ``httpd`` daemon is widely used with ``mod_ssl``
         - ``firewall-cmd --add-service=http`` and ``firewall-cmd --add-service=https``
         - configuration files are in ``/etc/httpd/``
-        - ``/etc/httpd/conf/httpd.conf``, primary configuration file
-        - ``apachectl configtest``, check configuration
-        - ``/etc/httpd/conf.d/ssl.conf``, default ssl configuration
+        - ``/etc/httpd/conf/httpd.conf``: primary configuration file
+        - ``apachectl configtest``: check configuration
+        - ``/etc/httpd/conf.d/ssl.conf``: default ssl configuration
         - most modules are auto enabled when installed
-        - ``/var/log/httpd/``, default log directory
+        - ``/var/log/httpd/``: default log directory
         - logging is done by ``log_config_module``
         - it is recommended to separate log files by each host
         - can restrict access by editing ``Options Indexes FollowSymLinks``, ``Require all granted``
-        - ``sudo htpasswd -c /etc/httpd/passwords user1``, create hashed password file for user1
+        - ``sudo htpasswd -c /etc/httpd/passwords user1``: create hashed password file for user1
         - generated password file can be used for authentication with ``AuthType``,
           ``AuthBasicProvider``, ``AuthName``, ``AuthUserFile`` and ``Require`` options
 
 Database Server
 ---------------
-    * ``mariadb``, a fork of mysql, can be used to setup database server
-    * ``firewall-cmd --add-service=mysql --permanent``, open firewall if needed
-    * ``mysql_secure_installation``, setup to secure the database
-    * ``/etc/my.cnf.d/mariadb-server.cnf``, main configuration file
+    * ``mariadb``: a fork of mysql, can be used to setup database server
+    * ``firewall-cmd --add-service=mysql --permanent``: open firewall if needed
+    * ``mysql_secure_installation``: setup to secure the database
+    * ``/etc/my.cnf.d/mariadb-server.cnf``: main configuration file
 
 Block Devices
 -------------
@@ -653,15 +642,15 @@ Swap
 Creating File Systems
 ---------------------
     * file system needs to be created before a partition can be used
-    * ``sudo mkfs.xfs /dev/sdb1``, create xfs file system
-        - ``sudo xfs_admin``, modify xfs file system
-    * ``sudo mkfs.ext4 /dev/sdb1``, create ext4 file system
-        - ``sudo tune2fs -l /dev/sdb1``, modify ext based file system
-    * ``sudo mount /dev/sdb1 /mnt/``, mount a file system
-    * ``sudo umount /mnt/``, unmount a file system
-    * ``/etc/fstab``, file that instructs which file systems to be mounted automatically
-        - use UUID instead of device names
-        - ``sudo blkid /dev/sdb1``, check UUID
+    * ``sudo mkfs.xfs /dev/sdb1``: create xfs file system
+    * ``sudo xfs_admin``: modify xfs file system
+    * ``sudo mkfs.ext4 /dev/sdb1``: create ext4 file system
+    * ``sudo tune2fs -l /dev/sdb1``: modify ext based file system
+    * ``sudo mount /dev/sdb1 /mnt/``: mount a file system
+    * ``sudo umount /mnt/``: unmount a file system
+    * ``/etc/fstab``: file that instructs which file systems to be mounted automatically, use
+      UUID instead of device names
+    * ``sudo blkid /dev/sdb1``: check UUID
     * **On-demand Mounting**
         - only mount when needed, useful when using remote servers
         - ``autofs`` daemon can be used, usually with ``nfs-utils``
@@ -672,36 +661,33 @@ Creating File Systems
     * it is better to do ``umount`` and ``mount`` again with new options
     * **Checking File System**
         - must be unmounted before checking
-        - ``xfs_repair -v /dev/sda1``, repair XFS file system
-        - ``fsck.ext4 -v -f -p /dev/sda1``, check ext4 file system
-        - ``findmnt``, find file systems and mount points
-        - ``findmnt -t xfs,ext4``, show only xfs and ext4
+        - ``xfs_repair -v /dev/sda1``: repair XFS file system
+        - ``fsck.ext4 -v -f -p /dev/sda1``: check ext4 file system
+        - ``findmnt``: find file systems and mount points
+        - ``findmnt -t xfs,ext4``: show only xfs and ext4
         - ``df``: check file system usage, add ``-h`` to show in human-readable form
-    * **Inode**
-        - helps file systems keep track of data
-        - contains metadata about a file
 
 LVM
 ---
     * Logical Volume Manager, to create virtual block devices
     * can represent separate physical devices as one continuous partition
     * PV: physical volume, VG: volume group, LV: logical volume, PE: physical extent
-    * ``lvmdiskscan``, list available PV
-    * ``pvcreate /dev/sdb /dev/sdd``, create pv to be used by LVM
-    * ``pvs``, list current attached PV
-    * ``vgcreate vg1 /dev/sdb /dev/sdd``, add PV to VG
-    * ``vgextend vg1 /dev/sde``, add new PV to existing VG
-    * ``vgreduce vg1 /dev/sde``, remove PV from VG
-    * ``pvremove /dev/sde``, remove PV
-    * ``lvcreate --size 8GB --name partition1 vg1``, create LV from existing VG
-    * ``lvs``, list LV
-    * ``vgs``, list VG
+    * ``lvmdiskscan``: list available PV
+    * ``pvcreate /dev/sdb /dev/sdd``: create pv to be used by LVM
+    * ``pvs``: list current attached PV
+    * ``vgcreate vg1 /dev/sdb /dev/sdd``: add PV to VG
+    * ``vgextend vg1 /dev/sde``: add new PV to existing VG
+    * ``vgreduce vg1 /dev/sde``: remove PV from VG
+    * ``pvremove /dev/sde``: remove PV
+    * ``lvcreate --size 8GB --name partition1 vg1``: create LV from existing VG
+    * ``lvs``: list LV
+    * ``vgs``: list VG
     * data in LVM is divided into multiple PEs
-    * ``lvresize --extents 100%VG vg1/partition1``, resize LV
-    * ``lvresize --size 8G vg1/partition1``, shrink LV
-    * ``lvdisplay``, information about LV
-    * ``mkfs.xfs /dev/vg1/partition1``, create file system on LV
-    * ``lvresize --resizefs --size 3G vg1/partition1``, resize both LV and file system
+    * ``lvresize --extents 100%VG vg1/partition1``: resize LV
+    * ``lvresize --size 8G vg1/partition1``: shrink LV
+    * ``lvdisplay``: information about LV
+    * ``mkfs.xfs /dev/vg1/partition1``: create file system on LV
+    * ``lvresize --resizefs --size 3G vg1/partition1``: resize both LV and file system
 
 Device Encryption
 -----------------
@@ -711,16 +697,16 @@ Device Encryption
         - ``mount /dev/mapper/mysecuredisk /mnt``, can be mounted
     * **Plain Mode**
         - takes password and encrypt all data with it
-        - ``cryptsetup --verify-passphrase open --type plain /dev/sda mysecuredisk``, can read
+        - ``cryptsetup --verify-passphrase open --type plain /dev/sda mysecuredisk``: can read
           decrypted data
-        - ``cryptsetup close mysecuredisk``, can only read encrypted data
+        - ``cryptsetup close mysecuredisk``: can only read encrypted data
         - changing password requires encrypting all data again
     * **LUKS Extension**
         - Linux Unified Key Setup, default mode and more user friendly to setup
         - ``cryptsetup luksFormat /dev/sda``
-        - ``cryptsetup luksChangeKey``, change encryption key
-        - ``cryptsetup open /dev/sda mysecuredisk``, can read decrypted data
-        - ``cryptsetup close mysecuredisk``, can only read encrypted data
+        - ``cryptsetup luksChangeKey``: change encryption key
+        - ``cryptsetup open /dev/sda mysecuredisk``: can read decrypted data
+        - ``cryptsetup close mysecuredisk``: can only read encrypted data
 
 RAID
 ----
@@ -1179,7 +1165,7 @@ FFI
 Kernel Data Structures
 ======================
 
-* `File Operations`_
+* `File Operations`_, `Inode`_
 
 File Operations
 ---------------
@@ -1258,6 +1244,10 @@ File Operations
     * **``int (*check_flags) (int)``**
         - allow a module to check the flags passed to fcntl
         - called by fcntl(2) for ``F_SETFL`` command
+
+Inode
+-----
+    * helps file systems keep track of data, and contains metadata about a file
 
 `back to top <#linux>`_
 
