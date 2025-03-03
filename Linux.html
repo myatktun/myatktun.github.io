@@ -665,10 +665,10 @@ to be escaped</p></li>
 <section id="processes">
 <h3>Processes<a class="headerlink" href="#processes" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">top</span></code>: list processes in real time, order by cpu usage</p></li>
 <li><dl class="simple">
-<dt><strong>ps</strong></dt><dd><ul class="simple">
+<dt><strong>ps</strong></dt><dd><ul>
 <li><p>list processes at the time the command is run</p></li>
 <li><p>only show current processes in session by default</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">-aux</span></code> for Unix style, and <code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">aux</span></code> for BSD style</p></li>
@@ -682,11 +682,9 @@ to be escaped</p></li>
 </dd>
 </dl>
 </li>
-<li><dl>
-<dt><strong>nice</strong></dt><dd><blockquote>
-<div><p>start process with specific nice value (-20 to 19), e.g. <code class="docutils literal notranslate"><span class="pre">nice</span> <span class="pre">-n</span> <span class="pre">9</span> <span class="pre">bash</span></code></p>
-</div></blockquote>
-<ul class="simple">
+<li><dl class="simple">
+<dt><strong>nice</strong></dt><dd><ul>
+<li><p>start process with specific nice value (-20 to 19), e.g. <code class="docutils literal notranslate"><span class="pre">nice</span> <span class="pre">-n</span> <span class="pre">9</span> <span class="pre">bash</span></code></p></li>
 <li><p>processes inherit nice values</p></li>
 <li><p>regular user can only assign values between 0 and 19</p></li>
 <li><p>assigning negative nice value requires root</p></li>
@@ -696,7 +694,7 @@ to be escaped</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>kill</strong></dt><dd><ul class="simple">
+<dt><strong>kill</strong></dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">kill</span> <span class="pre">-SIGHUP</span> <span class="pre">PID</span></code>: send signal to process by name</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">kill</span> <span class="pre">PID</span></code>: send <code class="docutils literal notranslate"><span class="pre">TERM</span></code> signal by default</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">kill</span> <span class="pre">-L</span></code>: list signals list</p></li>

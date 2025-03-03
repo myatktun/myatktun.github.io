@@ -157,7 +157,7 @@ Processes
         - ``ps l``: include nice value column
         - ``ps fax``: list processes tree
     * **nice**
-         start process with specific nice value (-20 to 19), e.g. ``nice -n 9 bash``
+        - start process with specific nice value (-20 to 19), e.g. ``nice -n 9 bash``
         - processes inherit nice values
         - regular user can only assign values between 0 and 19
         - assigning negative nice value requires root
