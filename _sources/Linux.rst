@@ -3,16 +3,13 @@ Linux
 =====
 
 1. `Commands`_
-2. `Configurations`_
-3. `Networking`_
-4. `Storage`_
-5. `Memory Management`_
-6. `Kernel Development`_
-7. `Kernel Data Structures`_
-8. `Kernel Modules`_
-9. `Device Drivers`_
-10. `Linux From Scratch`_
-11. `References & External Resources`_
+2. `Memory Management`_
+3. `Kernel Development`_
+4. `Kernel Data Structures`_
+5. `Kernel Modules`_
+6. `Device Drivers`_
+7. `Linux From Scratch`_
+8. `References & External Resources`_
 
 `back to top <#linux>`_
 
@@ -22,6 +19,11 @@ Commands
 * `File & Directory`_, `Links`_, `Search & Find`_, `Input/Output`_, `Processes`_, `Logging`_
 * `Man`_, `Reboot & Shutdown`_, `Boot Targets`_, `Bootloader`_, `Init Systems`_, `Schedule Jobs`_
 * `Package Manager`_, `Bash Scripts`_, `SELinux`_
+* `Users`_, `Groups`_, `Environment Variables`_, `Resource Limits`_, `Privileges`_
+* `ACLs`_, `Attributes`_, `Disk Quotas`_, `Kernel Runtime Parameters`_
+* `Network Management`_, `Firewall`_, `Static Routing`_, `Time Synchronisation`_, `Bind`_
+* `Email`_, `SSH`_, `HTTP`_, `Database Server`_
+* `Block Devices`_, `Disk Imaging`_, `Swap`_, `Creating File Systems`_, `LVM`_, `Device Encryption`_, `RAID`_
 
 File & Directory
 ----------------
@@ -379,14 +381,6 @@ SELinux
         - authorized users and processes are allowed to take only a limited set of actions
         - everything else is denied
 
-`back to top <#linux>`_
-
-Configurations
-==============
-
-* `Users`_, `Groups`_, `Environment Variables`_, `Resource Limits`_, `Privileges`_, `PAM`_
-* `ACLs`_, `Attributes`_, `Disk Quotas`_, `Kernel Runtime Parameters`_
-
 Users
 -----
     * Shadow package contains programs for handling passwords in a secure way
@@ -463,12 +457,6 @@ Privileges
     * ``sudo -i`` or ``su -l`` or ``su -``, login as root
     * ``sudo passwd root``, set new password for root
 
-PAM
----
-    * Pluggable Authentication Module can configure methods to authenticate users
-    * ``/etc/pam.d/``, configuration files for PAM
-    * modules are loaded in order, but control field can change the order
-
 ACLs
 ----
     * define specific permissions to two or more users/groups
@@ -519,27 +507,20 @@ Kernel Runtime Parameters
     * add files in ``/etc/sysctl.d/*.conf``: persistent change
     * ``sysctl -p /etc/sysctl.d/custom.conf``: read value from file
 
-`back to top <#linux>`_
-
-Networking
-==========
-
-* `Network Management`_, `Firewall`_, `Static Routing`_, `Time Synchronisation`_, `Bind`_
-* `Email`_, `SSH`_, `HTTP`_, `Database Server`_
-* ``ip l`` or ``ip a``: list network interfaces
-* ``ip r``: list route table
-* ``/etc/resolv.conf``: dns resolver file
-* ``/etc/sysconfig/network-scripts/``: system configure network according to files in the it
-* ``/etc/hosts``: edit the file for static host names
-* ``systemctl status NetworkManager.service``: daemon that starts network settings and devices
-* ``ss -tunlp`` or ``netstat -tunlp``: list listening connections
-
 Network Management
 ------------------
-    * can use ``nmcli`` or ``nmtui`` to edit network configurations
-    * ``nmcli device reapply eno1``: apply changes without reboot
-    * ``nmcli connection show``: list configured connections
-    * ``nmcli connection modify MyWifi autoconnect yes``: configure device to auto connect
+    * ``ip l`` or ``ip a``: list network interfaces
+    * ``ip r``: list route table
+    * ``/etc/resolv.conf``: dns resolver file
+    * ``/etc/sysconfig/network-scripts/``: system configure network according to files in the it
+    * ``/etc/hosts``: edit the file for static host names
+    * ``systemctl status NetworkManager.service``: daemon that starts network settings and devices
+    * ``ss -tunlp`` or ``netstat -tunlp``: list listening connections
+    * **nmcli**
+        - can use ``nmcli`` or ``nmtui`` to edit network configurations
+        - ``nmcli device reapply eno1``: apply changes without reboot
+        - ``nmcli connection show``: list configured connections
+        - ``nmcli connection modify MyWifi autoconnect yes``: configure device to auto connect
     * **Connecting to wifi**
 
         .. code-block:: bash
@@ -645,13 +626,6 @@ Database Server
     * ``mysql_secure_installation``, setup to secure the database
     * ``/etc/my.cnf.d/mariadb-server.cnf``, main configuration file
 
-`back to top <#linux>`_
-
-Storage
-=======
-
-* `Block Devices`_, `Disk Imaging`_, `Swap`_, `File Systems`_, `LVM`_, `Device Encryption`_, `RAID`_
-
 Block Devices
 -------------
     * ``lsblk``: list block devices
@@ -676,8 +650,8 @@ Swap
         - ``sudo mkswap /swap``
         - ``sudo swapon --verbose /swap``
 
-File Systems
-------------
+Creating File Systems
+---------------------
     * file system needs to be created before a partition can be used
     * ``sudo mkfs.xfs /dev/sdb1``, create xfs file system
         - ``sudo xfs_admin``, modify xfs file system
@@ -1292,6 +1266,7 @@ Kernel Modules
 
 * `Kernel Role`_, `Device and Module Classes`_, `Protection Levels`_, `Compile and Load Modules`_
 * `Current Process`_, `Module Stacking`_, `Module Conventions`_, `Module Functions`_, `Module Parameters`_
+* `PAM`_
 
 Kernel Role
 -----------
@@ -1537,12 +1512,18 @@ Module Parameters
         - bool: a bool, values 0/1, y/n, Y/N.
         - invbool: the above, only sense-reversed (N = true).
 
+PAM
+---
+    * Pluggable Authentication Module can configure methods to authenticate users
+    * ``/etc/pam.d/``, configuration files for PAM
+    * modules are loaded in order, but control field can change the order
+
 `back to top <#linux>`_
 
 Device Drivers
 ==============
 
-* `Driver Components`_, `User-Space Drivers`_, `Scull Driver`_
+* `Driver Components`_, `User-Space Drivers`_, `Scull Driver`_, `Udev`_
 
 Driver Components
 -----------------
@@ -1601,17 +1582,51 @@ scull Driver
     * ``scullpriv`` is private to each virtual console
     * ``sculluid`` and ``scullwuid`` can be opened multiple times, but only one user at a time
 
+Udev
+----
+    * drivers compiled into the kernel register objects in ``sysfs``, and modules register when
+      they are loaded
+    * when ``sysfs`` is mounted on ``/sys``, data registered is available to userspace processes
+      and `udevd`
+    * when a device is plugged in, kernel generates a uevent for ``udevd`` to handle
+    * **Device Nodes**
+        - drivers need to use ``devtmpfs`` to register a device node
+        - when ``devtmpfs`` is mounted on ``/dev``, device node is exposed to userspace with a
+          fixed name, permissions and owner
+        - when ``udevd`` receives a uevent from the kernel, it will create additional sysmlinks
+          to the device node, change permissions, owner, group, or modify internal ``udevd``
+          database entry based on rules
+        - udev rules are defined in ``/etc/udev/rules.d``, ``/usr/lib/udev/rules.d``, and
+          ``/run/udev/rules.d``
+    * **Module Aliases**
+        - usually related to bus-specific IDs of devices supported by a module
+        - can use ``modinfo`` to check, e.g. ``snd-fm801`` driver supports PCI devices with vendor
+          ID 0x1319 and device ID 0x0801
+        - the bus driver exports the alias of the driver that would handle the device via
+          ``sysfs``
+        - with default rules, ``udevd`` call out ``modprobe`` with ``MODALIAS`` uevent environment
+          variable, and all modules whose aliases match the string after wildcard expansion
+          are loaded
+    * **Wrapper Modules**
+        - Udev is not intended to load wrapper drivers such as ``snd-pcm-oss``, and non-hardware
+          drivers such as ``loop``
+        - configure ``modprobe`` to load the wrapper after udev loads the wrapped module, e.g.
+          add ``softdep snd-pcm post: snd-pcm-oss`` in ``/etc/mobprobe.d/<file>.conf``
+    * **Unwanted Modules**
+        - do not bind the module, or blacklist in ``/etc/modprobe.d/blacklist.conf``
+        - blacklisted modules can be loaded manually with explicit ``modprobe``
+
 `back to top <#linux>`_
 
 Linux From Scratch
 ==================
 
-* `Preparations`_, `Building`_, `Directories`_, `Backup and Restore`_
-* `Debugging Symbols`_
+* `LFS Preparations`_, `LFS Building`_, `LFS Directories`_, `LFS Backup and Restore`_
+* `LFS Debugging Symbols`_, `LFS Udev Issues`_
 * this section is mostly from following along the Linux From Scratch book
 
-Preparations
-------------
+LFS Preparations
+----------------
     * **Partitioning**
         - use 10GB partition for minimal system, or 30GB for further enhancements
         - to create unallocated space from allocated free space, booting into live Linux and
@@ -1653,8 +1668,8 @@ Preparations
         - ``MAKEFLAGS=-j$(nproc)`` to let ``make`` use all cores for faster build jobs
         - env variables need to be exported using ``export``
 
-Building
---------
+LFS Building
+------------
     * offset or fuzzy warning messages when applying a patch can be ignored
     * **Autoconf Build System**
         - accepts system types in a triplet, cpu-vendor-kernel-os, where vendor field can be
@@ -1666,8 +1681,8 @@ Building
         - can check the dynamic linker with ``readelf -l any_binary | grep interpreter``
     * install the cross-toolchain under ``$LFS/tools`` be keep them separate
 
-Directories
------------
+LFS Directories
+---------------
     * enter a chroot environment to install the final LFS system
     * **Virtual Kernel File Systems**
         - created by the kernel, and used by applications to communicated with it
@@ -1764,8 +1779,8 @@ Directories
       ``echo "tester:x:101:101::/home/tester:/bin/bash" >> /etc/passwd``,
       ``echo "tester:x:101:" >> /etc/group``, and ``install -o tester -d /home/tester``
 
-Backup and Restore
-------------------
+LFS Backup and Restore
+----------------------
     * after creating essential programs and libraries, LFS system should be backed up in case
       of failures in the future
     * create a backup outside the chroot environment
@@ -1775,8 +1790,8 @@ Backup and Restore
     * create a backup archive with ``tar -cJpf lfs-temp-tools.12.2.tar.xz -C $LFS .``
     * restore with ``rm -rf $LFS/*``, and ``tar -xvpf lfs-temp-tools.12.2.tar.xz -C $LFS/``
 
-Debugging Symbols
------------------
+LFS Debugging Symbols
+---------------------
     * programs and libraries compiled with debugging symbols, ``gcc -g`` option, enlarge
       significantly
     * sizes vary depending on compiler and C library, but program without debugging symbols is
@@ -1789,6 +1804,16 @@ Debugging Symbols
         - the processed binary or library will be overwritten, and can cause crashes
         - it is better to make copies, strip them, and reinstall with ``install`` command
 
+LFS Udev Issues
+---------------
+    * use ``udevadm info`` to find and fix offending udev rules
+    * for kernel timing issues, create a rule to wait for the used ``sysfs`` attribute and
+      append it to the `/etc/udev/rules.d/10-wait_for_sysfs.rules`
+    * if udev does not create a device, create a static device node in ``/usr/lib/udev/devices``
+      with appropriate major/minor numbers
+    * it is better to create own rules that make symlinks with stable names based on stable
+      attributes of the device, e.g. serial number or output of various `*_id` utilities
+
 `back to top <#linux>`_
 
 References & External Resources
@@ -1797,7 +1822,7 @@ References & External Resources
 * Corbet, J., Rubini A., Kroah-Hartman, G. (2005). Linux Device Drivers, Third Edition.
   Sebastopol, CA: O'Reilly Media, Inc.
 * Kroah-Hartman, G. (2007). Linux Kernel in a Nutshell. Sebastopol, CA: O'Reilly Media, Inc.
-* Beekmans, Gerard. (2024). Linux From Scratch [online]. Available at:
+* Beekmans, G. (2024). Linux From Scratch [online]. Available at:
   https://www.linuxfromscratch.org/lfs/
 * The Linux Foundation. (2024). LF Live: Mentorship Series. Available at:
   https://events.linuxfoundation.org/lf-live-mentorship-series/
@@ -1807,5 +1832,9 @@ References & External Resources
   Konsulko. Available at: https://youtu.be/7aONIVSXiJ8?si=4lVDrJKYy9vn6QNM
 * The Linux Foundation. (2017). Getting Into Linux Kernel Development After 30 Years - Muhammad
   Usama Anjum, Collabora. Available at: https://youtu.be/xtXn45cnVzE?si=w9TIYBbfNBiWlqwL
+* Mochel, P. (2005). The sysfs Filesystem [online]. Available at:
+  https://www.kernel.org/doc/ols/2005/ols2005v1-pages-321-334.pdf
+* Kroah-Hartman, G. (2003). udev - A Userspace Implementation of devfs [online]. Available at:
+  https://www.kernel.org/doc/ols/2003/ols2003-pages-249-257.pdf
 
 `back to top <#linux>`_
