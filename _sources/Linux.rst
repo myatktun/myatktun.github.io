@@ -2,178 +2,32 @@
 Linux
 =====
 
-1. `Essential Commands`_
-2. `System Commands`_
-3. `Configurations`_
-4. `Networking`_
-5. `Storage`_
-6. `Scripts`_
-7. `Memory Management`_
-8. `Kernel Development`_
-9. `Kernel Data Structures`_
-10. `Kernel Modules`_
-11. `Device Drivers`_
-12. `Linux From Scratch`_
-13. `References & External Resources`_
+1. `Commands`_
+2. `Configurations`_
+3. `Networking`_
+4. `Storage`_
+5. `Memory Management`_
+6. `Kernel Development`_
+7. `Kernel Data Structures`_
+8. `Kernel Modules`_
+9. `Device Drivers`_
+10. `Linux From Scratch`_
+11. `References & External Resources`_
 
 `back to top <#linux>`_
 
-Essential Commands
-==================
+Commands
+========
 
-* ``CTRL + ALT + F3``, virtual terminals
+* `Man`_, `Reboot & Shutdown`_, `Boot Targets`_, `Bootloader`_, `Init Systems`_, `Processes`_, `Logging`_
+* `Schedule Jobs`_, `Package Manager`_, `File & Directory`_, `Links`_, `Search & Find`_, `Input/Output`_
+* `Bash Scripts`_, `SELinux`_
 
-remote GUI login
-----------------
-    * can use VNC (Virtual Network Computing) server and client
-    * allow RDP (Remote Desktop Protocol) for Windows user login
-
-* ``ssh user@IP``, SSH remote login
-* ``journalctl``, read system logs
-* ``man COMMAND``, manual pages of COMMAND
-* ``sudo mandb``, update manual pages
-* ``apropos``, search commands
-* ``ls -la``, list all files & dirs
-* ``pwd``, print working dir
-* ``cd``, change dir
-* ``mkdir``, make new dir
-* ``cp SOURCE DESTINATION``, copy files & dirs (with ``-r``)
-* ``mv SOURCE DESTINATION``, move files & dirs
-* ``rm``, delete files & dirs (with ``-r``)
-* ``stat``, show file system status
-
-Inode
------
-    * helps file systems keep track of data
-    * contains metadata about a file
-
-Hard Links
-----------
-    * ``ln TARGET_PATH LINK_PATH``
-    * points to the same inode
-    * if multiple hard links, deleting one will not delete the other
-    * can only hard link to files on the same fs
-    * need proper permissions to create and access
-
-Soft Links
-----------
-    * ``ln -s TARGET_PATH LINK_PATH``
-    * points to a path of the file or dir, like shortcut
-    * ``readlink``, show full path of soft link
-    * permissions only depend on the target
-    * changing the target will break the link
-    * can also create soft links with relative path
-
-* ``chgrp GP FILE``, change group of file & dir
-* ``chown``, change owner of file & dir, requires root
-    * ``sudo chown user1:gp1 FILE``
-* ``groups``, show user's groups
-* most VMs require files to be less than 20GB
-* ``chmod 6640``, change permissions of files & dirs
-    * 4:r & SUID, 2:w & GID, 1:x & sticky, 0:- (can also use binary values)
-    * permissions are checked linearly
-    * ``u+rwx,g-x,o=r``
-    * ``rws``, enabling SUID/GID causes file to be executed as the owner
-    * ``rwS``, SUID/GID set but not executable
-    * ``find . -perm /4000``, find files with SUID set with any permissions
-    * ``rwt`` or ``rwT``, sticky bits are usually set on shared directories and allow the owner to
-      remove the file no matter the permissions of the directory
-* modified time: create or edit, change time: change metadata
-* ``find``, find files & dirs
-    * ``-mmin``, modified minute
-    * ``-mtime``, modified days
-    * ``-size``, -512k or +512k (c, k, M, G)
-    * ``-perm 644`` (exact), ``-644`` (at least 644), ``/644`` (any of these)
-    * ``-name -o -size``, OR
-    * ``-not`` or ``\!``, NOT
-
-View file content
------------------
-    * ``cat``, ``tac`` (reverse)
-    * ``tail``, ``head`` (``-n 10`` for only 10 lines, ``-F`` for follow)
-    * ``less``, ``more``
-
-* ``sed -i 's/SEARCH/REPLACE/g' FILE``, edit file content
-    * stream editor
-    * replace only first without ``g``
-    * show only preview without ``-i``
-* ``cut -d ':' -f 2 FILE``, extract file content
-* ``sort FILE``, sort content
-* ``uniq FILE``, remove adjacent duplicates (better use with ``sort``)
-* ``diff -c FILE1 FILE2``, show differences
-    * ``sdiff`` or ``diff -y``, show side by side
-* ``grep``, search text
-    * ``-i``, ignore case
-    * ``-r``, recursive through all files in a dir
-    * ``-v``, invert match
-    * ``-w``, only words
-    * ``-o``, output only matching
-    * use basic regular expressions, meta-characters lose special meaning, need to be escaped
-    * ``egrep`` or ``grep -E``, use extended regular expressions, meta-characters do not need to be
-      escaped
-
-Regular Expressions
--------------------
-    * ``^``, starts with
-    * ``$``, ends with
-    * ``.``, match any 1 character
-    * ``\``, escape character
-    * ``*``, match previous 0 or more times
-    * ``+``, match previous 1 or more times
-    * ``{X}``, previous can exist X times (``{MIN,MAX}``)
-    * ``?``, previous can be optional
-    * ``|``, match one or other
-    * ``[]``, range (``[a-z]``) or sets (``[abc123]``)
-    * ``[^]``, negated range or sets
-    * ``()``, sub-expressions
-
-* ``tar``, archive files into one tarball
-    * tape archive
-    * ``f FILE``, same as ``--file``
-    * ``tf FILE.tar``, list contents from tar
-    * ``cf FILE.tar FILE``, create tar
-    * ``rf``, append/add to existing tar
-    * ``xf``, extract (``xf FILE.tar -C DIR``, extract to 'DIR')
-    * use ``sudo`` to preserve permissions
-
-Compression and Decompression
------------------------------
-    * compress: ``gzip FILE``, ``bzip2``, ``xz``, ``zip FILE.zip FILE``
-    * decompress: ``gunzip FILE.gz``, ``bunzip``, ``unxz``, ``unzip FILE.zip``
-    * ``-k`` or ``--keep``, keep input files (delete by default)
-    * ``-l`` or ``--list``, list contents
-    * can also use ``less`` to list contents
-    * only ``zip -r`` can compress multiple files or directories, others need to use ``tar`` first
-    * archive and compress same time: ``tar czf FILE.tar.gz FILE``, ``tar cjf FILE.tar.bz2 FILE``,
-      ``tar cJf FILE.tar.xz FILE``
-    * auto detect: ``tar caf FILE.tar.gz/bz2/xz FILE``
-
-* ``rsync -a SOURCE/ TARGET/``, sync two directories
-    * remote synchronization
-    * syncing to remote server need SSH daemon
-* ``sudo dd if=INPUT of=OUTPUT bs=BLOCK_SIZE status=progress``, disk imaging
-    * should unmount the disk first to avoid changes
-    * reverse ``if`` and ``of`` to restore
-    * should not use in VMs
-
-Redirect input/output
----------------------
-    * ``<``, stdin (0)
-    * ``1>`` or ``>``, stdout
-    * ``2>``, stderr
-    * ``>>``, append
-    * ``> FILE.txt 2>&1`` or ``> FILE.txt >&``, both stdout and stderr
-    * ``<<EOF ...any text here... > EOF``, heredoc
-    * ``<<< string``, here string
-
-* ``command1 | command2``, pipe 'COMMAND1' output to 'COMMAND2'
-* ``column``, arrange columns
-
-`back to top <#linux>`_
-
-System Commands
-===============
-
+Man
+---
+    * ``man COMMAND``, manual pages of COMMAND
+    * ``sudo mandb``, update manual pages
+    * ``apropos``, search commands
 
 Reboot & Shutdown
 -----------------
@@ -185,11 +39,6 @@ Reboot & Shutdown
     * ``shutdown -r +20``, schedule reboot in 20 minutes
     * ``shutdown -r +2 'Show message to users'``
 
-* ``systemctl get-default``, list boot target
-* ``systemctl set-default multi-user.target``, set new default boot target to be without GUI
-* ``systemctl isolate graphical.target``, change to GUI target without needing to reboot but will
-  not set default
-
 Boot Targets
 ------------
     * ``graphical``
@@ -197,6 +46,14 @@ Boot Targets
     * ``emergency``: read-only root file system
     * ``rescue``: more programs than ``emergency``, but less than ``multi-user``
     * root user password must be set to use ``emergency`` and ``rescue``
+    * ``systemctl get-default``: list boot target
+    * ``systemctl set-default multi-user.target``: set new default boot target to be without GUI
+    * ``systemctl isolate graphical.target``: change to GUI target without needing to reboot but
+      will not set default
+    * ``CTRL + ALT + F3``: virtual terminals
+    * **remote GUI login**
+        - can use VNC (Virtual Network Computing) server and client
+        - allow RDP (Remote Desktop Protocol) for Windows user login
 
 Bootloader
 ----------
@@ -213,9 +70,9 @@ Bootloader
           location
     * edit the file ``/etc/default/grub`` and use above commands to update grub config
 
-init
-----
-    * initialisation system start up the system as necessary
+Init Systems
+------------
+    * initialisation system to start up the system as necessary
     * **Units**
         - text files with instructions to start the system
         - can be service, socket, device, timer or others
@@ -241,6 +98,15 @@ init
         - ``systemctl mask atd.service``, do not allow the service to be started by others
         - ``systemctl unmask atd.service``, allow the service to be started by others
         - ``systemctl list-units --type service --all``, list all services available
+    * **System V**
+        - execute ``init`` that sets up basic processes and a script, ``rc``, which controls the
+          execution of additional scripts
+        - ``init`` is controlled by ``/etc/inittab``
+        - easy to customise, but slow to boot and does not directly support advanced features
+          like cgroups and per-user scheduling
+        - has different run levels, 3 or 5 is default
+        - 0: halt, 1: single user mode, 2: user definable, 3: full multi-user mode
+        - 4: user definable, 5: full multi-user mode with display manager, 6: reboot
 
 Processes
 ---------
@@ -276,12 +142,15 @@ Processes
     * ``lsof -p PID``, list files used by the process
         - ``lsof /var/log/``, list which processes use the files
 
-Logs
-----
+Logging
+-------
     * logging daemons collect, organize and store logs
-    * ``rsyslog``, stores logs in ``/var/log``
+    * **rsyslog**
+        - stores logs in ``/var/log``
         - rocket-fast system for log processing
-    * ``journalctl $(which sudo)``, show logs generated by ``sudo``
+    * **journalctl**
+        - to read system logs
+        - ``journalctl $(which sudo)``, show logs generated by ``sudo``
         - ``journalctl -u sshd.service``, logs by service
         - ``journalctl -f``, follow mode
         - ``journalctl -p err``, show only error logs (``info``, ``warning``, ``err``, ``crit``)
@@ -291,8 +160,7 @@ Logs
         - ``journalctl -S '1999-1-1 12:00:59``, using dates
         - ``journalctl -b 0``, current boot logs
         - ``journalctl -b 1``, previous boot logs (require ``/var/log/journal``)
-    * ``log``, list login history
-        - ``lastlog``, show last login time
+    * ``last`` and ``lastlog`` to show last login time
 
 Schedule Jobs
 -------------
@@ -317,21 +185,22 @@ Schedule Jobs
         - ``at -c JOB_ID``, show job description
         - ``atrm JOB_ID``, remove job
 
-dnf
----
-    * ``dnf repolist``, show enabled repositories list
-    * ``dnf repolist --all``, show all repositories list
-    * ``dnf config-manager --enable REPO_ID``, enable repository
-    * ``dnf config-manager --disable REPO_ID``, disable repository
-    * ``dnf config-manager --add-repo REPO_URL``, add a repository
-    * remove the file from ``Repo-filename`` output by ``repolist -v``
-    * ``dnf search 'PKG'``, search for a package
-    * ``dnf group list``, list groups
-    * ``dnf group install 'GROUP_NAME'``, install packages from group
-    * ``dnf install ./app.rpm``, install from rpm file
-    * ``dnf autoremove``, remove hanging dependencies
-    * ``dnf provides docker``, identify which package provides the app
-    * ``dnf repoquery -l moby-engine``, list which files are in the package
+Package Manager
+---------------
+    * **dnf**
+        - ``dnf repolist``, show enabled repositories list
+        - ``dnf repolist --all``, show all repositories list
+        - ``dnf config-manager --enable REPO_ID``, enable repository
+        - ``dnf config-manager --disable REPO_ID``, disable repository
+        - ``dnf config-manager --add-repo REPO_URL``, add a repository
+        - remove the file from ``Repo-filename`` output by ``repolist -v``
+        - ``dnf search 'PKG'``, search for a package
+        - ``dnf group list``, list groups
+        - ``dnf group install 'GROUP_NAME'``, install packages from group
+        - ``dnf install ./app.rpm``, install from rpm file
+        - ``dnf autoremove``, remove hanging dependencies
+        - ``dnf provides docker``, identify which package provides the app
+        - ``dnf repoquery -l moby-engine``, list which files are in the package
 
 * ``df``, check file system usage
     * ``df -h``, show in human-readable form
@@ -340,13 +209,6 @@ dnf
 * ``uptime``, check cpu usage
 * ``lscpu``, check cpu usage in detail
 * ``lspci``, check other hardware usage
-
-Checking file system
---------------------
-    * must be unmounted before checking
-    * ``xfs_repair -v /dev/sda1``, repair XFS file system
-    * ``fsck.ext4 -v -f -p /dev/sda1``, check ext4 file system
-
 * ``systemctl list-dependencies``, check services running or not
 
 Kernel runtime parameters
@@ -355,6 +217,155 @@ Kernel runtime parameters
     * ``sysctl -w runtime.para.name=1``, set parameter value (non persistent)
     * add files in ``/etc/sysctl.d/*.conf``, persistent change
     * ``sysctl -p /etc/sysctl.d/custom.conf``, read value from file
+
+File & Directory
+----------------
+    * ``ls -la``: list all files & dirs
+    * ``pwd``: print working dir
+    * ``cd``: change dir
+    * ``mkdir``: make new dir
+    * ``cp SOURCE DESTINATION``: copy files & dirs (with ``-r``)
+    * ``mv SOURCE DESTINATION``: move files & dirs
+    * ``rm``: delete files & dirs (with ``-r``)
+    * ``stat``: show file system status
+    * ``chgrp GP FILE``: change group of file & dir
+    * ``chown``: change owner of file & dir, requires root ``sudo chown user1:gp1 FILE``
+    * ``groups``: show user's groups
+    * most VMs require files to be less than 20GB
+    * **chmod**
+        - change permissions of files & dirs
+        - ``chmod 6640``: 4=r & SUID, 2=w & GID, 1=x & sticky, 0=- (can also use binary values)
+        - permissions are checked linearly
+        - ``u+rwx,g-x,o=r``
+        - ``rws``, enabling SUID/GID causes file to be executed as the owner
+        - ``rwS``, SUID/GID set but not executable
+        - ``rwt`` or ``rwT``, sticky bits are usually set on shared directories and allow the
+          owner to remove the file no matter the permissions of the directory
+    * modified time: create or edit, change time: change metadata
+    * **View File Content**
+        * ``cat``, ``tac`` (reverse)
+        * ``tail``, ``head`` (``-n 10`` for only 10 lines, ``-F`` for follow)
+        * ``less``, ``more``
+    * **Edit File Content**
+        - ``sed -i 's/SEARCH/REPLACE/g' FILE``, stream editor
+        - replace only first without ``g``, show only preview without ``-i``
+    * ``cut -d ':' -f 2 FILE``: extract file content
+    * ``sort FILE``: sort content
+    * ``uniq FILE``: remove adjacent duplicates (better use with ``sort``)
+    * ``diff -c FILE1 FILE2``: show differences, use ``sdiff`` or ``diff -y`` to show side by side
+    * **rsync**
+        - remote synchronization, syncing to remote server need SSH daemon
+        - ``rsync -a SOURCE/ TARGET/``: sync two directories
+    * **File Compression**
+        - compress: ``gzip FILE``, ``bzip2``, ``xz``, ``zip FILE.zip FILE``
+        - decompress: ``gunzip FILE.gz``, ``bunzip``, ``unxz``, ``unzip FILE.zip``
+        - ``-k`` or ``--keep``, keep input files (delete by default)
+        - ``-l`` or ``--list``, list contents
+        - can also use ``less`` to list contents
+        - only ``zip -r`` can compress multiple files or directories, others need to use ``tar``
+          first
+    * **tar**
+        - tape archive, archive files into one tarball
+        - ``f FILE``, same as ``--file``
+        - ``tf FILE.tar``, list contents from tar
+        - ``cf FILE.tar FILE``, create tar
+        - ``rf``, append/add to existing tar
+        - ``xf``, extract (``xf FILE.tar -C DIR``, extract to 'DIR')
+        - use ``sudo`` to preserve permissions
+        - archive and compress same time: ``tar czf FILE.tar.gz FILE``,
+          ``tar cjf FILE.tar.bz2 FILE``, ``tar cJf FILE.tar.xz FILE``
+        - auto detect and compress: ``tar caf FILE.tar.gz/bz2/xz FILE``
+
+Links
+-----
+    * **Hard Links**
+        - ``ln TARGET_PATH LINK_PATH``
+        - points to the same inode
+        - if multiple hard links, deleting one will not delete the other
+        - can only hard link to files on the same fs
+        - need proper permissions to create and access
+    * **Soft Links**
+        - ``ln -s TARGET_PATH LINK_PATH``
+        - points to a path of the file or dir, like shortcut
+        - ``readlink``, show full path of soft link
+        - permissions only depend on the target
+        - changing the target will break the link
+        - can also create soft links with relative path
+
+Search & Find
+-------------
+    * **Find**
+        - ``find``: find files & dirs
+        - ``-mmin``, modified minute
+        - ``-mtime``, modified days
+        - ``-size``, -512k or +512k (c, k, M, G)
+        - ``-perm 644`` (exact), ``-644`` (at least 644), ``/644`` (any of these)
+        - ``-name -o -size``, OR
+        - ``-not`` or ``\!``, NOT
+        - ``find . -perm /4000``, find files with SUID set with any permissions
+    * **Grep**
+        - ``grep``: search text
+        - ``-i``, ignore case
+        - ``-r``, recursive through all files in a dir
+        - ``-v``, invert match
+        - ``-w``, only words
+        - ``-o``, output only matching
+        - use basic regular expressions, meta-characters lose special meaning, need to be
+          escaped
+        - ``egrep`` or ``grep -E``, use extended regular expressions, meta-characters do not need
+          to be escaped
+    * **Regular Expressions**
+        - ``^``: starts with
+        - ``$``: ends with
+        - ``.``: match any 1 character
+        - ``\``: escape character
+        - ``*``: match previous 0 or more times
+        - ``+``: match previous 1 or more times
+        - ``{X}``: previous can exist X times (``{MIN,MAX}``)
+        - ``?``: previous can be optional
+        - ``|``: match one or other
+        - ``[]``: range (``[a-z]``) or sets (``[abc123]``)
+        - ``[^]``: negated range or sets
+        - ``()``: sub-expressions
+
+Input/Output
+------------
+    * ``<``: stdin (0)
+    * ``1>`` or ``>``: stdout
+    * ``2>``: stderr
+    * ``>>``: append
+    * ``> FILE.txt 2>&1`` or ``> FILE.txt >&``: both stdout and stderr
+    * ``<<EOF ...any text here... > EOF``: heredoc
+    * ``<<< string``: here string
+    * ``command1 | command2``: pipe 'COMMAND1' output to 'COMMAND2'
+    * ``column``: arrange columns
+
+Bash Scripts
+------------
+    * ``#!/bin/bash``: 'shebang' should always be the first line of every script
+    * commands in the script are the same as commands written in terminals
+    * ``chmod +x myscript.sh``: change script to be executable
+    * ``/full/path/to/myscript.sh`` or ``./script.sh`` to run the script
+    * ``help``: list bash built-ins, use ``help COMMAND`` to print each built-in
+
+    .. code-block:: sh
+
+       #!/bin/bash
+   
+       # this is a comment
+   
+       date >> /tmp/script.log
+       cat /proc/version >> /tmp/script.log
+       echo hello >> /tmp/script.log
+   
+       if test -f /tmp/archive.tar.gz; then
+           mv /tmp/archive.tar.gz /tmp/archive/tar.gz.OLD
+           tar acf /tmp/archive.tar.gz /etc/dnf/
+       else
+           tar acf /tmp/archive/tar.gz /etc/dnf/
+       fi
+
+
 
 SELinux
 -------
@@ -380,29 +391,13 @@ SELinux
         - authorized users and processes are allowed to take only a limited set of actions
         - everything else is denied
 
-PIE
----
-    * Position-Independent Executables, can be loaded anywhere in memory
-    * ASLR: Address Space Layout Randomisation, security feature that mitigates some attacks
-      based on fixed addresses
-    * without PIE, ASLR can be applied for shared libraries, but not for executables
-    * SSP: Stack Smashing Protection, to ensure the parameter stack is not corrupted
-    * stack corruption can alter the return address of a function, transferring control to
-      malicious code
-
-FFI
----
-    * Foreign Function Interface, allows a program written in one language to call a program in
-      another language
-    * Libffi provides to call functions specified by a call interface description at run time,
-    * it also provides a bridge between interpreters such as Perl, Python and shared library
-      subroutines in C or C++
-
 `back to top <#linux>`_
 
 Configurations
 ==============
 
+* `Users`_, `Groups`_, `Environment Variables`_, `Resource Limits`_, `Privileges`_, `PAM`_
+* `ACLs`_, `Attributes`_, `Disk Quotas`_
 
 Users
 -----
@@ -452,8 +447,8 @@ Groups
     * ``groupmod -n oldGroup newGroup``, change group name
     * ``groupdel newGroup``, delete group (cannot delete if group is user's primary)
 
-ENV variables
--------------
+Environment Variables
+---------------------
     * ``printenv`` or ``env``, list environment variables
     * ``echo $HOME``, print an environment variable value
     * can edit ``.bashrc`` file to set variables
@@ -510,7 +505,7 @@ Attributes
     * ``lsattr FILE``, list attributes of file
     * ``man chattr``, list all available attributes
 
-Disk quotas
+Disk Quotas
 -----------
     * can use ``quota`` to set quotas
     * can limit storage and how may files and directories can be created
@@ -533,14 +528,22 @@ Disk quotas
 Networking
 ==========
 
-* ``ip l`` or ``ip a``, list network interfaces
-* ``ip r``, list route table
-* ``/etc/resolv.conf``, dns resolver file
-* ``/etc/sysconfig/network-scripts/``, system configure network according to files in the it
-* ``nmtui`` or ``nmcli``, to edit network configurations
-    * ``nmcli device reapply eno1``, apply changes without reboot
-    * ``nmcli connection show``, list configured connections
-    * ``nmncli connection modify MyWifi autoconnect yes``, configure device to auto connect
+* `Network Management`_, `Firewall`_, `Static Routing`_, `Time Synchronisation`_, `Bind`_
+* `Email`_, `SSH`_, `HTTP`_, `Database Server`_
+* ``ip l`` or ``ip a``: list network interfaces
+* ``ip r``: list route table
+* ``/etc/resolv.conf``: dns resolver file
+* ``/etc/sysconfig/network-scripts/``: system configure network according to files in the it
+* ``/etc/hosts``: edit the file for static host names
+* ``systemctl status NetworkManager.service``: daemon that starts network settings and devices
+* ``ss -tunlp`` or ``netstat -tunlp``: list listening connections
+
+Network Management
+------------------
+    * can use ``nmcli`` or ``nmtui`` to edit network configurations
+    * ``nmcli device reapply eno1``: apply changes without reboot
+    * ``nmcli connection show``: list configured connections
+    * ``nmcli connection modify MyWifi autoconnect yes``: configure device to auto connect
     * **Connecting to wifi**
 
         .. code-block:: bash
@@ -552,9 +555,6 @@ Networking
            nmcli connection up NEW_CONNECTION
 
 
-* ``/etc/hosts``, edit the file for static host names
-* ``systemctl status NetworkManager.service``, daemon that starts network settings and devices
-* ``ss -tunlp`` or ``netstat -tunlp``, list listening connections
 
 Firewall
 --------
@@ -571,21 +571,21 @@ Firewall
 
 Static Routing
 --------------
-    * ``ip route add 192.168.0.0/24 via 10.0.0.100 dev eno3``, add new route
-    * ``ip route del 192.168.0.0/24``, delete route
-    * ``ip route add default via 10.0.0.100``, add default gateway
-    * ``ip route del default via 10.0.0.100``, delete default gateway
-    * ``nmcli connection modify en03 +ipv4.routes "192.168.0.0/24 10.0.0.100"``, route permanent
-    * ``nmcli connection modify en03 -ipv4.routes "192.168.0.0/24 10.0.0.100"``, remove route
-    * ``nmcli device reapply eno3``, apply changes
+    * ``ip route add 192.168.0.0/24 via 10.0.0.100 dev eno3``: add new route
+    * ``ip route del 192.168.0.0/24``: delete route
+    * ``ip route add default via 10.0.0.100``: add default gateway
+    * ``ip route del default via 10.0.0.100``: delete default gateway
+    * ``nmcli connection modify en03 +ipv4.routes "192.168.0.0/24 10.0.0.100"``: route permanent
+    * ``nmcli connection modify en03 -ipv4.routes "192.168.0.0/24 10.0.0.100"``: remove route
+    * ``nmcli device reapply eno3``: apply changes
 
-Synchronize time using network
-------------------------------
+Time Synchronisation
+--------------------
     * ``chronyd.service`` updates system clock periodically
-    * ``timedatectl``, list current timezone
-    * ``timedatectl set-timezone Region/City``, set timezone
-    * ``timedatectl list-timezones``, list timezones
-    * ``systemctl set-ntp true``, activate NTP service
+    * ``timedatectl``: list current timezone
+    * ``timedatectl set-timezone Region/City``: set timezone
+    * ``timedatectl list-timezones``: list timezones
+    * ``systemctl set-ntp true``: activate NTP service
 
 Bind
 ----
@@ -608,7 +608,7 @@ Email
 
 SSH
 ---
-    * listens on port ``22`` by default
+    * listens on port ``22`` by default, ``ssh user@IP`` to SSH remote login
     * ``/etc/ssh/ssh_config``, client configuration file
     * ``/etc/ssh/sshd_config``, server configuration file
     * edit files in ``/etc/ssh/ssh_config.d/`` and ``/etc/ssh/sshd_config.d/`` to prevent reset
@@ -620,28 +620,27 @@ SSH
       be copied over the Internet
     * ``ssh-keygen -R IP``, remove old finger prints from ``known_hosts``
 
-HTTP Proxy
-----------
-    * can use ``squid`` daemon to setup http proxy server
-    * ``firewall-cmd --add-service=squid --permanent``, allow connection to squid
-    * edit ``etc/squid/squid.conf`` for configuration
-
-HTTP Server
------------
-    * Apache ``httpd`` daemon is widely used with ``mod_ssl``
-    * ``firewall-cmd --add-service=http`` and ``firewall-cmd --add-service=https``
-    * configuration files are in ``/etc/httpd/``
-    * ``/etc/httpd/conf/httpd.conf``, primary configuration file
-    * ``apachectl configtest``, check configuration
-    * ``/etc/httpd/conf.d/ssl.conf``, default ssl configuration
-    * most modules are auto enabled when installed
-    * ``/var/log/httpd/``, default log directory
-    * logging is done by ``log_config_module``
-    * it is recommended to separate log files by each host
-    * can restrict access by editing ``Options Indexes FollowSymLinks``, ``Require all granted``
-    * ``sudo htpasswd -c /etc/httpd/passwords user1``, create hashed password file for user1
-    * generated password file can be used for authentication with ``AuthType``, ``AuthBasicProvider``,
-      ``AuthName``, ``AuthUserFile`` and ``Require`` options
+HTTP
+----
+    * **HTTP Proxy**
+        - can use ``squid`` daemon to setup http proxy server
+        - ``firewall-cmd --add-service=squid --permanent``, allow connection to squid
+        - edit ``etc/squid/squid.conf`` for configuration
+    * **HTTP Server**
+        - Apache ``httpd`` daemon is widely used with ``mod_ssl``
+        - ``firewall-cmd --add-service=http`` and ``firewall-cmd --add-service=https``
+        - configuration files are in ``/etc/httpd/``
+        - ``/etc/httpd/conf/httpd.conf``, primary configuration file
+        - ``apachectl configtest``, check configuration
+        - ``/etc/httpd/conf.d/ssl.conf``, default ssl configuration
+        - most modules are auto enabled when installed
+        - ``/var/log/httpd/``, default log directory
+        - logging is done by ``log_config_module``
+        - it is recommended to separate log files by each host
+        - can restrict access by editing ``Options Indexes FollowSymLinks``, ``Require all granted``
+        - ``sudo htpasswd -c /etc/httpd/passwords user1``, create hashed password file for user1
+        - generated password file can be used for authentication with ``AuthType``,
+          ``AuthBasicProvider``, ``AuthName``, ``AuthUserFile`` and ``Require`` options
 
 Database Server
 ---------------
@@ -655,24 +654,33 @@ Database Server
 Storage
 =======
 
-* ``lsblk``, list block devices
-    * ``TYPE: part``, partition of a disk
-* ``sudo fdisk --list /dev/sda``, list partitions of a device
-* ``sudo cfdisk /dev/sda``, edit disk partition table interactively
+* `Block Devices`_, `Disk Imaging`_, `Swap`_, `File Systems`_, `LVM`_, `Device Encryption`_, `RAID`_
+
+Block Devices
+-------------
+    * ``lsblk``: list block devices
+    * ``sudo fdisk --list /dev/sda``: list partitions of a device
+    * ``sudo cfdisk /dev/sda``: edit disk partition table interactively
+
+Disk Imaging
+------------
+    * ``sudo dd if=INPUT of=OUTPUT bs=BLOCK_SIZE status=progress``
+    * should unmount the disk first to avoid changes and should not use in VMs
+    * swap ``if`` and ``of`` to restore
 
 Swap
 ----
-    * ``swapon --show``, check swap usage
-    * ``sudo mkswap /dev/sdb3``, prepare the partition
-    * ``sudo swapon --verbose /dev/sdb3``, use partition as swap
-    * ``sudo swapoff /dev/sdb3``, stop using partition as swap
-    * use file as swap
-        - ``sudo dd if=/dev/zero of=/swap bs=1M count=128 status=progress``, prepare the file
+    * ``swapon --show``: check swap usage
+    * ``sudo mkswap /dev/sdb3``: prepare the partition
+    * ``sudo swapon --verbose /dev/sdb3``: use partition as swap
+    * ``sudo swapoff /dev/sdb3``: stop using partition as swap
+    * **File as Swap**
+        - ``sudo dd if=/dev/zero of=/swap bs=1M count=128 status=progress``: prepare the file
         - ``sudo chmod 600 /swap``
         - ``sudo mkswap /swap``
         - ``sudo swapon --verbose /swap``
 
-File systems
+File Systems
 ------------
     * file system needs to be created before a partition can be used
     * ``sudo mkfs.xfs /dev/sdb1``, create xfs file system
@@ -684,7 +692,7 @@ File systems
     * ``/etc/fstab``, file that instructs which file systems to be mounted automatically
         - use UUID instead of device names
         - ``sudo blkid /dev/sdb1``, check UUID
-    * **on demand mounting**
+    * **On-demand Mounting**
         - only mount when needed, useful when using remote servers
         - ``autofs`` daemon can be used, usually with ``nfs-utils``
         - edit ``/etc/exports`` for network sharing
@@ -692,9 +700,15 @@ File systems
     * ``sudo mount -o ro,noexec,nosuid /dev/sdb1 /mnt``, mount file system with specific options
     * ``sudo mount -o remount,ro /dev/sdb1 /mnt``, remount file system with new options
     * it is better to do ``umount`` and ``mount`` again with new options
-
-* ``findmnt``, find file systems and mount points
-    * ``findmnt -t xfs,ext4``, show only xfs and ext4
+    * **Checking File System**
+        - must be unmounted before checking
+        - ``xfs_repair -v /dev/sda1``, repair XFS file system
+        - ``fsck.ext4 -v -f -p /dev/sda1``, check ext4 file system
+        - ``findmnt``, find file systems and mount points
+        - ``findmnt -t xfs,ext4``, show only xfs and ext4
+    * **Inode**
+        - helps file systems keep track of data
+        - contains metadata about a file
 
 LVM
 ---
@@ -718,18 +732,20 @@ LVM
     * ``mkfs.xfs /dev/vg1/partition1``, create file system on LV
     * ``lvresize --resizefs --size 3G vg1/partition1``, resize both LV and file system
 
-* ``cryptsetup``, encrypt storage device
+Device Encryption
+-----------------
+    * ``cryptsetup``: encrypt storage device
     * encrypted disks can be found in ``/dev/mapper/``, and is same as regular disk
         - ``mkfs.xfs /dev/mapper/mysecuredisk``
         - ``mount /dev/mapper/mysecuredisk /mnt``, can be mounted
-    * **plain**
+    * **Plain Mode**
         - takes password and encrypt all data with it
         - ``cryptsetup --verify-passphrase open --type plain /dev/sda mysecuredisk``, can read
           decrypted data
         - ``cryptsetup close mysecuredisk``, can only read encrypted data
         - changing password requires encrypting all data again
-    * **LUKS**
-        - more user friendly to setup, default mode
+    * **LUKS Extension**
+        - Linux Unified Key Setup, default mode and more user friendly to setup
         - ``cryptsetup luksFormat /dev/sda``
         - ``cryptsetup luksChangeKey``, change encryption key
         - ``cryptsetup open /dev/sda mysecuredisk``, can read decrypted data
@@ -737,7 +753,7 @@ LVM
 
 RAID
 ----
-    * Redundant Array of Independent Disks, combine multiple storage devices into single storage
+    * Redundant Array of Independent Disks, combine multiple storage devices into single one
     * unlike from LVM, RAID provides any options for redundancy or parity
     * **Level 0**
         - striped array, not redundant
@@ -755,45 +771,15 @@ RAID
     * **Level 10/ RAID 1+0**
         - has advantages of both Level 0 and 1
     * ``mdadm --create /dev/md0 --level=0 --raid-devices=3 /dev/sda /dev/sdb /dev/sdc``
-    * ``mkfs.ext4 /dev/md0``, can create file system
-    * ``mdadm --stop /dev/md0``, deactivate array
+    * ``mkfs.ext4 /dev/md0``: can create file system
+    * ``mdadm --stop /dev/md0``: deactivate array
     * when reboot, Linux scans for superblock on devices to auto rebuild the array
-    * ``mdadm --zero-superblock /dev/sda /dev/sdb /dev/sdc``, not to rebuild the array
+    * ``mdadm --zero-superblock /dev/sda /dev/sdb /dev/sdc``: not to rebuild the array
     * ``mdam --create /dev/md0 --level=1 --raid-devices /dev/sda /dev/sdb --spare-devices=1 /dev/sdc``,
       will auto add `/dev/sdc` if one of the disks fails
-    * ``mdam --manage /dev/md0 --add /dev/sdc``, add new disk to the array
-    * ``mdam --manage /dev/md0 --remove /dev/sdc``, remove disk from the array
-    * ``/proc/mdstat``, file contains information about RAID
-
-`back to top <#linux>`_
-
-Scripts
-=======
-
-* ``#!/bin/bash``, 'shebang' should always be the first line of every script
-* commands in the script are the same as commands written in terminals
-* ``chmod +x myscript.sh``, scripts must be executable
-* ``/full/path/to/myscript.sh`` or ``./script.sh``, run the script
-* ``help``, list bash built-ins
-    * ``help if``, print each built-in
-
-.. code-block:: sh
-
-   #!/bin/bash
-   
-   # this is a comment
-   
-   date >> /tmp/script.log
-   cat /proc/version >> /tmp/script.log
-   echo hello >> /tmp/script.log
-   
-   if test -f /tmp/archive.tar.gz; then
-       mv /tmp/archive.tar.gz /tmp/archive/tar.gz.OLD
-       tar acf /tmp/archive.tar.gz /etc/dnf/
-   else
-       tar acf /tmp/archive/tar.gz /etc/dnf/
-   fi
-
+    * ``mdam --manage /dev/md0 --add /dev/sdc``: add new disk to the array
+    * ``mdam --manage /dev/md0 --remove /dev/sdc``: remove disk from the array
+    * ``/proc/mdstat``: file contains information about RAID
 
 `back to top <#linux>`_
 
@@ -947,6 +933,7 @@ Kernel Development
 
 * `Build Tools`_, `Kernel Dependent Tools`_, `Kernel Config`_, `Build Kernel`_, `Install Kernel`_
 * `Upgrade Kernel`_, `Customise Kernel`_, `Find Drivers`_, `Common Config`_, `Code Navigation`_
+* `PIE`_, `FFI`_
 * never build the kernel with root permissions enabled, and never do kernel development under
   ``/usr/src/`` directory
 * multi-lib system requires compiling applications for both 32-bit and 64-bit
@@ -1116,8 +1103,8 @@ Find Drivers
     * **for Root File System**
         - contain all initial programs, and usually entire system config
         - the kernel must be able to find the root file system at boot time
-        - recommended to build file system for root partition, and disk controller for the disk,
-          and use ramdisk image at boot time
+        - recommended to build file system for root partition, and disk controller for the
+          disk, and use ramdisk image at boot time
         - determine the file system type with ``mount | grep " / "``, and check block devices with
           ``tree -d /sys/block | egrep "hd|sd"``
         - disk partitions are numbered, but main block devices are not
@@ -1129,7 +1116,7 @@ Find Drivers
         - go up the link and take note of the disk controller driver in
           ``/sys/devices/<SOMETHING_LESS_LONG>/target0:0:0/0:0:0:0``
         - go up and find another driver, e.g. ``/sys/devices/pci<SOMETHING>/0000:<SOMETHING>``
-    * enable the necessary file system type driver, and disk controller drivers in kernel config
+    * enable the necessary file system type driver and disk controller drivers in kernel config
 
 Common Config
 -------------
@@ -1197,6 +1184,24 @@ Code Navigation
     * to use with cscope and ctags, run ``make tags`` and ``make cscope``
     * to use with LSP, run ``python scripts/clang-tools/gen_compile_commands.py``, pass ``--help``
       argument for more info
+
+PIE
+---
+    * Position-Independent Executables, can be loaded anywhere in memory
+    * ASLR: Address Space Layout Randomisation, security feature that mitigates some attacks
+      based on fixed addresses
+    * without PIE, ASLR can be applied for shared libraries, but not for executables
+    * SSP: Stack Smashing Protection, to ensure the parameter stack is not corrupted
+    * stack corruption can alter the return address of a function, transferring control to
+      malicious code
+
+FFI
+---
+    * Foreign Function Interface, allows a program written in one language to call a program in
+      another language
+    * Libffi provides to call functions specified by a call interface description at run time,
+    * it also provides a bridge between interpreters such as Perl, Python and shared library
+      subroutines in C or C++
 
 `back to top <#linux>`_
 
@@ -1548,9 +1553,9 @@ Driver Components
     * **Device Numbers**
         - char devices are identified by ``c`` in the first column of ``ls -l /dev`` output, and block
           devices by ``b``
-        - ``ls -l /dev`` output also shows major and minor device number in the form of ``MAJOR, MINOR``
-        - major number shows the driver associated with the device, and minor number is used by the
-          kernel to determine which device is being referred to
+        - ``ls -l /dev`` also shows major and minor device number in the form of ``MAJOR, MINOR``
+        - major number shows the driver associated with the device, and minor number is used
+          by the kernel to determine which device is being referred to
         - multiple drivers can share major numbers, but mostly one major to one driver
         - can get a direct pointer to the device from the kernel, or use the minor number as
           an index into a local array of devices
