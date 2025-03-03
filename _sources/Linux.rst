@@ -18,12 +18,11 @@ Commands
 
 * `File & Directory`_, `Links`_, `Search & Find`_, `Input/Output`_, `Processes`_, `Logging`_
 * `Man`_, `Reboot & Shutdown`_, `Boot Targets`_, `Bootloader`_, `Init Systems`_, `Schedule Jobs`_
-* `Package Manager`_, `Bash Scripts`_, `SELinux`_
-* `Users`_, `Groups`_, `Environment Variables`_, `Resource Limits`_, `Privileges`_
-* `ACLs`_, `Attributes`_, `Disk Quotas`_, `Kernel Runtime Parameters`_
+* `Package Manager`_, `Bash Scripts`_, `SELinux`_, `Kernel Runtime Parameters`_
+* `Users`_, `Groups`_, `Environment Variables`_, `Resource Limits`_, `Privileges`_, `ACLs`_
 * `Network Management`_, `Firewall`_, `Static Routing`_, `Time Synchronisation`_, `Bind`_
 * `Email`_, `SSH`_, `HTTP`_, `Database Server`_
-* `Block Devices`_, `Disk Imaging`_, `Swap`_, `Creating File Systems`_, `LVM`_, `Device Encryption`_, `RAID`_
+* `Devices & Disks`_, `Creating File Systems`_, `LVM`_, `Device Encryption`_, `RAID`_
 
 File & Directory
 ----------------
@@ -82,6 +81,13 @@ File & Directory
         - archive and compress same time: ``tar czf FILE.tar.gz FILE``,
           ``tar cjf FILE.tar.bz2 FILE``, ``tar cJf FILE.tar.xz FILE``
         - auto detect and compress: ``tar caf FILE.tar.gz/bz2/xz FILE``
+    * **Attributes**
+        - can make file or directory behave differently
+        - ``chattr +a FILE``: can only append
+        - ``chattr -a FILE``: remove append only attribute
+        - ``chattr +i FILE``: file is immutable, even root user cannot modify
+        - ``lsattr FILE``: list attributes of file
+        - ``man chattr``: list all available attributes
 
 Links
 -----
@@ -370,6 +376,13 @@ SELinux
         - authorized users and processes are allowed to take only a limited set of actions
         - everything else is denied
 
+Kernel Runtime Parameters
+-------------------------
+    * ``sysctl -a``: list all kernel runtime parameters
+    * ``sysctl -w runtime.para.name=1``: set parameter value (non persistent)
+    * add files in ``/etc/sysctl.d/*.conf``: persistent change
+    * ``sysctl -p /etc/sysctl.d/custom.conf``: read value from file
+
 Users
 -----
     * Shadow package contains programs for handling passwords in a secure way
@@ -461,40 +474,6 @@ ACLs
     * ``setfacl --remove group:gp1 FILE``: remove ACL for 'gp1'
     * ``setfacl --recursive -m user:user2:rwx DIR1/``: define ACL recursively
     * ``setfacl --recursive --remove user:user2 DIR1/``: remove ACL recursively
-
-Attributes
-----------
-    * can make file or directory behave differently
-    * ``chattr +a FILE``: can only append
-    * ``chattr -a FILE``: remove append only attribute
-    * ``chattr +i FILE``: file is immutable, even root user cannot modify
-    * ``lsattr FILE``: list attributes of file
-    * ``man chattr``: list all available attributes
-
-Disk Quotas
------------
-    * can use ``quota`` to set quotas
-    * can limit storage and how may files and directories can be created
-    * for ext file system
-        - ``quotacheck --create-files --user --group /dev/sdb2``: create files to track usage
-        - ``quotaon /mnt/``: turn on quota if mounted on ``/mnt/``
-    * for xfs file system
-        - can edit ``/etc/fstab`` to have ``defaults,usrquota,grpquota``
-        - ``quota --user user1``: list quotas for 'user1'
-        - ``edquota --user user1``: edit quotas for 'user1'
-        - ``edquota --group gp1``: edit quotas for 'gp1'
-        - 1 block is 1KB
-        - ``fallocate --lenght 100M FILE1``: create 100MB file to test quota
-        - allowed to exceed soft limit for specific days, ``grace period``
-        - set inodes limit to limit files and directories
-        - ``quota --edit-period``: edit grace period
-
-Kernel Runtime Parameters
--------------------------
-    * ``sysctl -a``: list all kernel runtime parameters
-    * ``sysctl -w runtime.para.name=1``: set parameter value (non persistent)
-    * add files in ``/etc/sysctl.d/*.conf``: persistent change
-    * ``sysctl -p /etc/sysctl.d/custom.conf``: read value from file
 
 Network Management
 ------------------
@@ -615,29 +594,42 @@ Database Server
     * ``mysql_secure_installation``: setup to secure the database
     * ``/etc/my.cnf.d/mariadb-server.cnf``: main configuration file
 
-Block Devices
--------------
-    * ``lsblk``: list block devices
-    * ``sudo fdisk --list /dev/sda``: list partitions of a device
-    * ``sudo cfdisk /dev/sda``: edit disk partition table interactively
-
-Disk Imaging
-------------
-    * ``sudo dd if=INPUT of=OUTPUT bs=BLOCK_SIZE status=progress``
-    * should unmount the disk first to avoid changes and should not use in VMs
-    * swap ``if`` and ``of`` to restore
-
-Swap
-----
-    * ``swapon --show``: check swap usage
-    * ``sudo mkswap /dev/sdb3``: prepare the partition
-    * ``sudo swapon --verbose /dev/sdb3``: use partition as swap
-    * ``sudo swapoff /dev/sdb3``: stop using partition as swap
+Devices & Disks
+---------------
+    * **Block Devices**
+        - ``lsblk``: list block devices
+        - ``sudo fdisk --list /dev/sda``: list partitions of a device
+        - ``sudo cfdisk /dev/sda``: edit disk partition table interactively
+    * **Disk Imaging** <a id="disk-imaging"></a>
+        - ``sudo dd if=INPUT of=OUTPUT bs=BLOCK_SIZE status=progress``
+        - should unmount the disk first to avoid changes and should not use in VMs
+        - swap ``if`` and ``of`` to restore
+    * **Swap** <a id="swap"></a>
+        - ``swapon --show``: check swap usage
+        - ``sudo mkswap /dev/sdb3``: prepare the partition
+        - ``sudo swapon --verbose /dev/sdb3``: use partition as swap
+        - ``sudo swapoff /dev/sdb3``: stop using partition as swap
     * **File as Swap**
         - ``sudo dd if=/dev/zero of=/swap bs=1M count=128 status=progress``: prepare the file
         - ``sudo chmod 600 /swap``
         - ``sudo mkswap /swap``
         - ``sudo swapon --verbose /swap``
+    * **Disk Quotas**
+        - can use ``quota`` to set quotas
+        - can limit storage and how may files and directories can be created
+    * **Disk Quotas for ext File System**
+        - ``quotacheck --create-files --user --group /dev/sdb2``: create files to track usage
+        - ``quotaon /mnt/``: turn on quota if mounted on ``/mnt/``
+    * **Disk Quotas for xfs File System**
+        - can edit ``/etc/fstab`` to have ``defaults,usrquota,grpquota``
+        - ``quota --user user1``: list quotas for 'user1'
+        - ``edquota --user user1``: edit quotas for 'user1'
+        - ``edquota --group gp1``: edit quotas for 'gp1'
+        - 1 block is 1KB
+        - ``fallocate --lenght 100M FILE1``: create 100MB file to test quota
+        - allowed to exceed soft limit for specific days, ``grace period``
+        - set inodes limit to limit files and directories
+        - ``quota --edit-period``: edit grace period
 
 Creating File Systems
 ---------------------

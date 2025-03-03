@@ -54,7 +54,7 @@ Home
         - similar column design
     * Footer
         - contact form, site map and logo in reverse color with some contact info such as
-        phone number and email
+          phone number and email
         - small copyright section at the bottom
         - have darker color for the footer to stand out
     * page can have fixed height and width, without scroll or parallax scroll
@@ -76,7 +76,7 @@ Features
         - have slightly different design for each feature to be more interesting
     * Footer
         - contact form, site map and logo in reverse color with some contact info such as
-        phone number and email
+          phone number and email
         - have darker color for the footer to stand out
         - small copyright section at the bottom
         - have consistent footer for all pages
@@ -95,7 +95,7 @@ Contact
         - phone/email, contact form if not included in the footer, map
     * Footer
         - contact form, site map and logo in reverse color with some contact info such as
-        phone number and email
+          phone number and email
         - have darker color for the footer to stand out
         - small copyright section at the bottom
         - have consistent footer for all pages

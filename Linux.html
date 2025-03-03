@@ -344,15 +344,13 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#package-manager">Package Manager</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bash-scripts">Bash Scripts</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selinux">SELinux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-runtime-parameters">Kernel Runtime Parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#users">Users</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#groups">Groups</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables">Environment Variables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resource-limits">Resource Limits</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privileges">Privileges</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acls">ACLs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">Attributes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disk-quotas">Disk Quotas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-runtime-parameters">Kernel Runtime Parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#network-management">Network Management</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#firewall">Firewall</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-routing">Static Routing</a></li>
@@ -362,9 +360,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh">SSH</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#http">HTTP</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#database-server">Database Server</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#block-devices">Block Devices</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disk-imaging">Disk Imaging</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#swap">Swap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#devices-disks">Devices &amp; Disks</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-file-systems">Creating File Systems</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lvm">LVM</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#device-encryption">Device Encryption</a></li>
@@ -460,12 +456,11 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="#file-directory">File &amp; Directory</a>, <a class="reference internal" href="#links">Links</a>, <a class="reference internal" href="#search-find">Search &amp; Find</a>, <a class="reference internal" href="#input-output">Input/Output</a>, <a class="reference internal" href="#processes">Processes</a>, <a class="reference internal" href="#logging">Logging</a></p></li>
 <li><p><a class="reference internal" href="#man">Man</a>, <a class="reference internal" href="#reboot-shutdown">Reboot &amp; Shutdown</a>, <a class="reference internal" href="#boot-targets">Boot Targets</a>, <a class="reference internal" href="#bootloader">Bootloader</a>, <a class="reference internal" href="#init-systems">Init Systems</a>, <a class="reference internal" href="#schedule-jobs">Schedule Jobs</a></p></li>
-<li><p><a class="reference internal" href="#package-manager">Package Manager</a>, <a class="reference internal" href="#bash-scripts">Bash Scripts</a>, <a class="reference internal" href="#selinux">SELinux</a></p></li>
-<li><p><a class="reference internal" href="#users">Users</a>, <a class="reference internal" href="#groups">Groups</a>, <a class="reference internal" href="#environment-variables">Environment Variables</a>, <a class="reference internal" href="#resource-limits">Resource Limits</a>, <a class="reference internal" href="#privileges">Privileges</a></p></li>
-<li><p><a class="reference internal" href="#acls">ACLs</a>, <a class="reference internal" href="#attributes">Attributes</a>, <a class="reference internal" href="#disk-quotas">Disk Quotas</a>, <a class="reference internal" href="#kernel-runtime-parameters">Kernel Runtime Parameters</a></p></li>
+<li><p><a class="reference internal" href="#package-manager">Package Manager</a>, <a class="reference internal" href="#bash-scripts">Bash Scripts</a>, <a class="reference internal" href="#selinux">SELinux</a>, <a class="reference internal" href="#kernel-runtime-parameters">Kernel Runtime Parameters</a></p></li>
+<li><p><a class="reference internal" href="#users">Users</a>, <a class="reference internal" href="#groups">Groups</a>, <a class="reference internal" href="#environment-variables">Environment Variables</a>, <a class="reference internal" href="#resource-limits">Resource Limits</a>, <a class="reference internal" href="#privileges">Privileges</a>, <a class="reference internal" href="#acls">ACLs</a></p></li>
 <li><p><a class="reference internal" href="#network-management">Network Management</a>, <a class="reference internal" href="#firewall">Firewall</a>, <a class="reference internal" href="#static-routing">Static Routing</a>, <a class="reference internal" href="#time-synchronisation">Time Synchronisation</a>, <a class="reference internal" href="#bind">Bind</a></p></li>
 <li><p><a class="reference internal" href="#email">Email</a>, <a class="reference internal" href="#ssh">SSH</a>, <a class="reference internal" href="#http">HTTP</a>, <a class="reference internal" href="#database-server">Database Server</a></p></li>
-<li><p><a class="reference internal" href="#block-devices">Block Devices</a>, <a class="reference internal" href="#disk-imaging">Disk Imaging</a>, <a class="reference internal" href="#swap">Swap</a>, <a class="reference internal" href="#creating-file-systems">Creating File Systems</a>, <a class="reference internal" href="#lvm">LVM</a>, <a class="reference internal" href="#device-encryption">Device Encryption</a>, <a class="reference internal" href="#raid">RAID</a></p></li>
+<li><p><a class="reference internal" href="#devices-disks">Devices &amp; Disks</a>, <a class="reference internal" href="#creating-file-systems">Creating File Systems</a>, <a class="reference internal" href="#lvm">LVM</a>, <a class="reference internal" href="#device-encryption">Device Encryption</a>, <a class="reference internal" href="#raid">RAID</a></p></li>
 </ul>
 <section id="file-directory">
 <h3>File &amp; Directory<a class="headerlink" href="#file-directory" title="Link to this heading">#</a></h3>
@@ -552,6 +547,18 @@ first</p></li>
 <li><p>archive and compress same time: <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">czf</span> <span class="pre">FILE.tar.gz</span> <span class="pre">FILE</span></code>,
 <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">cjf</span> <span class="pre">FILE.tar.bz2</span> <span class="pre">FILE</span></code>, <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">cJf</span> <span class="pre">FILE.tar.xz</span> <span class="pre">FILE</span></code></p></li>
 <li><p>auto detect and compress: <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">caf</span> <span class="pre">FILE.tar.gz/bz2/xz</span> <span class="pre">FILE</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Attributes</strong></dt><dd><ul>
+<li><p>can make file or directory behave differently</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chattr</span> <span class="pre">+a</span> <span class="pre">FILE</span></code>: can only append</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chattr</span> <span class="pre">-a</span> <span class="pre">FILE</span></code>: remove append only attribute</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chattr</span> <span class="pre">+i</span> <span class="pre">FILE</span></code>: file is immutable, even root user cannot modify</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lsattr</span> <span class="pre">FILE</span></code>: list attributes of file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">chattr</span></code>: list all available attributes</p></li>
 </ul>
 </dd>
 </dl>
@@ -1009,6 +1016,17 @@ predefined ‘roles’</p></li>
 </ul>
 </div></blockquote>
 </section>
+<section id="kernel-runtime-parameters">
+<h3>Kernel Runtime Parameters<a class="headerlink" href="#kernel-runtime-parameters" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sysctl</span> <span class="pre">-a</span></code>: list all kernel runtime parameters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sysctl</span> <span class="pre">-w</span> <span class="pre">runtime.para.name=1</span></code>: set parameter value (non persistent)</p></li>
+<li><p>add files in <code class="docutils literal notranslate"><span class="pre">/etc/sysctl.d/*.conf</span></code>: persistent change</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sysctl</span> <span class="pre">-p</span> <span class="pre">/etc/sysctl.d/custom.conf</span></code>: read value from file</p></li>
+</ul>
+</div></blockquote>
+</section>
 <section id="users">
 <h3>Users<a class="headerlink" href="#users" title="Link to this heading">#</a></h3>
 <blockquote>
@@ -1127,62 +1145,6 @@ existing permissions</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">setfacl</span> <span class="pre">--remove</span> <span class="pre">group:gp1</span> <span class="pre">FILE</span></code>: remove ACL for ‘gp1’</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">setfacl</span> <span class="pre">--recursive</span> <span class="pre">-m</span> <span class="pre">user:user2:rwx</span> <span class="pre">DIR1/</span></code>: define ACL recursively</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">setfacl</span> <span class="pre">--recursive</span> <span class="pre">--remove</span> <span class="pre">user:user2</span> <span class="pre">DIR1/</span></code>: remove ACL recursively</p></li>
-</ul>
-</div></blockquote>
-</section>
-<section id="attributes">
-<h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
-<li><p>can make file or directory behave differently</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">chattr</span> <span class="pre">+a</span> <span class="pre">FILE</span></code>: can only append</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">chattr</span> <span class="pre">-a</span> <span class="pre">FILE</span></code>: remove append only attribute</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">chattr</span> <span class="pre">+i</span> <span class="pre">FILE</span></code>: file is immutable, even root user cannot modify</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lsattr</span> <span class="pre">FILE</span></code>: list attributes of file</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">chattr</span></code>: list all available attributes</p></li>
-</ul>
-</div></blockquote>
-</section>
-<section id="disk-quotas">
-<h3>Disk Quotas<a class="headerlink" href="#disk-quotas" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
-<li><p>can use <code class="docutils literal notranslate"><span class="pre">quota</span></code> to set quotas</p></li>
-<li><p>can limit storage and how may files and directories can be created</p></li>
-<li><dl class="simple">
-<dt>for ext file system</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">quotacheck</span> <span class="pre">--create-files</span> <span class="pre">--user</span> <span class="pre">--group</span> <span class="pre">/dev/sdb2</span></code>: create files to track usage</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">quotaon</span> <span class="pre">/mnt/</span></code>: turn on quota if mounted on <code class="docutils literal notranslate"><span class="pre">/mnt/</span></code></p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>for xfs file system</dt><dd><ul>
-<li><p>can edit <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code> to have <code class="docutils literal notranslate"><span class="pre">defaults,usrquota,grpquota</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">quota</span> <span class="pre">--user</span> <span class="pre">user1</span></code>: list quotas for ‘user1’</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">edquota</span> <span class="pre">--user</span> <span class="pre">user1</span></code>: edit quotas for ‘user1’</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">edquota</span> <span class="pre">--group</span> <span class="pre">gp1</span></code>: edit quotas for ‘gp1’</p></li>
-<li><p>1 block is 1KB</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">fallocate</span> <span class="pre">--lenght</span> <span class="pre">100M</span> <span class="pre">FILE1</span></code>: create 100MB file to test quota</p></li>
-<li><p>allowed to exceed soft limit for specific days, <code class="docutils literal notranslate"><span class="pre">grace</span> <span class="pre">period</span></code></p></li>
-<li><p>set inodes limit to limit files and directories</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">quota</span> <span class="pre">--edit-period</span></code>: edit grace period</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</div></blockquote>
-</section>
-<section id="kernel-runtime-parameters">
-<h3>Kernel Runtime Parameters<a class="headerlink" href="#kernel-runtime-parameters" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">sysctl</span> <span class="pre">-a</span></code>: list all kernel runtime parameters</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sysctl</span> <span class="pre">-w</span> <span class="pre">runtime.para.name=1</span></code>: set parameter value (non persistent)</p></li>
-<li><p>add files in <code class="docutils literal notranslate"><span class="pre">/etc/sysctl.d/*.conf</span></code>: persistent change</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sysctl</span> <span class="pre">-p</span> <span class="pre">/etc/sysctl.d/custom.conf</span></code>: read value from file</p></li>
 </ul>
 </div></blockquote>
 </section>
@@ -1361,40 +1323,75 @@ be copied over the Internet</p></li>
 </ul>
 </div></blockquote>
 </section>
-<section id="block-devices">
-<h3>Block Devices<a class="headerlink" href="#block-devices" title="Link to this heading">#</a></h3>
+<section id="devices-disks">
+<h3>Devices &amp; Disks<a class="headerlink" href="#devices-disks" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Block Devices</strong></dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">lsblk</span></code>: list block devices</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">fdisk</span> <span class="pre">--list</span> <span class="pre">/dev/sda</span></code>: list partitions of a device</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">cfdisk</span> <span class="pre">/dev/sda</span></code>: edit disk partition table interactively</p></li>
 </ul>
-</div></blockquote>
-</section>
-<section id="disk-imaging">
-<h3>Disk Imaging<a class="headerlink" href="#disk-imaging" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Disk Imaging</strong> &lt;a id=”disk-imaging”&gt;&lt;/a&gt;</dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">dd</span> <span class="pre">if=INPUT</span> <span class="pre">of=OUTPUT</span> <span class="pre">bs=BLOCK_SIZE</span> <span class="pre">status=progress</span></code></p></li>
 <li><p>should unmount the disk first to avoid changes and should not use in VMs</p></li>
 <li><p>swap <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">of</span></code> to restore</p></li>
 </ul>
-</div></blockquote>
-</section>
-<section id="swap">
-<h3>Swap<a class="headerlink" href="#swap" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Swap</strong> &lt;a id=”swap”&gt;&lt;/a&gt;</dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">swapon</span> <span class="pre">--show</span></code>: check swap usage</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">mkswap</span> <span class="pre">/dev/sdb3</span></code>: prepare the partition</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">swapon</span> <span class="pre">--verbose</span> <span class="pre">/dev/sdb3</span></code>: use partition as swap</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">swapoff</span> <span class="pre">/dev/sdb3</span></code>: stop using partition as swap</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><dl class="simple">
 <dt><strong>File as Swap</strong></dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">dd</span> <span class="pre">if=/dev/zero</span> <span class="pre">of=/swap</span> <span class="pre">bs=1M</span> <span class="pre">count=128</span> <span class="pre">status=progress</span></code>: prepare the file</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">600</span> <span class="pre">/swap</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">mkswap</span> <span class="pre">/swap</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">swapon</span> <span class="pre">--verbose</span> <span class="pre">/swap</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Disk Quotas</strong></dt><dd><ul>
+<li><p>can use <code class="docutils literal notranslate"><span class="pre">quota</span></code> to set quotas</p></li>
+<li><p>can limit storage and how may files and directories can be created</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Disk Quotas for ext File System</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">quotacheck</span> <span class="pre">--create-files</span> <span class="pre">--user</span> <span class="pre">--group</span> <span class="pre">/dev/sdb2</span></code>: create files to track usage</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">quotaon</span> <span class="pre">/mnt/</span></code>: turn on quota if mounted on <code class="docutils literal notranslate"><span class="pre">/mnt/</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Disk Quotas for xfs File System</strong></dt><dd><ul>
+<li><p>can edit <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code> to have <code class="docutils literal notranslate"><span class="pre">defaults,usrquota,grpquota</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">quota</span> <span class="pre">--user</span> <span class="pre">user1</span></code>: list quotas for ‘user1’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">edquota</span> <span class="pre">--user</span> <span class="pre">user1</span></code>: edit quotas for ‘user1’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">edquota</span> <span class="pre">--group</span> <span class="pre">gp1</span></code>: edit quotas for ‘gp1’</p></li>
+<li><p>1 block is 1KB</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fallocate</span> <span class="pre">--lenght</span> <span class="pre">100M</span> <span class="pre">FILE1</span></code>: create 100MB file to test quota</p></li>
+<li><p>allowed to exceed soft limit for specific days, <code class="docutils literal notranslate"><span class="pre">grace</span> <span class="pre">period</span></code></p></li>
+<li><p>set inodes limit to limit files and directories</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">quota</span> <span class="pre">--edit-period</span></code>: edit grace period</p></li>
 </ul>
 </dd>
 </dl>
@@ -3371,15 +3368,13 @@ Usama Anjum, Collabora. Available at: <a class="reference external" href="https:
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#package-manager">Package Manager</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bash-scripts">Bash Scripts</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selinux">SELinux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-runtime-parameters">Kernel Runtime Parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#users">Users</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#groups">Groups</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables">Environment Variables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resource-limits">Resource Limits</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privileges">Privileges</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acls">ACLs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">Attributes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disk-quotas">Disk Quotas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-runtime-parameters">Kernel Runtime Parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#network-management">Network Management</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#firewall">Firewall</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-routing">Static Routing</a></li>
@@ -3389,9 +3384,7 @@ Usama Anjum, Collabora. Available at: <a class="reference external" href="https:
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh">SSH</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#http">HTTP</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#database-server">Database Server</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#block-devices">Block Devices</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disk-imaging">Disk Imaging</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#swap">Swap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#devices-disks">Devices &amp; Disks</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-file-systems">Creating File Systems</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lvm">LVM</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#device-encryption">Device Encryption</a></li>
