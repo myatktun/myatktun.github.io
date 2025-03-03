@@ -19,204 +19,9 @@ Linux
 Commands
 ========
 
-* `Man`_, `Reboot & Shutdown`_, `Boot Targets`_, `Bootloader`_, `Init Systems`_, `Processes`_, `Logging`_
-* `Schedule Jobs`_, `Package Manager`_, `File & Directory`_, `Links`_, `Search & Find`_, `Input/Output`_
-* `Bash Scripts`_, `SELinux`_
-
-Man
----
-    * ``man COMMAND``, manual pages of COMMAND
-    * ``sudo mandb``, update manual pages
-    * ``apropos``, search commands
-
-Reboot & Shutdown
------------------
-    * ``reboot`` or ``systemctl reboot`` and ``shutdown`` or ``systemctl shutdown``
-    * both are links to ``systemctl``
-    * can use ``--force`` or ``--force --force``
-    * ``shutdown 13:00``, schedule shutdown at 1pm
-    * ``shutdown +20``, schedule shutdown in 20 minutes
-    * ``shutdown -r +20``, schedule reboot in 20 minutes
-    * ``shutdown -r +2 'Show message to users'``
-
-Boot Targets
-------------
-    * ``graphical``
-    * ``multi-user``: text based
-    * ``emergency``: read-only root file system
-    * ``rescue``: more programs than ``emergency``, but less than ``multi-user``
-    * root user password must be set to use ``emergency`` and ``rescue``
-    * ``systemctl get-default``: list boot target
-    * ``systemctl set-default multi-user.target``: set new default boot target to be without GUI
-    * ``systemctl isolate graphical.target``: change to GUI target without needing to reboot but
-      will not set default
-    * ``CTRL + ALT + F3``: virtual terminals
-    * **remote GUI login**
-        - can use VNC (Virtual Network Computing) server and client
-        - allow RDP (Remote Desktop Protocol) for Windows user login
-
-Bootloader
-----------
-    * purpose is to start the Linux kernel
-    * GRUB (Grand Unified Bootloader) is a popular one
-    * **on BIOS**
-        - ``grub2-mkconfig -o /boot/grub2/grub.cfg``, make config
-        - bootloader should be installed on first section of the block device
-        - ``lsblk``, list block devices
-        - ``grub2-install /dev/sda``, install GRUB in first section
-    * **on EFI**
-        - ``grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg``, make config on EFI
-        - ``dnf reinstall grub2-efi grub2-efi-modules shim``, auto place config file in right
-          location
-    * edit the file ``/etc/default/grub`` and use above commands to update grub config
-
-Init Systems
-------------
-    * initialisation system to start up the system as necessary
-    * **Units**
-        - text files with instructions to start the system
-        - can be service, socket, device, timer or others
-    * **Service Units**
-        - what command to use to start a program
-        - what to do when a program crashes and restarts
-        - tell the ``init`` how to manage lifecycle of applications
-        - ``man systemd.service``, list instructions that can be added in services
-        - ``systemctl edit --full sshd.service``, edit a service
-        - ``systemctl revert sshd.service``, restore to default
-        - ``systemctl status sshd.service``, check service status
-        - ``systemctl start sshd.service``, start the service
-        - ``systemctl stop sshd.service``, stop the service
-        - ``systemctl restart sshd.service``, restart the service
-        - ``systemctl reload sshd.service``, reload the service without closing
-        - ``systemctl reload-or-restart sshd.service``, use restart if reload is not supported
-        - ``systemctl disable sshd.service``, do not start the service on startup
-        - ``systemctl enable sshd.service``, start the service on startup
-        - ``systemctl is-enabled sshd.service``, check if service will start on startup
-        - ``systemctl enable --now sshd.service``, start the service on startup and start it now
-        - ``systemctl disable --now sshd.service``, do no start the service on startup and stop
-          it now
-        - ``systemctl mask atd.service``, do not allow the service to be started by others
-        - ``systemctl unmask atd.service``, allow the service to be started by others
-        - ``systemctl list-units --type service --all``, list all services available
-    * **System V**
-        - execute ``init`` that sets up basic processes and a script, ``rc``, which controls the
-          execution of additional scripts
-        - ``init`` is controlled by ``/etc/inittab``
-        - easy to customise, but slow to boot and does not directly support advanced features
-          like cgroups and per-user scheduling
-        - has different run levels, 3 or 5 is default
-        - 0: halt, 1: single user mode, 2: user definable, 3: full multi-user mode
-        - 4: user definable, 5: full multi-user mode with display manager, 6: reboot
-
-Processes
----------
-    * ``top``, list processes in real time
-        - order by cpu usage
-    * ``ps``, list processes at the time the command is run
-        - only show current processes in session by default
-        - ``ps -aux``, Unix style
-        - ``ps aux``, BSD style
-        - processes in '[]' are kernel processes
-        - ``ps 1``, list process by PID
-        - ``ps -U user``, list processes started by 'user'
-        - ``pgrep -a bash``, search process by name
-        - ``ps l``, include nice value column
-        - ``ps fax``, list processes tree
-    * ``nice -n 9 bash``, start process with specific nice value (-20 to 19)
-        - processes inherit nice values
-        - regular user can only assign values between 0 and 19
-        - assigning negative nice value requires root
-    * ``renice 1 PID``, change process nice value
-        - can only lower the value once as regular user
-    * ``kill -SIGHUP PID``, send signal to process by name
-        - ``kill PID``, send ``TERM`` signal by default
-        - ``kill -L``, list signals list
-        - ``kill -9 PID``, send signal by number
-        - ``pkill -KILL bash``, kill processes that are bash
-    * ``CTRL + c``, breaks the process
-    * ``CTRL + z``, pause the process and sends it to background
-    * ``bg 1``, run paused background process
-    * ``sleep 100 &``, run process in background
-    * ``fg``, bring back background/paused process
-    * ``jobs``, list background/paused processes
-    * ``lsof -p PID``, list files used by the process
-        - ``lsof /var/log/``, list which processes use the files
-
-Logging
--------
-    * logging daemons collect, organize and store logs
-    * **rsyslog**
-        - stores logs in ``/var/log``
-        - rocket-fast system for log processing
-    * **journalctl**
-        - to read system logs
-        - ``journalctl $(which sudo)``, show logs generated by ``sudo``
-        - ``journalctl -u sshd.service``, logs by service
-        - ``journalctl -f``, follow mode
-        - ``journalctl -p err``, show only error logs (``info``, ``warning``, ``err``, ``crit``)
-        - ``journalctl -g '^a'``, using with grep expressions
-        - ``journalctl -S 02:00``, show only logs after 2am
-        - ``journalctl -S 02:00 -U 03:00``, show only logs between 2am and 3am
-        - ``journalctl -S '1999-1-1 12:00:59``, using dates
-        - ``journalctl -b 0``, current boot logs
-        - ``journalctl -b 1``, previous boot logs (require ``/var/log/journal``)
-    * ``last`` and ``lastlog`` to show last login time
-
-Schedule Jobs
--------------
-    * ``anacron``, schedule tasks specified in days
-        * for machines that are not running 24 hours a day
-        * can also schedule by editing ``/etc/anacrontab``
-        * ``anacron -T``, verify anacron syntax
-        * ``anacron -n``, run commands now
-    * ``crontab``, schedule tasks even in minutes
-        - ``* * * * * user command``, (minute, hour, day, month, day of week)
-        - ``*`` for all values
-        - ``,`` for multiple values
-        - ``-`` for range of values
-        - ``/`` for specific steps
-        - can omit ``user``
-        - can also schedule by creating files in ``/etc/cron.*`` directories
-        - ``etc/crontab``, systemwide cron
-    * ``at``, run command at specified time
-        - ``at 03:00``, ``at '03:00 January 1 1999``, ``at 'now + 30 minutes'``
-        - ``CTRL + d`` to save
-        - ``atq``, list jobs
-        - ``at -c JOB_ID``, show job description
-        - ``atrm JOB_ID``, remove job
-
-Package Manager
----------------
-    * **dnf**
-        - ``dnf repolist``, show enabled repositories list
-        - ``dnf repolist --all``, show all repositories list
-        - ``dnf config-manager --enable REPO_ID``, enable repository
-        - ``dnf config-manager --disable REPO_ID``, disable repository
-        - ``dnf config-manager --add-repo REPO_URL``, add a repository
-        - remove the file from ``Repo-filename`` output by ``repolist -v``
-        - ``dnf search 'PKG'``, search for a package
-        - ``dnf group list``, list groups
-        - ``dnf group install 'GROUP_NAME'``, install packages from group
-        - ``dnf install ./app.rpm``, install from rpm file
-        - ``dnf autoremove``, remove hanging dependencies
-        - ``dnf provides docker``, identify which package provides the app
-        - ``dnf repoquery -l moby-engine``, list which files are in the package
-
-* ``df``, check file system usage
-    * ``df -h``, show in human-readable form
-* ``du -sh /``, check size of directory
-* ``free -h``, check memory usage
-* ``uptime``, check cpu usage
-* ``lscpu``, check cpu usage in detail
-* ``lspci``, check other hardware usage
-* ``systemctl list-dependencies``, check services running or not
-
-Kernel runtime parameters
--------------------------
-    * ``sysctl -a``, list all kernel runtime parameters
-    * ``sysctl -w runtime.para.name=1``, set parameter value (non persistent)
-    * add files in ``/etc/sysctl.d/*.conf``, persistent change
-    * ``sysctl -p /etc/sysctl.d/custom.conf``, read value from file
+* `File & Directory`_, `Links`_, `Search & Find`_, `Input/Output`_, `Processes`_, `Logging`_
+* `Man`_, `Reboot & Shutdown`_, `Boot Targets`_, `Bootloader`_, `Init Systems`_, `Schedule Jobs`_
+* `Package Manager`_, `Bash Scripts`_, `SELinux`_
 
 File & Directory
 ----------------
@@ -230,16 +35,16 @@ File & Directory
     * ``stat``: show file system status
     * ``chgrp GP FILE``: change group of file & dir
     * ``chown``: change owner of file & dir, requires root ``sudo chown user1:gp1 FILE``
-    * ``groups``: show user's groups
+    * ``du -sh /``: check size of directory
     * most VMs require files to be less than 20GB
     * **chmod**
         - change permissions of files & dirs
         - ``chmod 6640``: 4=r & SUID, 2=w & GID, 1=x & sticky, 0=- (can also use binary values)
         - permissions are checked linearly
         - ``u+rwx,g-x,o=r``
-        - ``rws``, enabling SUID/GID causes file to be executed as the owner
-        - ``rwS``, SUID/GID set but not executable
-        - ``rwt`` or ``rwT``, sticky bits are usually set on shared directories and allow the
+        - ``rws``: enabling SUID/GID causes file to be executed as the owner
+        - ``rwS``: SUID/GID set but not executable
+        - ``rwt`` or ``rwT``: sticky bits are usually set on shared directories and allow the
           owner to remove the file no matter the permissions of the directory
     * modified time: create or edit, change time: change metadata
     * **View File Content**
@@ -247,13 +52,13 @@ File & Directory
         * ``tail``, ``head`` (``-n 10`` for only 10 lines, ``-F`` for follow)
         * ``less``, ``more``
     * **Edit File Content**
-        - ``sed -i 's/SEARCH/REPLACE/g' FILE``, stream editor
+        - ``sed -i 's/SEARCH/REPLACE/g' FILE``: stream editor
         - replace only first without ``g``, show only preview without ``-i``
     * ``cut -d ':' -f 2 FILE``: extract file content
     * ``sort FILE``: sort content
     * ``uniq FILE``: remove adjacent duplicates (better use with ``sort``)
     * ``diff -c FILE1 FILE2``: show differences, use ``sdiff`` or ``diff -y`` to show side by side
-    * **rsync**
+    * **Rsync**
         - remote synchronization, syncing to remote server need SSH daemon
         - ``rsync -a SOURCE/ TARGET/``: sync two directories
     * **File Compression**
@@ -264,13 +69,13 @@ File & Directory
         - can also use ``less`` to list contents
         - only ``zip -r`` can compress multiple files or directories, others need to use ``tar``
           first
-    * **tar**
+    * **Tar**
         - tape archive, archive files into one tarball
-        - ``f FILE``, same as ``--file``
-        - ``tf FILE.tar``, list contents from tar
-        - ``cf FILE.tar FILE``, create tar
-        - ``rf``, append/add to existing tar
-        - ``xf``, extract (``xf FILE.tar -C DIR``, extract to 'DIR')
+        - ``tar f FILE``: same as ``--file``
+        - ``tar tf FILE.tar``: list contents from tar
+        - ``tar cf FILE.tar FILE``: create tar
+        - ``tar rf``: append/add to existing tar
+        - ``tar xf``: extract (``xf FILE.tar -C DIR``, extract to 'DIR')
         - use ``sudo`` to preserve permissions
         - archive and compress same time: ``tar czf FILE.tar.gz FILE``,
           ``tar cjf FILE.tar.bz2 FILE``, ``tar cJf FILE.tar.xz FILE``
@@ -279,15 +84,13 @@ File & Directory
 Links
 -----
     * **Hard Links**
-        - ``ln TARGET_PATH LINK_PATH``
-        - points to the same inode
-        - if multiple hard links, deleting one will not delete the other
+        - ``ln TARGET_PATH LINK_PATH``: points to the same inode
+        - if multiple hard links exist, deleting one will not delete the other
         - can only hard link to files on the same fs
         - need proper permissions to create and access
     * **Soft Links**
-        - ``ln -s TARGET_PATH LINK_PATH``
-        - points to a path of the file or dir, like shortcut
-        - ``readlink``, show full path of soft link
+        - ``ln -s TARGET_PATH LINK_PATH``, points to a path of the file or dir like shortcut
+        - ``readlink``: show full path of soft link
         - permissions only depend on the target
         - changing the target will break the link
         - can also create soft links with relative path
@@ -296,23 +99,23 @@ Search & Find
 -------------
     * **Find**
         - ``find``: find files & dirs
-        - ``-mmin``, modified minute
-        - ``-mtime``, modified days
-        - ``-size``, -512k or +512k (c, k, M, G)
-        - ``-perm 644`` (exact), ``-644`` (at least 644), ``/644`` (any of these)
-        - ``-name -o -size``, OR
-        - ``-not`` or ``\!``, NOT
-        - ``find . -perm /4000``, find files with SUID set with any permissions
+        - ``-mmin``: modified minute
+        - ``-mtime``: modified days
+        - ``-size``: -512k or +512k (c, k, M, G)
+        - ``-perm 644`` (exact): ``-644`` (at least 644), ``/644`` (any of these)
+        - ``-name -o -size``: OR
+        - ``-not`` or ``\!``: NOT
+        - ``find . -perm /4000``: find files with SUID set with any permissions
     * **Grep**
         - ``grep``: search text
-        - ``-i``, ignore case
-        - ``-r``, recursive through all files in a dir
-        - ``-v``, invert match
-        - ``-w``, only words
-        - ``-o``, output only matching
+        - ``-i``: ignore case
+        - ``-r``: recursive through all files in a dir
+        - ``-v``: invert match
+        - ``-w``: only words
+        - ``-o``: output only matching
         - use basic regular expressions, meta-characters lose special meaning, need to be
           escaped
-        - ``egrep`` or ``grep -E``, use extended regular expressions, meta-characters do not need
+        - ``egrep`` or ``grep -E``: use extended regular expressions, meta-characters do not need
           to be escaped
     * **Regular Expressions**
         - ``^``: starts with
@@ -339,6 +142,191 @@ Input/Output
     * ``<<< string``: here string
     * ``command1 | command2``: pipe 'COMMAND1' output to 'COMMAND2'
     * ``column``: arrange columns
+
+Processes
+---------
+    * ``top``: list processes in real time, order by cpu usage
+    * **ps**
+        - list processes at the time the command is run
+        - only show current processes in session by default
+        - ``ps -aux`` for Unix style, and ``ps aux`` for BSD style
+        - processes in '[]' are kernel processes
+        - ``ps 1``: list process by PID
+        - ``ps -U user``: list processes started by 'user'
+        - ``pgrep -a bash``: search process by name
+        - ``ps l``: include nice value column
+        - ``ps fax``: list processes tree
+    * **nice**
+         start process with specific nice value (-20 to 19), e.g. ``nice -n 9 bash``
+        - processes inherit nice values
+        - regular user can only assign values between 0 and 19
+        - assigning negative nice value requires root
+        - ``renice``: change process nice value, can only lower the value once as regular user
+    * **kill**
+        - ``kill -SIGHUP PID``: send signal to process by name
+        - ``kill PID``: send ``TERM`` signal by default
+        - ``kill -L``: list signals list
+        - ``kill -9 PID``: send signal by number
+        - ``pkill -KILL bash``: kill processes that are bash
+    * ``CTRL + c``: breaks the process
+    * ``CTRL + z``: pause the process and sends it to background
+    * ``bg 1``: run paused background process
+    * ``sleep 100 &``: run process in background
+    * ``fg``: bring back background/paused process
+    * ``jobs``: list background/paused processes
+    * ``lsof -p PID``: list files used by the process
+    * ``lsof /var/log/``: list which processes use the files
+    * ``free -h``: check memory usage
+    * ``uptime``: check cpu usage
+    * ``lscpu``: check cpu usage in detail
+    * ``lspci``: check other hardware usage
+
+Logging
+-------
+    * logging daemons collect, organize and store logs
+    * **rsyslog**
+        - stores logs in ``/var/log``
+        - rocket-fast system for log processing
+    * **journalctl**
+        - to read system logs
+        - ``journalctl $(which sudo)``: show logs generated by ``sudo``
+        - ``journalctl -u sshd.service``: logs by service
+        - ``journalctl -f``: follow mode
+        - ``journalctl -p err``: show only error logs (``info``, ``warning``, ``err``, ``crit``)
+        - ``journalctl -g '^a'``: using with grep expressions
+        - ``journalctl -S 02:00``: show only logs after 2am
+        - ``journalctl -S 02:00 -U 03:00``: show only logs between 2am and 3am
+        - ``journalctl -S '1999-1-1 12:00:59``: using dates
+        - ``journalctl -b 0``: current boot logs
+        - ``journalctl -b 1``: previous boot logs (require ``/var/log/journal``)
+    * ``last`` and ``lastlog`` to show last login time
+
+Man
+---
+    * ``man COMMAND``: manual pages of COMMAND
+    * ``sudo mandb``: update manual pages
+    * ``apropos``: search commands
+
+Reboot & Shutdown
+-----------------
+    * ``reboot`` or ``systemctl reboot`` and ``shutdown`` or ``systemctl shutdown``
+    * both are links to ``systemctl``
+    * can use ``--force`` or ``--force --force``
+    * ``shutdown 13:00``: schedule shutdown at 1pm
+    * ``shutdown +20``: schedule shutdown in 20 minutes
+    * ``shutdown -r +20``: schedule reboot in 20 minutes
+    * ``shutdown -r +2 'Show message to users'``
+
+Boot Targets
+------------
+    * ``graphical``
+    * ``multi-user``: text based
+    * ``emergency``: read-only root file system
+    * ``rescue``: more programs than ``emergency``, but less than ``multi-user``
+    * root user password must be set to use ``emergency`` and ``rescue``
+    * ``systemctl get-default``: list boot target
+    * ``systemctl set-default multi-user.target``: set new default boot target to be without GUI
+    * ``systemctl isolate graphical.target``: change to GUI target without needing to reboot but
+      will not set default
+    * ``CTRL + ALT + F3``: virtual terminals
+    * **remote GUI login**
+        - can use VNC (Virtual Network Computing) server and client
+        - allow RDP (Remote Desktop Protocol) for Windows user login
+
+Bootloader
+----------
+    * purpose is to start the Linux kernel, GRUB (Grand Unified Bootloader) is a popular one
+    * **on BIOS**
+        - ``grub2-mkconfig -o /boot/grub2/grub.cfg``: make config
+        - bootloader should be installed on first section of the block device
+        - ``grub2-install /dev/sda``: install GRUB in first section
+    * **on EFI**
+        - ``grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg``: make config on EFI
+        - ``dnf reinstall grub2-efi grub2-efi-modules shim``: auto place config file in right
+          location
+    * edit the file ``/etc/default/grub`` and use above commands to update grub config
+
+Init Systems
+------------
+    * initialisation system to start up the system as necessary
+    * **Units**
+        - text files with instructions to start the system
+        - can be service, socket, device, timer or others
+    * **Service Units**
+        - what command to use to start a program
+        - what to do when a program crashes and restarts
+        - tell the ``init`` how to manage lifecycle of applications
+        - ``man systemd.service``: list instructions that can be added in services
+        - ``systemctl edit --full sshd.service``: edit a service
+        - ``systemctl revert sshd.service``: restore to default
+        - ``systemctl status sshd.service``: check service status
+        - ``systemctl start sshd.service``: start the service
+        - ``systemctl stop sshd.service``: stop the service
+        - ``systemctl restart sshd.service``: restart the service
+        - ``systemctl reload sshd.service``: reload the service without closing
+        - ``systemctl reload-or-restart sshd.service``: use restart if reload is not supported
+        - ``systemctl disable sshd.service``: do not start the service on startup
+        - ``systemctl enable sshd.service``: start the service on startup
+        - ``systemctl is-enabled sshd.service``: check if service will start on startup
+        - ``systemctl enable --now sshd.service``: start the service on startup and start it now
+        - ``systemctl disable --now sshd.service``: do no start the service on startup and stop
+          it now
+        - ``systemctl mask atd.service``: do not allow the service to be started by others
+        - ``systemctl unmask atd.service``: allow the service to be started by others
+        - ``systemctl list-units --type service --all``: list all services available
+        - ``systemctl list-dependencies``: check services running or not
+    * **System V**
+        - execute ``init`` that sets up basic processes and a script, ``rc``, which controls the
+          execution of additional scripts
+        - ``init`` is controlled by ``/etc/inittab``
+        - easy to customise, but slow to boot and does not directly support advanced features
+          like cgroups and per-user scheduling
+        - has different run levels, 3 or 5 is default
+        - 0: halt, 1: single user mode, 2: user definable, 3: full multi-user mode
+        - 4: user definable, 5: full multi-user mode with display manager, 6: reboot
+
+Schedule Jobs
+-------------
+    * **anacron**
+        - schedule tasks specified in days
+        - for machines that are not running 24 hours a day
+        - can also schedule by editing ``/etc/anacrontab``
+        - ``anacron -T``: verify anacron syntax
+        - ``anacron -n``: run commands now
+    * **crontab**
+        - schedule tasks even in minutes
+        - ``* * * * * user command``: (minute, hour, day, month, day of week)
+        - ``*`` for all values
+        - ``,`` for multiple values
+        - ``-`` for range of values
+        - ``/`` for specific steps
+        - can omit ``user``
+        - can also schedule by creating files in ``/etc/cron.*`` directories
+        - ``etc/crontab``, systemwide cron
+    * **at**
+        - run command at specified time
+        - ``at 03:00``, ``at '03:00 January 1 1999``, ``at 'now + 30 minutes'``
+        - ``CTRL + d`` to save
+        - ``atq``, list jobs
+        - ``at -c JOB_ID``, show job description
+        - ``atrm JOB_ID``, remove job
+
+Package Manager
+---------------
+    * **dnf**
+        - ``dnf repolist``: show enabled repositories list
+        - ``dnf repolist --all``: show all repositories list
+        - ``dnf config-manager --enable REPO_ID``: enable repository
+        - ``dnf config-manager --disable REPO_ID``: disable repository
+        - ``dnf config-manager --add-repo REPO_URL``: add a repository
+        - remove the file from ``Repo-filename`` output by ``repolist -v``
+        - ``dnf search 'PKG'``: search for a package
+        - ``dnf group list``: list groups
+        - ``dnf group install 'GROUP_NAME'``: install packages from group
+        - ``dnf install ./app.rpm``: install from rpm file
+        - ``dnf autoremove``: remove hanging dependencies
+        - ``dnf provides docker``: identify which package provides the app
+        - ``dnf repoquery -l moby-engine``: list which files are in the package
 
 Bash Scripts
 ------------
@@ -397,7 +385,7 @@ Configurations
 ==============
 
 * `Users`_, `Groups`_, `Environment Variables`_, `Resource Limits`_, `Privileges`_, `PAM`_
-* `ACLs`_, `Attributes`_, `Disk Quotas`_
+* `ACLs`_, `Attributes`_, `Disk Quotas`_, `Kernel Runtime Parameters`_
 
 Users
 -----
@@ -439,13 +427,14 @@ Groups
         - also called Login group
         - a program runs with the same privileges as the user's primary group
         - files created will be owned by the user and the primary group
-    * ``groupadd newGroup``, add new group
-    * ``gpasswd -a newUser newGroup``, add user to group
-    * ``groups newUser``, list groups 'newUser' belong to
-    * ``gpasswd -d newUser newGroup``, remove user from group
-    * ``usermod -g newGroup newUser``, change user's primary group
-    * ``groupmod -n oldGroup newGroup``, change group name
-    * ``groupdel newGroup``, delete group (cannot delete if group is user's primary)
+    * ``groups``: show user's groups
+    * ``groupadd newGroup``: add new group
+    * ``gpasswd -a newUser newGroup``: add user to group
+    * ``groups newUser``: list groups 'newUser' belong to
+    * ``gpasswd -d newUser newGroup``: remove user from group
+    * ``usermod -g newGroup newUser``: change user's primary group
+    * ``groupmod -n oldGroup newGroup``: change group name
+    * ``groupdel newGroup``: delete group (cannot delete if group is user's primary)
 
 Environment Variables
 ---------------------
@@ -522,6 +511,13 @@ Disk Quotas
         - allowed to exceed soft limit for specific days, ``grace period``
         - set inodes limit to limit files and directories
         - ``quota --edit-period``, edit grace period
+
+Kernel Runtime Parameters
+-------------------------
+    * ``sysctl -a``: list all kernel runtime parameters
+    * ``sysctl -w runtime.para.name=1``: set parameter value (non persistent)
+    * add files in ``/etc/sysctl.d/*.conf``: persistent change
+    * ``sysctl -p /etc/sysctl.d/custom.conf``: read value from file
 
 `back to top <#linux>`_
 
@@ -706,6 +702,7 @@ File Systems
         - ``fsck.ext4 -v -f -p /dev/sda1``, check ext4 file system
         - ``findmnt``, find file systems and mount points
         - ``findmnt -t xfs,ext4``, show only xfs and ext4
+        - ``df``: check file system usage, add ``-h`` to show in human-readable form
     * **Inode**
         - helps file systems keep track of data
         - contains metadata about a file

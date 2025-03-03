@@ -329,20 +329,19 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commands">Commands</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-directory">File &amp; Directory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#links">Links</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-find">Search &amp; Find</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-output">Input/Output</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#processes">Processes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logging">Logging</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#man">Man</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reboot-shutdown">Reboot &amp; Shutdown</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boot-targets">Boot Targets</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bootloader">Bootloader</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#init-systems">Init Systems</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#processes">Processes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logging">Logging</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#schedule-jobs">Schedule Jobs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#package-manager">Package Manager</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-runtime-parameters">Kernel runtime parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-directory">File &amp; Directory</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#links">Links</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-find">Search &amp; Find</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-output">Input/Output</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bash-scripts">Bash Scripts</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selinux">SELinux</a></li>
 </ul>
@@ -357,6 +356,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acls">ACLs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">Attributes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disk-quotas">Disk Quotas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-runtime-parameters">Kernel Runtime Parameters</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#networking">Networking</a><ul class="nav section-nav flex-column">
@@ -467,341 +467,10 @@
 <section id="commands">
 <h2>Commands<a class="headerlink" href="#commands" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#man">Man</a>, <a class="reference internal" href="#reboot-shutdown">Reboot &amp; Shutdown</a>, <a class="reference internal" href="#boot-targets">Boot Targets</a>, <a class="reference internal" href="#bootloader">Bootloader</a>, <a class="reference internal" href="#init-systems">Init Systems</a>, <a class="reference internal" href="#processes">Processes</a>, <a class="reference internal" href="#logging">Logging</a></p></li>
-<li><p><a class="reference internal" href="#schedule-jobs">Schedule Jobs</a>, <a class="reference internal" href="#package-manager">Package Manager</a>, <a class="reference internal" href="#file-directory">File &amp; Directory</a>, <a class="reference internal" href="#links">Links</a>, <a class="reference internal" href="#search-find">Search &amp; Find</a>, <a class="reference internal" href="#input-output">Input/Output</a></p></li>
-<li><p><a class="reference internal" href="#bash-scripts">Bash Scripts</a>, <a class="reference internal" href="#selinux">SELinux</a></p></li>
+<li><p><a class="reference internal" href="#file-directory">File &amp; Directory</a>, <a class="reference internal" href="#links">Links</a>, <a class="reference internal" href="#search-find">Search &amp; Find</a>, <a class="reference internal" href="#input-output">Input/Output</a>, <a class="reference internal" href="#processes">Processes</a>, <a class="reference internal" href="#logging">Logging</a></p></li>
+<li><p><a class="reference internal" href="#man">Man</a>, <a class="reference internal" href="#reboot-shutdown">Reboot &amp; Shutdown</a>, <a class="reference internal" href="#boot-targets">Boot Targets</a>, <a class="reference internal" href="#bootloader">Bootloader</a>, <a class="reference internal" href="#init-systems">Init Systems</a>, <a class="reference internal" href="#schedule-jobs">Schedule Jobs</a></p></li>
+<li><p><a class="reference internal" href="#package-manager">Package Manager</a>, <a class="reference internal" href="#bash-scripts">Bash Scripts</a>, <a class="reference internal" href="#selinux">SELinux</a></p></li>
 </ul>
-<section id="man">
-<h3>Man<a class="headerlink" href="#man" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">COMMAND</span></code>, manual pages of COMMAND</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">mandb</span></code>, update manual pages</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">apropos</span></code>, search commands</p></li>
-</ul>
-</div></blockquote>
-</section>
-<section id="reboot-shutdown">
-<h3>Reboot &amp; Shutdown<a class="headerlink" href="#reboot-shutdown" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">reboot</span></code> or <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">reboot</span></code> and <code class="docutils literal notranslate"><span class="pre">shutdown</span></code> or <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">shutdown</span></code></p></li>
-<li><p>both are links to <code class="docutils literal notranslate"><span class="pre">systemctl</span></code></p></li>
-<li><p>can use <code class="docutils literal notranslate"><span class="pre">--force</span></code> or <code class="docutils literal notranslate"><span class="pre">--force</span> <span class="pre">--force</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">shutdown</span> <span class="pre">13:00</span></code>, schedule shutdown at 1pm</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">shutdown</span> <span class="pre">+20</span></code>, schedule shutdown in 20 minutes</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">shutdown</span> <span class="pre">-r</span> <span class="pre">+20</span></code>, schedule reboot in 20 minutes</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">shutdown</span> <span class="pre">-r</span> <span class="pre">+2</span> <span class="pre">'Show</span> <span class="pre">message</span> <span class="pre">to</span> <span class="pre">users'</span></code></p></li>
-</ul>
-</div></blockquote>
-</section>
-<section id="boot-targets">
-<h3>Boot Targets<a class="headerlink" href="#boot-targets" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">graphical</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">multi-user</span></code>: text based</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">emergency</span></code>: read-only root file system</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">rescue</span></code>: more programs than <code class="docutils literal notranslate"><span class="pre">emergency</span></code>, but less than <code class="docutils literal notranslate"><span class="pre">multi-user</span></code></p></li>
-<li><p>root user password must be set to use <code class="docutils literal notranslate"><span class="pre">emergency</span></code> and <code class="docutils literal notranslate"><span class="pre">rescue</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">get-default</span></code>: list boot target</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">set-default</span> <span class="pre">multi-user.target</span></code>: set new default boot target to be without GUI</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">isolate</span> <span class="pre">graphical.target</span></code>: change to GUI target without needing to reboot but
-will not set default</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">ALT</span> <span class="pre">+</span> <span class="pre">F3</span></code>: virtual terminals</p></li>
-<li><dl class="simple">
-<dt><strong>remote GUI login</strong></dt><dd><ul>
-<li><p>can use VNC (Virtual Network Computing) server and client</p></li>
-<li><p>allow RDP (Remote Desktop Protocol) for Windows user login</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</div></blockquote>
-</section>
-<section id="bootloader">
-<h3>Bootloader<a class="headerlink" href="#bootloader" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
-<li><p>purpose is to start the Linux kernel</p></li>
-<li><p>GRUB (Grand Unified Bootloader) is a popular one</p></li>
-<li><dl class="simple">
-<dt><strong>on BIOS</strong></dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">grub2-mkconfig</span> <span class="pre">-o</span> <span class="pre">/boot/grub2/grub.cfg</span></code>, make config</p></li>
-<li><p>bootloader should be installed on first section of the block device</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lsblk</span></code>, list block devices</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">grub2-install</span> <span class="pre">/dev/sda</span></code>, install GRUB in first section</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>on EFI</strong></dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">grub2-mkconfig</span> <span class="pre">-o</span> <span class="pre">/boot/efi/EFI/fedora/grub.cfg</span></code>, make config on EFI</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">reinstall</span> <span class="pre">grub2-efi</span> <span class="pre">grub2-efi-modules</span> <span class="pre">shim</span></code>, auto place config file in right
-location</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p>edit the file <code class="docutils literal notranslate"><span class="pre">/etc/default/grub</span></code> and use above commands to update grub config</p></li>
-</ul>
-</div></blockquote>
-</section>
-<section id="init-systems">
-<h3>Init Systems<a class="headerlink" href="#init-systems" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
-<li><p>initialisation system to start up the system as necessary</p></li>
-<li><dl class="simple">
-<dt><strong>Units</strong></dt><dd><ul>
-<li><p>text files with instructions to start the system</p></li>
-<li><p>can be service, socket, device, timer or others</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Service Units</strong></dt><dd><ul>
-<li><p>what command to use to start a program</p></li>
-<li><p>what to do when a program crashes and restarts</p></li>
-<li><p>tell the <code class="docutils literal notranslate"><span class="pre">init</span></code> how to manage lifecycle of applications</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">systemd.service</span></code>, list instructions that can be added in services</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">edit</span> <span class="pre">--full</span> <span class="pre">sshd.service</span></code>, edit a service</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">revert</span> <span class="pre">sshd.service</span></code>, restore to default</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">status</span> <span class="pre">sshd.service</span></code>, check service status</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">sshd.service</span></code>, start the service</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">stop</span> <span class="pre">sshd.service</span></code>, stop the service</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">sshd.service</span></code>, restart the service</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">reload</span> <span class="pre">sshd.service</span></code>, reload the service without closing</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">reload-or-restart</span> <span class="pre">sshd.service</span></code>, use restart if reload is not supported</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">disable</span> <span class="pre">sshd.service</span></code>, do not start the service on startup</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">sshd.service</span></code>, start the service on startup</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">is-enabled</span> <span class="pre">sshd.service</span></code>, check if service will start on startup</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">--now</span> <span class="pre">sshd.service</span></code>, start the service on startup and start it now</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">disable</span> <span class="pre">--now</span> <span class="pre">sshd.service</span></code>, do no start the service on startup and stop
-it now</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">mask</span> <span class="pre">atd.service</span></code>, do not allow the service to be started by others</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">unmask</span> <span class="pre">atd.service</span></code>, allow the service to be started by others</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">list-units</span> <span class="pre">--type</span> <span class="pre">service</span> <span class="pre">--all</span></code>, list all services available</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>System V</strong></dt><dd><ul>
-<li><p>execute <code class="docutils literal notranslate"><span class="pre">init</span></code> that sets up basic processes and a script, <code class="docutils literal notranslate"><span class="pre">rc</span></code>, which controls the
-execution of additional scripts</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">init</span></code> is controlled by <code class="docutils literal notranslate"><span class="pre">/etc/inittab</span></code></p></li>
-<li><p>easy to customise, but slow to boot and does not directly support advanced features
-like cgroups and per-user scheduling</p></li>
-<li><p>has different run levels, 3 or 5 is default</p></li>
-<li><p>0: halt, 1: single user mode, 2: user definable, 3: full multi-user mode</p></li>
-<li><p>4: user definable, 5: full multi-user mode with display manager, 6: reboot</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</div></blockquote>
-</section>
-<section id="processes">
-<h3>Processes<a class="headerlink" href="#processes" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">top</span></code>, list processes in real time</dt><dd><ul>
-<li><p>order by cpu usage</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">ps</span></code>, list processes at the time the command is run</dt><dd><ul>
-<li><p>only show current processes in session by default</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">-aux</span></code>, Unix style</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">aux</span></code>, BSD style</p></li>
-<li><p>processes in ‘[]’ are kernel processes</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">1</span></code>, list process by PID</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">-U</span> <span class="pre">user</span></code>, list processes started by ‘user’</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pgrep</span> <span class="pre">-a</span> <span class="pre">bash</span></code>, search process by name</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">l</span></code>, include nice value column</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">fax</span></code>, list processes tree</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">nice</span> <span class="pre">-n</span> <span class="pre">9</span> <span class="pre">bash</span></code>, start process with specific nice value (-20 to 19)</dt><dd><ul>
-<li><p>processes inherit nice values</p></li>
-<li><p>regular user can only assign values between 0 and 19</p></li>
-<li><p>assigning negative nice value requires root</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">renice</span> <span class="pre">1</span> <span class="pre">PID</span></code>, change process nice value</dt><dd><ul>
-<li><p>can only lower the value once as regular user</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">kill</span> <span class="pre">-SIGHUP</span> <span class="pre">PID</span></code>, send signal to process by name</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">kill</span> <span class="pre">PID</span></code>, send <code class="docutils literal notranslate"><span class="pre">TERM</span></code> signal by default</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">kill</span> <span class="pre">-L</span></code>, list signals list</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">kill</span> <span class="pre">-9</span> <span class="pre">PID</span></code>, send signal by number</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pkill</span> <span class="pre">-KILL</span> <span class="pre">bash</span></code>, kill processes that are bash</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">c</span></code>, breaks the process</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">z</span></code>, pause the process and sends it to background</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">bg</span> <span class="pre">1</span></code>, run paused background process</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sleep</span> <span class="pre">100</span> <span class="pre">&amp;</span></code>, run process in background</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">fg</span></code>, bring back background/paused process</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">jobs</span></code>, list background/paused processes</p></li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">lsof</span> <span class="pre">-p</span> <span class="pre">PID</span></code>, list files used by the process</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">lsof</span> <span class="pre">/var/log/</span></code>, list which processes use the files</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</div></blockquote>
-</section>
-<section id="logging">
-<h3>Logging<a class="headerlink" href="#logging" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
-<li><p>logging daemons collect, organize and store logs</p></li>
-<li><dl class="simple">
-<dt><strong>rsyslog</strong></dt><dd><ul>
-<li><p>stores logs in <code class="docutils literal notranslate"><span class="pre">/var/log</span></code></p></li>
-<li><p>rocket-fast system for log processing</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>journalctl</strong></dt><dd><ul>
-<li><p>to read system logs</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">$(which</span> <span class="pre">sudo)</span></code>, show logs generated by <code class="docutils literal notranslate"><span class="pre">sudo</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">sshd.service</span></code>, logs by service</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-f</span></code>, follow mode</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-p</span> <span class="pre">err</span></code>, show only error logs (<code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">warning</span></code>, <code class="docutils literal notranslate"><span class="pre">err</span></code>, <code class="docutils literal notranslate"><span class="pre">crit</span></code>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-g</span> <span class="pre">'^a'</span></code>, using with grep expressions</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-S</span> <span class="pre">02:00</span></code>, show only logs after 2am</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-S</span> <span class="pre">02:00</span> <span class="pre">-U</span> <span class="pre">03:00</span></code>, show only logs between 2am and 3am</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-S</span> <span class="pre">'1999-1-1</span> <span class="pre">12:00:59</span></code>, using dates</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-b</span> <span class="pre">0</span></code>, current boot logs</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-b</span> <span class="pre">1</span></code>, previous boot logs (require <code class="docutils literal notranslate"><span class="pre">/var/log/journal</span></code>)</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">last</span></code> and <code class="docutils literal notranslate"><span class="pre">lastlog</span></code> to show last login time</p></li>
-</ul>
-</div></blockquote>
-</section>
-<section id="schedule-jobs">
-<h3>Schedule Jobs<a class="headerlink" href="#schedule-jobs" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">anacron</span></code>, schedule tasks specified in days</dt><dd><ul>
-<li><p>for machines that are not running 24 hours a day</p></li>
-<li><p>can also schedule by editing <code class="docutils literal notranslate"><span class="pre">/etc/anacrontab</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">anacron</span> <span class="pre">-T</span></code>, verify anacron syntax</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">anacron</span> <span class="pre">-n</span></code>, run commands now</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">crontab</span></code>, schedule tasks even in minutes</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">user</span> <span class="pre">command</span></code>, (minute, hour, day, month, day of week)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code> for all values</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">,</span></code> for multiple values</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-</span></code> for range of values</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/</span></code> for specific steps</p></li>
-<li><p>can omit <code class="docutils literal notranslate"><span class="pre">user</span></code></p></li>
-<li><p>can also schedule by creating files in <code class="docutils literal notranslate"><span class="pre">/etc/cron.*</span></code> directories</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">etc/crontab</span></code>, systemwide cron</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">at</span></code>, run command at specified time</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">at</span> <span class="pre">03:00</span></code>, <code class="docutils literal notranslate"><span class="pre">at</span> <span class="pre">'03:00</span> <span class="pre">January</span> <span class="pre">1</span> <span class="pre">1999</span></code>, <code class="docutils literal notranslate"><span class="pre">at</span> <span class="pre">'now</span> <span class="pre">+</span> <span class="pre">30</span> <span class="pre">minutes'</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">d</span></code> to save</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">atq</span></code>, list jobs</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">at</span> <span class="pre">-c</span> <span class="pre">JOB_ID</span></code>, show job description</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">atrm</span> <span class="pre">JOB_ID</span></code>, remove job</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</div></blockquote>
-</section>
-<section id="package-manager">
-<h3>Package Manager<a class="headerlink" href="#package-manager" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt><strong>dnf</strong></dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">repolist</span></code>, show enabled repositories list</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">repolist</span> <span class="pre">--all</span></code>, show all repositories list</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">config-manager</span> <span class="pre">--enable</span> <span class="pre">REPO_ID</span></code>, enable repository</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">config-manager</span> <span class="pre">--disable</span> <span class="pre">REPO_ID</span></code>, disable repository</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">config-manager</span> <span class="pre">--add-repo</span> <span class="pre">REPO_URL</span></code>, add a repository</p></li>
-<li><p>remove the file from <code class="docutils literal notranslate"><span class="pre">Repo-filename</span></code> output by <code class="docutils literal notranslate"><span class="pre">repolist</span> <span class="pre">-v</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">search</span> <span class="pre">'PKG'</span></code>, search for a package</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">group</span> <span class="pre">list</span></code>, list groups</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">group</span> <span class="pre">install</span> <span class="pre">'GROUP_NAME'</span></code>, install packages from group</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">install</span> <span class="pre">./app.rpm</span></code>, install from rpm file</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">autoremove</span></code>, remove hanging dependencies</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">provides</span> <span class="pre">docker</span></code>, identify which package provides the app</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">repoquery</span> <span class="pre">-l</span> <span class="pre">moby-engine</span></code>, list which files are in the package</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</div></blockquote>
-<ul class="simple">
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">df</span></code>, check file system usage</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">-h</span></code>, show in human-readable form</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">du</span> <span class="pre">-sh</span> <span class="pre">/</span></code>, check size of directory</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">free</span> <span class="pre">-h</span></code>, check memory usage</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">uptime</span></code>, check cpu usage</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lscpu</span></code>, check cpu usage in detail</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lspci</span></code>, check other hardware usage</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">list-dependencies</span></code>, check services running or not</p></li>
-</ul>
-</section>
-<section id="kernel-runtime-parameters">
-<h3>Kernel runtime parameters<a class="headerlink" href="#kernel-runtime-parameters" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">sysctl</span> <span class="pre">-a</span></code>, list all kernel runtime parameters</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sysctl</span> <span class="pre">-w</span> <span class="pre">runtime.para.name=1</span></code>, set parameter value (non persistent)</p></li>
-<li><p>add files in <code class="docutils literal notranslate"><span class="pre">/etc/sysctl.d/*.conf</span></code>, persistent change</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sysctl</span> <span class="pre">-p</span> <span class="pre">/etc/sysctl.d/custom.conf</span></code>, read value from file</p></li>
-</ul>
-</div></blockquote>
-</section>
 <section id="file-directory">
 <h3>File &amp; Directory<a class="headerlink" href="#file-directory" title="Link to this heading">#</a></h3>
 <blockquote>
@@ -816,7 +485,7 @@ like cgroups and per-user scheduling</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">stat</span></code>: show file system status</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">chgrp</span> <span class="pre">GP</span> <span class="pre">FILE</span></code>: change group of file &amp; dir</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">chown</span></code>: change owner of file &amp; dir, requires root <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">user1:gp1</span> <span class="pre">FILE</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">groups</span></code>: show user’s groups</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">du</span> <span class="pre">-sh</span> <span class="pre">/</span></code>: check size of directory</p></li>
 <li><p>most VMs require files to be less than 20GB</p></li>
 <li><dl class="simple">
 <dt><strong>chmod</strong></dt><dd><ul>
@@ -824,9 +493,9 @@ like cgroups and per-user scheduling</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">6640</span></code>: 4=r &amp; SUID, 2=w &amp; GID, 1=x &amp; sticky, 0=- (can also use binary values)</p></li>
 <li><p>permissions are checked linearly</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">u+rwx,g-x,o=r</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">rws</span></code>, enabling SUID/GID causes file to be executed as the owner</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">rwS</span></code>, SUID/GID set but not executable</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">rwt</span></code> or <code class="docutils literal notranslate"><span class="pre">rwT</span></code>, sticky bits are usually set on shared directories and allow the
+<li><p><code class="docutils literal notranslate"><span class="pre">rws</span></code>: enabling SUID/GID causes file to be executed as the owner</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rwS</span></code>: SUID/GID set but not executable</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rwt</span></code> or <code class="docutils literal notranslate"><span class="pre">rwT</span></code>: sticky bits are usually set on shared directories and allow the
 owner to remove the file no matter the permissions of the directory</p></li>
 </ul>
 </dd>
@@ -844,7 +513,7 @@ owner to remove the file no matter the permissions of the directory</p></li>
 </li>
 <li><dl class="simple">
 <dt><strong>Edit File Content</strong></dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">sed</span> <span class="pre">-i</span> <span class="pre">'s/SEARCH/REPLACE/g'</span> <span class="pre">FILE</span></code>, stream editor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sed</span> <span class="pre">-i</span> <span class="pre">'s/SEARCH/REPLACE/g'</span> <span class="pre">FILE</span></code>: stream editor</p></li>
 <li><p>replace only first without <code class="docutils literal notranslate"><span class="pre">g</span></code>, show only preview without <code class="docutils literal notranslate"><span class="pre">-i</span></code></p></li>
 </ul>
 </dd>
@@ -855,7 +524,7 @@ owner to remove the file no matter the permissions of the directory</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">uniq</span> <span class="pre">FILE</span></code>: remove adjacent duplicates (better use with <code class="docutils literal notranslate"><span class="pre">sort</span></code>)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">diff</span> <span class="pre">-c</span> <span class="pre">FILE1</span> <span class="pre">FILE2</span></code>: show differences, use <code class="docutils literal notranslate"><span class="pre">sdiff</span></code> or <code class="docutils literal notranslate"><span class="pre">diff</span> <span class="pre">-y</span></code> to show side by side</p></li>
 <li><dl class="simple">
-<dt><strong>rsync</strong></dt><dd><ul>
+<dt><strong>Rsync</strong></dt><dd><ul>
 <li><p>remote synchronization, syncing to remote server need SSH daemon</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">rsync</span> <span class="pre">-a</span> <span class="pre">SOURCE/</span> <span class="pre">TARGET/</span></code>: sync two directories</p></li>
 </ul>
@@ -876,13 +545,13 @@ first</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>tar</strong></dt><dd><ul>
+<dt><strong>Tar</strong></dt><dd><ul>
 <li><p>tape archive, archive files into one tarball</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">FILE</span></code>, same as <code class="docutils literal notranslate"><span class="pre">--file</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">tf</span> <span class="pre">FILE.tar</span></code>, list contents from tar</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cf</span> <span class="pre">FILE.tar</span> <span class="pre">FILE</span></code>, create tar</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">rf</span></code>, append/add to existing tar</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">xf</span></code>, extract (<code class="docutils literal notranslate"><span class="pre">xf</span> <span class="pre">FILE.tar</span> <span class="pre">-C</span> <span class="pre">DIR</span></code>, extract to ‘DIR’)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">f</span> <span class="pre">FILE</span></code>: same as <code class="docutils literal notranslate"><span class="pre">--file</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">tf</span> <span class="pre">FILE.tar</span></code>: list contents from tar</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">cf</span> <span class="pre">FILE.tar</span> <span class="pre">FILE</span></code>: create tar</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">rf</span></code>: append/add to existing tar</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">xf</span></code>: extract (<code class="docutils literal notranslate"><span class="pre">xf</span> <span class="pre">FILE.tar</span> <span class="pre">-C</span> <span class="pre">DIR</span></code>, extract to ‘DIR’)</p></li>
 <li><p>use <code class="docutils literal notranslate"><span class="pre">sudo</span></code> to preserve permissions</p></li>
 <li><p>archive and compress same time: <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">czf</span> <span class="pre">FILE.tar.gz</span> <span class="pre">FILE</span></code>,
 <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">cjf</span> <span class="pre">FILE.tar.bz2</span> <span class="pre">FILE</span></code>, <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">cJf</span> <span class="pre">FILE.tar.xz</span> <span class="pre">FILE</span></code></p></li>
@@ -900,9 +569,8 @@ first</p></li>
 <div><ul class="simple">
 <li><dl class="simple">
 <dt><strong>Hard Links</strong></dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">ln</span> <span class="pre">TARGET_PATH</span> <span class="pre">LINK_PATH</span></code></p></li>
-<li><p>points to the same inode</p></li>
-<li><p>if multiple hard links, deleting one will not delete the other</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ln</span> <span class="pre">TARGET_PATH</span> <span class="pre">LINK_PATH</span></code>: points to the same inode</p></li>
+<li><p>if multiple hard links exist, deleting one will not delete the other</p></li>
 <li><p>can only hard link to files on the same fs</p></li>
 <li><p>need proper permissions to create and access</p></li>
 </ul>
@@ -911,9 +579,8 @@ first</p></li>
 </li>
 <li><dl class="simple">
 <dt><strong>Soft Links</strong></dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">TARGET_PATH</span> <span class="pre">LINK_PATH</span></code></p></li>
-<li><p>points to a path of the file or dir, like shortcut</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">readlink</span></code>, show full path of soft link</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">TARGET_PATH</span> <span class="pre">LINK_PATH</span></code>, points to a path of the file or dir like shortcut</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">readlink</span></code>: show full path of soft link</p></li>
 <li><p>permissions only depend on the target</p></li>
 <li><p>changing the target will break the link</p></li>
 <li><p>can also create soft links with relative path</p></li>
@@ -931,13 +598,13 @@ first</p></li>
 <li><dl class="simple">
 <dt><strong>Find</strong></dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">find</span></code>: find files &amp; dirs</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-mmin</span></code>, modified minute</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-mtime</span></code>, modified days</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-size</span></code>, -512k or +512k (c, k, M, G)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-perm</span> <span class="pre">644</span></code> (exact), <code class="docutils literal notranslate"><span class="pre">-644</span></code> (at least 644), <code class="docutils literal notranslate"><span class="pre">/644</span></code> (any of these)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-name</span> <span class="pre">-o</span> <span class="pre">-size</span></code>, OR</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-not</span></code> or <code class="docutils literal notranslate"><span class="pre">\!</span></code>, NOT</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">find</span> <span class="pre">.</span> <span class="pre">-perm</span> <span class="pre">/4000</span></code>, find files with SUID set with any permissions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-mmin</span></code>: modified minute</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-mtime</span></code>: modified days</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-size</span></code>: -512k or +512k (c, k, M, G)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-perm</span> <span class="pre">644</span></code> (exact): <code class="docutils literal notranslate"><span class="pre">-644</span></code> (at least 644), <code class="docutils literal notranslate"><span class="pre">/644</span></code> (any of these)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-name</span> <span class="pre">-o</span> <span class="pre">-size</span></code>: OR</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-not</span></code> or <code class="docutils literal notranslate"><span class="pre">\!</span></code>: NOT</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">find</span> <span class="pre">.</span> <span class="pre">-perm</span> <span class="pre">/4000</span></code>: find files with SUID set with any permissions</p></li>
 </ul>
 </dd>
 </dl>
@@ -945,14 +612,14 @@ first</p></li>
 <li><dl class="simple">
 <dt><strong>Grep</strong></dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">grep</span></code>: search text</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-i</span></code>, ignore case</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-r</span></code>, recursive through all files in a dir</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-v</span></code>, invert match</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-w</span></code>, only words</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-o</span></code>, output only matching</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-i</span></code>: ignore case</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-r</span></code>: recursive through all files in a dir</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-v</span></code>: invert match</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-w</span></code>: only words</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-o</span></code>: output only matching</p></li>
 <li><p>use basic regular expressions, meta-characters lose special meaning, need to be
 escaped</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">egrep</span></code> or <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-E</span></code>, use extended regular expressions, meta-characters do not need
+<li><p><code class="docutils literal notranslate"><span class="pre">egrep</span></code> or <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-E</span></code>: use extended regular expressions, meta-characters do not need
 to be escaped</p></li>
 </ul>
 </dd>
@@ -992,6 +659,304 @@ to be escaped</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;&lt;</span> <span class="pre">string</span></code>: here string</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">command1</span> <span class="pre">|</span> <span class="pre">command2</span></code>: pipe ‘COMMAND1’ output to ‘COMMAND2’</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">column</span></code>: arrange columns</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="processes">
+<h3>Processes<a class="headerlink" href="#processes" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">top</span></code>: list processes in real time, order by cpu usage</p></li>
+<li><dl class="simple">
+<dt><strong>ps</strong></dt><dd><ul class="simple">
+<li><p>list processes at the time the command is run</p></li>
+<li><p>only show current processes in session by default</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">-aux</span></code> for Unix style, and <code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">aux</span></code> for BSD style</p></li>
+<li><p>processes in ‘[]’ are kernel processes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">1</span></code>: list process by PID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">-U</span> <span class="pre">user</span></code>: list processes started by ‘user’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pgrep</span> <span class="pre">-a</span> <span class="pre">bash</span></code>: search process by name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">l</span></code>: include nice value column</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">fax</span></code>: list processes tree</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>nice</strong></dt><dd><blockquote>
+<div><p>start process with specific nice value (-20 to 19), e.g. <code class="docutils literal notranslate"><span class="pre">nice</span> <span class="pre">-n</span> <span class="pre">9</span> <span class="pre">bash</span></code></p>
+</div></blockquote>
+<ul class="simple">
+<li><p>processes inherit nice values</p></li>
+<li><p>regular user can only assign values between 0 and 19</p></li>
+<li><p>assigning negative nice value requires root</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">renice</span></code>: change process nice value, can only lower the value once as regular user</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>kill</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">kill</span> <span class="pre">-SIGHUP</span> <span class="pre">PID</span></code>: send signal to process by name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kill</span> <span class="pre">PID</span></code>: send <code class="docutils literal notranslate"><span class="pre">TERM</span></code> signal by default</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kill</span> <span class="pre">-L</span></code>: list signals list</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kill</span> <span class="pre">-9</span> <span class="pre">PID</span></code>: send signal by number</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pkill</span> <span class="pre">-KILL</span> <span class="pre">bash</span></code>: kill processes that are bash</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">c</span></code>: breaks the process</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">z</span></code>: pause the process and sends it to background</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bg</span> <span class="pre">1</span></code>: run paused background process</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sleep</span> <span class="pre">100</span> <span class="pre">&amp;</span></code>: run process in background</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fg</span></code>: bring back background/paused process</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jobs</span></code>: list background/paused processes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lsof</span> <span class="pre">-p</span> <span class="pre">PID</span></code>: list files used by the process</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lsof</span> <span class="pre">/var/log/</span></code>: list which processes use the files</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">free</span> <span class="pre">-h</span></code>: check memory usage</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uptime</span></code>: check cpu usage</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lscpu</span></code>: check cpu usage in detail</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lspci</span></code>: check other hardware usage</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="logging">
+<h3>Logging<a class="headerlink" href="#logging" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>logging daemons collect, organize and store logs</p></li>
+<li><dl class="simple">
+<dt><strong>rsyslog</strong></dt><dd><ul>
+<li><p>stores logs in <code class="docutils literal notranslate"><span class="pre">/var/log</span></code></p></li>
+<li><p>rocket-fast system for log processing</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>journalctl</strong></dt><dd><ul>
+<li><p>to read system logs</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">$(which</span> <span class="pre">sudo)</span></code>: show logs generated by <code class="docutils literal notranslate"><span class="pre">sudo</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">sshd.service</span></code>: logs by service</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-f</span></code>: follow mode</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-p</span> <span class="pre">err</span></code>: show only error logs (<code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">warning</span></code>, <code class="docutils literal notranslate"><span class="pre">err</span></code>, <code class="docutils literal notranslate"><span class="pre">crit</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-g</span> <span class="pre">'^a'</span></code>: using with grep expressions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-S</span> <span class="pre">02:00</span></code>: show only logs after 2am</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-S</span> <span class="pre">02:00</span> <span class="pre">-U</span> <span class="pre">03:00</span></code>: show only logs between 2am and 3am</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-S</span> <span class="pre">'1999-1-1</span> <span class="pre">12:00:59</span></code>: using dates</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-b</span> <span class="pre">0</span></code>: current boot logs</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-b</span> <span class="pre">1</span></code>: previous boot logs (require <code class="docutils literal notranslate"><span class="pre">/var/log/journal</span></code>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">last</span></code> and <code class="docutils literal notranslate"><span class="pre">lastlog</span></code> to show last login time</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="man">
+<h3>Man<a class="headerlink" href="#man" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">COMMAND</span></code>: manual pages of COMMAND</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">mandb</span></code>: update manual pages</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">apropos</span></code>: search commands</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="reboot-shutdown">
+<h3>Reboot &amp; Shutdown<a class="headerlink" href="#reboot-shutdown" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">reboot</span></code> or <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">reboot</span></code> and <code class="docutils literal notranslate"><span class="pre">shutdown</span></code> or <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">shutdown</span></code></p></li>
+<li><p>both are links to <code class="docutils literal notranslate"><span class="pre">systemctl</span></code></p></li>
+<li><p>can use <code class="docutils literal notranslate"><span class="pre">--force</span></code> or <code class="docutils literal notranslate"><span class="pre">--force</span> <span class="pre">--force</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shutdown</span> <span class="pre">13:00</span></code>: schedule shutdown at 1pm</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shutdown</span> <span class="pre">+20</span></code>: schedule shutdown in 20 minutes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shutdown</span> <span class="pre">-r</span> <span class="pre">+20</span></code>: schedule reboot in 20 minutes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shutdown</span> <span class="pre">-r</span> <span class="pre">+2</span> <span class="pre">'Show</span> <span class="pre">message</span> <span class="pre">to</span> <span class="pre">users'</span></code></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="boot-targets">
+<h3>Boot Targets<a class="headerlink" href="#boot-targets" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">graphical</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">multi-user</span></code>: text based</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">emergency</span></code>: read-only root file system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rescue</span></code>: more programs than <code class="docutils literal notranslate"><span class="pre">emergency</span></code>, but less than <code class="docutils literal notranslate"><span class="pre">multi-user</span></code></p></li>
+<li><p>root user password must be set to use <code class="docutils literal notranslate"><span class="pre">emergency</span></code> and <code class="docutils literal notranslate"><span class="pre">rescue</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">get-default</span></code>: list boot target</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">set-default</span> <span class="pre">multi-user.target</span></code>: set new default boot target to be without GUI</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">isolate</span> <span class="pre">graphical.target</span></code>: change to GUI target without needing to reboot but
+will not set default</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">ALT</span> <span class="pre">+</span> <span class="pre">F3</span></code>: virtual terminals</p></li>
+<li><dl class="simple">
+<dt><strong>remote GUI login</strong></dt><dd><ul>
+<li><p>can use VNC (Virtual Network Computing) server and client</p></li>
+<li><p>allow RDP (Remote Desktop Protocol) for Windows user login</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="bootloader">
+<h3>Bootloader<a class="headerlink" href="#bootloader" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>purpose is to start the Linux kernel, GRUB (Grand Unified Bootloader) is a popular one</p></li>
+<li><dl class="simple">
+<dt><strong>on BIOS</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">grub2-mkconfig</span> <span class="pre">-o</span> <span class="pre">/boot/grub2/grub.cfg</span></code>: make config</p></li>
+<li><p>bootloader should be installed on first section of the block device</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grub2-install</span> <span class="pre">/dev/sda</span></code>: install GRUB in first section</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>on EFI</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">grub2-mkconfig</span> <span class="pre">-o</span> <span class="pre">/boot/efi/EFI/fedora/grub.cfg</span></code>: make config on EFI</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">reinstall</span> <span class="pre">grub2-efi</span> <span class="pre">grub2-efi-modules</span> <span class="pre">shim</span></code>: auto place config file in right
+location</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>edit the file <code class="docutils literal notranslate"><span class="pre">/etc/default/grub</span></code> and use above commands to update grub config</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="init-systems">
+<h3>Init Systems<a class="headerlink" href="#init-systems" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>initialisation system to start up the system as necessary</p></li>
+<li><dl class="simple">
+<dt><strong>Units</strong></dt><dd><ul>
+<li><p>text files with instructions to start the system</p></li>
+<li><p>can be service, socket, device, timer or others</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Service Units</strong></dt><dd><ul>
+<li><p>what command to use to start a program</p></li>
+<li><p>what to do when a program crashes and restarts</p></li>
+<li><p>tell the <code class="docutils literal notranslate"><span class="pre">init</span></code> how to manage lifecycle of applications</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">systemd.service</span></code>: list instructions that can be added in services</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">edit</span> <span class="pre">--full</span> <span class="pre">sshd.service</span></code>: edit a service</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">revert</span> <span class="pre">sshd.service</span></code>: restore to default</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">status</span> <span class="pre">sshd.service</span></code>: check service status</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">sshd.service</span></code>: start the service</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">stop</span> <span class="pre">sshd.service</span></code>: stop the service</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">sshd.service</span></code>: restart the service</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">reload</span> <span class="pre">sshd.service</span></code>: reload the service without closing</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">reload-or-restart</span> <span class="pre">sshd.service</span></code>: use restart if reload is not supported</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">disable</span> <span class="pre">sshd.service</span></code>: do not start the service on startup</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">sshd.service</span></code>: start the service on startup</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">is-enabled</span> <span class="pre">sshd.service</span></code>: check if service will start on startup</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">--now</span> <span class="pre">sshd.service</span></code>: start the service on startup and start it now</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">disable</span> <span class="pre">--now</span> <span class="pre">sshd.service</span></code>: do no start the service on startup and stop
+it now</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">mask</span> <span class="pre">atd.service</span></code>: do not allow the service to be started by others</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">unmask</span> <span class="pre">atd.service</span></code>: allow the service to be started by others</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">list-units</span> <span class="pre">--type</span> <span class="pre">service</span> <span class="pre">--all</span></code>: list all services available</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">list-dependencies</span></code>: check services running or not</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>System V</strong></dt><dd><ul>
+<li><p>execute <code class="docutils literal notranslate"><span class="pre">init</span></code> that sets up basic processes and a script, <code class="docutils literal notranslate"><span class="pre">rc</span></code>, which controls the
+execution of additional scripts</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">init</span></code> is controlled by <code class="docutils literal notranslate"><span class="pre">/etc/inittab</span></code></p></li>
+<li><p>easy to customise, but slow to boot and does not directly support advanced features
+like cgroups and per-user scheduling</p></li>
+<li><p>has different run levels, 3 or 5 is default</p></li>
+<li><p>0: halt, 1: single user mode, 2: user definable, 3: full multi-user mode</p></li>
+<li><p>4: user definable, 5: full multi-user mode with display manager, 6: reboot</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="schedule-jobs">
+<h3>Schedule Jobs<a class="headerlink" href="#schedule-jobs" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>anacron</strong></dt><dd><ul>
+<li><p>schedule tasks specified in days</p></li>
+<li><p>for machines that are not running 24 hours a day</p></li>
+<li><p>can also schedule by editing <code class="docutils literal notranslate"><span class="pre">/etc/anacrontab</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anacron</span> <span class="pre">-T</span></code>: verify anacron syntax</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anacron</span> <span class="pre">-n</span></code>: run commands now</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>crontab</strong></dt><dd><ul>
+<li><p>schedule tasks even in minutes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">user</span> <span class="pre">command</span></code>: (minute, hour, day, month, day of week)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code> for all values</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">,</span></code> for multiple values</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-</span></code> for range of values</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/</span></code> for specific steps</p></li>
+<li><p>can omit <code class="docutils literal notranslate"><span class="pre">user</span></code></p></li>
+<li><p>can also schedule by creating files in <code class="docutils literal notranslate"><span class="pre">/etc/cron.*</span></code> directories</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">etc/crontab</span></code>, systemwide cron</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>at</strong></dt><dd><ul>
+<li><p>run command at specified time</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">at</span> <span class="pre">03:00</span></code>, <code class="docutils literal notranslate"><span class="pre">at</span> <span class="pre">'03:00</span> <span class="pre">January</span> <span class="pre">1</span> <span class="pre">1999</span></code>, <code class="docutils literal notranslate"><span class="pre">at</span> <span class="pre">'now</span> <span class="pre">+</span> <span class="pre">30</span> <span class="pre">minutes'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">d</span></code> to save</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">atq</span></code>, list jobs</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">at</span> <span class="pre">-c</span> <span class="pre">JOB_ID</span></code>, show job description</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">atrm</span> <span class="pre">JOB_ID</span></code>, remove job</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="package-manager">
+<h3>Package Manager<a class="headerlink" href="#package-manager" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>dnf</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">repolist</span></code>: show enabled repositories list</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">repolist</span> <span class="pre">--all</span></code>: show all repositories list</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">config-manager</span> <span class="pre">--enable</span> <span class="pre">REPO_ID</span></code>: enable repository</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">config-manager</span> <span class="pre">--disable</span> <span class="pre">REPO_ID</span></code>: disable repository</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">config-manager</span> <span class="pre">--add-repo</span> <span class="pre">REPO_URL</span></code>: add a repository</p></li>
+<li><p>remove the file from <code class="docutils literal notranslate"><span class="pre">Repo-filename</span></code> output by <code class="docutils literal notranslate"><span class="pre">repolist</span> <span class="pre">-v</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">search</span> <span class="pre">'PKG'</span></code>: search for a package</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">group</span> <span class="pre">list</span></code>: list groups</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">group</span> <span class="pre">install</span> <span class="pre">'GROUP_NAME'</span></code>: install packages from group</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">install</span> <span class="pre">./app.rpm</span></code>: install from rpm file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">autoremove</span></code>: remove hanging dependencies</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">provides</span> <span class="pre">docker</span></code>: identify which package provides the app</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">repoquery</span> <span class="pre">-l</span> <span class="pre">moby-engine</span></code>: list which files are in the package</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </div></blockquote>
 </section>
@@ -1067,7 +1032,7 @@ cat<span class="w"> </span>/proc/version<span class="w"> </span>&gt;&gt;<span cl
 <h2>Configurations<a class="headerlink" href="#configurations" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#users">Users</a>, <a class="reference internal" href="#groups">Groups</a>, <a class="reference internal" href="#environment-variables">Environment Variables</a>, <a class="reference internal" href="#resource-limits">Resource Limits</a>, <a class="reference internal" href="#privileges">Privileges</a>, <a class="reference internal" href="#pam">PAM</a></p></li>
-<li><p><a class="reference internal" href="#acls">ACLs</a>, <a class="reference internal" href="#attributes">Attributes</a>, <a class="reference internal" href="#disk-quotas">Disk Quotas</a></p></li>
+<li><p><a class="reference internal" href="#acls">ACLs</a>, <a class="reference internal" href="#attributes">Attributes</a>, <a class="reference internal" href="#disk-quotas">Disk Quotas</a>, <a class="reference internal" href="#kernel-runtime-parameters">Kernel Runtime Parameters</a></p></li>
 </ul>
 <section id="users">
 <h3>Users<a class="headerlink" href="#users" title="Link to this heading">#</a></h3>
@@ -1120,13 +1085,14 @@ programs, pop3 daemons must be Shadow-compliant</p></li>
 </dd>
 </dl>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">groupadd</span> <span class="pre">newGroup</span></code>, add new group</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">gpasswd</span> <span class="pre">-a</span> <span class="pre">newUser</span> <span class="pre">newGroup</span></code>, add user to group</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">groups</span> <span class="pre">newUser</span></code>, list groups ‘newUser’ belong to</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">gpasswd</span> <span class="pre">-d</span> <span class="pre">newUser</span> <span class="pre">newGroup</span></code>, remove user from group</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">usermod</span> <span class="pre">-g</span> <span class="pre">newGroup</span> <span class="pre">newUser</span></code>, change user’s primary group</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">groupmod</span> <span class="pre">-n</span> <span class="pre">oldGroup</span> <span class="pre">newGroup</span></code>, change group name</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">groupdel</span> <span class="pre">newGroup</span></code>, delete group (cannot delete if group is user’s primary)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">groups</span></code>: show user’s groups</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">groupadd</span> <span class="pre">newGroup</span></code>: add new group</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gpasswd</span> <span class="pre">-a</span> <span class="pre">newUser</span> <span class="pre">newGroup</span></code>: add user to group</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">groups</span> <span class="pre">newUser</span></code>: list groups ‘newUser’ belong to</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gpasswd</span> <span class="pre">-d</span> <span class="pre">newUser</span> <span class="pre">newGroup</span></code>: remove user from group</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">usermod</span> <span class="pre">-g</span> <span class="pre">newGroup</span> <span class="pre">newUser</span></code>: change user’s primary group</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">groupmod</span> <span class="pre">-n</span> <span class="pre">oldGroup</span> <span class="pre">newGroup</span></code>: change group name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">groupdel</span> <span class="pre">newGroup</span></code>: delete group (cannot delete if group is user’s primary)</p></li>
 </ul>
 </div></blockquote>
 </section>
@@ -1246,6 +1212,17 @@ existing permissions</p></li>
 </dd>
 </dl>
 </li>
+</ul>
+</div></blockquote>
+</section>
+<section id="kernel-runtime-parameters">
+<h3>Kernel Runtime Parameters<a class="headerlink" href="#kernel-runtime-parameters" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sysctl</span> <span class="pre">-a</span></code>: list all kernel runtime parameters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sysctl</span> <span class="pre">-w</span> <span class="pre">runtime.para.name=1</span></code>: set parameter value (non persistent)</p></li>
+<li><p>add files in <code class="docutils literal notranslate"><span class="pre">/etc/sysctl.d/*.conf</span></code>: persistent change</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sysctl</span> <span class="pre">-p</span> <span class="pre">/etc/sysctl.d/custom.conf</span></code>: read value from file</p></li>
 </ul>
 </div></blockquote>
 <p><a class="reference external" href="#linux">back to top</a></p>
@@ -1523,6 +1500,7 @@ be copied over the Internet</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">fsck.ext4</span> <span class="pre">-v</span> <span class="pre">-f</span> <span class="pre">-p</span> <span class="pre">/dev/sda1</span></code>, check ext4 file system</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">findmnt</span></code>, find file systems and mount points</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">findmnt</span> <span class="pre">-t</span> <span class="pre">xfs,ext4</span></code>, show only xfs and ext4</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df</span></code>: check file system usage, add <code class="docutils literal notranslate"><span class="pre">-h</span></code> to show in human-readable form</p></li>
 </ul>
 </dd>
 </dl>
@@ -3355,20 +3333,19 @@ Usama Anjum, Collabora. Available at: <a class="reference external" href="https:
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commands">Commands</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-directory">File &amp; Directory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#links">Links</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-find">Search &amp; Find</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-output">Input/Output</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#processes">Processes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logging">Logging</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#man">Man</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reboot-shutdown">Reboot &amp; Shutdown</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boot-targets">Boot Targets</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bootloader">Bootloader</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#init-systems">Init Systems</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#processes">Processes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logging">Logging</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#schedule-jobs">Schedule Jobs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#package-manager">Package Manager</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-runtime-parameters">Kernel runtime parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-directory">File &amp; Directory</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#links">Links</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-find">Search &amp; Find</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-output">Input/Output</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bash-scripts">Bash Scripts</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selinux">SELinux</a></li>
 </ul>
@@ -3383,6 +3360,7 @@ Usama Anjum, Collabora. Available at: <a class="reference external" href="https:
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acls">ACLs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">Attributes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disk-quotas">Disk Quotas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-runtime-parameters">Kernel Runtime Parameters</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#networking">Networking</a><ul class="nav section-nav flex-column">
