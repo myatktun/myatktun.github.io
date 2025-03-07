@@ -639,7 +639,7 @@ search</p></li>
 <h3>Hash Table<a class="headerlink" href="#hash-table" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>also called hashes, maps, hash maps, dictionaries, associative arrays</p></li>
+<li><p>also called hash, map, hash map, dictionary, associative array</p></li>
 <li><p>built on top of array, unordered data structure</p></li>
 <li><p>contain a set of keys, each with associated value, key-value pairs</p></li>
 <li><p>used to implement dictionary interface</p></li>
@@ -671,6 +671,18 @@ O(n)</p></li>
 <li><p>have larger number of cells to avoid collisions, without consuming lots of memory</p></li>
 <li><p>load factor: ratio of data to cells</p></li>
 <li><p>use ideal load factor of 0.7 (7 elements / 10 cells)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Open Addressing</strong></dt><dd><ul>
+<li><p>one way to handle collisions</p></li>
+<li><p>linear probing: searching sequentially for the next available location, if
+hash(x) % S is full, try (hash(x) + i) % S where i = 1,2,3..</p></li>
+<li><p>quadratic probing: if hash(x) % S is full, try (hash(x) + i^2) % S where i = 1,2,3..</p></li>
+<li><p>double hashing: if hash(x) % S is full, try (hash(x) + i * hash2(x)) % S where
+i = 1,2,3..</p></li>
 </ul>
 </dd>
 </dl>
@@ -843,7 +855,7 @@ is found</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>[<strong>Traversal/Search Methods</strong>](#tree-traversals)</dt><dd><ul>
+<dt><strong>Traversal/Search Methods</strong></dt><dd><ul>
 <li><p>DFS (Depth-first Search): In-Order, Pre-Order, Post-Order</p></li>
 <li><p>BFS (Breadth-first Search): Level-Order</p></li>
 </ul>
@@ -1730,16 +1742,16 @@ then add value for the current state</p></li>
 <blockquote>
 <div><ul class="simple">
 <li><p>finding remainder and using it to calculate further to fit in the given range</p></li>
-<li><p>p = any given prime number for calculation</p></li>
+<li><p>if p is any given prime number for calculation</p></li>
 <li><dl class="simple">
-<dt>Addition</dt><dd><ul>
+<dt><strong>Addition</strong></dt><dd><ul>
 <li><p>for <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">c</span></code>, use <code class="docutils literal notranslate"><span class="pre">((a%p)</span> <span class="pre">+</span> <span class="pre">(b%p))</span> <span class="pre">%</span> <span class="pre">p</span> <span class="pre">=</span> <span class="pre">c</span></code></p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Subtraction</dt><dd><ul>
+<dt><strong>Subtraction</strong></dt><dd><ul>
 <li><p>for <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">c</span></code>, use <code class="docutils literal notranslate"><span class="pre">((a%p)</span> <span class="pre">-</span> <span class="pre">(b%p))</span> <span class="pre">%</span> <span class="pre">p</span> <span class="pre">=</span> <span class="pre">c</span></code></p></li>
 <li><p>if <code class="docutils literal notranslate"><span class="pre">((a%p)</span> <span class="pre">-</span> <span class="pre">(b%p))</span> <span class="pre">&lt;</span> <span class="pre">0</span></code>, use <code class="docutils literal notranslate"><span class="pre">(((a%p)</span> <span class="pre">-</span> <span class="pre">(b%p))</span> <span class="pre">+</span> <span class="pre">p)</span> <span class="pre">%p</span> <span class="pre">=</span> <span class="pre">c</span></code></p></li>
 </ul>
@@ -1747,14 +1759,14 @@ then add value for the current state</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Multiplication</dt><dd><ul>
+<dt><strong>Multiplication</strong></dt><dd><ul>
 <li><p>for <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">*</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">c</span></code>, use <code class="docutils literal notranslate"><span class="pre">((a%p)</span> <span class="pre">*</span> <span class="pre">(b%p))</span> <span class="pre">%</span> <span class="pre">p</span> <span class="pre">=</span> <span class="pre">c</span></code></p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Division</dt><dd><ul>
+<dt><strong>Division</strong></dt><dd><ul>
 <li><p>for <code class="docutils literal notranslate"><span class="pre">a/b</span> <span class="pre">=</span> <span class="pre">c</span></code>, inverse the denominator first, <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">*</span> <span class="pre">inv(b)</span> <span class="pre">=</span> <span class="pre">c</span></code>, then do
 multiplication, <code class="docutils literal notranslate"><span class="pre">((a%p)</span> <span class="pre">*</span> <span class="pre">(inv(b)%p))</span> <span class="pre">%</span> <span class="pre">p</span> <span class="pre">=</span> <span class="pre">c</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">inv(b)</span> <span class="pre">=</span> <span class="pre">power(b,</span> <span class="pre">p-2)</span></code></p></li>
@@ -1769,24 +1781,34 @@ multiplication, <code class="docutils literal notranslate"><span class="pre">((a
 <h3>Prime Number<a class="headerlink" href="#prime-number" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>x = number given to check prime or not</p></li>
 <li><dl class="simple">
-<dt>O(n)</dt><dd><ul>
-<li><p>check if divisible by numbers from 2 to x</p></li>
+<dt><strong>Trial Division</strong></dt><dd><ul>
+<li><p>if x is the number given to check prime or not</p></li>
+<li><p>O(n): check if divisible by numbers from 2 to x</p></li>
+<li><p>O(log n): check if divisible by numbers from 2 to x/2</p></li>
+<li><p>O(sqrt(n)): check if divisible by numbers from 2 to sqrt(x)</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>O(log n)</dt><dd><ul>
-<li><p>check if divisible by numbers from 2 to x/2</p></li>
+<dt><strong>Sieve of Eratosthenes</strong></dt><dd><ul>
+<li><p>finding prime numbers from 2 to a given number n</p></li>
+<li><p>for each number starting from 2, cross out every multiple of the number except
+itself, aka sieving the numbers</p></li>
+<li><p>when checking for multiples of a number n, it is sufficient to start from n^2</p></li>
+<li><p>the main problem of implementing this algorithm is the memory requirements</p></li>
+<li><p>Complexity: O(n log log n), Space: O(n)</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>O(sqrt(n))</dt><dd><ul>
-<li><p>check if divisible by numbers from 2 to sqrt(x)</p></li>
+<dt><strong>Segmented Sieve</strong></dt><dd><ul>
+<li><p>only portions of the range are sieved at a time, by dividing the range into some
+size <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">&gt;=</span> <span class="pre">sqrt(n)</span></code></p></li>
+<li><p>use regular Sieve to find primes for the first segment</p></li>
+<li><p>for following segments, cross out multiples of every prime from the first segment</p></li>
 </ul>
 </dd>
 </dl>
@@ -1798,15 +1820,9 @@ multiplication, <code class="docutils literal notranslate"><span class="pre">((a
 <h3>Factors<a class="headerlink" href="#factors" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>x = number given to find factors</p></li>
-<li><dl class="simple">
-<dt>O(sqrt(n))</dt><dd><ul>
-<li><p>divide by 2 until all factors of 2 are gone</p></li>
-<li><p>then divide by odd numbers starting from 3 to sqrt(x/2)</p></li>
-</ul>
-</dd>
-</dl>
-</li>
+<li><p>if x is the number given to find factors</p></li>
+<li><p>O(sqrt(n)): divide by 2 until all factors of 2 are gone, then divide by odd numbers
+starting from 3 to sqrt(x/2)</p></li>
 </ul>
 </div></blockquote>
 <p><a class="reference external" href="#data-structure--algorithms">back to top</a></p>

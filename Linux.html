@@ -1337,7 +1337,7 @@ be copied over the Internet</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Disk Imaging</strong> &lt;a id=”disk-imaging”&gt;&lt;/a&gt;</dt><dd><ul>
+<dt><strong>Disk Imaging</strong></dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">dd</span> <span class="pre">if=INPUT</span> <span class="pre">of=OUTPUT</span> <span class="pre">bs=BLOCK_SIZE</span> <span class="pre">status=progress</span></code></p></li>
 <li><p>should unmount the disk first to avoid changes and should not use in VMs</p></li>
 <li><p>swap <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">of</span></code> to restore</p></li>
@@ -1346,7 +1346,7 @@ be copied over the Internet</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Swap</strong> &lt;a id=”swap”&gt;&lt;/a&gt;</dt><dd><ul>
+<dt><strong>Swap</strong></dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">swapon</span> <span class="pre">--show</span></code>: check swap usage</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">mkswap</span> <span class="pre">/dev/sdb3</span></code>: prepare the partition</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">swapon</span> <span class="pre">--verbose</span> <span class="pre">/dev/sdb3</span></code>: use partition as swap</p></li>

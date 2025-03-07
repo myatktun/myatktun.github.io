@@ -162,7 +162,7 @@ Circular Array
 
 Hash Table
 ----------
-    * also called hashes, maps, hash maps, dictionaries, associative arrays
+    * also called hash, map, hash map, dictionary, associative array
     * built on top of array, unordered data structure
     * contain a set of keys, each with associated value, key-value pairs
     * used to implement dictionary interface
@@ -188,6 +188,13 @@ Hash Table
         - have larger number of cells to avoid collisions, without consuming lots of memory
         - load factor: ratio of data to cells
         - use ideal load factor of 0.7 (7 elements / 10 cells)
+    * **Open Addressing**
+        - one way to handle collisions
+        - linear probing: searching sequentially for the next available location, if
+          hash(x) % S is full, try (hash(x) + i) % S where i = 1,2,3..
+        - quadratic probing: if hash(x) % S is full, try (hash(x) + i^2) % S where i = 1,2,3..
+        - double hashing: if hash(x) % S is full, try (hash(x) + i * hash2(x)) % S where
+          i = 1,2,3..
     * **Pros**
         - constant time complexity for all operations
         - can be used to make code faster, by trading some memory
@@ -269,7 +276,7 @@ Tree
     * **Complete Tree**
         - a tree completely filled with nodes
         - bottom row can have empty positions, as long as no nodes to the right of them
-    * [**Traversal/Search Methods**](#tree-traversals)
+    * **Traversal/Search Methods**
         - DFS (Depth-first Search): In-Order, Pre-Order, Post-Order
         - BFS (Breadth-first Search): Level-Order
     * **Pros**
@@ -755,34 +762,43 @@ Maths
 Modular Arithmetic
 ------------------
     * finding remainder and using it to calculate further to fit in the given range
-    * p = any given prime number for calculation
-    * Addition
+    * if p is any given prime number for calculation
+    * **Addition**
         - for ``a + b = c``, use ``((a%p) + (b%p)) % p = c``
-    * Subtraction
+    * **Subtraction**
         - for ``a - b = c``, use ``((a%p) - (b%p)) % p = c``
         - if ``((a%p) - (b%p)) < 0``, use ``(((a%p) - (b%p)) + p) %p = c``
-    * Multiplication
+    * **Multiplication**
         - for ``a * b = c``, use ``((a%p) * (b%p)) % p = c``
-    * Division
+    * **Division**
         - for ``a/b = c``, inverse the denominator first, ``a * inv(b) = c``, then do
           multiplication, ``((a%p) * (inv(b)%p)) % p = c``
         - ``inv(b) = power(b, p-2)``
 
 Prime Number
 ------------
-    * x = number given to check prime or not
-    * O(n)
-        - check if divisible by numbers from 2 to x
-    * O(log n)
-        - check if divisible by numbers from 2 to x/2
-    * O(sqrt(n))
-        - check if divisible by numbers from 2 to sqrt(x)
+    * **Trial Division**
+        - if x is the number given to check prime or not
+        - O(n): check if divisible by numbers from 2 to x
+        - O(log n): check if divisible by numbers from 2 to x/2
+        - O(sqrt(n)): check if divisible by numbers from 2 to sqrt(x)
+    * **Sieve of Eratosthenes**
+        - finding prime numbers from 2 to a given number n
+        - for each number starting from 2, cross out every multiple of the number except
+          itself, aka sieving the numbers
+        - when checking for multiples of a number n, it is sufficient to start from n^2
+        - the main problem of implementing this algorithm is the memory requirements
+        - Complexity: O(n log log n), Space: O(n)
+    * **Segmented Sieve**
+        - only portions of the range are sieved at a time, by dividing the range into some
+          size ``d >= sqrt(n)``
+        - use regular Sieve to find primes for the first segment
+        - for following segments, cross out multiples of every prime from the first segment
 
 Factors
 -------
-    * x = number given to find factors
-    * O(sqrt(n))
-        - divide by 2 until all factors of 2 are gone
-        - then divide by odd numbers starting from 3 to sqrt(x/2)
+    * if x is the number given to find factors
+    * O(sqrt(n)): divide by 2 until all factors of 2 are gone, then divide by odd numbers
+      starting from 3 to sqrt(x/2)
 
 `back to top <#data-structure--algorithms>`_

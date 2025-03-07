@@ -600,11 +600,11 @@ Devices & Disks
         - ``lsblk``: list block devices
         - ``sudo fdisk --list /dev/sda``: list partitions of a device
         - ``sudo cfdisk /dev/sda``: edit disk partition table interactively
-    * **Disk Imaging** <a id="disk-imaging"></a>
+    * **Disk Imaging**
         - ``sudo dd if=INPUT of=OUTPUT bs=BLOCK_SIZE status=progress``
         - should unmount the disk first to avoid changes and should not use in VMs
         - swap ``if`` and ``of`` to restore
-    * **Swap** <a id="swap"></a>
+    * **Swap**
         - ``swapon --show``: check swap usage
         - ``sudo mkswap /dev/sdb3``: prepare the partition
         - ``sudo swapon --verbose /dev/sdb3``: use partition as swap
