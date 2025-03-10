@@ -8,7 +8,7 @@ Network Programming
 4. `Binary Serialisation`_
 5. `Data Encapsulation`_
 6. `Example Programs`_
-7. `Additional Resources`_
+7. `References & External Resources`_
 
 `back to top <#network-programming>`_
 
@@ -1683,14 +1683,31 @@ Encode into IEEE-754
 
 `back to top <#network-programming>`_
 
-Additional Resources
-====================
+References & External Resources
+===============================
 
-* `Beej's Guide`_, `OSI Model`_
-* `TCP (RFC-793)`_, `IP (RFC-791)`_, `UDP (RFC-768)`_
-* `Private Address Allocation (RFC-1918)`_, `Unique Local Ipv6 (RFC-4193)`_
-* `Special-Use Domain Names (RFC-6761)`_, ` Reserved Top Level DNS Names (RFC-2606)`_
-* `Identification Protocol (RFC-1413)`_, `HTTP (RFC-2616)`_
-* `Floating-Point Arithmetic (IEEE-754)`_, `External Data Representation (RFC-4506)`_
+* Hall, B. (2025). Beej's Guide [online]. Available at: https://beej.us/guide/
+* Information Sciences Institute University of Southern California. (1981) RFC 793:
+  TRANSMISSION CONTROL PROTOCOL [online]. Available at: https://www.ietf.org/rfc/rfc793.html
+* Information Sciences Institute University of Southern California. (1981) RFC 791: INTERNET
+  PROTOCOL [online]. Available at: https://www.ietf.org/rfc/rfc791.html
+* Postel, J. (1980). RFC 7682 User Datagram Protocol [online]. Available at:
+  https://www.ietf.org/rfc/rfc768.html
+* Rekhter, Y., Moskowitz, B., Karrenberg, D., de Groot, G. J., Lear, E. (1996) RFC 1918:
+  Address Allocation for Private Internets [online]. Available at:
+  https://www.ietf.org/rfc/rfc1918.html
+* Hinden, R., Haberman, B. (2005) RFC 4193: Unique Local IPv6 Unicast Addresses [online].
+  Available at: https://www.ietf.org/rfc/rfc4193.html
+* Cheshire, S., Krochmal, M. (2013) RFC 6761: Special-Use Domain Names [online]. Available at:
+  https://www.ietf.org/rfc/rfc6761.html
+* Eastlake, D. (1999). RFC 2606: Reserved Top Level DNS Names [online]. Available at:
+  https://www.ietf.org/rfc/rfc2606.html
+* Johns, M. St. (1993). RFC: 1413 Identification Protocol [online]. Available at:
+  https://www.ietf.org/rfc/rfc1413.html
+* Fielding, R., Gettys, J., Mogul, J., Frystyk, H., Masinter, L., Leach, P., Berners-Lee, T.
+  (1999). RFC 2616: Hypertext Transfer Protocol -- HTTP/1.1 [online]. Available at:
+  https://www.ietf.org/rfc/rfc2616.html
+* M. Eisler, Ed. (2006). RFC 4506: XDR: External Data Representation Standard [online].
+  Available at: https://www.ietf.org/rfc/rfc4506.html
 
 `back to top <#network-programming>`_
