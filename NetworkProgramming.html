@@ -1037,17 +1037,13 @@ one fewer as the count to <cite>poll()</cite>, or set any <cite>fd</cite> field 
 <h3>select()<a class="headerlink" href="#select" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>allows to monitor sockets at once and handle the ready ones for read, write and sockets</p></li>
-</ul>
-<p>that raise exceptions
-* slow for large number of connections, use <code class="docutils literal notranslate"><span class="pre">libevent</span></code> for better performance
-* monitors sets of file descriptors in <code class="docutils literal notranslate"><span class="pre">readfds</span></code>, <code class="docutils literal notranslate"><span class="pre">writefds</span></code>, and <code class="docutils literal notranslate"><span class="pre">exceptfds</span></code>
-* returns the number of file descriptors in three sets, which are also modified
-* returns -1 on error, and sets <code class="docutils literal notranslate"><span class="pre">errno</span></code> to the error’s value, and the file descriptor sets</p>
-<blockquote>
-<div><p>are unmodified</p>
-</div></blockquote>
-<ul class="simple">
+<li><p>allows to monitor sockets at once and handle the ready ones for read, write and sockets
+that raise exceptions</p></li>
+<li><p>slow for large number of connections, use <code class="docutils literal notranslate"><span class="pre">libevent</span></code> for better performance</p></li>
+<li><p>monitors sets of file descriptors in <code class="docutils literal notranslate"><span class="pre">readfds</span></code>, <code class="docutils literal notranslate"><span class="pre">writefds</span></code>, and <code class="docutils literal notranslate"><span class="pre">exceptfds</span></code></p></li>
+<li><p>returns the number of file descriptors in three sets, which are also modified</p></li>
+<li><p>returns -1 on error, and sets <code class="docutils literal notranslate"><span class="pre">errno</span></code> to the error’s value, and the file descriptor sets
+are unmodified</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">nfds</span></code>: should be set to highest-numbered file descriptor plus 1</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">timeout</span></code>: interval to block and wait for file descriptor to be ready, set <code class="docutils literal notranslate"><span class="pre">NULL</span></code> to wait
 indefinitely</p></li>
@@ -1176,7 +1172,7 @@ and <cite>ntohs()</cite></p></li>
 <section id="example-packet-structure">
 <h3>Example Packet Structure<a class="headerlink" href="#example-packet-structure" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul>
+<div><ul class="simple">
 <li><p>packet order of <code class="docutils literal notranslate"><span class="pre">len</span> <span class="pre">name</span> <span class="pre">chatdata</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">len</span></code>: total length of the packet</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: user name, NULL-padded if necessary</p></li>
@@ -1185,7 +1181,7 @@ and <cite>ntohs()</cite></p></li>
 <li><p>the data muse be completely sent, even if it takes multiple calls to <code class="docutils literal notranslate"><span class="pre">send()</span></code></p></li>
 <li><p>always assume only partial packet is received, and call <code class="docutils literal notranslate"><span class="pre">recv()</span></code> multiple times</p></li>
 <li><dl class="simple">
-<dt><strong>Receive Method 1</strong></dt><dd><ul class="simple">
+<dt><strong>Receive Method 1</strong></dt><dd><ul>
 <li><p>since every packet starts with a length, call <code class="docutils literal notranslate"><span class="pre">recv()</span></code> to get the packet length</p></li>
 <li><p>call it again specifying exactly the remaining length of the packet</p></li>
 <li><p>only need one buffer per packet, but need to call <code class="docutils literal notranslate"><span class="pre">recv()</span></code> at least twice to get all
@@ -1194,17 +1190,13 @@ data</p></li>
 </dd>
 </dl>
 </li>
-<li><dl>
-<dt><strong>Receive Method 2</strong></dt><dd><ul class="simple">
-<li><p>call <code class="docutils literal notranslate"><span class="pre">recv()</span></code> with maximum number of bytes in a packet, might get some of the next</p></li>
-</ul>
-<p>packet
-- use a buffer big enough for two packets, and reconstruct the packets
-- in every <code class="docutils literal notranslate"><span class="pre">recv()</span></code>, append the data into the buffer, and check if the packet is</p>
-<blockquote>
-<div><p>complete by comparing bytes in the buffer with the length specified in the header</p>
-</div></blockquote>
-<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Receive Method 2</strong></dt><dd><ul>
+<li><p>call <code class="docutils literal notranslate"><span class="pre">recv()</span></code> with maximum number of bytes in a packet, might get some of the next
+packet</p></li>
+<li><p>use a buffer big enough for two packets, and reconstruct the packets</p></li>
+<li><p>in every <code class="docutils literal notranslate"><span class="pre">recv()</span></code>, append the data into the buffer, and check if the packet is
+complete by comparing bytes in the buffer with the length specified in the header</p></li>
 <li><p>remove the packet after processing, and move the second packet, maybe partial of it,
 to the front of the buffer</p></li>
 <li><p>can use a circular buffer instead of removing and moving packets</p></li>

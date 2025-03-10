@@ -549,7 +549,7 @@ poll()
 select()
 --------
     * allows to monitor sockets at once and handle the ready ones for read, write and sockets
-    that raise exceptions
+      that raise exceptions
     * slow for large number of connections, use ``libevent`` for better performance
     * monitors sets of file descriptors in ``readfds``, ``writefds``, and ``exceptfds``
     * returns the number of file descriptors in three sets, which are also modified
@@ -684,7 +684,7 @@ Example Packet Structure
           data
     * **Receive Method 2**
         - call ``recv()`` with maximum number of bytes in a packet, might get some of the next
-        packet
+          packet
         - use a buffer big enough for two packets, and reconstruct the packets
         - in every ``recv()``, append the data into the buffer, and check if the packet is
           complete by comparing bytes in the buffer with the length specified in the header
