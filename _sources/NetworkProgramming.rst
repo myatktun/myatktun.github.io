@@ -36,7 +36,7 @@ Ports
     * helps differentiate between services on a computer with a single IP address
     * different services on the Internet have different well-known port numbers
     * on Unix can check the ports in ``/etc/services`` file
-    * e.g. HTTP:80, SMTP:25, HTTPS:443, SSH:22
+    * e.g. HTTP: 80, HTTPS: 443, SMTP: 25, SSH: 22
     * ports under 1024 are special, and require OS privileges
 
 Byte Order
