@@ -20,15 +20,15 @@ Basics
 Packets
 -------
     * a packet is encapsulated in a header by the protocol, then encapsulated again by the next
-    protocol, then again by the next protocol, and again by the final protocol on the hardware
-    layer
+      protocol, then again by the next protocol, and again by the final protocol on the
+      hardware layer
     * e.g. [Ethernet(IP[UDP(TFTP[Data])])]
-    * at the receiver end, the hardware strips the "Ethernet" header, the kernel strips the "IP"
-    and "UDP" headers, and the TFTP program strips the "TFTP" header to get the data
-    * OSI model is used as a general, but "Network Access->Internet->Transport->Application" might
-    be more consistent with Unix
-    * the kernel builds the Transport Layer and Internet Layer, and the hardware does the Network
-    Access Layer
+    * at the receiver end, the hardware strips the "Ethernet" header, the kernel strips the
+      "IP" and "UDP" headers, and the TFTP program strips the "TFTP" header to get the data
+    * OSI model is used as a general, but "Network Access->Internet->Transport->Application"
+      might be more consistent with Unix
+    * the kernel builds the Transport Layer and Internet Layer, and the hardware does the
+      Network Access Layer
 
 Ports
 -----
@@ -48,10 +48,10 @@ Byte Order
         - Little-Endian: storing bytes in reverse order, e.g. b34f is stored as 4fb3
         - used in Intel x86, some architectures use Big-Endian
     * always assume Host Byte Order is not right, and use a function to set it to Network Byte
-    Order
+      Order
     * e.g. ``htons()`` converts unsigned short integer from Host Byte Order to Network Byte Order
     * convert the numbers to Network Byte Order before going out the wire, and to Host Byte
-    Order as they come in
+      Order as they come in
 
 `back to top <#network-programming>`_
 
@@ -63,9 +63,9 @@ Sockets
 * a way to communicate other programs using standard Unix file descriptors
 * Unix programs do I/O by reading or writing to a file descriptor
 * file descriptor: an integer associated with an open file, which can be a network connection,
-FIFO, pipe , terminal or anything
+  FIFO, pipe , terminal or anything
 * there are many kinds of sockets such as DARPA Internet address (Internet Sockets), path names
-on a local node (Unix Sockets), and CCITT X.25 addresses (X.25 Sockets)
+  on a local node (Unix Sockets), and CCITT X.25 addresses (X.25 Sockets)
 
 Internet Sockets
 ----------------
@@ -81,7 +81,7 @@ Internet Sockets
         - do not need to maintain an open connection
         - e.g. used by tftp, dhcpcd, multiplayer games, streaming audio, video conferencing
         - tftp and similar programs have own protocol on top of UDP that needs to send back
-        ACK, or else the sender will re-transmit the packet until ACK
+          ACK, or else the sender will re-transmit the packet until ACK
 
 Socket Data Types
 -----------------
@@ -169,7 +169,7 @@ Manipulating IP Addresses
         - presentation to network
         - converts IP address in numbers-and-dots notation to ``in_addr`` or ``in6_addr``
         - return value: 1 on success, 0 if not valid network address , and -1 if not valid
-        address family
+          address family
 
         .. code-block:: c
 
@@ -194,7 +194,7 @@ Manipulating IP Addresses
 
     * **Private Networks**
         - firewall translates internal IP addresses to external addresses using NAT (Network
-        Address Translation)
+          Address Translation)
         - e.g. "10.x.x.x", "192.168.x.x" (0 <= x <= 255), "172.y.x.x" (16 <= y <= 31)
         - private IPv6 start with "fdXX:", but IPv6 does not really need NAT
 
@@ -221,7 +221,7 @@ Broadcasting
     * sending data to multiple hosts at the same time
     * only available with UDP and standard IPv4
     * need to set the socket to ``SO_BROADCAST``, and it is the only difference between UDP
-    application that can broadcast and one that can't
+      application that can broadcast and one that can't
     * every receiver must go through encapsulated data to find what port the data is for
     * **To Subnet's Broadcast Address**
         - all one-bits set for the host portion, e.g 192.168.1.255
@@ -231,7 +231,7 @@ Broadcasting
     * **To Global Broadcast Address**
         - ``INADDR_BROADCAST``: 255.255.255.255
         - many machines will bitwise AND it with the network number to convert it to a network
-        broadcast address
+          broadcast address
         - routers do not forward this type of broadcast packet off the local network
 
     .. code-block:: c
@@ -355,11 +355,11 @@ accept()
     * used to get a pending connection from an incoming queue
     * return a new socket file descriptor to be used for the single accepted connection
     * the original descriptor listens for more new connections, and new one is used to ``send()``
-    and `recv()`
+      and `recv()`
     * use ``close()`` to prevent more incoming connections
     * returns -1 on error, and sets ``errno`` to the error's value
     * ``addr``: pointer to local ``sockaddr_storage``, will save information about the incoming
-    connection
+      connection
     * ``addr_len``: local int set to ``sizeof(struct sockaddr_storage)``
 
     .. code-block:: c
@@ -430,7 +430,7 @@ sendto()
 --------
     * used to communicate over unconnected datagram sockets
     * destination address structure is obtained from ``getaddrinfo()``, or from ``recvfrom()`` or
-    hardcoded
+      hardcoded
     * returns number of bytes sent
     * returns -1 on error, and sets ``errno`` to the error's value
     * if return value does not match ``len``, must send the rest of the data
@@ -477,7 +477,7 @@ shutdown()
     * does not actually close the file descriptor, but changes its usability
     * allows to cut off communication in a certain direction, or both ways
     * ``how``: 0 = disallow further receives, 1 = disallow further sends, 2 = disallow further
-    sends and receives like `close()`
+      sends and receives like `close()`
     * returns 0 on success, -1 on error, and sets ``errno`` to the error's value
 
     .. code-block:: c
@@ -491,7 +491,7 @@ getpeername()
     * get the name of the connected peer socket
     * returns 0 on success, -1 on error, and sets ``errno`` to the error's value
     * after getting the address, can use ``inet_ntop()``, ``getnameinfo()``, or ``gethostbyaddr()``
-    to print or get more information
+      to print or get more information
     * ``addr``: holds the information about the other side of the connection
 
     .. code-block:: c
@@ -522,10 +522,10 @@ poll()
     * OS will block ``poll()`` until one of the events or a user-specified timeout occurs
     * return number of elements in the array for which events have occurred
     * need to check which elements have events occurred, count the numbers when checking and
-    stop when count is equal to the return value
+      stop when count is equal to the return value
     * make enough space for the array or ``realloc()`` as needed
     * to delete from the array, copy the last element over-top the one to delete, and pass in
-    one fewer as the count to `poll()`, or set any `fd` field to a negative number
+      one fewer as the count to `poll()`, or set any `fd` field to a negative number
     * ``nfds``: count of elements in the array
     * ``timeout``: in milliseconds, specify negative value to wait indefinitely
     * ``POLLIN``: alert when data is ready to ``recv()`` on the socket
@@ -554,21 +554,21 @@ select()
     * monitors sets of file descriptors in ``readfds``, ``writefds``, and ``exceptfds``
     * returns the number of file descriptors in three sets, which are also modified
     * returns -1 on error, and sets ``errno`` to the error's value, and the file descriptor sets
-    are unmodified
+      are unmodified
     * ``nfds``: should be set to highest-numbered file descriptor plus 1
     * ``timeout``: interval to block and wait for file descriptor to be ready, set ``NULL`` to wait
-    indefinitely
+      indefinitely
     * when the function returns, ``timeout`` might be updated to show the time remaining, but
-    depends on Unix flavour, do not rely on it to for portability
+      depends on Unix flavour, do not rely on it to for portability
     * ``FD_SET(int fd, fd_set* set);``: add ``fd`` to the set
     * ``FD_CLR(int fd, fd_set* set);``: remove ``fd`` from the set
     * ``FD_ISSET(int fd, fd_set* set);``: return ``true`` if ``fd`` is in the set
     * ``FD_ZERO(fd_set* set);``: clear the set
     * **Linux Bugs**
         - sometimes ``select()`` can return ready to read, and then not actually be ready, and it
-        can block ``read()``
+          can block ``read()``
         - to solve this, set ``O_NONBLOCK`` flag on the receiving socket to error with
-        ``EWOULDBLOCK``
+          ``EWOULDBLOCK``
 
     .. code-block:: c
 
@@ -590,7 +590,7 @@ Binary Serialisation
 
 * `Encode as Text`_, `Pass Raw Data`_, `Encode as Portable Binary Form`_
 * used where a specific byte order is required for communication between systems that may have
-different native byte orders
+  different native byte orders
 * use serialisation libraries instead of implementing own
 * attackers can send badly-constructed packets which will be executed during unpacking
 
@@ -598,14 +598,14 @@ Encode as Text
 --------------
     * can easily print and read binary data encoded as text
     * human-readable protocol, such as Internet Relay Chat (IRC), is good for
-    non-bandwidth-intensive situation
+      non-bandwidth-intensive situation
     * slow to convert, and take more space
 
 Pass Raw Data
 -------------
     * take a pointer to the data to send, and call ``send()``
     * not all architectures represent numbers with the same bit representation or the same byte
-    ordering
+      ordering
 
     .. code-block:: c
 
@@ -622,7 +622,7 @@ Pass Raw Data
 Encode as Portable Binary Form
 ------------------------------
     * pack the data into known binary format and the receiver can unpack it, such as ``htons()``
-    and `ntohs()`
+      and `ntohs()`
 
     .. code-block:: c
 
@@ -681,15 +681,15 @@ Example Packet Structure
         - since every packet starts with a length, call ``recv()`` to get the packet length
         - call it again specifying exactly the remaining length of the packet
         - only need one buffer per packet, but need to call ``recv()`` at least twice to get all
-        data
+          data
     * **Receive Method 2**
         - call ``recv()`` with maximum number of bytes in a packet, might get some of the next
         packet
         - use a buffer big enough for two packets, and reconstruct the packets
         - in every ``recv()``, append the data into the buffer, and check if the packet is
-        complete by comparing bytes in the buffer with the length specified in the header
+          complete by comparing bytes in the buffer with the length specified in the header
         - remove the packet after processing, and move the second packet, maybe partial of it,
-        to the front of the buffer
+          to the front of the buffer
         - can use a circular buffer instead of removing and moving packets
 
 `back to top <#network-programming>`_
@@ -766,7 +766,7 @@ Show IP Address
 Stream Client-Server
 --------------------
     * client-server can use ``SOCK_STREAM``, ``SOCK_DGRAM`` or anything else, as long as using the
-    same thing
+      same thing
     * **Server**
 
         .. code-block:: c

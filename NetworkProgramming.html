@@ -413,17 +413,17 @@
 <h3>Packets<a class="headerlink" href="#packets" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>a packet is encapsulated in a header by the protocol, then encapsulated again by the next</p></li>
+<li><p>a packet is encapsulated in a header by the protocol, then encapsulated again by the next
+protocol, then again by the next protocol, and again by the final protocol on the
+hardware layer</p></li>
+<li><p>e.g. [Ethernet(IP[UDP(TFTP[Data])])]</p></li>
+<li><p>at the receiver end, the hardware strips the “Ethernet” header, the kernel strips the
+“IP” and “UDP” headers, and the TFTP program strips the “TFTP” header to get the data</p></li>
+<li><p>OSI model is used as a general, but “Network Access-&gt;Internet-&gt;Transport-&gt;Application”
+might be more consistent with Unix</p></li>
+<li><p>the kernel builds the Transport Layer and Internet Layer, and the hardware does the
+Network Access Layer</p></li>
 </ul>
-<p>protocol, then again by the next protocol, and again by the final protocol on the hardware
-layer
-* e.g. [Ethernet(IP[UDP(TFTP[Data])])]
-* at the receiver end, the hardware strips the “Ethernet” header, the kernel strips the “IP”
-and “UDP” headers, and the TFTP program strips the “TFTP” header to get the data
-* OSI model is used as a general, but “Network Access-&gt;Internet-&gt;Transport-&gt;Application” might
-be more consistent with Unix
-* the kernel builds the Transport Layer and Internet Layer, and the hardware does the Network
-Access Layer</p>
 </div></blockquote>
 </section>
 <section id="ports">
@@ -459,12 +459,12 @@ Access Layer</p>
 </dd>
 </dl>
 </li>
-<li><p>always assume Host Byte Order is not right, and use a function to set it to Network Byte</p></li>
+<li><p>always assume Host Byte Order is not right, and use a function to set it to Network Byte
+Order</p></li>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">htons()</span></code> converts unsigned short integer from Host Byte Order to Network Byte Order</p></li>
+<li><p>convert the numbers to Network Byte Order before going out the wire, and to Host Byte
+Order as they come in</p></li>
 </ul>
-<p>Order
-* e.g. <code class="docutils literal notranslate"><span class="pre">htons()</span></code> converts unsigned short integer from Host Byte Order to Network Byte Order
-* convert the numbers to Network Byte Order before going out the wire, and to Host Byte
-Order as they come in</p>
 </div></blockquote>
 <p><a class="reference external" href="#network-programming">back to top</a></p>
 </section>
@@ -476,17 +476,17 @@ Order as they come in</p>
 <li><p><a class="reference internal" href="#non-blocking-socket">Non-blocking Socket</a>, <a class="reference internal" href="#broadcasting">Broadcasting</a></p></li>
 <li><p>a way to communicate other programs using standard Unix file descriptors</p></li>
 <li><p>Unix programs do I/O by reading or writing to a file descriptor</p></li>
-<li><p>file descriptor: an integer associated with an open file, which can be a network connection,</p></li>
+<li><p>file descriptor: an integer associated with an open file, which can be a network connection,
+FIFO, pipe , terminal or anything</p></li>
+<li><p>there are many kinds of sockets such as DARPA Internet address (Internet Sockets), path names
+on a local node (Unix Sockets), and CCITT X.25 addresses (X.25 Sockets)</p></li>
 </ul>
-<p>FIFO, pipe , terminal or anything
-* there are many kinds of sockets such as DARPA Internet address (Internet Sockets), path names
-on a local node (Unix Sockets), and CCITT X.25 addresses (X.25 Sockets)</p>
 <section id="internet-sockets">
 <h3>Internet Sockets<a class="headerlink" href="#internet-sockets" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul>
+<div><ul class="simple">
 <li><dl class="simple">
-<dt><strong>Stream Sockets</strong></dt><dd><ul class="simple">
+<dt><strong>Stream Sockets</strong></dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">SOCK_STREAM</span></code>, reliable two-way connected communication streams</p></li>
 <li><p>data arrives in order and will be error-free</p></li>
 <li><p>e.g. used by telnet, ssh, HTTP</p></li>
@@ -496,15 +496,15 @@ on a local node (Unix Sockets), and CCITT X.25 addresses (X.25 Sockets)</p>
 </dd>
 </dl>
 </li>
-<li><dl>
-<dt><strong>Datagram Sockets</strong></dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Datagram Sockets</strong></dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">SOCK_DGRAM</span></code>, sometimes called connectionless sockets</p></li>
 <li><p>data may arrive out of order, built on top of IP and UDP</p></li>
 <li><p>do not need to maintain an open connection</p></li>
 <li><p>e.g. used by tftp, dhcpcd, multiplayer games, streaming audio, video conferencing</p></li>
-<li><p>tftp and similar programs have own protocol on top of UDP that needs to send back</p></li>
+<li><p>tftp and similar programs have own protocol on top of UDP that needs to send back
+ACK, or else the sender will re-transmit the packet until ACK</p></li>
 </ul>
-<p>ACK, or else the sender will re-transmit the packet until ACK</p>
 </dd>
 </dl>
 </li>
@@ -611,9 +611,9 @@ on a local node (Unix Sockets), and CCITT X.25 addresses (X.25 Sockets)</p>
 <dt><strong>inet_pton()</strong></dt><dd><ul class="simple">
 <li><p>presentation to network</p></li>
 <li><p>converts IP address in numbers-and-dots notation to <code class="docutils literal notranslate"><span class="pre">in_addr</span></code> or <code class="docutils literal notranslate"><span class="pre">in6_addr</span></code></p></li>
-<li><p>return value: 1 on success, 0 if not valid network address , and -1 if not valid</p></li>
+<li><p>return value: 1 on success, 0 if not valid network address , and -1 if not valid
+address family</p></li>
 </ul>
-<p>address family</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr_in</span><span class="w">  </span><span class="n">sa</span><span class="p">;</span><span class="w">  </span><span class="c1">// IPv4</span>
 <span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr_in6</span><span class="w"> </span><span class="n">sa6</span><span class="p">;</span><span class="w"> </span><span class="c1">// IPv6</span>
 
@@ -638,13 +638,13 @@ on a local node (Unix Sockets), and CCITT X.25 addresses (X.25 Sockets)</p>
 </dd>
 </dl>
 </li>
-<li><dl>
+<li><dl class="simple">
 <dt><strong>Private Networks</strong></dt><dd><ul class="simple">
-<li><p>firewall translates internal IP addresses to external addresses using NAT (Network</p></li>
+<li><p>firewall translates internal IP addresses to external addresses using NAT (Network
+Address Translation)</p></li>
+<li><p>e.g. “10.x.x.x”, “192.168.x.x” (0 &lt;= x &lt;= 255), “172.y.x.x” (16 &lt;= y &lt;= 31)</p></li>
+<li><p>private IPv6 start with “fdXX:”, but IPv6 does not really need NAT</p></li>
 </ul>
-<p>Address Translation)
-- e.g. “10.x.x.x”, “192.168.x.x” (0 &lt;= x &lt;= 255), “172.y.x.x” (16 &lt;= y &lt;= 31)
-- private IPv6 start with “fdXX:”, but IPv6 does not really need NAT</p>
 </dd>
 </dl>
 </li>
@@ -676,27 +676,26 @@ on a local node (Unix Sockets), and CCITT X.25 addresses (X.25 Sockets)</p>
 <div><ul class="simple">
 <li><p>sending data to multiple hosts at the same time</p></li>
 <li><p>only available with UDP and standard IPv4</p></li>
-<li><p>need to set the socket to <code class="docutils literal notranslate"><span class="pre">SO_BROADCAST</span></code>, and it is the only difference between UDP</p></li>
-</ul>
-<p>application that can broadcast and one that can’t
-* every receiver must go through encapsulated data to find what port the data is for
-* <strong>To Subnet’s Broadcast Address</strong></p>
-<blockquote>
-<div><ul class="simple">
+<li><p>need to set the socket to <code class="docutils literal notranslate"><span class="pre">SO_BROADCAST</span></code>, and it is the only difference between UDP
+application that can broadcast and one that can’t</p></li>
+<li><p>every receiver must go through encapsulated data to find what port the data is for</p></li>
+<li><dl class="simple">
+<dt><strong>To Subnet’s Broadcast Address</strong></dt><dd><ul>
 <li><p>all one-bits set for the host portion, e.g 192.168.1.255</p></li>
 <li><p>bitwise logic: <code class="docutils literal notranslate"><span class="pre">network_number</span> <span class="pre">OR</span> <span class="pre">(NOT</span> <span class="pre">net_mask)</span></code></p></li>
 <li><p>can send to remote networks and local network</p></li>
 <li><p>but the packet can be dropped by the destination’s router to prevent flooding</p></li>
 </ul>
-</div></blockquote>
-<ul>
-<li><dl>
-<dt><strong>To Global Broadcast Address</strong></dt><dd><ul class="simple">
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>To Global Broadcast Address</strong></dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">INADDR_BROADCAST</span></code>: 255.255.255.255</p></li>
-<li><p>many machines will bitwise AND it with the network number to convert it to a network</p></li>
+<li><p>many machines will bitwise AND it with the network number to convert it to a network
+broadcast address</p></li>
+<li><p>routers do not forward this type of broadcast packet off the local network</p></li>
 </ul>
-<p>broadcast address
-- routers do not forward this type of broadcast packet off the local network</p>
 </dd>
 </dl>
 </li>
@@ -831,14 +830,14 @@ on a local node (Unix Sockets), and CCITT X.25 addresses (X.25 Sockets)</p>
 <div><ul class="simple">
 <li><p>used to get a pending connection from an incoming queue</p></li>
 <li><p>return a new socket file descriptor to be used for the single accepted connection</p></li>
-<li><p>the original descriptor listens for more new connections, and new one is used to <code class="docutils literal notranslate"><span class="pre">send()</span></code></p></li>
+<li><p>the original descriptor listens for more new connections, and new one is used to <code class="docutils literal notranslate"><span class="pre">send()</span></code>
+and <cite>recv()</cite></p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">close()</span></code> to prevent more incoming connections</p></li>
+<li><p>returns -1 on error, and sets <code class="docutils literal notranslate"><span class="pre">errno</span></code> to the error’s value</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addr</span></code>: pointer to local <code class="docutils literal notranslate"><span class="pre">sockaddr_storage</span></code>, will save information about the incoming
+connection</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addr_len</span></code>: local int set to <code class="docutils literal notranslate"><span class="pre">sizeof(struct</span> <span class="pre">sockaddr_storage)</span></code></p></li>
 </ul>
-<p>and <cite>recv()</cite>
-* use <code class="docutils literal notranslate"><span class="pre">close()</span></code> to prevent more incoming connections
-* returns -1 on error, and sets <code class="docutils literal notranslate"><span class="pre">errno</span></code> to the error’s value
-* <code class="docutils literal notranslate"><span class="pre">addr</span></code>: pointer to local <code class="docutils literal notranslate"><span class="pre">sockaddr_storage</span></code>, will save information about the incoming
-connection
-* <code class="docutils literal notranslate"><span class="pre">addr_len</span></code>: local int set to <code class="docutils literal notranslate"><span class="pre">sizeof(struct</span> <span class="pre">sockaddr_storage)</span></code></p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">accept</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sockfd</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="o">*</span><span class="w"> </span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="kt">socklen_t</span><span class="o">*</span><span class="w"> </span><span class="kr">restrict</span><span class="w"> </span><span class="n">addr_len</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -912,13 +911,13 @@ connection
 <blockquote>
 <div><ul class="simple">
 <li><p>used to communicate over unconnected datagram sockets</p></li>
-<li><p>destination address structure is obtained from <code class="docutils literal notranslate"><span class="pre">getaddrinfo()</span></code>, or from <code class="docutils literal notranslate"><span class="pre">recvfrom()</span></code> or</p></li>
+<li><p>destination address structure is obtained from <code class="docutils literal notranslate"><span class="pre">getaddrinfo()</span></code>, or from <code class="docutils literal notranslate"><span class="pre">recvfrom()</span></code> or
+hardcoded</p></li>
+<li><p>returns number of bytes sent</p></li>
+<li><p>returns -1 on error, and sets <code class="docutils literal notranslate"><span class="pre">errno</span></code> to the error’s value</p></li>
+<li><p>if return value does not match <code class="docutils literal notranslate"><span class="pre">len</span></code>, must send the rest of the data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addr</span></code>: pointer to <code class="docutils literal notranslate"><span class="pre">sockaddr</span></code>, which will be recasted</p></li>
 </ul>
-<p>hardcoded
-* returns number of bytes sent
-* returns -1 on error, and sets <code class="docutils literal notranslate"><span class="pre">errno</span></code> to the error’s value
-* if return value does not match <code class="docutils literal notranslate"><span class="pre">len</span></code>, must send the rest of the data
-* <code class="docutils literal notranslate"><span class="pre">addr</span></code>: pointer to <code class="docutils literal notranslate"><span class="pre">sockaddr</span></code>, which will be recasted</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">sendto</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sockfd</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">flags</span><span class="p">,</span>
 <span class="w">           </span><span class="k">const</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="o">*</span><span class="w"> </span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="kt">socklen_t</span><span class="w"> </span><span class="n">addr_len</span><span class="p">);</span>
 </pre></div>
@@ -962,10 +961,10 @@ connection
 <li><p>have more control over how the socket closes</p></li>
 <li><p>does not actually close the file descriptor, but changes its usability</p></li>
 <li><p>allows to cut off communication in a certain direction, or both ways</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">how</span></code>: 0 = disallow further receives, 1 = disallow further sends, 2 = disallow further</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">how</span></code>: 0 = disallow further receives, 1 = disallow further sends, 2 = disallow further
+sends and receives like <cite>close()</cite></p></li>
+<li><p>returns 0 on success, -1 on error, and sets <code class="docutils literal notranslate"><span class="pre">errno</span></code> to the error’s value</p></li>
 </ul>
-<p>sends and receives like <cite>close()</cite>
-* returns 0 on success, -1 on error, and sets <code class="docutils literal notranslate"><span class="pre">errno</span></code> to the error’s value</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">shutdown</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sockfd</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">how</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -977,10 +976,10 @@ connection
 <div><ul class="simple">
 <li><p>get the name of the connected peer socket</p></li>
 <li><p>returns 0 on success, -1 on error, and sets <code class="docutils literal notranslate"><span class="pre">errno</span></code> to the error’s value</p></li>
-<li><p>after getting the address, can use <code class="docutils literal notranslate"><span class="pre">inet_ntop()</span></code>, <code class="docutils literal notranslate"><span class="pre">getnameinfo()</span></code>, or <code class="docutils literal notranslate"><span class="pre">gethostbyaddr()</span></code></p></li>
+<li><p>after getting the address, can use <code class="docutils literal notranslate"><span class="pre">inet_ntop()</span></code>, <code class="docutils literal notranslate"><span class="pre">getnameinfo()</span></code>, or <code class="docutils literal notranslate"><span class="pre">gethostbyaddr()</span></code>
+to print or get more information</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addr</span></code>: holds the information about the other side of the connection</p></li>
 </ul>
-<p>to print or get more information
-* <code class="docutils literal notranslate"><span class="pre">addr</span></code>: holds the information about the other side of the connection</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">getpeername</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sockfd</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="o">*</span><span class="w"> </span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">addr_len</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -1010,16 +1009,16 @@ connection
 <li><p>use an array of <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">pollfd</span></code> with sockets and events to monitor</p></li>
 <li><p>OS will block <code class="docutils literal notranslate"><span class="pre">poll()</span></code> until one of the events or a user-specified timeout occurs</p></li>
 <li><p>return number of elements in the array for which events have occurred</p></li>
-<li><p>need to check which elements have events occurred, count the numbers when checking and</p></li>
+<li><p>need to check which elements have events occurred, count the numbers when checking and
+stop when count is equal to the return value</p></li>
+<li><p>make enough space for the array or <code class="docutils literal notranslate"><span class="pre">realloc()</span></code> as needed</p></li>
+<li><p>to delete from the array, copy the last element over-top the one to delete, and pass in
+one fewer as the count to <cite>poll()</cite>, or set any <cite>fd</cite> field to a negative number</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nfds</span></code>: count of elements in the array</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timeout</span></code>: in milliseconds, specify negative value to wait indefinitely</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">POLLIN</span></code>: alert when data is ready to <code class="docutils literal notranslate"><span class="pre">recv()</span></code> on the socket</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">POLLOUT</span></code>: alert when ready to <code class="docutils literal notranslate"><span class="pre">send()</span></code> data to the socket without blocking</p></li>
 </ul>
-<p>stop when count is equal to the return value
-* make enough space for the array or <code class="docutils literal notranslate"><span class="pre">realloc()</span></code> as needed
-* to delete from the array, copy the last element over-top the one to delete, and pass in
-one fewer as the count to <cite>poll()</cite>, or set any <cite>fd</cite> field to a negative number
-* <code class="docutils literal notranslate"><span class="pre">nfds</span></code>: count of elements in the array
-* <code class="docutils literal notranslate"><span class="pre">timeout</span></code>: in milliseconds, specify negative value to wait indefinitely
-* <code class="docutils literal notranslate"><span class="pre">POLLIN</span></code>: alert when data is ready to <code class="docutils literal notranslate"><span class="pre">recv()</span></code> on the socket
-* <code class="docutils literal notranslate"><span class="pre">POLLOUT</span></code>: alert when ready to <code class="docutils literal notranslate"><span class="pre">send()</span></code> data to the socket without blocking</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;poll.h&gt;</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">poll</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">pollfd</span><span class="w"> </span><span class="n">fds</span><span class="p">[],</span><span class="w"> </span><span class="kt">nfds_t</span><span class="w"> </span><span class="n">nfds</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">timeout</span><span class="p">);</span>
@@ -1044,26 +1043,31 @@ one fewer as the count to <cite>poll()</cite>, or set any <cite>fd</cite> field 
 * slow for large number of connections, use <code class="docutils literal notranslate"><span class="pre">libevent</span></code> for better performance
 * monitors sets of file descriptors in <code class="docutils literal notranslate"><span class="pre">readfds</span></code>, <code class="docutils literal notranslate"><span class="pre">writefds</span></code>, and <code class="docutils literal notranslate"><span class="pre">exceptfds</span></code>
 * returns the number of file descriptors in three sets, which are also modified
-* returns -1 on error, and sets <code class="docutils literal notranslate"><span class="pre">errno</span></code> to the error’s value, and the file descriptor sets
-are unmodified
-* <code class="docutils literal notranslate"><span class="pre">nfds</span></code>: should be set to highest-numbered file descriptor plus 1
-* <code class="docutils literal notranslate"><span class="pre">timeout</span></code>: interval to block and wait for file descriptor to be ready, set <code class="docutils literal notranslate"><span class="pre">NULL</span></code> to wait
-indefinitely
-* when the function returns, <code class="docutils literal notranslate"><span class="pre">timeout</span></code> might be updated to show the time remaining, but
-depends on Unix flavour, do not rely on it to for portability
-* <code class="docutils literal notranslate"><span class="pre">FD_SET(int</span> <span class="pre">fd,</span> <span class="pre">fd_set*</span> <span class="pre">set);</span></code>: add <code class="docutils literal notranslate"><span class="pre">fd</span></code> to the set
-* <code class="docutils literal notranslate"><span class="pre">FD_CLR(int</span> <span class="pre">fd,</span> <span class="pre">fd_set*</span> <span class="pre">set);</span></code>: remove <code class="docutils literal notranslate"><span class="pre">fd</span></code> from the set
-* <code class="docutils literal notranslate"><span class="pre">FD_ISSET(int</span> <span class="pre">fd,</span> <span class="pre">fd_set*</span> <span class="pre">set);</span></code>: return <code class="docutils literal notranslate"><span class="pre">true</span></code> if <code class="docutils literal notranslate"><span class="pre">fd</span></code> is in the set
-* <code class="docutils literal notranslate"><span class="pre">FD_ZERO(fd_set*</span> <span class="pre">set);</span></code>: clear the set
-* <strong>Linux Bugs</strong></p>
+* returns -1 on error, and sets <code class="docutils literal notranslate"><span class="pre">errno</span></code> to the error’s value, and the file descriptor sets</p>
 <blockquote>
-<div><ul class="simple">
-<li><p>sometimes <code class="docutils literal notranslate"><span class="pre">select()</span></code> can return ready to read, and then not actually be ready, and it</p></li>
-</ul>
-<p>can block <code class="docutils literal notranslate"><span class="pre">read()</span></code>
-- to solve this, set <code class="docutils literal notranslate"><span class="pre">O_NONBLOCK</span></code> flag on the receiving socket to error with
-<code class="docutils literal notranslate"><span class="pre">EWOULDBLOCK</span></code></p>
+<div><p>are unmodified</p>
 </div></blockquote>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nfds</span></code>: should be set to highest-numbered file descriptor plus 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timeout</span></code>: interval to block and wait for file descriptor to be ready, set <code class="docutils literal notranslate"><span class="pre">NULL</span></code> to wait
+indefinitely</p></li>
+<li><p>when the function returns, <code class="docutils literal notranslate"><span class="pre">timeout</span></code> might be updated to show the time remaining, but
+depends on Unix flavour, do not rely on it to for portability</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FD_SET(int</span> <span class="pre">fd,</span> <span class="pre">fd_set*</span> <span class="pre">set);</span></code>: add <code class="docutils literal notranslate"><span class="pre">fd</span></code> to the set</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FD_CLR(int</span> <span class="pre">fd,</span> <span class="pre">fd_set*</span> <span class="pre">set);</span></code>: remove <code class="docutils literal notranslate"><span class="pre">fd</span></code> from the set</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FD_ISSET(int</span> <span class="pre">fd,</span> <span class="pre">fd_set*</span> <span class="pre">set);</span></code>: return <code class="docutils literal notranslate"><span class="pre">true</span></code> if <code class="docutils literal notranslate"><span class="pre">fd</span></code> is in the set</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FD_ZERO(fd_set*</span> <span class="pre">set);</span></code>: clear the set</p></li>
+<li><dl class="simple">
+<dt><strong>Linux Bugs</strong></dt><dd><ul>
+<li><p>sometimes <code class="docutils literal notranslate"><span class="pre">select()</span></code> can return ready to read, and then not actually be ready, and it
+can block <code class="docutils literal notranslate"><span class="pre">read()</span></code></p></li>
+<li><p>to solve this, set <code class="docutils literal notranslate"><span class="pre">O_NONBLOCK</span></code> flag on the receiving socket to error with
+<code class="docutils literal notranslate"><span class="pre">EWOULDBLOCK</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/select.h&gt;</span>
 
 <span class="k">struct</span><span class="w"> </span><span class="nc">timeval</span><span class="w"> </span><span class="p">{</span>
@@ -1083,20 +1087,20 @@ depends on Unix flavour, do not rely on it to for portability
 <h2>Binary Serialisation<a class="headerlink" href="#binary-serialisation" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#encode-as-text">Encode as Text</a>, <a class="reference internal" href="#pass-raw-data">Pass Raw Data</a>, <a class="reference internal" href="#encode-as-portable-binary-form">Encode as Portable Binary Form</a></p></li>
-<li><p>used where a specific byte order is required for communication between systems that may have</p></li>
+<li><p>used where a specific byte order is required for communication between systems that may have
+different native byte orders</p></li>
+<li><p>use serialisation libraries instead of implementing own</p></li>
+<li><p>attackers can send badly-constructed packets which will be executed during unpacking</p></li>
 </ul>
-<p>different native byte orders
-* use serialisation libraries instead of implementing own
-* attackers can send badly-constructed packets which will be executed during unpacking</p>
 <section id="encode-as-text">
 <h3>Encode as Text<a class="headerlink" href="#encode-as-text" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
 <li><p>can easily print and read binary data encoded as text</p></li>
-<li><p>human-readable protocol, such as Internet Relay Chat (IRC), is good for</p></li>
+<li><p>human-readable protocol, such as Internet Relay Chat (IRC), is good for
+non-bandwidth-intensive situation</p></li>
+<li><p>slow to convert, and take more space</p></li>
 </ul>
-<p>non-bandwidth-intensive situation
-* slow to convert, and take more space</p>
 </div></blockquote>
 </section>
 <section id="pass-raw-data">
@@ -1104,9 +1108,9 @@ depends on Unix flavour, do not rely on it to for portability
 <blockquote>
 <div><ul class="simple">
 <li><p>take a pointer to the data to send, and call <code class="docutils literal notranslate"><span class="pre">send()</span></code></p></li>
-<li><p>not all architectures represent numbers with the same bit representation or the same byte</p></li>
+<li><p>not all architectures represent numbers with the same bit representation or the same byte
+ordering</p></li>
 </ul>
-<p>ordering</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// send</span>
 <span class="kt">double</span><span class="w"> </span><span class="n">send_d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.4901</span><span class="p">;</span>
 <span class="n">send</span><span class="p">(</span><span class="n">sockfd</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">send_d</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">send_d</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// non-portable</span>
@@ -1122,9 +1126,9 @@ depends on Unix flavour, do not rely on it to for portability
 <h3>Encode as Portable Binary Form<a class="headerlink" href="#encode-as-portable-binary-form" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>pack the data into known binary format and the receiver can unpack it, such as <code class="docutils literal notranslate"><span class="pre">htons()</span></code></p></li>
+<li><p>pack the data into known binary format and the receiver can unpack it, such as <code class="docutils literal notranslate"><span class="pre">htons()</span></code>
+and <cite>ntohs()</cite></p></li>
 </ul>
-<p>and <cite>ntohs()</cite></p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint32_t</span><span class="w"> </span><span class="nf">htonf</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">        </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
@@ -1180,13 +1184,13 @@ depends on Unix flavour, do not rely on it to for portability
 <li><p>each field can have specific size</p></li>
 <li><p>the data muse be completely sent, even if it takes multiple calls to <code class="docutils literal notranslate"><span class="pre">send()</span></code></p></li>
 <li><p>always assume only partial packet is received, and call <code class="docutils literal notranslate"><span class="pre">recv()</span></code> multiple times</p></li>
-<li><dl>
+<li><dl class="simple">
 <dt><strong>Receive Method 1</strong></dt><dd><ul class="simple">
 <li><p>since every packet starts with a length, call <code class="docutils literal notranslate"><span class="pre">recv()</span></code> to get the packet length</p></li>
 <li><p>call it again specifying exactly the remaining length of the packet</p></li>
-<li><p>only need one buffer per packet, but need to call <code class="docutils literal notranslate"><span class="pre">recv()</span></code> at least twice to get all</p></li>
+<li><p>only need one buffer per packet, but need to call <code class="docutils literal notranslate"><span class="pre">recv()</span></code> at least twice to get all
+data</p></li>
 </ul>
-<p>data</p>
 </dd>
 </dl>
 </li>
@@ -1196,11 +1200,15 @@ depends on Unix flavour, do not rely on it to for portability
 </ul>
 <p>packet
 - use a buffer big enough for two packets, and reconstruct the packets
-- in every <code class="docutils literal notranslate"><span class="pre">recv()</span></code>, append the data into the buffer, and check if the packet is
-complete by comparing bytes in the buffer with the length specified in the header
-- remove the packet after processing, and move the second packet, maybe partial of it,
-to the front of the buffer
-- can use a circular buffer instead of removing and moving packets</p>
+- in every <code class="docutils literal notranslate"><span class="pre">recv()</span></code>, append the data into the buffer, and check if the packet is</p>
+<blockquote>
+<div><p>complete by comparing bytes in the buffer with the length specified in the header</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>remove the packet after processing, and move the second packet, maybe partial of it,
+to the front of the buffer</p></li>
+<li><p>can use a circular buffer instead of removing and moving packets</p></li>
+</ul>
 </dd>
 </dl>
 </li>
@@ -1282,11 +1290,10 @@ to the front of the buffer
 <section id="stream-client-server">
 <h3>Stream Client-Server<a class="headerlink" href="#stream-client-server" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
-<li><p>client-server can use <code class="docutils literal notranslate"><span class="pre">SOCK_STREAM</span></code>, <code class="docutils literal notranslate"><span class="pre">SOCK_DGRAM</span></code> or anything else, as long as using the</p></li>
-</ul>
-<p>same thing
-* <strong>Server</strong></p>
+<div><ul>
+<li><p>client-server can use <code class="docutils literal notranslate"><span class="pre">SOCK_STREAM</span></code>, <code class="docutils literal notranslate"><span class="pre">SOCK_DGRAM</span></code> or anything else, as long as using the
+same thing</p></li>
+<li><p><strong>Server</strong></p>
 <blockquote>
 <div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;arpa/inet.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;errno.h&gt;</span>
@@ -1422,7 +1429,7 @@ to the front of the buffer
 </pre></div>
 </div>
 </div></blockquote>
-<ul>
+</li>
 <li><p><strong>Client</strong></p>
 <blockquote>
 <div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;arpa/inet.h&gt;</span>
