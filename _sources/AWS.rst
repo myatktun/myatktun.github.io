@@ -101,20 +101,14 @@ Cloud Job Roles
         - build, monitor and manage cloud infrastructure and shared services
         - collaborate with cloud infrastructure architect
         - ensure that service requirements are met
-        - Management
-           + OS management, patch and update, manage templates, document changes, tag and review
-           cloud infrastructure
-           + manage capacity, manage virtual networks, manage app resiliency
-        - Support
-           + provide through monitoring, which also includes compliance programs
-           + perform performance tuning and root cause analysis
-           + document reviews
-        - Security
-           + manage, monitor and enforce security
-           + implement security policies
-           + perform vulnerability testing and risk analysis
-        - Infrastructure
-           + build infrastructure/application
+        - Management: OS management, patch and update, manage templates, document changes, tag
+          and review cloud infrastructure, manage capacity, virtual networks, and app
+          resiliency
+        - Support: provide through monitoring, which also includes compliance programs,
+          perform performance tuning and root cause analysis, document reviews
+        - Security: manage, monitor and enforce security, implement security policies, perform
+          vulnerability testing and risk analysis
+        - Infrastructure: build infrastructure/application
 
 `back to top <#aws>`_
 
@@ -363,7 +357,7 @@ Cost Optimization
     * manage demand and supply resources
         - resource provisioning, monitoring tools and benchmark
         - manage demand with queue or buffer and supply through auto scaling (demand based or
-        time based)
+          time based)
     * optimize over time
         - decommission resources or services
         - stay up to date on new services and features
@@ -495,7 +489,7 @@ Pricing
         - requests and data retrievals: pay for requests made to S3 objects and buckets
         - data transfer
            + no cost to transfer data between S3 buckets or from S3 to other services within
-           same Region
+             same Region
            + no cost to transfer into S3 from the internet or out to CloudFront
            + no cost to transfer out to EC2 instance in the same Region
         - management and replication: pay for storage management features enabled (Inventory,
@@ -725,7 +719,7 @@ AWS Partner Network (APN)
         - free cloud curriculum content for recognized educational institutions
     * AWS Startup Day
         - free full-day events to deliver education, networking opportunities and experiences
-        of start-up founders
+          of start-up founders
     * AWS Lofts
         - a place where start-ups and developers can meet at no cost
     * AWS Activate
@@ -759,7 +753,7 @@ AWS Partner Network (APN)
     * AWS Incentives
         - AWS Cloud Adoption Framework (AWS CAF), AWS Professional Services (ProServe)
         - AWS Cloud Adoption Readiness Tool (CART) helps customers develop efficient and
-        effective plans
+          effective plans
     * AWS Migration Partners
         - can help through every stage of migration
         - accelerate results by providing personnel, tools and education
@@ -1218,7 +1212,7 @@ Systems Manager
         - collect operating system (OS), application, and instance metadata from EC2 instances
           and on-premises servers or virtual machines (VMs) in hybrid environment
         - query metadata to quickly understand which instances are running the software and
-        configurations required by software policy, and which instances need to be updated.
+          configurations required by software policy, and which instances need to be updated.
     * **State Manager**
         - association
            + defines the state to apply to a set of targets
@@ -1479,7 +1473,7 @@ IAM
              resources
            + do not need to share credentials
            + can create IAM users with read-only access to resources and distribute those
-           credentials to users
+             credentials to users
     * tasks that require to be signed in as the root user
         - change account settings
         - restore IAM user permissions
@@ -1620,7 +1614,7 @@ S3
         - if object from Standard-IA is accessed, it is automatically moved into Standard
     * **Glacier**
         - for data that needs to be retained several years for auditing and don't need rapid
-        retrieval
+          retrieval
         - able to retrieve objects within few minutes to hours
         - simply move data or create vaults and populate them with *archives*
         - can create policy (WORM, write once/read many) and lock the vault
