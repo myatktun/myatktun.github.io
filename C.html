@@ -355,6 +355,11 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flip-bits">Flip Bits</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terminal-modes">Terminal Modes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#canonical-mode">Canonical Mode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raw-mode">Raw Mode</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gdb">GDB</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gdb-commands">GDB Commands</a></li>
 </ul>
@@ -378,6 +383,7 @@
 <li><p><a class="reference internal" href="#arrays">Arrays</a></p></li>
 <li><p><a class="reference internal" href="#functions">Functions</a></p></li>
 <li><p><a class="reference internal" href="#bit-masking">Bit Masking</a></p></li>
+<li><p><a class="reference internal" href="#terminal-modes">Terminal Modes</a></p></li>
 <li><p><a class="reference internal" href="#gdb">GDB</a></p></li>
 <li><p><a class="reference internal" href="#references-external-resources">References &amp; External Resources</a></p></li>
 </ol>
@@ -390,6 +396,15 @@
 <li><p>function contains statements to specify operations</p></li>
 <li><p>variables store values used during computation</p></li>
 <li><p>program execute at the beginning of <code class="docutils literal notranslate"><span class="pre">main()</span></code>, and every program must have it</p></li>
+<li><p>escape sequence: <code class="docutils literal notranslate"><span class="pre">\n</span></code>, <code class="docutils literal notranslate"><span class="pre">\t</span></code>, <code class="docutils literal notranslate"><span class="pre">\b</span></code>, <code class="docutils literal notranslate"><span class="pre">\&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">\\</span></code>, provide mechanism to represent hard-to-type or
+invisible characters</p></li>
+<li><p>all variables must be declared before use</p></li>
+<li><p>compilers do not care about how the program looks, but proper indentation and spacing are
+critical for readability</p></li>
+<li><p>write only one statement per line, use blanks around operators to clarify grouping</p></li>
+<li><p>always indent statements controlled by the loop by one tab stop or four spaces</p></li>
+<li><p>pick a style and use it consistently</p></li>
+<li><p>do no mistake condition checking <code class="docutils literal notranslate"><span class="pre">==</span></code> with assign <code class="docutils literal notranslate"><span class="pre">=</span></code>, as it will give no warning if misused</p></li>
 </ul>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
@@ -410,7 +425,7 @@
 <li><p>text input or output is dealt with as streams of characters</p></li>
 <li><p>text stream: sequence of characters divided into lines</p></li>
 <li><dl class="simple">
-<dt><strong>getchar</strong></dt><dd><ul>
+<dt><strong>getchar()</strong></dt><dd><ul>
 <li><p>simple read one character at a time</p></li>
 <li><p>reads the next input character from text stream and returns it</p></li>
 <li><p>if no more input, return <code class="docutils literal notranslate"><span class="pre">EOF</span></code>, end of file, integer defined in <code class="docutils literal notranslate"><span class="pre">&lt;stdio.h&gt;</span></code></p></li>
@@ -420,7 +435,7 @@
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>putchar</strong></dt><dd><ul>
+<dt><strong>putchar()</strong></dt><dd><ul>
 <li><p>simple write one character at a time</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">putchar()</span></code> prints character each time called</p></li>
 </ul>
@@ -428,7 +443,7 @@
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>printf</strong></dt><dd><ul>
+<dt><strong>printf()</strong></dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">printf()</span></code> is not part of C, as there is no input or output defined in C itself</p></li>
 <li><p>a function from the standard library of functions</p></li>
 <li><p>never auto supply newline character</p></li>
@@ -441,13 +456,27 @@ characters wide and 2 digits after decimal point</p></li>
 </dd>
 </dl>
 </li>
+<li><dl class="simple">
+<dt><strong>read()</strong></dt><dd><ul>
+<li><p>read from a file descriptor, up to given bytes count, into the buffer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read(STDIN_FILENO,</span> <span class="pre">&amp;c,</span> <span class="pre">1)</span></code>: read 1 byte from standard input into variable <code class="docutils literal notranslate"><span class="pre">c</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Characters</strong></dt><dd><ul>
+<li><p>control characters: non-printable, ASCII codes 0-31 and 127, can check with
+<code class="docutils literal notranslate"><span class="pre">iscntrl()</span></code></p></li>
+<li><p>printable characters: ASCII 32-126</p></li>
+<li><p>arrow keys input 3 or 4 bytes to terminal with escape sequences, which start with
+ASCII 27 byte</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </div></blockquote>
-<ul class="simple">
-<li><p>escape sequence: <code class="docutils literal notranslate"><span class="pre">\n</span></code>, <code class="docutils literal notranslate"><span class="pre">\t</span></code>, <code class="docutils literal notranslate"><span class="pre">\b</span></code>, <code class="docutils literal notranslate"><span class="pre">\&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">\\</span></code>, provide mechanism to represent hard-to-type or
-invisible characters</p></li>
-<li><p>all variables must be declared before use</p></li>
-</ul>
 </section>
 <section id="data-types">
 <h3>Data Types<a class="headerlink" href="#data-types" title="Link to this heading">#</a></h3>
@@ -459,13 +488,6 @@ invisible characters</p></li>
 and 10&lt;sup&gt;38&lt;/sup&gt; magnitude</p></li>
 </ul>
 </div></blockquote>
-<ul class="simple">
-<li><p>compilers do not care about how the program looks, but proper indentation and spacing are
-critical for readability</p></li>
-<li><p>write only one statement per line, use blanks around operators to clarify grouping</p></li>
-<li><p>always indent statements controlled by the loop by one tab stop or four spaces</p></li>
-<li><p>pick a style and use it consistently</p></li>
-</ul>
 </section>
 <section id="arithmetic">
 <h3>Arithmetic<a class="headerlink" href="#arithmetic" title="Link to this heading">#</a></h3>
@@ -533,9 +555,6 @@ and logically related</p></li>
 </pre></div>
 </div>
 </div></blockquote>
-<ul class="simple">
-<li><p>do no mistake condition checking <code class="docutils literal notranslate"><span class="pre">==</span></code> with assign <code class="docutils literal notranslate"><span class="pre">=</span></code>, as it will give no warning if misused</p></li>
-</ul>
 <p><a class="reference external" href="#c">back to top</a></p>
 </section>
 </section>
@@ -869,6 +888,52 @@ positions to toggle</p></li>
 <p><a class="reference external" href="#c">back to top</a></p>
 </section>
 </section>
+<section id="terminal-modes">
+<h2>Terminal Modes<a class="headerlink" href="#terminal-modes" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#canonical-mode">Canonical Mode</a>, <a class="reference internal" href="#raw-mode">Raw Mode</a></p></li>
+</ul>
+<section id="canonical-mode">
+<h3>Canonical Mode<a class="headerlink" href="#canonical-mode" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>also called Cooked Mode, default mode</p></li>
+<li><p>input is only sent to the program when <code class="docutils literal notranslate"><span class="pre">Enter</span></code> is pressed</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="raw-mode">
+<h3>Raw Mode<a class="headerlink" href="#raw-mode" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>process each key press, need to turn off many flags in the terminal to enter this mode</p></li>
+<li><p>can use functions provided in <code class="docutils literal notranslate"><span class="pre">termios.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">termios</span></code>: contain I/O, control and local modes, and special characters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tcgetattr()</span></code>: read current attributes in <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">termios</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tcsetattr()</span></code>: set new terminal attributes</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">enable_raw_mode</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">termios</span><span class="w"> </span><span class="n">raw</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/* read attributes into raw */</span>
+<span class="w">    </span><span class="n">tcgetattr</span><span class="p">(</span><span class="n">STDIN_FILENO</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">raw</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* turn off ECHO feature, will not show what is being typed */</span>
+<span class="w">    </span><span class="n">raw</span><span class="p">.</span><span class="n">c_lflag</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="p">(</span><span class="n">ECHO</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* apply modifications */</span>
+<span class="w">    </span><span class="cm">/* TCSAFLUSH waits for all pending output to be written to terminal,</span>
+<span class="cm">    and discard input that hasn&#39;t been read</span>
+<span class="cm">    */</span>
+<span class="w">    </span><span class="n">tcsetattr</span><span class="p">(</span><span class="n">STDIN_FILENO</span><span class="p">,</span><span class="w"> </span><span class="n">TCSAFLUSH</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">raw</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><a class="reference external" href="#c">back to top</a></p>
+</section>
+</section>
 <section id="gdb">
 <h2>GDB<a class="headerlink" href="#gdb" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -1113,6 +1178,11 @@ catchpoints</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clear-bits">Clear Bits</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toggle-bits">Toggle Bits</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flip-bits">Flip Bits</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terminal-modes">Terminal Modes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#canonical-mode">Canonical Mode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raw-mode">Raw Mode</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gdb">GDB</a><ul class="nav section-nav flex-column">

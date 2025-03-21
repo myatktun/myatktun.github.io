@@ -6,8 +6,9 @@ C
 2. `Arrays`_
 3. `Functions`_
 4. `Bit Masking`_
-5. `GDB`_
-6. `References & External Resources`_
+5. `Terminal Modes`_
+6. `GDB`_
+7. `References & External Resources`_
 
 `back to top <#c>`_
 
@@ -19,6 +20,15 @@ Basics
 * function contains statements to specify operations
 * variables store values used during computation
 * program execute at the beginning of ``main()``, and every program must have it
+* escape sequence: ``\n``, ``\t``, ``\b``, ``\"``, ``\\``, provide mechanism to represent hard-to-type or
+  invisible characters
+* all variables must be declared before use
+* compilers do not care about how the program looks, but proper indentation and spacing are
+  critical for readability
+* write only one statement per line, use blanks around operators to clarify grouping
+* always indent statements controlled by the loop by one tab stop or four spaces
+* pick a style and use it consistently
+* do no mistake condition checking ``==`` with assign ``=``, as it will give no warning if misused
 
 .. code-block:: c
 
@@ -39,15 +49,15 @@ Input & Output
 --------------
     * text input or output is dealt with as streams of characters
     * text stream: sequence of characters divided into lines
-    * **getchar**
+    * **getchar()**
         - simple read one character at a time
         - reads the next input character from text stream and returns it
         - if no more input, return ``EOF``, end of file, integer defined in ``<stdio.h>``
         - variable must be big enough to hold ``EOF`` and any possible value returned
-    * **putchar**
+    * **putchar()**
         - simple write one character at a time
         - ``putchar()`` prints character each time called
-    * **printf**
+    * **printf()**
         - ``printf()`` is not part of C, as there is no input or output defined in C itself
         - a function from the standard library of functions
         - never auto supply newline character
@@ -56,10 +66,15 @@ Input & Output
         - can specify width and precision for better output
         - ``printf("%7d %3d", 10, 20);``, and ``printf("%7.2f", 10.12345673);`` with at least 7
           characters wide and 2 digits after decimal point
-
-* escape sequence: ``\n``, ``\t``, ``\b``, ``\"``, ``\\``, provide mechanism to represent hard-to-type or
-  invisible characters
-* all variables must be declared before use
+    * **read()**
+        - read from a file descriptor, up to given bytes count, into the buffer
+        - ``read(STDIN_FILENO, &c, 1)``: read 1 byte from standard input into variable ``c``
+    * **Characters**
+        - control characters: non-printable, ASCII codes 0-31 and 127, can check with
+          ``iscntrl()``
+        - printable characters: ASCII 32-126
+        - arrow keys input 3 or 4 bytes to terminal with escape sequences, which start with
+          ASCII 27 byte
 
 Data Types
 ----------
@@ -67,12 +82,6 @@ Data Types
     * size of data types are machine dependent
     * float is usually 32 bit, with at least six significant digits and between 10<sup>-38</sup>
       and 10<sup>38</sup> magnitude
-
-* compilers do not care about how the program looks, but proper indentation and spacing are
-  critical for readability
-* write only one statement per line, use blanks around operators to clarify grouping
-* always indent statements controlled by the loop by one tab stop or four spaces
-* pick a style and use it consistently
 
 Arithmetic
 ----------
@@ -126,8 +135,6 @@ Symbolic Constants
 
        #define MY_CONSTANT 99
 
-
-* do no mistake condition checking ``==`` with assign ``=``, as it will give no warning if misused
 
 `back to top <#c>`_
 
@@ -406,6 +413,46 @@ Flip Bits
 ---------
     * flip all bits by using NOT bitwise operation, no mask required
     * e.g. ``~num``
+
+`back to top <#c>`_
+
+Terminal Modes
+==============
+
+* `Canonical Mode`_, `Raw Mode`_
+
+Canonical Mode
+--------------
+    * also called Cooked Mode, default mode
+    * input is only sent to the program when ``Enter`` is pressed
+
+Raw Mode
+--------
+    * process each key press, need to turn off many flags in the terminal to enter this mode
+    * can use functions provided in ``termios.h``
+    * ``struct termios``: contain I/O, control and local modes, and special characters
+    * ``tcgetattr()``: read current attributes in ``struct termios``
+    * ``tcsetattr()``: set new terminal attributes
+
+    .. code-block:: c
+
+       void enable_raw_mode()
+       {
+           struct termios raw;
+   
+           /* read attributes into raw */
+           tcgetattr(STDIN_FILENO, &raw);
+   
+           /* turn off ECHO feature, will not show what is being typed */
+           raw.c_lflag &= ~(ECHO);
+   
+           /* apply modifications */
+           /* TCSAFLUSH waits for all pending output to be written to terminal,
+           and discard input that hasn't been read
+           */
+           tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw);
+       }
+
 
 `back to top <#c>`_
 
