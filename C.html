@@ -153,6 +153,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ComputingSystems.html">Computing Systems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DatabaseEngineering.html">Database Engineering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
@@ -358,6 +359,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terminal-modes">Terminal Modes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#canonical-mode">Canonical Mode</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raw-mode">Raw Mode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terminal-size">Terminal Size</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gdb">GDB</a><ul class="nav section-nav flex-column">
@@ -425,7 +427,7 @@ critical for readability</p></li>
 <li><p>text input or output is dealt with as streams of characters</p></li>
 <li><p>text stream: sequence of characters divided into lines</p></li>
 <li><dl class="simple">
-<dt><strong>getchar()</strong></dt><dd><ul>
+<dt><code class="docutils literal notranslate"><span class="pre">getchar()</span></code></dt><dd><ul>
 <li><p>simple read one character at a time</p></li>
 <li><p>reads the next input character from text stream and returns it</p></li>
 <li><p>if no more input, return <code class="docutils literal notranslate"><span class="pre">EOF</span></code>, end of file, integer defined in <code class="docutils literal notranslate"><span class="pre">&lt;stdio.h&gt;</span></code></p></li>
@@ -435,7 +437,7 @@ critical for readability</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>putchar()</strong></dt><dd><ul>
+<dt><code class="docutils literal notranslate"><span class="pre">putchar()</span></code></dt><dd><ul>
 <li><p>simple write one character at a time</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">putchar()</span></code> prints character each time called</p></li>
 </ul>
@@ -443,7 +445,7 @@ critical for readability</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>printf()</strong></dt><dd><ul>
+<dt><code class="docutils literal notranslate"><span class="pre">printf()</span></code></dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">printf()</span></code> is not part of C, as there is no input or output defined in C itself</p></li>
 <li><p>a function from the standard library of functions</p></li>
 <li><p>never auto supply newline character</p></li>
@@ -457,7 +459,7 @@ characters wide and 2 digits after decimal point</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>read()</strong></dt><dd><ul>
+<dt><code class="docutils literal notranslate"><span class="pre">read()</span></code></dt><dd><ul>
 <li><p>read from a file descriptor, up to given bytes count, into the buffer</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">read(STDIN_FILENO,</span> <span class="pre">&amp;c,</span> <span class="pre">1)</span></code>: read 1 byte from standard input into variable <code class="docutils literal notranslate"><span class="pre">c</span></code></p></li>
 </ul>
@@ -471,6 +473,25 @@ characters wide and 2 digits after decimal point</p></li>
 <li><p>printable characters: ASCII 32-126</p></li>
 <li><p>arrow keys input 3 or 4 bytes to terminal with escape sequences, which start with
 ASCII 27 byte</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Escape Sequences</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">\x1b</span></code> is the escape character or decimal 27</p></li>
+<li><p>escape sequences always start with the escape character followed by <code class="docutils literal notranslate"><span class="pre">[</span></code> character</p></li>
+<li><p>escape sequences instruct the terminal to do text formatting tasks</p></li>
+<li><p>escape sequence format: <code class="docutils literal notranslate"><span class="pre">&lt;esc&gt;[&lt;argument&gt;&lt;command&gt;</span></code> with multiple arguments
+separated by <code class="docutils literal notranslate"><span class="pre">;</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">\x1b[2J</span></code> clear the entire
+screen</p></li>
+<li><p>can use VT100 escape sequences or ncurses library</p></li>
+<li><p>Erase In Display: <code class="docutils literal notranslate"><span class="pre">J</span></code> command to clear the screen</p></li>
+<li><p>Cursor Position: <code class="docutils literal notranslate"><span class="pre">H</span></code> command to position the cursor at specific row and column</p></li>
+<li><p>Cursor Forward: <code class="docutils literal notranslate"><span class="pre">C</span></code> command to move the cursor to the right, will not go past the
+screen edge</p></li>
+<li><p>Cursor Down: <code class="docutils literal notranslate"><span class="pre">B</span></code> command to move the cursor down, will not go past the screen edge</p></li>
+<li><p>Device Status Report: <code class="docutils literal notranslate"><span class="pre">n</span></code> command to query terminal status</p></li>
 </ul>
 </dd>
 </dl>
@@ -891,7 +912,7 @@ positions to toggle</p></li>
 <section id="terminal-modes">
 <h2>Terminal Modes<a class="headerlink" href="#terminal-modes" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#canonical-mode">Canonical Mode</a>, <a class="reference internal" href="#raw-mode">Raw Mode</a></p></li>
+<li><p><a class="reference internal" href="#canonical-mode">Canonical Mode</a>, <a class="reference internal" href="#raw-mode">Raw Mode</a>, <a class="reference internal" href="#terminal-size">Terminal Size</a></p></li>
 </ul>
 <section id="canonical-mode">
 <h3>Canonical Mode<a class="headerlink" href="#canonical-mode" title="Link to this heading">#</a></h3>
@@ -907,7 +928,7 @@ positions to toggle</p></li>
 <blockquote>
 <div><ul class="simple">
 <li><p>process each key press, need to turn off many flags in the terminal to enter this mode</p></li>
-<li><p>can use functions provided in <code class="docutils literal notranslate"><span class="pre">termios.h</span></code></p></li>
+<li><p>can use functions provided in <code class="docutils literal notranslate"><span class="pre">&lt;termios.h&gt;</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">termios</span></code>: contain I/O, control and local modes, and special characters</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">tcgetattr()</span></code>: read current attributes in <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">termios</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">tcsetattr()</span></code>: set new terminal attributes</p></li>
@@ -930,6 +951,32 @@ positions to toggle</p></li>
 <span class="p">}</span>
 </pre></div>
 </div>
+</div></blockquote>
+</section>
+<section id="terminal-size">
+<h3>Terminal Size<a class="headerlink" href="#terminal-size" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Using ioctl()</strong></dt><dd><ul>
+<li><p>defined in <code class="docutils literal notranslate"><span class="pre">&lt;sys/ioctl.h&gt;</span></code>, use with <code class="docutils literal notranslate"><span class="pre">TIOCGWINSZ</span></code> to get terminal size on most
+systems</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">winsize</span></code> to save number of rows and columns</p></li>
+<li><p>need to check if <code class="docutils literal notranslate"><span class="pre">ioctl()</span></code> returns -1 or gives 0 for row and column</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Using Escape Sequence</strong></dt><dd><ul>
+<li><p>put the cursor at the bottom-right of the screen, and use escape sequence Cursor
+Position Report to query the position of the cursor</p></li>
+<li><p>read the cursor position report into buffer and parse it if necessary</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
 </div></blockquote>
 <p><a class="reference external" href="#c">back to top</a></p>
 </section>
@@ -1183,6 +1230,7 @@ catchpoints</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terminal-modes">Terminal Modes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#canonical-mode">Canonical Mode</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raw-mode">Raw Mode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terminal-size">Terminal Size</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gdb">GDB</a><ul class="nav section-nav flex-column">

@@ -49,15 +49,15 @@ Input & Output
 --------------
     * text input or output is dealt with as streams of characters
     * text stream: sequence of characters divided into lines
-    * **getchar()**
+    * ``getchar()``
         - simple read one character at a time
         - reads the next input character from text stream and returns it
         - if no more input, return ``EOF``, end of file, integer defined in ``<stdio.h>``
         - variable must be big enough to hold ``EOF`` and any possible value returned
-    * **putchar()**
+    * ``putchar()``
         - simple write one character at a time
         - ``putchar()`` prints character each time called
-    * **printf()**
+    * ``printf()``
         - ``printf()`` is not part of C, as there is no input or output defined in C itself
         - a function from the standard library of functions
         - never auto supply newline character
@@ -66,7 +66,7 @@ Input & Output
         - can specify width and precision for better output
         - ``printf("%7d %3d", 10, 20);``, and ``printf("%7.2f", 10.12345673);`` with at least 7
           characters wide and 2 digits after decimal point
-    * **read()**
+    * ``read()``
         - read from a file descriptor, up to given bytes count, into the buffer
         - ``read(STDIN_FILENO, &c, 1)``: read 1 byte from standard input into variable ``c``
     * **Characters**
@@ -75,6 +75,20 @@ Input & Output
         - printable characters: ASCII 32-126
         - arrow keys input 3 or 4 bytes to terminal with escape sequences, which start with
           ASCII 27 byte
+    * **Escape Sequences**
+        - ``\x1b`` is the escape character or decimal 27
+        - escape sequences always start with the escape character followed by ``[`` character
+        - escape sequences instruct the terminal to do text formatting tasks
+        - escape sequence format: ``<esc>[<argument><command>`` with multiple arguments
+          separated by ``;``, e.g. ``\x1b[2J`` clear the entire
+          screen
+        - can use VT100 escape sequences or ncurses library
+        - Erase In Display: ``J`` command to clear the screen
+        - Cursor Position: ``H`` command to position the cursor at specific row and column
+        - Cursor Forward: ``C`` command to move the cursor to the right, will not go past the
+          screen edge
+        - Cursor Down: ``B`` command to move the cursor down, will not go past the screen edge
+        - Device Status Report: ``n`` command to query terminal status
 
 Data Types
 ----------
@@ -419,7 +433,7 @@ Flip Bits
 Terminal Modes
 ==============
 
-* `Canonical Mode`_, `Raw Mode`_
+* `Canonical Mode`_, `Raw Mode`_, `Terminal Size`_
 
 Canonical Mode
 --------------
@@ -429,7 +443,7 @@ Canonical Mode
 Raw Mode
 --------
     * process each key press, need to turn off many flags in the terminal to enter this mode
-    * can use functions provided in ``termios.h``
+    * can use functions provided in ``<termios.h>``
     * ``struct termios``: contain I/O, control and local modes, and special characters
     * ``tcgetattr()``: read current attributes in ``struct termios``
     * ``tcsetattr()``: set new terminal attributes
@@ -453,6 +467,19 @@ Raw Mode
            tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw);
        }
 
+
+
+Terminal Size
+-------------
+    * **Using ioctl()**
+        - defined in ``<sys/ioctl.h>``, use with ``TIOCGWINSZ`` to get terminal size on most
+          systems
+        - use ``struct winsize`` to save number of rows and columns
+        - need to check if ``ioctl()`` returns -1 or gives 0 for row and column
+    * **Using Escape Sequence**
+        - put the cursor at the bottom-right of the screen, and use escape sequence Cursor
+          Position Report to query the position of the cursor
+        - read the cursor position report into buffer and parse it if necessary
 
 `back to top <#c>`_
 

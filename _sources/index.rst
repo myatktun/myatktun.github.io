@@ -19,6 +19,7 @@ Notes
    ComputingSystems
    CyberSecurity
    DataStructure&Algorithms
+   DatabaseEngineering
    DeepLearning
    DesignPatterns
    Docker
