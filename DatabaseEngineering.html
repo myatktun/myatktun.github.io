@@ -331,6 +331,10 @@
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acid">ACID</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transaction">Transaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atomicity">Atomicity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency">Consistency</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isolation">Isolation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#durability">Durability</a></li>
 </ul>
 </li>
 </ul>
@@ -353,7 +357,7 @@
 <section id="acid">
 <h2>ACID<a class="headerlink" href="#acid" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#transaction">Transaction</a>, <a href="#id2"><span class="problematic" id="id3">`Atomicity`_</span></a>, <a href="#id4"><span class="problematic" id="id5">`Consistency`_</span></a>, <a href="#id6"><span class="problematic" id="id7">`Isolation`_</span></a>, <a href="#id8"><span class="problematic" id="id9">`Durability`_</span></a></p></li>
+<li><p><a class="reference internal" href="#transaction">Transaction</a>, <a class="reference internal" href="#atomicity">Atomicity</a>, <a class="reference internal" href="#consistency">Consistency</a>, <a class="reference internal" href="#isolation">Isolation</a>, <a class="reference internal" href="#durability">Durability</a></p></li>
 <li><p>four critical properties of relational database systems</p></li>
 </ul>
 <section id="transaction">
@@ -376,6 +380,58 @@
 </li>
 </ul>
 </div></blockquote>
+</section>
+<section id="atomicity">
+<h3>Atomicity<a class="headerlink" href="#atomicity" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>all queries in a transaction must succeed</p></li>
+<li><p>failure of one or more queries, or database crash before commit should cause rollback on
+the previous successful ones</p></li>
+<li><p>lack of atomicity leads to inconsistency</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="consistency">
+<h3>Consistency<a class="headerlink" href="#consistency" title="Link to this heading">#</a></h3>
+</section>
+<section id="isolation">
+<h3>Isolation<a class="headerlink" href="#isolation" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Dirty Read: reading data that other transaction has changed but not committed yet</p></li>
+<li><p>Non-repeatable Read: reading data twice and getting different values, where transaction
+has committed</p></li>
+<li><p>Phantom Read: two identical queries getting different results, can always happen with
+WHERE</p></li>
+<li><p>Lost Update: written data lost as it gets updated by other transaction, thus getting a
+different read after write</p></li>
+<li><dl class="simple">
+<dt><strong>Isolation Levels</strong></dt><dd><ul>
+<li><p>Read Uncommitted: no isolation, any change from the outside is visible to the
+transaction whether committed or not, fast but will get dirty reads</p></li>
+<li><p>Read Committed: each query in a transaction only sees committed changes by others,
+default level for most databases</p></li>
+<li><p>Repeatable Read: row being read by a query remain unchanged while the transaction is
+running</p></li>
+<li><p>Snapshot: each query in a transaction only sees changes committed up to the start of
+the transaction, guaranteed to eliminate read phenomena</p></li>
+<li><p>Serialisable: transactions are run one after another, slow and choosing which one
+goes first is complicated, and guaranteed to eliminate read phenomena</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>each DBMS implements isolation levels differently</p></li>
+<li><p>Pessimistic: using row level locks, table locks, and page locks to avoid lost updates,
+will have pending transactions</p></li>
+<li><p>Optimistic: no locks, tracking if things change and fail the transaction if so, no
+pending transactions</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="durability">
+<h3>Durability<a class="headerlink" href="#durability" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="#database-engineering">back to top</a></p>
 </section>
 </section>
@@ -429,6 +485,10 @@
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acid">ACID</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transaction">Transaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atomicity">Atomicity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency">Consistency</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isolation">Isolation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#durability">Durability</a></li>
 </ul>
 </li>
 </ul>
