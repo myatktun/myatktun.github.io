@@ -394,6 +394,28 @@ the previous successful ones</p></li>
 </section>
 <section id="consistency">
 <h3>Consistency<a class="headerlink" href="#consistency" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Data</strong></dt><dd><ul>
+<li><p>consistent in disk, defined by the user with data model</p></li>
+<li><p>enforce referential integrity with foreign keys</p></li>
+<li><p>atomicity also ensures consistency, and isolation level affects data consistency</p></li>
+<li><p>no eventual consistency if data is corrupted</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Read</strong></dt><dd><ul>
+<li><p>consistent even in a cluster of multiple instances</p></li>
+<li><p>reads will have eventual consistency by getting the correct updated values</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
 </section>
 <section id="isolation">
 <h3>Isolation<a class="headerlink" href="#isolation" title="Link to this heading">#</a></h3>
@@ -432,6 +454,50 @@ pending transactions</p></li>
 </section>
 <section id="durability">
 <h3>Durability<a class="headerlink" href="#durability" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>changes made by committed transactions must be persisted in a durable non-volatile
+storage, even after system restart</p></li>
+<li><p>many databases write changes to memory first, then snapshot and write to disk in the
+background</p></li>
+<li><dl class="simple">
+<dt><strong>WAL</strong></dt><dd><ul>
+<li><p>Write-Ahead Logging</p></li>
+<li><p>changes are persisted in WAL first, without really updating the data table yet</p></li>
+<li><p>if there is a crash, the updated state can be rebuilt from WAL entries</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Asynchronous Snapshot</strong></dt><dd><ul>
+<li><p>changes are kept in memory, and snapshot to the disk asynchronously in the
+background</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>AOF</strong></dt><dd><ul>
+<li><p>Append-Only File, similar to WAL and used by Redis</p></li>
+<li><p>lightweight and fast way of storing data</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>OS Cache</strong></dt><dd><ul>
+<li><p>write request in OS usually goes to the OS cache, then a batch of writes are flushed
+to disk</p></li>
+<li><p>writes in the OS cache will be lost if the OS crashes</p></li>
+<li><p>Fsync OS command forces writes to always go to the disk, but it is expensive and
+slows down commits</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
 <p><a class="reference external" href="#database-engineering">back to top</a></p>
 </section>
 </section>

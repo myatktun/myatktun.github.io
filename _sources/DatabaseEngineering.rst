@@ -33,6 +33,14 @@ Atomicity
 
 Consistency
 -----------
+    * **Data**
+        - consistent in disk, defined by the user with data model
+        - enforce referential integrity with foreign keys
+        - atomicity also ensures consistency, and isolation level affects data consistency
+        - no eventual consistency if data is corrupted
+    * **Read**
+        - consistent even in a cluster of multiple instances
+        - reads will have eventual consistency by getting the correct updated values
 
 Isolation
 ---------
@@ -62,5 +70,25 @@ Isolation
 
 Durability
 ----------
+    * changes made by committed transactions must be persisted in a durable non-volatile
+      storage, even after system restart
+    * many databases write changes to memory first, then snapshot and write to disk in the
+      background
+    * **WAL**
+        - Write-Ahead Logging
+        - changes are persisted in WAL first, without really updating the data table yet
+        - if there is a crash, the updated state can be rebuilt from WAL entries
+    * **Asynchronous Snapshot**
+        - changes are kept in memory, and snapshot to the disk asynchronously in the
+          background
+    * **AOF**
+        - Append-Only File, similar to WAL and used by Redis
+        - lightweight and fast way of storing data
+    * **OS Cache**
+        - write request in OS usually goes to the OS cache, then a batch of writes are flushed
+          to disk
+        - writes in the OS cache will be lost if the OS crashes
+        - Fsync OS command forces writes to always go to the disk, but it is expensive and
+          slows down commits
 
 `back to top <#database-engineering>`_
