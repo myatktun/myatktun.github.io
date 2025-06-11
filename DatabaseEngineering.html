@@ -421,13 +421,19 @@ the previous successful ones</p></li>
 <h3>Isolation<a class="headerlink" href="#isolation" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Read Phenomena</strong></dt><dd><ul>
 <li><p>Dirty Read: reading data that other transaction has changed but not committed yet</p></li>
-<li><p>Non-repeatable Read: reading data twice and getting different values, where transaction
-has committed</p></li>
-<li><p>Phantom Read: two identical queries getting different results, can always happen with
-WHERE</p></li>
-<li><p>Lost Update: written data lost as it gets updated by other transaction, thus getting a
-different read after write</p></li>
+<li><p>Non-repeatable Read: reading data twice and getting different values, where other
+transaction has committed</p></li>
+<li><p>Phantom Read: two identical queries getting different results, can always happen
+with WHERE</p></li>
+<li><p>Lost Update: written data lost as it gets updated by other transaction, thus getting
+a different read after write</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><dl class="simple">
 <dt><strong>Isolation Levels</strong></dt><dd><ul>
 <li><p>Read Uncommitted: no isolation, any change from the outside is visible to the
@@ -435,11 +441,11 @@ transaction whether committed or not, fast but will get dirty reads</p></li>
 <li><p>Read Committed: each query in a transaction only sees committed changes by others,
 default level for most databases</p></li>
 <li><p>Repeatable Read: row being read by a query remain unchanged while the transaction is
-running</p></li>
+running, eliminate Phantom Read in Postgres</p></li>
+<li><p>Serializable: transactions are run one after another, slow and choosing which one
+goes first is complicated, and guaranteed to eliminate read phenomena</p></li>
 <li><p>Snapshot: each query in a transaction only sees changes committed up to the start of
 the transaction, guaranteed to eliminate read phenomena</p></li>
-<li><p>Serialisable: transactions are run one after another, slow and choosing which one
-goes first is complicated, and guaranteed to eliminate read phenomena</p></li>
 </ul>
 </dd>
 </dl>

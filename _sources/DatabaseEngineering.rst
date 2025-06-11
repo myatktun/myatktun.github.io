@@ -44,24 +44,25 @@ Consistency
 
 Isolation
 ---------
-    * Dirty Read: reading data that other transaction has changed but not committed yet
-    * Non-repeatable Read: reading data twice and getting different values, where transaction
-      has committed
-    * Phantom Read: two identical queries getting different results, can always happen with
-      WHERE
-    * Lost Update: written data lost as it gets updated by other transaction, thus getting a
-      different read after write
+    * **Read Phenomena**
+        - Dirty Read: reading data that other transaction has changed but not committed yet
+        - Non-repeatable Read: reading data twice and getting different values, where other
+          transaction has committed
+        - Phantom Read: two identical queries getting different results, can always happen
+          with WHERE
+        - Lost Update: written data lost as it gets updated by other transaction, thus getting
+          a different read after write
     * **Isolation Levels**
         - Read Uncommitted: no isolation, any change from the outside is visible to the
           transaction whether committed or not, fast but will get dirty reads
         - Read Committed: each query in a transaction only sees committed changes by others,
           default level for most databases
         - Repeatable Read: row being read by a query remain unchanged while the transaction is
-          running
+          running, eliminate Phantom Read in Postgres
+        - Serializable: transactions are run one after another, slow and choosing which one
+          goes first is complicated, and guaranteed to eliminate read phenomena
         - Snapshot: each query in a transaction only sees changes committed up to the start of
           the transaction, guaranteed to eliminate read phenomena
-        - Serialisable: transactions are run one after another, slow and choosing which one
-          goes first is complicated, and guaranteed to eliminate read phenomena
     * each DBMS implements isolation levels differently
     * Pessimistic: using row level locks, table locks, and page locks to avoid lost updates,
       will have pending transactions
