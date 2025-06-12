@@ -337,6 +337,15 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#durability">Durability</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#internals">Internals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#row-id">Row ID</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#page">Page</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heap">Heap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#index">Index</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#row-store">Row Store</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#column-store">Column Store</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -352,6 +361,7 @@
 <h1>Database Engineering<a class="headerlink" href="#database-engineering" title="Link to this heading">#</a></h1>
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="#acid">ACID</a></p></li>
+<li><p><a class="reference internal" href="#internals">Internals</a></p></li>
 </ol>
 <p><a class="reference external" href="#database-engineering">back to top</a></p>
 <section id="acid">
@@ -368,6 +378,8 @@
 <li><p>usually used to change and modify data, but can have read-only transaction</p></li>
 <li><p>long transactions are not recommended in general, e.g. 50,000 queries in a transaction</p></li>
 <li><p>user defined transaction, or implicitly defined built-in transaction by the system</p></li>
+<li><p>with <code class="docutils literal notranslate"><span class="pre">autocommit=ON</span></code>, statements not executed in a transaction will be wrapped in its own
+transaction and committed immediately, thus rollback will not undo</p></li>
 <li><dl class="simple">
 <dt><strong>Lifespan</strong></dt><dd><ul>
 <li><p>BEGIN: start a new transaction with multiple queries</p></li>
@@ -399,7 +411,7 @@ the previous successful ones</p></li>
 <li><dl class="simple">
 <dt><strong>Data</strong></dt><dd><ul>
 <li><p>consistent in disk, defined by the user with data model</p></li>
-<li><p>enforce referential integrity with foreign keys</p></li>
+<li><p>has referential integrity with foreign keys</p></li>
 <li><p>atomicity also ensures consistency, and isolation level affects data consistency</p></li>
 <li><p>no eventual consistency if data is corrupted</p></li>
 </ul>
@@ -414,6 +426,8 @@ the previous successful ones</p></li>
 </dd>
 </dl>
 </li>
+<li><p>there will be inconsistency when a data is in two places, e.g. using a cache and not
+updating it</p></li>
 </ul>
 </div></blockquote>
 </section>
@@ -436,9 +450,11 @@ a different read after write</p></li>
 </li>
 <li><dl class="simple">
 <dt><strong>Isolation Levels</strong></dt><dd><ul>
+<li><p>the transaction will always see the changes it makes regardless of the level,
+isolation level only applies to other concurrent transactions</p></li>
 <li><p>Read Uncommitted: no isolation, any change from the outside is visible to the
 transaction whether committed or not, fast but will get dirty reads</p></li>
-<li><p>Read Committed: each query in a transaction only sees committed changes by others,
+<li><p>Read Committed: each query in a transaction sees committed changes by others,
 default level for most databases</p></li>
 <li><p>Repeatable Read: row being read by a query remain unchanged while the transaction is
 running, eliminate Phantom Read in Postgres</p></li>
@@ -446,11 +462,13 @@ running, eliminate Phantom Read in Postgres</p></li>
 goes first is complicated, and guaranteed to eliminate read phenomena</p></li>
 <li><p>Snapshot: each query in a transaction only sees changes committed up to the start of
 the transaction, guaranteed to eliminate read phenomena</p></li>
+<li><p>each DBMS implements isolation levels differently</p></li>
+<li><p>Repeatable Read isolation level in Postgres and MySQL is implemented as snapshot
+isolation, and phantom reads are not possible</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><p>each DBMS implements isolation levels differently</p></li>
 <li><p>Pessimistic: using row level locks, table locks, and page locks to avoid lost updates,
 will have pending transactions</p></li>
 <li><p>Optimistic: no locks, tracking if things change and fail the transaction if so, no
@@ -466,6 +484,8 @@ pending transactions</p></li>
 storage, even after system restart</p></li>
 <li><p>many databases write changes to memory first, then snapshot and write to disk in the
 background</p></li>
+<li><p>the system is durable only when a commit is successful and written to disk, thus commit
+speeds are critical</p></li>
 <li><dl class="simple">
 <dt><strong>WAL</strong></dt><dd><ul>
 <li><p>Write-Ahead Logging</p></li>
@@ -502,6 +522,105 @@ slows down commits</p></li>
 </dd>
 </dl>
 </li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#database-engineering">back to top</a></p>
+</section>
+</section>
+<section id="internals">
+<h2>Internals<a class="headerlink" href="#internals" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#row-id">Row ID</a>, <a class="reference internal" href="#page">Page</a>, <a class="reference internal" href="#heap">Heap</a>, <a class="reference internal" href="#index">Index</a>, <a class="reference internal" href="#row-store">Row Store</a>, <a class="reference internal" href="#column-store">Column Store</a></p></li>
+<li><p>in relational databases, data is stored in the concept of tables with rows and columns</p></li>
+</ul>
+<section id="row-id">
+<h3>Row ID<a class="headerlink" href="#row-id" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>most databases create internal and system maintained row id, instead of using the user
+defined fields</p></li>
+<li><p>also called Tuple ID in Postgres</p></li>
+<li><p>in MySQL, the primary key becomes row id</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="page">
+<h3>Page<a class="headerlink" href="#page" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>a fixed size memory location where rows are stored</p></li>
+<li><p>a page can store multiple rows, with page size being 8KB in Postgres and 16KB in MySQL</p></li>
+<li><p>the database reads a page or more, retrieving multiple rows in a single I/O</p></li>
+<li><p>a database query can be slow or fast depending on how many pages are read, i.e. the
+lesser the I/O operations, the faster the queries</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="heap">
+<h3>Heap<a class="headerlink" href="#heap" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>data structure that stores the table with all its pages one after another</p></li>
+<li><p>actual data, including everything, is stored in heap</p></li>
+<li><p>traversing the heap is expensive as much data needs to be read to find the target</p></li>
+<li><p>indexes tell what part/pages of the heap needs to be read</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="index">
+<h3>Index<a class="headerlink" href="#index" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>data structure with pointers to the heap, and is used to quickly search</p></li>
+<li><p>gives exact page to fetch in the heap</p></li>
+<li><p>can index one column or more</p></li>
+<li><p>stored as pages and cost I/O to get the entries of the index</p></li>
+<li><p>the smaller the index, the better it can fit in memory, resulting in faster search</p></li>
+<li><p>mostly b-trees are used to implement index</p></li>
+<li><dl class="simple">
+<dt><strong>Clustered Index</strong></dt><dd><ul>
+<li><p>heap table organised around a single index</p></li>
+<li><p>also called Index Organised Table</p></li>
+<li><p>primary key is usually a clustered index, unless specified</p></li>
+<li><p>MySQL InnoDB always have a primary key, and other indexes point to the primary key
+value</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Postgres only have secondary indexes, and all indexes point directly to row id which is
+in the heap</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="row-store">
+<h3>Row Store<a class="headerlink" href="#row-store" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>row-oriented database where tables are stored as rows in disk</p></li>
+<li><p>a single block I/O read to the table fetches multiple rows with all their columns</p></li>
+<li><p>more I/O is required to find a row in a table, but all columns for the row is already
+in memory when it is found</p></li>
+<li><p>when querying for specific column, unnecessary column values are also retrieved on each
+I/O, e.g. <cite>select sum(salary) from emp;</cite> will get every column just to get salary value</p></li>
+<li><p>optimal for read/write and online transactional processing</p></li>
+<li><p>compression and aggregation aren’t efficient</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="column-store">
+<h3>Column Store<a class="headerlink" href="#column-store" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>column-oriented database where tables are stored as columns in disk</p></li>
+<li><p>a single block I/O read to the table fetches multiple columns with all matching rows</p></li>
+<li><p>less I/O is required to get more values of a given column, but multiple columns require
+more I/O, e.g. <cite>select *</cite> will cause multiple I/O to get every column values</p></li>
+<li><p>row id is duplicated in every column, and it is used to get other column values</p></li>
+<li><p>queries such as <code class="docutils literal notranslate"><span class="pre">select</span> <span class="pre">sum(salary)</span> <span class="pre">from</span> <span class="pre">emp;</span></code> need less I/O than that in row store,
+since the salary column values are stored in same block</p></li>
+<li><p>writes are slower, but optimal for online analytical processing</p></li>
+<li><p>compression and aggregation are efficient</p></li>
 </ul>
 </div></blockquote>
 <p><a class="reference external" href="#database-engineering">back to top</a></p>
@@ -561,6 +680,15 @@ slows down commits</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency">Consistency</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isolation">Isolation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#durability">Durability</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#internals">Internals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#row-id">Row ID</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#page">Page</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heap">Heap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#index">Index</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#row-store">Row Store</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#column-store">Column Store</a></li>
 </ul>
 </li>
 </ul>
