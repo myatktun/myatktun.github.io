@@ -89,6 +89,10 @@ Input & Output
           screen edge
         - Cursor Down: ``B`` command to move the cursor down, will not go past the screen edge
         - Device Status Report: ``n`` command to query terminal status
+    * **Append Buffer**
+        - having one big ``write()`` is more optimal than a bunch of small ``write()``
+        - have a buffer of characters or strings, and write the buffer
+        - create dynamic buffer if necessary
 
 Data Types
 ----------

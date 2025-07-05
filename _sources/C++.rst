@@ -32,16 +32,16 @@ Basics
     * implementation: programming + testing
     * programming is part practical, part theoretical
 * when approaching software, do it in a principled and serious manner, need to be part of the
-solution, not add to the problems
+  solution, not add to the problems
 * since ``main()`` is called by the system, the return value won't be used, but on systems like
-Unix/Linux, it can be used to check program exit status
+  Unix/Linux, it can be used to check program exit status
 * source code or program text: what we read an write
 * executable, object code or machine code: what the computer executes
     * object code files have suffix .obj (on Windows) or .o (Unix)
     * not portable among systems
 * linker
     * links the compiled object code files of separate parts, translation units, to form an
-    executable
+      executable
 * compile-time errors: found by the compiler
 * link-time errors: found by the liker
 * run-time or logic errors: not found until the program is run
@@ -49,6 +49,8 @@ Unix/Linux, it can be used to check program exit status
 
 object
 ------
+* declaration/definition distinction allows to separate program into many parts that can be
+  compiled separately
 
 declaration
 -----------
@@ -68,30 +70,28 @@ declaration
     * reasons to declare before using
         - simplifies reading for both humans and compiler
         - having to know only the used declarations saves humans and compilers from looking
-        through huge amounts of program text, especially when functions used are defined in
-        other places
+          through huge amounts of program text, especially when functions used are defined in
+          other places
 
 definition
 ----------
     * statement that introduces a new name and sets aside memory for a variable,
-    every definition is also a declaration
+      every definition is also a declaration
     * ``const`` requires initializing
     * it is good to always initialize variables, uninitialized variables cause obscure bugs
     * preference for the ``{}`` initializer syntax
     * ``string`` and ``vector`` are initialized with default when not supplied explicitly
     * global variable is default initialized to 0, but should minimize use of globals
     * local and class members are uninitialized
-* declaration/definition distinction allows to separate program into many parts that can be
-compiled separately
 
 header
 ------
     * collection of declarations, usually in another file
-    *  to use headers, ``#include`` in (preprocess) source files, both in files that use its
-    declarations and provide definitions
+    * to use headers, ``#include`` in (preprocess) source files, both in files that use its
+      declarations and provide definitions
     * ``.h`` suffix is most common for headers, ``.cpp`` for source files
     * some compilers and most development environments insist on having suffixes although they
-    can be omitted
+      can be omitted
     * should only contain declarations that can be duplicated in several files
 
 Variables
@@ -102,7 +102,7 @@ Variables
         - bool, char, int, float, double, void, wchar_t (wide char type)
         - definition without an initializer are initialized with NULL
         - ``extern`` tells the compiler that the variable is defined in another source, outside of current
-        scope
+          scope
         - omitting type with modifiers (signed, unsigned, long, short) auto implies int
 
         .. code-block:: cpp
@@ -118,7 +118,7 @@ Variables
         - *const*: cannot be changed during execution
         - *volatile*: value may be changed in ways not specified by the program
         - *restrict*: qualified pointer is initially the only means by which the object it points
-        to can be accessed
+          to can be accessed
     * **value**: a set of bits in memory interpreted according to a type
     * lvalue (variables)
         - expressions that refer to memory location
@@ -129,36 +129,32 @@ Variables
         - cannot have a value assigned, only appear on the right
         - "values of object named by x"
     * **scopes**
-        - global
-           + defined outside of all functions, usually on top of the program
-           + can be accessed by any function
-        - local
-           + declared inside a function or block
-           + can be used only by statements that are inside the function
+        - global: defined outside of all functions, usually on top of the program, and can be
+          accessed by any function
+        - local: declared inside a function or block, can be used only by statements that are
+          inside the function
         - can have same name for local and global but value of local will take preference
     * **storage class**
         - defines the scope and life-time of variables and functions
-        - *auto*
-           + default class for all local variables
-           + can only be used in functions/locals
-        - *register*
+        - ``auto``: default class for all local variables, can only be used in functions/locals
+        - ``register``
            + for local variables to be stored in a register instead of RAM
            + variable max size is equal to register size usually one word
            + cannot have '&' operator applied to it as it does not have mem location
            + should only be used for quick access such as counters
            + not guaranteed to be stored in register depending on hardware restrictions
-        - *static*
+        - ``static``
            + keep local variable instead of creating and destroying
            + maintain values between function calls
            + applying to global causes it's scope to be restricted to the declared file
            + using on class data member causes only one copy of that member to be shared by all
            objects of its class
-        - *extern*
+        - ``extern``
            + to give reference of global
-           + variable cannot be initialized as it only points the variable name at location that has
-           been defined
+           + variable cannot be initialized as it only points the variable name at location
+             that has been defined
            + commonly used when tow or more files share the same globals
-        - *mutable*
+        - ``mutable``
            + applies only to class objects
            + allows a member of object to override const member function
     * logically, assignment and initialization are different
@@ -312,10 +308,10 @@ I/O
 
     * **fields** for integers: ``setw()``
         - using scientific and fixed formats, how much space a value takes up on output by
-        floating-point numbers can be controlled, which is useful for printing table
+          floating-point numbers can be controlled, which is useful for printing table
         - same thing can be done for integers with *fields*
         - can specify exactly how many character positions an integer value or string value
-        will occupy
+          will occupy
         - field sizes don't stick
 
         .. code-block:: cpp
@@ -361,7 +357,7 @@ Operators
     * precedence
         - left to right
            + postfix, multiplicative, additive, shift, relational, equality, bitwise (AND, OR,
-           XOR), logical (AND, OR), comma
+             XOR), logical (AND, OR), comma
         - right to left
            + unary, conditional, assignment
     * ``*=`` & ``/=`` are referred to as scaling in many application domains
@@ -402,7 +398,7 @@ Literals
         - enclosed in single quote
         - wide character begins with L and should be stored in ``wchar_t``
         - on a PC, range of char values is [-128:127], but only [0:127]l can be used portably
-        as not every computer is a PC and different computers have different ranges, [0:255]
+          as not every computer is a PC and different computers have different ranges, [0:255]
         - special meaning chars
            + \a       alert or bell
            + \b       backspace
@@ -415,7 +411,7 @@ Literals
     * **string**
         - enclosed in double quotes
         - representation of a string is a bit more complicated than that of an int as a string
-        keeps track of the number of characters it holds
+          keeps track of the number of characters it holds
         - functions
            + strcpy, strcat, strlen, strcmp, strchr, strstr
 
@@ -462,7 +458,7 @@ Type Safety
         - int to double
     * for really large int, some computers suffer loss of precision when converting to double
     * **unsafe/narrowing conversions** can implicitly turn a value to another type that does not
-    equal the original value
+      equal the original value
     * accept by compiler even though unsafe
         - double to int
         - double to char
@@ -506,7 +502,7 @@ Type Safety
 * ugly code is hard to read and hard to correct as it often hides logical errors
 * always test programs with bad input
 * don't demonstrate cleverness by writing the most complex program, demonstrate competence by
-writing simplest code that does the job
+  writing simplest code that does the job
 
 typedef
 -------
@@ -538,7 +534,7 @@ Loops
 
 
         - the first program ever to run on a stored-program computer (the EDSAC), written and
-        run by David Wheeler, was simple iteration of square numbers
+          run by David Wheeler, was simple iteration of square numbers
         - loop variable must be defined and initialized outside (before) the statement
     * **for**
 
@@ -567,7 +563,7 @@ Functions
 ---------
     * parameter list: list of arguments required by the function
     * parameter names are not important in declaration, supplying information separate from
-    the complete function definition
+      the complete function definition
     * declaration is required to be called from another file
 
         .. code-block:: cpp
@@ -587,7 +583,7 @@ Functions
         - only ``main()`` is special case as falling through is equal to ``return 0;``
     * acceptable to drop through bottom of ``void`` function which is same as ``return;``
     * programs are easier to write and understand if each function performs a single logical
-    action
+      action
     * standard library provides ``swap()`` for every type that can be copied
     * **call/pass by value** (default)
         - copy the actual value of argument into formal parameter
@@ -646,10 +642,10 @@ Functions
         - compiler sets aside an int for cr to refer to
         - temporary: compiler-generated object
     * by-value for small objects, by-const-reference for non-modify large object, by-reference
-    only when needed
+      only when needed
     * return a result rather than modifying through a reference argument
     * non-const-reference are essential for manipulating containers, other large objects and
-    for functions that change several objects as functions can have only one return value
+      for functions that change several objects as functions can have only one return value
     * best to avoid functions that modify several objects
     * recursive: function that directly or indirectly calls itself
     * function activation record
@@ -691,7 +687,7 @@ Link-time errors
 ----------------
     * found by the linker when trying to combine object files into executable
     * every function must be declared with the same type in every translation unit (compiled
-    parts)
+      parts)
     * every function must be defined exactly once
     * functions with the same name but different types will not match and will be ignored
     * misspelled function name doesn't usually give a linker error, but compiler does
@@ -706,7 +702,7 @@ Run-time errors
     * but checking in function isn't always done when
         - cannot modify the function definition (using from library)
         - called function doesn't know what to do in case of error (library writer can detect
-        errors, but only user know what to do with them)
+          errors, but only user know what to do with them)
         - called function doesn't know where it was called from
         - performance cost of a check can be more than the cost of calculating the result
     * letting the called function send errors and the caller handling them can have problems
@@ -718,7 +714,8 @@ Logic errors
 ------------
     * found by the programmer
     * usually the most difficult to find and fix
-    * check, estimate, that the result is plausible as it is not easy to know what is reasonable
+    * check, estimate, that the result is plausible as it is not easy to know what is
+      reasonable
 * Sources of errors
     * poor or incomplete program specifications
     * unexpected arguments, input or state (data)
@@ -734,7 +731,7 @@ Logic errors
         - ``std::length_error``
         - ``std::out_of_range`` (off-by-one error, bounds error)
            + subscript operation of vector knows its size and will check, if the check fails,
-           the subscript operation throws 'out_of_range' exception
+             the subscript operation throws 'out_of_range' exception
     * ``std::runtime_error``
         - ``std::overflow_error``
         - ``std::underflow_error``
@@ -776,7 +773,7 @@ Debugging
     * add invariants, conditions that should always hold, in code sections suspected of bugs
     * assertion/assert: statement that states an invariant
     * pre-condition: requirement of a function upon its argument, always consider if a quick
-    check of pre-conditions can be written
+      check of pre-conditions can be written
     * post-condition: what to do if pre-condition is violated, both provide sanity checks
 * Testing: a run with a given set of inputs
 * Terminology for **Program Development** <a id = "program-development"></a>
@@ -784,16 +781,16 @@ Debugging
     * design: create overall structure
     * implementation: write, debug and test the code
 * only a combination of analysis and experimentation (design & implement) gives the solid
-understanding to write a good program
+  understanding to write a good program
 * prototype: limited initial version aimed at experimentation
 * grow a program from working parts rather than writing all at once
 * token
     * sequence of characters that represents a unit
     * representing each token as a (kind, value) pair is conventional
     * parsing: reading a stream of tokens according to a grammar, which is done by parser or
-    syntax analyzer
+      syntax analyzer
 * for programs that accept user input, write a grammar defining the syntax of input and then
-write a program that implements the rules of that grammar
+  write a program that implements the rules of that grammar
 * writing simple grammar
     * distinguish a rule from token
     * put one rule after another (sequencing)
@@ -813,17 +810,17 @@ write a program that implements the rules of that grammar
 Program Evaluation
 ------------------
     * variable is constructed when the execution reaches the definition, and destroyed
-    when it goes out of scope
+      when it goes out of scope
         - ``static`` local variable is initialized only the first time its function is called
     * global variables are constructed in the order in which they are defined and destroyed in
-    reverse order in single translation unit
+      reverse order in single translation unit
         - do not use global variables in everything
         - in different translation units, order of initialization may be different
     * compilers only allocate and deallocate memory necessary amount
     * never access the value of variable in an expression twice
         - ``v[i] = ++i``
         - not all compilers warn about the bad code and different compilers result different
-         values
+          values
         - left or right hand side of the assignment may be evaluated first
 
 Namespaces
@@ -851,7 +848,7 @@ Namespaces
 
     * ``using`` directive
         - avoid prepending of namespaces, tells the compiler that subsequent code is making
-        use of names specified in namespace
+          use of names specified in namespace
         - no declaration for a name in the scope means it is likely to be in ``std``
 
         .. code-block:: cpp
@@ -875,7 +872,7 @@ Namespaces
 
 
         - names introduced obey normal scope rules, entities with the same name defined in
-        outer scope are hidden
+          outer scope are hidden
         - good idea to avoid ``using`` for namespaces except for well known ones such as ``std``
         - may lose track to which names come from where
         - putting ``using`` in header file is bad habit
@@ -948,10 +945,10 @@ Enumerations
     * declares an optional type name and a set of zero or more identifiers
     * each enumerator is a constant whose type is enumeration
     * by default, the value of first is 0, second is 1 and so on but can give a name value by
-    adding an initializer
+      adding an initializer
     * body of enumeration is a list of enumerators
     * ``class`` in ``enum class`` means that the enumerators are in the scope of enumeration and
-    their values do not implicitly convert to other types
+      their values do not implicitly convert to other types
 
         .. code-block:: cpp
 
@@ -964,7 +961,7 @@ Enumerations
     * cannot define constructor for an enumeration to check initializer values
     * useful when a set of related named integer constants is needed
     * in plain ``enums``, enumerators are in the same scope as the enum and their values
-    implicitly convert to integers and other types
+      implicitly convert to integers and other types
         - less strict than ``enum classes``
         - can pollute the scope in which their enumerator is defined
 
@@ -982,7 +979,7 @@ Overloading
     * both declarations have different arguments and definition
     * overload resolution
         - compiler determines the most appropriate definition to use by comparing argument types used
-        to call the function with parameter types specified in the definitions
+          to call the function with parameter types specified in the definitions
     * **operator overloading**
         - functions starting with ``operator``
         - can define as ordinary non-member functions or as class member functions
@@ -1001,7 +998,7 @@ Overloading
 
         - **cannot overload** (::, .* , ., ?:, sizeof, typeid)
         - need to make I/O operator overloading a friend of the class as it would be called
-        without creating an object
+          without creating an object
 
         .. code-block:: cpp
 
@@ -1019,7 +1016,7 @@ Overloading
 
 
         - overloading function call operator () is not creating new way to call a function,
-        it's creating operator function that can be passed an arbitrary number of parameters
+          it's creating operator function that can be passed an arbitrary number of parameters
 
         .. code-block:: cpp
 
@@ -1036,14 +1033,14 @@ Overloading
 
 
         - in overloading class member operator (->), operator -> must be a member function and
-        return type must be a pointer or an object of a class to which it can be applied
+          return type must be a pointer or an object of a class to which it can be applied
     * **function overloading**
         - can have multiple definitions for same function name in the same scope
         - definition of functions must differ by the types and/or number of arguments
         - cannot differ only return type
 * separate how the program reads and writes from actual input and output devices
 * directly addressing each kind of device will need to change the program for a new
-screen or disk every time or limit users to certain screens and disks
+  screen or disk every time or limit users to certain screens and disks
 * most modern OS separate the detailed handling of I/O devices into device drivers
 * different kinds of I/O
     * streams of data items (files, network, display devices)
@@ -1056,7 +1053,7 @@ Lambda Expressions
     * return type can be deduced from function body or specified explicitly
     * introducer can be used to gain access to local variables
     * lambda expressions should be kept simple, and only use for functions that fit on a line
-    or two
+      or two
 
     .. code-block:: cpp
 
@@ -1075,7 +1072,7 @@ buffer
 ------
     * data structure that ostream uses internally to store data given by user to OS
     * delay between ostream and characters appearing is usually because they are still in
-    buffer
+      buffer
     * buffering is important for performance
     * istream uses buffer to communicate with the OS
     * with istream, buffering can be quite visible to the user
@@ -1131,9 +1128,9 @@ Files
 
 
     * when using character representation, some character must be used to represent end of
-    number in memory
+      number in memory
     * distinction between storing fixed-size binary representation and variable-size character
-    string representation also occurs in files
+      string representation also occurs in files
     * it is possible to request ``istream`` and ``ostream`` to copy bytes to and from files with
     ``ios::binary``
 
@@ -1156,13 +1153,13 @@ Files
            }
 
     * when moving from character-oriented I/O to binary I/O, ``>>`` and ``<<`` must be given up
-    as they turn values into character sequences
+      as they turn values into character sequences
     * ``as_bytes()`` is needed to get the address of the first byte of an object's representation
     * default character I/O is portable, human readable and supported by type system
     * don't mess with binary I/O unless really needed
     * cannot open a file stream second time without closing first
     * program auto flushes all streams, release all allocated memory and close all files, but
-    good practice to close all opened files before termination
+      good practice to close all opened files before termination
 
         .. code-block:: cpp
 
@@ -1178,16 +1175,16 @@ Files
         - difference between fail and bad is not precisely defined
         - a stream that is ``bad()`` is also ``fail()``
         - when a stream fails, it can be recovered by taking it out of the ``fail()`` state with
-        ``clear()``
+          ``clear()``
         - stream state can be set back to ``fail()`` with ``ist.clear(ios_base::failbit)``, which
-        sets ``iostream`` state to flags mentioned but clear flags that are not
+          sets ``iostream`` state to flags mentioned but clear flags that are not
         - character can be put back into ``ist`` using ``unget()``
         - getting more data from ``bad()`` state is unlikely, but to throw an exception with
-        ``ist.exceptions(ist.exceptions()|ios_base::badbit)``
+          ``ist.exceptions(ist.exceptions()|ios_base::badbit)``
     * ``iostream`` can handle different character sets, implement different buffering strategies,
-    and contain facilities for formatting monetary amounts in various languages
+      and contain facilities for formatting monetary amounts in various languages
     * usually errors are much rarer for output than for input, only test each output operation
-    of `ostream` if output devices have more chance of being unavailable or broken
+      of `ostream` if output devices have more chance of being unavailable or broken
     * use insertion operator (<<) to write to file, ofstream or fstream object instead of cout
     * use extraction operator (>>) to read file, ifstream or fstream object instead of cin
     * problems when reading
@@ -1196,7 +1193,7 @@ Files
         - user typing wrong type
     * terminators are useful when reading files with nested constructs
     * every file opened for reading has a read/get position and files for writing has write/put
-    position
+      position
     * file position pointers
         - integer value that specifies the location in the file as a number of bytes from start
         - ``seekg``: seek get for istream
@@ -1216,7 +1213,7 @@ Files
         - ``istringstream`` is useful for extracting numeric values from a string
         - will go into ``eof()`` state if read beyond the end of ``istringstream`` string
         - ``ostringstream`` can be useful for formatting output for a system that requires
-        simple string argument such as GUI system
+          simple string argument such as GUI system
 
         .. code-block:: cpp
 
@@ -1226,10 +1223,10 @@ Files
 
 
         - ``str()`` member function of ``ostringstream`` returns the string composed by output
-        operations to an ``ostringstream``
+          operations to an ``ostringstream``
         - ``c_str()`` is member of ``string`` that returns C-style string
         - stringstreams are used to separate actual I/O from processing, usually to filter
-        characters out of input
+          characters out of input
         - can use ``ostringstream`` to concatenate strings
     * ``istream`` library provides to read individual characters and whole lines
 
@@ -1375,9 +1372,9 @@ Pointers
 
 
 * if assigning different types of pointers is allowed, memory locations could be changed since
-each type has different memory sizes
+  each type has different memory sizes
 * pointer pointing to the start of array can access it by pointer arithmetic or array-style
-indexing
+  indexing
 * memory set aside by compiler
     * code/text storage: for the code
     * static storage: for global variables
@@ -1403,7 +1400,7 @@ Free Store
 
     * always return memory to free store after using
         - essential for long-running programs such as operating systems, embedded systems
-        and libraries
+          and libraries
 
         .. code-block:: cpp
 
@@ -1429,14 +1426,14 @@ Free Store
         - can be costly and not ideal for all applications
     * programs under operating systems auto return memory to the system at the end
     * allow memory leak only when program will not use memory more than available and memory
-    consumption estimate for a program should be correct
+      consumption estimate for a program should be correct
 * a pointer doesn't know how many elements it points to
     * out-of-range access, transient bugs, can affect unrelated parts of the program and are
-    hard to find
+      hard to find
 * problems in some C-style programs are caused by access through uninitialized pointers and
-out-of-range access
+  out-of-range access
 * optimizer, compiling on different machine or turning off debug features can cause a program
-with uninitialized variables to run differently
+  with uninitialized variables to run differently
 
 NULL Pointer
 ------------
@@ -1469,10 +1466,10 @@ Void Pointer
 ------------
     * pointer to memory that the compiler doesn't know the type of
     * use to transmit address between code that don't know each other's types, e.g address
-    arguments of a callback function
+      arguments of a callback function
     * can assign to pointer to any object type
     * ``static_cast`` can be used to convert between related pointer types, but use only when
-    necessary
+      necessary
 
     .. code-block:: cpp
 
@@ -1522,7 +1519,7 @@ Explicit Type Conversion
     * use pointer parameter for functions where ``nullptr`` is a valid argument
     * use a reference in other cases
 * pointer fiddling is tedious and error-prone, should be hidden in well-written and tested
-functions
+  functions
 
 `back to top <#c>`_
 
@@ -1578,7 +1575,7 @@ Classes
 * has zero or more members
 * class definition states what the class can do
 * access members using the ``object.member`` notation or ``object->member`` if given a pointer to
-the object
+  the object
 
 .. code-block:: cpp
 
@@ -1614,16 +1611,16 @@ Access Specifiers
     * **protected**
        - can be accessed in child classes
 * private and protected members cannot be accessed directly with direct member access
-operator
+  operator
 
 Member Functions
 ----------------
     - has definition or prototype within the class definition
     - can be defined within the class or separately using scope resolution operator (::)
     - function definitions are implementations that specify how things are done, and
-    usually specified outside the class so that they don't distract
+      usually specified outside the class so that they don't distract
     - within member function, a member name refers to the member of that name in the
-    object for which the member function was called
+      object for which the member function was called
 
     .. code-block:: cpp
 
@@ -1654,15 +1651,15 @@ Helper Functions
     * often take arguments of the classes that they are helpers of
 * usually put public first as it is what most people are interested in
 * the rule that a name must be declared before it is used is relaxed within the limited
-scope of a class
+  scope of a class
 * the more public member functions are, the harder it is to find bugs
 * effects of writing definition of member function within the class definition
     * compiler will try to generate code for function at each point of call, inline
-    functions
+      functions
     * all uses of the class will have to be recompiled when body of the function is changed
     * class definition gets larger
 * never put member function bodies in class declaration unless there is performance boost
-from inlining tiny functions
+  from inlining tiny functions
 * create new types if it'll make the code clearer
 
 Constructor
@@ -1699,7 +1696,7 @@ Constructor
 
 
     - can use default arguments to provide several overloaded functions, but can only
-    define default arguments for trailing parameters
+      define default arguments for trailing parameters
 
     .. code-block:: cpp
 
@@ -1716,7 +1713,7 @@ Constructor
 
 
     - for type T, T{} is the notation for the default value, as defined by the default
-    constructor
+      constructor
 
     .. code-block:: cpp
 
@@ -1734,16 +1731,16 @@ Constructor
 
     * without constructor, an invariant cannot be established
 * if a class doesn't have good invariant, use a ``struct`` as the data being dealt might be
-plain data
+  plain data
 * in-class initializer: an initializer for a class member specified as part of the member
-declaration
+  declaration
 
 Destructor
 ----------
     * executed whenever an object goes out of scope or delete expression is applied to a
-    pointer to the object
+      pointer to the object
     * exact same as the class prefixed with a tilde (~), does not return any and can't take
-    parameters
+      parameters
     * useful for releasing resources like closing files or releasing memory
 
     .. code-block:: cpp
@@ -1778,13 +1775,13 @@ Destructor
     * class with a virtual function needs a virtual destructor
         - as the class is likely to be used as base class
         - derived classes are likely to be allocated using ``new`` and deleted through pointer
-        to its base
+          to its base
 
 Copy Constructor
 ----------------
     * creates an object by initializing with an object of the same class
     * used to initialize one object from another of same type, copy an object to pass it as
-    argument to function, copy an object to return it from a function
+      argument to function, copy an object to return it from a function
     * compiler defines one if a class does not have it
     * a must to have if the class has pointer variables and dynamic memory allocations
 
@@ -1933,7 +1930,7 @@ Static Members
     * static function member is independent of objects and can be called even if no objects exist
     * accessed using only class name and scope resolution operator
     * can only access static data member, other static member functions and other outside
-    functions
+      functions
     * have a class scope and do not have access to the ``this`` pointer
     * can be used to determine if objects are created or not
 
@@ -2005,24 +2002,24 @@ Inheritance
 
     * derived class can access all non-private members of base
     * cannot inherit constructors, destructors and copy constructors, overloaded operators and
-    friend functions of the base class
+      friend functions of the base class
     * rarely use **protected** and **private** inheritance
     * **public inheritance**
         - public and protected members of base become public and protected of derived
         - private members are only accessible through calls to public and protected members of
-        base
+          base
     * **protected inheritance**
         - public and protected members of base become protected members of derived
         - public and protected member names can be used by members of the class and derived
-        classes
+          classes
     * **private inheritance**
         - public and protected member names can only be used by members of the class
     * **Virtual Table**
         - also called vtbl and its address is called virtual pointer, vptr
         - when inheritance is used, the data members of derived class are simply added after
-        those of a base
+          those of a base
         - the table tells which function is actually invoked when a function is called, with
-        only two memory accesses for finding the right function
+          only two memory accesses for finding the right function
         - only one vtbl for each class with a virtual function, not each object
     * **Overriding**
         - explicit use of ``override`` is useful in large, complicated class hierarchies
@@ -2047,7 +2044,7 @@ Inheritance
     * **Implementation Inheritance**
         - simplify the implementation of derived classes by using what the base offers
         - any change to the interface of the base require recompilation of all derived classes
-        and their users
+          and their users
 * programming by difference: program only the difference of derived class to the base class
 
 Data Encapsulation
@@ -2062,9 +2059,9 @@ Data Encapsulation
 Interfaces
 ----------
     * describe the behavior or capabilities of a class without committing to particular
-    implementation
+      implementation
     * implemented using abstract classes by declaring at least one of its functions as pure
-    virtual function
+      virtual function
     * abstract class (ABC) provides appropriate base class from which others can inherit
     * instantiating an object of ABC causes compilation error
     * subclass of ABC needs to implement each of the virtual functions
@@ -2101,7 +2098,7 @@ Polymorphism
 ------------
     * occurs when there's a hierarchy of classes and they are related by inheritance
     * a call to member function will cause different function to be executed depending on the
-    type of object that invokes the function
+      type of object that invokes the function
 
     .. code-block:: cpp
 
@@ -2179,17 +2176,17 @@ Polymorphism
 
     * compiler now looks at the contents of the pointer instead of it's type
         - since addresses of objects of tri and rec classes are stored in shape, respective
-        area() function is called
+          area() function is called
     * **dynamic linkage** or **late binding**
-        - function in the base class declared with ``virtual`` and signals the compiler not to have
-        static linkage for the function
+        - function in the base class declared with ``virtual`` and signals the compiler not to
+          have static linkage for the function
         - only call functions based on the kind of object for which it is called
     * **pure virtual function**
         - must be overridden
         - cannot create objects of classes with pure virtual functions
         - if all pure virtual functions are not overridden, derived class is still abstract
         - classes with pure virtual function are pure interfaces, have no data members and
-        constructors
+          constructors
 
         .. code-block:: cpp
 
@@ -2215,22 +2212,22 @@ Designing Classes
     * **Concrete Class**
         - can be used to create objects
     * overriding: defining a function in a derived class to be used through interfaces provided
-    by a base
+      by a base
     * prevent the default copy operations for a type if they can cause trouble
     * do not mix default copying and class hierarchies and pass by reference
     * when designing a base class, prevent copy constructor and copy assignment by using
-    ``=delete``
+      ``=delete``
     * write explicit functions to copy objects of types where default copy operations are
-    disabled
+      disabled
     * **Derivation**
         - building one class from another and using the new class instead of the original
         - inheritance will allow the use of members from the base
     * **Virtual Functions**
         - defining the same function in derived class so that it is called when a user calls
-        the base class function
+          the base class function
         - must have exactly same name and type as the base class
         - also called as run-time polymorphism, dynamic dispatch, run-time dispatch as the
-        function called is determined at run time based on the type of the object
+          function called is determined at run time based on the type of the object
         - must be declared ``virtual`` in the class declaration, but not when defining outside
     * **Private/Protected members**
         - keeping implementation details private to protect direct use
@@ -2328,7 +2325,7 @@ Preprocessor
 ============
 
 * directives that give instructions to the compiler to preprocess the information before actual
-compilation starts
+  compilation starts
 * begin with **#**
 * not C++ statements and do not end in a semicolon
 * ``#define``
@@ -2463,13 +2460,13 @@ Multithreading
     * attr: attribute object that may be used to set thread attributes, NULL for default values
     * start_routine: routine that the thread will execute once it is created
     * arg: single argument that may be passed to start_routine, must be passed by reference as
-    pointer cast of type void, NULL may be used is no argument to be passed
+      pointer cast of type void, NULL may be used is no argument to be passed
     * ``pthread_exit()`` is called after a thread has completed its work
 * max number of thread may be created is implementation dependent
 * threads are peer and may create other threads
 * no implied hierarchy or dependency between threads
 * if ``main()`` finishes before the threads and exits with ``pthread_exit()``, other threads will
-continue to execute
+  continue to execute
 * otherwise, they will be terminated when ``main()`` finishes
 * ``pthread_join(threadid, status)``, ``pthread_detach(threadid)``
     * blocks the calling thread until the specified threadid terminates
@@ -2593,7 +2590,8 @@ Vector
 
     * getting input and adding to vector, using input operation as the condition for a for-loop
         - use character '|' to terminate the input
-        - using for-loop limit the scope of input variable, x, to the loop, rather than 'while'
+        - using for-loop limit the scope of input variable, x, to the loop, rather than
+          'while'
 
         .. code-block:: cpp
 
@@ -3092,7 +3090,7 @@ Vector Custom
     * need data members to hold the size and elements
         - functions such as ``push_back()`` cannot be implemented with fixed number of elements
         - need data member that points to different sets of elements if more space is required
-        , such as a pointer to the first element
+          , such as a pointer to the first element
 
     .. code-block:: cpp
 
