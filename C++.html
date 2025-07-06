@@ -330,32 +330,27 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object">object</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declaration">declaration</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">definition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#header">header</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statements">Statements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-o">I/O</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operators">Operators</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#literals">Literals</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-safety">Type Safety</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#breaking-up-code">Breaking Up Code</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typedef">typedef</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#switch">Switch</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-time-errors">Compile-time errors</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#link-time-errors">Link-time errors</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-time-errors">Run-time errors</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logic-errors">Logic errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#errors">Errors</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exceptions">Exceptions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">Debugging</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#program-development">Program Development</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#program-evaluation">Program Evaluation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#namespaces">Namespaces</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struct">Struct</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerations">Enumerations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overloading">Overloading</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-expressions">Lambda Expressions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#buffer">buffer</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#files">Files</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#date-time">Date &amp; Time</a></li>
 </ul>
@@ -478,54 +473,42 @@
 <section id="basics">
 <h2>Basics<a class="headerlink" href="#basics" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#variables">Variables</a>, <a class="reference internal" href="#i-o">I/O</a>, <a class="reference internal" href="#operators">Operators</a>, <a class="reference internal" href="#literals">Literals</a>, <a class="reference internal" href="#type-safety">Type Safety</a>, <a class="reference internal" href="#typedef">typedef</a>, <a class="reference internal" href="#switch">Switch</a>, <a class="reference internal" href="#loops">Loops</a>, <a class="reference internal" href="#functions">Functions</a></p></li>
-<li><p><a href="#id52"><span class="problematic" id="id53">`Errors`_</span></a>, <a class="reference internal" href="#exceptions">Exceptions</a>, <a class="reference internal" href="#debugging">Debugging</a>, <a href="#id54"><span class="problematic" id="id55">`Program Development`_</span></a>, <a class="reference internal" href="#program-evaluation">Program Evaluation</a></p></li>
-<li><p><a class="reference internal" href="#namespaces">Namespaces</a>, <a class="reference internal" href="#struct">Struct</a>, <a class="reference internal" href="#enumerations">Enumerations</a>, <a class="reference internal" href="#overloading">Overloading</a>, <a class="reference internal" href="#lambda-expressions">Lambda Expressions</a>, <a class="reference internal" href="#files">Files</a>, <a class="reference internal" href="#date-time">Date &amp; Time</a></p></li>
-<li><dl class="simple">
-<dt>process of developing a program: analysis, design, programming, testing</dt><dd><ul>
-<li><p>implementation: programming + testing</p></li>
-<li><p>programming is part practical, part theoretical</p></li>
-</ul>
-</dd>
-</dl>
-</li>
+<li><p><a class="reference internal" href="#statements">Statements</a>, <a class="reference internal" href="#variables">Variables</a>, <a class="reference internal" href="#i-o">I/O</a>, <a class="reference internal" href="#operators">Operators</a>, <a class="reference internal" href="#literals">Literals</a>, <a class="reference internal" href="#type-safety">Type Safety</a>, <a class="reference internal" href="#typedef">typedef</a>, <a class="reference internal" href="#breaking-up-code">Breaking Up Code</a></p></li>
+<li><p><a class="reference internal" href="#switch">Switch</a>, <a class="reference internal" href="#loops">Loops</a>, <a class="reference internal" href="#functions">Functions</a>, <a class="reference internal" href="#errors">Errors</a>, <a class="reference internal" href="#exceptions">Exceptions</a>, <a class="reference internal" href="#debugging">Debugging</a>, <a class="reference internal" href="#program-development">Program Development</a></p></li>
+<li><p><a class="reference internal" href="#program-evaluation">Program Evaluation</a>, <a class="reference internal" href="#namespaces">Namespaces</a>, <a class="reference internal" href="#struct">Struct</a>, <a class="reference internal" href="#enumerations">Enumerations</a>, <a class="reference internal" href="#overloading">Overloading</a>, <a class="reference internal" href="#lambda-expressions">Lambda Expressions</a></p></li>
+<li><p><a class="reference internal" href="#files">Files</a>, <a class="reference internal" href="#date-time">Date &amp; Time</a></p></li>
+<li><p>process of developing a program: analysis, design, programming, testing</p></li>
+<li><p>implementation: programming + testing, programming is part practical, part theoretical</p></li>
 <li><p>when approaching software, do it in a principled and serious manner, need to be part of the
 solution, not add to the problems</p></li>
 <li><p>since <code class="docutils literal notranslate"><span class="pre">main()</span></code> is called by the system, the return value won’t be used, but on systems like
 Unix/Linux, it can be used to check program exit status</p></li>
 <li><p>source code or program text: what we read an write</p></li>
-<li><dl class="simple">
-<dt>executable, object code or machine code: what the computer executes</dt><dd><ul>
-<li><p>object code files have suffix .obj (on Windows) or .o (Unix)</p></li>
-<li><p>not portable among systems</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>linker</dt><dd><ul>
-<li><p>links the compiled object code files of separate parts, translation units, to form an
+<li><p>executable, object code or machine code: what the computer executes, object code files have
+suffix .obj (on Windows) or .o (Unix), and not portable among systems</p></li>
+<li><p>linker: links the compiled object code files of separate parts, translation units, to form an
 executable</p></li>
-</ul>
-</dd>
-</dl>
-</li>
 <li><p>compile-time errors: found by the compiler</p></li>
 <li><p>link-time errors: found by the liker</p></li>
 <li><p>run-time or logic errors: not found until the program is run</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">keep_window_open()</span></code>: needed on some Windows machines to prevent closing the window instantly</p></li>
-</ul>
-<section id="object">
-<h3>object<a class="headerlink" href="#object" title="Link to this heading">#</a></h3>
-<ul class="simple">
+<li><p>object: region of memory with a type that specifies what kind of information can be placed</p></li>
 <li><p>declaration/definition distinction allows to separate program into many parts that can be
 compiled separately</p></li>
+<li><p>a program usually contains some data structures or states</p></li>
+<li><p>arguments: inputs to a part of a program</p></li>
+<li><p>results: outputs from a part of a program</p></li>
+<li><p>ugly code is hard to read and hard to correct as it often hides logical errors</p></li>
+<li><p>always test programs with bad input</p></li>
+<li><p>don’t demonstrate cleverness by writing the most complex program, demonstrate competence by
+writing simplest code that does the job</p></li>
 </ul>
-</section>
-<section id="declaration">
-<h3>declaration<a class="headerlink" href="#declaration" title="Link to this heading">#</a></h3>
+<section id="statements">
+<h3>Statements<a class="headerlink" href="#statements" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul>
+<li><dl>
+<dt><strong>Declaration</strong></dt><dd><ul>
 <li><p>statement that gives a name to an object or introduces a name into a scope</p></li>
 <li><p>can declare many times as long as consistent</p>
 <blockquote>
@@ -539,23 +522,13 @@ compiled separately</p></li>
 </div></blockquote>
 </li>
 <li><p>functions and definitions consumes memory whereas declarations don’t</p></li>
-<li><dl class="simple">
-<dt>reasons to declare before using</dt><dd><ul class="simple">
-<li><p>simplifies reading for both humans and compiler</p></li>
-<li><p>having to know only the used declarations saves humans and compilers from looking
-through huge amounts of program text, especially when functions used are defined in
-other places</p></li>
+<li><p>declaring before using simplifies reading for both humans and compiler</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-</ul>
-</div></blockquote>
-</section>
-<section id="definition">
-<h3>definition<a class="headerlink" href="#definition" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Definition</strong></dt><dd><ul class="simple">
 <li><p>statement that introduces a new name and sets aside memory for a variable,
 every definition is also a declaration</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">const</span></code> requires initializing</p></li>
@@ -565,12 +538,11 @@ every definition is also a declaration</p></li>
 <li><p>global variable is default initialized to 0, but should minimize use of globals</p></li>
 <li><p>local and class members are uninitialized</p></li>
 </ul>
-</div></blockquote>
-</section>
-<section id="header">
-<h3>header<a class="headerlink" href="#header" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Header</strong></dt><dd><ul class="simple">
 <li><p>collection of declarations, usually in another file</p></li>
 <li><p>to use headers, <code class="docutils literal notranslate"><span class="pre">#include</span></code> in (preprocess) source files, both in files that use its
 declarations and provide definitions</p></li>
@@ -578,6 +550,10 @@ declarations and provide definitions</p></li>
 <li><p>some compilers and most development environments insist on having suffixes although they
 can be omitted</p></li>
 <li><p>should only contain declarations that can be duplicated in several files</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </div></blockquote>
 </section>
@@ -591,8 +567,8 @@ can be omitted</p></li>
 <li><p>define a set of possible values and a set of operations</p></li>
 <li><p>bool, char, int, float, double, void, wchar_t (wide char type)</p></li>
 <li><p>definition without an initializer are initialized with NULL</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">extern</span></code> tells the compiler that the variable is defined in another source, outside of current
-scope</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">extern</span></code> tells the compiler that the variable is defined in another source, outside
+of current scope</p></li>
 <li><p>omitting type with modifiers (signed, unsigned, long, short) auto implies int</p></li>
 </ul>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
@@ -607,17 +583,17 @@ scope</p></li>
 </li>
 <li><dl class="simple">
 <dt><strong>type qualifiers</strong></dt><dd><ul class="simple">
-<li><p><em>const</em>: cannot be changed during execution</p></li>
-<li><p><em>volatile</em>: value may be changed in ways not specified by the program</p></li>
-<li><p><em>restrict</em>: qualified pointer is initially the only means by which the object it points
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span></code>: cannot be changed during execution</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">volatile</span></code>: value may be changed in ways not specified by the program</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">restrict</span></code>: qualified pointer is initially the only means by which the object it points
 to can be accessed</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><p><strong>value</strong>: a set of bits in memory interpreted according to a type</p></li>
+<li><p>value: a set of bits in memory interpreted according to a type</p></li>
 <li><dl class="simple">
-<dt>lvalue (variables)</dt><dd><ul class="simple">
+<dt><strong>lvalue (variables)</strong></dt><dd><ul class="simple">
 <li><p>expressions that refer to memory location</p></li>
 <li><p>may appear in left or right side of assignment</p></li>
 <li><p>“the object named by x”</p></li>
@@ -626,7 +602,7 @@ to can be accessed</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>rvalue (numeric literals)</dt><dd><ul class="simple">
+<dt><strong>rvalue (numeric literals)</strong></dt><dd><ul class="simple">
 <li><p>data value stored in memory</p></li>
 <li><p>cannot have a value assigned, only appear on the right</p></li>
 <li><p>“values of object named by x”</p></li>
@@ -645,9 +621,7 @@ inside the function</p></li>
 </dd>
 </dl>
 </li>
-<li><dl>
-<dt><strong>storage class</strong></dt><dd><ul>
-<li><p>defines the scope and life-time of variables and functions</p></li>
+<li><p>storage class: defines the scope and life-time of variables and functions</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">auto</span></code>: default class for all local variables, can only be used in functions/locals</p></li>
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">register</span></code></dt><dd><ul class="simple">
@@ -660,14 +634,14 @@ inside the function</p></li>
 </dd>
 </dl>
 </li>
-<li><dl>
+<li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">static</span></code></dt><dd><ul class="simple">
 <li><p>keep local variable instead of creating and destroying</p></li>
 <li><p>maintain values between function calls</p></li>
 <li><p>applying to global causes it’s scope to be restricted to the declared file</p></li>
-<li><p>using on class data member causes only one copy of that member to be shared by all</p></li>
+<li><p>using on class data member causes only one copy of that member to be shared by all
+objects of its class</p></li>
 </ul>
-<p>objects of its class</p>
 </dd>
 </dl>
 </li>
@@ -689,20 +663,10 @@ that has been defined</p></li>
 </dd>
 </dl>
 </li>
-</ul>
-</dd>
-</dl>
-</li>
 <li><p>logically, assignment and initialization are different</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">constexpr</span></code>: symbolic constant and must be given a value at compile time</p></li>
 <li><dl class="simple">
-<dt><strong>constexpr</strong></dt><dd><ul class="simple">
-<li><p>symbolic constant and must be given a value at compile time</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>scope</strong></dt><dd><ul class="simple">
+<dt><strong>Scope</strong></dt><dd><ul class="simple">
 <li><p>region of program text</p></li>
 <li><p>global scope: area of text outside any other scope</p></li>
 <li><p>namespace scope: named scope nested in global scope or in another namespace</p></li>
@@ -731,41 +695,31 @@ that has been defined</p></li>
 <div><ul>
 <li><p>occurs in streams, sequences of bytes</p></li>
 <li><p>reading of strings is terminated by whitespace (space, newline, tab)</p></li>
+<li><p>characters that are not ordinary: Ctrl+Z (Windows), Ctrl+D (Unix) terminates an input
+stream</p></li>
+<li><p>separate how the program reads and writes from actual input and output devices</p></li>
+<li><p>directly addressing each kind of device will need to change the program for a new
+screen or disk every time or limit users to certain screens and disks</p></li>
+<li><p>most modern OS separate the detailed handling of I/O devices into device drivers</p></li>
+<li><dl class="simple">
+<dt><strong>Different Kinds of I/O</strong></dt><dd><ul class="simple">
+<li><p>streams of data items (files, network, display devices)</p></li>
+<li><p>user interacting with keyboard or through GUI</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">&lt;iostream&gt;</span></code></dt><dd><ul class="simple">
-<li><dl class="simple">
-<dt>cin (standard input)</dt><dd><ul>
-<li><p>instance of istream class</p></li>
-<li><p>used with stream extraction operator, get from, ‘&gt;&gt;’</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>cout (standard output)</dt><dd><ul>
-<li><p>instance of ostream class</p></li>
-<li><p>used with stream insertion operator ‘&lt;&lt;’</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>cerr (un-buffered standard error stream)</dt><dd><ul>
-<li><p>instance of ostream class</p></li>
-<li><p>each stream insertion causes output to appear immediately</p></li>
-<li><p>more resilient to errors as it is not optimized</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>clog (buffered standard error stream)</dt><dd><ul>
-<li><p>instance of ostream class</p></li>
-<li><p>each stream insertion is held in a buffer till filled or flushed</p></li>
-</ul>
-</dd>
-</dl>
-</li>
+<li><p>cin (standard input): instance of istream class, used with stream extraction
+operator, get from, ‘&gt;&gt;’</p></li>
+<li><p>cout (standard output): instance of ostream class, used with stream insertion
+operator ‘&lt;&lt;’</p></li>
+<li><p>cerr (un-buffered standard error stream): instance of ostream class&lt; each stream
+insertion causes output to appear immediately, more resilient to errors as it is not
+optimized</p></li>
+<li><p>clog (buffered standard error stream): instance of ostream class, each stream
+insertion is held in a buffer till filled or flushed</p></li>
 </ul>
 </dd>
 </dl>
@@ -810,46 +764,42 @@ that has been defined</p></li>
 </dd>
 </dl>
 </li>
-<li><p><strong>integer output manipulators</strong>: <code class="docutils literal notranslate"><span class="pre">oct</span></code>, <code class="docutils literal notranslate"><span class="pre">dec</span></code>, <code class="docutils literal notranslate"><span class="pre">hex</span></code>, <code class="docutils literal notranslate"><span class="pre">showbase</span></code>, <code class="docutils literal notranslate"><span class="pre">noshowbase</span></code></p>
-<blockquote>
-<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">123</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">hex</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1234</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">oct</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1234</span><span class="p">;</span><span class="w"> </span><span class="c1">// output: 123 4d2 2322</span>
-</pre></div>
-</div>
-<ul class="simple">
+<li><dl>
+<dt><strong>Integer Output Manipulators</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">oct</span></code>, <code class="docutils literal notranslate"><span class="pre">dec</span></code>, <code class="docutils literal notranslate"><span class="pre">hex</span></code>, <code class="docutils literal notranslate"><span class="pre">showbase</span></code>, <code class="docutils literal notranslate"><span class="pre">noshowbase</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span> <span class="pre">hex</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span> <span class="pre">oct</span></code> informs any further integer outputs to be hex or oct</p></li>
 <li><p>are called manipulators and are sticky until output format is changed</p></li>
-</ul>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">123</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">hex</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1234</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\t</span><span class="s">hello</span><span class="se">\t</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1234</span><span class="p">;</span><span class="w"> </span><span class="c1">// output: 123 4d2 hello 4d2</span>
-
-<span class="c1">// changing output back to decimal</span>
-<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">hex</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1234</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">dec</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;hello</span><span class="se">\t</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1234</span><span class="p">;</span><span class="w"> </span><span class="c1">// output: 4d2 hello 1234</span>
-</pre></div>
-</div>
-<ul class="simple">
 <li><p>can ask the <code class="docutils literal notranslate"><span class="pre">ostream</span></code> to show the base of each integer</p></li>
 <li><p>decimals have no prefix, hexas have 0x and octals have 0 as prefix</p></li>
 </ul>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">showbase</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1234</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">hex</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1234</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">oct</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1234</span><span class="p">;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">123</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">hex</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1234</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">oct</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1234</span><span class="p">;</span><span class="w"> </span><span class="c1">// output: 123 4d2 2322</span>
+
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">123</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">hex</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1234</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\t</span><span class="s">hello</span><span class="se">\t</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1234</span><span class="p">;</span><span class="w"> </span><span class="c1">// output: 123 4d2 hello 4d2</span>
+
+<span class="c1">// changing output back to decimal</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">hex</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1234</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">dec</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;hello</span><span class="se">\t</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1234</span><span class="p">;</span><span class="w"> </span><span class="c1">// output: 4d2 hello 1234</span>
+
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">showbase</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1234</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">hex</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1234</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">oct</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1234</span><span class="p">;</span>
 <span class="c1">// 1234 0x4d2 02322</span>
 <span class="c1">// showbase manipulator persists</span>
 
 <span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1234</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">noshowbase</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1234</span><span class="p">;</span><span class="w"> </span><span class="c1">// 02322 2322</span>
 </pre></div>
 </div>
-</div></blockquote>
+</dd>
+</dl>
 </li>
+<li><dl>
+<dt><strong>Stream Insertion Operator</strong></dt><dd><ul class="simple">
 <li><p>by default, <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> assumes numbers use decimal notation</p></li>
-<li><p>can tell it to read various formats and input manipulators also stick</p>
-<blockquote>
-<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">hex</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">oct</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// 1234 4d22 2322 2322</span>
-<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// 1234 1234 1234 1234</span>
-</pre></div>
-</div>
-<ul class="simple">
+<li><p>can tell it to read various formats and input manipulators also stick</p></li>
 <li><p>can tell <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> to accept prefixes</p></li>
 <li><p>stream member function <code class="docutils literal notranslate"><span class="pre">unsetf()</span></code> clears the flags</p></li>
 </ul>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cin</span><span class="p">.</span><span class="n">unsetf</span><span class="p">(</span><span class="n">ios</span><span class="o">::</span><span class="n">dec</span><span class="p">);</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">hex</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">oct</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// 1234 4d22 2322 2322</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// 1234 1234 1234 1234</span>
+
+<span class="n">cin</span><span class="p">.</span><span class="n">unsetf</span><span class="p">(</span><span class="n">ios</span><span class="o">::</span><span class="n">dec</span><span class="p">);</span>
 <span class="n">cin</span><span class="p">.</span><span class="n">unsetf</span><span class="p">(</span><span class="n">ios</span><span class="o">::</span><span class="n">oct</span><span class="p">);</span>
 <span class="n">cin</span><span class="p">.</span><span class="n">unsetf</span><span class="p">(</span><span class="n">ios</span><span class="o">::</span><span class="n">hex</span><span class="p">);</span>
 
@@ -857,64 +807,72 @@ that has been defined</p></li>
 <span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// 1234 1234 1234 1234</span>
 </pre></div>
 </div>
-</div></blockquote>
+</dd>
+</dl>
 </li>
-<li><p><strong>floating point manipulators</strong>: <code class="docutils literal notranslate"><span class="pre">fixed</span></code>, <code class="docutils literal notranslate"><span class="pre">scientific</span></code>, <code class="docutils literal notranslate"><span class="pre">defaultfloat</span></code>, <code class="docutils literal notranslate"><span class="pre">setprecision()</span></code></p></li>
-<li><p>they also stick</p>
-<blockquote>
-<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">1234.56789</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">1234.56789</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">scientific</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">1234.56789</span>
-<span class="w">     </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">1234.56789</span><span class="p">;</span>
-<span class="c1">// 1234.57 1234.567890 1.2345678e+03 1.2345678e+03</span>
-</pre></div>
-</div>
-<ul class="simple">
+<li><dl>
+<dt><strong>Floating Point Manipulators</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fixed</span></code>, <code class="docutils literal notranslate"><span class="pre">scientific</span></code>, <code class="docutils literal notranslate"><span class="pre">defaultfloat</span></code>, <code class="docutils literal notranslate"><span class="pre">setprecision()</span></code></p></li>
+<li><p>they also stick</p></li>
 <li><p>by default, float values are printed using six total digits with defaultfloat</p></li>
 <li><p>number is rounded for best approximation to be printed with six digits</p></li>
 <li><p>floating-point format only applies to floating-point numbers</p></li>
+<li><p>can set the precision with <code class="docutils literal notranslate"><span class="pre">setprecision()</span></code></p></li>
 </ul>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">scientific</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">1234.56789</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">123456789</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">1234567.0</span><span class="p">;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">1234.56789</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">1234.56789</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">scientific</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">1234.56789</span>
+<span class="w">     </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">1234.56789</span><span class="p">;</span>
+<span class="c1">// 1234.57 1234.567890 1.2345678e+03 1.2345678e+03</span>
+
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">scientific</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">1234.56789</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">123456789</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">1234567.0</span><span class="p">;</span>
 <span class="c1">// 1.2345678e+03 123456789 1.234567e+06</span>
 <span class="c1">// 1234567.0 prints in scientific because fix format cannot be used to be accurate</span>
 
 <span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">defaultfloat</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">1234.56789</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">1234567.0</span><span class="p">;</span>
 <span class="c1">// 1234.57 1.23457e+06</span>
 <span class="c1">// defaultfloat chooses between scientific and fixed to present the most accurate</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>can set the precision with <code class="docutils literal notranslate"><span class="pre">setprecision()</span></code></p></li>
-</ul>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iomanip&gt;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iomanip&gt;</span>
 <span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">1234.56789</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setprecision</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">1234.56789</span><span class="p">;</span>
 <span class="c1">// 1234.57 1234.5679</span>
 </pre></div>
 </div>
-</div></blockquote>
+</dd>
+</dl>
 </li>
 <li><dl>
-<dt><strong>fields</strong> for integers: <code class="docutils literal notranslate"><span class="pre">setw()</span></code></dt><dd><ul class="simple">
+<dt><strong>setw()</strong></dt><dd><ul class="simple">
+<li><p>fields for integers</p></li>
 <li><p>using scientific and fixed formats, how much space a value takes up on output by
 floating-point numbers can be controlled, which is useful for printing table</p></li>
 <li><p>same thing can be done for integers with <em>fields</em></p></li>
 <li><p>can specify exactly how many character positions an integer value or string value
 will occupy</p></li>
 <li><p>field sizes don’t stick</p></li>
+<li><p>bad formatting is almost always same as bad output data</p></li>
+<li><p>overflows are noticeable and can be corrected</p></li>
+<li><p>fields can also be used for floating-point and strings</p></li>
 </ul>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">12345</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;|&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setw</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">12345</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;|&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setw</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">12345</span><span class="p">;</span>
 <span class="c1">// 12345|12345|   12345</span>
 <span class="c1">// normal|doesn&#39;t fit in 4 field| three spaces in front</span>
 <span class="c1">// numbers will not be truncated to fit</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>bad formatting is almost always same as bad output data</p></li>
-<li><p>overflows are noticeable and can be corrected</p></li>
-<li><p>fields can also be used for floating-point and strings</p></li>
-</ul>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">12345</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;|&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setw</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">12345</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;|&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;asdfg&quot;</span><span class="p">;</span>
+
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">12345</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;|&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setw</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">12345</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;|&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;asdfg&quot;</span><span class="p">;</span>
 <span class="c1">// 12345| 12345.6|   asdfg</span>
 </pre></div>
 </div>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Buffer</strong></dt><dd><ul class="simple">
+<li><p>data structure that ostream uses internally to store data given by user to OS</p></li>
+<li><p>delay between ostream and characters appearing is usually because they are still in
+buffer</p></li>
+<li><p>buffering is important for performance</p></li>
+<li><p>istream uses buffer to communicate with the OS</p></li>
+<li><p>with istream, buffering can be quite visible to the user</p></li>
+</ul>
 </dd>
 </dl>
 </li>
@@ -926,7 +884,7 @@ will occupy</p></li>
 <blockquote>
 <div><ul class="simple">
 <li><dl class="simple">
-<dt><strong>arithmetic</strong></dt><dd><ul>
+<dt><strong>Arithmetic</strong></dt><dd><ul>
 <li><p>+, -, &amp;ast;, /, %, ++, –</p></li>
 <li><p>modulo operator (%) cannot operate on floats, so use <code class="docutils literal notranslate"><span class="pre">fmod()</span></code> from <code class="docutils literal notranslate"><span class="pre">&lt;cmath&gt;</span></code></p></li>
 </ul>
@@ -934,21 +892,21 @@ will occupy</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>relational</strong></dt><dd><ul>
+<dt><strong>Relational</strong></dt><dd><ul>
 <li><p>==, !=, &gt;, &lt;, &gt;=, &lt;=</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>logical</strong></dt><dd><ul>
+<dt><strong>Logical</strong></dt><dd><ul>
 <li><p>&amp;&amp;, ||, !</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>bitwise</strong></dt><dd><ul>
+<dt><strong>Bitwise</strong></dt><dd><ul>
 <li><p>perform bit-by-bit operation</p></li>
 <li><p>&amp;, <a href="#id1"><span class="problematic" id="id2">|</span></a>, ^ (XOR), ~ (complement), &lt;&lt;, &gt;&gt;</p></li>
 </ul>
@@ -956,46 +914,28 @@ will occupy</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>assignment</strong></dt><dd><ul>
+<dt><strong>Assignment</strong></dt><dd><ul>
 <li><p>=, +=, -=, <a href="#id3"><span class="problematic" id="id4">*</span></a>=, /=, %=, &lt;&lt;=, &gt;&gt;=, &amp;=, ^=, <a href="#id5"><span class="problematic" id="id6">|</span></a>=</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>misc</strong></dt><dd><ul>
+<dt><strong>Misc</strong></dt><dd><ul>
 <li><p>sizeof, conditional, comma, member (. &amp; -&gt;), cast, address (&amp;), indirection (*)</p></li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">sizeof()</span></code> can be used on type name or expression</dt><dd><ul>
-<li><p>for type, gives size of an object</p></li>
-<li><p>for expression, gives size of the type</p></li>
-<li><p>gives number of bytes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sizeof()</span></code> can be used on type name or expression to get number of bytes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sizeof()</span></code> for type gives size of an object, and gives size of the type for
+expression</p></li>
 <li><p>size of a type can be different on various implementation of C++</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-</ul>
-</dd>
-</dl>
-</li>
 <li><dl class="simple">
-<dt>precedence</dt><dd><ul>
-<li><dl class="simple">
-<dt>left to right</dt><dd><ul>
-<li><p>postfix, multiplicative, additive, shift, relational, equality, bitwise (AND, OR,
-XOR), logical (AND, OR), comma</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>right to left</dt><dd><ul>
-<li><p>unary, conditional, assignment</p></li>
-</ul>
-</dd>
-</dl>
-</li>
+<dt><strong>Precedence</strong></dt><dd><ul>
+<li><p>left to right: postfix, multiplicative, additive, shift, relational, equality,
+bitwise (AND, OR, XOR), logical (AND, OR), comma</p></li>
+<li><p>right to left: unary, conditional, assignment</p></li>
 </ul>
 </dd>
 </dl>
@@ -1010,16 +950,11 @@ XOR), logical (AND, OR), comma</p></li>
 <blockquote>
 <div><ul>
 <li><dl>
-<dt><strong>integer</strong></dt><dd><ul class="simple">
-<li><dl class="simple">
-<dt>prefix specifies the base or radix</dt><dd><ul>
+<dt><strong>Integer</strong></dt><dd><ul class="simple">
+<li><p>prefix specifies the base or radix</p></li>
 <li><p>0x or 0X for hexa</p></li>
 <li><p>0 for octal</p></li>
 <li><p>nothing for decimal</p></li>
-</ul>
-</dd>
-</dl>
-</li>
 <li><p>can have suffix combination of U/u and L/l for unsigned and long</p></li>
 </ul>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="mi">85</span><span class="w"> </span><span class="c1">//decimal</span>
@@ -1035,7 +970,7 @@ XOR), logical (AND, OR), comma</p></li>
 </dl>
 </li>
 <li><dl>
-<dt><strong>float</strong></dt><dd><ul class="simple">
+<dt><strong>Float</strong></dt><dd><ul class="simple">
 <li><p>has int part, decimal point, fractional part and exponent part</p></li>
 <li><p>can represent in decimal or exponential form</p></li>
 </ul>
@@ -1046,15 +981,13 @@ XOR), logical (AND, OR), comma</p></li>
 </dd>
 </dl>
 </li>
-<li><p><strong>boolean</strong>: true &amp; false, should not consider as 1 or 0</p></li>
+<li><p><strong>Boolean</strong>: true &amp; false, should not consider as 1 or 0</p></li>
 <li><dl class="simple">
-<dt><strong>character</strong></dt><dd><ul class="simple">
+<dt><strong>Character</strong></dt><dd><ul class="simple">
 <li><p>enclosed in single quote</p></li>
 <li><p>wide character begins with L and should be stored in <code class="docutils literal notranslate"><span class="pre">wchar_t</span></code></p></li>
-<li><p>on a PC, range of char values is [-128:127], but only [0:127]l can be used portably
-as not every computer is a PC and different computers have different ranges, [0:255]</p></li>
-<li><dl class="simple">
-<dt>special meaning chars</dt><dd><ul>
+<li><p>range of char values is [-128:127], but only [0:127]l can be used portably as
+different computers have different ranges, [0:255]</p></li>
 <li><p>a       alert or bell</p></li>
 <li><p>b       backspace</p></li>
 <li><p>f       form feed</p></li>
@@ -1067,22 +1000,12 @@ as not every computer is a PC and different computers have different ranges, [0:
 </dd>
 </dl>
 </li>
-</ul>
-</dd>
-</dl>
-</li>
 <li><dl>
-<dt><strong>string</strong></dt><dd><ul class="simple">
+<dt><strong>String</strong></dt><dd><ul class="simple">
 <li><p>enclosed in double quotes</p></li>
 <li><p>representation of a string is a bit more complicated than that of an int as a string
 keeps track of the number of characters it holds</p></li>
-<li><dl class="simple">
-<dt>functions</dt><dd><ul>
-<li><p>strcpy, strcat, strlen, strcmp, strchr, strstr</p></li>
-</ul>
-</dd>
-</dl>
-</li>
+<li><p>functions: <code class="docutils literal notranslate"><span class="pre">strcpy()</span></code>, <code class="docutils literal notranslate"><span class="pre">strcat()</span></code>, <code class="docutils literal notranslate"><span class="pre">strlen()</span></code>, <code class="docutils literal notranslate"><span class="pre">strcmp()</span></code>, <code class="docutils literal notranslate"><span class="pre">strchr()</span></code>, <code class="docutils literal notranslate"><span class="pre">strstr()</span></code></p></li>
 </ul>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// C-style</span>
 <span class="kt">char</span><span class="w"> </span><span class="n">myStr</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;H&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;e&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;l&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;l&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;o&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">};</span>
@@ -1126,7 +1049,8 @@ keeps track of the number of characters it holds</p></li>
 <li><p>using a variable before it has been initialized is no type-safe</p></li>
 <li><p>C++ compiler cannot guarantee complete type safety</p></li>
 <li><dl class="simple">
-<dt><strong>type conversions</strong> are safe when no information is lost</dt><dd><ul class="simple">
+<dt><strong>Type Conversions</strong></dt><dd><ul class="simple">
+<li><p>are safe when no information is lost</p></li>
 <li><p>bool to char</p></li>
 <li><p>bool to int</p></li>
 <li><p>bool to double</p></li>
@@ -1138,10 +1062,10 @@ keeps track of the number of characters it holds</p></li>
 </dl>
 </li>
 <li><p>for really large int, some computers suffer loss of precision when converting to double</p></li>
-<li><p><strong>unsafe/narrowing conversions</strong> can implicitly turn a value to another type that does not
+<li><p>unsafe/narrowing conversions can implicitly turn a value to another type that does not
 equal the original value</p></li>
 <li><dl class="simple">
-<dt>accept by compiler even though unsafe</dt><dd><ul class="simple">
+<dt><strong>Accepted by Compiler Even Though Unsafe</strong></dt><dd><ul class="simple">
 <li><p>double to int</p></li>
 <li><p>double to char</p></li>
 <li><p>double to bool</p></li>
@@ -1174,17 +1098,19 @@ equal the original value</p></li>
 </li>
 </ul>
 </div></blockquote>
-<ul class="simple">
-<li><p>a program usually contains some data structures or states</p></li>
-<li><p>arguments: inputs to a part of a program</p></li>
-<li><p>results: outputs from a part of a program</p></li>
-<li><dl class="simple">
-<dt>breaking up big computation into smaller ones</dt><dd><ul>
+</section>
+<section id="breaking-up-code">
+<h3>Breaking Up Code<a class="headerlink" href="#breaking-up-code" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>big computation should be broken into smaller ones</p></li>
 <li><dl class="simple">
 <dt><strong>Abstraction</strong></dt><dd><ul>
-<li><p>programming and design technique that relies on separation of interface and implementation</p></li>
+<li><p>programming and design technique that relies on separation of interface and
+implementation</p></li>
 <li><p>use access labels to define abstract interface to classes (public, private)</p></li>
-<li><p>class internals are protected from user-level errors, which might corrupt the state of object</p></li>
+<li><p>class internals are protected from user-level errors, which might corrupt the state
+of object</p></li>
 <li><p>class implementation may evolve without requiring change in user-level code</p></li>
 <li><p>interface must be kept independent of the implementation</p></li>
 </ul>
@@ -1200,14 +1126,7 @@ equal the original value</p></li>
 </dl>
 </li>
 </ul>
-</dd>
-</dl>
-</li>
-<li><p>ugly code is hard to read and hard to correct as it often hides logical errors</p></li>
-<li><p>always test programs with bad input</p></li>
-<li><p>don’t demonstrate cleverness by writing the most complex program, demonstrate competence by
-writing simplest code that does the job</p></li>
-</ul>
+</div></blockquote>
 </section>
 <section id="typedef">
 <h3>typedef<a class="headerlink" href="#typedef" title="Link to this heading">#</a></h3>
@@ -1237,34 +1156,33 @@ writing simplest code that does the job</p></li>
 <h3>Loops<a class="headerlink" href="#loops" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul>
-<li><p><strong>while</strong></p>
-<blockquote>
-<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-</pre></div>
-</div>
-<ul class="simple">
+<li><dl>
+<dt><strong>while</strong></dt><dd><ul class="simple">
 <li><p>the first program ever to run on a stored-program computer (the EDSAC), written and
 run by David Wheeler, was simple iteration of square numbers</p></li>
 <li><p>loop variable must be defined and initialized outside (before) the statement</p></li>
 </ul>
-</div></blockquote>
-</li>
-<li><p><strong>for</strong></p>
-<blockquote>
-<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">){}</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 </pre></div>
 </div>
-<ul class="simple">
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>for</strong></dt><dd><ul class="simple">
 <li><p>never modify the loop variable inside the body of statement</p></li>
 <li><p>conditional expression is assumed to be true if absent</p></li>
 </ul>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="p">(;;;)</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">){}</span>
+
+<span class="k">for</span><span class="p">(;;;)</span>
 </pre></div>
 </div>
-</div></blockquote>
+</dd>
+</dl>
 </li>
-<li><p>range-for-loop</p>
+<li><p><strong>range-for</strong></p>
 <blockquote>
 <div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="o">:</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// for each int x in v</span>
 </pre></div>
@@ -1308,78 +1226,69 @@ the complete function definition</p></li>
 action</p></li>
 <li><p>standard library provides <code class="docutils literal notranslate"><span class="pre">swap()</span></code> for every type that can be copied</p></li>
 <li><dl class="simple">
-<dt><strong>call/pass by value</strong> (default)</dt><dd><ul class="simple">
-<li><p>copy the actual value of argument into formal parameter</p></li>
-<li><p>argument is not affected</p></li>
-<li><p>cost of copying the value</p></li>
+<dt><strong>Call/Pass by Value</strong></dt><dd><ul class="simple">
+<li><p>default, copy the actual value of argument into formal parameter</p></li>
+<li><p>argument is not affected, but there is cost of copying the value</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><p><strong>call/pass by pointer</strong></p>
-<blockquote>
-<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">myfunc</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">);</span>
-</pre></div>
-</div>
-<ul class="simple">
+<li><dl>
+<dt><strong>Call/Pass by Pointer</strong></dt><dd><ul class="simple">
 <li><p>copy the address of argument into formal parameter</p></li>
 <li><p>argument is affected</p></li>
 </ul>
-</div></blockquote>
-</li>
-<li><p><strong>call/pass by reference</strong></p>
-<blockquote>
-<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">myfunc</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">myfunc</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">);</span>
 </pre></div>
 </div>
-<ul class="simple">
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Call/Pass by Reference</strong></dt><dd><ul class="simple">
 <li><p>copy the reference/address of argument into formal parameter</p></li>
 <li><p>argument is affected</p></li>
+<li><p>references make both reading and writing of same element easy without repetition</p></li>
 </ul>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;&gt;</span><span class="n">v</span><span class="p">;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">myfunc</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+
+<span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;&gt;</span><span class="n">v</span><span class="p">;</span>
 <span class="kt">double</span><span class="o">&amp;</span><span class="w"> </span><span class="n">vector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)][</span><span class="n">g</span><span class="p">(</span><span class="n">y</span><span class="p">)];</span>
 <span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var</span><span class="p">);</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>references make both reading and writing of same element easy without repetition</p></li>
-</ul>
-</div></blockquote>
+</dd>
+</dl>
 </li>
-<li><p><strong>call/pass by const reference</strong></p>
-<blockquote>
-<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">myfunc</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+<li><dl>
+<dt><strong>Call/Pass by Const Reference</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span></code> stops the argument being modified</p></li>
+<li><p>const reference doesn’t need an lvalue</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">myfunc</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+
+<span class="c1">// since cr is const, literal can be passed</span>
+<span class="c1">// compiler sets aside an int for cr to refer to, temporary: compiler-generated object</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">cr</span><span class="p">);</span>
+
+<span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">)</span>
+<span class="n">g</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// error, int&amp; r needs variable</span>
+<span class="n">g</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// OK</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">const</span></code> stops the argument being modified</p></li>
-</ul>
-</div></blockquote>
+</dd>
+</dl>
 </li>
-<li><p>pointer can be reassigned, reference must be bound at initialization and cannot be rebound</p></li>
+<li><p>pointer can be reassigned, reference must be bound at initialization and cannot be
+rebound</p></li>
 <li><dl class="simple">
-<dt>by-value vs by-reference</dt><dd><ul class="simple">
+<dt><strong>By-Value vs By-Reference</strong></dt><dd><ul class="simple">
 <li><p>use non-const reference to change</p></li>
 <li><p>by-value gives a copy</p></li>
 <li><p>by-const-reference prevents from changing the value of the object</p></li>
 </ul>
 </dd>
 </dl>
-</li>
-<li><p>const reference doesn’t need an lvalue</p>
-<blockquote>
-<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">cr</span><span class="p">);</span>
-<span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">)</span>
-<span class="n">g</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// error, int&amp; r needs variable</span>
-<span class="n">g</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// OK</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>since cr is const, literal can be passed</p></li>
-<li><p>compiler sets aside an int for cr to refer to</p></li>
-<li><p>temporary: compiler-generated object</p></li>
-</ul>
-</div></blockquote>
 </li>
 <li><p>by-value for small objects, by-const-reference for non-modify large object, by-reference
 only when needed</p></li>
@@ -1389,7 +1298,7 @@ for functions that change several objects as functions can have only one return 
 <li><p>best to avoid functions that modify several objects</p></li>
 <li><p>recursive: function that directly or indirectly calls itself</p></li>
 <li><dl class="simple">
-<dt>function activation record</dt><dd><ul class="simple">
+<dt><strong>Function Activation Record</strong></dt><dd><ul class="simple">
 <li><p>data structure containing a copy of called function’s parameters and local variables</p></li>
 <li><p>each function has its record</p></li>
 <li><p>from implementation’s point of view, a parameter is just another local variable</p></li>
@@ -1400,112 +1309,86 @@ for functions that change several objects as functions can have only one return 
 </dd>
 </dl>
 </li>
-<li><p><strong>constexpr functions</strong></p>
-<blockquote>
-<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="k">constexpr</span><span class="w"> </span><span class="n">test</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<ul class="simple">
+<li><dl>
+<dt><strong>constexpr Functions</strong></dt><dd><ul class="simple">
 <li><p>to avoid doing same calculation many times</p></li>
 <li><p>evaluated by the compiler if given constant expressions as arguments</p></li>
 <li><p>must be simple for compiler to evaluate, otherwise error</p></li>
 <li><p>must have a body of single return</p></li>
 <li><p>may not change the value of variables outside its body</p></li>
 </ul>
-</div></blockquote>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">test</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </li>
 <li><p>do not return a pointer to a local variable</p></li>
 </ul>
 </div></blockquote>
-<ul class="simple">
-<li><p>characters that are not ordinary: Ctrl+Z (Windows), Ctrl+D (Unix) terminates an input stream</p></li>
-</ul>
 </section>
-<section id="compile-time-errors">
-<h3>Compile-time errors<a class="headerlink" href="#compile-time-errors" title="Link to this heading">#</a></h3>
+<section id="errors">
+<h3>Errors<a class="headerlink" href="#errors" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Compile-time Errors</strong></dt><dd><ul>
 <li><p>found by compiler, which is the first line of defense against errors</p></li>
-<li><dl class="simple">
-<dt><strong>Syntax errors</strong></dt><dd><ul>
-<li><p>not always easy to be reported in understandable way by the compiler</p></li>
+<li><p>Syntax errors: not always easy to be reported in understandable way by the compiler</p></li>
+<li><p>Type errors: mismatches between the declared types, every function call must provide
+the expected number of arguments</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Type errors</strong></dt><dd><ul>
-<li><p>mismatches between the declared types</p></li>
-<li><p>every function call must provide the expected number of arguments</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</div></blockquote>
-</section>
-<section id="link-time-errors">
-<h3>Link-time errors<a class="headerlink" href="#link-time-errors" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
+<dt><strong>Link-time Errors</strong></dt><dd><ul>
 <li><p>found by the linker when trying to combine object files into executable</p></li>
-<li><p>every function must be declared with the same type in every translation unit (compiled
-parts)</p></li>
+<li><p>every function must be declared with the same type in every translation unit
+(compiled parts)</p></li>
 <li><p>every function must be defined exactly once</p></li>
 <li><p>functions with the same name but different types will not match and will be ignored</p></li>
 <li><p>misspelled function name doesn’t usually give a linker error, but compiler does</p></li>
 <li><p>compile-time errors are found earlier than link-time and easier to fix</p></li>
 <li><p>exactly one definition of an entity but can be many declarations</p></li>
 </ul>
-</div></blockquote>
-</section>
-<section id="run-time-errors">
-<h3>Run-time errors<a class="headerlink" href="#run-time-errors" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Run-time Errors</strong></dt><dd><ul>
 <li><p>found by checks in a running program</p></li>
 <li><p>detected by the computer, a library or user code</p></li>
-<li><p>called function, the callee, must check its own arguments as checking can be in one place</p></li>
-<li><dl class="simple">
-<dt>but checking in function isn’t always done when</dt><dd><ul>
-<li><p>cannot modify the function definition (using from library)</p></li>
-<li><p>called function doesn’t know what to do in case of error (library writer can detect
-errors, but only user know what to do with them)</p></li>
-<li><p>called function doesn’t know where it was called from</p></li>
-<li><p>performance cost of a check can be more than the cost of calculating the result</p></li>
+<li><p>called function, the callee, must check its own arguments as checking can be in one
+place</p></li>
+<li><p>but checking in function isn’t always done when cannot modify the function
+definition (using from library), called function doesn’t know what to do in case of
+error (library writer can detect errors, but only user know what to do with them),
+called function doesn’t know where it was called from, performance cost of a check
+can be more than the cost of calculating the result</p></li>
+<li><p>letting the called function send errors and the caller handling them can have
+problems as both called function and caller must do tests, caller can forget to
+test, and many functions do not have an extra return value to indicated an error</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>letting the called function send errors and the caller handling them can have problems</dt><dd><ul>
-<li><p>both called function and caller must do tests</p></li>
-<li><p>caller can forget to test</p></li>
-<li><p>many functions do not have an extra return value to indicated an error</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</div></blockquote>
-</section>
-<section id="logic-errors">
-<h3>Logic errors<a class="headerlink" href="#logic-errors" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
+<dt><strong>Logic Errors</strong></dt><dd><ul>
 <li><p>found by the programmer</p></li>
 <li><p>usually the most difficult to find and fix</p></li>
 <li><p>check, estimate, that the result is plausible as it is not easy to know what is
 reasonable</p></li>
 </ul>
-</div></blockquote>
-<ul class="simple">
+</dd>
+</dl>
+</li>
 <li><dl class="simple">
-<dt>Sources of errors</dt><dd><ul>
+<dt><strong>Sources of Errors</strong></dt><dd><ul>
 <li><p>poor or incomplete program specifications</p></li>
 <li><p>unexpected arguments, input or state (data)</p></li>
 <li><p>logical errors</p></li>
@@ -1513,31 +1396,32 @@ reasonable</p></li>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">std::exception</span></code> (provides <code class="docutils literal notranslate"><span class="pre">what()</span></code> method)</dt><dd><ul>
+</ul>
+</div></blockquote>
+</section>
+<section id="exceptions">
+<h3>Exceptions<a class="headerlink" href="#exceptions" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">std::exception</span></code> (provides <code class="docutils literal notranslate"><span class="pre">what()</span></code> method)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">std::bad_alloc</span></code> (can be thrown by new)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">std::bad_cast</span></code> (can be thrown by dynamic_cast)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">std::bad_typeid</span></code> (can be thrown by typeid)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">std::bad_exception</span></code> (useful to handle unexpected exceptions)</p></li>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">std::logic_error</span></code></dt><dd><ul>
+<dt><code class="docutils literal notranslate"><span class="pre">std::logic_error</span></code></dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">std::domain_error</span></code> (mathematically invalid domain used)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">std::invalid_argument</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">std::length_error</span></code></p></li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">std::out_of_range</span></code> (off-by-one error, bounds error)</dt><dd><ul>
-<li><p>subscript operation of vector knows its size and will check, if the check fails,
-the subscript operation throws ‘out_of_range’ exception</p></li>
-</ul>
-</dd>
-</dl>
-</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">std::out_of_range</span></code> (off-by-one error, bounds error): subscript operation of vector
+knows its size and will check, if the check fails, the subscript operation throws
+‘out_of_range’ exception</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">std::runtime_error</span></code></dt><dd><ul>
+<dt><code class="docutils literal notranslate"><span class="pre">std::runtime_error</span></code></dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">std::overflow_error</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">std::underflow_error</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">std::range_error</span></code></p></li>
@@ -1547,16 +1431,6 @@ the subscript operation throws ‘out_of_range’ exception</p></li>
 </dd>
 </dl>
 </li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</section>
-<section id="exceptions">
-<h3>Exceptions<a class="headerlink" href="#exceptions" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul>
 <li><p>containers: collections of data</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">try</span></code>: followed by one or more catch blocks</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">catch</span></code>: catch exception with an exception handler</p></li>
@@ -1602,35 +1476,33 @@ check of pre-conditions can be written</p></li>
 <li><p>post-condition: what to do if pre-condition is violated, both provide sanity checks</p></li>
 </ul>
 </div></blockquote>
-<ul class="simple">
-<li><p>Testing: a run with a given set of inputs</p></li>
-<li><dl class="simple">
-<dt>Terminology for <strong>Program Development</strong> &lt;a id = “program-development”&gt;&lt;/a&gt;</dt><dd><ul>
+</section>
+<section id="program-development">
+<h3>Program Development<a class="headerlink" href="#program-development" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
 <li><p>analysis: figure out a set of requirements or specification</p></li>
 <li><p>design: create overall structure</p></li>
 <li><p>implementation: write, debug and test the code</p></li>
-</ul>
-</dd>
-</dl>
-</li>
+<li><p>testing: a run with a given set of inputs</p></li>
 <li><p>only a combination of analysis and experimentation (design &amp; implement) gives the solid
 understanding to write a good program</p></li>
 <li><p>prototype: limited initial version aimed at experimentation</p></li>
 <li><p>grow a program from working parts rather than writing all at once</p></li>
 <li><dl class="simple">
-<dt>token</dt><dd><ul>
+<dt><strong>Token</strong></dt><dd><ul>
 <li><p>sequence of characters that represents a unit</p></li>
 <li><p>representing each token as a (kind, value) pair is conventional</p></li>
-<li><p>parsing: reading a stream of tokens according to a grammar, which is done by parser or
-syntax analyzer</p></li>
+<li><p>parsing: reading a stream of tokens according to a grammar, which is done by parser
+or syntax analyzer</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><p>for programs that accept user input, write a grammar defining the syntax of input and then
+<li><p>for programs that accept user input, write a grammar defining the syntax of input and
 write a program that implements the rules of that grammar</p></li>
 <li><dl class="simple">
-<dt>writing simple grammar</dt><dd><ul>
+<dt><strong>Writing Simple Grammar</strong></dt><dd><ul>
 <li><p>distinguish a rule from token</p></li>
 <li><p>put one rule after another (sequencing)</p></li>
 <li><p>express alternative patterns (alternation)</p></li>
@@ -1644,7 +1516,7 @@ write a program that implements the rules of that grammar</p></li>
 <li><p>it is not ideal to throw away input without determining what it is</p></li>
 <li><p>order of declaration is important, cannot use a name before it has been declared</p></li>
 <li><dl class="simple">
-<dt>symbol table</dt><dd><ul>
+<dt><strong>Symbol Table</strong></dt><dd><ul>
 <li><p>mechanism to keep track of variables</p></li>
 <li><p>can use <code class="docutils literal notranslate"><span class="pre">map</span></code> from standard library</p></li>
 </ul>
@@ -1655,6 +1527,7 @@ write a program that implements the rules of that grammar</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">isdigit()</span></code>: check character for digit</p></li>
 <li><p>interpreters: programs that immediately executes the expressions it has analyzed</p></li>
 </ul>
+</div></blockquote>
 </section>
 <section id="program-evaluation">
 <h3>Program Evaluation<a class="headerlink" href="#program-evaluation" title="Link to this heading">#</a></h3>
@@ -1669,14 +1542,10 @@ when it goes out of scope</p>
 </div></blockquote>
 </li>
 <li><p>global variables are constructed in the order in which they are defined and destroyed in
-reverse order in single translation unit</p>
-<blockquote>
-<div><ul class="simple">
+reverse order in single translation unit</p></li>
 <li><p>do not use global variables in everything</p></li>
-<li><p>in different translation units, order of initialization may be different</p></li>
-</ul>
-</div></blockquote>
-</li>
+<li><p>in different translation units, order of initialization of global variables may be
+different</p></li>
 <li><p>compilers only allocate and deallocate memory necessary amount</p></li>
 <li><dl class="simple">
 <dt>never access the value of variable in an expression twice</dt><dd><ul class="simple">
@@ -1772,14 +1641,12 @@ outer scope are hidden</p></li>
 </li>
 </ul>
 </div></blockquote>
-<ul class="simple">
-<li><p>two kinds of user-defined types: classes &amp; enumerations</p></li>
-</ul>
 </section>
 <section id="struct">
 <h3>Struct<a class="headerlink" href="#struct" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
+<li><p>two kinds of user-defined types: classes &amp; enumerations</p></li>
 <li><p>class where members are public by default</p></li>
 <li><p>primarily used for data structures where members can take any value</p></li>
 </ul>
@@ -1846,13 +1713,11 @@ their values do not implicitly convert to other types</p>
 <li><p>cannot define constructor for an enumeration to check initializer values</p></li>
 <li><p>useful when a set of related named integer constants is needed</p></li>
 <li><p>in plain <code class="docutils literal notranslate"><span class="pre">enums</span></code>, enumerators are in the same scope as the enum and their values
-implicitly convert to integers and other types</p>
+implicitly convert to integers and other types</p></li>
+<li><p>plain enums are less strict than <code class="docutils literal notranslate"><span class="pre">enum</span> <span class="pre">classes</span></code>, but can pollute the scope in which their
+enumerator is defined</p>
 <blockquote>
-<div><ul class="simple">
-<li><p>less strict than <code class="docutils literal notranslate"><span class="pre">enum</span> <span class="pre">classes</span></code></p></li>
-<li><p>can pollute the scope in which their enumerator is defined</p></li>
-</ul>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="nc">Color</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">red</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">green</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">blue</span><span class="p">};</span><span class="w"> </span><span class="c1">// blue will have value 4 as each will be one greater</span>
+<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="nc">Color</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">red</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">green</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">blue</span><span class="p">};</span><span class="w"> </span><span class="c1">// blue will have value 4 as each will be one greater</span>
 <span class="n">Color</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="o">::</span><span class="n">blue</span><span class="p">;</span><span class="w"> </span><span class="c1">// c is of type color</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK</span>
 </pre></div>
@@ -1868,16 +1733,11 @@ implicitly convert to integers and other types</p>
 <div><ul>
 <li><p>specifying more than one definition for function name or operator in the same scope</p></li>
 <li><p>both declarations have different arguments and definition</p></li>
-<li><dl class="simple">
-<dt>overload resolution</dt><dd><ul class="simple">
-<li><p>compiler determines the most appropriate definition to use by comparing argument types used
-to call the function with parameter types specified in the definitions</p></li>
-</ul>
-</dd>
-</dl>
-</li>
+<li><p>overload resolution: compiler determines the most appropriate definition to use by
+comparing argument types used to call the function with parameter types specified in the
+definitions</p></li>
 <li><dl>
-<dt><strong>operator overloading</strong></dt><dd><ul class="simple">
+<dt><strong>Operator Overloading</strong></dt><dd><ul class="simple">
 <li><p>functions starting with <code class="docutils literal notranslate"><span class="pre">operator</span></code></p></li>
 <li><p>can define as ordinary non-member functions or as class member functions</p></li>
 <li><p>overloaded operator must have at least one user-defined type as operand</p></li>
@@ -1934,7 +1794,7 @@ return type must be a pointer or an object of a class to which it can be applied
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>function overloading</strong></dt><dd><ul class="simple">
+<dt><strong>Function Overloading</strong></dt><dd><ul class="simple">
 <li><p>can have multiple definitions for same function name in the same scope</p></li>
 <li><p>definition of functions must differ by the types and/or number of arguments</p></li>
 <li><p>cannot differ only return type</p></li>
@@ -1944,20 +1804,6 @@ return type must be a pointer or an object of a class to which it can be applied
 </li>
 </ul>
 </div></blockquote>
-<ul class="simple">
-<li><p>separate how the program reads and writes from actual input and output devices</p></li>
-<li><p>directly addressing each kind of device will need to change the program for a new
-screen or disk every time or limit users to certain screens and disks</p></li>
-<li><p>most modern OS separate the detailed handling of I/O devices into device drivers</p></li>
-<li><dl class="simple">
-<dt>different kinds of I/O</dt><dd><ul>
-<li><p>streams of data items (files, network, display devices)</p></li>
-<li><p>user interacting with keyboard or through GUI</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
 </section>
 <section id="lambda-expressions">
 <h3>Lambda Expressions<a class="headerlink" href="#lambda-expressions" title="Link to this heading">#</a></h3>
@@ -1980,19 +1826,6 @@ or two</p></li>
 <span class="k">auto</span><span class="w"> </span><span class="n">myLambda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">y</span><span class="p">](</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">};</span>
 </pre></div>
 </div>
-</div></blockquote>
-</section>
-<section id="buffer">
-<h3>buffer<a class="headerlink" href="#buffer" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
-<li><p>data structure that ostream uses internally to store data given by user to OS</p></li>
-<li><p>delay between ostream and characters appearing is usually because they are still in
-buffer</p></li>
-<li><p>buffering is important for performance</p></li>
-<li><p>istream uses buffer to communicate with the OS</p></li>
-<li><p>with istream, buffering can be quite visible to the user</p></li>
-</ul>
 </div></blockquote>
 </section>
 <section id="files">
@@ -2053,9 +1886,8 @@ buffer</p></li>
 number in memory</p></li>
 <li><p>distinction between storing fixed-size binary representation and variable-size character
 string representation also occurs in files</p></li>
-<li><p>it is possible to request <code class="docutils literal notranslate"><span class="pre">istream</span></code> and <code class="docutils literal notranslate"><span class="pre">ostream</span></code> to copy bytes to and from files with</p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">ios::binary</span></code></p>
+<li><p>it is possible to request <code class="docutils literal notranslate"><span class="pre">istream</span></code> and <code class="docutils literal notranslate"><span class="pre">ostream</span></code> to copy bytes to and from files with
+<code class="docutils literal notranslate"><span class="pre">ios::binary</span></code></p>
 <blockquote>
 <div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">as_bytes</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
 <span class="p">{</span>
@@ -2075,7 +1907,7 @@ string representation also occurs in files</p></li>
 </pre></div>
 </div>
 </div></blockquote>
-<ul>
+</li>
 <li><p>when moving from character-oriented I/O to binary I/O, <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> must be given up
 as they turn values into character sequences</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">as_bytes()</span></code> is needed to get the address of the first byte of an object’s representation</p></li>
@@ -2095,7 +1927,7 @@ good practice to close all opened files before termination</p>
 <li><p>OS will create new file if nonexistent file is opened for output, will not for input</p></li>
 <li><p>stick to reading from files opened as <code class="docutils literal notranslate"><span class="pre">istreams</span></code> and writing to files opened as <code class="docutils literal notranslate"><span class="pre">ostreams</span></code></p></li>
 <li><dl class="simple">
-<dt>istream states</dt><dd><ul class="simple">
+<dt><strong>istream States</strong></dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">good()</span></code>, <code class="docutils literal notranslate"><span class="pre">eof()</span></code>, <code class="docutils literal notranslate"><span class="pre">fail()</span></code>, <code class="docutils literal notranslate"><span class="pre">bad()</span></code></p></li>
 <li><p>difference between fail and bad is not precisely defined</p></li>
 <li><p>a stream that is <code class="docutils literal notranslate"><span class="pre">bad()</span></code> is also <code class="docutils literal notranslate"><span class="pre">fail()</span></code></p></li>
@@ -2117,7 +1949,7 @@ of <cite>ostream</cite> if output devices have more chance of being unavailable 
 <li><p>use insertion operator (&lt;&lt;) to write to file, ofstream or fstream object instead of cout</p></li>
 <li><p>use extraction operator (&gt;&gt;) to read file, ifstream or fstream object instead of cin</p></li>
 <li><dl class="simple">
-<dt>problems when reading</dt><dd><ul class="simple">
+<dt><strong>Problems when Reading</strong></dt><dd><ul class="simple">
 <li><p>user typing out-of-range value</p></li>
 <li><p>getting no value (eof)</p></li>
 <li><p>user typing wrong type</p></li>
@@ -2129,7 +1961,7 @@ of <cite>ostream</cite> if output devices have more chance of being unavailable 
 <li><p>every file opened for reading has a read/get position and files for writing has write/put
 position</p></li>
 <li><dl>
-<dt>file position pointers</dt><dd><ul class="simple">
+<dt><strong>File Position Pointers</strong></dt><dd><ul class="simple">
 <li><p>integer value that specifies the location in the file as a number of bytes from start</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">seekg</span></code>: seek get for istream</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">seekp</span></code>: seek put for ostream</p></li>
@@ -2202,22 +2034,9 @@ characters out of input</p></li>
 <div><ul class="simple">
 <li><p>inherits date/time functions from C <strong>&lt;ctime&gt;</strong></p></li>
 <li><dl class="simple">
-<dt>time-related types</dt><dd><ul>
-<li><dl class="simple">
-<dt>clock_t, time_t, size_t</dt><dd><ul>
-<li><p>represent as integer</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>tm</dt><dd><ul>
-<li><p>in the form of C structure</p></li>
-<li><p>tm_sec/min/hour/mday/mon/year/wday/yday/isdst</p></li>
-</ul>
-</dd>
-</dl>
-</li>
+<dt><strong>Time-Related Types</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">clock_t</span></code>, <code class="docutils literal notranslate"><span class="pre">time_t</span></code>, <code class="docutils literal notranslate"><span class="pre">size_t</span></code>: represent as integer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tm</span></code>: in the form of C structure, tm_sec/min/hour/mday/mon/year/wday/yday/isdst</p></li>
 </ul>
 </dd>
 </dl>
@@ -2312,7 +2131,8 @@ characters out of input</p></li>
 <li><p><a class="reference internal" href="#free-store">Free Store</a>, <a class="reference internal" href="#null-pointer">NULL Pointer</a>, <a class="reference internal" href="#void-pointer">Void Pointer</a>, <a class="reference internal" href="#explicit-type-conversion">Explicit Type Conversion</a></p></li>
 <li><p>an object which holds address value of another</p></li>
 <li><p>‘address of’ operator, unary <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, is used to get the address of an object</p></li>
-<li><p>‘contents of/dereference’ operator, unary <code class="docutils literal notranslate"><span class="pre">*</span></code>, is used to get the value of the object pointed to</p></li>
+<li><p>‘contents of/dereference’ operator, unary <code class="docutils literal notranslate"><span class="pre">*</span></code>, is used to get the value of the object pointed
+to</p></li>
 <li><p>most pointer values/addresses use hexadecimal notation</p></li>
 <li><p>can do arithmetic operations and comparisons</p></li>
 <li><p>dereference operator can also be used for left-hand assignment</p>
@@ -2360,6 +2180,28 @@ indexing</p></li>
 </ul>
 </dd>
 </dl>
+</li>
+<li><dl class="simple">
+<dt>a pointer doesn’t know how many elements it points to</dt><dd><ul class="simple">
+<li><p>out-of-range access, transient bugs, can affect unrelated parts of the program and are
+hard to find</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>problems in some C-style programs are caused by access through uninitialized pointers and
+out-of-range access</p></li>
+<li><p>optimizer, compiling on different machine or turning off debug features can cause a program
+with uninitialized variables to run differently</p></li>
+<li><p>pointer to a pointer</p>
+<blockquote>
+<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="o">**</span><span class="n">pptr</span><span class="p">;</span>
+<span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>
+<span class="n">pptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ptr</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
 </li>
 </ul>
 <section id="free-store">
@@ -2422,20 +2264,6 @@ and libraries</p></li>
 consumption estimate for a program should be correct</p></li>
 </ul>
 </div></blockquote>
-<ul class="simple">
-<li><dl class="simple">
-<dt>a pointer doesn’t know how many elements it points to</dt><dd><ul>
-<li><p>out-of-range access, transient bugs, can affect unrelated parts of the program and are
-hard to find</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p>problems in some C-style programs are caused by access through uninitialized pointers and
-out-of-range access</p></li>
-<li><p>optimizer, compiling on different machine or turning off debug features can cause a program
-with uninitialized variables to run differently</p></li>
-</ul>
 </section>
 <section id="null-pointer">
 <h3>NULL Pointer<a class="headerlink" href="#null-pointer" title="Link to this heading">#</a></h3>
@@ -2454,18 +2282,6 @@ with uninitialized variables to run differently</p></li>
 </pre></div>
 </div>
 </div></blockquote>
-<ul>
-<li><p>pointer to a pointer</p>
-<blockquote>
-<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
-<span class="kt">int</span><span class="w"> </span><span class="o">**</span><span class="n">pptr</span><span class="p">;</span>
-<span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>
-<span class="n">pptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ptr</span><span class="p">;</span>
-</pre></div>
-</div>
-</div></blockquote>
-</li>
-</ul>
 </section>
 <section id="void-pointer">
 <h3>Void Pointer<a class="headerlink" href="#void-pointer" title="Link to this heading">#</a></h3>
@@ -2617,7 +2433,7 @@ functions</p></li>
 <ul class="simple">
 <li><p><a class="reference internal" href="#access-specifiers">Access Specifiers</a>, <a class="reference internal" href="#member-functions">Member Functions</a>, <a class="reference internal" href="#helper-functions">Helper Functions</a></p></li>
 <li><p><a class="reference internal" href="#constructor">Constructor</a>, <a class="reference internal" href="#destructor">Destructor</a>, <a class="reference internal" href="#copy-constructor">Copy Constructor</a></p></li>
-<li><p><a class="reference internal" href="#const-functions">Const Functions</a>, <a class="reference internal" href="#friend-functions">Friend Functions</a>, <a class="reference internal" href="#inline-functions">Inline Functions</a>, <a href="#id56"><span class="problematic" id="id57">`this pointer`_</span></a>, <a class="reference internal" href="#static-members">Static Members</a></p></li>
+<li><p><a class="reference internal" href="#const-functions">Const Functions</a>, <a class="reference internal" href="#friend-functions">Friend Functions</a>, <a class="reference internal" href="#inline-functions">Inline Functions</a>, <a href="#id52"><span class="problematic" id="id53">`this pointer`_</span></a>, <a class="reference internal" href="#static-members">Static Members</a></p></li>
 <li><p>used to specify the form of an object</p></li>
 <li><p>data and functions, parts used to define the class, are members of the class</p></li>
 <li><p>has zero or more members</p></li>
@@ -4549,32 +4365,27 @@ in advance</p></li>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object">object</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declaration">declaration</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">definition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#header">header</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statements">Statements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-o">I/O</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operators">Operators</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#literals">Literals</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-safety">Type Safety</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#breaking-up-code">Breaking Up Code</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typedef">typedef</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#switch">Switch</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-time-errors">Compile-time errors</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#link-time-errors">Link-time errors</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-time-errors">Run-time errors</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logic-errors">Logic errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#errors">Errors</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exceptions">Exceptions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">Debugging</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#program-development">Program Development</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#program-evaluation">Program Evaluation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#namespaces">Namespaces</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struct">Struct</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerations">Enumerations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overloading">Overloading</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-expressions">Lambda Expressions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#buffer">buffer</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#files">Files</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#date-time">Date &amp; Time</a></li>
 </ul>
