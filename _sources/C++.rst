@@ -323,7 +323,7 @@ I/O
 Operators
 ---------
     * **Arithmetic**
-        - +, -, &ast;, /, %, ++, --
+        - +, -, ;, /, %, ++, --
         - modulo operator (%) cannot operate on floats, so use ``fmod()`` from ``<cmath>``
     * **Relational**
         - ==, !=, >, <, >=, <=
@@ -331,7 +331,7 @@ Operators
         - &&, ||, !
     * **Bitwise**
         - perform bit-by-bit operation
-        - &, |, ^ (XOR), ~ (complement), <<, >>
+        - &, | , ^ (XOR), ~ (complement), <<, >>
     * **Assignment**
         - =, +=, -=, *=, /=, %=, <<=, >>=, &=, ^=, |=
     * **Misc**
@@ -774,9 +774,9 @@ Program Development
 
 Program Evaluation
 ------------------
-    * variable is constructed when the execution reaches the definition, and destroyed
-      when it goes out of scope
-        - ``static`` local variable is initialized only the first time its function is called
+    * variable is constructed when the execution reaches the definition, and destroyed when it
+      goes out of scope
+    * ``static`` local variable is initialized only the first time its function is called
     * global variables are constructed in the order in which they are defined and destroyed in
       reverse order in single translation unit
     * do not use global variables in everything
@@ -1477,7 +1477,7 @@ References
 ==========
 
 * an alias, cannot have NULL, cannot be changed to refer to another object, must be initialized
-when created
+  when created
 
 .. code-block:: cpp
 
@@ -1547,6 +1547,9 @@ Classes
     * identify non-modifying member functions
     * free all resources in the destructor
 * implementation: part of the class that users access only indirectly
+* private and protected members cannot be accessed directly with direct member access
+  operator
+
 
 Access Specifiers
 -----------------
@@ -1560,8 +1563,6 @@ Access Specifiers
        - only the class and friend functions can access members
     * **protected**
        - can be accessed in child classes
-* private and protected members cannot be accessed directly with direct member access
-  operator
 
 Member Functions
 ----------------
@@ -1599,6 +1600,7 @@ Helper Functions
     * also called convenience functions, auxiliary functions
     * a design concept, not programming language concept
     * often take arguments of the classes that they are helpers of
+
 * usually put public first as it is what most people are interested in
 * the rule that a name must be declared before it is used is relaxed within the limited
   scope of a class
@@ -1680,10 +1682,12 @@ Constructor
 
 
     * without constructor, an invariant cannot be established
+
 * if a class doesn't have good invariant, use a ``struct`` as the data being dealt might be
   plain data
 * in-class initializer: an initializer for a class member specified as part of the member
   declaration
+
 
 Destructor
 ----------
@@ -1822,8 +1826,8 @@ Inline Functions
 
 
 
-this
-----
+this Pointer
+------------
     * every object has access to its own address through ``this`` pointer
     * points to the object for which a member function is called
     * implicit parameter to all member functions
@@ -1911,6 +1915,8 @@ Object Oriented Programming
 
 * `Inheritance`_, `Data Encapsulation`_, `Interfaces`_, `Polymorphism`_, `Designing Classes`_
 * usage of inheritance, polymorphism and encapsulation is the main definition of OOP
+* programming by difference: program only the difference of derived class to the base class
+
 
 Inheritance
 -----------
@@ -1954,15 +1960,15 @@ Inheritance
     * cannot inherit constructors, destructors and copy constructors, overloaded operators and
       friend functions of the base class
     * rarely use **protected** and **private** inheritance
-    * **public inheritance**
+    * **Public Inheritance**
         - public and protected members of base become public and protected of derived
         - private members are only accessible through calls to public and protected members of
           base
-    * **protected inheritance**
+    * **Protected Inheritance**
         - public and protected members of base become protected members of derived
         - public and protected member names can be used by members of the class and derived
           classes
-    * **private inheritance**
+    * **Private Inheritance**
         - public and protected member names can only be used by members of the class
     * **Virtual Table**
         - also called vtbl and its address is called virtual pointer, vptr
@@ -1995,7 +2001,6 @@ Inheritance
         - simplify the implementation of derived classes by using what the base offers
         - any change to the interface of the base require recompilation of all derived classes
           and their users
-* programming by difference: program only the difference of derived class to the base class
 
 Data Encapsulation
 ------------------
@@ -2188,6 +2193,7 @@ Designing Classes
 Dynamic Memory
 ==============
 
+* `Array Allocation`_, `Object Allocation`_
 * stack: store all variables declared inside the function
 * heap: unused memory and can be used to allocate memory dynamically when program runs
 * ``new``: allocate memory at run time, returns the address of the space allocated
@@ -2215,8 +2221,11 @@ Dynamic Memory
 
 * ``malloc()`` from C still exists but not recommended to use
 * ``new`` doesn't just allocate memory, it also constructs objects unlike ``malloc()``
-* allocation for arrays
+
+Array Allocation
+----------------
     * syntax to release memory for arrays are same
+
     .. code-block:: cpp
 
        char* pvalue = NULL;
@@ -2229,7 +2238,9 @@ Dynamic Memory
        delete [] pvalue;
 
 
-* allocation of objects
+
+Object Allocation
+-----------------
 
     .. code-block:: cpp
 
@@ -2451,19 +2462,18 @@ Graphics
 * can embed color and 2D positions idea in a 1D stream of characters, like HTML and XML
 * can use GUI toolkits, such as FLTK, and implement classes using them
 
+
 GUI
 ---
     * separates the main logic of application from I/O, which allows to change program
-    presentation
+      presentation
     * GUI programs have control inversion, the order of execution is determined by actions of
-    the user, which is different from conventional programs
+      the user, which is different from conventional programs
     * control inversion complicates both program organization and debugging
-    * conventional programs
-        - ``application -> input function -> user responds``
-    * GUI programs
-        - ``application <- system <- user action``
+    * Conventional Programs: ``application -> input function -> user responds``
+    * GUI Programs: ``application <- system <- user action``
     * keep GUI of a program simple and build it incrementally by testing at each stage
-    * **debugging GUI program**
+    * **Debugging a GUI Program**
         - check each program parts
         - simplify the code and check carefully
         - check linker settings

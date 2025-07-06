@@ -379,7 +379,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#const-functions">Const Functions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#friend-functions">Friend Functions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-functions">Inline Functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#this">this</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#this-pointer">this Pointer</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-members">Static Members</a></li>
 </ul>
 </li>
@@ -391,7 +391,11 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#designing-classes">Designing Classes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-memory">Dynamic Memory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-memory">Dynamic Memory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-allocation">Array Allocation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object-allocation">Object Allocation</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#templates">Templates</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-template">function template</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-template">class template</a></li>
@@ -885,7 +889,7 @@ buffer</p></li>
 <div><ul class="simple">
 <li><dl class="simple">
 <dt><strong>Arithmetic</strong></dt><dd><ul>
-<li><p>+, -, &amp;ast;, /, %, ++, –</p></li>
+<li><p>+, -, ;, /, %, ++, –</p></li>
 <li><p>modulo operator (%) cannot operate on floats, so use <code class="docutils literal notranslate"><span class="pre">fmod()</span></code> from <code class="docutils literal notranslate"><span class="pre">&lt;cmath&gt;</span></code></p></li>
 </ul>
 </dd>
@@ -908,14 +912,14 @@ buffer</p></li>
 <li><dl class="simple">
 <dt><strong>Bitwise</strong></dt><dd><ul>
 <li><p>perform bit-by-bit operation</p></li>
-<li><p>&amp;, <a href="#id1"><span class="problematic" id="id2">|</span></a>, ^ (XOR), ~ (complement), &lt;&lt;, &gt;&gt;</p></li>
+<li><p>&amp;, | , ^ (XOR), ~ (complement), &lt;&lt;, &gt;&gt;</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
 <dt><strong>Assignment</strong></dt><dd><ul>
-<li><p>=, +=, -=, <a href="#id3"><span class="problematic" id="id4">*</span></a>=, /=, %=, &lt;&lt;=, &gt;&gt;=, &amp;=, ^=, <a href="#id5"><span class="problematic" id="id6">|</span></a>=</p></li>
+<li><p>=, +=, -=, <a href="#id1"><span class="problematic" id="id2">*</span></a>=, /=, %=, &lt;&lt;=, &gt;&gt;=, &amp;=, ^=, <a href="#id3"><span class="problematic" id="id4">|</span></a>=</p></li>
 </ul>
 </dd>
 </dl>
@@ -1532,15 +1536,10 @@ write a program that implements the rules of that grammar</p></li>
 <section id="program-evaluation">
 <h3>Program Evaluation<a class="headerlink" href="#program-evaluation" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul>
-<li><p>variable is constructed when the execution reaches the definition, and destroyed
-when it goes out of scope</p>
-<blockquote>
 <div><ul class="simple">
+<li><p>variable is constructed when the execution reaches the definition, and destroyed when it
+goes out of scope</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">static</span></code> local variable is initialized only the first time its function is called</p></li>
-</ul>
-</div></blockquote>
-</li>
 <li><p>global variables are constructed in the order in which they are defined and destroyed in
 reverse order in single translation unit</p></li>
 <li><p>do not use global variables in everything</p></li>
@@ -1548,7 +1547,7 @@ reverse order in single translation unit</p></li>
 different</p></li>
 <li><p>compilers only allocate and deallocate memory necessary amount</p></li>
 <li><dl class="simple">
-<dt>never access the value of variable in an expression twice</dt><dd><ul class="simple">
+<dt>never access the value of variable in an expression twice</dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">v[i]</span> <span class="pre">=</span> <span class="pre">++i</span></code></p></li>
 <li><p>not all compilers warn about the bad code and different compilers result different
 values</p></li>
@@ -2377,9 +2376,9 @@ functions</p></li>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>an alias, cannot have NULL, cannot be changed to refer to another object, must be initialized</p></li>
+<li><p>an alias, cannot have NULL, cannot be changed to refer to another object, must be initialized
+when created</p></li>
 </ul>
-<p>when created</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 </pre></div>
@@ -2433,7 +2432,7 @@ functions</p></li>
 <ul class="simple">
 <li><p><a class="reference internal" href="#access-specifiers">Access Specifiers</a>, <a class="reference internal" href="#member-functions">Member Functions</a>, <a class="reference internal" href="#helper-functions">Helper Functions</a></p></li>
 <li><p><a class="reference internal" href="#constructor">Constructor</a>, <a class="reference internal" href="#destructor">Destructor</a>, <a class="reference internal" href="#copy-constructor">Copy Constructor</a></p></li>
-<li><p><a class="reference internal" href="#const-functions">Const Functions</a>, <a class="reference internal" href="#friend-functions">Friend Functions</a>, <a class="reference internal" href="#inline-functions">Inline Functions</a>, <a href="#id52"><span class="problematic" id="id53">`this pointer`_</span></a>, <a class="reference internal" href="#static-members">Static Members</a></p></li>
+<li><p><a class="reference internal" href="#const-functions">Const Functions</a>, <a class="reference internal" href="#friend-functions">Friend Functions</a>, <a class="reference internal" href="#inline-functions">Inline Functions</a>, <a class="reference internal" href="#this-pointer">this pointer</a>, <a class="reference internal" href="#static-members">Static Members</a></p></li>
 <li><p>used to specify the form of an object</p></li>
 <li><p>data and functions, parts used to define the class, are members of the class</p></li>
 <li><p>has zero or more members</p></li>
@@ -2465,6 +2464,8 @@ the object</p></li>
 </dl>
 </li>
 <li><p>implementation: part of the class that users access only indirectly</p></li>
+<li><p>private and protected members cannot be accessed directly with direct member access
+operator</p></li>
 </ul>
 <section id="access-specifiers">
 <h3>Access Specifiers<a class="headerlink" href="#access-specifiers" title="Link to this heading">#</a></h3>
@@ -2497,10 +2498,6 @@ the object</p></li>
 </li>
 </ul>
 </div></blockquote>
-<ul class="simple">
-<li><p>private and protected members cannot be accessed directly with direct member access
-operator</p></li>
-</ul>
 </section>
 <section id="member-functions">
 <h3>Member Functions<a class="headerlink" href="#member-functions" title="Link to this heading">#</a></h3>
@@ -2790,8 +2787,8 @@ argument to function, copy an object to return it from a function</p></li>
 </li>
 </ul>
 </section>
-<section id="this">
-<h3>this<a class="headerlink" href="#this" title="Link to this heading">#</a></h3>
+<section id="this-pointer">
+<h3>this Pointer<a class="headerlink" href="#this-pointer" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
 <li><p>every object has access to its own address through <code class="docutils literal notranslate"><span class="pre">this</span></code> pointer</p></li>
@@ -2883,6 +2880,7 @@ functions</p></li>
 <ul class="simple">
 <li><p><a class="reference internal" href="#inheritance">Inheritance</a>, <a class="reference internal" href="#data-encapsulation">Data Encapsulation</a>, <a class="reference internal" href="#interfaces">Interfaces</a>, <a class="reference internal" href="#polymorphism">Polymorphism</a>, <a class="reference internal" href="#designing-classes">Designing Classes</a></p></li>
 <li><p>usage of inheritance, polymorphism and encapsulation is the main definition of OOP</p></li>
+<li><p>programming by difference: program only the difference of derived class to the base class</p></li>
 </ul>
 <section id="inheritance">
 <h3>Inheritance<a class="headerlink" href="#inheritance" title="Link to this heading">#</a></h3>
@@ -2928,7 +2926,7 @@ functions</p></li>
 friend functions of the base class</p></li>
 <li><p>rarely use <strong>protected</strong> and <strong>private</strong> inheritance</p></li>
 <li><dl class="simple">
-<dt><strong>public inheritance</strong></dt><dd><ul class="simple">
+<dt><strong>Public Inheritance</strong></dt><dd><ul class="simple">
 <li><p>public and protected members of base become public and protected of derived</p></li>
 <li><p>private members are only accessible through calls to public and protected members of
 base</p></li>
@@ -2937,7 +2935,7 @@ base</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>protected inheritance</strong></dt><dd><ul class="simple">
+<dt><strong>Protected Inheritance</strong></dt><dd><ul class="simple">
 <li><p>public and protected members of base become protected members of derived</p></li>
 <li><p>public and protected member names can be used by members of the class and derived
 classes</p></li>
@@ -2946,7 +2944,7 @@ classes</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>private inheritance</strong></dt><dd><ul class="simple">
+<dt><strong>Private Inheritance</strong></dt><dd><ul class="simple">
 <li><p>public and protected member names can only be used by members of the class</p></li>
 </ul>
 </dd>
@@ -3002,9 +3000,6 @@ and their users</p></li>
 </li>
 </ul>
 </div></blockquote>
-<ul class="simple">
-<li><p>programming by difference: program only the difference of derived class to the base class</p></li>
-</ul>
 </section>
 <section id="data-encapsulation">
 <h3>Data Encapsulation<a class="headerlink" href="#data-encapsulation" title="Link to this heading">#</a></h3>
@@ -3253,6 +3248,7 @@ function called is determined at run time based on the type of the object</p></l
 <section id="dynamic-memory">
 <h2>Dynamic Memory<a class="headerlink" href="#dynamic-memory" title="Link to this heading">#</a></h2>
 <ul class="simple">
+<li><p><a class="reference internal" href="#array-allocation">Array Allocation</a>, <a class="reference internal" href="#object-allocation">Object Allocation</a></p></li>
 <li><p>stack: store all variables declared inside the function</p></li>
 <li><p>heap: unused memory and can be used to allocate memory dynamically when program runs</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">new</span></code>: allocate memory at run time, returns the address of the space allocated</p></li>
@@ -3275,11 +3271,14 @@ function called is determined at run time based on the type of the object</p></l
 <span class="k">delete</span><span class="w"> </span><span class="n">pvalue</span><span class="p">;</span><span class="w"> </span><span class="c1">// release memory</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">malloc()</span></code> from C still exists but not recommended to use</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">new</span></code> doesn’t just allocate memory, it also constructs objects unlike <code class="docutils literal notranslate"><span class="pre">malloc()</span></code></p></li>
-<li><dl>
-<dt>allocation for arrays</dt><dd><ul class="simple">
+</ul>
+<section id="array-allocation">
+<h3>Array Allocation<a class="headerlink" href="#array-allocation" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
 <li><p>syntax to release memory for arrays are same</p></li>
 </ul>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">pvalue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
@@ -3292,10 +3291,10 @@ function called is determined at run time based on the type of the object</p></l
 <span class="k">delete</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="n">pvalue</span><span class="p">;</span>
 </pre></div>
 </div>
-</dd>
-</dl>
-</li>
-<li><p>allocation of objects</p>
+</div></blockquote>
+</section>
+<section id="object-allocation">
+<h3>Object Allocation<a class="headerlink" href="#object-allocation" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">MyClass</span><span class="o">*</span><span class="w"> </span><span class="n">myClassArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyClass</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span><span class="w"> </span><span class="c1">// allocate array of four MyClass objects</span>
 <span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">myClassArray</span><span class="p">;</span>
@@ -3303,9 +3302,8 @@ function called is determined at run time based on the type of the object</p></l
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-</ul>
 <p><a class="reference external" href="#c">back to top</a></p>
+</section>
 </section>
 <section id="templates">
 <h2>Templates<a class="headerlink" href="#templates" title="Link to this heading">#</a></h2>
@@ -3571,29 +3569,16 @@ continue to execute</p></li>
 <h3>GUI<a class="headerlink" href="#gui" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>separates the main logic of application from I/O, which allows to change program</p></li>
-</ul>
-<p>presentation
-* GUI programs have control inversion, the order of execution is determined by actions of
-the user, which is different from conventional programs
-* control inversion complicates both program organization and debugging
-* conventional programs</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">application</span> <span class="pre">-&gt;</span> <span class="pre">input</span> <span class="pre">function</span> <span class="pre">-&gt;</span> <span class="pre">user</span> <span class="pre">responds</span></code></p></li>
-</ul>
-</div></blockquote>
-<ul class="simple">
-<li><dl class="simple">
-<dt>GUI programs</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">application</span> <span class="pre">&lt;-</span> <span class="pre">system</span> <span class="pre">&lt;-</span> <span class="pre">user</span> <span class="pre">action</span></code></p></li>
-</ul>
-</dd>
-</dl>
-</li>
+<li><p>separates the main logic of application from I/O, which allows to change program
+presentation</p></li>
+<li><p>GUI programs have control inversion, the order of execution is determined by actions of
+the user, which is different from conventional programs</p></li>
+<li><p>control inversion complicates both program organization and debugging</p></li>
+<li><p>Conventional Programs: <code class="docutils literal notranslate"><span class="pre">application</span> <span class="pre">-&gt;</span> <span class="pre">input</span> <span class="pre">function</span> <span class="pre">-&gt;</span> <span class="pre">user</span> <span class="pre">responds</span></code></p></li>
+<li><p>GUI Programs: <code class="docutils literal notranslate"><span class="pre">application</span> <span class="pre">&lt;-</span> <span class="pre">system</span> <span class="pre">&lt;-</span> <span class="pre">user</span> <span class="pre">action</span></code></p></li>
 <li><p>keep GUI of a program simple and build it incrementally by testing at each stage</p></li>
 <li><dl class="simple">
-<dt><strong>debugging GUI program</strong></dt><dd><ul>
+<dt><strong>Debugging a GUI Program</strong></dt><dd><ul>
 <li><p>check each program parts</p></li>
 <li><p>simplify the code and check carefully</p></li>
 <li><p>check linker settings</p></li>
@@ -4294,21 +4279,21 @@ in advance</p></li>
 <li><p>example structure</p>
 <blockquote>
 <div><dl class="simple">
-<dt>PROJECT</dt><dd><p><a href="#id23"><span class="problematic" id="id24">|</span></a>—&gt;cmake
-<a href="#id25"><span class="problematic" id="id26">|</span></a>—&gt;src
-|      <a href="#id27"><span class="problematic" id="id28">|</span></a>—&gt;app1
-|      |      <a href="#id29"><span class="problematic" id="id30">|</span></a>—&gt;src
-|      |      <a href="#id31"><span class="problematic" id="id32">|</span></a>—-CMakeLists.txt
-|      <a href="#id33"><span class="problematic" id="id34">|</span></a>—&gt;cmake
-|      <a href="#id35"><span class="problematic" id="id36">|</span></a>—&gt;module
-|      |      <a href="#id37"><span class="problematic" id="id38">|</span></a>—&gt;include
-|      |      <a href="#id39"><span class="problematic" id="id40">|</span></a>—&gt;src
-|      |      <a href="#id41"><span class="problematic" id="id42">|</span></a>—-CMakeLists.txt
-|      <a href="#id43"><span class="problematic" id="id44">|</span></a>—-CMakeLists.txt
+<dt>PROJECT</dt><dd><p><a href="#id21"><span class="problematic" id="id22">|</span></a>—&gt;cmake
+<a href="#id23"><span class="problematic" id="id24">|</span></a>—&gt;src
+|      <a href="#id25"><span class="problematic" id="id26">|</span></a>—&gt;app1
+|      |      <a href="#id27"><span class="problematic" id="id28">|</span></a>—&gt;src
+|      |      <a href="#id29"><span class="problematic" id="id30">|</span></a>—-CMakeLists.txt
+|      <a href="#id31"><span class="problematic" id="id32">|</span></a>—&gt;cmake
+|      <a href="#id33"><span class="problematic" id="id34">|</span></a>—&gt;module
+|      |      <a href="#id35"><span class="problematic" id="id36">|</span></a>—&gt;include
+|      |      <a href="#id37"><span class="problematic" id="id38">|</span></a>—&gt;src
+|      |      <a href="#id39"><span class="problematic" id="id40">|</span></a>—-CMakeLists.txt
+|      <a href="#id41"><span class="problematic" id="id42">|</span></a>—-CMakeLists.txt
 |
-<a href="#id45"><span class="problematic" id="id46">|</span></a>—&gt;tests
-<a href="#id47"><span class="problematic" id="id48">|</span></a>—-CMakeLists.txt
-<a href="#id49"><span class="problematic" id="id50">|</span></a>—-CMakePresets.json</p>
+<a href="#id43"><span class="problematic" id="id44">|</span></a>—&gt;tests
+<a href="#id45"><span class="problematic" id="id46">|</span></a>—-CMakeLists.txt
+<a href="#id47"><span class="problematic" id="id48">|</span></a>—-CMakePresets.json</p>
 </dd>
 </dl>
 </div></blockquote>
@@ -4414,7 +4399,7 @@ in advance</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#const-functions">Const Functions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#friend-functions">Friend Functions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-functions">Inline Functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#this">this</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#this-pointer">this Pointer</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-members">Static Members</a></li>
 </ul>
 </li>
@@ -4426,7 +4411,11 @@ in advance</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#designing-classes">Designing Classes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-memory">Dynamic Memory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-memory">Dynamic Memory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-allocation">Array Allocation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object-allocation">Object Allocation</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#templates">Templates</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-template">function template</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-template">class template</a></li>
