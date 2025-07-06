@@ -331,9 +331,9 @@ Operators
         - &&, ||, !
     * **Bitwise**
         - perform bit-by-bit operation
-        - &, | , ^ (XOR), ~ (complement), <<, >>
+        - &, \|, ^ (XOR), ~ (complement), <<, >>
     * **Assignment**
-        - = , += , -= , *= , /= , %= , <<= , >>= , &= , ^= , |=
+        - =, +=, -=, \*=, /=, %=, <<=, >>=, &=, ^=, \|=
     * **Misc**
         - sizeof, conditional, comma, member (. & ->), cast, address (&), indirection (*)
         - ``sizeof()`` can be used on type name or expression to get number of bytes
