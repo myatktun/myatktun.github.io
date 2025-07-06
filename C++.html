@@ -919,7 +919,7 @@ buffer</p></li>
 </li>
 <li><dl class="simple">
 <dt><strong>Assignment</strong></dt><dd><ul>
-<li><p>=, +=, -=, <a href="#id1"><span class="problematic" id="id2">*</span></a>=, /=, %=, &lt;&lt;=, &gt;&gt;=, &amp;=, ^=, <a href="#id3"><span class="problematic" id="id4">|</span></a>=</p></li>
+<li><p>= , += , -= , <a href="#id1"><span class="problematic" id="id2">*</span></a>= , /= , %= , &lt;&lt;= , &gt;&gt;= , &amp;= , ^= , <a href="#id3"><span class="problematic" id="id4">|</span></a>=</p></li>
 </ul>
 </dd>
 </dl>
@@ -4278,24 +4278,24 @@ in advance</p></li>
 </li>
 <li><p>example structure</p>
 <blockquote>
-<div><dl class="simple">
-<dt>PROJECT</dt><dd><p><a href="#id21"><span class="problematic" id="id22">|</span></a>—&gt;cmake
-<a href="#id23"><span class="problematic" id="id24">|</span></a>—&gt;src
-|      <a href="#id25"><span class="problematic" id="id26">|</span></a>—&gt;app1
-|      |      <a href="#id27"><span class="problematic" id="id28">|</span></a>—&gt;src
-|      |      <a href="#id29"><span class="problematic" id="id30">|</span></a>—-CMakeLists.txt
-|      <a href="#id31"><span class="problematic" id="id32">|</span></a>—&gt;cmake
-|      <a href="#id33"><span class="problematic" id="id34">|</span></a>—&gt;module
-|      |      <a href="#id35"><span class="problematic" id="id36">|</span></a>—&gt;include
-|      |      <a href="#id37"><span class="problematic" id="id38">|</span></a>—&gt;src
-|      |      <a href="#id39"><span class="problematic" id="id40">|</span></a>—-CMakeLists.txt
-|      <a href="#id41"><span class="problematic" id="id42">|</span></a>—-CMakeLists.txt
-|
-<a href="#id43"><span class="problematic" id="id44">|</span></a>—&gt;tests
-<a href="#id45"><span class="problematic" id="id46">|</span></a>—-CMakeLists.txt
-<a href="#id47"><span class="problematic" id="id48">|</span></a>—-CMakePresets.json</p>
-</dd>
-</dl>
+<div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PROJECT
+   |---&gt;cmake
+   |---&gt;src
+   |      |---&gt;app1
+   |      |      |---&gt;src
+   |      |      |----CMakeLists.txt
+   |      |---&gt;cmake
+   |      |---&gt;module
+   |      |      |---&gt;include
+   |      |      |---&gt;src
+   |      |      |----CMakeLists.txt
+   |      |----CMakeLists.txt
+   |
+   |---&gt;tests
+   |----CMakeLists.txt
+   |----CMakePresets.json
+</pre></div>
+</div>
 </div></blockquote>
 </li>
 </ul>

@@ -333,7 +333,7 @@ Operators
         - perform bit-by-bit operation
         - &, | , ^ (XOR), ~ (complement), <<, >>
     * **Assignment**
-        - =, +=, -=, *=, /=, %=, <<=, >>=, &=, ^=, |=
+        - = , += , -= , *= , /= , %= , <<= , >>= , &= , ^= , |=
     * **Misc**
         - sizeof, conditional, comma, member (. & ->), cast, address (&), indirection (*)
         - ``sizeof()`` can be used on type name or expression to get number of bytes
@@ -3103,23 +3103,24 @@ Sample Project Structure
     * pre-commit tools
 * example structure
 
+    .. code-block:: text
 
-    PROJECT
-       |--->cmake
-       |--->src
-       |      |--->app1
-       |      |      |--->src
-       |      |      |----CMakeLists.txt
-       |      |--->cmake
-       |      |--->module
-       |      |      |--->include
-       |      |      |--->src
-       |      |      |----CMakeLists.txt
-       |      |----CMakeLists.txt
-       |
-       |--->tests
-       |----CMakeLists.txt
-       |----CMakePresets.json
+       PROJECT
+          |--->cmake
+          |--->src
+          |      |--->app1
+          |      |      |--->src
+          |      |      |----CMakeLists.txt
+          |      |--->cmake
+          |      |--->module
+          |      |      |--->include
+          |      |      |--->src
+          |      |      |----CMakeLists.txt
+          |      |----CMakeLists.txt
+          |
+          |--->tests
+          |----CMakeLists.txt
+          |----CMakePresets.json
 
 
 `back to top <#c>`_
