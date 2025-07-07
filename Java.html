@@ -433,7 +433,10 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jvm">JVM</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jvm-life-cycle">JVM Life Cycle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#life-cycle">Life Cycle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#availability">Availability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preparation-for-threads">Preparation for Threads</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jvm-types">JVM Types</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>
@@ -642,7 +645,7 @@ blocks</p></li>
 </li>
 <li><dl class="simple">
 <dt><strong>Bitwise</strong></dt><dd><ul>
-<li><p>&amp;, <a href="#id1"><span class="problematic" id="id2">|</span></a>, ^, ~ (complement), &lt;&lt;, &gt;&gt;, &gt;&gt;&gt; (zero fill right shift)</p></li>
+<li><p>&amp;, |, ^, ~ (complement), &lt;&lt;, &gt;&gt;, &gt;&gt;&gt; (zero fill right shift)</p></li>
 </ul>
 </dd>
 </dl>
@@ -656,7 +659,7 @@ blocks</p></li>
 </li>
 <li><dl class="simple">
 <dt><strong>Assignment</strong></dt><dd><ul>
-<li><p>=, +=, -=, /=, %=, &lt;&lt;=, &gt;&gt;=, &amp;=, ^=, <a href="#id3"><span class="problematic" id="id4">|</span></a>=</p></li>
+<li><p>=, +=, -=, *=, /=, %=, &lt;&lt;=, &gt;&gt;=, &amp;=, ^=, |=</p></li>
 </ul>
 </dd>
 </dl>
@@ -1928,7 +1931,7 @@ Java platform classes</p></li>
 <h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#class-variables">Class Variables</a>, <a class="reference internal" href="#constructors">Constructors</a>, <a class="reference internal" href="#singleton-class">Singleton Class</a>, <a class="reference internal" href="#class-rules">Class Rules</a>, <a class="reference internal" href="#import">Import</a></p></li>
-<li><p><a class="reference internal" href="#abstract-class">Abstract Class</a>, <a href="#id17"><span class="problematic" id="id18">`Final Class`_</span></a>, <a class="reference internal" href="#non-static-nested-class">Non-static Nested Class</a>, <a class="reference internal" href="#static-nested-class">Static Nested Class</a></p></li>
+<li><p><a class="reference internal" href="#abstract-class">Abstract Class</a>, <a class="reference internal" href="#non-static-nested-class">Non-static Nested Class</a>, <a class="reference internal" href="#static-nested-class">Static Nested Class</a></p></li>
 <li><p>blueprint to create objects</p></li>
 <li><p>use <code class="docutils literal notranslate"><span class="pre">new</span></code> keyword to create new objects</p></li>
 <li><p>a class cannot be associated with <code class="docutils literal notranslate"><span class="pre">private</span></code> access modifier</p></li>
@@ -4521,18 +4524,21 @@ given line length and line separator</p></li>
 <section id="jvm">
 <h2>JVM<a class="headerlink" href="#jvm" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#jvm-life-cycle">JVM Life Cycle</a></p></li>
+<li><p><a class="reference internal" href="#life-cycle">Life Cycle</a>, <a class="reference internal" href="#availability">Availability</a>, <a class="reference internal" href="#preparation-for-threads">Preparation for Threads</a>, <a class="reference internal" href="#jvm-types">JVM Types</a></p></li>
 <li><p>base of the entire Java platform’s independence from specific hardware and OS, operating at
 the OS layer</p></li>
 <li><p>JVM does not know about the specifics of Java programming language</p></li>
 <li><p>the class files encapsulate JVM instructions or bytecodes, along with symbol table and
 supplementary information</p></li>
+<li><p>bytecode: platform-independent low-level representation of Java code</p></li>
 <li><p>any programming language that can be expressed in a valid class file can leverage JVM</p></li>
 <li><p>JVM acts as interpreter for Java bytecode, managing memroy, multithreading, and various
 runtime services</p></li>
+<li><p>even though Java programming language is platform independent, JVM is platform-specific and
+designed to adapt the host system</p></li>
 </ul>
-<section id="jvm-life-cycle">
-<h3>JVM Life Cycle<a class="headerlink" href="#jvm-life-cycle" title="Link to this heading">#</a></h3>
+<section id="life-cycle">
+<h3>Life Cycle<a class="headerlink" href="#life-cycle" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
 <li><p>one application per JVM instance, ensuring independence and security of each Java
@@ -4564,6 +4570,113 @@ static, return <code class="docutils literal notranslate"><span class="pre">void
 <li><dl class="simple">
 <dt><strong>Application Completion</strong></dt><dd><ul>
 <li><p>JVM instance terminates once the application is executed</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>JVM can use native methods written and C or C++ and dynamically linked to interact and
+leverage platform-specific features</p></li>
+<li><p>native methods provide access to OS and system resources that are not easily accessible
+through pure Java code</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="availability">
+<h3>Availability<a class="headerlink" href="#availability" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>concurrent processes ensure JVM continuous availability</p></li>
+<li><dl class="simple">
+<dt><strong>Timers</strong></dt><dd><ul>
+<li><p>organise periodic events such as interrupts and repetitive processes</p></li>
+<li><p>crucial in maintaining the synchrony of JVM operations</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Garbage Collector Processes</strong></dt><dd><ul>
+<li><p>ensure efficient memory utilisation</p></li>
+<li><p>manage memory by cleaning up objects that are no longer in use</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Compilers</strong></dt><dd><ul>
+<li><p>convert bytecode into native code, also known as just-in-time (JIT) compilation</p></li>
+<li><p>enhances the performance of Java applications</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Listeners</strong></dt><dd><ul>
+<li><p>receive signals and information, and relay it to appropriate processes within JVM</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="preparation-for-threads">
+<h3>Preparation for Threads<a class="headerlink" href="#preparation-for-threads" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Memory Allocation</strong></dt><dd><ul>
+<li><p>JVM allocates memory to the thread, includes dedicated portion of the heap</p></li>
+<li><p>each thread has its own memory space, ensuring isolation</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Object Synchronisation</strong></dt><dd><ul>
+<li><p>mechanisms, such as locks and monitors, are set up to access shared resources</p></li>
+<li><p>helps prevent data corruption in multi-threaded applications</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Specific Registers</strong></dt><dd><ul>
+<li><p>specific registers are part of the thread’s execution context</p></li>
+<li><p>registers hold data and execution state information</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Allocate Native Thread</strong></dt><dd><ul>
+<li><p>a native thread managed by the OS is allocated to support Java thread’s execution</p></li>
+<li><p>native thread is responsible for executing the Java code</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>JVM is responsible to handle exception, ensure thread safety, and close it if necessary</p></li>
+<li><p>every resources must be released when a thread completes execution</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="jvm-types">
+<h3>JVM Types<a class="headerlink" href="#jvm-types" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Primitives</strong></dt><dd><ul>
+<li><p>JVM do not perform extensive type checking or runtime verification</p></li>
+<li><p>boolean, number, returnAddress</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Reference Values</strong></dt><dd><ul>
+<li><p>objects, such as complex data structures, are type checked and verified at runtime</p></li>
+<li><p>class, array</p></li>
 </ul>
 </dd>
 </dl>
@@ -4732,7 +4845,10 @@ static, return <code class="docutils literal notranslate"><span class="pre">void
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jvm">JVM</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jvm-life-cycle">JVM Life Cycle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#life-cycle">Life Cycle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#availability">Availability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preparation-for-threads">Preparation for Threads</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jvm-types">JVM Types</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>

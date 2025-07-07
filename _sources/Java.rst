@@ -125,11 +125,11 @@ Operators
     * **Relational**
         - ==, !=, >, <, >=, <=
     * **Bitwise**
-        - &, |, ^, ~ (complement), <<, >>, >>> (zero fill right shift)
+        - &, \|, ^, ~ (complement), <<, >>, >>> (zero fill right shift)
     * **Logical**
         - &&, ||, !
     * **Assignment**
-        - =, +=, -=, /=, %=, <<=, >>=, &=, ^=, |=
+        - =, +=, -=, \*=, /=, %=, <<=, >>=, &=, ^=, \|=
     * **Misc**
         - ?: (conditional)
         - ``instance of`` (only for object reference variables, check object is of or compatible
@@ -1228,7 +1228,7 @@ Classes
 =======
 
 * `Class Variables`_, `Constructors`_, `Singleton Class`_, `Class Rules`_, `Import`_
-* `Abstract Class`_, `Final Class`_, `Non-static Nested Class`_, `Static Nested Class`_
+* `Abstract Class`_, `Non-static Nested Class`_, `Static Nested Class`_
 * blueprint to create objects
 * use ``new`` keyword to create new objects
 * a class cannot be associated with ``private`` access modifier
@@ -3635,19 +3635,22 @@ Base64
 JVM
 ===
 
-* `JVM Life Cycle`_
+* `Life Cycle`_, `Availability`_, `Preparation for Threads`_, `JVM Types`_
 * base of the entire Java platform's independence from specific hardware and OS, operating at
   the OS layer
 * JVM does not know about the specifics of Java programming language
 * the class files encapsulate JVM instructions or bytecodes, along with symbol table and
   supplementary information
+* bytecode: platform-independent low-level representation of Java code
 * any programming language that can be expressed in a valid class file can leverage JVM
 * JVM acts as interpreter for Java bytecode, managing memroy, multithreading, and various
   runtime services
+* even though Java programming language is platform independent, JVM is platform-specific and
+  designed to adapt the host system
 
 
-JVM Life Cycle
---------------
+Life Cycle
+----------
     * one application per JVM instance, ensuring independence and security of each Java
       application
     * **Instance Birth**
@@ -3661,6 +3664,51 @@ JVM Life Cycle
         - JVM executes the application, managing necessary resources
     * **Application Completion**
         - JVM instance terminates once the application is executed
+    * JVM can use native methods written and C or C++ and dynamically linked to interact and
+      leverage platform-specific features
+    * native methods provide access to OS and system resources that are not easily accessible
+      through pure Java code
+
+Availability
+------------
+    * concurrent processes ensure JVM continuous availability
+    * **Timers**
+        - organise periodic events such as interrupts and repetitive processes
+        - crucial in maintaining the synchrony of JVM operations
+    * **Garbage Collector Processes**
+        - ensure efficient memory utilisation
+        - manage memory by cleaning up objects that are no longer in use
+    * **Compilers**
+        - convert bytecode into native code, also known as just-in-time (JIT) compilation
+        - enhances the performance of Java applications
+    * **Listeners**
+        - receive signals and information, and relay it to appropriate processes within JVM
+
+Preparation for Threads
+-----------------------
+    * **Memory Allocation**
+        - JVM allocates memory to the thread, includes dedicated portion of the heap
+        - each thread has its own memory space, ensuring isolation
+    * **Object Synchronisation**
+        - mechanisms, such as locks and monitors, are set up to access shared resources
+        - helps prevent data corruption in multi-threaded applications
+    * **Specific Registers**
+        - specific registers are part of the thread's execution context
+        - registers hold data and execution state information
+    * **Allocate Native Thread**
+        - a native thread managed by the OS is allocated to support Java thread's execution
+        - native thread is responsible for executing the Java code
+    * JVM is responsible to handle exception, ensure thread safety, and close it if necessary
+    * every resources must be released when a thread completes execution
+
+JVM Types
+---------
+    * **Primitives**
+        - JVM do not perform extensive type checking or runtime verification
+        - boolean, number, returnAddress
+    * **Reference Values**
+        - objects, such as complex data structures, are type checked and verified at runtime
+        - class, array
 
 `back to top <#java>`_
 
