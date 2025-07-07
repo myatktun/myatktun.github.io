@@ -553,8 +553,8 @@ GDB Commands
 References & External Resources
 ===============================
 
-* Learn Learn Scratch Tutorials (2021). Bitwise Operations & Bit Masking. Available at:
+* Learn Learn Scratch Tutorials. (2021). Bitwise Operations & Bit Masking. Available at:
   https://youtu.be/ffPOA7UUDAs?si=0zu6dPhu34mjgdoZ
-* CS 246 (2019). GDB Tutorial. Available at: https://youtu.be/svG6OPyKsrw?si=QwG4LyTX9zV2Qiqw
+* CS 246. (2019). GDB Tutorial. Available at: https://youtu.be/svG6OPyKsrw?si=QwG4LyTX9zV2Qiqw
 
 `back to top <#c>`_

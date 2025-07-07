@@ -12,6 +12,8 @@ Java
 8. `Threads`_
 9. `Javadoc`_
 10. `Java8`_
+11. `JVM`_
+12. `References & External Resources`_
 
 `back to top <#java>`_
 
@@ -22,17 +24,15 @@ Basics
 * `Numbers`_, `Characters`_, `Strings`_, `Arrays`_, `Date/Time`_, `Regex`_
 * `Methods`_, `I/O`_, `Exceptions`_, `Interfaces`_, `Packages`_
 * write once, run anywhere, can run on all Java supported platforms without recompilation
-* four platforms for Java
-    * Standard Edition (Java SE)
-    * Enterprise Edition (Java EE)
-    * Micro Edition (Java ME)
-    * Java FX
+* four platforms for Java: Standard Edition (Java SE), Enterprise Edition (Java EE), Micro
+  Edition (Java ME), Java FX
 * multi-threaded, interpreted, high performance (uses JIT compilers), distributed and dynamic
 * object oriented: everything is object in Java
 * first compiled into platform independent byte code, which is then interpreted by JVM
 * object: has states and behaviors, is an instance of a class
 * class: template/blueprint that describes state that objects of its type supports
 * method: a behavior, a class can contain many behaviors
+
 
 Conventions
 -----------
@@ -53,7 +53,7 @@ Modifiers
         - abstract: for abstract classes and methods
         - strictfp: strict floating-point, to get same floating-point result on any platforms
         - synchronized: for threads, guarantees both atomicity and visibility, can be applied
-        to blocks or methods
+          to blocks or methods
         - volatile: for threads, guarantees visibility, can only be applied to variables
 
 Variables
@@ -73,7 +73,7 @@ Variables
         - visible for all methods, constructors and blocks in the class
         - have default values, but can be assigned during declaration or in constructor
         - can be accessed directly inside the class, but should called using ``Object.Variable``
-        in static methods
+          in static methods
     * **Class/Static**
         - declared with static keyword in class, but outside a method, constructor or block
         - only one copy per class, no matter how many objects are created
@@ -81,15 +81,15 @@ Variables
         - stored in static memory
         - created when program starts and destroyed when it stops
         - similar visibility to instance variables, but mostly declared public for users of the
-        class
+          class
         - same default values as instance variables, and can be assigned in static initializer
-        blocks
+          blocks
         - can be called using ``ClassName.VariableName``
         - should be all upper case when declaring as ``public static final``
 
 Data Types
 ----------
-    * **primitive**
+    * **Primitive**
         - byte: 8-bit signed
         - short: 16-bit signed
         - int: 32-bit signed
@@ -98,11 +98,11 @@ Data Types
         - double: double-precision 64-bit
         - boolean: 1-bit true/false
         - char: single 16-bit Unicode
-    * **reference/object**
+    * **Reference/Object**
         - created using constructors of classes, to access objects
         - class objects and various type of array variables are reference data type
         - default value is null
-    * **literals**
+    * **Literals**
         - decimal, hexadecimal, octal
         - string
 
@@ -120,20 +120,20 @@ Enums
 
 Operators
 ---------
-    * **arithmetic**
+    * **Arithmetic**
         - +, -, &ast;, /, %, ++, --
-    * **relational**
+    * **Relational**
         - ==, !=, >, <, >=, <=
-    * **bitwise**
+    * **Bitwise**
         - &, |, ^, ~ (complement), <<, >>, >>> (zero fill right shift)
-    * **logical**
+    * **Logical**
         - &&, ||, !
-    * **assignment**
+    * **Assignment**
         - =, +=, -=, /=, %=, <<=, >>=, &=, ^=, |=
-    * **misc**
+    * **Misc**
         - ?: (conditional)
         - ``instance of`` (only for object reference variables, check object is of or compatible
-        with particular type)
+          with particular type)
 
 Loops
 -----
@@ -183,7 +183,7 @@ Switch
 ------
     * values must be of an int, byte, short, char, strings and enums
     * value for a case must be same data type as the one in the switch, must be constant or
-    literal
+      literal
     * not every case needs to contain ``break``
 
     .. code-block:: java
@@ -206,7 +206,7 @@ Switch
 Numbers
 -------
     * wrapper classes such as Integer, Long, Byte, Double, Float, Short are subclasses of the
-    abstract class Number
+      abstract class Number
     * boxing: converting primitive data types into object
     * unboxing: converting wrapper object back to primitive data type
     * the compiler takes care of boxing and unboxing
@@ -231,11 +231,11 @@ Numbers
         - determine if Number object is equal to the argument object
         - argument can be of any object
         - return true if argument is not null and is an object of same type with same numeric
-        value
+          value
         - extra requirements for Double and Float
         - ``x.equals(y)``
     * ``valueOf()``: return relevant Number Object holding the value of the argument passed,
-    argument can be primitive data type, String, etc.
+      argument can be primitive data type, String, etc.
 
         .. code-block:: java
 
@@ -248,9 +248,9 @@ Numbers
 
 
     * ``toString()``: to get String object with value of Number object, take primitive data type
-    as an argument and return String object, `x.toString()` or `Integer.toString(12)`
+      as an argument and return String object, `x.toString()` or `Integer.toString(12)`
     * ``parseXxx()``: to get primitive data type of certain String, is a static method and can
-    have one argument or two
+      have one argument or two
 
         .. code-block:: java
 
@@ -260,23 +260,23 @@ Numbers
 
 
     * ``abs()``: return absolute value of argument, that can be int, float, long, double, short,
-    byte, `Math.abs(-8)` return `8`
+      byte, `Math.abs(-8)` return `8`
     * ``ceil()``: return smallest integer greater than or equal to the argument,
-    ``Math.ceil(100.82)`` return ``101.0``
+      ``Math.ceil(100.82)`` return ``101.0``
     * ``floor()``: return largest integer less than or equal to the argument, ``Math.floor(100.82)``
-    return `100.0`
+      return `100.0`
     * ``rint()``: return integer that is closest in value to the argument, ``Math.rint(100.82)``
-    return `101.0` and `Math.rint(100.20)` return `100.0`
+      return `101.0` and `Math.rint(100.20)` return `100.0`
     * ``round()``: return closest long or int, ``Math.round(100.5)`` return ``101.0``
     * ``min()``: return smaller of two arguments, which can be int, float, long, double,
-    ``Math.min(1.3, 2)`` return ``1.3``
+      ``Math.min(1.3, 2)`` return ``1.3``
     * ``max()``: return maximum of two arguments, which can be int, float, long, double,
-    ``Math.max(1.3, 2)`` return ``2.0``
+      ``Math.max(1.3, 2)`` return ``2.0``
     * ``exp()``: return e to the power of the argument, ``Math.exp(2)`` is e<sup>2</sup> and
-    ``Math.E`` return Euler's number
+      ``Math.E`` return Euler's number
     * ``log()``: return natural logarithm of argument, ``Math.log(Math.E)`` return ``1.0``
     * ``pow()``: return value of first argument raised to the power of second, ``Math.pow(2, 2)``
-    return `4.0`
+      return `4.0`
     * ``sqrt()``: return square root of argument, ``Math.sqrt(2)``
     * ``sin()``: return sine of specified double value, ``Math.sin(2.0)``
     * ``cos()``: return cosine of specified double value: ``Math.cos(2.0)``
@@ -285,7 +285,7 @@ Numbers
     * ``acos()``: return arccosine of specified double value, ``Math.acos(Math.cos(2.0))``
     * ``atan()``: return arctangent of specified double value, ``Math.atan(Math.tan(2.0))``
     * ``atan2()``: convert rectangular coordinates ``(x, y)`` to polar coordinate ``(r, theta)``,
-    ``Math.atan2(1, 2)``
+      ``Math.atan2(1, 2)``
     * ``toDegrees()``: convert argument to degrees, ``Math.toDegrees(45.0)``
     * ``toRadians()``: convert argument to radians, ``Math.toRadians(45.0)``
     * ``random()``: to generate random number between ``0.0`` and ``1.0`` (exclusive), ``Math.random()``
@@ -319,9 +319,9 @@ Strings
 -------
     * to create and manipulate strings
     * has 11 constructors to provide initial value using different sources, such as array of
-    chars
+      chars
     * immutable, created string object cannot be changed, use String Buffer and String Builder
-    classes if needed
+      classes if needed
 
     .. code-block:: java
 
@@ -334,7 +334,7 @@ Strings
 
     * ``length()``: return length of string, ``s.length()``
     * ``concat()``: concatenate two strings and return new string, ``s1.concat(s2)`` or
-    ``"hello".concat("world")``
+      ``"hello".concat("world")``
     * ``format()``: create reusable formatted string
 
         .. code-block:: java
@@ -345,55 +345,55 @@ Strings
 
     * ``charAt()``: return char at index, ``s.charAt(8)``
     * ``compareTo()``: compare string to another object/string, return 0 if equal, < 0 if
-    argument is greater, > 0 if argument is less than, `s1.compareTo(s2)`
+      argument is greater, > 0 if argument is less than, `s1.compareTo(s2)`
     * ``compareToIgnoreCase()``: compare two strings, ignoring case, ``s1.compareToIgnoreCase(s2)``
     * ``contentEquals()``: return true if and only if this String represents same sequence of
-    chars as specified in StringBuffer, `s.contentEquals(new StringBuffer())`
+      chars as specified in StringBuffer, `s.contentEquals(new StringBuffer())`
     * ``copyValueOf()``: return string as in the argument array, ``s1.copyValueOf(char[] s2)`` or
-    ``s1.copyValueOf(char[] s2, startIndex, length)``
+      ``s1.copyValueOf(char[] s2, startIndex, length)``
     * ``endsWith()``: check if string ends with specified suffix, ``s.endsWith("some string")``
     * ``equals()``: return true if equal, ``s1.equals(s2)``
     * ``equalsIgnoreCase()``: return true if equal ignoring case, ``s1.equalsIgnoreCase(s2)``
     * ``getBytes()``: encodes string into byte array, ``s.getBytes("UTF-8")`` or
-    ``s.getBytes("ISO-8859-1")``
+      ``s.getBytes("ISO-8859-1")``
     * ``getChars()``: copy chars from string to char array, ``s.getChars(start, end, dst, dstBegin)``
     * ``hashCode()``: return hash code for string, ``s.hashCode()``
     * ``indexOf()``: return index of first occurrence of char or substring, -1 if not found,
-    ``s.indexOf('a')`` or ``s.indexOf("abc", startIndex)``
+      ``s.indexOf('a')`` or ``s.indexOf("abc", startIndex)``
     * ``intern()``: return canonical representation, ``s.intern()``, ``s.intern() == t.intern()`` if
-    and only if `s.equals(t)`, interning ensure all strings having same contents share same
-    memory
+      and only if `s.equals(t)`, interning ensure all strings having same contents share same
+      memory
     * ``lastIndexOf()``: return index of last occurrence of char or substring, -1 if not found,
-    ``s.lastIndexOf('a')`` or ``s.lastIndexOf("abc", startIndex)``
+      ``s.lastIndexOf('a')`` or ``s.lastIndexOf("abc", startIndex)``
     * ``matches()``: return if string match regex or not, ``s.matches("*abc*")``, same as
-    ``Pattern.matches(regex, str)``
+      ``Pattern.matches(regex, str)``
     * ``regionMatches()``: check if two string regions are equal,
-    ``s1.regionMatches(boolean ignoreCase, startIndex, s2, startIndexIns2, numOfCharToCompare)``
+      ``s1.regionMatches(boolean ignoreCase, startIndex, s2, startIndexIns2, numOfCharToCompare)``
     * ``replace()``: return new string after replacing all occurrences of char,
-    ``s.replace(old, new)``
+      ``s.replace(old, new)``
     * ``replaceAll()``: return new string after replacing each substring that matches regex,
-    ``s.replaceAll(regex, replaceWithThis)``
+      ``s.replaceAll(regex, replaceWithThis)``
     * ``replaceFirst()``: return new string after replacing first substring that matches regex,
-    ``s.replaceFirst(regex, replaceWithThis)``
+      ``s.replaceFirst(regex, replaceWithThis)``
     * ``split()``: return array of strings after splitting that matches regex, ``s.split(",")`` or
-    ``s.split(",", limitToReturn)``
+      ``s.split(",", limitToReturn)``
     * ``starsWith()``: check if string starts with specified prefix, ``s.starsWith("abc")`` or
-    ``s.starsWith("abc", startIndex)``
+      ``s.starsWith("abc", startIndex)``
     * ``subSequence()``: return new character sequence, ``s.subSequence(startIndex, endIndex)``
     * ``subString()``: return new substring, ``s.subString(start)`` or ``s.subString(start, end)``
     * ``toCharArray()``: return new char array, ``s.toCharArray()``
     * ``toLowerCase()``: convert all chars to lower, ``s.toLowerCase()``, which is same as
-    ``s.toLowerCase(Locale.getDefault())``
+      ``s.toLowerCase(Locale.getDefault())``
     * ``toString()``: return itself a string, ``s.toString()``
     * ``toUpperCase()``: converts all chars to upper, ``s.toUpperCase()``, which is same as
-    ``s.toUpperCase(Locale.getDefault())``
+      ``s.toUpperCase(Locale.getDefault())``
     * ``trim()``: return copy string after removing leading and trailing whitespace, ``s.trim()``
     * ``valueOf()``: return string representation of argument, ``String.valueOf(new long(123))``
 
 Arrays
 ------
     * as arrays are reference types and can only be dynamically allocated, they are objects on
-    the heap
+      the heap
 
     .. code-block:: java
 
@@ -417,7 +417,7 @@ Arrays
 
 
     * ``binarySearch()``: find number and return index of sorted array,
-    ``Arrays.binarySearch(myArray, numToSearch)``
+      ``Arrays.binarySearch(myArray, numToSearch)``
     * ``equals()``: true if two arrays have same number of elements, ``Arrays.equals(a1, a2)``
     * ``fill()``: set specified value to each element, ``Arrays.fill(myArray, 1)``
     * ``sort()``: sort the array in ascending order, ``Arrays.sort(myArray)``
@@ -431,7 +431,7 @@ Date/Time
     * ``before()``: true if this Date object is earlier than argument, ``d1.before(d2)``
     * ``clone()``: shallow copy of this Date object, ``Object d2 = d1.clone()``
     * ``compareTo()``: 0 if equal, < 0 if this Date is earlier, > 0 if this Date is later,
-    ``d1.compareTo(d2)``
+      ``d1.compareTo(d2)``
     * ``equals()``: true if same time and date, ``d1.equals(d2)``
     * ``getTime()``: return number of ms since Jan 1, 1970, ``d.getTime()``
     * ``hashCode()``: return hash code for this Date, ``d.hashCode()``
@@ -470,27 +470,27 @@ Date/Time
     * **GregorianCalendar**
         - concrete implementation of Calendar class in Gregorian
         - ``GregorianCalendar()``: initialize default GregorianCalendar using current time in
-        default time zone and default locale or ``GregorianCalendar(int yr, int month, int date)``
-        or ``GregorianCalendar(int yr, int month, int date, int hr, int min, int second)`` or
-        ``GregorianCalendar(Locale l)`` or ``GregorianCalendar(TimeZone zone)`` or
-        ``GregorianCalendar(TimeZone z, Locale l)``
+          default time zone and default locale or ``GregorianCalendar(int yr, int month, int date)``
+          or ``GregorianCalendar(int yr, int month, int date, int hr, int min, int second)`` or
+          ``GregorianCalendar(Locale l)`` or ``GregorianCalendar(TimeZone zone)`` or
+          ``GregorianCalendar(TimeZone z, Locale l)``
         - ``add(int field, int amnt)``: add amount of time to given field,
-        ``c.add(GregorianCalendar.MONTH, 2)``
+          ``c.add(GregorianCalendar.MONTH, 2)``
         - ``computeFields()``: converts UTC as ms to time field values
         - ``computeTime()``: Overrides Calendar Converts time field values to UTC as ms
         - ``equals()``: true if equal, ``c1.equals(c2)``
         - ``get()``: get value of given time field, ``c.get(Calendar.YEAR)``
         - ``getActualMaximum()``: get max value a field can have,
-        ``c.getActualMaximum(Calendar.YEAR)``
+          ``c.getActualMaximum(Calendar.YEAR)``
         - ``getActualMinimum()``: get minimum value a field can have,
-        ``c.getActualMinimum(Calendar.YEAR)``
+          ``c.getActualMinimum(Calendar.YEAR)``
         - ``getGreatestMinimum()``: get highest minimum value of a field,
-        ``c.getGreatestMinimum(Calendar.AM_PM)``
+          ``c.getGreatestMinimum(Calendar.AM_PM)``
         - ``getGregorianChange()``: get date change from Julian Calendar to Gregorian
         - ``setGregorianChange()``: set Gregorian Calendar change date,
-        ``c.setGregorianChange(new Date())``
+          ``c.setGregorianChange(new Date())``
         - ``getLeastMaximum()``: get lowest max value of a field,
-        ``c.getLeastMaximum(Calendar.PM)``
+          ``c.getLeastMaximum(Calendar.PM)``
         - ``getMaximum()``: get max value for a field, ``c.getMaximum(Calendar.YEAR)``
         - ``getTime()``: get this Calendar current time, ``c.getTime()``
         - ``getTimeInMillis()``: get this Calendar current time in ms, ``c.getTimeInMillis()``
@@ -498,11 +498,11 @@ Date/Time
         - ``hashCode()``: get hash code, ``c.hashCode()``
         - ``isLeapYear()``: true if argument is leap year, ``c.isLeapYear(2000)``
         - ``roll()``: add/subtract single unit of time on given field,
-        ``c.roll(Calendar.YEAR, true)`` increase year by one, ``c.roll(Calendar.YEAR, false)``
-        decrease year by one
+          ``c.roll(Calendar.YEAR, true)`` increase year by one, ``c.roll(Calendar.YEAR, false)``
+          decrease year by one
         - ``set()``: set time field with given value, ``c.set(Calendar.YEAR, 22)`` or
-        ``c.set(yr, month, date)`` or ``c.set(yr, month, date, hr, min)`` or
-        ``c.set(yr, month, date, hr, min, second)``
+          ``c.set(yr, month, date)`` or ``c.set(yr, month, date, hr, min)`` or
+          ``c.set(yr, month, date, hr, min, second)``
         - ``setTime()``: set this Calendar current time with given Date object, ``c.setTime(Date())``
         - ``setTimeinMillis()``: set this Calendar current time in given long value
         - ``setTimeZone()``: set time zone with given TimeZone object, ``c.setTimeZone(TimeZone)``
@@ -518,31 +518,31 @@ Regex
         - interpret pattern and preform match operations on input string
         - no public constructors, must invoke ``matcher()`` on Pattern object
         - ``groupCount()``: return number of capturing groups, does not include group 0,
-        ``m.groupCount()``
+          ``m.groupCount()``
         - capturing group 0 represents entire expression
         - ``start()``: return start index of previous match, ``m.start()`` or ``m.start(int group)``,
-        which returns start index of subsequence captured by given group
+          which returns start index of subsequence captured by given group
         - ``end()``: return offset after the last char matched, ``m.end()`` or ``m.end(int group)``,
-        which returns offset after the last char of subsequence captured by given group
+          which returns offset after the last char of subsequence captured by given group
         - ``lookingAt()``: true if pattern is matched, starting at the beginning, ``m.lookingAt()``
         - ``find()``: true if next subsequence of matched pattern is found, ``m.find()`` or
-        ``m.find(int start)``, which find next subsequence at given index
+          ``m.find(int start)``, which find next subsequence at given index
         - ``matches()``: true if entire region matches the pattern
         - ``appendReplacement(StringBuffer, String)``: non-terminal append and replace return
-        Matcher object, ``m.appendReplacement()``
+          Matcher object, ``m.appendReplacement()``
         - ``appendTail(StringBuffer)``: terminal append and replace, return StringBuffer object
         - ``replaceAll(String)``: replace every subsequence that matches with given string,
-        return String object
+          return String object
         - ``replaceFirst(String)``: replace first subsequence, ``m.replaceFirst()``, return String
         - ``quoteReplacement(String)``: return literal replacement String for specified String,
-        act as intermediate in replace methods, ``m.quoteReplacement()``
+          act as intermediate in replace methods, ``m.quoteReplacement()``
     * **PatternSyntaxException**
         - unchecked exception that indicates syntax error in regex
         - ``getDescription()``: return description of error
         - ``getIndex()``: return error index
         - ``getPattern()``: return incorrect regex pattern
         - ``getMessage()``: return description of syntax error and index, incorrect regex
-        pattern and visual indication of error index within pattern
+          pattern and visual indication of error index within pattern
 
     .. code-block:: java
 
@@ -610,7 +610,7 @@ Methods
 
     * **this**
         - used as reference to the object of current class, only within instance method or
-        constructor
+          constructor
         - can refer the members of class such as constructors, variables and methods
         - to differentiate instance variables from local variables that have same names
 
@@ -681,7 +681,7 @@ I/O
     * **character streams**
         - for I/O of 16-bit unicode
         - ``FileReader`` and ``FileWriter`` use ``FileInputStream`` and ``FileOutputStream``
-        internally, but read and write 2 bytes at a time
+          internally, but read and write 2 bytes at a time
 
         .. code-block:: java
 
@@ -718,11 +718,11 @@ I/O
         - all methods throw IOException
         - ``close()``: close file input stream, ``in.close()``
         - ``finalize()``: protected method, clean the connection to the file, ensure ``close()``
-        is called when there are no more references to the stream
+          is called when there are no more references to the stream
         - ``read(int r)``: read specified byte of data from InputStream, return the next byte of
-        data or -1 if end of file
+          data or -1 if end of file
         - ``read(byte[] r)``: read r.length bytes from InputStream into array, return total
-        number of bytes read or -1 if end of file
+          number of bytes read or -1 if end of file
         - ``available()``: return number of bytes that can be read from the file input stream
 
         .. code-block:: java
@@ -740,7 +740,7 @@ I/O
         - all methods throw IOException
         - ``close()``: file file output stream, ``out.close()``
         - ``finalize()``: protected method, clean the connection to the file, ensure ``close()``
-        is called when there are no more references to the stream
+          is called when there are no more references to the stream
         - ``write(int w)``: write specified byte to output stream
         - ``write(byte[] w)``: write w.length bytes from byte array to OutputStream
 
@@ -756,7 +756,7 @@ I/O
     * **Directories**
         - can use File object to create directories and list files in a directory
         - ``mkdir()``: create a directory, return true on success and false on failure, which
-        means path specified already exists or entire path does not exist yet, ``d.mkdir(/foo)``
+          means path specified already exists or entire path does not exist yet, ``d.mkdir(/foo)``
         - ``mkdirs()``: create both directory and parents of the directory, ``d.mkdirs(/foo/bar)``
         - path separators of UNIX and Windows are resolved correctly by Java
         - ``list()``: list all files
@@ -775,16 +775,16 @@ I/O
     * **ByteArrayInputStream**
         - allow buffer in memory to be used as InputStream, byte array as input source
         - ``ByteArrayInputStream(byte[] a)`` or ``ByteArrayInputStream(byte[] a, int off, int len)``:
-        constructor take byte array, first byte to be read and number of bytes to be read
+          constructor take byte array, first byte to be read and number of bytes to be read
         - ``read()``: read next byte from InputStream, return int as next byte of data, -1 if
-        end of file
+          end of file
         - ``read(byte[] r, int off, int len)``: read from input stream starting from off till
-        len into an array, return total number of bytes read or -1 if end of file
+          len into an array, return total number of bytes read or -1 if end of file
         - ``available()``: return number of readable bytes from input stream
         - ``mark(int r)``: set current marked position in the stream, max limit of readable
-        bytes as argument
+          bytes as argument
         - ``skip(long n)``: skip n numbers of bytes from stream, return actual number of bytes
-        skipped
+          skipped
 
         .. code-block:: java
 
@@ -802,9 +802,9 @@ I/O
         - ``ByteArrayOutputStream()``: create ByteArrayOutputStream having buffer of 32 bytes
         - ``ByteArrayOutputStream(int s)``: having buffer of given size
         - ``reset()``: reset number of valid bytes of the stream to zero, all output in the
-        stream is discarded
+          stream is discarded
         - ``toByteArray()``: return newly allocated byte array, with size and content of current
-        output stream
+          output stream
         - ``toString()``: return buffer content as string
         - ``write(byte[] b)``: write given array to output stream
         - ``write(byte[] b, int off, int lent)``: write len of bytes starting from off
@@ -825,13 +825,14 @@ I/O
         - ``DataInputStream(InputStream in)``: create InputStream object
         - all methods throw IOException
         - ``read(byte[] b)``: read bytes from input stream into the byte array, return total
-        number of bytes read or -1 if end of file
+          number of bytes read or -1 if end of file
         - ``read(byte[] b, int off, int len)``: read len of bytes starting from off
         - ``readBoolean()``, ``readByte()``, ``readShort()``, ``readInt()``: read bytes from the
-        contained InputStream, return next two bytes of InputStream as specific primitive type
+          contained InputStream, return next two bytes of InputStream as specific primitive
+          type
         - ``readLine()``: read next line of text from InputStream, read successive bytes by
-        converting each into char, until line terminator or end of file, return chars read as
-        String
+          converting each into char, until line terminator or end of file, return chars read
+          as String
 
         .. code-block:: java
 
@@ -847,14 +848,14 @@ I/O
         - ``DataOutputStream(OutputStream out)``: create OutputStream object
         - all methods throw IOException
         - ``write(byte[] w)``: write number of bytes to output stream, return number bytes
-        written to buffer
+          written to buffer
         - ``write(byte[] w, int off, int len)``: write len bytes from byte array at starting
-        point off
+          point off
         - ``writeBoolean()``, ``writeByte()``, ``writeShort()``, ``writeInt()``: write specific
-        primitive type data into output stream as bytes
+          primitive type data into output stream as bytes
         - ``flush()``: flush data output stream
         - ``wrtieBytes(String s)``: write the string to output stream as sequence of bytes, by
-        discarding each char high eight bits
+          discarding each char high eight bits
 
         .. code-block:: java
 
@@ -866,16 +867,16 @@ I/O
         - class to create files and directories, file searching, file deletion, etc.
         - File object represents actual file/dir on the disk
         - ``File(File parent, String child)``: create File instance from parent abstract
-        pathname and child pathname
+          pathname and child pathname
         - ``File(String pathname)``: create File instance by converting given pathname into
-        abstract pathname
+          abstract pathname
         - ``File(String parent, String child)``: create File instance from parent and child
-        pathname string
+          pathname string
         - ``File(URI uri)``: create File instance by converting given URI into abstract pathname
         - ``getName()``: return name of file or dir
         - ``getParent()``: return pathname's parent or null if parent dir not exist
         - ``getParentFile()``: return abstract pathname of pathname's parent, null if parent
-        dir does not exist
+          dir does not exist
         - ``getPath()``: return pathname string
         - ``isAbsolute()``: true if pathname is absolute
         - ``getAbsolutePath()``: return absolute pathname string
@@ -884,32 +885,32 @@ I/O
         - ``exists()``: true if file or dir exists
         - ``isDirectory()``: true if and only if pathname exists and is a dir
         - ``isFile()``: true if and only if file exists and is normal file, which is not a dir
-        and satisfy other system-dependent criteria
+          and satisfy other system-dependent criteria
         - ``lastModified()``: return last modified time in ms since epoch (Jan 1, 1970)
         - ``length()``: return length of file, return unspecified value if pathname is dir
         - ``createNewFile()``: auto create new, empty file only if it does not exist, return
-        true if file not exist and created successfully, throw IOException
+          true if file not exist and created successfully, throw IOException
         - ``delete()``: delete file or dir, dir must be empty, return true if success
         - ``deleteOnExit()``: request file or dir be deleted when the VM terminates
         - ``list()``: return array of strings of files and dirs
         - ``list(FilenameFilter f)``: return array of strings of files and dirs that satisfy
-        given filter
+          given filter
         - ``listFiles()`` or ``listFiles(FileFilter)``: return array of File objects
         - ``mkdir()``: create dir, return true if dir is created
         - ``mkdirs()``: create dir, with necessary parent dirs if not exist, return true if
-        dir with parent dirs is created
+          dir with parent dirs is created
         - ``renameTo(File f)``: rename the file, return true if success
         - ``setLastModified(long time)``: set last modified time of file or dir, return true if
-        success
+          success
         - ``setReadOnly()``: mark file or dir read only, return true if success
         - ``createTempFile(String prefix, String suffix)`` or
-        ``createTempFile(String prefix, String suffix, File dir)``: create empty file in default
-        tmp or specified directory, using prefix and suffix to generate name, return abstract
-        pathname of created empty file
+          ``createTempFile(String prefix, String suffix, File dir)``: create empty file in default
+          tmp or specified directory, using prefix and suffix to generate name, return
+          abstract >pathname of created empty file
         - ``compareTo(File)``: compare two abstract pathnames lexicographically, return 0 if
-        equal, < 0 if argument is greater, > 0 if argument is less
+          equal, < 0 if argument is greater, > 0 if argument is less
         - ``compareTo(Object)``: compare abstract pathname to another object, return 0 if equal,
-        < 0 if argument is greater, > 0 if argument is less
+          < 0 if argument is greater, > 0 if argument is less
         - ``equals(Object)``: true if argument is not null and same file or dir
         - ``toString()``: return pathname string, which is just the string returned by ``getPath()``
 
@@ -924,10 +925,10 @@ I/O
     * **FileReader**
         - inherits from InputStreamReader, used to read streams of characters
         - ``FileReader(File)``, ``FileReader(FileDescriptor)``, ``FileReader(String)``: create
-        FileReader with given argument to read from
+          FileReader with given argument to read from
         - ``read()``: read single char, return int of char read, throws IOException
         - ``read(char[] c, int off, int len)``: read chars into array, return number of chars
-        read
+          read
 
         .. code-block:: java
 
@@ -940,8 +941,8 @@ I/O
     * **FileWriter**
         - inherits form OutputStreamWriter, used to write streams of characters
         - ``FileWriter(File)``, ``FileWriter(File,boolean append)``, ``FileWriter(FileDescriptor)``,
-        ``FileWriter(String)``, ``FileWriter(String, boolean append)``: create FileWriter object,
-        accept boolean to append data or not
+          ``FileWriter(String)``, ``FileWriter(String, boolean append)``: create FileWriter object,
+          accept boolean to append data or not
         - ``write(int c)``: write single char, throw IOException
         - ``write(char[] c, int off, int len)``: write len of array of chars starting from off
         - ``write(String s, int off, int len)``: write len of String starting from off
@@ -964,7 +965,7 @@ Exceptions
         - checked by the compiler at compilation time, aka compile time exceptions
         - cannot be ignored and must be taken care of immediately
         - e.g ``FileNotFoundException`` when creating ``FileReader`` object and the file doesn't
-        exist
+          exist
         - ``ClassNotFoundException``, ``CloneNOtSupportedException``, ``IllegalAccessException``
         - ``InstantiationException``, ``InterruptedException``, ``NoSuchFieldException``
         - ``NoSuchMethodException``
@@ -995,18 +996,18 @@ Exceptions
         - ``toString()``: return name of the class from ``getMessage()``
         - ``printStackTrace()``: print result of ``toString()`` with stack trace to ``System.err``
         - ``getStackTrace()``: return array with elements on stack trace, index 0 being the top
-        of the call stack
+          of the call stack
         - ``fillInStackTrace()``: fill the stack trace of this Throwable object with current
-        stack trace, return Throwable object
+          stack trace, return Throwable object
     * **try/catch**
         - placed around the code that might generate exception
         - code within the block is called protected code
         - every ``try`` block should be immediately followed by ``catch`` or ``finally``, which is
-        optional
+          optional
         - one ``try`` can have multiple ``catch`` blocks
         - code in ``finally`` block always execute, even if exception does not occur
         - can use ``finally`` to do cleanup, no matter what happens in the protected code, e.g
-        closing a file
+          closing a file
 
         .. code-block:: java
 
@@ -1042,7 +1043,7 @@ Exceptions
         - a class should implement ``AutoCloseable`` interface to be used with
         - can have multiple classes in ``try`` statement, which will be closed in reverse order
         - resources declared in ``try`` statement are instantiated before the start of ``try`` block,
-        and are implicitly declared as ``final``
+          and are implicitly declared as ``final``
 
         .. code-block:: java
 
@@ -1056,7 +1057,7 @@ Exceptions
     * **custom exceptions**
         - must be a child of ``Throwable``
         - need to extend ``Exception`` class for a checked exception that is auto enforced by
-        the Handle or Declare Rule
+          the Handle or Declare Rule
         - need to extend ``RuntimeException`` for runtime exception
 
         .. code-block:: java
@@ -1075,7 +1076,7 @@ Interfaces
     * cannot be instantiated, no constructors, all methods are abstract
     * cannot contain instance fields, except declared ``static`` and ``final``
     * interface is implicitly abstract, methods in it are implicitly abstract and public, so
-    the keywords can be omitted
+      the keywords can be omitted
     * cannot declare checked exceptions other than the ones declared by the interface
     * must maintain signature of interface method and same return type or subtype
 
@@ -1139,12 +1140,12 @@ Interfaces
         - interface with no methods in it
         - to create common parent among group of interfaces
         - to add data type to a class: implementing class does not need to define any methods,
-        but becomes an interface type through polymorphism
+          but becomes an interface type through polymorphism
 
 Packages
 --------
     * categorizing the classes, interfaces, enumerations and annotation types for easy search
-    and usage
+      and usage
     * to prevent naming conflicts and to control access
     * a grouping of related types for access protection and namespace management
     * e.g ``java.lang``, ``java.io``
@@ -1216,10 +1217,10 @@ Packages
     * **CLASSPATH**
         - full path of the classes directory can be set with ``CLASSPATH`` system variable
         - if class path is ``path/classes`` and package is ``foo.MyPackage``, compiler and JVM will
-        look for ``.class`` files in ``path/classes/foo/MyPackage``
+          look for ``.class`` files in ``path/classes/foo/MyPackage``
         - can have several class paths separated by semicolon (Windows) or colon (Unix)
         - by default, compiler and JVM will search current directory and JAR files containing
-        Java platform classes
+          Java platform classes
 
 `back to top <#java>`_
 
@@ -1231,6 +1232,10 @@ Classes
 * blueprint to create objects
 * use ``new`` keyword to create new objects
 * a class cannot be associated with ``private`` access modifier
+* variables of a class can have another class as its member
+* nested class: class written within a class, Non-static nested class and Static nested class
+* outer class: the class that holds the inner class
+
 
 .. code-block:: java
 
@@ -1270,7 +1275,7 @@ Constructors
     * a class can have more than one constructor
     * no explicit return type
     * compiler builds a default one if not defined explicitly, initializing member variables
-    to zero
+      to zero
 
     .. code-block:: java
 
@@ -1291,7 +1296,7 @@ Class Rules
     * only one public class per source file, but can have multiple non-public classes
     * public class name should be the same as file name
     * package statement should be the first in the source file if the class is declared inside
-    a package
+      a package
     * import statements must be written between package statements and class declaration
     * import and package statements will imply to all classes present in the source file
     * cannot declare different import or package statements to different classes in the file
@@ -1313,7 +1318,7 @@ Abstract Class
     * class must be abstract if it has at least one abstract method
     * abstract classes cannot be instantiated
     * must inherit from another class with implementations of abstract methods to use abstract
-    class
+      class
     * all abstract methods must be implemented once inherited
 
     .. code-block:: java
@@ -1329,9 +1334,6 @@ Abstract Class
        A a = new B(); // ok
 
 
-* variables of a class can have another class as its member
-* nested class: class written within a class, Non-static nested class and Static nested class
-* outer class: the class that holds the inner class
 
 Non-static Nested Class
 -----------------------
@@ -1434,7 +1436,7 @@ Non-static Nested Class
 
 
         - can pass anonymous inner class as argument to a method that accepts object of an
-        interface, abstract class or a concrete class
+          interface, abstract class or a concrete class
 
         .. code-block:: java
 
@@ -1466,7 +1468,7 @@ Static Nested Class
     * can be accessed without instantiating the outer class
     * does not have access to instance variables and methods of outer class
     * can access static members of outer class, but must use outer object to access non-static
-    members
+      members
 
     .. code-block:: java
 
@@ -1501,6 +1503,7 @@ Object Oriented Programming
 
 * `Inheritance`_, `Polymorphism`_, `Abstraction`_, `Encapsulation`_
 * four fundamentals of OOP: abstraction, encapsulation, inheritance and polymorphism
+
 
 Inheritance
 -----------
@@ -1539,9 +1542,9 @@ Inheritance
 
 
     * subclass inherits all members, such as fields, methods and nested class from its
-    superclass, but not constructors, as they are not members
+      superclass, but not constructors, as they are not members
     * ``super``: to invoke constructor of superclass, similar to ``this`` keyword, use to
-    differentiate members of superclass from members of subclass if same names
+      differentiate members of superclass from members of subclass if same names
 
         .. code-block:: java
 
@@ -1617,26 +1620,26 @@ Inheritance
     * multi level inheritance: ``B extends A``, ``C extends B``
     * hierarchical inheritance: ``B extends A``, ``C extends A``
     * multiple inheritance: ``C extends A, B`` (not supported by Java, as it can lead to diamond
-    problem)
+      problem)
     * a class can implement more than one interfaces: ``C implements A, B``
     * **Overriding**
         - overriding function of existing method
         - allow subclass to implement parent class method based on its requirements
         - argument list must be same, return type must be same or subtype of the one declared
-        in original overridden method
+          in original overridden method
         - access level cannot be more restrictive than original, e.g if original method is
-        ``public``, overriding method cannot be ``private`` or ``protected``
+          ``public``, overriding method cannot be ``private`` or ``protected``
         - can only override instance methods if subclass inherits them
         - method with ``final`` cannot be overridden
         - method with ``static`` cannot be overridden, but can be re-declared
         - cannot override if method cannot be inherited
         - if same package as superclass, can override any method, unless ``private`` or ``final``
         - if different package as superclass, can only override ``public`` or ``protected``
-        non-final methods
+          non-final methods
         - overriding method can throw unchecked exceptions, even if the original method does
-        not
+          not
         - overriding method should not throw checked exceptions that are new or broader than
-        the ones in original method
+          the ones in original method
         - constructors cannot be overridden
 
         .. code-block:: java
@@ -1673,9 +1676,9 @@ Inheritance
 Polymorphism
 ------------
     * object having many forms, occur when parent class reference is used to refer child class
-    object
+      object
     * all objects are polymorphic in Java as any object will pass ``instanceof`` test for their
-    own type and class Object
+      own type and class Object
     * reference variable can be of only one type and cannot be changed once declared
     * reference variable can be reassigned to other objects if it not declared ``final``
     * reference variable can be declared as class or interface
@@ -1698,7 +1701,7 @@ Polymorphism
 
 
     * **Virtual Methods**: overridden methods being invoked at run time, no matter what
-    reference type is used at compile time
+      reference type is used at compile time
 
         .. code-block:: java
 
@@ -1734,7 +1737,7 @@ Encapsulation
     * wrapping variables and methods as single unit, aka data hiding
     * variables are declared ``private``, define getter and setter methods to access variables
     * by encapsulating, can set fields of a class read/write only and a class can have total
-    control over what is stored in its fields
+      control over what is stored in its fields
 
     .. code-block:: java
 
@@ -1768,16 +1771,15 @@ Collections Framework
 * unified architecture for representing and manipulating collections
 * contain interfaces, implementations/classes and algorithms
 
-AbstractCollection
-------------------
 
 Collection
 ----------
+    * ``AbstractCollection``: implement most of the Collection interface
     * foundation interface on which collections framework is built
     * all collections implement Collection interface
     * several methods can throw ``UnsupportedOperationException``
     * ``add(Object)``: adds argument to this collection, return true if added, false if object is
-    already member or if the collection doesn't allow duplicates
+      already member or if the collection doesn't allow duplicates
     * ``addAll(Collection)``: add all elements of argument to this collection, true if added
     * ``clear()``: remove all elements from this collection
     * ``contains(Object)``: true if object is element of this collection
@@ -1788,40 +1790,36 @@ Collection
     * ``iterator()``: return iterator for this collection
     * ``remove(Object)``: remove one instance of object from this collection, true if removed
     * ``removeAll(Collection)``: remove all elements of argument from this collection, return
-    true if removed
+      true if removed
     * ``retainAll(Collection)``: remove all elements from this collection except those in
-    argument, true if removed
+      argument, true if removed
     * ``size()``: return number of elements of this collection
     * ``toArray()``: return array of all elements of this collection, elements are copies
     * ``toArray(Object[])``: return array with elements whose type match argument
 
-AbstractList
-------------
-
-AbstractSequentialList
-----------------------
-
 List
 ----
+    * ``AbstractList``: extend AbstractCollection and implement most of the List interface
+    * ``AbstractSequentialList``: extend AbstractList for collection of sequential access
     * stores sequence of elements
-    * can insert or access elements by position, zero-based index can contain duplicate elements
+    * can insert or access elements by position, zero-based index can contain duplicate element
     * has methods define by Collection interface and other own methods
     * methods throw ``UnsupportedOperationException`` if not modifiable, ``ClassCastException`` if
-    one object is incompatible with another
+      one object is incompatible with another
     * ``add(int, Object)``: insert object into this list at given index, existing elements at or
-    beyond are shifted and not overwritten
+      beyond are shifted and not overwritten
     * ``addAll(int, Collection)``: insert all elements of argument at given index, existing
-    elements are shifted and not overwritten, return true if this list changes
+      elements are shifted and not overwritten, return true if this list changes
     * ``get(int)``: return object stored at given index
     * ``indexOf(Object)``: return index of last instance of given object in this list, return 1
-    if not found
+      if not found
     * ``listIterator()``: return iterator to the start of this list
     * ``listIterator(int)``: return iterator of this list that start at given index
     * ``remove(int)``: remove element at given index, return removed element, list is compacted,
-    indexes of subsequent elements are decremented by one
+      indexes of subsequent elements are decremented by one
     * ``set(int, Object)``: assign given object at given index
     * ``subList(int start, int end)``: return list from start to end (exclusive), returned
-    elements are also referenced by the invoking object
+      elements are also referenced by the invoking object
 
     .. code-block:: java
 
@@ -1841,11 +1839,11 @@ LinkedList
 ----------
     * implemented by extending AbstractSequentialList
     * ``LinkedList()``, ``LinkedList(Collection)``: create empty linked list or initialized with
-    elements of argument
+      elements of argument
     * ``add(int, Object)``: add object at given index, can throw ``IndexOutOfBoundsException``
     * ``add(Object)``: add object at end of the list, return true on success
     * ``addAll(Collection)``: add all elements of argument at the end of the list, throw
-    ``NullPointerException`` if given collection is null
+      ``NullPointerException`` if given collection is null
     * ``addAll(int, Collection)``: add all elements of argument at given index
     * ``addFirst(Object)``: add element at the start of the list
     * ``addLast(Object)``: add element at the end of the list
@@ -1858,17 +1856,17 @@ LinkedList
     * ``indexOf(Object)``: return index of first occurrence of given argument, -1 if not found
     * ``lastIndexOf(Object)``: return index of last occurrence of given argument, -1 if not found
     * ``listIterator(int)``: return list iterator at given position, throw
-    ``IndexOutOfBoundsException``
+      ``IndexOutOfBoundsException``
     * ``remove(int)``: remove and return element at given index, throw ``NoSuchElementException``
     * ``remove(Object)``: remove first occurrence of argument and return true if success, throw
-    ``IndexOutOfBoundsException``
+      ``IndexOutOfBoundsException``
     * ``removeFirst()``: remove and return first element
     * ``removeLast()``: remove and return last element
     * ``set(int, Object)``: replace element at given index with given object
     * ``size()``: return size of the list
     * ``toArray()``: return an array with elements of the list, throw ``NullPointerException``
     * ``toArray(Object[])``: return an array with elements of the list, with runtime type as
-    specified
+      specified
 
     .. code-block:: java
 
@@ -1883,7 +1881,7 @@ ArrayList
 ---------
     * extend AbstractList and implement List interface, support dynamic array
     * ``ArrayList()``, ``ArrayList(Collection)``, ``ArrayList(int)``: create empty array list or
-    initialized with elements or specific capacity
+      initialized with elements or specific capacity
     * ``add(int, Object)``: add given element at given index
     * ``add(Object)``: add element at end, return true on success
     * ``addAll(Collection)``: add all elements of argument at end
@@ -1912,11 +1910,9 @@ ArrayList
 
 
 
-AbstractSet
------------
-
 Set
 ---
+    * ``AbstractSet``: extend AbstractCollection and implement most of the Set interface
     * no duplicate elements, only methods inherited from Collection
     * ``add(Object)``: add object to the collection
     * ``clear()``: remove all objects
@@ -1947,12 +1943,12 @@ Sorted Set
     * ``comparator()``: return this set's comparator, return null for natural ordering
     * ``first()``: return first element
     * ``headSet(Object)``: return sorted set with elements less than argument, returned elements
-    are also referenced by invoking object
+      are also referenced by invoking object
     * ``last()``: return last element
     * ``subSet(Object start, Object end)``: return sorted set with elements between start and
-    end, exclusive, returned elements are also referenced by invoking object
+      end, exclusive, returned elements are also referenced by invoking object
     * ``tailSet(Object)``: return sorted set with elements greater than argument, returned
-    elements are also referenced by invoking object
+      elements are also referenced by invoking object
 
     .. code-block:: java
 
@@ -1974,10 +1970,10 @@ HashSet
 -------
     * extend AbstractSet and implement Set interface
     * ``HashSet()``, ``HashSet(Collection)``, ``HashSet(int)``: create default hash set or initialize
-    with elements or specific capacity
+      with elements or specific capacity
     * ``HashSet(int, float)``: create hash set with given capacity and fill ratio/load capacity,
-    fill ratio must be between 0.0 and 1.0, which determine how full the set can be before
-    resized
+      fill ratio must be between 0.0 and 1.0, which determine how full the set can be before
+      resized
     * ``add(Object)``: add element, return true if success and element is not present
     * ``clear()``: remove all elements
     * ``clone()``: return shallow copy, elements are not cloned
@@ -2033,7 +2029,7 @@ TreeSet
     * ``remove(Object)``: remove specific element if present, return true on success
     * ``size()``: return size
     * ``subSet(Object start, Object end)``: return sorted set of elements range from start to
-    end, exclusive
+      end, exclusive
     * ``tailSet(Object)``: return sorted set of elements greater than or equal to argument
 
     .. code-block:: java
@@ -2045,11 +2041,9 @@ TreeSet
 
 
 
-AbstractMap
------------
-
 Map
 ---
+    * ``AbstractMap``: implement Map interface
     * maps unique keys to values
     * has implementations in various classes like HashMap
     * most methods throw ``NoSuchElementException`` when no items in the map
@@ -2066,7 +2060,7 @@ Map
     * ``isEmpty()``: true if map is empty
     * ``keySet()``: return a Set with keys of this map, set-view of keys of the map
     * ``put(Object k, Object v)``: add key-value pair, existing value is overwritten, return null
-    if key does not already exist, otherwise previous value is returned
+      if key does not already exist, otherwise previous value is returned
     * ``putAll(Map)``: put all entries from given map
     * ``remove(Object)``: remove entry whose key equals argument
     * ``size()``: return size of map
@@ -2086,13 +2080,13 @@ Map.Entry
     * interface to enable working with a map entry
     * ``Map.entrySet()`` return a set, which is a Map.Entry object
     * ``equals(Object)``: true if argument is Map.Entry and key-value pairs are equal to
-    this object
+      this object
     * ``getKey()``: return key for this map entry
     * ``getValue()``: return value for this map entry
     * ``hashCode()``: return hash code for this map entry
     * ``setValue(Object)``: set value for this map entry to argument, ``ClassCastException``
-    if argument is not correct type, `NullPointerException` if argument is null and map
-    does not allow null keys, `UnsupportedOperationException` if map cannot be changed
+      if argument is not correct type, `NullPointerException` if argument is null and map
+      does not allow null keys, `UnsupportedOperationException` if map cannot be changed
 
     .. code-block:: java
 
@@ -2117,7 +2111,7 @@ SortedMap
     * ``headMap(Object)``: return sorted map with keys that are less than argument
     * ``lastKey()``: return last key of this map
     * ``subMap(Object start, Object end)``: return sorted map with keys greater than or equal to
-    start and less than end
+      start and less than end
     * ``tailMap(Object)``: return sorted map with keys greater than or equal to argument
 
     .. code-block:: java
@@ -2142,7 +2136,7 @@ HashMap
 -------
     * use hashtable, constant time for basic operations
     * ``HashMap()``, ``HashMap(Map)``, ``HashMap(int)``: create default hash map or initialize with
-    given map or capacity
+      given map or capacity
     * ``HashMap(int, float)``: create hash map with specific capacity and fill ratio
     * ``clear()``: clear all mappings
     * ``clone()``: return shallow copy, keys and values are not cloned
@@ -2173,7 +2167,7 @@ TreeMap
 -------
     * implement Map by using tree, efficient way of storing key-value pairs in ascending order
     * ``TreeMap()``, ``TreeMap(Comparator)``, ``TreeMap(Map)``, ``TreeMap(SortedMap)``: create empty
-    tree map or with given comparator or initialize with entries from Map or SortedMap
+      tree map or with given comparator or initialize with entries from Map or SortedMap
     * ``clear()``: remove all mappings
     * ``clone()``: return shallow copy
     * ``comparator()``: return comparator, null if natural order is used
@@ -2190,7 +2184,7 @@ TreeMap
     * ``remove(Object)``: remove mapping for the key, return object if present, else null
     * ``size()``: return size
     * ``subMap(Object start, Object end)``: return sorted map with keys range from start to end,
-    exclusive
+      exclusive
     * ``tailMap(Object)``: return sorted map with keys greater than or equal to argument
     * ``values()``: return a collection of values
 
@@ -2207,12 +2201,12 @@ TreeMap
 WeakHashMap
 -----------
     * only store weak references to keys, allowing key-value pair to be garbage-collected when
-    the key is no longer referenced outside
+      the key is no longer referenced outside
     * useful for registry-like data structures
     * function same as HashMap, except entry is removed once memory manager no longer has
-    strong reference to key object
+      strong reference to key object
     * weak reference: garbage collector can reclaim object's memory at any time, no need to
-    wait until system out of memory
+      wait until system out of memory
     * ``WeakHashMap()``: create default WeakHashMap with capacity of 16 and load factor of 0.75
     * ``WeakHashMap(int)``: create empty WeakHashMap with specific capacity
     * ``WeakHashMap(int, float)``: create WeakHashMap with specific capacity and load factor
@@ -2249,7 +2243,7 @@ LinkedHashMap
     * ``LinkedHashMap(int, float)``: create LinkedHashMap with specific capacity and fill ratio
     * ``LinkedHashMap(Map)``: create LinkedHashMap with given mappings
     * ``LinkedHashMap(int, float, boolean)``: create LinkedHashMap with specific capacity, fill
-    ratio and storing order, insertion if false, last access if true
+      ratio and storing order, insertion if false, last access if true
     * ``clear()``: remove all mappigs
     * ``containsKey(Object)``: return true if contain argument as key
     * ``get(Object)``: return value of given key
@@ -2271,13 +2265,13 @@ LinkedHashMap
 IdentityHashMap
 ---------------
     * implement AbstractMap, similar to HashMap, but uses reference equality when comparing
-    elements
+      elements
     * not general purpose Map implementation
     * use rarely where reference equality is required
     * constant time for basic operations assuming hash function disperse elements properly
     * ``IdentityHashMap()``: create empty IdentityHashMap with default maximum size of 21
     * ``IdentityHashMap(int)``, ``IdentityHashMap(Map)``: create IdentityHashMap with specific
-    maximum size or initialized with mappings
+      maximum size or initialized with mappings
     * ``clear()``: remove all mappings
     * ``clone()``: return shallow copy, key-value pairs are not cloned
     * ``containsKey(Object)``: return true if contain argument as key
@@ -2319,15 +2313,15 @@ Algorithms
 ----------
     * static methods, most methods throw ``ClassCastException`` or ``UnsupportedOperationException``
     * ``binarySearch(List, Object, Comparator)``: search for value according to comparator,
-    return position of value or -1 if not found
+      return position of value or -1 if not found
     * ``binarySearch(List, Object)``: search for value in sorted list
     * ``copy(List l1, List l2)``: copy elements of l2 to l1
     * ``enumeration(Collection)``: return enumeration over argument
     * ``fill(List, Object)``: assign object to each element of list
     * ``indexOfSubList(List, List subList)``: search list for first occurrence of subList, return
-    index of first match or -1 if not found
+      index of first match or -1 if not found
     * ``lastIndexOfSubList(List, List subList)``: search list for last occurrence of subList,
-    return index or -1 if not found
+      return index or -1 if not found
     * ``list(Enumeration)``: return ArrayList with elements of argument
     * ``max(Collection)``: return max element in collection
     * ``max(Collection, Comparator)``: return max element in collection, determined by comparator
@@ -2335,18 +2329,18 @@ Algorithms
     * ``min(Collection, Comparator)``: return min element in collection, determined by comparator
     * ``nCopies(int, Object)``: return specific copies of Object, as immutable list
     * ``replaceAll(List, Object old, Object new)``: replace all occurrences of old with new,
-    return true if at least one replacement
+      return true if at least one replacement
     * ``reverse(List)``: reverse the list
     * ``reverseOrder()``: return reverse comparator
     * ``rotate(List, int)``: rotate specific places to right, provide negative value for left
     * ``shuffle(List)``: shuffle elements in the list
     * ``shuffle(List, Random)``: shuffle elements using given argument as source of random numbers
     * ``singleton(Object)``: return argument as immutable set, easy way to convert single object
-    into set
+      into set
     * ``singletonList(Object)``: return argument as immutable list, easy way to convert single
-    object into list
+      object into list
     * ``singletonMap(Object k, Object v)``: return as immutable map, easy way to convert single
-    key-value pair into map
+      key-value pair into map
     * ``sort(List)``: sort elements by natural ordering
     * ``sort(List, Comparator)``: sort elements by comparator
     * ``swap(List, int i1, int i2)``: swap elements at i1 and i2
@@ -2373,7 +2367,7 @@ Iterator
     * ``hasNext()``: return true if more elements remain
     * ``next()``: return next element, throw ``NoSuchElementException`` if not exist
     * ``remove()``: remove current element, throw ``IllegalStateException`` if ``next()`` is not
-    called after
+      called after
     * **ListIterator**
         - ``add(Object)``: insert argument in front of element returned by ``next()``
         - ``hasNext()``: return true if next element exist
@@ -2384,7 +2378,7 @@ Iterator
         - ``previousIndex()``: return index of previous index, return -1 if not exist
         - ``remove()``: remove current element
         - ``set(Object)``: assign argument to current element, which is the element returned by
-        ``next()`` or ``previous()``
+          ``next()`` or ``previous()``
 
     .. code-block:: java
 
@@ -2412,7 +2406,7 @@ Comparator
 ----------
     * interface to define what sorted order means in collections
     * ``compare(Object o1, Object o2)``: compare two elements for order, return 0 if equal, > 0
-    if o1 is greater, < 0 if o2 is greater
+      if o1 is greater, < 0 if o2 is greater
     * ``equals(Object o1, Object o2)``: return true if equal
 
 `back to top <#java>`_
@@ -2423,6 +2417,7 @@ Generics
 * `Generic Methods`_, `Generic Classes`_
 * allow to specify a set of related methods or types with single method or class declaration
 * also provide compile-time type safety
+
 
 Generic Methods
 ---------------
@@ -2470,7 +2465,7 @@ Generic Classes
 ---------------
     * class name followed by a type parameter section
     * can have one or more type parameters separated by commas, called parameterized class or
-    parameterized types
+      parameterised types
 
     .. code-block:: java
 
@@ -2500,7 +2495,8 @@ Serialization
 * `ObjectInputStream`_, `ObjectOutputStream`_, `Serializing`_, `Deserializing`_
 * object represented as sequence of bytes, including data, type and types of data
 * serialized object written to a file can be read and deserialized to recreate object in memory
-* serialization and deserialization is JVM independent, operations can be on different platform
+* serialization and deserialisation is JVM independent, operations can be on different platform
+
 
 ObjectInputStream
 -----------------
@@ -2509,12 +2505,12 @@ ObjectInputStream
 ObjectOutputStream
 ------------------
     * ``writeObject(Object)``: serialize an object and send it to output stream
-* class must implement ``java.io.Serializable`` interface and all fields must be serializable or
-marked `transient`
-* convention to serialize an object to a file with ``.ser`` extension
 
 Serializing
 -----------
+    * class must implement ``java.io.Serializable`` interface and all fields must be serialisable
+      or marked `transient`
+    * convention to serialize an object to a file with ``.ser`` extension
 
     .. code-block:: java
 
@@ -2571,6 +2567,7 @@ Networking
 * `Socket Programming`_, `URL Processing`_, `Email`_
 * in ``java.net`` package
 
+
 Socket Programming
 ------------------
     * sockets provide communication mechanism using TCP
@@ -2580,58 +2577,59 @@ Socket Programming
     * after connected, client will have Socket object that can communicate with the server
     * server's ``accept()`` return reference to new socket that is connected to client's socket
     * after connection, communication can be done using I/O streams, as each socket has
-    OutputStream and InputStream
+      OutputStream and InputStream
     * client's OutputStream is connected to server's InputStream, and server's InputStream to
-    client's OutputStream
+      client's OutputStream
     * as it use TCP, data can be sent across both streams at the same time
     * **ServerSocket**
         - use by server applications, all constructors throw ``IOException``
         - ``ServerSocket()``: create unbound server socket, must use ``bind()`` when ready
         - ``ServerSocket(int)``: create server socket with given port
         - ``ServerSocket(int port, int backlog)``: create server socket with given port and
-        backlog, number of incoming clients to store in a wait queue
+          backlog, number of incoming clients to store in a wait queue
         - ``ServerSocket(int port, int backlog, InetAddress addr)``: create server socket with
-        local IP address to bind to, InetAddress is used for servers that may have multiple IP
+          local IP address to bind to, InetAddress is used for servers that may have multiple
+          IP
         - ``getLocalPort()``: return listening port
         - ``accept()``: wait for incoming client, block until client connect or socket time out,
-        must set timeout value with ``setSoTimeout()``, return Socket object if client connect,
-        throw ``IOException``
+          must set timeout value with ``setSoTimeout()``, return Socket object if client
+          connect, throw ``IOException``
         - ``setSoTimeout(int)``: set timeout value during ``accept()``
         - ``bind(SocketAddress, int backlog)``: bind socket to given SocketAddress object
     * **Socket**
         - use by both client and server, client instantiate one and server obtain one from
-        ``accept()``
+          ``accept()``
         - all constructors, except default one, throw ``IOException``
         - ``Socket(String, int)``: connect to given server at given port, throw
-        ``UnknownHostException``
+          ``UnknownHostException``
         - ``Socket(InetAddress, int)``: connect to given server, using InetAddress, at given port
         - ``Socket(String host, int port, InetAddress local, int localPort)``: connect to given
-        host and port, creating socket on local host at given address and port
+          host and port, creating socket on local host at given address and port
         - ``Socket(InetAddress host, int port, InetAddress local, int localPort)``: connect to
-        given host, using InetAddress, and port, creating socket on local host at given
-        address and port
+          given host, using InetAddress, and port, creating socket on local host at given
+          address and port
         - ``Socket()``: create unconnected socket, need to use ``connect()``
         - ``connect(SocketAddress, int timeout)``: connect socket to given host, throw
-        ``IOException``
+          ``IOException``
         - ``getInetAddress()``: return address to which the socket is connected
         - ``getPort()``: return port of the socket bounded on remote machine
         - ``getLocalPort()``: return port of socket on local machine
         - ``getRemoteSocketAddress()``: return address of remote socket
         - ``getInputStream()``: return InputStream of socket, which is connected to OutputStream
-        of remote socket, throw ``IOException``
+          of remote socket, throw ``IOException``
         - ``getOutputStream()``: return OutputStream of socket, which is connected to InputStream
-        of remote socket, throw ``IOException``
+          of remote socket, throw ``IOException``
         - ``close()``: close the socket, throw ``IOException``
     * **InetAddress**
         - ``InetAddress(byte[])``: create object with raw IP address, return InetAddress
         - ``getByAddress(String, byte[])``: create object with given host name and IP address,
-        return InetAddress
+          return InetAddress
         - ``getByName(String)``: return IP address, as InetAddress object, of given host
         - ``getHostAddress()``: return IP address string
         - ``getHostName()``: get host name string
         - ``getLocalHost()``: return local host as InetAddress
         - ``toString()``: convert IP address to string
-    * client example
+    * **Client Example**
 
         .. code-block:: java
 
@@ -2661,7 +2659,7 @@ Socket Programming
            }
 
 
-    * server example
+    * **Server Example**
 
         .. code-block:: java
 
@@ -2719,7 +2717,7 @@ URL Processing
     * all constructors throw ``MalformedURLException``
     * ``URL(String protocol, String host, int port, String file)``: create URL
     * ``URL(String protocol, String host, String file)``: create URL with default port for given
-    protocol
+      protocol
     * ``URL(String url)``: create URL from given string
     * ``URL(URL context, STring url)``: create URL by parsing arguments
     * ``getPath()``: return path of URL
@@ -2732,7 +2730,7 @@ URL Processing
     * ``getFile()``: return filename/path of URL
     * ``getRef()``: return reference part of URL
     * ``openConnection()``: open connection to URL for client communication, return URLConnection
-    object, throw `IOException`
+      object, throw `IOException`
 
     .. code-block:: java
 
@@ -2755,20 +2753,20 @@ URL Processing
         - ``getExpiration()``: return expired header field as long
         - ``getIfModifiedSince()``: return ifModifiedSince field as long
         - ``setDoInput(boolean)``: default argument true to denote the connection will be used
-        for input
+          for input
         - ``setDoOutput(boolean)``: default argument false to denote connection will not be used
-        for output
+          for output
         - ``getInputStream()``: return InputStream of connection for reading from the resource,
-        throw ``IOException``
+          throw ``IOException``
         - ``getOutputStream()``: return OutputStream of connection for writing to resource,
-        throw ``IOException``
+          throw ``IOException``
         - ``getURL()``: return URL object of connection
 
 Email
 -----
     * need JavaMail API and JAF (Java ACtivation Framework) installed
     * in ``javax.mail`` and ``javax.activation``;
-    * simple email
+    * **Simple Email**
 
         .. code-block:: java
 
@@ -2793,7 +2791,7 @@ Email
            }
 
 
-    * html email
+    * **Html Email**
 
         .. code-block:: java
 
@@ -2801,7 +2799,7 @@ Email
            message.setContent("<h1>Mail message</h1>");
 
 
-    * sending with attachment
+    * **Sending with Attachment**
 
         .. code-block:: java
 
@@ -2822,7 +2820,7 @@ Email
            message.setContent(multipart);
 
 
-    * setting authentication
+    * **Setting Authentication**
 
         .. code-block:: java
 
@@ -2839,6 +2837,12 @@ Threads
 
 * `Thread Life Cycle`_, `Creating Thread`_, `Thread Synchronization`_
 * `Interthread Communication`_, `Thread Deadlock`_, `Thread Control`_
+* Java thread priorities range between MIN_PRIORITY, constant 1, and MAX_PRIORITY, constant 10
+* every thread has default NORM_PRIORITY, constant 5
+* thread priorities cannot guarantee execution order and platform dependent
+* Multithreading: subdividing specific operations within single application into individual
+  threads
+
 
 Thread Life Cycle
 -----------------
@@ -2856,18 +2860,13 @@ Thread Life Cycle
         - transition back to runnable when time expire or a waiting event occur
     * **Terminated**
         - thread enter terminated/dead state when a task is completed or it is terminated
-* Java thread priorities range between MIN_PRIORITY, constant 1, and MAX_PRIORITY, constant 10
-* every thread has default NORM_PRIORITY, constant 5
-* thread priorities cannot guarantee execution order and platform dependent
-* Multithreading: subdividing specific operations within single application into individual
-threads
 
 Creating Thread
 ---------------
     * **Using Runnable**
         - implement Runnable interface to execute class as a thread
         - must implement ``run()`` provided by Runnable, which is an entry point for a thread,
-        need to put complete business logic inside the method
+          need to put complete business logic inside the method
         - instantiate a Thread object, ``Thread(Runnable, String name)``
         - can start the created Thread object with ``start()``
 
@@ -2912,28 +2911,28 @@ Creating Thread
     * **Using Thread**
         - extending Thread class provide more flexibility
         - override ``run()``, which is an entry point for a thread, need to put complete
-        business logic inside the method
+          business logic inside the method
         - call ``start()`` once Thread object is created
         - ``start()``: start the thread in a separate path of execution, then invoke ``run()``
         - ``run()``: invoked when this Thread object is instantiated using separate Runnable
-        target
+          target
         - ``setName(String)``: change the name of Thread object
         - ``getName()``: return name of Thread object
         - ``setPriority(int)``: set thread priority, between 1 and 10
         - ``setDaemon(boolean)``: this Thread is daemon thread if argument is true
         - ``join(long)``: invoked on second thread, current thread is blocked until the second
-        thread terminate or given time in ms passes
+          thread terminate or given time in ms passes
         - ``interrupt()``: interrupt this thread, will continue execution if it was blocked
         - ``isAlive()``: return true if alive, which is any time after the thread has been
-        started
+          started
         - below static methods perform operation on currently running thread
         - ``yield()``: yield to any other threads of same priority that are waiting to be
-        scheduled
+          scheduled
         - ``sleep(long)``: block current thread for given amount of time in ms
         - ``holdsLock(Object)``: return true if current thread hold the lock on argument
         - ``currentThread()``: return reference to this thread
         - ``dumpStack()``: print stack trace for current thread, useful for debugging
-        multithreaded applications
+          multithreaded applications
 
         .. code-block:: java
 
@@ -2956,13 +2955,13 @@ Creating Thread
 Thread Synchronization
 ----------------------
     * synchronizing multiple threads to make sure only one can access the same resource at a
-    given point in time, implemented using monitors concept
+      given point in time, implemented using monitors concept
     * each object in Java is associated with a monitor, which a thread can lock or unlock
     * only one thread at a time may hold a lock on a monitor
     * can create and sync threads by using ``synchronized`` blocks, in which shared resources are
-    placed
+      placed
     * ``synchronized(objectID)``: objectID is a reference to an object whose lock associates with
-    the monitor that the synchronized statement represents
+      the monitor that the synchronized statement represents
 
     .. code-block:: java
 
@@ -3012,7 +3011,7 @@ Interthread Communication
 -------------------------
     * important for applications where two or more threads exchange information
     * all three methods are ``final``, available in all classes, and can only be called from
-    within `synchronized` context
+      within `synchronized` context
     * ``wait()``: this thread wait until another invoke ``notify()``
     * ``notify()``: wake up a single thread that is waiting on this object's monitor
     * ``notifyAll()``: wake up all threads that call ``wait()`` on the same object
@@ -3092,9 +3091,9 @@ Interthread Communication
 Thread Deadlock
 ---------------
     * deadlock: two or more threads blocked forever, waiting for each other, occur when
-    multiple threads need same locks but obtain them in different order
+      multiple threads need same locks but obtain them in different order
     * ``synchronized`` keyword causes the executing thread to block while waiting for the lock
-    or monitor
+      or monitor
     * deadlock example
 
         .. code-block:: java
@@ -3148,7 +3147,7 @@ Thread Deadlock
            }
 
 
-    * deadlock solution example
+    * **Deadlock Solution Example**
 
         .. code-block:: java
 
@@ -3233,7 +3232,7 @@ Lambda
     * optional curly braces for single statement in expression body
     * compiler can auto return if body has single expression
     * used to define inline implementation of functional interface, which only has single
-    method
+      method
     * eliminate the need of anonymous class and provide functional programming capability
     * can refer to any final variable
     * throw compilation error if a variable is assigned a value second time
@@ -3310,9 +3309,9 @@ Functional Interfaces
 Default Methods
 ---------------
     * capability added for backward compatibility so that old interfaces can be used to
-    leverage lambda expression
+      leverage lambda expression
     * when a class implement two interfaces with same default methods, it needs to override the
-    method or call one using `super`
+      method or call one using `super`
     * starting form Java 8, interface can have static helper methods
 
     .. code-block:: java
@@ -3382,7 +3381,7 @@ Streams
         - used to combine result of processing on elements of a stream
         - can be used to return a list or a string
         - can use statistics collectors to calculate all statistics when stream processing is
-        done
+          done
 
         .. code-block:: java
 
@@ -3410,28 +3409,28 @@ Optional Class
     * in ``java.util.Optinal``
     * container object used to represent null with absent value
     * has methods to handle values as available or not available instead of checking null
-    values
+      values
     * inherits methods from ``java.lang.Object``
     * ``empty()``: return empty optional instance
     * ``equals(Object)``: true if argument is equal to this Optional
     * ``filter(Predicate)``: return Optional describing the value if it is present and matches
-    argument, return empty Optional otherwise
+      argument, return empty Optional otherwise
     * ``flatMap(Function)``: apply argument if a value is present and return the result,
-    otherwise return empty Optional
+      otherwise return empty Optional
     * ``get()``: return value if present in this Optional, otherwise throw ``NoSuchElementException``
     * ``hashCode()``: return hash code value of present value, 0 if no value
     * ``ifpresent(Consumer)``: invoke argument with value if present, otherwise do nothing
     * ``isPresent()``: return true if value is present
     * ``map(Function)``: apply argument if value if present, return Optional describing the
-    result if result is non-null
+      result if result is non-null
     * ``of(T)``: return Optional with given present non-null value
     * ``ofNullable(T)``: return Optional describing argument if non-null, otherwise return empty
-    Optional
+      Optional
     * ``orElse(T)``: return value if present, otherwise return argument
     * ``orElseGet(Supplier)``: return value if present, otherwise invoke argument and return
-    the result
+      the result
     * ``orElseThrow(Supplier)``: return the contained value if present, otherwise throw exception
-    to be created by the argument
+      to be created by the argument
     * ``toString()``: return non-empty string of this Optional suitable for debugging
 
     .. code-block:: java
@@ -3586,19 +3585,20 @@ Date/Time API
 Base64
 ------
     * simple: output mapped to a set of characters, A-Za-z0-9+/, encoder does not add any line
-    feed and decoder rejects characters that are not in the set
-    * url: output mapped to a set of characters, A-Za-z0-9+&lowbar;, output is URL and filename safe
+      feed and decoder rejects characters that are not in the set
+    * url: output mapped to a set of characters, A-Za-z0-9+&lowbar;, output is URL and filename
+      safe
     * MIME: output mapped to MIME friendly format and represented in lines <= 76 characters
-    each, and uses carriage return '\r' followed by linefeed '\n' as separator, no line
-    separator at the end of encoded output
+      each, and uses carriage return '\r' followed by linefeed '\n' as separator, no line
+      separator at the end of encoded output
     * ``Base64.Decoder`` and ``Base64.Encoder`` classes implement encoder and decoder for byte data,
-    inheriting methods from `java.lang.Object`
+      inheriting methods from `java.lang.Object`
     * ``getDecoder()``: return ``Base64.Decoder`` that decode using basic type decoding scheme
     * ``getEncoder()``: return ``Base64.Encoder`` that encode using basic type encoding scheme
     * ``getMimeDecoder()``: return ``Base64.Decoder`` that decode using MIME type
     * ``getMimeEncoder()``: return ``Base64.Encoder`` that encode using MIME type
     * ``getMimeEncoder(int, byte[])``: return ``Base64.Encoder`` that encode using MIME type with
-    given line length and line separator
+      given line length and line separator
     * ``getUrlDecoder()``: return ``Base64.Decoder`` that decode using URL and Filename safe type
     * ``getUrlEncoder()``: return ``Base64.Decoder`` that encode using URL and Filename safe type
 
@@ -3629,5 +3629,44 @@ Base64
            System.out.println(e.getMessage());
        }
 
+
+`back to top <#java>`_
+
+JVM
+===
+
+* `JVM Life Cycle`_
+* base of the entire Java platform's independence from specific hardware and OS, operating at
+  the OS layer
+* JVM does not know about the specifics of Java programming language
+* the class files encapsulate JVM instructions or bytecodes, along with symbol table and
+  supplementary information
+* any programming language that can be expressed in a valid class file can leverage JVM
+* JVM acts as interpreter for Java bytecode, managing memroy, multithreading, and various
+  runtime services
+
+
+JVM Life Cycle
+--------------
+    * one application per JVM instance, ensuring independence and security of each Java
+      application
+    * **Instance Birth**
+        - JVM runtime instance is created when a Java application is launched
+        - the instance is responsible for executing bytecode and managing runtime environment
+    * **Execution**
+        - JVM instance runs the application by invoking ``main()``, which should be public,
+          static, return ``void``, and accept ``String[]``
+        - any class with proper ``main()`` can be the starting point for a Java application
+    * **Application Execution**
+        - JVM executes the application, managing necessary resources
+    * **Application Completion**
+        - JVM instance terminates once the application is executed
+
+`back to top <#java>`_
+
+References & External Resources
+===============================
+
+* Santana, Otavio. (2023). Mastering the Java Virtual Machine. Birmingham, UK: Packt Publishing
 
 `back to top <#java>`_

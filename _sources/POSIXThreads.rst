@@ -8,7 +8,7 @@ POSIX Threads
 4. `Condition Variables`_
 5. `Deadlock`_
 6. `Pthreads API`_
-7. `Reference Sources`_
+7. `References & External Resources`_
 
 `back to top <#posix-threads>`_
 
@@ -535,8 +535,8 @@ pthread_mutex_unlock
 
 `back to top <#posix-threads>`_
 
-Reference Sources
-=================
+References & External Resources
+===============================
 
 * begriffs. (2020). Concurrent programming, with examples [online].
   Available at: https://begriffs.com/posts/2020-03-23-concurrent-programming.html

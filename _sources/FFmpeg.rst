@@ -3,7 +3,7 @@ FFmpeg
 ======
 
 1. `Basics`_
-2. `Reference Sources`_
+2. `References & External Resources`_
 
 `back to top <#ffmpeg>`_
 
@@ -28,8 +28,8 @@ Video Conversion
 
 `back to top <#ffmpeg>`_
 
-Reference Sources
-=================
+References & External Resources
+===============================
 
 * Koch, Michael. (2024). An Introduction to FFmpeg, DaVinci Resolve, Timelapse and Fulldome
   Video Production, Special Effects, Color Grading, Streaming, Audio Processing, Canon 6D,
