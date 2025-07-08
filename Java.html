@@ -436,7 +436,9 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#life-cycle">Life Cycle</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#availability">Availability</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preparation-for-threads">Preparation for Threads</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jvm-types">JVM Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jvm-data-types">JVM Data Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-file">Class File</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bytecode">Bytecode</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>
@@ -4524,13 +4526,12 @@ given line length and line separator</p></li>
 <section id="jvm">
 <h2>JVM<a class="headerlink" href="#jvm" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#life-cycle">Life Cycle</a>, <a class="reference internal" href="#availability">Availability</a>, <a class="reference internal" href="#preparation-for-threads">Preparation for Threads</a>, <a class="reference internal" href="#jvm-types">JVM Types</a></p></li>
+<li><p><a class="reference internal" href="#life-cycle">Life Cycle</a>, <a class="reference internal" href="#availability">Availability</a>, <a class="reference internal" href="#preparation-for-threads">Preparation for Threads</a>, <a class="reference internal" href="#jvm-data-types">JVM Data Types</a>, <a class="reference internal" href="#class-file">Class File</a>, <a class="reference internal" href="#bytecode">Bytecode</a></p></li>
 <li><p>base of the entire Java platform’s independence from specific hardware and OS, operating at
 the OS layer</p></li>
 <li><p>JVM does not know about the specifics of Java programming language</p></li>
 <li><p>the class files encapsulate JVM instructions or bytecodes, along with symbol table and
 supplementary information</p></li>
-<li><p>bytecode: platform-independent low-level representation of Java code</p></li>
 <li><p>any programming language that can be expressed in a valid class file can leverage JVM</p></li>
 <li><p>JVM acts as interpreter for Java bytecode, managing memroy, multithreading, and various
 runtime services</p></li>
@@ -4661,14 +4662,14 @@ through pure Java code</p></li>
 </ul>
 </div></blockquote>
 </section>
-<section id="jvm-types">
-<h3>JVM Types<a class="headerlink" href="#jvm-types" title="Link to this heading">#</a></h3>
+<section id="jvm-data-types">
+<h3>JVM Data Types<a class="headerlink" href="#jvm-data-types" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
 <li><dl class="simple">
 <dt><strong>Primitives</strong></dt><dd><ul>
 <li><p>JVM do not perform extensive type checking or runtime verification</p></li>
-<li><p>boolean, number, returnAddress</p></li>
+<li><p>boolean, number, <code class="docutils literal notranslate"><span class="pre">returnAddress</span></code></p></li>
 </ul>
 </dd>
 </dl>
@@ -4676,7 +4677,215 @@ through pure Java code</p></li>
 <li><dl class="simple">
 <dt><strong>Reference Values</strong></dt><dd><ul>
 <li><p>objects, such as complex data structures, are type checked and verified at runtime</p></li>
-<li><p>class, array</p></li>
+<li><p>Class: to point to instances of classes</p></li>
+<li><p>Array: to reference arrays, can be of primitive or objects</p></li>
+<li><p>Interface: to point to objects that implement interfaces</p></li>
+<li><p>reference values are always set to <code class="docutils literal notranslate"><span class="pre">null</span></code> initially, and can be set to it to release
+resources</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>returnAddress</strong></dt><dd><ul>
+<li><p>internal to JVM only to manage method invocations and returns, such as recursive
+method calls</p></li>
+<li><p>method call stack or execution stack maintains a stack of <code class="docutils literal notranslate"><span class="pre">returnAddress</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>boolean</strong></dt><dd><ul>
+<li><p>managed using <code class="docutils literal notranslate"><span class="pre">int</span></code> type, 8 bits</p></li>
+<li><p>no specific bytecode instruction for boolean operations</p></li>
+<li><p>boolean arrays are treated as byte arrays</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>null</strong></dt><dd><ul>
+<li><p>a special reference value to indicate no valid object is associated with a reference</p></li>
+<li><p>operations on it can lead to <code class="docutils literal notranslate"><span class="pre">NullPointerException</span></code></p></li>
+<li><p>setting references to <code class="docutils literal notranslate"><span class="pre">null</span></code> is not a guarantee method for resource management</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="class-file">
+<h3>Class File<a class="headerlink" href="#class-file" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>vital relationship between compiled Java code and the JVM</p></li>
+<li><p>adhere to a structured format curcial for the JVM to interpret and execute programs</p></li>
+<li><p>Java Source -&gt; Java Compiler -&gt; Class File</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">javac</span> <span class="pre">File.java</span></code> to compile, and <code class="docutils literal notranslate"><span class="pre">javap</span> <span class="pre">-c</span> <span class="pre">File.class</span></code> to disassemble bytecode</p></li>
+<li><p><strong>Class File Structure</strong></p>
+<blockquote>
+<div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">ClassFile</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">u4</span><span class="w">              </span><span class="n">magic</span><span class="p">;</span>
+<span class="w">    </span><span class="n">u2</span><span class="w">              </span><span class="n">minor_version</span><span class="p">;</span>
+<span class="w">    </span><span class="n">u2</span><span class="w">              </span><span class="n">major_version</span><span class="p">;</span>
+<span class="w">    </span><span class="n">u2</span><span class="w">              </span><span class="n">constant_pool_count</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cp_info</span><span class="w">         </span><span class="n">constant_pool</span><span class="o">[</span><span class="n">constant_pool_count</span><span class="o">-</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="n">u2</span><span class="w">              </span><span class="n">access_flags</span><span class="p">;</span>
+<span class="w">    </span><span class="n">u2</span><span class="w">              </span><span class="n">this_class</span><span class="p">;</span>
+<span class="w">    </span><span class="n">u2</span><span class="w">              </span><span class="n">super_class</span><span class="p">;</span>
+<span class="w">    </span><span class="n">u2</span><span class="w">              </span><span class="n">interfaces_count</span><span class="p">;</span>
+<span class="w">    </span><span class="n">u2</span><span class="w">              </span><span class="n">interfaces</span><span class="o">[</span><span class="n">interfaces_count</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="n">u2</span><span class="w">              </span><span class="n">fields_count</span><span class="p">;</span>
+<span class="w">    </span><span class="n">field_info</span><span class="w">      </span><span class="n">fields</span><span class="o">[</span><span class="n">fields_count</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="n">u2</span><span class="w">              </span><span class="n">methods_count</span><span class="p">;</span>
+<span class="w">    </span><span class="n">method_info</span><span class="w">     </span><span class="n">methods</span><span class="o">[</span><span class="n">methods_count</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="n">u2</span><span class="w">              </span><span class="n">attributes_count</span><span class="p">;</span>
+<span class="w">    </span><span class="n">attribute_info</span><span class="w">  </span><span class="n">attributes</span><span class="o">[</span><span class="n">attributes_count</span><span class="o">]</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><dl class="simple">
+<dt><strong>Headers</strong></dt><dd><ul class="simple">
+<li><p>contain metadata such as Java version compatibility and constant pool</p></li>
+<li><p>Magic Number: identifies a file as a Java class file, <code class="docutils literal notranslate"><span class="pre">0xCAFEBABE</span></code></p></li>
+<li><p>Java Version Compatibility: indicates language features and specifications of the
+class file with <code class="docutils literal notranslate"><span class="pre">minor_version</span></code> and <code class="docutils literal notranslate"><span class="pre">major_version</span></code></p></li>
+<li><p>Constant Pool Reference: contains symbolic references for the interpretation and
+execution of Java programs, such as strings, class names, method signatures, and
+other constants</p></li>
+<li><p>Access Flags: a set of binary values for access control of a Java class, e.g
+<code class="docutils literal notranslate"><span class="pre">ACC_PUBLIC</span></code>, <code class="docutils literal notranslate"><span class="pre">ACC_FINAL</span></code>, <code class="docutils literal notranslate"><span class="pre">ACC_SUPER</span></code></p></li>
+<li><p>This &amp; Super Class: point to constant pool entries of current class and its
+superclass</p></li>
+<li><p>Interfaces, Fields &amp; Methods Count: provide class structure blueprint for efficient
+memory allocation and execution planning</p></li>
+<li><p>Attributes: additional information about the class</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Fields</strong></dt><dd><ul class="simple">
+<li><p>field declaration includes data type, unique id, optional modifiers for visibility,
+accessibility, and behaviour</p></li>
+<li><p>Instance Variables: related to a class instance and have unique set of values for
+each object</p></li>
+<li><p>Class Variables: shared among all class instances, denoted with <code class="docutils literal notranslate"><span class="pre">static</span></code></p></li>
+<li><p>when a field is declared, name and type are stored as entries in the constant pool</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Methods</strong></dt><dd><ul class="simple">
+<li><p>encapsulate behaviour within classes</p></li>
+<li><p>return type is key to know the nature of the data generated during execution</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="bytecode">
+<h3>Bytecode<a class="headerlink" href="#bytecode" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>platform-independent low-level representation of Java code, comprehensible by JVM</p></li>
+<li><p>bridge between high-level Java code and machine-specific language</p></li>
+<li><p>bytecode enables Java programs to run on any device equipped with a JVM</p></li>
+<li><p>Value Conversion: transforming data between different types</p></li>
+<li><p>bytecode instructions operate on specific types of values</p></li>
+<li><dl class="simple">
+<dt><strong>Integer Operations</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>: e.g. <code class="docutils literal notranslate"><span class="pre">iload</span></code> (load int), <code class="docutils literal notranslate"><span class="pre">iadd</span></code> (add int), operate as 32-bit signed integers</p></li>
+<li><p>as Boolean values are integers, integer arithmetic and logical instructions are used</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Long Operations</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">l</span></code>: e.g. <code class="docutils literal notranslate"><span class="pre">lload</span></code> (load long), <code class="docutils literal notranslate"><span class="pre">lmul</span></code> (multiply long), operate as 64-bit signed long
+integers</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Short Operations</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">s</span></code>: e.g. <code class="docutils literal notranslate"><span class="pre">sload</span></code> (load short), operate on 16-bit signed short integers</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Byte Operations</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">b</span></code>: e.g. <code class="docutils literal notranslate"><span class="pre">bload</span></code> (load byte), operate on 8-bit signed byte integers</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Char Operations</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">c</span></code>: e.g. <code class="docutils literal notranslate"><span class="pre">caload</span></code> (load array of char), operate on 16-bit Unicode characters</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Float Operations</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">f</span></code>: e.g. <code class="docutils literal notranslate"><span class="pre">fload</span></code> (load float), operate on 32-bit single-precision floating point</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Double Operations</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">d</span></code>: e.g. <code class="docutils literal notranslate"><span class="pre">dload</span></code> (load double), operate on 64-bit double-precision floating point</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Reference Operations</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span></code>: e.g. <code class="docutils literal notranslate"><span class="pre">aload</span></code> (load reference), operate on object references</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Arithmetic Operations</strong></dt><dd><ul>
+<li><p>operate on the first two values on the <code class="docutils literal notranslate"><span class="pre">operand</span></code> stack</p></li>
+<li><p>Addition: <code class="docutils literal notranslate"><span class="pre">iadd</span></code>, <code class="docutils literal notranslate"><span class="pre">ladd</span></code>, <code class="docutils literal notranslate"><span class="pre">fadd</span></code>, <code class="docutils literal notranslate"><span class="pre">dadd</span></code></p></li>
+<li><p>Subtraction: <code class="docutils literal notranslate"><span class="pre">isub</span></code>, <code class="docutils literal notranslate"><span class="pre">lsub</span></code>, <code class="docutils literal notranslate"><span class="pre">fsub</span></code>, <code class="docutils literal notranslate"><span class="pre">dsub</span></code>, subtract the second from the first</p></li>
+<li><p>Multiplication: <code class="docutils literal notranslate"><span class="pre">imul</span></code>, <code class="docutils literal notranslate"><span class="pre">lmul</span></code>, <code class="docutils literal notranslate"><span class="pre">fmul</span></code>, <code class="docutils literal notranslate"><span class="pre">dmul</span></code></p></li>
+<li><p>Division: <code class="docutils literal notranslate"><span class="pre">idiv</span></code>, <code class="docutils literal notranslate"><span class="pre">ldiv</span></code>, <code class="docutils literal notranslate"><span class="pre">fdiv</span></code>, <code class="docutils literal notranslate"><span class="pre">ddiv</span></code>, divide the first by the second</p></li>
+<li><p>Remainder: <code class="docutils literal notranslate"><span class="pre">irem</span></code>, <code class="docutils literal notranslate"><span class="pre">lrem</span></code>, <code class="docutils literal notranslate"><span class="pre">frem</span></code>, <code class="docutils literal notranslate"><span class="pre">drem</span></code>, remainder of dividing the first by the
+second</p></li>
+<li><p>Negation: <code class="docutils literal notranslate"><span class="pre">neg</span></code>, <code class="docutils literal notranslate"><span class="pre">lneg</span></code>, <code class="docutils literal notranslate"><span class="pre">fneg</span></code>, <code class="docutils literal notranslate"><span class="pre">dneg</span></code>, changes the sign</p></li>
+<li><p>Local Variable Increment: <code class="docutils literal notranslate"><span class="pre">iinc</span></code>, increment by a constant value</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Bitwise Operations</strong></dt><dd><ul>
+<li><p>Shift: <code class="docutils literal notranslate"><span class="pre">ishl</span></code>, <code class="docutils literal notranslate"><span class="pre">ishr</span></code>, <code class="docutils literal notranslate"><span class="pre">iushr</span></code>, <code class="docutils literal notranslate"><span class="pre">lshl</span></code>, <code class="docutils literal notranslate"><span class="pre">lshr</span></code>, <code class="docutils literal notranslate"><span class="pre">lushr</span></code>, can shift right with or
+without sign extension</p></li>
+<li><p>Bitwise: <code class="docutils literal notranslate"><span class="pre">ior</span></code>, <code class="docutils literal notranslate"><span class="pre">lor</span></code>, <code class="docutils literal notranslate"><span class="pre">iand</span></code>, <code class="docutils literal notranslate"><span class="pre">land</span></code>, <code class="docutils literal notranslate"><span class="pre">ixor</span></code>, <code class="docutils literal notranslate"><span class="pre">lxor</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Comparison Operations</strong></dt><dd><ul>
+<li><p>1 = greater, -1 = less, 0 = equal</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dcmpg</span></code>, <code class="docutils literal notranslate"><span class="pre">dcmpl</span></code>, <code class="docutils literal notranslate"><span class="pre">fcmpg</span></code>, <code class="docutils literal notranslate"><span class="pre">fcmpl</span></code>, <code class="docutils literal notranslate"><span class="pre">lcmp</span></code></p></li>
 </ul>
 </dd>
 </dl>
@@ -4848,7 +5057,9 @@ through pure Java code</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#life-cycle">Life Cycle</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#availability">Availability</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preparation-for-threads">Preparation for Threads</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jvm-types">JVM Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jvm-data-types">JVM Data Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-file">Class File</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bytecode">Bytecode</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>

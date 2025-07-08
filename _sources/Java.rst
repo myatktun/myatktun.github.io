@@ -3635,13 +3635,12 @@ Base64
 JVM
 ===
 
-* `Life Cycle`_, `Availability`_, `Preparation for Threads`_, `JVM Types`_
+* `Life Cycle`_, `Availability`_, `Preparation for Threads`_, `JVM Data Types`_, `Class File`_, `Bytecode`_
 * base of the entire Java platform's independence from specific hardware and OS, operating at
   the OS layer
 * JVM does not know about the specifics of Java programming language
 * the class files encapsulate JVM instructions or bytecodes, along with symbol table and
   supplementary information
-* bytecode: platform-independent low-level representation of Java code
 * any programming language that can be expressed in a valid class file can leverage JVM
 * JVM acts as interpreter for Java bytecode, managing memroy, multithreading, and various
   runtime services
@@ -3701,14 +3700,129 @@ Preparation for Threads
     * JVM is responsible to handle exception, ensure thread safety, and close it if necessary
     * every resources must be released when a thread completes execution
 
-JVM Types
----------
+JVM Data Types
+--------------
     * **Primitives**
         - JVM do not perform extensive type checking or runtime verification
-        - boolean, number, returnAddress
+        - boolean, number, ``returnAddress``
     * **Reference Values**
         - objects, such as complex data structures, are type checked and verified at runtime
-        - class, array
+        - Class: to point to instances of classes
+        - Array: to reference arrays, can be of primitive or objects
+        - Interface: to point to objects that implement interfaces
+        - reference values are always set to ``null`` initially, and can be set to it to release
+          resources
+    * **returnAddress**
+        - internal to JVM only to manage method invocations and returns, such as recursive
+          method calls
+        - method call stack or execution stack maintains a stack of ``returnAddress``
+    * **boolean**
+        - managed using ``int`` type, 8 bits
+        - no specific bytecode instruction for boolean operations
+        - boolean arrays are treated as byte arrays
+    * **null**
+        - a special reference value to indicate no valid object is associated with a reference
+        - operations on it can lead to ``NullPointerException``
+        - setting references to ``null`` is not a guarantee method for resource management
+
+Class File
+----------
+    * vital relationship between compiled Java code and the JVM
+    * adhere to a structured format curcial for the JVM to interpret and execute programs
+    * Java Source -> Java Compiler -> Class File
+    * use ``javac File.java`` to compile, and ``javap -c File.class`` to disassemble bytecode
+    * **Class File Structure**
+
+        .. code-block:: java
+
+           ClassFile {
+               u4              magic;
+               u2              minor_version;
+               u2              major_version;
+               u2              constant_pool_count;
+               cp_info         constant_pool[constant_pool_count-1];
+               u2              access_flags;
+               u2              this_class;
+               u2              super_class;
+               u2              interfaces_count;
+               u2              interfaces[interfaces_count];
+               u2              fields_count;
+               field_info      fields[fields_count];
+               u2              methods_count;
+               method_info     methods[methods_count];
+               u2              attributes_count;
+               attribute_info  attributes[attributes_count];
+           }
+
+
+    * **Headers**
+        - contain metadata such as Java version compatibility and constant pool
+        - Magic Number: identifies a file as a Java class file, ``0xCAFEBABE``
+        - Java Version Compatibility: indicates language features and specifications of the
+          class file with ``minor_version`` and ``major_version``
+        - Constant Pool Reference: contains symbolic references for the interpretation and
+          execution of Java programs, such as strings, class names, method signatures, and
+          other constants
+        - Access Flags: a set of binary values for access control of a Java class, e.g
+          ``ACC_PUBLIC``, ``ACC_FINAL``, ``ACC_SUPER``
+        - This & Super Class: point to constant pool entries of current class and its
+          superclass
+        - Interfaces, Fields & Methods Count: provide class structure blueprint for efficient
+          memory allocation and execution planning
+        - Attributes: additional information about the class
+    * **Fields**
+        - field declaration includes data type, unique id, optional modifiers for visibility,
+          accessibility, and behaviour
+        - Instance Variables: related to a class instance and have unique set of values for
+          each object
+        - Class Variables: shared among all class instances, denoted with ``static``
+        -  when a field is declared, name and type are stored as entries in the constant pool
+    * **Methods**
+        - encapsulate behaviour within classes
+        - return type is key to know the nature of the data generated during execution
+
+Bytecode
+--------
+    * platform-independent low-level representation of Java code, comprehensible by JVM
+    * bridge between high-level Java code and machine-specific language
+    * bytecode enables Java programs to run on any device equipped with a JVM
+    * Value Conversion: transforming data between different types
+    * bytecode instructions operate on specific types of values
+    * **Integer Operations**
+        - ``i``: e.g. ``iload`` (load int), ``iadd`` (add int), operate as 32-bit signed integers
+        - as Boolean values are integers, integer arithmetic and logical instructions are used
+    * **Long Operations**
+        - ``l``: e.g. ``lload`` (load long), ``lmul`` (multiply long), operate as 64-bit signed long
+          integers
+    * **Short Operations**
+        - ``s``: e.g. ``sload`` (load short), operate on 16-bit signed short integers
+    * **Byte Operations**
+        - ``b``: e.g. ``bload`` (load byte), operate on 8-bit signed byte integers
+    * **Char Operations**
+        - ``c``: e.g. ``caload`` (load array of char), operate on 16-bit Unicode characters
+    * **Float Operations**
+        - ``f``: e.g. ``fload`` (load float), operate on 32-bit single-precision floating point
+    * **Double Operations**
+        - ``d``: e.g. ``dload`` (load double), operate on 64-bit double-precision floating point
+    * **Reference Operations**
+        - ``a``: e.g. ``aload`` (load reference), operate on object references
+    * **Arithmetic Operations**
+        - operate on the first two values on the ``operand`` stack
+        - Addition: ``iadd``, ``ladd``, ``fadd``, ``dadd``
+        - Subtraction: ``isub``, ``lsub``, ``fsub``, ``dsub``, subtract the second from the first
+        - Multiplication: ``imul``, ``lmul``, ``fmul``, ``dmul``
+        - Division: ``idiv``, ``ldiv``, ``fdiv``, ``ddiv``, divide the first by the second
+        - Remainder: ``irem``, ``lrem``, ``frem``, ``drem``, remainder of dividing the first by the
+          second
+        - Negation: ``neg``, ``lneg``, ``fneg``, ``dneg``, changes the sign
+        - Local Variable Increment: ``iinc``, increment by a constant value
+    * **Bitwise Operations**
+        - Shift: ``ishl``, ``ishr``, ``iushr``, ``lshl``, ``lshr``, ``lushr``, can shift right with or
+          without sign extension
+        - Bitwise: ``ior``, ``lor``, ``iand``, ``land``, ``ixor``, ``lxor``
+    * **Comparison Operations**
+        - 1 = greater, -1 = less, 0 = equal
+        - ``dcmpg``, ``dcmpl``, ``fcmpg``, ``fcmpl``, ``lcmp``
 
 `back to top <#java>`_
 
