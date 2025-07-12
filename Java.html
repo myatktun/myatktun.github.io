@@ -439,6 +439,9 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jvm-data-types">JVM Data Types</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-file">Class File</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bytecode">Bytecode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-engine">Execution Engine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jit-compilation">JIT Compilation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-loading">Class Loading</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>
@@ -4527,6 +4530,7 @@ given line length and line separator</p></li>
 <h2>JVM<a class="headerlink" href="#jvm" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#life-cycle">Life Cycle</a>, <a class="reference internal" href="#availability">Availability</a>, <a class="reference internal" href="#preparation-for-threads">Preparation for Threads</a>, <a class="reference internal" href="#jvm-data-types">JVM Data Types</a>, <a class="reference internal" href="#class-file">Class File</a>, <a class="reference internal" href="#bytecode">Bytecode</a></p></li>
+<li><p><a class="reference internal" href="#execution-engine">Execution Engine</a>, <a class="reference internal" href="#jit-compilation">JIT Compilation</a>, <a class="reference internal" href="#class-loading">Class Loading</a></p></li>
 <li><p>base of the entire Java platform’s independence from specific hardware and OS, operating at
 the OS layer</p></li>
 <li><p>JVM does not know about the specifics of Java programming language</p></li>
@@ -4985,6 +4989,152 @@ behaviour in Java</p></li>
 </li>
 </ul>
 </div></blockquote>
+</section>
+<section id="execution-engine">
+<h3>Execution Engine<a class="headerlink" href="#execution-engine" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>dynamically translates bytecode into native machine code during program execution</p></li>
+<li><dl class="simple">
+<dt><strong>Stack-based Execution Model</strong></dt><dd><ul>
+<li><p>employed by JVM that manipulates an operand stack</p></li>
+<li><p>operands are pushed and popped as bytecode instructions are interpreted</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>although platform independent, bytecode interpretation cannot consistently deliver peak
+performance due to additional abstraction layer</p></li>
+<li><dl class="simple">
+<dt><strong>Execution Steps</strong></dt><dd><ul>
+<li><p>Loading: the class loader locates and loads the compiled class files, including the
+core libraries and user-defined classes</p></li>
+<li><p>Verification: loaded bytecode is verified for language specifications to prevent
+harmful code execution</p></li>
+<li><p>Preparation: memory is allocated for class variables and static fields with default
+values</p></li>
+<li><p>Resolution: symbolic references are resolved to concrete references so that classes
+and methods can be linked correctly</p></li>
+<li><p>Initialisation: the class is initialised by executing static blocks and variables</p></li>
+<li><p>Execution: <code class="docutils literal notranslate"><span class="pre">main()</span></code> or entry point is invoked and the program begins execution</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Optmisations</strong></dt><dd><ul>
+<li><p>JVM optimises performance within each runtime using various techniques</p></li>
+<li><p>e.g. JIT, and caching of frequently accessed classes and resources</p></li>
+<li><p>optimisations are lost when the application stops</p></li>
+<li><p>projects such as Project Leyden and CRaC (used by AWS Lambda SnapStart) aim to
+improve startup time and overall footprint of Java programs</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>System Operation Layers</strong></dt><dd><ul>
+<li><p>Hardware: physical components, foundation of all higher layers</p></li>
+<li><p>ISA: define the language between software and hardware, JVM interacts indirectly
+through OS</p></li>
+<li><p>OS: manage resources and mediator between application software and hardware, JVM
+utilises its services for platform-independent environment</p></li>
+<li><p>Application: interact with OS to execute tasks</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="jit-compilation">
+<h3>JIT Compilation<a class="headerlink" href="#jit-compilation" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Interpreter Level</strong></dt><dd><ul>
+<li><p>real-time translation of individual bytecode to machine code during execution</p></li>
+<li><p>gives quick startup and platform independence, but interpretation process can impact
+execution speed</p></li>
+<li><p>balance between agility and adaptability</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Baseline JIT Compilation</strong></dt><dd><ul>
+<li><p>also called the C1 compiler</p></li>
+<li><p>identifies frequently executed code segments or hotspots, and dynamically compiles
+them into machine code at runtime</p></li>
+<li><p>compiled code is stored in memory within the same runtime, reducing repeated
+interpretation and improving execution speed</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Dynamic Adaptation</strong></dt><dd><ul>
+<li><p>compiler continuously monitor, identifies and selectively compile hotspots,
+based on the evolving runtime behaviour</p></li>
+<li><p>baseline JIT compiler can optimise most impactful areas for immediate performance
+gains</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="class-loading">
+<h3>Class Loading<a class="headerlink" href="#class-loading" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>allow to adapt and extend functionality during runtime</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">N</span></code>: binary representation for a class or interface</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">L</span></code>: class loader</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">C</span></code>: specified class or interface associated with <code class="docutils literal notranslate"><span class="pre">N</span></code></p></li>
+<li><p>when JVM asks <code class="docutils literal notranslate"><span class="pre">L</span></code> to locate <code class="docutils literal notranslate"><span class="pre">N</span></code>, <code class="docutils literal notranslate"><span class="pre">L</span></code> loads <code class="docutils literal notranslate"><span class="pre">C</span></code></p></li>
+<li><dl class="simple">
+<dt><strong>Direct Loading</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">L</span></code> acquire the binary representation and instruct JVM to instantiate <code class="docutils literal notranslate"><span class="pre">C</span></code> from it</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Indirect Loading</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">L</span></code> give the loading task to another class loader</p></li>
+<li><p>the delegated class loader may load <code class="docutils literal notranslate"><span class="pre">C</span></code> directly, or use further delegations until
+<code class="docutils literal notranslate"><span class="pre">C</span></code> is loaded</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Bootstrap Class Loader</strong></dt><dd><ul>
+<li><p>necessary part of the JVM</p></li>
+<li><p>JVM checks if the loader is recorded as the initiator for a given class or
+interface, and the class or interface is present</p></li>
+<li><p>if not recorded, the bootstrap class loader finds a representation, asks JVM to
+derive the class from it, and creates it</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>User-defined Class Loader</strong></dt><dd><ul>
+<li><p>subclass of <code class="docutils literal notranslate"><span class="pre">ClassLoader</span></code> abstract class</p></li>
+<li><p>allows apps to customise how the JVM dynamically generates classes</p></li>
+<li><p>JVM checks if the loader is recorded as the initiator for a given class or
+interface, and the class or interface is present</p></li>
+<li><p>if not recorded, JVM invokes <code class="docutils literal notranslate"><span class="pre">loadClass()</span></code>, asking to directly load and create, or
+delegate the loading process to another class loader</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
 <p><a class="reference external" href="#java">back to top</a></p>
 </section>
 </section>
@@ -5153,6 +5303,9 @@ behaviour in Java</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jvm-data-types">JVM Data Types</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-file">Class File</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bytecode">Bytecode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-engine">Execution Engine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jit-compilation">JIT Compilation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-loading">Class Loading</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>

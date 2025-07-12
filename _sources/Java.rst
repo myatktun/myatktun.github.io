@@ -3636,6 +3636,7 @@ JVM
 ===
 
 * `Life Cycle`_, `Availability`_, `Preparation for Threads`_, `JVM Data Types`_, `Class File`_, `Bytecode`_
+* `Execution Engine`_, `JIT Compilation`_, `Class Loading`_
 * base of the entire Java platform's independence from specific hardware and OS, operating at
   the OS layer
 * JVM does not know about the specifics of Java programming language
@@ -3886,6 +3887,85 @@ Bytecode
         - Z (boolean): true or false
         - [ (array reference): array with element type
         - e.g. [L Classname (array of objects of a class), [ [B (2D array of bytes)
+
+Execution Engine
+----------------
+    * dynamically translates bytecode into native machine code during program execution
+    * **Stack-based Execution Model**
+        - employed by JVM that manipulates an operand stack
+        - operands are pushed and popped as bytecode instructions are interpreted
+    * although platform independent, bytecode interpretation cannot consistently deliver peak
+      performance due to additional abstraction layer
+    * **Execution Steps**
+        - Loading: the class loader locates and loads the compiled class files, including the
+          core libraries and user-defined classes
+        - Verification: loaded bytecode is verified for language specifications to prevent
+          harmful code execution
+        - Preparation: memory is allocated for class variables and static fields with default
+          values
+        - Resolution: symbolic references are resolved to concrete references so that classes
+          and methods can be linked correctly
+        - Initialisation: the class is initialised by executing static blocks and variables
+        - Execution: ``main()`` or entry point is invoked and the program begins execution
+    * **Optmisations**
+        - JVM optimises performance within each runtime using various techniques
+        - e.g. JIT, and caching of frequently accessed classes and resources
+        - optimisations are lost when the application stops
+        - projects such as Project Leyden and CRaC (used by AWS Lambda SnapStart) aim to
+          improve startup time and overall footprint of Java programs
+    * **System Operation Layers**
+        - Hardware: physical components, foundation of all higher layers
+        - ISA: define the language between software and hardware, JVM interacts indirectly
+          through OS
+        - OS: manage resources and mediator between application software and hardware, JVM
+          utilises its services for platform-independent environment
+        - Application: interact with OS to execute tasks
+
+JIT Compilation
+---------------
+    * **Interpreter Level**
+        - real-time translation of individual bytecode to machine code during execution
+        - gives quick startup and platform independence, but interpretation process can impact
+          execution speed
+        - balance between agility and adaptability
+    * **Baseline JIT Compilation**
+        - also called the C1 compiler
+        - identifies frequently executed code segments or hotspots, and dynamically compiles
+          them into machine code at runtime
+        - compiled code is stored in memory within the same runtime, reducing repeated
+          interpretation and improving execution speed
+    * **Dynamic Adaptation**
+        - compiler continuously monitor, identifies and selectively compile hotspots,
+          based on the evolving runtime behaviour
+        - baseline JIT compiler can optimise most impactful areas for immediate performance
+          gains
+
+Class Loading
+-------------
+    * allow to adapt and extend functionality during runtime
+    * ``N``: binary representation for a class or interface
+    * ``L``: class loader
+    * ``C``: specified class or interface associated with ``N``
+    * when JVM asks ``L`` to locate ``N``, ``L`` loads ``C``
+    * **Direct Loading**
+        - ``L`` acquire the binary representation and instruct JVM to instantiate ``C`` from it
+    * **Indirect Loading**
+        - ``L`` give the loading task to another class loader
+        - the delegated class loader may load ``C`` directly, or use further delegations until
+          ``C`` is loaded
+    * **Bootstrap Class Loader**
+        - necessary part of the JVM
+        - JVM checks if the loader is recorded as the initiator for a given class or
+          interface, and the class or interface is present
+        - if not recorded, the bootstrap class loader finds a representation, asks JVM to
+          derive the class from it, and creates it
+    * **User-defined Class Loader**
+        - subclass of ``ClassLoader`` abstract class
+        - allows apps to customise how the JVM dynamically generates classes
+        - JVM checks if the loader is recorded as the initiator for a given class or
+          interface, and the class or interface is present
+        - if not recorded, JVM invokes ``loadClass()``, asking to directly load and create, or
+          delegate the loading process to another class loader
 
 `back to top <#java>`_
 
