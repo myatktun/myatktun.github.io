@@ -442,6 +442,9 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-engine">Execution Engine</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jit-compilation">JIT Compilation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-loading">Class Loading</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-management">Memory Management</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#garbage-collection">Garbage Collection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-ergonomics">Tuning &amp; Ergonomics</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>
@@ -4530,7 +4533,8 @@ given line length and line separator</p></li>
 <h2>JVM<a class="headerlink" href="#jvm" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#life-cycle">Life Cycle</a>, <a class="reference internal" href="#availability">Availability</a>, <a class="reference internal" href="#preparation-for-threads">Preparation for Threads</a>, <a class="reference internal" href="#jvm-data-types">JVM Data Types</a>, <a class="reference internal" href="#class-file">Class File</a>, <a class="reference internal" href="#bytecode">Bytecode</a></p></li>
-<li><p><a class="reference internal" href="#execution-engine">Execution Engine</a>, <a class="reference internal" href="#jit-compilation">JIT Compilation</a>, <a class="reference internal" href="#class-loading">Class Loading</a></p></li>
+<li><p><a class="reference internal" href="#execution-engine">Execution Engine</a>, <a class="reference internal" href="#jit-compilation">JIT Compilation</a>, <a class="reference internal" href="#class-loading">Class Loading</a>, <a class="reference internal" href="#memory-management">Memory Management</a>, <a class="reference internal" href="#garbage-collection">Garbage Collection</a></p></li>
+<li><p><a class="reference internal" href="#tuning-ergonomics">Tuning &amp; Ergonomics</a></p></li>
 <li><p>base of the entire Java platform’s independence from specific hardware and OS, operating at
 the OS layer</p></li>
 <li><p>JVM does not know about the specifics of Java programming language</p></li>
@@ -4987,6 +4991,17 @@ behaviour in Java</p></li>
 </dd>
 </dl>
 </li>
+<li><dl class="simple">
+<dt><strong>Method Descriptor</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">locals</span></code>: number of local variables</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stack</span></code>: maximum stack size during method execution</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">args_size</span></code>: number of arguments passed to the method</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">this</span></code> is passed as argument for instance method, but not for static method as it
+belongs to the class itself</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </div></blockquote>
 </section>
@@ -5082,6 +5097,14 @@ gains</p></li>
 </dd>
 </dl>
 </li>
+<li><dl class="simple">
+<dt><strong>Code Cache</strong></dt><dd><ul>
+<li><p>dynamically stores optimised compiled code snippets ready to be executed</p></li>
+<li><p>provides swift access during subsequent invocations</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </div></blockquote>
 </section>
@@ -5133,6 +5156,251 @@ delegate the loading process to another class loader</p></li>
 </dd>
 </dl>
 </li>
+</ul>
+</div></blockquote>
+</section>
+<section id="memory-management">
+<h3>Memory Management<a class="headerlink" href="#memory-management" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>JVM auto manages memory assignment and cleanup</p></li>
+<li><dl class="simple">
+<dt><strong>Program Counter Register</strong></dt><dd><ul>
+<li><p>area within a thread’s memory storing address of currently executing instruction</p></li>
+<li><p>critical for sequential order of program execution within a thread</p></li>
+<li><p>Pointer: directs the thread to the next instruction</p></li>
+<li><p>Return Address: ensures return to the previous execution point after method
+completion</p></li>
+<li><p>PC value for non-native methods is the instruction address</p></li>
+<li><p>PC value for native methods is the pointer</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Stack</strong></dt><dd><ul>
+<li><p>for method calls and local variables, separate stack for each thread</p></li>
+<li><p>Frame: store information related to method execution, such as parameters and local
+variables</p></li>
+<li><p>a new frame is inserted when a thread calls a method, and discarded when concludes</p></li>
+<li><p>Local Variables: specific to currently executing method for intermediate results and
+relevant parameters, accessed through indexing</p></li>
+<li><p>Operand Stack: LIFO, dynamically stores constants, local variables, field values,
+and method results</p></li>
+<li><p>Frame Data: information about method’s execution context, including references to
+current class and method</p></li>
+<li><p>a frame also handles partial results, dynamic linking, returning values for methods,
+and managing exceptions</p></li>
+<li><p>implementation-specific details, such as debugging information, can be added to a
+frame</p></li>
+<li><p>StackWalker API allows access to stack frame information</p></li>
+<li><p>sizes of the local variable array and operand stack are determined at compile-time</p></li>
+<li><p>single local variable can hold Boolean, byte, char, short, int, float, reference,
+or returnaddress</p></li>
+<li><p>pairs of local variables can hold long or double</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Native Method Stack</strong></dt><dd><ul>
+<li><p>dedicated memory for native methods written in languages such as C or C++</p></li>
+<li><p>operate separately from Java stacks, and handle execution of native code</p></li>
+<li><p>JVM may allocate stacks per thread in fixed or dynamic sizes</p></li>
+<li><p>programmers may be able to control the initial, maximum and minimum stack sizes</p></li>
+<li><p>can have <code class="docutils literal notranslate"><span class="pre">StackOverflowError</span></code>, also affecting the Java stack</p></li>
+<li><p>dynamic expansion can cause <code class="docutils literal notranslate"><span class="pre">OutOfMemoryError</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Method Area</strong></dt><dd><ul>
+<li><p>stores class level data that contains method code, static variables, and constant
+pool</p></li>
+<li><p>dedicated space for each loaded class, and shared among all threads</p></li>
+<li><p>logically part of the heap, but may differ in garbage collection and compaction
+policies</p></li>
+<li><p>programmers may be able to control its fixed or dynamic size</p></li>
+<li><p>can have <code class="docutils literal notranslate"><span class="pre">OutOfMemoryError</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Heap</strong></dt><dd><ul>
+<li><p>dynamic and shared memory to store objects during runtime</p></li>
+<li><p>unused memory is reclaimed by garbage collector</p></li>
+<li><p>programmers may be able to control the initial, maximum and minimum sizes, being
+fixed or dynamic non-contiguous</p></li>
+<li><p>can have <code class="docutils literal notranslate"><span class="pre">OutOfMemoryError</span></code></p></li>
+<li><p>reference objects within have two pointers, one towards Object Pool and other
+towards constant pool</p></li>
+<li><p>vectors contain size and reference list fields</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="garbage-collection">
+<h3>Garbage Collection<a class="headerlink" href="#garbage-collection" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>regularly scans, identifies, and reclaims memory of unreferenced objects to prevent
+memory leaks</p></li>
+<li><p>multiple garbage collectors exist within the JVM</p></li>
+<li><p>can check GC with <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-Xlog:gc*</span> <span class="pre">-version</span></code></p></li>
+<li><dl class="simple">
+<dt><strong>Object Generations</strong></dt><dd><ul>
+<li><p>heap is divided into different generations, and different collection algorithms are
+applied to each</p></li>
+<li><p>younger objects are collected more frequently, as they are more likely to become
+unreachable</p></li>
+<li><p>older objects undergo less frequent and more comprehensive garbage collection</p></li>
+<li><p>short-lived objects are quickly identified and collected</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>modern GCs use algorithms and heuristics to optimise memory management based on
+application’s behaviour</p></li>
+<li><dl class="simple">
+<dt><strong>Mark and Sweep Algorithm</strong></dt><dd><ul>
+<li><p>Mark: objects are marked reachable or unreachable</p></li>
+<li><p>Sweep: unreachable objects are reclaimed</p></li>
+<li><p>can increase CPU usage and object cleanup scheduling overhead</p></li>
+<li><p>memory will be fragmented, impacting efficiency of the app</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Serial GC</strong></dt><dd><ul>
+<li><p>simple single-threaded collector, integrates with Mark and Sweep</p></li>
+<li><p>halts the app execution during collection</p></li>
+<li><p>straightforward sequential memory management, but can impact user experience</p></li>
+<li><p>suitable for apps with limited resources that accept brief pauses</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:+UserSerialGC</span></code>, <code class="docutils literal notranslate"><span class="pre">-XX:-UseSerialGC</span></code>: enable and disable Serial GC</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:NewRatio=&lt;value&gt;</span></code>: set ratio of young generation to old</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:NewSize=&lt;size&gt;</span></code>: set initial size of young generation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:MaxNewSize=&lt;size&gt;</span></code>: set max size of young generation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:SurvivorRatio=&lt;value&gt;</span></code>: set ratio of Eden space to survivor space</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:MaxTenuringThreshold=&lt;value&gt;</span></code>: set max tenuring threshold for objects in young</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:TargetSurvivorRatio=&lt;value&gt;</span></code>: set survivor space size as a percentage of young
+generation size</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:PretenureSizeThreshold=&lt;size&gt;</span></code>: objects larger than the value go to the old</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:MaxHeapSize=&lt;size&gt;</span></code>: set max heap size</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Parallel GC</strong></dt><dd><ul>
+<li><p>use multiple threads for collection, suitable for large-scale, data-intensive apps</p></li>
+<li><p>heap is divided into sections, and parallel collection is performed</p></li>
+<li><p>CPU usage increases, and can impact app’s responsiveness</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:+UseParallelGC</span></code>, <code class="docutils literal notranslate"><span class="pre">-XX:-UseParallelGC</span></code>: enable and disable Parallel GC</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:ParallelGCThreads=&lt;value&gt;</span></code>: set number of threads for collection</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:MaxGCPauseMillis=&lt;value&gt;</span></code>: set max pause-time for collection</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:GCTimeRatio=&lt;value&gt;</span></code>: set ratio of collection time to app time</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:UseAdaptiveSizePolicy</span></code>: enable adaptive sizing policies for heap and survivor
+spaces</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:AdaptiveSizeThroughPutPolicy</span></code>: configure adaptive sizing policy for
+throughput-oriented collection</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:AdaptiveSizePolicyOutputInterval=&lt;n&gt;</span></code>: set interval in number of collections
+for adaptive sizing policy output</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:ParallelGCVerbose</span></code>: enable verbose output</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Garbage-First GC</strong></dt><dd><ul>
+<li><p>also called G1, default collector since Java 9, balance between low latency and high
+throughput with predictable pause times</p></li>
+<li><p>suitable for interactive and real-time applications</p></li>
+<li><p>heap is divided into uniformly sized regions, and categorised as Eden, survivor, and
+old</p></li>
+<li><p>Liveness Space: regions with live objects, which are actively referenced by the app</p></li>
+<li><p>identifies and prioritises regions with the least live data for collection, thus
+reducing frequency and duration of garbage collection pauses</p></li>
+<li><p>uses adaptive collection strategies based on the app’s dynamic behaviour</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:+UseG1GC</span></code>, <code class="docutils literal notranslate"><span class="pre">-XX:-UseG1GC</span></code>: enable and disable G1 GC</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:G1HeapRegionSize=&lt;value&gt;</span></code> set size of collection regions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:MaxGCPauseMillis=&lt;value&gt;</span></code>: set max pause-time for collection</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:InitiatingHeapOccupancyPercent=&lt;value&gt;</span></code>: set heap occupancy percentage to start
+collection cycle</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:G1NewSizePercent=&lt;value&gt;</span></code>: set heap size percentage to use as minimum for young</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:G1MaxNewSizePercent=&lt;value&gt;</span></code>: set max heap size percentage to use as max for
+young</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:ParallelGCThreads=&lt;value&gt;</span></code>: set number of threads for collection</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:ConcGCThreads=&lt;value&gt;</span></code>: set number of parallel collection threads for
+concurrent phase</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:G1ReservePercent=&lt;value&gt;</span></code>: set target percentage of heap to reserve as space
+for future collection cycles</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:G1TargetSurvivorOccupancy=&lt;value&gt;</span></code>: set target occupancy of survivor space
+within each region</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:G1HeapWastePercent=&lt;value&gt;</span></code>: set target percentage of wasted space within a
+region before it is considered for reclamation</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Z GC</strong></dt><dd><ul>
+<li><p>introduced in Java 11, minimal pause times with low latency and responsiveness</p></li>
+<li><p>suitable for real-time systems, and interactive apps</p></li>
+<li><p>perform major collection tasks concurrently with the application threads</p></li>
+<li><p>Multi-mapping: multiple virtual addresses point to the same physical location</p></li>
+<li><p>may not have same throughput as other collectors, and not be optimal for apps with
+large heaps</p></li>
+<li><p>can resize the heap dynamically, adapting to the app’s demand</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:+UseZGC</span></code>, <code class="docutils literal notranslate"><span class="pre">-XX:-UseZGC</span></code>: enable and disable Z GC</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:MaxGCPauseMillis=&lt;value&gt;</span></code>: set max pause-time for collection</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:GCPauseIntervalMillis=&lt;value&gt;</span></code>: set max interval between pauses</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:ConcGCThreads=&lt;value&gt;</span></code>: set number of parallel collection threads for
+concurrent phase</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:ParallelGCThreads=&lt;value&gt;</span></code>: set number of parallel collection threads for
+parallel phase</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:ZUncommitDelay=&lt;value&gt;</span></code>: set delay for uncommitting memory after a region is no
+longer needed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:ZUncommitDelayMax=&lt;value&gt;</span></code>: set max delay for uncommitting memory after a
+region is no longer needed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:ZUncommitDelayPolicy=&lt;adaptive\|fixed&gt;</span></code>: set uncommit delay policy</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:SoftMaxHeap=&lt;value&gt;</span></code>: set soft max heap size</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XX:ZHeapSize=&lt;value&gt;</span></code>: set heap size</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="tuning-ergonomics">
+<h3>Tuning &amp; Ergonomics<a class="headerlink" href="#tuning-ergonomics" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Profiling: to gain insights into the runtime behaviour of applications</p></li>
+<li><dl class="simple">
+<dt><strong>Ergonomics</strong></dt><dd><ul>
+<li><p>adaptive tuning capabilities embedded within the JVM to auto adjust configuration
+based on hardware and app behaviour</p></li>
+<li><p>to enhance performance and responsiveness of Java apps without manual intervention</p></li>
+<li><p>e.g. adjusting garbage collection algorithms, heap sizes and thread counts</p></li>
+<li><p>Premature Optimisation: JVM making assumptions about app behaviour without
+sufficient runtime information</p></li>
+<li><p>default configuration set by ergonomics is often considered premature optimisation</p></li>
+<li><p>Serial GC: usually default for single-processor and memory limited system</p></li>
+<li><p>G1 GC: more than two processors, and sufficient amount of memory (1792 MB or more)</p></li>
+<li><p>default max heap size: 50%, 25% or 1/64 of available memory</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>automated ergonomics may not always produce optimal performance</p></li>
+<li><p>manually configuring GC parameters gives more control and predictability over JVM</p></li>
 </ul>
 </div></blockquote>
 <p><a class="reference external" href="#java">back to top</a></p>
@@ -5306,6 +5574,9 @@ delegate the loading process to another class loader</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-engine">Execution Engine</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jit-compilation">JIT Compilation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-loading">Class Loading</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-management">Memory Management</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#garbage-collection">Garbage Collection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-ergonomics">Tuning &amp; Ergonomics</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>

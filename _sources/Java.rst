@@ -3636,7 +3636,8 @@ JVM
 ===
 
 * `Life Cycle`_, `Availability`_, `Preparation for Threads`_, `JVM Data Types`_, `Class File`_, `Bytecode`_
-* `Execution Engine`_, `JIT Compilation`_, `Class Loading`_
+* `Execution Engine`_, `JIT Compilation`_, `Class Loading`_, `Memory Management`_, `Garbage Collection`_
+* `Tuning & Ergonomics`_
 * base of the entire Java platform's independence from specific hardware and OS, operating at
   the OS layer
 * JVM does not know about the specifics of Java programming language
@@ -3887,6 +3888,12 @@ Bytecode
         - Z (boolean): true or false
         - [ (array reference): array with element type
         - e.g. [L Classname (array of objects of a class), [ [B (2D array of bytes)
+    * **Method Descriptor**
+        - ``locals``: number of local variables
+        - ``stack``: maximum stack size during method execution
+        - ``args_size``: number of arguments passed to the method
+        - ``this`` is passed as argument for instance method, but not for static method as it
+          belongs to the class itself
 
 Execution Engine
 ----------------
@@ -3939,6 +3946,9 @@ JIT Compilation
           based on the evolving runtime behaviour
         - baseline JIT compiler can optimise most impactful areas for immediate performance
           gains
+    * **Code Cache**
+        - dynamically stores optimised compiled code snippets ready to be executed
+        - provides swift access during subsequent invocations
 
 Class Loading
 -------------
@@ -3966,6 +3976,179 @@ Class Loading
           interface, and the class or interface is present
         - if not recorded, JVM invokes ``loadClass()``, asking to directly load and create, or
           delegate the loading process to another class loader
+
+Memory Management
+-----------------
+    * JVM auto manages memory assignment and cleanup
+    * **Program Counter Register**
+        - area within a thread's memory storing address of currently executing instruction
+        - critical for sequential order of program execution within a thread
+        - Pointer: directs the thread to the next instruction
+        - Return Address: ensures return to the previous execution point after method
+          completion
+        - PC value for non-native methods is the instruction address
+        - PC value for native methods is the pointer
+    * **Stack**
+        - for method calls and local variables, separate stack for each thread
+        - Frame: store information related to method execution, such as parameters and local
+          variables
+        - a new frame is inserted when a thread calls a method, and discarded when concludes
+        - Local Variables: specific to currently executing method for intermediate results and
+          relevant parameters, accessed through indexing
+        - Operand Stack: LIFO, dynamically stores constants, local variables, field values,
+          and method results
+        - Frame Data: information about method's execution context, including references to
+          current class and method
+        - a frame also handles partial results, dynamic linking, returning values for methods,
+          and managing exceptions
+        - implementation-specific details, such as debugging information, can be added to a
+          frame
+        - StackWalker API allows access to stack frame information
+        - sizes of the local variable array and operand stack are determined at compile-time
+        - single local variable can hold Boolean, byte, char, short, int, float, reference,
+          or returnaddress
+        - pairs of local variables can hold long or double
+    * **Native Method Stack**
+        - dedicated memory for native methods written in languages such as C or C++
+        - operate separately from Java stacks, and handle execution of native code
+        - JVM may allocate stacks per thread in fixed or dynamic sizes
+        - programmers may be able to control the initial, maximum and minimum stack sizes
+        - can have ``StackOverflowError``, also affecting the Java stack
+        - dynamic expansion can cause ``OutOfMemoryError``
+    * **Method Area**
+        - stores class level data that contains method code, static variables, and constant
+          pool
+        - dedicated space for each loaded class, and shared among all threads
+        - logically part of the heap, but may differ in garbage collection and compaction
+          policies
+        - programmers may be able to control its fixed or dynamic size
+        - can have ``OutOfMemoryError``
+    * **Heap**
+        - dynamic and shared memory to store objects during runtime
+        - unused memory is reclaimed by garbage collector
+        - programmers may be able to control the initial, maximum and minimum sizes, being
+          fixed or dynamic non-contiguous
+        - can have ``OutOfMemoryError``
+        - reference objects within have two pointers, one towards Object Pool and other
+          towards constant pool
+        - vectors contain size and reference list fields
+
+Garbage Collection
+------------------
+    * regularly scans, identifies, and reclaims memory of unreferenced objects to prevent
+      memory leaks
+    * multiple garbage collectors exist within the JVM
+    * can check GC with ``java -Xlog:gc* -version``
+    * **Object Generations**
+        - heap is divided into different generations, and different collection algorithms are
+          applied to each
+        - younger objects are collected more frequently, as they are more likely to become
+          unreachable
+        - older objects undergo less frequent and more comprehensive garbage collection
+        - short-lived objects are quickly identified and collected
+    * modern GCs use algorithms and heuristics to optimise memory management based on
+      application's behaviour
+    * **Mark and Sweep Algorithm**
+        - Mark: objects are marked reachable or unreachable
+        - Sweep: unreachable objects are reclaimed
+        - can increase CPU usage and object cleanup scheduling overhead
+        - memory will be fragmented, impacting efficiency of the app
+    * **Serial GC**
+        - simple single-threaded collector, integrates with Mark and Sweep
+        - halts the app execution during collection
+        - straightforward sequential memory management, but can impact user experience
+        - suitable for apps with limited resources that accept brief pauses
+        - ``-XX:+UserSerialGC``, ``-XX:-UseSerialGC``: enable and disable Serial GC
+        - ``-XX:NewRatio=<value>``: set ratio of young generation to old
+        - ``-XX:NewSize=<size>``: set initial size of young generation
+        - ``-XX:MaxNewSize=<size>``: set max size of young generation
+        - ``-XX:SurvivorRatio=<value>``: set ratio of Eden space to survivor space
+        - ``-XX:MaxTenuringThreshold=<value>``: set max tenuring threshold for objects in young
+        - ``-XX:TargetSurvivorRatio=<value>``: set survivor space size as a percentage of young
+          generation size
+        - ``-XX:PretenureSizeThreshold=<size>``: objects larger than the value go to the old
+        - ``-XX:MaxHeapSize=<size>``: set max heap size
+    * **Parallel GC**
+        - use multiple threads for collection, suitable for large-scale, data-intensive apps
+        - heap is divided into sections, and parallel collection is performed
+        - CPU usage increases, and can impact app's responsiveness
+        - ``-XX:+UseParallelGC``, ``-XX:-UseParallelGC``: enable and disable Parallel GC
+        - ``-XX:ParallelGCThreads=<value>``: set number of threads for collection
+        - ``-XX:MaxGCPauseMillis=<value>``: set max pause-time for collection
+        - ``-XX:GCTimeRatio=<value>``: set ratio of collection time to app time
+        - ``-XX:UseAdaptiveSizePolicy``: enable adaptive sizing policies for heap and survivor
+          spaces
+        - ``-XX:AdaptiveSizeThroughPutPolicy``: configure adaptive sizing policy for
+          throughput-oriented collection
+        - ``-XX:AdaptiveSizePolicyOutputInterval=<n>``: set interval in number of collections
+          for adaptive sizing policy output
+        - ``-XX:ParallelGCVerbose``: enable verbose output
+    * **Garbage-First GC**
+        - also called G1, default collector since Java 9, balance between low latency and high
+          throughput with predictable pause times
+        - suitable for interactive and real-time applications
+        - heap is divided into uniformly sized regions, and categorised as Eden, survivor, and
+          old
+        - Liveness Space: regions with live objects, which are actively referenced by the app
+        - identifies and prioritises regions with the least live data for collection, thus
+          reducing frequency and duration of garbage collection pauses
+        - uses adaptive collection strategies based on the app's dynamic behaviour
+        - ``-XX:+UseG1GC``, ``-XX:-UseG1GC``: enable and disable G1 GC
+        - ``-XX:G1HeapRegionSize=<value>`` set size of collection regions
+        - ``-XX:MaxGCPauseMillis=<value>``: set max pause-time for collection
+        - ``-XX:InitiatingHeapOccupancyPercent=<value>``: set heap occupancy percentage to start
+          collection cycle
+        - ``-XX:G1NewSizePercent=<value>``: set heap size percentage to use as minimum for young
+        - ``-XX:G1MaxNewSizePercent=<value>``: set max heap size percentage to use as max for
+          young
+        - ``-XX:ParallelGCThreads=<value>``: set number of threads for collection
+        - ``-XX:ConcGCThreads=<value>``: set number of parallel collection threads for
+          concurrent phase
+        - ``-XX:G1ReservePercent=<value>``: set target percentage of heap to reserve as space
+          for future collection cycles
+        - ``-XX:G1TargetSurvivorOccupancy=<value>``: set target occupancy of survivor space
+          within each region
+        - ``-XX:G1HeapWastePercent=<value>``: set target percentage of wasted space within a
+          region before it is considered for reclamation
+    * **Z GC**
+        - introduced in Java 11, minimal pause times with low latency and responsiveness
+        - suitable for real-time systems, and interactive apps
+        - perform major collection tasks concurrently with the application threads
+        - Multi-mapping: multiple virtual addresses point to the same physical location
+        - may not have same throughput as other collectors, and not be optimal for apps with
+          large heaps
+        - can resize the heap dynamically, adapting to the app's demand
+        - ``-XX:+UseZGC``, ``-XX:-UseZGC``: enable and disable Z GC
+        - ``-XX:MaxGCPauseMillis=<value>``: set max pause-time for collection
+        - ``-XX:GCPauseIntervalMillis=<value>``: set max interval between pauses
+        - ``-XX:ConcGCThreads=<value>``: set number of parallel collection threads for
+          concurrent phase
+        - ``-XX:ParallelGCThreads=<value>``: set number of parallel collection threads for
+          parallel phase
+        - ``-XX:ZUncommitDelay=<value>``: set delay for uncommitting memory after a region is no
+          longer needed
+        - ``-XX:ZUncommitDelayMax=<value>``: set max delay for uncommitting memory after a
+          region is no longer needed
+        - ``-XX:ZUncommitDelayPolicy=<adaptive\|fixed>``: set uncommit delay policy
+        - ``-XX:SoftMaxHeap=<value>``: set soft max heap size
+        - ``-XX:ZHeapSize=<value>``: set heap size
+
+Tuning & Ergonomics
+-------------------
+    * Profiling: to gain insights into the runtime behaviour of applications
+    * **Ergonomics**
+        - adaptive tuning capabilities embedded within the JVM to auto adjust configuration
+          based on hardware and app behaviour
+        - to enhance performance and responsiveness of Java apps without manual intervention
+        - e.g. adjusting garbage collection algorithms, heap sizes and thread counts
+        - Premature Optimisation: JVM making assumptions about app behaviour without
+          sufficient runtime information
+        - default configuration set by ergonomics is often considered premature optimisation
+        - Serial GC: usually default for single-processor and memory limited system
+        - G1 GC: more than two processors, and sufficient amount of memory (1792 MB or more)
+        - default max heap size: 50%, 25% or 1/64 of available memory
+    * automated ergonomics may not always produce optimal performance
+    * manually configuring GC parameters gives more control and predictability over JVM
 
 `back to top <#java>`_
 
