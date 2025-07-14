@@ -13,7 +13,8 @@ Java
 9. `Javadoc`_
 10. `Java8`_
 11. `JVM`_
-12. `References & External Resources`_
+12. `Alternative JVMs`_
+13. `References & External Resources`_
 
 `back to top <#java>`_
 
@@ -4149,6 +4150,43 @@ Tuning & Ergonomics
         - default max heap size: 50%, 25% or 1/64 of available memory
     * automated ergonomics may not always produce optimal performance
     * manually configuring GC parameters gives more control and predictability over JVM
+
+`back to top <#java>`_
+
+Alternative JVMs
+================
+
+* `GraalVM`_
+
+GraalVM
+-------
+    * support multiple languages with ahead-of-time (AOT) compilation, removing JIT compilation
+      during runtime
+    * allow to integrate different languages within a single application
+    * slight memory usage increase, initial compilation may be longer than other JVMs, and
+      certain language features or libraries may not be fully compatible
+    * suitable for microservices and serverless architecture, high-performance computing, and
+      resource-intensive apps
+    * always consider trade-offs and project constraints to get performance gains
+    * **Native Image**
+        - compile apps into standalone executables, removing the need for a VM
+        - increase startup time and runtime performance, and reduce memory footprint
+        - suitable for short-lived apps or responsive microservices
+        - since JIT is removed, runtime optimisation is no longer available
+        - need to manage native libraries, reflective access, and other factors to get optimal
+          results
+        - need to handle dynamically loaded or generated code
+        - may not capture the complete runtime profile for apps with complex runtime behaviour
+        - can have challenges for cross-platform compatibility
+        - image size can increase due to dependencies
+    * **Creating Native Image**
+
+        .. code-block:: sh
+
+           javac -d build src/main/java/expert/os/App.java
+           jar --create --file App.jar --main-class expert.os.App -C build .
+           native-image -jar App.jar
+
 
 `back to top <#java>`_
 

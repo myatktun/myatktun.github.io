@@ -447,6 +447,10 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-ergonomics">Tuning &amp; Ergonomics</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-jvms">Alternative JVMs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graalvm">GraalVM</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>
 </ul>
             </nav>
@@ -473,6 +477,7 @@
 <li><p><a class="reference internal" href="#javadoc">Javadoc</a></p></li>
 <li><p><a class="reference internal" href="#java8">Java8</a></p></li>
 <li><p><a class="reference internal" href="#jvm">JVM</a></p></li>
+<li><p><a class="reference internal" href="#alternative-jvms">Alternative JVMs</a></p></li>
 <li><p><a class="reference internal" href="#references-external-resources">References &amp; External Resources</a></p></li>
 </ol>
 <p><a class="reference external" href="#java">back to top</a></p>
@@ -5406,6 +5411,53 @@ sufficient runtime information</p></li>
 <p><a class="reference external" href="#java">back to top</a></p>
 </section>
 </section>
+<section id="alternative-jvms">
+<h2>Alternative JVMs<a class="headerlink" href="#alternative-jvms" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#graalvm">GraalVM</a></p></li>
+</ul>
+<section id="graalvm">
+<h3>GraalVM<a class="headerlink" href="#graalvm" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>support multiple languages with ahead-of-time (AOT) compilation, removing JIT compilation
+during runtime</p></li>
+<li><p>allow to integrate different languages within a single application</p></li>
+<li><p>slight memory usage increase, initial compilation may be longer than other JVMs, and
+certain language features or libraries may not be fully compatible</p></li>
+<li><p>suitable for microservices and serverless architecture, high-performance computing, and
+resource-intensive apps</p></li>
+<li><p>always consider trade-offs and project constraints to get performance gains</p></li>
+<li><dl class="simple">
+<dt><strong>Native Image</strong></dt><dd><ul class="simple">
+<li><p>compile apps into standalone executables, removing the need for a VM</p></li>
+<li><p>increase startup time and runtime performance, and reduce memory footprint</p></li>
+<li><p>suitable for short-lived apps or responsive microservices</p></li>
+<li><p>since JIT is removed, runtime optimisation is no longer available</p></li>
+<li><p>need to manage native libraries, reflective access, and other factors to get optimal
+results</p></li>
+<li><p>need to handle dynamically loaded or generated code</p></li>
+<li><p>may not capture the complete runtime profile for apps with complex runtime behaviour</p></li>
+<li><p>can have challenges for cross-platform compatibility</p></li>
+<li><p>image size can increase due to dependencies</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Creating Native Image</strong></p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>javac<span class="w"> </span>-d<span class="w"> </span>build<span class="w"> </span>src/main/java/expert/os/App.java
+jar<span class="w"> </span>--create<span class="w"> </span>--file<span class="w"> </span>App.jar<span class="w"> </span>--main-class<span class="w"> </span>expert.os.App<span class="w"> </span>-C<span class="w"> </span>build<span class="w"> </span>.
+native-image<span class="w"> </span>-jar<span class="w"> </span>App.jar
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#java">back to top</a></p>
+</section>
+</section>
 <section id="references-external-resources">
 <h2>References &amp; External Resources<a class="headerlink" href="#references-external-resources" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -5577,6 +5629,10 @@ sufficient runtime information</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-management">Memory Management</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#garbage-collection">Garbage Collection</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-ergonomics">Tuning &amp; Ergonomics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-jvms">Alternative JVMs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graalvm">GraalVM</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>
