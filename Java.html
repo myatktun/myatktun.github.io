@@ -349,6 +349,9 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exceptions">Exceptions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interfaces">Interfaces</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">Packages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-annotations">Metadata &amp; Annotations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#framework-principles">Framework Principles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection">Reflection</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a><ul class="nav section-nav flex-column">
@@ -448,7 +451,19 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-jvms">Alternative JVMs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdkman">SDKMAN</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graalvm">GraalVM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openj9">OpenJ9</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corretto">Corretto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#azul">Azul</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semeru">Semeru</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temurin">Temurin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dragonwell">Dragonwell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kona">Kona</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liberica">Liberica</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mandrel">Mandrel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-openjdk">Microsoft OpenJDK</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sapmachine">SapMachine</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>
@@ -485,8 +500,8 @@
 <h2>Basics<a class="headerlink" href="#basics" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#conventions">Conventions</a>, <a class="reference internal" href="#modifiers">Modifiers</a>, <a class="reference internal" href="#variables">Variables</a>, <a class="reference internal" href="#data-types">Data Types</a>, <a class="reference internal" href="#enums">Enums</a>, <a class="reference internal" href="#operators">Operators</a>, <a class="reference internal" href="#loops">Loops</a>, <a class="reference internal" href="#switch">Switch</a></p></li>
-<li><p><a class="reference internal" href="#numbers">Numbers</a>, <a class="reference internal" href="#characters">Characters</a>, <a class="reference internal" href="#strings">Strings</a>, <a class="reference internal" href="#arrays">Arrays</a>, <a class="reference internal" href="#date-time">Date/Time</a>, <a class="reference internal" href="#regex">Regex</a></p></li>
-<li><p><a class="reference internal" href="#methods">Methods</a>, <a class="reference internal" href="#i-o">I/O</a>, <a class="reference internal" href="#exceptions">Exceptions</a>, <a class="reference internal" href="#interfaces">Interfaces</a>, <a class="reference internal" href="#packages">Packages</a></p></li>
+<li><p><a class="reference internal" href="#numbers">Numbers</a>, <a class="reference internal" href="#characters">Characters</a>, <a class="reference internal" href="#strings">Strings</a>, <a class="reference internal" href="#arrays">Arrays</a>, <a class="reference internal" href="#date-time">Date/Time</a>, <a class="reference internal" href="#regex">Regex</a>, <a class="reference internal" href="#methods">Methods</a>, <a class="reference internal" href="#i-o">I/O</a>, <a class="reference internal" href="#exceptions">Exceptions</a></p></li>
+<li><p><a class="reference internal" href="#interfaces">Interfaces</a>, <a class="reference internal" href="#packages">Packages</a>, <a class="reference internal" href="#metadata-annotations">Metadata &amp; Annotations</a>, <a class="reference internal" href="#framework-principles">Framework Principles</a>, <a class="reference internal" href="#reflection">Reflection</a></p></li>
 <li><p>write once, run anywhere, can run on all Java supported platforms without recompilation</p></li>
 <li><p>four platforms for Java: Standard Edition (Java SE), Enterprise Edition (Java EE), Micro
 Edition (Java ME), Java FX</p></li>
@@ -1931,6 +1946,157 @@ look for <code class="docutils literal notranslate"><span class="pre">.class</sp
 <li><p>can have several class paths separated by semicolon (Windows) or colon (Unix)</p></li>
 <li><p>by default, compiler and JVM will search current directory and JAR files containing
 Java platform classes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="metadata-annotations">
+<h3>Metadata &amp; Annotations<a class="headerlink" href="#metadata-annotations" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>metadata and annotations allow developers to encapsulate crucial information about
+classes, methods, and other components</p></li>
+<li><dl>
+<dt><strong>Metadata</strong></dt><dd><ul class="simple">
+<li><p>help with complicated processes such as converting Java entities to XML files or
+databases</p></li>
+<li><p>e.g. conversion between Java <code class="docutils literal notranslate"><span class="pre">camelCase</span></code> and database <code class="docutils literal notranslate"><span class="pre">snake_case</span></code></p></li>
+<li><p>XML is used to manage metadata, as shown in Java Persistence API (JPA)</p></li>
+<li><p>the XML file is dynamically interpreted at runtime, and serves as a blueprint and
+a channel for generating real-time metadata</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;entity&gt;</span></code>: map Java class</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code>: define table name in the database associated with the entity</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;attributes&gt;</span></code>: describe class attributes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;id&gt;</span></code>: primary key attribute</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;basic&gt;</span></code>: non-composite attributes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;column&gt;</span></code>: details for database mapping</p></li>
+<li><p>Spring and Jakarta EE offer code-centric approach to defining metadata,
+e.g. <code class="docutils literal notranslate"><span class="pre">&#64;Entity</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;Table(name=&quot;table&quot;)</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;Column(name=&quot;col&quot;)</span></code></p></li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;entity</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;entity.Person&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Person&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;table</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Person&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;attributes&gt;</span>
+<span class="w">        </span><span class="nt">&lt;id</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;id&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;basic</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;column</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;NAME&quot;</span><span class="w"> </span><span class="na">length=</span><span class="s">&quot;100&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/basic&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/attributes&gt;</span>
+<span class="nt">&lt;/entity&gt;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Annotations</strong></dt><dd><ul class="simple">
+<li><p>introduced in Java 5 through Java Specification Request (JSR)</p></li>
+<li><p>remove the need for a separate configuration file</p></li>
+<li><p>essential information can be within the Java class</p></li>
+<li><p>can read and process annotations dynamically at runtime using reflection, or
+statically at build time using tools such as Java annotation processor</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="framework-principles">
+<h3>Framework Principles<a class="headerlink" href="#framework-principles" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Framework</strong></dt><dd><ul>
+<li><p>provide pre-defined components, tools, and design patterns for app development</p></li>
+<li><p>e.g. Spring, Hibernate, JSF</p></li>
+<li><p>simplify development, encourage code reuse, and maintain best practices</p></li>
+<li><p>always consider the trade-off between existing framework and creating a custom one</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>convention over configuration reduce the need for explicit configuration when developers
+follow to established patterns</p></li>
+<li><p>documentation helps users understand, aiding in adoption and reducing learning curve</p></li>
+<li><p>testing ensures reliability and robustness of the framework</p></li>
+<li><dl class="simple">
+<dt><strong>API Design</strong></dt><dd><ul>
+<li><p>significantly influence framework usability and adoption</p></li>
+<li><p>Declarative API: focus expressing the desired outcome and promote readability</p></li>
+<li><p>Imperative API: step-by-step approach, giving more control</p></li>
+<li><p>need to ensure ease of use and long-term maintainability</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Executability</strong></dt><dd><ul>
+<li><p>consider to choose reflection, avoid reflection for efficiency within JVM, or
+execute outside JVM, such as building native images</p></li>
+<li><p>reflection gives dynamic capabilities, but have performance cost</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Service Provider Approach</strong></dt><dd><ul>
+<li><p>allow developers to extend or modify framework behaviour</p></li>
+<li><p>promote plug-and-play (PnP), enabling users to add more functions or customise the
+framework without changing the core code base</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="reflection">
+<h3>Reflection<a class="headerlink" href="#reflection" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>inspect and manipulate classes, methods and fields at runtime</p></li>
+<li><p>enable dynamic class instantiation and configuration in dependency injection (DI)
+containers, object-relational mapping (ORM) and testing frameworks</p></li>
+<li><p>enable dynamic loading and manipulation of objects and classes in serialisation and
+deserialisation libraries, GUI development tools, and Java core libraries</p></li>
+<li><p>Introspection: enabling programs to examine and adapt to their structure</p></li>
+<li><p>can have performance cost, slower execution times, and reduce code safety, as errors
+might only be discovered at runtime</p></li>
+<li><p>reflective code can be challenging to read and maintain</p></li>
+<li><p>reflection might be platform-dependent, and certain operations may behave differently on
+different JVMs</p></li>
+<li><dl class="simple">
+<dt><strong>Reflection in a Framework</strong></dt><dd><ul>
+<li><p>framework initialises and reflection engine is loaded</p></li>
+<li><p>annotations are processed during code compilation</p></li>
+<li><p>as classes are loaded into runtime environment, reflection engine is aware of
+classes and their structure</p></li>
+<li><p>reflection engine reads and interprets the annotations</p></li>
+<li><p>reflection engine generates a dependency tree, outlining the relationship between
+classes, methods and fields</p></li>
+<li><p>code is dynamically executed based on the dependency tree</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Dynamic Proxy</strong></dt><dd><ul>
+<li><p>enable creation of objects at runtime, especially when the structure of objects or
+interfaces is not known until runtime</p></li>
+<li><p>can reduce boilerplate code, and inject custom logic, as they can
+intercept method invocations</p></li>
+<li><p>can have execution delay compared to direct method calls</p></li>
+<li><p>as dynamic proxies are interface-based, they may limit where class-based proxies may
+be more fitting</p></li>
 </ul>
 </dd>
 </dl>
@@ -5414,8 +5580,18 @@ sufficient runtime information</p></li>
 <section id="alternative-jvms">
 <h2>Alternative JVMs<a class="headerlink" href="#alternative-jvms" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#graalvm">GraalVM</a></p></li>
+<li><p><a class="reference internal" href="#sdkman">SDKMAN</a>, <a class="reference internal" href="#graalvm">GraalVM</a>, <a class="reference internal" href="#openj9">OpenJ9</a>, <a class="reference internal" href="#corretto">Corretto</a>, <a class="reference internal" href="#azul">Azul</a>, <a class="reference internal" href="#semeru">Semeru</a>, <a class="reference internal" href="#temurin">Temurin</a>, <a class="reference internal" href="#dragonwell">Dragonwell</a>, <a class="reference internal" href="#kona">Kona</a>, <a class="reference internal" href="#liberica">Liberica</a></p></li>
+<li><p><a class="reference internal" href="#mandrel">Mandrel</a>, <a class="reference internal" href="#microsoft-openjdk">Microsoft OpenJDK</a>, <a class="reference internal" href="#sapmachine">SapMachine</a></p></li>
 </ul>
+<section id="sdkman">
+<h3>SDKMAN<a class="headerlink" href="#sdkman" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>allows to manage and switch between multiple SDKs and versions</p></li>
+<li><p>can choose different JVM vendors, without the trouble of manual installations</p></li>
+</ul>
+</div></blockquote>
+</section>
 <section id="graalvm">
 <h3>GraalVM<a class="headerlink" href="#graalvm" title="Link to this heading">#</a></h3>
 <blockquote>
@@ -5453,6 +5629,127 @@ native-image<span class="w"> </span>-jar<span class="w"> </span>App.jar
 </div>
 </div></blockquote>
 </li>
+</ul>
+</div></blockquote>
+</section>
+<section id="openj9">
+<h3>OpenJ9<a class="headerlink" href="#openj9" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>scalability, resource efficiency and swift startup times</p></li>
+<li><p>suitable for cloud-based apps, microservices, and responsive environments</p></li>
+<li><p>combine advanced JIT compilation techniques and aggressive memory management</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="corretto">
+<h3>Corretto<a class="headerlink" href="#corretto" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Amazon Corretto provides LTS, and integration with AWS</p></li>
+<li><p>built on the foundation of OpenJDK and compatible with it</p></li>
+<li><p>secure, stable, and improve responsiveness and throughput</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="azul">
+<h3>Azul<a class="headerlink" href="#azul" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>built on OpenJDK</p></li>
+<li><dl class="simple">
+<dt><strong>Zulu</strong></dt><dd><ul>
+<li><p>open-sourced and has a 3-month release cycle</p></li>
+<li><p>include CraC feature for fast startup, and can integrate with JavaFX</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Zing</strong></dt><dd><ul>
+<li><p>has C4 (Continuously Concurrent Compacting Collector) garbage collector, and Falcon
+JIT compiler for low latency and pauseless collection</p></li>
+<li><p>enhanced runtime performance, suitable for high-throughput and low-latency apps</p></li>
+<li><p>scalable for both small-scale and enterprise-level systems</p></li>
+<li><p>offer LTS and stability</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="semeru">
+<h3>Semeru<a class="headerlink" href="#semeru" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>based on OpenJ9, resource efficiency and rapid startup time</p></li>
+<li><p>container friendly, suitable for cloud-native apps and microservices</p></li>
+<li><p>contain AOT compilation</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="temurin">
+<h3>Temurin<a class="headerlink" href="#temurin" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>formerly AdoptOpenJDK, production-ready builds of OpenJDK</p></li>
+<li><p>provide timely updates and security patches</p></li>
+<li><p>transparent and collaborative from Eclipse community</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="dragonwell">
+<h3>Dragonwell<a class="headerlink" href="#dragonwell" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>in-house OpenJDK implementation at Alibaba</p></li>
+<li><p>optimised for scaling demands of eCommerce and financial and logistics apps</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="kona">
+<h3>Kona<a class="headerlink" href="#kona" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Tencent default JDK for cloud computing, big data and other Java apps</p></li>
+<li><p>production-ready distribution of OpenJDK with LTS</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="liberica">
+<h3>Liberica<a class="headerlink" href="#liberica" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>open source implementation built from OpenJDK from BellSoft</p></li>
+<li><p>pass Java Compatibility Kit (JCK), and support JavaFX across all versions</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="mandrel">
+<h3>Mandrel<a class="headerlink" href="#mandrel" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>specialised distribution of GraalVM from Red Hat</p></li>
+<li><p>make native image generation for Quarkus apps easier</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="microsoft-openjdk">
+<h3>Microsoft OpenJDK<a class="headerlink" href="#microsoft-openjdk" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>provide LTS binaries for Java 11 and 17 on x64 server, macOS, Linux, and Windows</p></li>
+<li><p>contain backported fixes and enhancements</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="sapmachine">
+<h3>SapMachine<a class="headerlink" href="#sapmachine" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>downstream version of OpenJDK</p></li>
+<li><p>to support customers and partners for Java apps within SAP ecosystem</p></li>
 </ul>
 </div></blockquote>
 <p><a class="reference external" href="#java">back to top</a></p>
@@ -5533,6 +5830,9 @@ native-image<span class="w"> </span>-jar<span class="w"> </span>App.jar
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exceptions">Exceptions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interfaces">Interfaces</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">Packages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-annotations">Metadata &amp; Annotations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#framework-principles">Framework Principles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection">Reflection</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a><ul class="nav section-nav flex-column">
@@ -5632,7 +5932,19 @@ native-image<span class="w"> </span>-jar<span class="w"> </span>App.jar
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-jvms">Alternative JVMs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdkman">SDKMAN</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graalvm">GraalVM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openj9">OpenJ9</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corretto">Corretto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#azul">Azul</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semeru">Semeru</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temurin">Temurin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dragonwell">Dragonwell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kona">Kona</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liberica">Liberica</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mandrel">Mandrel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-openjdk">Microsoft OpenJDK</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sapmachine">SapMachine</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>

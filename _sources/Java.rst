@@ -22,8 +22,8 @@ Basics
 ======
 
 * `Conventions`_, `Modifiers`_, `Variables`_, `Data Types`_, `Enums`_, `Operators`_, `Loops`_, `Switch`_
-* `Numbers`_, `Characters`_, `Strings`_, `Arrays`_, `Date/Time`_, `Regex`_
-* `Methods`_, `I/O`_, `Exceptions`_, `Interfaces`_, `Packages`_
+* `Numbers`_, `Characters`_, `Strings`_, `Arrays`_, `Date/Time`_, `Regex`_, `Methods`_, `I/O`_, `Exceptions`_
+* `Interfaces`_, `Packages`_, `Metadata & Annotations`_, `Framework Principles`_, `Reflection`_
 * write once, run anywhere, can run on all Java supported platforms without recompilation
 * four platforms for Java: Standard Edition (Java SE), Enterprise Edition (Java EE), Micro
   Edition (Java ME), Java FX
@@ -1222,6 +1222,110 @@ Packages
         - can have several class paths separated by semicolon (Windows) or colon (Unix)
         - by default, compiler and JVM will search current directory and JAR files containing
           Java platform classes
+
+Metadata & Annotations
+----------------------
+    * metadata and annotations allow developers to encapsulate crucial information about
+      classes, methods, and other components
+    * **Metadata**
+        - help with complicated processes such as converting Java entities to XML files or
+          databases
+        - e.g. conversion between Java ``camelCase`` and database ``snake_case``
+        - XML is used to manage metadata, as shown in Java Persistence API (JPA)
+        - the XML file is dynamically interpreted at runtime, and serves as a blueprint and
+          a channel for generating real-time metadata
+        - ``<entity>``: map Java class
+        - ``<table>``: define table name in the database associated with the entity
+        - ``<attributes>``: describe class attributes
+        - ``<id>``: primary key attribute
+        - ``<basic>``: non-composite attributes
+        - ``<column>``: details for database mapping
+        - Spring and Jakarta EE offer code-centric approach to defining metadata,
+          e.g. ``@Entity``, ``@Table(name="table")``, ``@Column(name="col")``
+
+        .. code-block:: java
+
+           public class Person {
+               private String id;
+               private String name;
+           }
+
+
+        .. code-block:: xml
+
+           <entity class="entity.Person" name="Person">
+               <table name="Person"/>
+               <attributes>
+                   <id name="id"/>
+                   <basic name="name">
+                       <column name="NAME" length="100"/>
+                   </basic>
+               </attributes>
+           </entity>
+
+
+    * **Annotations**
+        - introduced in Java 5 through Java Specification Request (JSR)
+        - remove the need for a separate configuration file
+        - essential information can be within the Java class
+        - can read and process annotations dynamically at runtime using reflection, or
+          statically at build time using tools such as Java annotation processor
+
+Framework Principles
+--------------------
+    * **Framework**
+        - provide pre-defined components, tools, and design patterns for app development
+        - e.g. Spring, Hibernate, JSF
+        - simplify development, encourage code reuse, and maintain best practices
+        - always consider the trade-off between existing framework and creating a custom one
+    * convention over configuration reduce the need for explicit configuration when developers
+      follow to established patterns
+    * documentation helps users understand, aiding in adoption and reducing learning curve
+    * testing ensures reliability and robustness of the framework
+    * **API Design**
+        - significantly influence framework usability and adoption
+        - Declarative API: focus expressing the desired outcome and promote readability
+        - Imperative API: step-by-step approach, giving more control
+        - need to ensure ease of use and long-term maintainability
+    * **Executability**
+        - consider to choose reflection, avoid reflection for efficiency within JVM, or
+          execute outside JVM, such as building native images
+        - reflection gives dynamic capabilities, but have performance cost
+    * **Service Provider Approach**
+        - allow developers to extend or modify framework behaviour
+        - promote plug-and-play (PnP), enabling users to add more functions or customise the
+          framework without changing the core code base
+
+Reflection
+----------
+    * inspect and manipulate classes, methods and fields at runtime
+    * enable dynamic class instantiation and configuration in dependency injection (DI)
+      containers, object-relational mapping (ORM) and testing frameworks
+    * enable dynamic loading and manipulation of objects and classes in serialisation and
+      deserialisation libraries, GUI development tools, and Java core libraries
+    * Introspection: enabling programs to examine and adapt to their structure
+    * can have performance cost, slower execution times, and reduce code safety, as errors
+      might only be discovered at runtime
+    * reflective code can be challenging to read and maintain
+    * reflection might be platform-dependent, and certain operations may behave differently on
+      different JVMs
+    * **Reflection in a Framework**
+        - framework initialises and reflection engine is loaded
+        - annotations are processed during code compilation
+        - as classes are loaded into runtime environment, reflection engine is aware of
+          classes and their structure
+        - reflection engine reads and interprets the annotations
+        - reflection engine generates a dependency tree, outlining the relationship between
+          classes, methods and fields
+        - code is dynamically executed based on the dependency tree
+    * **Dynamic Proxy**
+        - enable creation of objects at runtime, especially when the structure of objects or
+          interfaces is not known until runtime
+        - can reduce boilerplate code, and inject custom logic, as they can
+          intercept method invocations
+        - can have execution delay compared to direct method calls
+        - as dynamic proxies are interface-based, they may limit where class-based proxies may
+          be more fitting
 
 `back to top <#java>`_
 
@@ -4156,7 +4260,13 @@ Tuning & Ergonomics
 Alternative JVMs
 ================
 
-* `GraalVM`_
+* `SDKMAN`_, `GraalVM`_, `OpenJ9`_, `Corretto`_, `Azul`_, `Semeru`_, `Temurin`_, `Dragonwell`_, `Kona`_, `Liberica`_
+* `Mandrel`_, `Microsoft OpenJDK`_, `SapMachine`_
+
+SDKMAN
+------
+    * allows to manage and switch between multiple SDKs and versions
+    * can choose different JVM vendors, without the trouble of manual installations
 
 GraalVM
 -------
@@ -4187,6 +4297,74 @@ GraalVM
            jar --create --file App.jar --main-class expert.os.App -C build .
            native-image -jar App.jar
 
+
+
+OpenJ9
+------
+    * scalability, resource efficiency and swift startup times
+    * suitable for cloud-based apps, microservices, and responsive environments
+    * combine advanced JIT compilation techniques and aggressive memory management
+
+Corretto
+--------
+    * Amazon Corretto provides LTS, and integration with AWS
+    * built on the foundation of OpenJDK and compatible with it
+    * secure, stable, and improve responsiveness and throughput
+
+Azul
+----
+    * built on OpenJDK
+    * **Zulu**
+        - open-sourced and has a 3-month release cycle
+        - include CraC feature for fast startup, and can integrate with JavaFX
+    * **Zing**
+        - has C4 (Continuously Concurrent Compacting Collector) garbage collector, and Falcon
+          JIT compiler for low latency and pauseless collection
+        - enhanced runtime performance, suitable for high-throughput and low-latency apps
+        - scalable for both small-scale and enterprise-level systems
+        - offer LTS and stability
+
+Semeru
+------
+    * based on OpenJ9, resource efficiency and rapid startup time
+    * container friendly, suitable for cloud-native apps and microservices
+    * contain AOT compilation
+
+Temurin
+-------
+    * formerly AdoptOpenJDK, production-ready builds of OpenJDK
+    * provide timely updates and security patches
+    * transparent and collaborative from Eclipse community
+
+Dragonwell
+----------
+    * in-house OpenJDK implementation at Alibaba
+    * optimised for scaling demands of eCommerce and financial and logistics apps
+
+Kona
+----
+    * Tencent default JDK for cloud computing, big data and other Java apps
+    * production-ready distribution of OpenJDK with LTS
+
+Liberica
+--------
+    * open source implementation built from OpenJDK from BellSoft
+    * pass Java Compatibility Kit (JCK), and support JavaFX across all versions
+
+Mandrel
+-------
+    * specialised distribution of GraalVM from Red Hat
+    * make native image generation for Quarkus apps easier
+
+Microsoft OpenJDK
+-----------------
+    * provide LTS binaries for Java 11 and 17 on x64 server, macOS, Linux, and Windows
+    * contain backported fixes and enhancements
+
+SapMachine
+----------
+    * downstream version of OpenJDK
+    * to support customers and partners for Java apps within SAP ecosystem
 
 `back to top <#java>`_
 
