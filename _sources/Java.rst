@@ -24,6 +24,7 @@ Basics
 * `Conventions`_, `Modifiers`_, `Variables`_, `Data Types`_, `Enums`_, `Operators`_, `Loops`_, `Switch`_
 * `Numbers`_, `Characters`_, `Strings`_, `Arrays`_, `Date/Time`_, `Regex`_, `Methods`_, `I/O`_, `Exceptions`_
 * `Interfaces`_, `Packages`_, `Metadata & Annotations`_, `Framework Principles`_, `Reflection`_
+* `Annotation Processors`_
 * write once, run anywhere, can run on all Java supported platforms without recompilation
 * four platforms for Java: Standard Edition (Java SE), Enterprise Edition (Java EE), Micro
   Edition (Java ME), Java FX
@@ -1326,6 +1327,23 @@ Reflection
         - can have execution delay compared to direct method calls
         - as dynamic proxies are interface-based, they may limit where class-based proxies may
           be more fitting
+
+Annotation Processors
+---------------------
+    * static analysing and generating code based on annotations at compile time
+    * improved performance, early error detection, and code maintainability than reflection
+    * **Processor in a Framework**
+        - configuration is loaded is parsed by identifying annotations and classes for
+          metadata
+        - dependencies are analysed based on the loaded classes dynamically
+        - dependency tree is built and pre-processed to create the framework
+        - the app is packaged by ensuring the absence of reflection, generating bytecode or
+          native app
+    * **Including in Maven Project**
+        - ``provided`` scope: processor will be available during compilation, but not bundled
+          with the final app
+        - ``annotationProcessorPaths`` with Maven compiler plugin: configuration-centric
+          approach, specifying annotation processors for the compiler plugin
 
 `back to top <#java>`_
 

@@ -352,6 +352,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-annotations">Metadata &amp; Annotations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#framework-principles">Framework Principles</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection">Reflection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-processors">Annotation Processors</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a><ul class="nav section-nav flex-column">
@@ -502,6 +503,7 @@
 <li><p><a class="reference internal" href="#conventions">Conventions</a>, <a class="reference internal" href="#modifiers">Modifiers</a>, <a class="reference internal" href="#variables">Variables</a>, <a class="reference internal" href="#data-types">Data Types</a>, <a class="reference internal" href="#enums">Enums</a>, <a class="reference internal" href="#operators">Operators</a>, <a class="reference internal" href="#loops">Loops</a>, <a class="reference internal" href="#switch">Switch</a></p></li>
 <li><p><a class="reference internal" href="#numbers">Numbers</a>, <a class="reference internal" href="#characters">Characters</a>, <a class="reference internal" href="#strings">Strings</a>, <a class="reference internal" href="#arrays">Arrays</a>, <a class="reference internal" href="#date-time">Date/Time</a>, <a class="reference internal" href="#regex">Regex</a>, <a class="reference internal" href="#methods">Methods</a>, <a class="reference internal" href="#i-o">I/O</a>, <a class="reference internal" href="#exceptions">Exceptions</a></p></li>
 <li><p><a class="reference internal" href="#interfaces">Interfaces</a>, <a class="reference internal" href="#packages">Packages</a>, <a class="reference internal" href="#metadata-annotations">Metadata &amp; Annotations</a>, <a class="reference internal" href="#framework-principles">Framework Principles</a>, <a class="reference internal" href="#reflection">Reflection</a></p></li>
+<li><p><a class="reference internal" href="#annotation-processors">Annotation Processors</a></p></li>
 <li><p>write once, run anywhere, can run on all Java supported platforms without recompilation</p></li>
 <li><p>four platforms for Java: Standard Edition (Java SE), Enterprise Edition (Java EE), Micro
 Edition (Java ME), Java FX</p></li>
@@ -2097,6 +2099,37 @@ intercept method invocations</p></li>
 <li><p>can have execution delay compared to direct method calls</p></li>
 <li><p>as dynamic proxies are interface-based, they may limit where class-based proxies may
 be more fitting</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="annotation-processors">
+<h3>Annotation Processors<a class="headerlink" href="#annotation-processors" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>static analysing and generating code based on annotations at compile time</p></li>
+<li><p>improved performance, early error detection, and code maintainability than reflection</p></li>
+<li><dl class="simple">
+<dt><strong>Processor in a Framework</strong></dt><dd><ul>
+<li><p>configuration is loaded is parsed by identifying annotations and classes for
+metadata</p></li>
+<li><p>dependencies are analysed based on the loaded classes dynamically</p></li>
+<li><p>dependency tree is built and pre-processed to create the framework</p></li>
+<li><p>the app is packaged by ensuring the absence of reflection, generating bytecode or
+native app</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Including in Maven Project</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">provided</span></code> scope: processor will be available during compilation, but not bundled
+with the final app</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">annotationProcessorPaths</span></code> with Maven compiler plugin: configuration-centric
+approach, specifying annotation processors for the compiler plugin</p></li>
 </ul>
 </dd>
 </dl>
@@ -5833,6 +5866,7 @@ JIT compiler for low latency and pauseless collection</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-annotations">Metadata &amp; Annotations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#framework-principles">Framework Principles</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection">Reflection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-processors">Annotation Processors</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a><ul class="nav section-nav flex-column">
