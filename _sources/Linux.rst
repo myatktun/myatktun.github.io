@@ -489,6 +489,9 @@ Network Management
         - ``nmcli device reapply eno1``: apply changes without reboot
         - ``nmcli connection show``: list configured connections
         - ``nmcli connection modify MyWifi autoconnect yes``: configure device to auto connect
+        - ``nmcli device wifi hotspot con-name <name> ssid <ssid> password <password>``: create
+          hotspot from device
+        - ``nmcli connection down <name>``: disable hotspot
     * **Connecting to wifi**
 
         .. code-block:: bash

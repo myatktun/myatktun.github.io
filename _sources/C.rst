@@ -15,7 +15,7 @@ C
 Basics
 ======
 
-* `Input & Output`_, `Data Types`_, `Arithmetic`_, `Loops`_, `Symbolic Constants`_
+* `Variables`_, `Data Types`_, `Constants`_, `Arithmetic`_, `Loops`_, `Input & Output`_
 * a C program contains functions and variables
 * function contains statements to specify operations
 * variables store values used during computation
@@ -45,61 +45,126 @@ Basics
 
 
 
-Input & Output
---------------
-    * text input or output is dealt with as streams of characters
-    * text stream: sequence of characters divided into lines
-    * ``getchar()``
-        - simple read one character at a time
-        - reads the next input character from text stream and returns it
-        - if no more input, return ``EOF``, end of file, integer defined in ``<stdio.h>``
-        - variable must be big enough to hold ``EOF`` and any possible value returned
-    * ``putchar()``
-        - simple write one character at a time
-        - ``putchar()`` prints character each time called
-    * ``printf()``
-        - ``printf()`` is not part of C, as there is no input or output defined in C itself
-        - a function from the standard library of functions
-        - never auto supply newline character
-        - each % indicate argument and its form to be substituted, e.g. ``%d`` for integer, ``%f``
-          for both float and double
-        - can specify width and precision for better output
-        - ``printf("%7d %3d", 10, 20);``, and ``printf("%7.2f", 10.12345673);`` with at least 7
-          characters wide and 2 digits after decimal point
-    * ``read()``
-        - read from a file descriptor, up to given bytes count, into the buffer
-        - ``read(STDIN_FILENO, &c, 1)``: read 1 byte from standard input into variable ``c``
-    * **Characters**
-        - control characters: non-printable, ASCII codes 0-31 and 127, can check with
-          ``iscntrl()``
-        - printable characters: ASCII 32-126
-        - arrow keys input 3 or 4 bytes to terminal with escape sequences, which start with
-          ASCII 27 byte
-    * **Escape Sequences**
-        - ``\x1b`` is the escape character or decimal 27
-        - escape sequences always start with the escape character followed by ``[`` character
-        - escape sequences instruct the terminal to do text formatting tasks
-        - escape sequence format: ``<esc>[<argument><command>`` with multiple arguments
-          separated by ``;``, e.g. ``\x1b[2J`` clear the entire
-          screen
-        - can use VT100 escape sequences or ncurses library
-        - Erase In Display: ``J`` command to clear the screen
-        - Cursor Position: ``H`` command to position the cursor at specific row and column
-        - Cursor Forward: ``C`` command to move the cursor to the right, will not go past the
-          screen edge
-        - Cursor Down: ``B`` command to move the cursor down, will not go past the screen edge
-        - Device Status Report: ``n`` command to query terminal status
-    * **Append Buffer**
-        - having one big ``write()`` is more optimal than a bunch of small ``write()``
-        - have a buffer of characters or strings, and write the buffer
-        - create dynamic buffer if necessary
+Variables
+---------
+    * Declaration: where variable is stated but no storage is allocated
+    * Definition: where the variable is created or assigned storage
+    * **Naming Convention**
+        - can use letters and digits, but first character must be a letter
+        - only library routine names should start with underscore
+        - cannot use keywords such as ``if``, ``else``, ``int``, etc.,
+        - use lower case, and choose names that are related to the purpose of the variable
+    * **Automatic Variables**
+        - local variable in function is created only when the function is called, and
+          disappear when the function exits
+        - do not retain values from one call to the next
+        - must be explicitly set on each entry, and will contain garbage if not set
+    * **External Variables**
+        - can be accessed by name by any function, globally accessible
+        - can used instead of argument lists to communicate data between functions
+        - retain values after the function has returned
+        - must be defined exactly once, outside of any function
+        - must be declared in each function to access it
+        - declaration can be explicit ``extern`` or implicit
+        - sometimes ``extern`` can be omitted, if the definition of variable occurs in the
+          source file before its use in a function
+        - common practice to place definitions of all external variables at the beginning of
+          the source file, and omit all ``extern`` declarations
+        - if variable is defined and used in separate files, ``extern`` is required
+        - better to collect ``extern`` declarations in a header file
+        - relying heavily on external variables is dangerous, as they can be changed
+          unexpectedly, and make program hard to modify
+
+        .. code-block:: c
+
+           int max;
+           char line[MAXLINE];
+   
+           int main()
+           {
+               // 'extern' can be omitted
+               extern max;
+               extern char longest[];
+               return 0;
+           }
+
+
 
 Data Types
 ----------
-    * int, float, char, short, long, double
-    * size of data types are machine dependent
+    * ``char``: single byte, signed or unsigned plain chars are machine dependent, but printable
+      chars are always positive
+    * ``int``: 16 or 32 bits, machine dependent
+    * ``float``: single-precision floating point
+    * ``double``: double-precision floating point
+    * **Qualifiers**
+        - can be applied to basic types
+        - ``short``: 16 bits, e.g. ``short int a`` where ``int`` can be omitted
+        - ``long``: 32 bits
+        - ``signed``: has negative values
+        - ``unsigned``: always positive or zero
+    * size of data types are machine dependent, and compilers can choose appropriate sizes for
+      its own hardware
+    * only ``short`` and ``int`` being at least 16 bits, and ``long`` at least 32 bits (size of
+      ``short`` < ``int`` < ``long``)
     * float is usually 32 bit, with at least six significant digits and between 10<sup>-38</sup>
       and 10<sup>38</sup> magnitude
+    * can use ``int`` instead of ``char``
+    * ``<limits.h>`` and ``<float.h>`` has symbolic constant for all the sizes
+
+Constants
+---------
+    * Integer: ``1234``, ``u`` or ``U`` for unsigned
+    * Long: ``12345678l`` or ``12345678L``, ``ul`` or ``UL`` for unsigned
+    * Double: ``123.4`` or ``1e-2``, ``l`` or ``L`` for ``long double``
+    * Float: ``123.4f`` or ``123.4F``
+    * Octal: ``037``, can have ``L`` and ``U``
+    * Hexadecimal: ``0x1f``, can have ``L`` and ``U``
+    * Character: an integer numeric value in the machine's character set, e.g. ASCII
+      'A' = 65
+    * integer too big to fit into an ``int`` will also be taken as ``long``
+    * **Escape Sequences**
+        - ``\a``: alert bell, ``\b``: backspace, ``\f``: formfeed
+        - ``\n``: newline, ``\r``: carriage return
+        - ``\t``: horizontal tab, ``\v``: vertical tab
+        - ``\\``: backslash, ``\?``: question mark
+        - ``\'``: single quote, ``\"``: double quote
+        - ``\ooo``: octal number, ``\xhh``: hexadecimal number
+        - ``\0``: null character
+    * **Symbolic Constants or Constant Expressions**
+        - bad practice to bury magic numbers, as they give little or no information
+        - give meaningful names by defining as symbolic name or symbolic constant
+        - ``#define name replacement``: any occurrence of ``name`` will be replaced with ``replacement``
+        - symbolic constants are not variables and do not appear in declarations
+        - may be evaluated during compilation
+        - always write in upper case, and no semicolon at the end of the line
+
+        .. code-block:: c
+
+           #define MY_CONSTANT 99
+
+
+    * **String Constants/Literals**
+        - zero or more characters surrounded by double quotes, e.g. ``"String"`` or ``""`` for
+          empty string
+        - can be concatenated at compile time, e.g. ``"hello,"  " world"`` equals to
+          ``"hello, world"``
+        - long strings can be split into several lines
+        - a string has ``\0`` at the end, so requires one more than the number of characters for
+          storage
+    * **Enumeration**
+        - a list of constant integer values, and names must be distinct
+        - first name has value 0, unless explicitly specified
+        - unspecified values continue from the last specified value
+        - compilers need not to check if the value is valid for enumeration
+
+        .. code-block:: c
+
+           enum boolean { NO, YES }; /* 0, 1 */
+   
+           enum months { JAN = 1, FEB, MAR }; /* 1, 2, 3 */
+
+
 
 Arithmetic
 ----------
@@ -140,19 +205,66 @@ Loops
 
 
 
-Symbolic Constants
-------------------
-    * bad practice to bury magic numbers, as they give little or no information
-    * give them meaningful names by defining as symbolic name or symbolic constant
-    * ``#define name replacement_list``: any occurrence of ``name`` will be replaced with ``replacement``
-    * symbolic constants are not variables and do not appear in declarations
-    * always write in upper case
-    * no semicolon at the end of the line
+Input & Output
+--------------
+    * text input or output is dealt with as streams of characters
+    * text stream: sequence of characters divided into lines
+    * ``getchar()``
+        - reads the next input single character from text stream and returns it
+        - if no more input, return ``EOF``, end of file, integer defined in ``<stdio.h>``
+        - variable must be big enough to hold ``EOF`` and any possible value returned, e.g.
+          using ``int`` instead of ``char``
 
-    .. code-block:: c
+        .. code-block:: c
 
-       #define MY_CONSTANT 99
+           // get a char, assign it to c, and test condition
+           // precedence of != is higher than =
+           while ((c = getchar()) != EOF) {
+               putchar(c);
+           }
 
+
+    * ``putchar()``
+        - prints/write one character each time it is called
+    * ``printf()``
+        - ``printf()`` is not part of C, as there is no input or output defined in C itself
+        - a function from the standard library of functions
+        - never auto supply newline character
+        - each % indicate argument and its form to be substituted
+        - ``%d``: integer, ``%f``: both float and double
+        - ``%ld``: long int
+        - ``%o``: octal, ``%x``: hexadecimal
+        - ``%c``: character, ``%%``: % itself
+        - can specify width and precision for better output
+        - ``printf("%7d %3d", 10, 20);``, and ``printf("%7.2f", 10.12345673);`` with at least 7
+          characters wide and 2 digits after decimal point
+    * ``read()``
+        - read from a file descriptor, up to given bytes count, into the buffer
+        - ``read(STDIN_FILENO, &c, 1)``: read 1 byte from standard input into variable ``c``
+    * **Characters**
+        - control characters: non-printable, ASCII codes 0-31 and 127, can check with
+          ``iscntrl()``
+        - printable characters: ASCII 32-126
+        - arrow keys input 3 or 4 bytes to terminal with escape sequences, which start with
+          ASCII 27 byte
+    * **Escape Sequences**
+        - ``\x1b`` is the escape character or decimal 27
+        - escape sequences always start with the escape character followed by ``[`` character
+        - escape sequences instruct the terminal to do text formatting tasks
+        - escape sequence format: ``<esc>[<argument><command>`` with multiple arguments
+          separated by ``;``, e.g. ``\x1b[2J`` clear the entire
+          screen
+        - can use VT100 escape sequences or ncurses library
+        - Erase In Display: ``J`` command to clear the screen
+        - Cursor Position: ``H`` command to position the cursor at specific row and column
+        - Cursor Forward: ``C`` command to move the cursor to the right, will not go past the
+          screen edge
+        - Cursor Down: ``B`` command to move the cursor down, will not go past the screen edge
+        - Device Status Report: ``n`` command to query terminal status
+    * **Append Buffer**
+        - having one big ``write()`` is more optimal than a bunch of small ``write()``
+        - have a buffer of characters or strings, and write the buffer
+        - create dynamic buffer if necessary
 
 `back to top <#c>`_
 
@@ -177,7 +289,7 @@ Character Array
        #include <stdio.h>
        #define MAXLINE 1000
    
-       int getline(char s[], int lim);
+       int get_line(char s[], int lim);
        void copy(char to[], char from[]);
    
        int main()
@@ -187,7 +299,7 @@ Character Array
            char line[MAXLINE];
            char longest[MAXLINE];
            max = 0;
-           while ((len = getline(line, MAXLINE)) > 0) {
+           while ((len = get_line(line, MAXLINE)) > 0) {
                if (len > max) {
                    max = len;
                    copy(longest, line);
@@ -198,7 +310,7 @@ Character Array
            return 0;
        }
    
-       int getline(char s[], int lim)
+       int get_line(char s[], int lim)
        {
            int c, i;
            for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
@@ -225,12 +337,13 @@ Character Array
 Functions
 =========
 
-* `Call by Value`_, `Call by Reference`_, `Scopes`_
+* `Function Prototype`_, `Call by Value`_, `Call by Reference`_, `Scopes`_
 * provide convenient way to encapsulate computation
 * can use a function without worrying about its implementation
 * function definition can be in any order, in one source file or several
-* parameter names are local to the function, not visible to others and they can use the
-  same names
+* parameter: in function definition, local to the function, not visible to others and they can
+  use the same names
+* argument: value used in a call of the function
 * not necessary to return a value
 * caller can ignore the return value
 * ``main()`` return a value to its caller, the environment in which program was executed, 0
@@ -249,7 +362,11 @@ Functions
    }
 
 
-* function prototype: declaration before definition, parameter names are optional
+
+Function Prototype
+------------------
+    * declaration before definition, parameter names are optional
+    * function definition must agree with its prototype
 
     .. code-block:: c
 
@@ -292,84 +409,6 @@ Call by Reference
       indirectly through it
     * when array is used as argument, value passed to the function is the address of the
       beginning of the array, and there is no copying of elements
-
-Scopes
-------
-    * **Automatic Variables**
-        - local variable in function created only when the function is called, and disappear
-          when the function exit
-        - do not retain values from one call to the next
-        - must be explicitly set on each entry, and will contain garbage if not set
-    * **External Variables**
-        - variables that can be accessed by name by any function, globally accessible
-        - can used instead of argument lists to communicate data between functions
-        - definition: the place where the variable is created or assigned storage
-        - declaration: the place where variable is stated but no storage is allocated
-        - must be defined exactly once, outside of any function
-        - must be declared in each function to access it
-        - declaration can be explicit ``extern`` or implicit
-        - sometimes ``extern`` can be omitted, if the definition of variable occurs in the
-          source file before its use in a function
-        - common practice to place definitions of all external variables at the beginning of
-          the source file, and omit all ``extern`` declarations
-        - if variable is defined and used in separate files, ``extern`` is required
-        - better to collect ``extern`` declarations in a header file
-        - relying heavily on external variables is dangerous, as they can be changed
-          unexpectedly, and make program hard to modify
-
-        .. code-block:: c
-
-           #include <stdio.h>
-           #define MAXLINE 1000
-           int max;
-           char line[MAXLINE];
-           char longest[MAXLINE];
-   
-           // only use 'void' in argument for backward compatibility
-           int getline(void);
-           void copy(void);
-   
-           int main()
-           {
-               int len;
-               // 'extern' can be omitted
-               extern max;
-               extern char longest[];
-               max = 0;
-               while ((len = getline()) > 0) {
-                   if (len > max) {
-                       max = len;
-                       copy();
-                   }
-               }
-               if (max > 0)
-                   printf("%s", longest); // '%s' expect argument to be in "hello\n\0" form
-               return 0;
-           }
-   
-           int getline()
-           {
-               int c, i;
-               extern char line[]; // 'extern' can be omitted
-               for (i = 0; i < MAXLINE - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
-                   line[i] = c;
-               if (c == '\n') {
-                   line[i] = c;
-                   ++i;
-               }
-               line[i] = '\0';
-               return i;
-           }
-   
-           // void return type, states that no value is returned
-           void copy()
-           {
-               int i = 0;
-               extern char line[], longest[]; // 'extern' can be omitted
-               while ((longest[i] = line[i]) != '\0')
-                   ++i;
-           }
-
 
 `back to top <#c>`_
 
@@ -495,6 +534,7 @@ GDB
 * break down a compiled program for details, e.g. step through lines, list variables and stack
 * use ``-g`` flag when compiling to get debugging information, and ``gdb ./program`` to start
 * code printed is not executed yet
+
 
 GDB Commands
 ------------

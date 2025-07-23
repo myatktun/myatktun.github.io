@@ -330,11 +330,12 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-output">Input &amp; Output</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constants">Constants</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic">Arithmetic</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-constants">Symbolic Constants</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-output">Input &amp; Output</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays">Arrays</a><ul class="nav section-nav flex-column">
@@ -342,9 +343,9 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-prototype">Function Prototype</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-by-value">Call by Value</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-by-reference">Call by Reference</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scopes">Scopes</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bit-masking">Bit Masking</a><ul class="nav section-nav flex-column">
@@ -393,7 +394,7 @@
 <section id="basics">
 <h2>Basics<a class="headerlink" href="#basics" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#input-output">Input &amp; Output</a>, <a class="reference internal" href="#data-types">Data Types</a>, <a class="reference internal" href="#arithmetic">Arithmetic</a>, <a class="reference internal" href="#loops">Loops</a>, <a class="reference internal" href="#symbolic-constants">Symbolic Constants</a></p></li>
+<li><p><a class="reference internal" href="#variables">Variables</a>, <a class="reference internal" href="#data-types">Data Types</a>, <a class="reference internal" href="#constants">Constants</a>, <a class="reference internal" href="#arithmetic">Arithmetic</a>, <a class="reference internal" href="#loops">Loops</a>, <a class="reference internal" href="#input-output">Input &amp; Output</a></p></li>
 <li><p>a C program contains functions and variables</p></li>
 <li><p>function contains statements to specify operations</p></li>
 <li><p>variables store values used during computation</p></li>
@@ -420,88 +421,61 @@ critical for readability</p></li>
 <span class="p">}</span>
 </pre></div>
 </div>
-<section id="input-output">
-<h3>Input &amp; Output<a class="headerlink" href="#input-output" title="Link to this heading">#</a></h3>
+<section id="variables">
+<h3>Variables<a class="headerlink" href="#variables" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
-<li><p>text input or output is dealt with as streams of characters</p></li>
-<li><p>text stream: sequence of characters divided into lines</p></li>
+<div><ul>
+<li><p>Declaration: where variable is stated but no storage is allocated</p></li>
+<li><p>Definition: where the variable is created or assigned storage</p></li>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">getchar()</span></code></dt><dd><ul>
-<li><p>simple read one character at a time</p></li>
-<li><p>reads the next input character from text stream and returns it</p></li>
-<li><p>if no more input, return <code class="docutils literal notranslate"><span class="pre">EOF</span></code>, end of file, integer defined in <code class="docutils literal notranslate"><span class="pre">&lt;stdio.h&gt;</span></code></p></li>
-<li><p>variable must be big enough to hold <code class="docutils literal notranslate"><span class="pre">EOF</span></code> and any possible value returned</p></li>
+<dt><strong>Naming Convention</strong></dt><dd><ul class="simple">
+<li><p>can use letters and digits, but first character must be a letter</p></li>
+<li><p>only library routine names should start with underscore</p></li>
+<li><p>cannot use keywords such as <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, etc.,</p></li>
+<li><p>use lower case, and choose names that are related to the purpose of the variable</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">putchar()</span></code></dt><dd><ul>
-<li><p>simple write one character at a time</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">putchar()</span></code> prints character each time called</p></li>
+<dt><strong>Automatic Variables</strong></dt><dd><ul class="simple">
+<li><p>local variable in function is created only when the function is called, and
+disappear when the function exits</p></li>
+<li><p>do not retain values from one call to the next</p></li>
+<li><p>must be explicitly set on each entry, and will contain garbage if not set</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">printf()</span></code></dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">printf()</span></code> is not part of C, as there is no input or output defined in C itself</p></li>
-<li><p>a function from the standard library of functions</p></li>
-<li><p>never auto supply newline character</p></li>
-<li><p>each % indicate argument and its form to be substituted, e.g. <code class="docutils literal notranslate"><span class="pre">%d</span></code> for integer, <code class="docutils literal notranslate"><span class="pre">%f</span></code>
-for both float and double</p></li>
-<li><p>can specify width and precision for better output</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">printf(&quot;%7d</span> <span class="pre">%3d&quot;,</span> <span class="pre">10,</span> <span class="pre">20);</span></code>, and <code class="docutils literal notranslate"><span class="pre">printf(&quot;%7.2f&quot;,</span> <span class="pre">10.12345673);</span></code> with at least 7
-characters wide and 2 digits after decimal point</p></li>
+<li><dl>
+<dt><strong>External Variables</strong></dt><dd><ul class="simple">
+<li><p>can be accessed by name by any function, globally accessible</p></li>
+<li><p>can used instead of argument lists to communicate data between functions</p></li>
+<li><p>retain values after the function has returned</p></li>
+<li><p>must be defined exactly once, outside of any function</p></li>
+<li><p>must be declared in each function to access it</p></li>
+<li><p>declaration can be explicit <code class="docutils literal notranslate"><span class="pre">extern</span></code> or implicit</p></li>
+<li><p>sometimes <code class="docutils literal notranslate"><span class="pre">extern</span></code> can be omitted, if the definition of variable occurs in the
+source file before its use in a function</p></li>
+<li><p>common practice to place definitions of all external variables at the beginning of
+the source file, and omit all <code class="docutils literal notranslate"><span class="pre">extern</span></code> declarations</p></li>
+<li><p>if variable is defined and used in separate files, <code class="docutils literal notranslate"><span class="pre">extern</span></code> is required</p></li>
+<li><p>better to collect <code class="docutils literal notranslate"><span class="pre">extern</span></code> declarations in a header file</p></li>
+<li><p>relying heavily on external variables is dangerous, as they can be changed
+unexpectedly, and make program hard to modify</p></li>
 </ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">read()</span></code></dt><dd><ul>
-<li><p>read from a file descriptor, up to given bytes count, into the buffer</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">read(STDIN_FILENO,</span> <span class="pre">&amp;c,</span> <span class="pre">1)</span></code>: read 1 byte from standard input into variable <code class="docutils literal notranslate"><span class="pre">c</span></code></p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Characters</strong></dt><dd><ul>
-<li><p>control characters: non-printable, ASCII codes 0-31 and 127, can check with
-<code class="docutils literal notranslate"><span class="pre">iscntrl()</span></code></p></li>
-<li><p>printable characters: ASCII 32-126</p></li>
-<li><p>arrow keys input 3 or 4 bytes to terminal with escape sequences, which start with
-ASCII 27 byte</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Escape Sequences</strong></dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">\x1b</span></code> is the escape character or decimal 27</p></li>
-<li><p>escape sequences always start with the escape character followed by <code class="docutils literal notranslate"><span class="pre">[</span></code> character</p></li>
-<li><p>escape sequences instruct the terminal to do text formatting tasks</p></li>
-<li><p>escape sequence format: <code class="docutils literal notranslate"><span class="pre">&lt;esc&gt;[&lt;argument&gt;&lt;command&gt;</span></code> with multiple arguments
-separated by <code class="docutils literal notranslate"><span class="pre">;</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">\x1b[2J</span></code> clear the entire
-screen</p></li>
-<li><p>can use VT100 escape sequences or ncurses library</p></li>
-<li><p>Erase In Display: <code class="docutils literal notranslate"><span class="pre">J</span></code> command to clear the screen</p></li>
-<li><p>Cursor Position: <code class="docutils literal notranslate"><span class="pre">H</span></code> command to position the cursor at specific row and column</p></li>
-<li><p>Cursor Forward: <code class="docutils literal notranslate"><span class="pre">C</span></code> command to move the cursor to the right, will not go past the
-screen edge</p></li>
-<li><p>Cursor Down: <code class="docutils literal notranslate"><span class="pre">B</span></code> command to move the cursor down, will not go past the screen edge</p></li>
-<li><p>Device Status Report: <code class="docutils literal notranslate"><span class="pre">n</span></code> command to query terminal status</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Append Buffer</strong></dt><dd><ul>
-<li><p>having one big <code class="docutils literal notranslate"><span class="pre">write()</span></code> is more optimal than a bunch of small <code class="docutils literal notranslate"><span class="pre">write()</span></code></p></li>
-<li><p>have a buffer of characters or strings, and write the buffer</p></li>
-<li><p>create dynamic buffer if necessary</p></li>
-</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="p">;</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">line</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// &#39;extern&#39; can be omitted</span>
+<span class="w">    </span><span class="k">extern</span><span class="w"> </span><span class="n">max</span><span class="p">;</span>
+<span class="w">    </span><span class="k">extern</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">longest</span><span class="p">[];</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </li>
@@ -512,10 +486,102 @@ screen edge</p></li>
 <h3>Data Types<a class="headerlink" href="#data-types" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>int, float, char, short, long, double</p></li>
-<li><p>size of data types are machine dependent</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span></code>: single byte, signed or unsigned plain chars are machine dependent, but printable
+chars are always positive</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>: 16 or 32 bits, machine dependent</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code>: single-precision floating point</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">double</span></code>: double-precision floating point</p></li>
+<li><dl class="simple">
+<dt><strong>Qualifiers</strong></dt><dd><ul>
+<li><p>can be applied to basic types</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">short</span></code>: 16 bits, e.g. <code class="docutils literal notranslate"><span class="pre">short</span> <span class="pre">int</span> <span class="pre">a</span></code> where <code class="docutils literal notranslate"><span class="pre">int</span></code> can be omitted</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">long</span></code>: 32 bits</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">signed</span></code>: has negative values</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unsigned</span></code>: always positive or zero</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>size of data types are machine dependent, and compilers can choose appropriate sizes for
+its own hardware</p></li>
+<li><p>only <code class="docutils literal notranslate"><span class="pre">short</span></code> and <code class="docutils literal notranslate"><span class="pre">int</span></code> being at least 16 bits, and <code class="docutils literal notranslate"><span class="pre">long</span></code> at least 32 bits (size of
+<code class="docutils literal notranslate"><span class="pre">short</span></code> &lt; <code class="docutils literal notranslate"><span class="pre">int</span></code> &lt; <code class="docutils literal notranslate"><span class="pre">long</span></code>)</p></li>
 <li><p>float is usually 32 bit, with at least six significant digits and between 10&lt;sup&gt;-38&lt;/sup&gt;
 and 10&lt;sup&gt;38&lt;/sup&gt; magnitude</p></li>
+<li><p>can use <code class="docutils literal notranslate"><span class="pre">int</span></code> instead of <code class="docutils literal notranslate"><span class="pre">char</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;limits.h&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;float.h&gt;</span></code> has symbolic constant for all the sizes</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="constants">
+<h3>Constants<a class="headerlink" href="#constants" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>Integer: <code class="docutils literal notranslate"><span class="pre">1234</span></code>, <code class="docutils literal notranslate"><span class="pre">u</span></code> or <code class="docutils literal notranslate"><span class="pre">U</span></code> for unsigned</p></li>
+<li><p>Long: <code class="docutils literal notranslate"><span class="pre">12345678l</span></code> or <code class="docutils literal notranslate"><span class="pre">12345678L</span></code>, <code class="docutils literal notranslate"><span class="pre">ul</span></code> or <code class="docutils literal notranslate"><span class="pre">UL</span></code> for unsigned</p></li>
+<li><p>Double: <code class="docutils literal notranslate"><span class="pre">123.4</span></code> or <code class="docutils literal notranslate"><span class="pre">1e-2</span></code>, <code class="docutils literal notranslate"><span class="pre">l</span></code> or <code class="docutils literal notranslate"><span class="pre">L</span></code> for <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">double</span></code></p></li>
+<li><p>Float: <code class="docutils literal notranslate"><span class="pre">123.4f</span></code> or <code class="docutils literal notranslate"><span class="pre">123.4F</span></code></p></li>
+<li><p>Octal: <code class="docutils literal notranslate"><span class="pre">037</span></code>, can have <code class="docutils literal notranslate"><span class="pre">L</span></code> and <code class="docutils literal notranslate"><span class="pre">U</span></code></p></li>
+<li><p>Hexadecimal: <code class="docutils literal notranslate"><span class="pre">0x1f</span></code>, can have <code class="docutils literal notranslate"><span class="pre">L</span></code> and <code class="docutils literal notranslate"><span class="pre">U</span></code></p></li>
+<li><p>Character: an integer numeric value in the machine’s character set, e.g. ASCII
+‘A’ = 65</p></li>
+<li><p>integer too big to fit into an <code class="docutils literal notranslate"><span class="pre">int</span></code> will also be taken as <code class="docutils literal notranslate"><span class="pre">long</span></code></p></li>
+<li><dl class="simple">
+<dt><strong>Escape Sequences</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">\a</span></code>: alert bell, <code class="docutils literal notranslate"><span class="pre">\b</span></code>: backspace, <code class="docutils literal notranslate"><span class="pre">\f</span></code>: formfeed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\n</span></code>: newline, <code class="docutils literal notranslate"><span class="pre">\r</span></code>: carriage return</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\t</span></code>: horizontal tab, <code class="docutils literal notranslate"><span class="pre">\v</span></code>: vertical tab</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\\</span></code>: backslash, <code class="docutils literal notranslate"><span class="pre">\?</span></code>: question mark</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\'</span></code>: single quote, <code class="docutils literal notranslate"><span class="pre">\&quot;</span></code>: double quote</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\ooo</span></code>: octal number, <code class="docutils literal notranslate"><span class="pre">\xhh</span></code>: hexadecimal number</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\0</span></code>: null character</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Symbolic Constants or Constant Expressions</strong></dt><dd><ul class="simple">
+<li><p>bad practice to bury magic numbers, as they give little or no information</p></li>
+<li><p>give meaningful names by defining as symbolic name or symbolic constant</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">name</span> <span class="pre">replacement</span></code>: any occurrence of <code class="docutils literal notranslate"><span class="pre">name</span></code> will be replaced with <code class="docutils literal notranslate"><span class="pre">replacement</span></code></p></li>
+<li><p>symbolic constants are not variables and do not appear in declarations</p></li>
+<li><p>may be evaluated during compilation</p></li>
+<li><p>always write in upper case, and no semicolon at the end of the line</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define MY_CONSTANT 99</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>String Constants/Literals</strong></dt><dd><ul class="simple">
+<li><p>zero or more characters surrounded by double quotes, e.g. <code class="docutils literal notranslate"><span class="pre">&quot;String&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> for
+empty string</p></li>
+<li><p>can be concatenated at compile time, e.g. <code class="docutils literal notranslate"><span class="pre">&quot;hello,&quot;</span>&#160; <span class="pre">&quot;</span> <span class="pre">world&quot;</span></code> equals to
+<code class="docutils literal notranslate"><span class="pre">&quot;hello,</span> <span class="pre">world&quot;</span></code></p></li>
+<li><p>long strings can be split into several lines</p></li>
+<li><p>a string has <code class="docutils literal notranslate"><span class="pre">\0</span></code> at the end, so requires one more than the number of characters for
+storage</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Enumeration</strong></dt><dd><ul class="simple">
+<li><p>a list of constant integer values, and names must be distinct</p></li>
+<li><p>first name has value 0, unless explicitly specified</p></li>
+<li><p>unspecified values continue from the last specified value</p></li>
+<li><p>compilers need not to check if the value is valid for enumeration</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">boolean</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">NO</span><span class="p">,</span><span class="w"> </span><span class="n">YES</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="cm">/* 0, 1 */</span>
+
+<span class="k">enum</span><span class="w"> </span><span class="n">months</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">JAN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">FEB</span><span class="p">,</span><span class="w"> </span><span class="n">MAR</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="cm">/* 1, 2, 3 */</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
 </ul>
 </div></blockquote>
 </section>
@@ -570,20 +636,101 @@ and logically related</p></li>
 </ul>
 </div></blockquote>
 </section>
-<section id="symbolic-constants">
-<h3>Symbolic Constants<a class="headerlink" href="#symbolic-constants" title="Link to this heading">#</a></h3>
+<section id="input-output">
+<h3>Input &amp; Output<a class="headerlink" href="#input-output" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
-<li><p>bad practice to bury magic numbers, as they give little or no information</p></li>
-<li><p>give them meaningful names by defining as symbolic name or symbolic constant</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">name</span> <span class="pre">replacement_list</span></code>: any occurrence of <code class="docutils literal notranslate"><span class="pre">name</span></code> will be replaced with <code class="docutils literal notranslate"><span class="pre">replacement</span></code></p></li>
-<li><p>symbolic constants are not variables and do not appear in declarations</p></li>
-<li><p>always write in upper case</p></li>
-<li><p>no semicolon at the end of the line</p></li>
+<div><ul>
+<li><p>text input or output is dealt with as streams of characters</p></li>
+<li><p>text stream: sequence of characters divided into lines</p></li>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">getchar()</span></code></dt><dd><ul class="simple">
+<li><p>reads the next input single character from text stream and returns it</p></li>
+<li><p>if no more input, return <code class="docutils literal notranslate"><span class="pre">EOF</span></code>, end of file, integer defined in <code class="docutils literal notranslate"><span class="pre">&lt;stdio.h&gt;</span></code></p></li>
+<li><p>variable must be big enough to hold <code class="docutils literal notranslate"><span class="pre">EOF</span></code> and any possible value returned, e.g.
+using <code class="docutils literal notranslate"><span class="pre">int</span></code> instead of <code class="docutils literal notranslate"><span class="pre">char</span></code></p></li>
 </ul>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define MY_CONSTANT 99</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// get a char, assign it to c, and test condition</span>
+<span class="c1">// precedence of != is higher than =</span>
+<span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getchar</span><span class="p">())</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EOF</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">putchar</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">putchar()</span></code></dt><dd><ul class="simple">
+<li><p>prints/write one character each time it is called</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">printf()</span></code></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">printf()</span></code> is not part of C, as there is no input or output defined in C itself</p></li>
+<li><p>a function from the standard library of functions</p></li>
+<li><p>never auto supply newline character</p></li>
+<li><p>each % indicate argument and its form to be substituted</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%d</span></code>: integer, <code class="docutils literal notranslate"><span class="pre">%f</span></code>: both float and double</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%ld</span></code>: long int</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%o</span></code>: octal, <code class="docutils literal notranslate"><span class="pre">%x</span></code>: hexadecimal</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%c</span></code>: character, <code class="docutils literal notranslate"><span class="pre">%%</span></code>: % itself</p></li>
+<li><p>can specify width and precision for better output</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">printf(&quot;%7d</span> <span class="pre">%3d&quot;,</span> <span class="pre">10,</span> <span class="pre">20);</span></code>, and <code class="docutils literal notranslate"><span class="pre">printf(&quot;%7.2f&quot;,</span> <span class="pre">10.12345673);</span></code> with at least 7
+characters wide and 2 digits after decimal point</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">read()</span></code></dt><dd><ul class="simple">
+<li><p>read from a file descriptor, up to given bytes count, into the buffer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read(STDIN_FILENO,</span> <span class="pre">&amp;c,</span> <span class="pre">1)</span></code>: read 1 byte from standard input into variable <code class="docutils literal notranslate"><span class="pre">c</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Characters</strong></dt><dd><ul class="simple">
+<li><p>control characters: non-printable, ASCII codes 0-31 and 127, can check with
+<code class="docutils literal notranslate"><span class="pre">iscntrl()</span></code></p></li>
+<li><p>printable characters: ASCII 32-126</p></li>
+<li><p>arrow keys input 3 or 4 bytes to terminal with escape sequences, which start with
+ASCII 27 byte</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Escape Sequences</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">\x1b</span></code> is the escape character or decimal 27</p></li>
+<li><p>escape sequences always start with the escape character followed by <code class="docutils literal notranslate"><span class="pre">[</span></code> character</p></li>
+<li><p>escape sequences instruct the terminal to do text formatting tasks</p></li>
+<li><p>escape sequence format: <code class="docutils literal notranslate"><span class="pre">&lt;esc&gt;[&lt;argument&gt;&lt;command&gt;</span></code> with multiple arguments
+separated by <code class="docutils literal notranslate"><span class="pre">;</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">\x1b[2J</span></code> clear the entire
+screen</p></li>
+<li><p>can use VT100 escape sequences or ncurses library</p></li>
+<li><p>Erase In Display: <code class="docutils literal notranslate"><span class="pre">J</span></code> command to clear the screen</p></li>
+<li><p>Cursor Position: <code class="docutils literal notranslate"><span class="pre">H</span></code> command to position the cursor at specific row and column</p></li>
+<li><p>Cursor Forward: <code class="docutils literal notranslate"><span class="pre">C</span></code> command to move the cursor to the right, will not go past the
+screen edge</p></li>
+<li><p>Cursor Down: <code class="docutils literal notranslate"><span class="pre">B</span></code> command to move the cursor down, will not go past the screen edge</p></li>
+<li><p>Device Status Report: <code class="docutils literal notranslate"><span class="pre">n</span></code> command to query terminal status</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Append Buffer</strong></dt><dd><ul class="simple">
+<li><p>having one big <code class="docutils literal notranslate"><span class="pre">write()</span></code> is more optimal than a bunch of small <code class="docutils literal notranslate"><span class="pre">write()</span></code></p></li>
+<li><p>have a buffer of characters or strings, and write the buffer</p></li>
+<li><p>create dynamic buffer if necessary</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
 </div></blockquote>
 <p><a class="reference external" href="#c">back to top</a></p>
 </section>
@@ -609,7 +756,7 @@ and logically related</p></li>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="cp">#define MAXLINE 1000</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">getline</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lim</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">get_line</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lim</span><span class="p">);</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">to</span><span class="p">[],</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">from</span><span class="p">[]);</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
@@ -619,7 +766,7 @@ and logically related</p></li>
 <span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">line</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>
 <span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">longest</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>
 <span class="w">    </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getline</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="n">MAXLINE</span><span class="p">))</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_line</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="n">MAXLINE</span><span class="p">))</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">len</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">len</span><span class="p">;</span>
 <span class="w">            </span><span class="n">copy</span><span class="p">(</span><span class="n">longest</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p">);</span>
@@ -630,7 +777,7 @@ and logically related</p></li>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">getline</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lim</span><span class="p">)</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">get_line</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lim</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">lim</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getchar</span><span class="p">())</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EOF</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -659,12 +806,13 @@ and logically related</p></li>
 <section id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#call-by-value">Call by Value</a>, <a class="reference internal" href="#call-by-reference">Call by Reference</a>, <a class="reference internal" href="#scopes">Scopes</a></p></li>
+<li><p><a class="reference internal" href="#function-prototype">Function Prototype</a>, <a class="reference internal" href="#call-by-value">Call by Value</a>, <a class="reference internal" href="#call-by-reference">Call by Reference</a>, <a href="#id8"><span class="problematic" id="id9">`Scopes`_</span></a></p></li>
 <li><p>provide convenient way to encapsulate computation</p></li>
 <li><p>can use a function without worrying about its implementation</p></li>
 <li><p>function definition can be in any order, in one source file or several</p></li>
-<li><p>parameter names are local to the function, not visible to others and they can use the
-same names</p></li>
+<li><p>parameter: in function definition, local to the function, not visible to others and they can
+use the same names</p></li>
+<li><p>argument: value used in a call of the function</p></li>
 <li><p>not necessary to return a value</p></li>
 <li><p>caller can ignore the return value</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">main()</span></code> return a value to its caller, the environment in which program was executed, 0
@@ -681,10 +829,14 @@ for normal termination and non-zero for error condition</p></li>
 <span class="p">}</span>
 </pre></div>
 </div>
-<ul>
-<li><p>function prototype: declaration before definition, parameter names are optional</p>
+<section id="function-prototype">
+<h3>Function Prototype<a class="headerlink" href="#function-prototype" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">hello</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+<div><ul class="simple">
+<li><p>declaration before definition, parameter names are optional</p></li>
+<li><p>function definition must agree with its prototype</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">hello</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">hello</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
@@ -696,8 +848,7 @@ for normal termination and non-zero for error condition</p></li>
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-</ul>
+</section>
 <section id="call-by-value">
 <h3>Call by Value<a class="headerlink" href="#call-by-value" title="Link to this heading">#</a></h3>
 <blockquote>
@@ -728,96 +879,6 @@ for normal termination and non-zero for error condition</p></li>
 indirectly through it</p></li>
 <li><p>when array is used as argument, value passed to the function is the address of the
 beginning of the array, and there is no copying of elements</p></li>
-</ul>
-</div></blockquote>
-</section>
-<section id="scopes">
-<h3>Scopes<a class="headerlink" href="#scopes" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul>
-<li><dl class="simple">
-<dt><strong>Automatic Variables</strong></dt><dd><ul class="simple">
-<li><p>local variable in function created only when the function is called, and disappear
-when the function exit</p></li>
-<li><p>do not retain values from one call to the next</p></li>
-<li><p>must be explicitly set on each entry, and will contain garbage if not set</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl>
-<dt><strong>External Variables</strong></dt><dd><ul class="simple">
-<li><p>variables that can be accessed by name by any function, globally accessible</p></li>
-<li><p>can used instead of argument lists to communicate data between functions</p></li>
-<li><p>definition: the place where the variable is created or assigned storage</p></li>
-<li><p>declaration: the place where variable is stated but no storage is allocated</p></li>
-<li><p>must be defined exactly once, outside of any function</p></li>
-<li><p>must be declared in each function to access it</p></li>
-<li><p>declaration can be explicit <code class="docutils literal notranslate"><span class="pre">extern</span></code> or implicit</p></li>
-<li><p>sometimes <code class="docutils literal notranslate"><span class="pre">extern</span></code> can be omitted, if the definition of variable occurs in the
-source file before its use in a function</p></li>
-<li><p>common practice to place definitions of all external variables at the beginning of
-the source file, and omit all <code class="docutils literal notranslate"><span class="pre">extern</span></code> declarations</p></li>
-<li><p>if variable is defined and used in separate files, <code class="docutils literal notranslate"><span class="pre">extern</span></code> is required</p></li>
-<li><p>better to collect <code class="docutils literal notranslate"><span class="pre">extern</span></code> declarations in a header file</p></li>
-<li><p>relying heavily on external variables is dangerous, as they can be changed
-unexpectedly, and make program hard to modify</p></li>
-</ul>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-<span class="cp">#define MAXLINE 1000</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="p">;</span>
-<span class="kt">char</span><span class="w"> </span><span class="n">line</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>
-<span class="kt">char</span><span class="w"> </span><span class="n">longest</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>
-
-<span class="c1">// only use &#39;void&#39; in argument for backward compatibility</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">getline</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="p">;</span>
-<span class="w">    </span><span class="c1">// &#39;extern&#39; can be omitted</span>
-<span class="w">    </span><span class="k">extern</span><span class="w"> </span><span class="n">max</span><span class="p">;</span>
-<span class="w">    </span><span class="k">extern</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">longest</span><span class="p">[];</span>
-<span class="w">    </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getline</span><span class="p">())</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">len</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">len</span><span class="p">;</span>
-<span class="w">            </span><span class="n">copy</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">max</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">longest</span><span class="p">);</span><span class="w"> </span><span class="c1">// &#39;%s&#39; expect argument to be in &quot;hello\n\0&quot; form</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">getline</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-<span class="w">    </span><span class="k">extern</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">line</span><span class="p">[];</span><span class="w"> </span><span class="c1">// &#39;extern&#39; can be omitted</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MAXLINE</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getchar</span><span class="p">())</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EOF</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
-<span class="w">        </span><span class="n">line</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">line</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
-<span class="w">        </span><span class="o">++</span><span class="n">i</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">line</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">;</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="c1">// void return type, states that no value is returned</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">copy</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="k">extern</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">line</span><span class="p">[],</span><span class="w"> </span><span class="n">longest</span><span class="p">[];</span><span class="w"> </span><span class="c1">// &#39;extern&#39; can be omitted</span>
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">longest</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">line</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="o">++</span><span class="n">i</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-</li>
 </ul>
 </div></blockquote>
 <p><a class="reference external" href="#c">back to top</a></p>
@@ -1210,11 +1271,12 @@ catchpoints</p></li>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-output">Input &amp; Output</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constants">Constants</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic">Arithmetic</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-constants">Symbolic Constants</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-output">Input &amp; Output</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays">Arrays</a><ul class="nav section-nav flex-column">
@@ -1222,9 +1284,9 @@ catchpoints</p></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-prototype">Function Prototype</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-by-value">Call by Value</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-by-reference">Call by Reference</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scopes">Scopes</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bit-masking">Bit Masking</a><ul class="nav section-nav flex-column">
