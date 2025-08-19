@@ -333,8 +333,8 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constants">Constants</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic">Arithmetic</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operators">Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#control-flow">Control Flow</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-output">Input &amp; Output</a></li>
 </ul>
 </li>
@@ -394,7 +394,7 @@
 <section id="basics">
 <h2>Basics<a class="headerlink" href="#basics" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#variables">Variables</a>, <a class="reference internal" href="#data-types">Data Types</a>, <a class="reference internal" href="#constants">Constants</a>, <a class="reference internal" href="#arithmetic">Arithmetic</a>, <a class="reference internal" href="#loops">Loops</a>, <a class="reference internal" href="#input-output">Input &amp; Output</a></p></li>
+<li><p><a class="reference internal" href="#variables">Variables</a>, <a class="reference internal" href="#data-types">Data Types</a>, <a class="reference internal" href="#constants">Constants</a>, <a class="reference internal" href="#operators">Operators</a>, <a class="reference internal" href="#control-flow">Control Flow</a>, <a class="reference internal" href="#input-output">Input &amp; Output</a></p></li>
 <li><p>a C program contains functions and variables</p></li>
 <li><p>function contains statements to specify operations</p></li>
 <li><p>variables store values used during computation</p></li>
@@ -427,6 +427,9 @@ critical for readability</p></li>
 <div><ul>
 <li><p>Declaration: where variable is stated but no storage is allocated</p></li>
 <li><p>Definition: where the variable is created or assigned storage</p></li>
+<li><p>all variables must be declared before use, and can be initialised in declaration</p></li>
+<li><p>external and static variables are initialised to zero by default</p></li>
+<li><p>uninitialised automatic variables have undefined/garbage values</p></li>
 <li><dl class="simple">
 <dt><strong>Naming Convention</strong></dt><dd><ul class="simple">
 <li><p>can use letters and digits, but first character must be a letter</p></li>
@@ -450,7 +453,7 @@ disappear when the function exits</p></li>
 <li><dl>
 <dt><strong>External Variables</strong></dt><dd><ul class="simple">
 <li><p>can be accessed by name by any function, globally accessible</p></li>
-<li><p>can used instead of argument lists to communicate data between functions</p></li>
+<li><p>can be used instead of argument lists to communicate data between functions</p></li>
 <li><p>retain values after the function has returned</p></li>
 <li><p>must be defined exactly once, outside of any function</p></li>
 <li><p>must be declared in each function to access it</p></li>
@@ -498,6 +501,7 @@ chars are always positive</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">long</span></code>: 32 bits</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">signed</span></code>: has negative values</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">unsigned</span></code>: always positive or zero</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span></code>: variable value will not be changed</p></li>
 </ul>
 </dd>
 </dl>
@@ -510,6 +514,25 @@ its own hardware</p></li>
 and 10&lt;sup&gt;38&lt;/sup&gt; magnitude</p></li>
 <li><p>can use <code class="docutils literal notranslate"><span class="pre">int</span></code> instead of <code class="docutils literal notranslate"><span class="pre">char</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;limits.h&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;float.h&gt;</span></code> has symbolic constant for all the sizes</p></li>
+<li><dl class="simple">
+<dt><strong>Type Conversion</strong></dt><dd><ul>
+<li><p>narrower operand is converted into a wider one without losing information, e.g.
+converting an int to float</p></li>
+<li><p>expressions that might lose information can get a warning, but not illegal, e.g.
+assigning float to int</p></li>
+<li><p>specify <code class="docutils literal notranslate"><span class="pre">signed</span></code> or <code class="docutils literal notranslate"><span class="pre">unsigned</span></code> if non-character data is to be stored in <code class="docutils literal notranslate"><span class="pre">char</span></code>
+variables</p></li>
+<li><p>conversion rules are more complicated with <code class="docutils literal notranslate"><span class="pre">unsigned</span></code> operands, as comparison
+between <code class="docutils literal notranslate"><span class="pre">signed</span></code> and <code class="docutils literal notranslate"><span class="pre">unsigned</span></code> is machine-dependent</p></li>
+<li><p>e.g. -1L &gt; 1UL as -1L is promoted to <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code></p></li>
+<li><p>in assignment, value of the right side is converted to the type of the left</p></li>
+<li><p>without function prototype, <code class="docutils literal notranslate"><span class="pre">char</span></code> and <code class="docutils literal notranslate"><span class="pre">short</span></code> become <code class="docutils literal notranslate"><span class="pre">int</span></code>, and <code class="docutils literal notranslate"><span class="pre">float</span></code> becomes
+<code class="docutils literal notranslate"><span class="pre">double</span></code></p></li>
+<li><p>Explicit Type Conversion: <code class="docutils literal notranslate"><span class="pre">(type_name)</span> <span class="pre">expression</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </div></blockquote>
 </section>
@@ -585,28 +608,174 @@ storage</p></li>
 </ul>
 </div></blockquote>
 </section>
-<section id="arithmetic">
-<h3>Arithmetic<a class="headerlink" href="#arithmetic" title="Link to this heading">#</a></h3>
+<section id="operators">
+<h3>Operators<a class="headerlink" href="#operators" title="Link to this heading">#</a></h3>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
+<li><dl class="simple">
+<dt><strong>Arithmetic</strong></dt><dd><ul class="simple">
+<li><p>Binary Arithmetic: +, -, &amp;ast;, /</p></li>
+<li><p>Modulus: %, cannot be applied to float or double</p></li>
 <li><p>integer division truncates, fractional part is discarded</p></li>
 <li><p>for integer operands, integer operation is performed</p></li>
 <li><p>if operator has one integer and one float, integer will be converted to float</p></li>
+<li><p>direction of truncation for / and result sign for % are machine-dependent for
+negative operands</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Relational &amp; Logical</strong></dt><dd><ul class="simple">
+<li><p>Relational: &gt;, &gt;=, &lt;, &lt;=</p></li>
+<li><p>Equality: ==, !=</p></li>
+<li><p>Logical: &amp;&amp;, ||, expressions connected are evaluated left to right</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Increment &amp; Decrement</strong></dt><dd><ul class="simple">
+<li><p>++: adds 1 to operand</p></li>
+<li><p>–: subtracts 1 from operand</p></li>
+<li><p>Prefix: ++n or –n, operated before the value is used</p></li>
+<li><p>Postfix: n++ or n–, operated after the value is used</p></li>
+<li><p>can only be applied to variables</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Bitwise</strong></dt><dd><ul class="simple">
+<li><p>may only be applied to <code class="docutils literal notranslate"><span class="pre">char</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span></code></p></li>
+<li><p>&amp;, |, ^, &lt;&lt;, &gt;&gt;, ~</p></li>
+<li><p>right shifting a signed quantity will fill either with sign bits, arithmetic shift,
+or 0-bits, logical shift</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Assignment</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">op=</span></code>, where <code class="docutils literal notranslate"><span class="pre">op</span></code> can be any binary operator</p></li>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">i</span> <span class="pre">+</span> <span class="pre">2</span></code> can be written in compressed form <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">+=</span> <span class="pre">2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*=</span> <span class="pre">y</span> <span class="pre">+</span> <span class="pre">1</span></code> means <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">*</span> <span class="pre">(y</span> <span class="pre">+</span> <span class="pre">1)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Comma Operator</strong></dt><dd><ul class="simple">
+<li><p>mostly used in <code class="docutils literal notranslate"><span class="pre">for</span></code> statement, should be used sparingly</p></li>
+<li><p>expressions separated by a comma is evaluated left to right</p></li>
+<li><p>commas used in function arguments, variables in declaration, etc., are not comma
+operators</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Function Call</strong></dt><dd><ul class="simple">
+<li><p>()</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Member Access</strong></dt><dd><ul class="simple">
+<li><p>-&gt;, .</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Precedence</strong></dt><dd><ul class="simple">
+<li><p>(unary + and -) &gt; (&amp;ast;, /, %) &gt; (binary + and -)</p></li>
+<li><p>(&gt;, &gt;=, &lt;, &lt;=) &gt; (==, !=), lower than arithmetic operators</p></li>
+<li><p>&amp;&amp; &gt; ||, lower than relational and equality operators</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Order of Evaluation</strong></dt><dd><ul class="simple">
+<li><p>C does not specify the order in which the operands of an operator are evaluated</p></li>
+<li><p>function arguments evaluation order is also not specified, different compilers can
+produce different results</p></li>
+<li><p>writing code that depends on order of evaluation is a bad practice</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* depends on compiler whether n is incremented before power is called */</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">++</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">));</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
 </ul>
 </div></blockquote>
 </section>
-<section id="loops">
-<h3>Loops<a class="headerlink" href="#loops" title="Link to this heading">#</a></h3>
+<section id="control-flow">
+<h3>Control Flow<a class="headerlink" href="#control-flow" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul>
+<li><p>Statement: an expression such as <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">0</span></code> followed by a semicolon</p></li>
+<li><p>Block: declarations and statements grouped together with braces <code class="docutils literal notranslate"><span class="pre">{</span></code> and <code class="docutils literal notranslate"><span class="pre">}</span></code>, also
+called compound statement</p></li>
 <li><dl>
-<dt><strong>while</strong></dt><dd><ul class="simple">
-<li><p>condition in parentheses is tested</p></li>
-<li><p>if true, body of the loop is executed, and loop ends when the test is false</p></li>
+<dt><strong>If-Else</strong></dt><dd><ul class="simple">
+<li><p>can control the flow of program based on conditions</p></li>
+<li><p>statement under <code class="docutils literal notranslate"><span class="pre">if</span></code> is computed if the expression is true, a non-zero value</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">else</span></code> part is optional</p></li>
+<li><p>without braces, an <code class="docutils literal notranslate"><span class="pre">else</span></code> is associated with the closest previous <code class="docutils literal notranslate"><span class="pre">if</span></code></p></li>
+<li><p>can chain with multiple <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code>, where expressions are evaluated in order</p></li>
 </ul>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">++</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello world</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">expression_1</span><span class="p">)</span>
+<span class="w">    </span><span class="cm">/* statement */</span>
+<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">expression_2</span><span class="p">)</span>
+<span class="w">    </span><span class="cm">/* statement */</span>
+<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">expression_3</span><span class="p">)</span>
+<span class="w">    </span><span class="cm">/* statement */</span>
+<span class="k">else</span>
+<span class="w">    </span><span class="cm">/* statement */</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Conditional Expression</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">if/else</span></code> can be written using the ternary operator <code class="docutils literal notranslate"><span class="pre">?:</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">condition_expr</span> <span class="pre">?</span> <span class="pre">true_expr</span> <span class="pre">:</span> <span class="pre">false_expr</span></code></p></li>
+<li><p>since it is an expression, it can be used wherever any other expression can be</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* z = max(a, b) */</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="w">    </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="k">else</span>
+<span class="w">    </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+
+<span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="cm">/* same as above */</span>
+
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;You have %d item%s.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;s&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Switch</strong></dt><dd><ul class="simple">
+<li><p>test if an expression matches one of the cases, which are labelled by integer-valued
+constants or constant expressions</p></li>
+<li><p>all case expressions must be different</p></li>
+<li><p>optional <code class="docutils literal notranslate"><span class="pre">default</span></code> case is executed if no other cases are satisfied</p></li>
+<li><p>cases can occur in any order</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">break</span></code> or <code class="docutils literal notranslate"><span class="pre">return</span></code> to exit, or the execution will continue to the next case</p></li>
+<li><p>as cases can fall through, several cases can be attached to a single action</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">expression</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">const</span><span class="o">-</span><span class="no">expr</span><span class="p">:</span><span class="w"> </span><span class="n">statements</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">const</span><span class="o">-</span><span class="no">expr</span><span class="p">:</span><span class="w"> </span><span class="n">statements</span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span><span class="w"> </span><span class="n">statements</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -614,20 +783,102 @@ storage</p></li>
 </dl>
 </li>
 <li><dl>
-<dt><strong>for</strong></dt><dd><ul class="simple">
+<dt><strong>While Loop</strong></dt><dd><ul class="simple">
+<li><p>expression is evaluated, and statement is executed for non-zero value</p></li>
+<li><p>if true, body of the loop is executed, and loop ends when the test is false</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
+<span class="w">    </span><span class="n">statement</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>For Loop</strong></dt><dd><ul class="simple">
 <li><p>has initialization, testing condition and increment step</p></li>
 <li><p>initialization and increment can be any expressions</p></li>
+<li><p>usually expr1 and expr3 are assignments or function calls, and expr2 is a relational
+expression</p></li>
 <li><p>appropriate for loops in which initialization and increment are single statements
 and logically related</p></li>
 <li><p>can have null statement as body</p></li>
 </ul>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">expr1</span><span class="p">;</span><span class="w"> </span><span class="n">expr2</span><span class="p">;</span><span class="w"> </span><span class="n">expr3</span><span class="p">)</span>
+<span class="w">    </span><span class="n">statement</span>
 
 <span class="c1">// with null statement</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">nc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">getchar</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EOF</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">nc</span><span class="p">)</span>
 <span class="w">  </span><span class="p">;</span>
+
+<span class="c1">// equivalent while loop</span>
+<span class="n">expr1</span><span class="p">;</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">expr2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">statement</span>
+<span class="w">    </span><span class="n">expr3</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Do-while Loop</strong></dt><dd><ul class="simple">
+<li><p>expression is evaluated at the bottom, statement being executed at least once</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">do</span>
+<span class="w">    </span><span class="n">statement</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Break</strong></dt><dd><ul class="simple">
+<li><p>allows early exit from the innermost loop and <code class="docutils literal notranslate"><span class="pre">switch</span></code></p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">expression</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Continue</strong></dt><dd><ul class="simple">
+<li><p>causes the next iteration in the loop to begin</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">continue</span></code> inside a <code class="docutils literal notranslate"><span class="pre">switch</span></code> inside a loop causes the next loop iteration</p></li>
+<li><p>often used to reverse a test to avoid complicated testings</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="cm">/* skip negative elements */</span>
+<span class="w">        </span><span class="k">continue</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Goto &amp; Labels</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">goto</span></code> is almost never necessary, but can be used to abandon deeply nested
+structure, e.g. breaking out of two or more loops at once</p></li>
+<li><p>label has the same form as a variable name, following by a colon, and can be
+attached to any statement in the same function as <code class="docutils literal notranslate"><span class="pre">goto</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">goto</span></code> code can always be written with some repeated tests or an extra variable</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">expression</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">expression</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">disaster</span><span class="p">)</span>
+<span class="w">            </span><span class="k">goto</span><span class="w"> </span><span class="n">error</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nl">error</span><span class="p">:</span>
+<span class="w">    </span><span class="n">statement</span>
 </pre></div>
 </div>
 </dd>
@@ -745,6 +996,8 @@ screen edge</p></li>
 <blockquote>
 <div><ul class="simple">
 <li><p>the most common type of array</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*s</span></code> is stored in read-only memory, whereas <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">s[]</span></code> copies the literal into a
+local, modifiable array on the stack</p></li>
 </ul>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
 <span class="cm">    while (another line)</span>
@@ -806,7 +1059,7 @@ screen edge</p></li>
 <section id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#function-prototype">Function Prototype</a>, <a class="reference internal" href="#call-by-value">Call by Value</a>, <a class="reference internal" href="#call-by-reference">Call by Reference</a>, <a href="#id8"><span class="problematic" id="id9">`Scopes`_</span></a></p></li>
+<li><p><a class="reference internal" href="#function-prototype">Function Prototype</a>, <a class="reference internal" href="#call-by-value">Call by Value</a>, <a class="reference internal" href="#call-by-reference">Call by Reference</a></p></li>
 <li><p>provide convenient way to encapsulate computation</p></li>
 <li><p>can use a function without worrying about its implementation</p></li>
 <li><p>function definition can be in any order, in one source file or several</p></li>
@@ -890,6 +1143,7 @@ beginning of the array, and there is no copying of elements</p></li>
 <li><p><a class="reference internal" href="#bit-shifting">Bit Shifting</a>, <a class="reference internal" href="#extract-bits">Extract Bits</a>, <a class="reference internal" href="#set-bits">Set Bits</a>, <a class="reference internal" href="#clear-bits">Clear Bits</a>, <a class="reference internal" href="#toggle-bits">Toggle Bits</a>, <a class="reference internal" href="#flip-bits">Flip Bits</a></p></li>
 <li><p>manipulate specific bits within a data structures, by using bitwise operations to extract,
 set, clear, or toggle individual bits or groups of bits</p></li>
+<li><p>bit positions are 0-based in most languages</p></li>
 </ul>
 <section id="bit-shifting">
 <h3>Bit Shifting<a class="headerlink" href="#bit-shifting" title="Link to this heading">#</a></h3>
@@ -930,6 +1184,7 @@ negative number when using arithmetic shift, <code class="docutils literal notra
 to extract</p></li>
 <li><p>e.g. <code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">&amp;</span> <span class="pre">0x0f</span></code> extract the lower 4 bits, <code class="docutils literal notranslate"><span class="pre">(num</span> <span class="pre">&gt;&gt;</span> <span class="pre">n)</span> <span class="pre">&amp;</span> <span class="pre">1</span></code> extract the bit at (n + 1)
 position</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">~(~0</span> <span class="pre">&lt;&lt;</span> <span class="pre">n)</span></code> to extract or mask the lowest n bits</p></li>
 </ul>
 </div></blockquote>
 </section>
@@ -952,9 +1207,9 @@ positions to clear</p></li>
 <li><p>e.g. <code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">&amp;</span> <span class="pre">~0x0f</span></code> or <code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">&amp;</span> <span class="pre">0xf0</span></code> clear the lower 4 bits</p></li>
 <li><p>to clear a specific bit, flip, bitwise OR with a mask with 1 at that position, and flip
 again</p></li>
-<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">~(~num</span> <span class="pre">|</span> <span class="pre">(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">(n</span> <span class="pre">-</span> <span class="pre">1)))</span></code>, clear 3rd bit in 15, <code class="docutils literal notranslate"><span class="pre">~(~15</span> <span class="pre">|</span> <span class="pre">(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">2))</span> <span class="pre">=</span> <span class="pre">11</span></code></p></li>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">~(~num</span> <span class="pre">|</span> <span class="pre">(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">n))</span></code>, clear 3rd bit (position 4) in 15, <code class="docutils literal notranslate"><span class="pre">~(~15</span> <span class="pre">|</span> <span class="pre">(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">3))</span> <span class="pre">=</span> <span class="pre">7</span></code></p></li>
 <li><p>can also use bitwise AND to clear a specific bit</p></li>
-<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">&amp;</span> <span class="pre">~(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">(n</span> <span class="pre">-</span> <span class="pre">1))</span></code>, clear 3rd bit in 15, <code class="docutils literal notranslate"><span class="pre">15</span> <span class="pre">&amp;</span> <span class="pre">~(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">2)</span> <span class="pre">=</span> <span class="pre">11</span></code></p></li>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">&amp;</span> <span class="pre">~(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">n)</span></code>, clear 3rd bit (position 4) in 15, <code class="docutils literal notranslate"><span class="pre">15</span> <span class="pre">&amp;</span> <span class="pre">~(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">3)</span> <span class="pre">=</span> <span class="pre">7</span></code></p></li>
 </ul>
 </div></blockquote>
 </section>
@@ -1274,8 +1529,8 @@ catchpoints</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constants">Constants</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic">Arithmetic</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operators">Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#control-flow">Control Flow</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-output">Input &amp; Output</a></li>
 </ul>
 </li>

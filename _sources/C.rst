@@ -15,7 +15,7 @@ C
 Basics
 ======
 
-* `Variables`_, `Data Types`_, `Constants`_, `Arithmetic`_, `Loops`_, `Input & Output`_
+* `Variables`_, `Data Types`_, `Constants`_, `Operators`_, `Control Flow`_, `Input & Output`_
 * a C program contains functions and variables
 * function contains statements to specify operations
 * variables store values used during computation
@@ -49,6 +49,9 @@ Variables
 ---------
     * Declaration: where variable is stated but no storage is allocated
     * Definition: where the variable is created or assigned storage
+    * all variables must be declared before use, and can be initialised in declaration
+    * external and static variables are initialised to zero by default
+    * uninitialised automatic variables have undefined/garbage values
     * **Naming Convention**
         - can use letters and digits, but first character must be a letter
         - only library routine names should start with underscore
@@ -61,7 +64,7 @@ Variables
         - must be explicitly set on each entry, and will contain garbage if not set
     * **External Variables**
         - can be accessed by name by any function, globally accessible
-        - can used instead of argument lists to communicate data between functions
+        - can be used instead of argument lists to communicate data between functions
         - retain values after the function has returned
         - must be defined exactly once, outside of any function
         - must be declared in each function to access it
@@ -103,6 +106,7 @@ Data Types
         - ``long``: 32 bits
         - ``signed``: has negative values
         - ``unsigned``: always positive or zero
+        - ``const``: variable value will not be changed
     * size of data types are machine dependent, and compilers can choose appropriate sizes for
       its own hardware
     * only ``short`` and ``int`` being at least 16 bits, and ``long`` at least 32 bits (size of
@@ -111,6 +115,20 @@ Data Types
       and 10<sup>38</sup> magnitude
     * can use ``int`` instead of ``char``
     * ``<limits.h>`` and ``<float.h>`` has symbolic constant for all the sizes
+    * **Type Conversion**
+        - narrower operand is converted into a wider one without losing information, e.g.
+          converting an int to float
+        - expressions that might lose information can get a warning, but not illegal, e.g.
+          assigning float to int
+        - specify ``signed`` or ``unsigned`` if non-character data is to be stored in ``char``
+          variables
+        - conversion rules are more complicated with ``unsigned`` operands, as comparison
+          between ``signed`` and ``unsigned`` is machine-dependent
+        - e.g. -1L > 1UL as -1L is promoted to ``unsigned long``
+        - in assignment, value of the right side is converted to the type of the left
+        - without function prototype, ``char`` and ``short`` become ``int``, and ``float`` becomes
+          ``double``
+        - Explicit Type Conversion: ``(type_name) expression``
 
 Constants
 ---------
@@ -166,42 +184,209 @@ Constants
 
 
 
-Arithmetic
-----------
-    * integer division truncates, fractional part is discarded
-    * for integer operands, integer operation is performed
-    * if operator has one integer and one float, integer will be converted to float
+Operators
+---------
+    * **Arithmetic**
+        - Binary Arithmetic: +, -, &ast;, /
+        - Modulus: %, cannot be applied to float or double
+        - integer division truncates, fractional part is discarded
+        - for integer operands, integer operation is performed
+        - if operator has one integer and one float, integer will be converted to float
+        - direction of truncation for / and result sign for % are machine-dependent for
+          negative operands
+    * **Relational & Logical**
+        - Relational: >, >=, <, <=
+        - Equality: ==, !=
+        - Logical: &&, \|\|, expressions connected are evaluated left to right
+    * **Increment & Decrement**
+        - ++: adds 1 to operand
+        - --: subtracts 1 from operand
+        - Prefix: ++n or --n, operated before the value is used
+        - Postfix: n++ or n--, operated after the value is used
+        - can only be applied to variables
+    * **Bitwise**
+        - may only be applied to ``char``, ``int``, ``long``
+        - &, \|, ^, <<, >>, ~
+        - right shifting a signed quantity will fill either with sign bits, arithmetic shift,
+          or 0-bits, logical shift
+    * **Assignment**
+        - ``op=``, where ``op`` can be any binary operator
+        - e.g. ``i = i + 2`` can be written in compressed form ``i += 2``
+        - ``x *= y + 1`` means ``x = x * (y + 1)``
+    * **Comma Operator**
+        - mostly used in ``for`` statement, should be used sparingly
+        - expressions separated by a comma is evaluated left to right
+        - commas used in function arguments, variables in declaration, etc., are not comma
+          operators
+    * **Function Call**
+        - ()
+    * **Member Access**
+        - ->, .
+    * **Precedence**
+        - (unary + and -) > (&ast;, /, %) > (binary + and -)
+        - (>, >=, <, <=) > (==, !=), lower than arithmetic operators
+        - && > \|\|, lower than relational and equality operators
+    * **Order of Evaluation**
+        - C does not specify the order in which the operands of an operator are evaluated
+        - function arguments evaluation order is also not specified, different compilers can
+          produce different results
+        - writing code that depends on order of evaluation is a bad practice
 
-Loops
------
-    * **while**
-        - condition in parentheses is tested
+        .. code-block:: c
+
+           /* depends on compiler whether n is incremented before power is called */
+           printf("%d %d\n", ++n, power(2, n));
+
+
+
+Control Flow
+------------
+    * Statement: an expression such as ``x = 0`` followed by a semicolon
+    * Block: declarations and statements grouped together with braces ``{`` and ``}``, also
+      called compound statement
+    * **If-Else**
+        - can control the flow of program based on conditions
+        - statement under ``if`` is computed if the expression is true, a non-zero value
+        - ``else`` part is optional
+        - without braces, an ``else`` is associated with the closest previous ``if``
+        - can chain with multiple ``else if``, where expressions are evaluated in order
+
+        .. code-block:: c
+
+           if (expression_1)
+               /* statement */
+           else if (expression_2)
+               /* statement */
+           else if (expression_3)
+               /* statement */
+           else
+               /* statement */
+
+
+    * **Conditional Expression**
+        - ``if/else`` can be written using the ternary operator ``?:``
+        - ``condition_expr ? true_expr : false_expr``
+        - since it is an expression, it can be used wherever any other expression can be
+
+        .. code-block:: c
+
+           /* z = max(a, b) */
+           if (a > b)
+               z = a;
+           else
+               z = b;
+   
+           z = (a > b) ? a : b /* same as above */
+   
+           printf("You have %d item%s.\n", n, n == 1 ? "" : "s");
+
+
+    * **Switch**
+        - test if an expression matches one of the cases, which are labelled by integer-valued
+          constants or constant expressions
+        - all case expressions must be different
+        - optional ``default`` case is executed if no other cases are satisfied
+        - cases can occur in any order
+        - use ``break`` or ``return`` to exit, or the execution will continue to the next case
+        - as cases can fall through, several cases can be attached to a single action
+
+        .. code-block:: c
+
+           switch (expression) {
+               case const-expr: statements
+               case const-expr: statements
+               default: statements
+           }
+
+
+    * **While Loop**
+        - expression is evaluated, and statement is executed for non-zero value
         - if true, body of the loop is executed, and loop ends when the test is false
 
         .. code-block:: c
 
-           int i = 0;
-           while (i++ < 10) {
-               printf("hello world\n");
-           }
+           while (expression)
+               statement
 
 
-    * **for**
+    * **For Loop**
         - has initialization, testing condition and increment step
         - initialization and increment can be any expressions
+        - usually expr1 and expr3 are assignments or function calls, and expr2 is a relational
+          expression
         - appropriate for loops in which initialization and increment are single statements
           and logically related
         - can have null statement as body
 
         .. code-block:: c
 
-           for (int i = 0; i < 10; ++i) {
-               printf("%d\n", i);
-           }
+           for (expr1; expr2; expr3)
+               statement
    
            // with null statement
            for (nc = 0; getchar() != EOF; ++nc)
              ;
+   
+           // equivalent while loop
+           expr1;
+           while (expr2) {
+               statement
+               expr3;
+           }
+
+
+    * **Do-while Loop**
+        - expression is evaluated at the bottom, statement being executed at least once
+
+        .. code-block:: c
+
+           do
+               statement
+           while (expression)
+
+
+    * **Break**
+        - allows early exit from the innermost loop and ``switch``
+
+        .. code-block:: c
+
+           while (expression) {
+               if (expression)
+                   break;
+           }
+
+
+    * **Continue**
+        - causes the next iteration in the loop to begin
+        - ``continue`` inside a ``switch`` inside a loop causes the next loop iteration
+        - often used to reverse a test to avoid complicated testings
+
+        .. code-block:: c
+
+           for (i = 0; i < n; ++i) {
+               if (a[i] < 0) /* skip negative elements */
+                   continue;
+           }
+
+
+    * **Goto & Labels**
+        - ``goto`` is almost never necessary, but can be used to abandon deeply nested
+          structure, e.g. breaking out of two or more loops at once
+        - label has the same form as a variable name, following by a colon, and can be
+          attached to any statement in the same function as ``goto``
+        - ``goto`` code can always be written with some repeated tests or an extra variable
+
+        .. code-block:: c
+
+           while (expression) {
+               while (expression) {
+                   if (disaster)
+                       goto error;
+               }
+           }
+   
+           error:
+               statement
 
 
 
@@ -276,6 +461,8 @@ Arrays
 Character Array
 ---------------
     * the most common type of array
+    * ``char *s`` is stored in read-only memory, whereas ``char s[]`` copies the literal into a
+      local, modifiable array on the stack
 
     .. code-block:: c
 
@@ -337,7 +524,7 @@ Character Array
 Functions
 =========
 
-* `Function Prototype`_, `Call by Value`_, `Call by Reference`_, `Scopes`_
+* `Function Prototype`_, `Call by Value`_, `Call by Reference`_
 * provide convenient way to encapsulate computation
 * can use a function without worrying about its implementation
 * function definition can be in any order, in one source file or several
@@ -418,6 +605,8 @@ Bit Masking
 * `Bit Shifting`_, `Extract Bits`_, `Set Bits`_, `Clear Bits`_, `Toggle Bits`_, `Flip Bits`_
 * manipulate specific bits within a data structures, by using bitwise operations to extract,
   set, clear, or toggle individual bits or groups of bits
+* bit positions are 0-based in most languages
+
 
 Bit Shifting
 ------------
@@ -442,6 +631,7 @@ Extract Bits
       to extract
     * e.g. ``num & 0x0f`` extract the lower 4 bits, ``(num >> n) & 1`` extract the bit at (n + 1)
       position
+    * use ``~(~0 << n)`` to extract or mask the lowest n bits
 
 Set Bits
 --------
@@ -456,9 +646,9 @@ Clear Bits
     * e.g. ``num & ~0x0f`` or ``num & 0xf0`` clear the lower 4 bits
     * to clear a specific bit, flip, bitwise OR with a mask with 1 at that position, and flip
       again
-    * e.g. ``~(~num | (1 << (n - 1)))``, clear 3rd bit in 15, ``~(~15 | (1 << 2)) = 11``
+    * e.g. ``~(~num | (1 << n))``, clear 3rd bit (position 4) in 15, ``~(~15 | (1 << 3)) = 7``
     * can also use bitwise AND to clear a specific bit
-    * e.g. ``num & ~(1 << (n - 1))``, clear 3rd bit in 15, ``15 & ~(1 << 2) = 11``
+    * e.g. ``num & ~(1 << n)``, clear 3rd bit (position 4) in 15, ``15 & ~(1 << 3) = 7``
 
 Toggle Bits
 -----------
