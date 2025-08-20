@@ -5,6 +5,7 @@ Notes
    :maxdepth: 1
    :caption: Contents:
 
+   AITools
    AWS
    ArmArchitecture
    Assembly

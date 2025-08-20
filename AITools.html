@@ -1,0 +1,1010 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>AI Tools &#8212; Notes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'AITools';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="AWS" href="AWS.html" />
+    <link rel="prev" title="Notes" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">AI Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AWS.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArmArchitecture.html">Arm Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Assembly.html">Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BackendEngineering.html">Backend Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSharp.html">C# #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CTF.html">CTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CompTIA.html">CompTIA Cert Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compilers.html">Compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerGraphics.html">Computer Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComputingSystems.html">Computing Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CyberSecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructure%26Algorithms.html">Data Structure &amp; Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DatabaseEngineering.html">Database Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DesignPatterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECS.html">ECS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FFmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Helm.html">Helm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Istio.html">Istio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JDBC.html">JDBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MongoDB.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkProgramming.html">Network Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NodeJS.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenAPI.html">OpenAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OperatingSystem.html">Operating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="POSIXThreads.html">POSIX Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PenetrationTesting.html">Penetration Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramDesign.html">Program Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectManagement.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prometheus.html">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SFML.html">SFML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StrategicPlanning.html">Strategic Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Terraform.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TypeScript.html">TypeScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI/UX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrant.html">Vagrant</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/AITools.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>AI Tools</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text">Text</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">ChatGPT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copilot">Copilot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gemini">Gemini</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grok">Grok</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooklm">NotebookLM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perplexity">Perplexity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image">Image</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-face-swap">AI Face Swap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adobe-firefly">Adobe Firefly</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cleanup">CleanUp</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#craiyon">Craiyon</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dall-e">Dall-E</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ideogram">Ideogram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#midjourney">Midjourney</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perchance">Perchance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video">Video</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hedra">Hedra</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heygen">HeyGen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#invideo">InVideo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runway">Runway</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sora">Sora</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sonovid">SonoVid</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#audio">Audio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adobe-podcast">Adobe Podcast</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-clean">Audio Clean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beatoven-ai">Beatoven.ai</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elevenlabs">ElevenLabs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#play-ht">Play.ht</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podcastie">Podcastie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suno">SUNO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ttsmaker">TTSMaker</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation">Presentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chalkie">Chalkie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gamma">Gamma</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#napkins">Napkins</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automation">Automation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make">Make</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="ai-tools">
+<h1>AI Tools<a class="headerlink" href="#ai-tools" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#text">Text</a></p></li>
+<li><p><a class="reference internal" href="#image">Image</a></p></li>
+<li><p><a class="reference internal" href="#video">Video</a></p></li>
+<li><p><a class="reference internal" href="#audio">Audio</a></p></li>
+<li><p><a class="reference internal" href="#presentation">Presentation</a></p></li>
+<li><p><a class="reference internal" href="#automation">Automation</a></p></li>
+</ol>
+<p><a class="reference external" href="#ai-tools">back to top</a></p>
+<section id="text">
+<h2>Text<a class="headerlink" href="#text" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#chatgpt">ChatGPT</a>, <a class="reference internal" href="#copilot">Copilot</a>, <a class="reference internal" href="#gemini">Gemini</a>, <a class="reference internal" href="#grok">Grok</a>, <a class="reference internal" href="#notebooklm">NotebookLM</a>, <a class="reference internal" href="#perplexity">Perplexity</a></p></li>
+</ul>
+<section id="chatgpt">
+<h3>ChatGPT<a class="headerlink" href="#chatgpt" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be found at “www.chatgpt.com”</p></li>
+<li><p>OpenAI’s conversational AI, sibling model to InstructGPT</p></li>
+<li><p>trained using Reinforcement Learning from Human Feedback (RLHF), and fine-tuned using
+Proximal Policy Optimisation</p></li>
+<li><dl class="simple">
+<dt><strong>Limitations</strong></dt><dd><ul>
+<li><p>sometimes writes plausible-sounding but incorrect answers</p></li>
+<li><p>sensitive to tweaks to the input phrasing or same prompt multiple times</p></li>
+<li><p>often verbose and overuses certain phrases</p></li>
+<li><p>usually guess what the user intended, instead of clarifying with the user</p></li>
+<li><p>sometimes responds to harmful instructions</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="copilot">
+<h3>Copilot<a class="headerlink" href="#copilot" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be found at “www.copilot.microsoft.com”</p></li>
+<li><p>Microsoft’s conversational assistant that integrates with Microsoft 365 ecosystem</p></li>
+<li><p>can be used for document creation, data analysis, project management, and communication
+such as summarising Outlook inbox</p></li>
+<li><dl class="simple">
+<dt><strong>Copilot Chat</strong></dt><dd><ul>
+<li><p>generates answers based on web content</p></li>
+<li><p>uses Open AI GPT model as underlying model</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="gemini">
+<h3>Gemini<a class="headerlink" href="#gemini" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be found at “www.gemini.google.com”</p></li>
+<li><p>Google’s multimodal LLM to handle text, audio, images and more</p></li>
+<li><dl class="simple">
+<dt><strong>Limitations</strong></dt><dd><ul>
+<li><p>can have inaccurate responses on complex or factual topics</p></li>
+<li><p>reflect bias in training data</p></li>
+<li><p>can fail to show a multiple perspectives</p></li>
+<li><p>may not respond to appropriate prompts, and give inappropriate responses to others</p></li>
+<li><p>can be vulnerable senseless prompts</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="grok">
+<h3>Grok<a class="headerlink" href="#grok" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be found at “www.grok.com”</p></li>
+<li><p>X’s AI assistant to create documents, write code, generate images, and search real-time</p></li>
+<li><p>gets data and view from X trends</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="notebooklm">
+<h3>NotebookLM<a class="headerlink" href="#notebooklm" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be found at “www.notebooklm.google.com”</p></li>
+<li><p>Google’s AI for research and thinking, built using Gemini models</p></li>
+<li><p>summarise PDFs, websites, YouTube videos, audio files, Google Docs or Slides</p></li>
+<li><p>can make audio overview for different sources</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="perplexity">
+<h3>Perplexity<a class="headerlink" href="#perplexity" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be found at “www.perplexity.ai”</p></li>
+<li><p>Perplexity’s conversational AI that includes real-time web search capabilities</p></li>
+<li><p>responds based on current Internet content</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#ai-tools">back to top</a></p>
+</section>
+</section>
+<section id="image">
+<h2>Image<a class="headerlink" href="#image" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#ai-face-swap">AI Face Swap</a>, <a class="reference internal" href="#adobe-firefly">Adobe Firefly</a>, <a class="reference internal" href="#chatgpt">ChatGPT</a>, <a class="reference internal" href="#cleanup">CleanUp</a>, <a class="reference internal" href="#craiyon">Craiyon</a>, <a class="reference internal" href="#dall-e">Dall-E</a>, <a class="reference internal" href="#ideogram">Ideogram</a></p></li>
+<li><p><a class="reference internal" href="#midjourney">Midjourney</a>, <a class="reference internal" href="#perchance">Perchance</a></p></li>
+</ul>
+<section id="ai-face-swap">
+<h3>AI Face Swap<a class="headerlink" href="#ai-face-swap" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be found at “www.aifaceswap.io”</p></li>
+<li><p>replace a person’s face with another’s in an image or video</p></li>
+<li><p>support JPG, PNG, and WebP</p></li>
+<li><dl class="simple">
+<dt><strong>Limitations</strong></dt><dd><ul>
+<li><p>facial features must be clear</p></li>
+<li><p>must only have one face in the photo, multiple face swap is still in beta</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="adobe-firefly">
+<h3>Adobe Firefly<a class="headerlink" href="#adobe-firefly" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be found at “www.firefly.adobe.com”</p></li>
+<li><p>Adobe’s creative generative AI models embedded in Adobe’s apps and Adobe Stock</p></li>
+<li><p>generate image, video and sound effects, translate audio and video, and collaborate with
+Firefly Boards</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="cleanup">
+<h3>CleanUp<a class="headerlink" href="#cleanup" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be found at “www.cleanup.pictures”</p></li>
+<li><p>Clipdrop’s AI inpainting for object removal</p></li>
+<li><p>can remove object, defect, people or text from a photo</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="craiyon">
+<h3>Craiyon<a class="headerlink" href="#craiyon" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be found at “www.craiyon.com”</p></li>
+<li><p>Craiyon’s AI text to art generator, previously known as Dall-E mini</p></li>
+<li><p>provides square, landscape, and portrait aspect ratios</p></li>
+<li><p>have photo, illustration, vector and raw image presets</p></li>
+<li><dl class="simple">
+<dt><strong>Limitations</strong></dt><dd><ul>
+<li><p>can have biases on training data</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="dall-e">
+<h3>Dall-E<a class="headerlink" href="#dall-e" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be found at “www.chatgpt.com”</p></li>
+<li><p>OpenAI’s GPT-3 with more parameters trained to generate images from text</p></li>
+<li><p>latest Dall-E 2 generates more realistic and accurate images with better resolution</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="ideogram">
+<h3>Ideogram<a class="headerlink" href="#ideogram" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be found at “www.ideogram.ai”</p></li>
+<li><p>Ideogram’s AI tool to create images, and integrate text into images</p></li>
+<li><p>has CSV-driven feature to batch generation</p></li>
+<li><p>has presets of vertical, square and horizontal between 1:3 and 3:1</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="midjourney">
+<h3>Midjourney<a class="headerlink" href="#midjourney" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be found at “www.midjourney.com” or “discord.com/invite/midjourney”</p></li>
+<li><p>Midjourney’s AI to create image from text and image to video</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="perchance">
+<h3>Perchance<a class="headerlink" href="#perchance" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be found at “www.perchance.org”</p></li>
+<li><p>a platform for creating and sharing random generators</p></li>
+<li><p>most generators are text to image</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#ai-tools">back to top</a></p>
+</section>
+</section>
+<section id="video">
+<h2>Video<a class="headerlink" href="#video" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#hedra">Hedra</a>, <a class="reference internal" href="#heygen">HeyGen</a>, <a class="reference internal" href="#invideo">InVideo</a>, <a href="#id7"><span class="problematic" id="id8">`Jitter`_</span></a>, <a class="reference internal" href="#midjourney">Midjourney</a>, <a class="reference internal" href="#runway">Runway</a>, <a class="reference internal" href="#sora">Sora</a>, <a class="reference internal" href="#sonovid">SonoVid</a></p></li>
+</ul>
+<section id="hedra">
+<h3>Hedra<a class="headerlink" href="#hedra" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be found at “www.hedra.com”</p></li>
+<li><p>content creation platform for image, video and audio</p></li>
+<li><p>can make videos of different styles with full-body animated, realistic and dynamic
+background, including live avatars with lip-sync</p></li>
+<li><p>can also add voiceovers and AI-generated speech</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="heygen">
+<h3>HeyGen<a class="headerlink" href="#heygen" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be found at “app.heygen.com”</p></li>
+<li><p>text or image to video generator, can add avatars and video translations</p></li>
+<li><p>can also convert audio to video by using a talking photo avatar</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="invideo">
+<h3>InVideo<a class="headerlink" href="#invideo" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be found at “www.invideo.io”</p></li>
+<li><p>text to video generator, can create by just providing a URL</p></li>
+<li><p>can also add multi-lingual AI actors</p></li>
+<li><p>video editor provides real-time multiplayer editing</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="runway">
+<h3>Runway<a class="headerlink" href="#runway" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be found at “app.runwayml.com”</p></li>
+<li><p>can generate contents from complex physics-based simulations to realistic renders</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="sora">
+<h3>Sora<a class="headerlink" href="#sora" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be found at “sora.chatgpt.com”</p></li>
+<li><p>OpenAI’s platform to create content from text, image or video</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="sonovid">
+<h3>SonoVid<a class="headerlink" href="#sonovid" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be found at “www.sonovid.ai”, also called Veo 3</p></li>
+<li><p>Google’s AI to create videos from text and image using Veo 3 model</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#ai-tools">back to top</a></p>
+</section>
+</section>
+<section id="audio">
+<h2>Audio<a class="headerlink" href="#audio" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href="#id9"><span class="problematic" id="id10">`Adobe Podtcast`_</span></a>, <a class="reference internal" href="#audio-clean">Audio Clean</a>, <a class="reference internal" href="#beatoven-ai">Beatoven.ai</a>, <a class="reference internal" href="#elevenlabs">ElevenLabs</a>, <a class="reference internal" href="#play-ht">Play.ht</a>, <a class="reference internal" href="#podcastie">Podcastie</a>, <a class="reference internal" href="#suno">SUNO</a>, <a class="reference internal" href="#ttsmaker">TTSMaker</a></p></li>
+</ul>
+<section id="adobe-podcast">
+<h3>Adobe Podcast<a class="headerlink" href="#adobe-podcast" title="Link to this heading">#</a></h3>
+</section>
+<section id="audio-clean">
+<h3>Audio Clean<a class="headerlink" href="#audio-clean" title="Link to this heading">#</a></h3>
+</section>
+<section id="beatoven-ai">
+<h3>Beatoven.ai<a class="headerlink" href="#beatoven-ai" title="Link to this heading">#</a></h3>
+</section>
+<section id="elevenlabs">
+<h3>ElevenLabs<a class="headerlink" href="#elevenlabs" title="Link to this heading">#</a></h3>
+</section>
+<section id="play-ht">
+<h3>Play.ht<a class="headerlink" href="#play-ht" title="Link to this heading">#</a></h3>
+</section>
+<section id="podcastie">
+<h3>Podcastie<a class="headerlink" href="#podcastie" title="Link to this heading">#</a></h3>
+</section>
+<section id="suno">
+<h3>SUNO<a class="headerlink" href="#suno" title="Link to this heading">#</a></h3>
+</section>
+<section id="ttsmaker">
+<h3>TTSMaker<a class="headerlink" href="#ttsmaker" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="#ai-tools">back to top</a></p>
+</section>
+</section>
+<section id="presentation">
+<h2>Presentation<a class="headerlink" href="#presentation" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#chalkie">Chalkie</a>, <a class="reference internal" href="#gamma">Gamma</a>, <a class="reference internal" href="#napkins">Napkins</a></p></li>
+</ul>
+<section id="chalkie">
+<h3>Chalkie<a class="headerlink" href="#chalkie" title="Link to this heading">#</a></h3>
+</section>
+<section id="gamma">
+<h3>Gamma<a class="headerlink" href="#gamma" title="Link to this heading">#</a></h3>
+</section>
+<section id="napkins">
+<h3>Napkins<a class="headerlink" href="#napkins" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="#ai-tools">back to top</a></p>
+</section>
+</section>
+<section id="automation">
+<h2>Automation<a class="headerlink" href="#automation" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#make">Make</a></p></li>
+</ul>
+<section id="make">
+<h3>Make<a class="headerlink" href="#make" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>can be found at “www.make.com”</p></li>
+<li><p>no-code platform to connect applications and automate workflows</p></li>
+<li><dl class="simple">
+<dt><strong>Scenario</strong></dt><dd><ul>
+<li><p>a collection of modules</p></li>
+<li><p>build a scenario, test, and schedule to run at intervals</p></li>
+<li><p>can also add tools, flow control and text parser</p></li>
+<li><p>unless named specifically, a scenario will be auto named based on app</p></li>
+<li><p>best to organise scenarios in a folder</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Module</strong></dt><dd><ul>
+<li><p>any element added within a scenario</p></li>
+<li><p>App: a group of modules</p></li>
+<li><p>Bundle: data collected from Make</p></li>
+<li><p>has action, search, trigger, iterator, and aggregator modules</p></li>
+<li><p>Poll Trigger: watch a service, and give updates each time a scenario is activated</p></li>
+<li><p>Instant Trigger: watch an account, and return new information immediately</p></li>
+<li><p>Iterator: extract an array and split into separate bundles</p></li>
+<li><p>Aggregator: combine multiple bundles into single one</p></li>
+<li><p>search modules cannot modify data</p></li>
+<li><p>for Google apps connection, free and regular Gmail account will need to be
+reauthorised every 7 days</p></li>
+<li><p>modules should be connected to pass information, and can be cloned with existing
+config</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Mapping</strong></dt><dd><ul>
+<li><p>mapping data from one module into another</p></li>
+<li><p>a single operation will generate at least one bundle</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Router</strong></dt><dd><ul>
+<li><p>branch workflows onto separate paths</p></li>
+<li><p>useful to process data towards separate outputs</p></li>
+<li><p>will not consume any operations</p></li>
+<li><p>can set the order of routes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Filter</strong></dt><dd><ul>
+<li><p>allow or restrict specific data</p></li>
+<li><p>has basic, text, numeric and datetime operators</p></li>
+<li><p>allow AND and OR rules</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Scheduling</strong></dt><dd><ul>
+<li><p>define time and frequency to run the scenarios</p></li>
+<li><p>always run manually and test before setting to schedule</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Operations</strong></dt><dd><ul>
+<li><p>Make is priced on operations usage</p></li>
+<li><p>an operation is used every time a module performs an action, even if it does not
+produce a bundle, i.e. 3 operations for 3 actions</p></li>
+<li><p>error handler modules, rollback, break, resume, commit, ignore, filters and routers
+do not use operations</p></li>
+<li><p>save operations by running a single module only to check output bundle</p></li>
+<li><p>disable routes to isolate and for less operations when testing, data cannot pass but
+the connection between modules remain</p></li>
+<li><p>in a sense, an operation is used for each API call</p></li>
+<li><p>if a scenario executes, it will always consume at least one operation</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Check Run</strong></dt><dd><ul>
+<li><p>shown when a scheduled scenario was executed, but only the trigger module was
+activated and it does not find any new data</p></li>
+<li><p>can be viewed in a scenario’s history</p></li>
+<li><p>provide insight of operations count to manage scheduling</p></li>
+<li><p>active by default on each scenario</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Organisations</strong></dt><dd><ul>
+<li><p>contain scenarios, teams, users and data</p></li>
+<li><p>a user can belong to multiple organisations, and own as many organisations, but only
+have one free organisation</p></li>
+<li><p>each organisation can have a different subscription plan</p></li>
+<li><p>location cannot be changed after the organisation is created</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Blueprint</strong></dt><dd><ul>
+<li><p>automation template with configurations and functions</p></li>
+<li><p>allow to share scenarios with others outside of the organisation</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Variables</strong></dt><dd><ul>
+<li><p>allow organisations to store data and reuse</p></li>
+<li><p>System and Custom variables</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#ai-tools">back to top</a></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Notes</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="AWS.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">AWS</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text">Text</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">ChatGPT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copilot">Copilot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gemini">Gemini</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grok">Grok</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooklm">NotebookLM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perplexity">Perplexity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image">Image</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-face-swap">AI Face Swap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adobe-firefly">Adobe Firefly</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cleanup">CleanUp</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#craiyon">Craiyon</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dall-e">Dall-E</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ideogram">Ideogram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#midjourney">Midjourney</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perchance">Perchance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video">Video</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hedra">Hedra</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heygen">HeyGen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#invideo">InVideo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runway">Runway</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sora">Sora</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sonovid">SonoVid</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#audio">Audio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adobe-podcast">Adobe Podcast</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-clean">Audio Clean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beatoven-ai">Beatoven.ai</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elevenlabs">ElevenLabs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#play-ht">Play.ht</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podcastie">Podcastie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suno">SUNO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ttsmaker">TTSMaker</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation">Presentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chalkie">Chalkie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gamma">Gamma</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#napkins">Napkins</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automation">Automation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make">Make</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Myat Kyaw Tun
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Myat Kyaw Tun.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
