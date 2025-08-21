@@ -242,20 +242,31 @@ Make
     * **Module**
         - any element added within a scenario
         - App: a group of modules
-        - Bundle: data collected from Make
+        - Bundle: data collected from Make, can download JSON input/output bundles
         - has action, search, trigger, iterator, and aggregator modules
-        - Poll Trigger: watch a service, and give updates each time a scenario is activated
-        - Instant Trigger: watch an account, and return new information immediately
-        - Iterator: extract an array and split into separate bundles
-        - Aggregator: combine multiple bundles into single one
         - search modules cannot modify data
         - for Google apps connection, free and regular Gmail account will need to be
           reauthorised every 7 days
         - modules should be connected to pass information, and can be cloned with existing
           config
-    * **Mapping**
-        - mapping data from one module into another
-        - a single operation will generate at least one bundle
+        - ACID modules support rollback features
+    * **Aggregator**
+        - combine multiple bundles into single one
+        - aggregators map, select items, and reduce, combine the selected ones
+        - Tools Aggregator: table, text and numeric aggregators
+        - Array Aggregator: take fields from multiple bundles, and aggregate into single array
+        - output can be grouped to produce different bundles
+        - data-driven aggregations can help understand business and make decisions
+    * **Iterator**
+        - extract an array and split into separate bundles
+    * **Triggers**
+        - first action that launches the scenario
+        - each scenario can only have one trigger
+        - Polling Trigger: execute scenario at intervals, has a clock icon
+        - Instant Trigger: execute scenario as soon as data arrives, has a lightning icon, can
+          also be configured like a polling trigger
+        - if not explicitly indicated, a trigger will always be considered polling
+        - Basic Trigger: to create custom trigger, and define output bundle structure
     * **Router**
         - branch workflows onto separate paths
         - useful to process data towards separate outputs
@@ -294,6 +305,24 @@ Make
     * **Blueprint**
         - automation template with configurations and functions
         - allow to share scenarios with others outside of the organisation
+    * **Data Types**
+        - text, number, date, boolean
+        - Collection: a group of different data types as single unit, also called object
+        - Array: same data type, 1-based indexing, can sort, extract a range, search, iterate,
+          aggregate, and other advanced data extractions
+        - entering different data type as specified will get an error, but will attempt to
+          convert type if compatible
+        - format of date depends on profile settings
+    * **Mapping**
+        - mapping data from one module into another
+        - a single operation will generate at least one bundle
+        - when mapping an array item, first item will be chosen if no index is given
+        - need to create custom data structure when connecting to external services not
+          provided by Make
+    * **Functions**
+        - make data transformations on fields easier
+        - has general, math, text, binary, date and time, and array functions
+        - scenario and functions use date/time from Organisation
     * **Variables**
         - allow organisations to store data and reuse
         - System and Custom variables

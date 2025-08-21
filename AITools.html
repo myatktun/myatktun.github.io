@@ -746,25 +746,46 @@ background, including live avatars with lip-sync</p></li>
 <dt><strong>Module</strong></dt><dd><ul>
 <li><p>any element added within a scenario</p></li>
 <li><p>App: a group of modules</p></li>
-<li><p>Bundle: data collected from Make</p></li>
+<li><p>Bundle: data collected from Make, can download JSON input/output bundles</p></li>
 <li><p>has action, search, trigger, iterator, and aggregator modules</p></li>
-<li><p>Poll Trigger: watch a service, and give updates each time a scenario is activated</p></li>
-<li><p>Instant Trigger: watch an account, and return new information immediately</p></li>
-<li><p>Iterator: extract an array and split into separate bundles</p></li>
-<li><p>Aggregator: combine multiple bundles into single one</p></li>
 <li><p>search modules cannot modify data</p></li>
 <li><p>for Google apps connection, free and regular Gmail account will need to be
 reauthorised every 7 days</p></li>
 <li><p>modules should be connected to pass information, and can be cloned with existing
 config</p></li>
+<li><p>ACID modules support rollback features</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Mapping</strong></dt><dd><ul>
-<li><p>mapping data from one module into another</p></li>
-<li><p>a single operation will generate at least one bundle</p></li>
+<dt><strong>Aggregator</strong></dt><dd><ul>
+<li><p>combine multiple bundles into single one</p></li>
+<li><p>aggregators map, select items, and reduce, combine the selected ones</p></li>
+<li><p>Tools Aggregator: table, text and numeric aggregators</p></li>
+<li><p>Array Aggregator: take fields from multiple bundles, and aggregate into single array</p></li>
+<li><p>output can be grouped to produce different bundles</p></li>
+<li><p>data-driven aggregations can help understand business and make decisions</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Iterator</strong></dt><dd><ul>
+<li><p>extract an array and split into separate bundles</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Triggers</strong></dt><dd><ul>
+<li><p>first action that launches the scenario</p></li>
+<li><p>each scenario can only have one trigger</p></li>
+<li><p>Polling Trigger: execute scenario at intervals, has a clock icon</p></li>
+<li><p>Instant Trigger: execute scenario as soon as data arrives, has a lightning icon, can
+also be configured like a polling trigger</p></li>
+<li><p>if not explicitly indicated, a trigger will always be considered polling</p></li>
+<li><p>Basic Trigger: to create custom trigger, and define output bundle structure</p></li>
 </ul>
 </dd>
 </dl>
@@ -838,6 +859,39 @@ have one free organisation</p></li>
 <dt><strong>Blueprint</strong></dt><dd><ul>
 <li><p>automation template with configurations and functions</p></li>
 <li><p>allow to share scenarios with others outside of the organisation</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Data Types</strong></dt><dd><ul>
+<li><p>text, number, date, boolean</p></li>
+<li><p>Collection: a group of different data types as single unit, also called object</p></li>
+<li><p>Array: same data type, 1-based indexing, can sort, extract a range, search, iterate,
+aggregate, and other advanced data extractions</p></li>
+<li><p>entering different data type as specified will get an error, but will attempt to
+convert type if compatible</p></li>
+<li><p>format of date depends on profile settings</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Mapping</strong></dt><dd><ul>
+<li><p>mapping data from one module into another</p></li>
+<li><p>a single operation will generate at least one bundle</p></li>
+<li><p>when mapping an array item, first item will be chosen if no index is given</p></li>
+<li><p>need to create custom data structure when connecting to external services not
+provided by Make</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Functions</strong></dt><dd><ul>
+<li><p>make data transformations on fields easier</p></li>
+<li><p>has general, math, text, binary, date and time, and array functions</p></li>
+<li><p>scenario and functions use date/time from Organisation</p></li>
 </ul>
 </dd>
 </dl>
