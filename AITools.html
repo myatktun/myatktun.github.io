@@ -734,10 +734,15 @@ background, including live avatars with lip-sync</p></li>
 <li><dl class="simple">
 <dt><strong>Scenario</strong></dt><dd><ul>
 <li><p>a collection of modules</p></li>
-<li><p>build a scenario, test, and schedule to run at intervals</p></li>
+<li><p>build a scenario, test, and schedule to run</p></li>
 <li><p>can also add tools, flow control and text parser</p></li>
 <li><p>unless named specifically, a scenario will be auto named based on app</p></li>
 <li><p>best to organise scenarios in a folder</p></li>
+<li><p>can run scenarios at intervals, immediately or on demand</p></li>
+<li><p>can have a scenario chain, one triggering others, but must be within the same team</p></li>
+<li><p>Sub-scenarios: parent scenario -&gt; bridge scenarios -&gt; child scenario</p></li>
+<li><p>a scenario can define its input so that others can send data when triggering it</p></li>
+<li><p>scenario inputs can be mapped in modules</p></li>
 </ul>
 </dd>
 </dl>
@@ -754,12 +759,13 @@ reauthorised every 7 days</p></li>
 <li><p>modules should be connected to pass information, and can be cloned with existing
 config</p></li>
 <li><p>ACID modules support rollback features</p></li>
+<li><p>JSON is used to pass information between modules</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Aggregator</strong></dt><dd><ul>
+<dt><strong>Aggregators</strong></dt><dd><ul>
 <li><p>combine multiple bundles into single one</p></li>
 <li><p>aggregators map, select items, and reduce, combine the selected ones</p></li>
 <li><p>Tools Aggregator: table, text and numeric aggregators</p></li>
@@ -771,8 +777,11 @@ config</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Iterator</strong></dt><dd><ul>
-<li><p>extract an array and split into separate bundles</p></li>
+<dt><strong>Iterators</strong></dt><dd><ul>
+<li><p>can only extract an array and split into separate bundles</p></li>
+<li><p>cannot be used as a trigger</p></li>
+<li><p>without iterator, Make only processes the first item in an array</p></li>
+<li><p>always check for empty array</p></li>
 </ul>
 </dd>
 </dl>
@@ -859,6 +868,7 @@ have one free organisation</p></li>
 <dt><strong>Blueprint</strong></dt><dd><ul>
 <li><p>automation template with configurations and functions</p></li>
 <li><p>allow to share scenarios with others outside of the organisation</p></li>
+<li><p>composed in JSON format</p></li>
 </ul>
 </dd>
 </dl>
@@ -892,6 +902,12 @@ provided by Make</p></li>
 <li><p>make data transformations on fields easier</p></li>
 <li><p>has general, math, text, binary, date and time, and array functions</p></li>
 <li><p>scenario and functions use date/time from Organisation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get()</span></code>: extract a value from an object with dot notation on the raw name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">map()</span></code>: extract values from an array, and transform them to create a new array,
+always return an array</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">get(map())</span></code> to use the data from <code class="docutils literal notranslate"><span class="pre">map()</span></code> in the next module</p></li>
+<li><p>using <code class="docutils literal notranslate"><span class="pre">get()</span></code> and <code class="docutils literal notranslate"><span class="pre">map()</span></code> can save more operations than using aggregators and
+iterators, as functions can be mapped directly in the module</p></li>
 </ul>
 </dd>
 </dl>
@@ -900,6 +916,62 @@ provided by Make</p></li>
 <dt><strong>Variables</strong></dt><dd><ul>
 <li><p>allow organisations to store data and reuse</p></li>
 <li><p>System and Custom variables</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Webhooks</strong></dt><dd><ul>
+<li><p>to receive notifications as soon as an event occurs from another application</p></li>
+<li><p>allow to send data to Make over HTTP, usually an instant trigger</p></li>
+<li><p>can be used to connect different apps, even external, to Make</p></li>
+<li><p>has a unique URL to receive a request</p></li>
+<li><p>modules tagged with “Instant” have webhooks implemented</p></li>
+<li><p>requests are stored in a webhook queue if the scenario is inactive, sequential
+processing is enabled, or the scenario failed</p></li>
+<li><p>cannot use one webhook in multiple scenarios</p></li>
+<li><p>query string, header and body are used to share information</p></li>
+<li><p>can automatically determines data structure from request</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Errors</strong></dt><dd><ul>
+<li><p>organisations usage limit errors</p></li>
+<li><p>handling and validation errors with data passed between the modules</p></li>
+<li><p>API related errors</p></li>
+<li><p>module timeout error (usually 40 seconds)</p></li>
+<li><p>inconsistency error when multiple scenarios modify the same database</p></li>
+<li><p>data is saved in the logs when an error occurs</p></li>
+<li><p>a scenario can be deactivated when too many errors occur</p></li>
+<li><p>Incomplete Executions: if enabled, data and blueprint from a failed scenario run
+will be saved, and continue to run, e.g. bundle 3 will be processed even if bundle 2
+causes error</p></li>
+<li><p>can retry incomplete executions automatically, manually or in bulk</p></li>
+<li><p>Make will not save data for incomplete executions if data is set to confidential</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Error Handlers</strong></dt><dd><ul>
+<li><p>connected to specific modules, and will only run when the module has an error</p></li>
+<li><p>error handling route (empty dots) can have an error handler, one or more modules, or
+a combination of both</p></li>
+<li><p>error handlers give more control over the scenario behaviour, and do not consume any
+operations</p></li>
+<li><p>must be placed at the end of the error handling route</p></li>
+<li><p>Break: only stop for the error bundle, and save an incomplete execution, can
+configure more on the retry</p></li>
+<li><p>Ignore: ignore the error bundle and continue running for next bundles</p></li>
+<li><p>Resume: can set a substitute value for a module output</p></li>
+<li><p>Commit: only for ACID, stop the scenario and confirm changes to the module, further
+bundles will not be processed</p></li>
+<li><p>Rollback: only for ACID, stop the run and revert all changes to the module, further
+bundles will not be processed</p></li>
+<li><p>rollback is the default behaviour when there are no error handlers or incomplete
+executions are enabled</p></li>
 </ul>
 </dd>
 </dl>

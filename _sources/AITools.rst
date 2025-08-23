@@ -235,10 +235,15 @@ Make
     * no-code platform to connect applications and automate workflows
     * **Scenario**
         - a collection of modules
-        - build a scenario, test, and schedule to run at intervals
+        - build a scenario, test, and schedule to run
         - can also add tools, flow control and text parser
         - unless named specifically, a scenario will be auto named based on app
         - best to organise scenarios in a folder
+        - can run scenarios at intervals, immediately or on demand
+        - can have a scenario chain, one triggering others, but must be within the same team
+        - Sub-scenarios: parent scenario -> bridge scenarios -> child scenario
+        - a scenario can define its input so that others can send data when triggering it
+        - scenario inputs can be mapped in modules
     * **Module**
         - any element added within a scenario
         - App: a group of modules
@@ -250,15 +255,19 @@ Make
         - modules should be connected to pass information, and can be cloned with existing
           config
         - ACID modules support rollback features
-    * **Aggregator**
+        - JSON is used to pass information between modules
+    * **Aggregators**
         - combine multiple bundles into single one
         - aggregators map, select items, and reduce, combine the selected ones
         - Tools Aggregator: table, text and numeric aggregators
         - Array Aggregator: take fields from multiple bundles, and aggregate into single array
         - output can be grouped to produce different bundles
         - data-driven aggregations can help understand business and make decisions
-    * **Iterator**
-        - extract an array and split into separate bundles
+    * **Iterators**
+        - can only extract an array and split into separate bundles
+        - cannot be used as a trigger
+        - without iterator, Make only processes the first item in an array
+        - always check for empty array
     * **Triggers**
         - first action that launches the scenario
         - each scenario can only have one trigger
@@ -305,6 +314,7 @@ Make
     * **Blueprint**
         - automation template with configurations and functions
         - allow to share scenarios with others outside of the organisation
+        - composed in JSON format
     * **Data Types**
         - text, number, date, boolean
         - Collection: a group of different data types as single unit, also called object
@@ -323,8 +333,55 @@ Make
         - make data transformations on fields easier
         - has general, math, text, binary, date and time, and array functions
         - scenario and functions use date/time from Organisation
+        - ``get()``: extract a value from an object with dot notation on the raw name
+        - ``map()``: extract values from an array, and transform them to create a new array,
+          always return an array
+        - use ``get(map())`` to use the data from ``map()`` in the next module
+        - using ``get()`` and ``map()`` can save more operations than using aggregators and
+          iterators, as functions can be mapped directly in the module
     * **Variables**
         - allow organisations to store data and reuse
         - System and Custom variables
+    * **Webhooks**
+        - to receive notifications as soon as an event occurs from another application
+        - allow to send data to Make over HTTP, usually an instant trigger
+        - can be used to connect different apps, even external, to Make
+        - has a unique URL to receive a request
+        - modules tagged with "Instant" have webhooks implemented
+        - requests are stored in a webhook queue if the scenario is inactive, sequential
+          processing is enabled, or the scenario failed
+        - cannot use one webhook in multiple scenarios
+        - query string, header and body are used to share information
+        - can automatically determines data structure from request
+    * **Errors**
+        - organisations usage limit errors
+        - handling and validation errors with data passed between the modules
+        - API related errors
+        - module timeout error (usually 40 seconds)
+        - inconsistency error when multiple scenarios modify the same database
+        - data is saved in the logs when an error occurs
+        - a scenario can be deactivated when too many errors occur
+        - Incomplete Executions: if enabled, data and blueprint from a failed scenario run
+          will be saved, and continue to run, e.g. bundle 3 will be processed even if bundle 2
+          causes error
+        - can retry incomplete executions automatically, manually or in bulk
+        - Make will not save data for incomplete executions if data is set to confidential
+    * **Error Handlers**
+        - connected to specific modules, and will only run when the module has an error
+        - error handling route (empty dots) can have an error handler, one or more modules, or
+          a combination of both
+        - error handlers give more control over the scenario behaviour, and do not consume any
+          operations
+        - must be placed at the end of the error handling route
+        - Break: only stop for the error bundle, and save an incomplete execution, can
+          configure more on the retry
+        - Ignore: ignore the error bundle and continue running for next bundles
+        - Resume: can set a substitute value for a module output
+        - Commit: only for ACID, stop the scenario and confirm changes to the module, further
+          bundles will not be processed
+        - Rollback: only for ACID, stop the run and revert all changes to the module, further
+          bundles will not be processed
+        - rollback is the default behaviour when there are no error handlers or incomplete
+          executions are enabled
 
 `back to top <#ai-tools>`_
