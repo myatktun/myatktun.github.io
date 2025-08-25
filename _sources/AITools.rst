@@ -318,7 +318,7 @@ Make
     * **Data Types**
         - text, number, date, boolean
         - Collection: a group of different data types as single unit, also called object
-        - Array: same data type, 1-based indexing, can sort, extract a range, search, iterate,
+        - Array: same data type, can sort, extract a range, search, iterate,
           aggregate, and other advanced data extractions
         - entering different data type as specified will get an error, but will attempt to
           convert type if compatible
@@ -339,6 +339,9 @@ Make
         - use ``get(map())`` to use the data from ``map()`` in the next module
         - using ``get()`` and ``map()`` can save more operations than using aggregators and
           iterators, as functions can be mapped directly in the module
+        - ``merge()``: easiest way to deal with arrays of same structure
+        - spread functions over multiple set variable modules, test often, and then only start
+          to optimise
     * **Variables**
         - allow organisations to store data and reuse
         - System and Custom variables
