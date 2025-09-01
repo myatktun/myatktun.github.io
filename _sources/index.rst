@@ -17,6 +17,7 @@ Notes
    CompTIA
    Compilers
    ComputerGraphics
+   ComputerVision
    ComputingSystems
    CyberSecurity
    DataStructure&Algorithms
@@ -33,6 +34,7 @@ Notes
    Java
    Jenkins
    Kubernetes
+   LangChain
    Linux
    MachineLearning
    Microservices

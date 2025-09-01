@@ -386,5 +386,15 @@ Make
           bundles will not be processed
         - rollback is the default behaviour when there are no error handlers or incomplete
           executions are enabled
+    * **Data Stores**
+        - database within Make, store data in the form of record composed of label and data
+        - every record in the data store has the same structure
+        - allow transfer of data between scenarios
+        - always be consistent with data, and modifying will impact integrity and cause to
+          have duplicates within the data store
+        - Make allows 10 MB of storage for every 10,000 operations per month
+        - up to 1,000 data stores per organisation, and minimum 1 MB of data store size
+        - to restore deleted data, need to manually find data from the scenario's execution
+          history, and copy back to the data store
 
 `back to top <#ai-tools>`_

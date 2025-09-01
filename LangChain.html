@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Redis &#8212; Notes</title>
+    <title>LangChain &#8212; Notes</title>
   
   
   
@@ -43,11 +43,11 @@
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Redis';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'LangChain';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="SFML" href="SFML.html" />
-    <link rel="prev" title="React" href="React.html" />
+    <link rel="next" title="Linux" href="Linux.html" />
+    <link rel="prev" title="Kubernetes" href="Kubernetes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -168,7 +168,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Kubernetes.html">Kubernetes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LangChain.html">LangChain</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">LangChain</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Linux.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MachineLearning.html">Machine Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Microservices.html">Microservices</a></li>
@@ -184,7 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Prometheus.html">Prometheus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="React.html">React</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SFML.html">SFML</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SQL.html">SQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="StrategicPlanning.html">Strategic Planning</a></li>
@@ -246,7 +246,7 @@
       
       
       
-      <li><a href="_sources/Redis.rst" target="_blank"
+      <li><a href="_sources/LangChain.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -309,7 +309,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -320,11 +322,25 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Redis</h1>
+    <h1>LangChain</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prompting-basics">Prompting Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#llms">LLMs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-shot-prompting">Zero-Shot Prompting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#few-shot-prompting">Few-Shot Prompting</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -334,47 +350,127 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="redis">
-<h1>Redis<a class="headerlink" href="#redis" title="Link to this heading">#</a></h1>
+  <section id="langchain">
+<h1>LangChain<a class="headerlink" href="#langchain" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#basics">Basics</a></p></li>
+<li><p><a class="reference internal" href="#prompting-basics">Prompting Basics</a></p></li>
+</ol>
+<p><a class="reference external" href="#langchain">back to top</a></p>
+<section id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>no-sql database, doesn’t have tables or documents</p></li>
-<li><p>data is stored in key, value pairs</p></li>
-<li><p>runs inside memory and much more volatile</p></li>
-<li><p>used mainly for caching, on top of other database</p></li>
-<li><p>stored as string by default</p></li>
+<li><p>LangChain provides abstractions for each major prompting technique, utilising Python and
+JavaScript for wrappers</p></li>
+<li><p>has integrations with commercial and open source LLM providers</p></li>
+<li><p>prompt templates enable to reuse prompts more than once, and store them in the LangChain Hub</p></li>
 </ul>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>SET<span class="w"> </span>key<span class="w"> </span>value
-GET<span class="w"> </span>key<span class="w">   </span><span class="c1"># GET only works for string</span>
-DEL<span class="w"> </span>key
-EXISTS<span class="w"> </span>key<span class="w">  </span><span class="c1"># return 1 or 0</span>
-KEYS<span class="w"> </span>*<span class="w">  </span><span class="c1"># get all keys</span>
-FLUSHALL<span class="w">  </span><span class="c1"># clear all</span>
-TTL<span class="w"> </span>key<span class="w">  </span><span class="c1"># time to live, -1 for forever, -2 for gone</span>
-EXPIRE<span class="w"> </span>key<span class="w">  </span><span class="c1"># set time for expire</span>
-SETEX<span class="w"> </span>key<span class="w"> </span><span class="nb">time</span><span class="w"> </span>value<span class="w">  </span><span class="c1"># set key with expire time in seconds</span>
-</pre></div>
-</div>
+<p><a class="reference external" href="#langchain">back to top</a></p>
+</section>
+<section id="prompting-basics">
+<h2>Prompting Basics<a class="headerlink" href="#prompting-basics" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>also support for handling arrays in list form and hashes for json</p></li>
-<li><p>every key in a set has to be unique</p></li>
+<li><p><a class="reference internal" href="#llms">LLMs</a>, <a class="reference internal" href="#zero-shot-prompting">Zero-Shot Prompting</a>, <a class="reference internal" href="#few-shot-prompting">Few-Shot Prompting</a></p></li>
+<li><p>prompt engineering: adapting an existing LLM for specific task</p></li>
+<li><p>Temperature: controls the randomness of LLM output</p></li>
+<li><p>prompting techniques are most useful when combined with others</p></li>
 </ul>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>LPUSH<span class="w"> </span>key<span class="w"> </span>value<span class="w">  </span><span class="c1"># add item at the start/left of the array</span>
-LRANGE<span class="w"> </span>key<span class="w"> </span>start<span class="w"> </span>end<span class="w">  </span><span class="c1"># 0 -1 to print all</span>
-RPUSH<span class="w"> </span>key<span class="w"> </span>value<span class="w">  </span><span class="c1"># add item at the end/right of the array</span>
-LPOP<span class="w"> </span>key<span class="w">  </span><span class="c1"># remove item at the start/left</span>
-RPOP<span class="w"> </span>key<span class="w">  </span><span class="c1"># remove item at the end/right</span>
-
-SADD<span class="w"> </span>key<span class="w"> </span>value<span class="w">  </span><span class="c1"># add item to a set</span>
-SMEMBERS<span class="w"> </span>key<span class="w">  </span><span class="c1"># list all items in a set</span>
-SREM<span class="w"> </span>key<span class="w"> </span>value<span class="w">  </span><span class="c1"># remove a key from a set</span>
-
-HSET<span class="w"> </span>key<span class="w"> </span>field<span class="w"> </span>value<span class="w">  </span><span class="c1"># add a value to a field of a key</span>
-HGET<span class="w"> </span>key<span class="w"> </span>field<span class="w">  </span><span class="c1"># get a value of a field from a key</span>
-HGETALL<span class="w"> </span>key<span class="w">  </span><span class="c1"># get all fields and values from a hash, prints field first</span>
-HDEL<span class="w"> </span>key<span class="w"> </span>field<span class="w">  </span><span class="c1"># delete a field from a key</span>
-HEXISTS<span class="w"> </span>key<span class="w"> </span>field<span class="w">  </span><span class="c1"># return 1 or 0</span>
-</pre></div>
-</div>
+<section id="llms">
+<h3>LLMs<a class="headerlink" href="#llms" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Fine-Tuned</strong></dt><dd><ul>
+<li><p>created by taking base LLMs, and further train on a proprietary dataset for a
+specific task</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Instruction-Tuned</strong></dt><dd><ul>
+<li><p>fine-tuned with task-specific datasets and RLHF</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Dialogue-Tuned</strong></dt><dd><ul>
+<li><p>enhanced instruction-tuned LLMs</p></li>
+<li><p>uses dialogue dataset and chat format</p></li>
+<li><p>text is divided into parts associated with a role</p></li>
+<li><p>System role: for instructions and framing the task</p></li>
+<li><p>User role: actual task or question</p></li>
+<li><p>Assistant role: for outputs of the model</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="zero-shot-prompting">
+<h3>Zero-Shot Prompting<a class="headerlink" href="#zero-shot-prompting" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>simply telling the LLM to perform the desired task</p></li>
+<li><p>usually work for simple questions</p></li>
+<li><p>will need to iterate on prompts and responses to get a reliable system</p></li>
+<li><dl class="simple">
+<dt><strong>Chain-of-Thought</strong></dt><dd><ul>
+<li><p>instructing the model to take time to think</p></li>
+<li><p>prepending the prompt with instructions form the LLM to describe how it could arrive
+at the answer</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Retrieval-Augmented Generation</strong></dt><dd><ul>
+<li><p>RAG: finding relevant context, and including them in the prompt</p></li>
+<li><p>should be combined with CoT</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Tool Calling</strong></dt><dd><ul>
+<li><p>prepending the prompt with a list of external functions LLM can use</p></li>
+<li><p>developer should parse the output, and call functions that the LLM wants to use</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="few-shot-prompting">
+<h3>Few-Shot Prompting<a class="headerlink" href="#few-shot-prompting" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>providing LLM with examples of other questions and correct answers</p></li>
+<li><p>enables LLM to learn how to perform a new task without going through additional training
+or fine-tuning</p></li>
+<li><p>less powerful than fine-tuning, but more flexible and can do it at query time</p></li>
+<li><dl class="simple">
+<dt><strong>Static</strong></dt><dd><ul>
+<li><p>include a predetermined list of a small number of examples in the prompt</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Dynamic</strong></dt><dd><ul>
+<li><p>from a dataset of many examples, choose the most relevant ones for each new query</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#langchain">back to top</a></p>
+</section>
+</section>
 </section>
 
 
@@ -389,20 +485,20 @@ HEXISTS<span class="w"> </span>key<span class="w"> </span>field<span class="w"> 
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="React.html"
+       href="Kubernetes.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">React</p>
+        <p class="prev-next-title">Kubernetes</p>
       </div>
     </a>
     <a class="right-next"
-       href="SFML.html"
+       href="Linux.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">SFML</p>
+        <p class="prev-next-title">Linux</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -412,6 +508,28 @@ HEXISTS<span class="w"> </span>key<span class="w"> </span>field<span class="w"> 
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prompting-basics">Prompting Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#llms">LLMs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-shot-prompting">Zero-Shot Prompting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#few-shot-prompting">Few-Shot Prompting</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
