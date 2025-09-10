@@ -4,7 +4,8 @@ LangChain
 
 1. `Basics`_
 2. `Data Manipulation`_
-3. `Prompting Basics`_
+3. `RAG`_
+4. `Prompting Basics`_
 
 `back to top <#langchain>`_
 
@@ -171,15 +172,20 @@ Component Composition
 
 `back to top <#langchain>`_
 
-Data Manipulation
-=================
+RAG
+===
 
-* `Data Indexing`_, `Indexing Optimisations`_
-* Retrieving: get data from the index, and use as context for the LLM
+* `Data Indexing`_, `Indexing Optimisations`_, `Query Transformation`_, `Query Routing`_
 
 Data Indexing
 -------------
-    * preprocessing data so application can find the most relevant ones for each question
+    * indexing is a technique to enhance LLM output by providing context from external sources
+    * processing external data source, and storing embeddings in a vector store
+    * embed a user's query, retrieve similar documents, and passing them as context to the
+      prompt
+    * Retrieving: getting relevant embeddings and data stored in the vector store based on
+      user's query
+    * Generation: synthesising original prompt with the retrieved relevant documents
     * Ingestion: converting documents into embeddings, and storing in vector store
     * Context Window: size of input and output tokens LLMs and embedding models can handle
     * **Document Loader**
@@ -359,19 +365,20 @@ Indexing Optimisations
 
            from langchain_core.output_parsers import StrOutputParser
            from langchain_core.prompts import ChatPromptTemplate
-           from langchain.retrievers.multi_vector import MultiVectorRetriever
            from langchain.storage import InMemoryStore
+           from langchain_postgres import PGVector
+           from langchain.retrievers.multi_vector import MultiVectorRetriever
+   
+           # load the document, split, create embeddings and LLM model
    
            prompt_text = "Summarize the following document:\n\n{doc}"
    
            prompt = ChatPromptTemplate.from_template(prompt_text)
    
-           llm = ChatOpenAI(temperature=0, model="gpt-3.5-turbo")
-   
-           summarize_chain = {
+           summarise_chain = {
                "doc": lambda x: x.page_content} | prompt | llm | StrOutputParser()
    
-           summaries = summarize_chain.batch(chunks, {"max_concurrency": 5})
+           summaries = summarise_chain.batch(chunks, {"max_concurrency": 5})
    
            vectorstore = PGVector(
                embeddings=embeddings_model,
@@ -404,10 +411,268 @@ Indexing Optimisations
    
            # vector store retrieves the summaries
            sub_docs = retriever.vectorstore.similarity_search(
-               "chapter on philosophy", k=2)
+               "topic", k=2)
    
            # retriever return the larger source document chunks
-           retrieved_docs = retriever.invoke("chapter on philosophy")
+           retrieved_docs = retriever.invoke("topic")
+
+
+    * **RAPTOR**
+        - Recursive Abstractive Processing for Tree-Organised Retrieval
+        - creating document summaries for higher-level concepts, embedding and clustering them
+          and summarising each cluster
+        - recursively done to produce a tree of higher-level summaries
+        - then the summaries and initial documents are indexed together
+    * **ColBERT**
+        - effective embeddings approach for better retrieval
+        - generate contextual embeddings for each token in the document and query
+        - calculate and score similarity between each query token and all document tokens
+        - sum the max similarity score of each query embedding to any of the document
+          embeddings to get a score for each document
+
+Query Transformation
+--------------------
+    * modifying user input to be more or less abstract to generate accurate LLM output
+    * **Rewrite-Retrieve-Read**
+        - prompts the LLM to rewrite the user's query before performing retrieval
+        - remove irrelevant information in the query with the help of LLM
+        - but will add additional latency in the chain due to more LLM calls
+
+        .. code-block:: python
+
+           rewrite_prompt = ChatPromptTemplate.from_template("""
+           Provide a better search query for web search engine to answer the given
+           question, end the queries with '**'. Question: {x} Answer:
+           """)
+   
+           def parse_rewriter_output(message):
+               return message.content.strip('"').strip("**")
+   
+           rewriter = rewrite_prompt | llm | parse_rewriter_output
+   
+           @chain
+           def qa_rrr(input):
+               new_query = rewriter.invoke(input)
+               docs = retriever.invoke(new_query)
+               formatted = prompt.invoke({"context": docs, "question": input})
+               answer = llm.invoke(formatted)
+               return answer
+   
+           qa_rrr.invoke("Query with irrelevant information")
+
+
+    * **Multi-Query Retrieval**
+        - tell LLM to generate multiple queries based on the user's initial one
+        - each query is retrieved in parallel and inserted as prompt context for final output
+        - useful when a single question may rely on multiple perspectives for an answer
+        - should deduplicate documents as single retriever is used with multiple queries
+
+        .. code-block:: python
+
+           perspectives_prompt = ChatPromptTemplate.from_template("""
+           You are an AI language model assistant. Your task is to generate five
+           different versions of the given user question to retrieve relvant documents
+           from a vector database. By generating multiple perspectives on the user
+           question, your goal is to help the user overcome come of the limitations of
+           the distance-based similarity search. Provide these alternative questions
+           separated by newlines. Original question: {question}
+           """)
+   
+           def parse_queries_output(message):
+               return message.content.split('\n')
+   
+           query_gen = perspectives_prompt | llm | parse_queries_output
+   
+           def get_unique_union(document_lists):
+               deduped_docs = {
+                   doc.page_content: doc
+                   for sublist in document_lists for doc in sublist
+               }
+   
+               return list(deduped_docs.values())
+   
+           retrieval_chain = query_gen | retriever.batch | get_unique_union
+   
+           @chain
+           def multi_query_qa(input):
+               docs = retrieval_chain.invoke(input)
+               formatted = prompt.invoke({"context": docs, "question": input})
+               ans = llm.invoke(formatted)
+               return ans
+   
+           multi_query_qa.invoke("Question")
+
+
+    * **RAG-Fusion**
+        - similar to the Multi-Query retrieval
+        - retrieved documents are re-ranked at the final step with RRF (Reciprocal Rank
+          Fusion) algorithm, pulling the most relevant documents to the top
+        - RRF is ideal for combining results from queries with different scales or
+          distributions of scores
+
+        .. code-block:: python
+
+           # def multi_query_qa()
+   
+           prompt_rag_fusion = ChatPromptTemplate.from_template("""
+           You are a helpful assistant that generates multiple search queries based on
+           a single input query.\n
+           Generate multiple search queries related to: {question} \n
+           Output (4 queries):
+           """)
+   
+           query_gen = prompt_rag_fusion | llm | parse_queries_output
+   
+           retrieval_chain = query_gen | retriever.batch | reciprocal_rank_fusion
+   
+           multi_query_qa.invoke("Question")
+   
+           def reciprocal_rank_fusion(results: list[list], k=60):
+               fused_scores = {}
+               documents = {}
+   
+               for docs in results:
+                   for rank, doc in enumerate(docs):
+                       doc_str = doc.page_content
+                       if doc_str not in fused_scores:
+                           fused_scores[doc_str] = 0
+                           documents[doc_str] = doc
+   
+                       fused_scores[doc_str] += 1 / (rank + k)
+   
+               reranked_doc_strs = sorted(
+                   fused_scores, key=lambda d: fused_scores[d], reverse=True)
+   
+               return [documents[doc_str] for doc_str in reranked_doc_strs]
+
+
+    * **HyDE**
+        - Hypothetical Document Embeddings
+        - create hypothetical document based on user's query, embed it, and retrieve relevant
+          documents based on vector similarity
+
+        .. code-block:: python
+
+           prompt_hyde = ChatPromptTemplate.from_template("""
+           Please write a passage to answer the question.\n
+           Question: {question} \n
+           Passage:
+           """)
+   
+           prompt = ChatPromptTemplate.from_template("""
+           Answer the following question based on this context:
+   
+           {context}
+   
+           Question: {question}
+           """)
+   
+           generate_doc = prompt | llm | StrOutputParser()
+   
+           retrieval_chain = generate_doc | retriever
+   
+           @chain
+           def qa(input):
+               docs = retrieval_chain.invoke(input)
+               formatted = prompt.invoke({"context": docs, "question": input})
+               answer = llm.invoke(formatted)
+               return answer
+   
+           qa.invoke("Question")
+
+
+
+Query Routing
+-------------
+    * to forward user's query to the relevant data source
+    * **Logical Routing**
+        - let LLM decide which data source to apply based on the query
+        - function-calling models are used to help classify each query
+        - need to define a schema that the model can use to generate arguments of a function
+          based on the query
+        - extracted data source can be passed into other functions for additional logic
+        - suitable when a defined list of data sources is available
+
+        .. code-block:: python
+
+           from pydantic import BaseModel, Field
+           from typing import Literal
+   
+           class RouteQuery(BaseModel):
+               datasource: Literal["source_1", "source_2"] = Field(
+                   ...,
+                   description="""Given a user question, choose which datasource would be
+                   most relevant for answering their question
+                   """)
+   
+           def choose_route(result):
+               if "source_1" in result.datasource.lower():
+                   return "chain for source_1"
+               else:
+                   return "chain for source_2"
+   
+           structured_llm = llm.with_structured_output(RouteQuery)
+   
+           system = """You are an expert at routing a user question to the appropriate
+           data source.
+   
+           Based on the programming language the question is referring to, route it to
+           the relevant data source.
+           """
+   
+           prompt = ChatPromptTemplate.from_messages(
+               [
+                   ("system", system),
+                   ("human", "{question}")
+               ]
+           )
+   
+           router = prompt | structured_llm
+   
+           question = "Question"
+   
+           # chaining for additional logic
+           full_chain = router | RunnableLambda(choose_route)
+   
+           result = full_chain.invoke({"question": question})
+
+
+    * **Semantic Routing**
+        - embedding various prompts of various data sources with the query, and doing vector
+          similarity search for the most similar prompt
+
+        .. code-block:: python
+
+           from langchain_core.prompts import PromptTemplate
+           from langchain.utils.math import cosine_similarity
+   
+           template_1 = """Template 1
+           Here is a question:
+           {query}
+           """
+   
+           template_2 = """Template 2
+           Here is a question:
+           {query}
+           """
+   
+           prompt_templates = [template_1, template_2]
+           prompt_embeddings = embedding_model.embed_documents(prompt_templates)
+   
+           @chain
+           def prompt_router(query):
+               query_embedding = embedding_model.embed_query(query)
+               similarity = cosine_similarity([query_embedding], prompt_embeddings)[0]
+               most_similar = prompt_templates[similarity.argmax()]
+               return PromptTemplate.from_template(most_similar)
+   
+           semantic_router = (
+               prompt_router
+               | llm
+               | StrOutputParser()
+           )
+   
+           semantic_router.invoke("Question")
 
 
 `back to top <#langchain>`_

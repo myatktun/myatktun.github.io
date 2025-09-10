@@ -338,9 +338,11 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#component-composition">Component Composition</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-manipulation">Data Manipulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rag">RAG</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-indexing">Data Indexing</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-optimisations">Indexing Optimisations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query-transformation">Query Transformation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query-routing">Query Routing</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prompting-basics">Prompting Basics</a><ul class="nav section-nav flex-column">
@@ -364,7 +366,8 @@
 <h1>LangChain<a class="headerlink" href="#langchain" title="Link to this heading">#</a></h1>
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="#basics">Basics</a></p></li>
-<li><p><a class="reference internal" href="#data-manipulation">Data Manipulation</a></p></li>
+<li><p><a href="#id4"><span class="problematic" id="id5">`Data Manipulation`_</span></a></p></li>
+<li><p><a class="reference internal" href="#rag">RAG</a></p></li>
 <li><p><a class="reference internal" href="#prompting-basics">Prompting Basics</a></p></li>
 </ol>
 <p><a class="reference external" href="#langchain">back to top</a></p>
@@ -566,17 +569,22 @@ prediction as output</p></li>
 <p><a class="reference external" href="#langchain">back to top</a></p>
 </section>
 </section>
-<section id="data-manipulation">
-<h2>Data Manipulation<a class="headerlink" href="#data-manipulation" title="Link to this heading">#</a></h2>
+<section id="rag">
+<h2>RAG<a class="headerlink" href="#rag" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#data-indexing">Data Indexing</a>, <a class="reference internal" href="#indexing-optimisations">Indexing Optimisations</a></p></li>
-<li><p>Retrieving: get data from the index, and use as context for the LLM</p></li>
+<li><p><a class="reference internal" href="#data-indexing">Data Indexing</a>, <a class="reference internal" href="#indexing-optimisations">Indexing Optimisations</a>, <a class="reference internal" href="#query-transformation">Query Transformation</a>, <a class="reference internal" href="#query-routing">Query Routing</a></p></li>
 </ul>
 <section id="data-indexing">
 <h3>Data Indexing<a class="headerlink" href="#data-indexing" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul>
-<li><p>preprocessing data so application can find the most relevant ones for each question</p></li>
+<li><p>indexing is a technique to enhance LLM output by providing context from external sources</p></li>
+<li><p>processing external data source, and storing embeddings in a vector store</p></li>
+<li><p>embed a user’s query, retrieve similar documents, and passing them as context to the
+prompt</p></li>
+<li><p>Retrieving: getting relevant embeddings and data stored in the vector store based on
+user’s query</p></li>
+<li><p>Generation: synthesising original prompt with the retrieved relevant documents</p></li>
 <li><p>Ingestion: converting documents into embeddings, and storing in vector store</p></li>
 <li><p>Context Window: size of input and output tokens LLMs and embedding models can handle</p></li>
 <li><dl class="simple">
@@ -772,19 +780,20 @@ reference to the full raw table, which is stored in a separate Docstore</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_core.output_parsers</span> <span class="kn">import</span> <span class="n">StrOutputParser</span>
 <span class="kn">from</span> <span class="nn">langchain_core.prompts</span> <span class="kn">import</span> <span class="n">ChatPromptTemplate</span>
-<span class="kn">from</span> <span class="nn">langchain.retrievers.multi_vector</span> <span class="kn">import</span> <span class="n">MultiVectorRetriever</span>
 <span class="kn">from</span> <span class="nn">langchain.storage</span> <span class="kn">import</span> <span class="n">InMemoryStore</span>
+<span class="kn">from</span> <span class="nn">langchain_postgres</span> <span class="kn">import</span> <span class="n">PGVector</span>
+<span class="kn">from</span> <span class="nn">langchain.retrievers.multi_vector</span> <span class="kn">import</span> <span class="n">MultiVectorRetriever</span>
+
+<span class="c1"># load the document, split, create embeddings and LLM model</span>
 
 <span class="n">prompt_text</span> <span class="o">=</span> <span class="s2">&quot;Summarize the following document:</span><span class="se">\n\n</span><span class="si">{doc}</span><span class="s2">&quot;</span>
 
 <span class="n">prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="o">.</span><span class="n">from_template</span><span class="p">(</span><span class="n">prompt_text</span><span class="p">)</span>
 
-<span class="n">llm</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo&quot;</span><span class="p">)</span>
-
-<span class="n">summarize_chain</span> <span class="o">=</span> <span class="p">{</span>
+<span class="n">summarise_chain</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">page_content</span><span class="p">}</span> <span class="o">|</span> <span class="n">prompt</span> <span class="o">|</span> <span class="n">llm</span> <span class="o">|</span> <span class="n">StrOutputParser</span><span class="p">()</span>
 
-<span class="n">summaries</span> <span class="o">=</span> <span class="n">summarize_chain</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">chunks</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;max_concurrency&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+<span class="n">summaries</span> <span class="o">=</span> <span class="n">summarise_chain</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">chunks</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;max_concurrency&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
 
 <span class="n">vectorstore</span> <span class="o">=</span> <span class="n">PGVector</span><span class="p">(</span>
     <span class="n">embeddings</span><span class="o">=</span><span class="n">embeddings_model</span><span class="p">,</span>
@@ -817,10 +826,298 @@ reference to the full raw table, which is stored in a separate Docstore</p></li>
 
 <span class="c1"># vector store retrieves the summaries</span>
 <span class="n">sub_docs</span> <span class="o">=</span> <span class="n">retriever</span><span class="o">.</span><span class="n">vectorstore</span><span class="o">.</span><span class="n">similarity_search</span><span class="p">(</span>
-    <span class="s2">&quot;chapter on philosophy&quot;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="s2">&quot;topic&quot;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># retriever return the larger source document chunks</span>
-<span class="n">retrieved_docs</span> <span class="o">=</span> <span class="n">retriever</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&quot;chapter on philosophy&quot;</span><span class="p">)</span>
+<span class="n">retrieved_docs</span> <span class="o">=</span> <span class="n">retriever</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&quot;topic&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>RAPTOR</strong></dt><dd><ul class="simple">
+<li><p>Recursive Abstractive Processing for Tree-Organised Retrieval</p></li>
+<li><p>creating document summaries for higher-level concepts, embedding and clustering them
+and summarising each cluster</p></li>
+<li><p>recursively done to produce a tree of higher-level summaries</p></li>
+<li><p>then the summaries and initial documents are indexed together</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>ColBERT</strong></dt><dd><ul class="simple">
+<li><p>effective embeddings approach for better retrieval</p></li>
+<li><p>generate contextual embeddings for each token in the document and query</p></li>
+<li><p>calculate and score similarity between each query token and all document tokens</p></li>
+<li><p>sum the max similarity score of each query embedding to any of the document
+embeddings to get a score for each document</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="query-transformation">
+<h3>Query Transformation<a class="headerlink" href="#query-transformation" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>modifying user input to be more or less abstract to generate accurate LLM output</p></li>
+<li><dl>
+<dt><strong>Rewrite-Retrieve-Read</strong></dt><dd><ul class="simple">
+<li><p>prompts the LLM to rewrite the user’s query before performing retrieval</p></li>
+<li><p>remove irrelevant information in the query with the help of LLM</p></li>
+<li><p>but will add additional latency in the chain due to more LLM calls</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rewrite_prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="o">.</span><span class="n">from_template</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Provide a better search query for web search engine to answer the given</span>
+<span class="s2">question, end the queries with &#39;**&#39;. Question: </span><span class="si">{x}</span><span class="s2"> Answer:</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">parse_rewriter_output</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">message</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;**&quot;</span><span class="p">)</span>
+
+<span class="n">rewriter</span> <span class="o">=</span> <span class="n">rewrite_prompt</span> <span class="o">|</span> <span class="n">llm</span> <span class="o">|</span> <span class="n">parse_rewriter_output</span>
+
+<span class="nd">@chain</span>
+<span class="k">def</span> <span class="nf">qa_rrr</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+    <span class="n">new_query</span> <span class="o">=</span> <span class="n">rewriter</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+    <span class="n">docs</span> <span class="o">=</span> <span class="n">retriever</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">new_query</span><span class="p">)</span>
+    <span class="n">formatted</span> <span class="o">=</span> <span class="n">prompt</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s2">&quot;context&quot;</span><span class="p">:</span> <span class="n">docs</span><span class="p">,</span> <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="nb">input</span><span class="p">})</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">formatted</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">answer</span>
+
+<span class="n">qa_rrr</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&quot;Query with irrelevant information&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Multi-Query Retrieval</strong></dt><dd><ul class="simple">
+<li><p>tell LLM to generate multiple queries based on the user’s initial one</p></li>
+<li><p>each query is retrieved in parallel and inserted as prompt context for final output</p></li>
+<li><p>useful when a single question may rely on multiple perspectives for an answer</p></li>
+<li><p>should deduplicate documents as single retriever is used with multiple queries</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">perspectives_prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="o">.</span><span class="n">from_template</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">You are an AI language model assistant. Your task is to generate five</span>
+<span class="s2">different versions of the given user question to retrieve relvant documents</span>
+<span class="s2">from a vector database. By generating multiple perspectives on the user</span>
+<span class="s2">question, your goal is to help the user overcome come of the limitations of</span>
+<span class="s2">the distance-based similarity search. Provide these alternative questions</span>
+<span class="s2">separated by newlines. Original question: </span><span class="si">{question}</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">parse_queries_output</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">message</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">query_gen</span> <span class="o">=</span> <span class="n">perspectives_prompt</span> <span class="o">|</span> <span class="n">llm</span> <span class="o">|</span> <span class="n">parse_queries_output</span>
+
+<span class="k">def</span> <span class="nf">get_unique_union</span><span class="p">(</span><span class="n">document_lists</span><span class="p">):</span>
+    <span class="n">deduped_docs</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">doc</span><span class="o">.</span><span class="n">page_content</span><span class="p">:</span> <span class="n">doc</span>
+        <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">document_lists</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">sublist</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">deduped_docs</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+<span class="n">retrieval_chain</span> <span class="o">=</span> <span class="n">query_gen</span> <span class="o">|</span> <span class="n">retriever</span><span class="o">.</span><span class="n">batch</span> <span class="o">|</span> <span class="n">get_unique_union</span>
+
+<span class="nd">@chain</span>
+<span class="k">def</span> <span class="nf">multi_query_qa</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+    <span class="n">docs</span> <span class="o">=</span> <span class="n">retrieval_chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+    <span class="n">formatted</span> <span class="o">=</span> <span class="n">prompt</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s2">&quot;context&quot;</span><span class="p">:</span> <span class="n">docs</span><span class="p">,</span> <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="nb">input</span><span class="p">})</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">formatted</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ans</span>
+
+<span class="n">multi_query_qa</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&quot;Question&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>RAG-Fusion</strong></dt><dd><ul class="simple">
+<li><p>similar to the Multi-Query retrieval</p></li>
+<li><p>retrieved documents are re-ranked at the final step with RRF (Reciprocal Rank
+Fusion) algorithm, pulling the most relevant documents to the top</p></li>
+<li><p>RRF is ideal for combining results from queries with different scales or
+distributions of scores</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># def multi_query_qa()</span>
+
+<span class="n">prompt_rag_fusion</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="o">.</span><span class="n">from_template</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">You are a helpful assistant that generates multiple search queries based on</span>
+<span class="s2">a single input query.</span><span class="se">\n</span>
+<span class="s2">Generate multiple search queries related to: </span><span class="si">{question}</span><span class="s2"> </span><span class="se">\n</span>
+<span class="s2">Output (4 queries):</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="n">query_gen</span> <span class="o">=</span> <span class="n">prompt_rag_fusion</span> <span class="o">|</span> <span class="n">llm</span> <span class="o">|</span> <span class="n">parse_queries_output</span>
+
+<span class="n">retrieval_chain</span> <span class="o">=</span> <span class="n">query_gen</span> <span class="o">|</span> <span class="n">retriever</span><span class="o">.</span><span class="n">batch</span> <span class="o">|</span> <span class="n">reciprocal_rank_fusion</span>
+
+<span class="n">multi_query_qa</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&quot;Question&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">reciprocal_rank_fusion</span><span class="p">(</span><span class="n">results</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="mi">60</span><span class="p">):</span>
+    <span class="n">fused_scores</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">documents</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">docs</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">rank</span><span class="p">,</span> <span class="n">doc</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">docs</span><span class="p">):</span>
+            <span class="n">doc_str</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">page_content</span>
+            <span class="k">if</span> <span class="n">doc_str</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">fused_scores</span><span class="p">:</span>
+                <span class="n">fused_scores</span><span class="p">[</span><span class="n">doc_str</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">documents</span><span class="p">[</span><span class="n">doc_str</span><span class="p">]</span> <span class="o">=</span> <span class="n">doc</span>
+
+            <span class="n">fused_scores</span><span class="p">[</span><span class="n">doc_str</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">rank</span> <span class="o">+</span> <span class="n">k</span><span class="p">)</span>
+
+    <span class="n">reranked_doc_strs</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
+        <span class="n">fused_scores</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">fused_scores</span><span class="p">[</span><span class="n">d</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">documents</span><span class="p">[</span><span class="n">doc_str</span><span class="p">]</span> <span class="k">for</span> <span class="n">doc_str</span> <span class="ow">in</span> <span class="n">reranked_doc_strs</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>HyDE</strong></dt><dd><ul class="simple">
+<li><p>Hypothetical Document Embeddings</p></li>
+<li><p>create hypothetical document based on user’s query, embed it, and retrieve relevant
+documents based on vector similarity</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">prompt_hyde</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="o">.</span><span class="n">from_template</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Please write a passage to answer the question.</span><span class="se">\n</span>
+<span class="s2">Question: </span><span class="si">{question}</span><span class="s2"> </span><span class="se">\n</span>
+<span class="s2">Passage:</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="n">prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="o">.</span><span class="n">from_template</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Answer the following question based on this context:</span>
+
+<span class="si">{context}</span>
+
+<span class="s2">Question: </span><span class="si">{question}</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="n">generate_doc</span> <span class="o">=</span> <span class="n">prompt</span> <span class="o">|</span> <span class="n">llm</span> <span class="o">|</span> <span class="n">StrOutputParser</span><span class="p">()</span>
+
+<span class="n">retrieval_chain</span> <span class="o">=</span> <span class="n">generate_doc</span> <span class="o">|</span> <span class="n">retriever</span>
+
+<span class="nd">@chain</span>
+<span class="k">def</span> <span class="nf">qa</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+    <span class="n">docs</span> <span class="o">=</span> <span class="n">retrieval_chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+    <span class="n">formatted</span> <span class="o">=</span> <span class="n">prompt</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s2">&quot;context&quot;</span><span class="p">:</span> <span class="n">docs</span><span class="p">,</span> <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="nb">input</span><span class="p">})</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">formatted</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">answer</span>
+
+<span class="n">qa</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&quot;Question&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="query-routing">
+<h3>Query Routing<a class="headerlink" href="#query-routing" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>to forward user’s query to the relevant data source</p></li>
+<li><dl>
+<dt><strong>Logical Routing</strong></dt><dd><ul class="simple">
+<li><p>let LLM decide which data source to apply based on the query</p></li>
+<li><p>function-calling models are used to help classify each query</p></li>
+<li><p>need to define a schema that the model can use to generate arguments of a function
+based on the query</p></li>
+<li><p>extracted data source can be passed into other functions for additional logic</p></li>
+<li><p>suitable when a defined list of data sources is available</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span>
+
+<span class="k">class</span> <span class="nc">RouteQuery</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">datasource</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;source_1&quot;</span><span class="p">,</span> <span class="s2">&quot;source_2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="o">...</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;Given a user question, choose which datasource would be</span>
+<span class="s2">        most relevant for answering their question</span>
+<span class="s2">        &quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">choose_route</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s2">&quot;source_1&quot;</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">datasource</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+        <span class="k">return</span> <span class="s2">&quot;chain for source_1&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;chain for source_2&quot;</span>
+
+<span class="n">structured_llm</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">with_structured_output</span><span class="p">(</span><span class="n">RouteQuery</span><span class="p">)</span>
+
+<span class="n">system</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;You are an expert at routing a user question to the appropriate</span>
+<span class="s2">data source.</span>
+
+<span class="s2">Based on the programming language the question is referring to, route it to</span>
+<span class="s2">the relevant data source.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="o">.</span><span class="n">from_messages</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">(</span><span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="n">system</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;human&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{question}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">router</span> <span class="o">=</span> <span class="n">prompt</span> <span class="o">|</span> <span class="n">structured_llm</span>
+
+<span class="n">question</span> <span class="o">=</span> <span class="s2">&quot;Question&quot;</span>
+
+<span class="c1"># chaining for additional logic</span>
+<span class="n">full_chain</span> <span class="o">=</span> <span class="n">router</span> <span class="o">|</span> <span class="n">RunnableLambda</span><span class="p">(</span><span class="n">choose_route</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">full_chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="n">question</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Semantic Routing</strong></dt><dd><ul class="simple">
+<li><p>embedding various prompts of various data sources with the query, and doing vector
+similarity search for the most similar prompt</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_core.prompts</span> <span class="kn">import</span> <span class="n">PromptTemplate</span>
+<span class="kn">from</span> <span class="nn">langchain.utils.math</span> <span class="kn">import</span> <span class="n">cosine_similarity</span>
+
+<span class="n">template_1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Template 1</span>
+<span class="s2">Here is a question:</span>
+<span class="si">{query}</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">template_2</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Template 2</span>
+<span class="s2">Here is a question:</span>
+<span class="si">{query}</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">prompt_templates</span> <span class="o">=</span> <span class="p">[</span><span class="n">template_1</span><span class="p">,</span> <span class="n">template_2</span><span class="p">]</span>
+<span class="n">prompt_embeddings</span> <span class="o">=</span> <span class="n">embedding_model</span><span class="o">.</span><span class="n">embed_documents</span><span class="p">(</span><span class="n">prompt_templates</span><span class="p">)</span>
+
+<span class="nd">@chain</span>
+<span class="k">def</span> <span class="nf">prompt_router</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
+    <span class="n">query_embedding</span> <span class="o">=</span> <span class="n">embedding_model</span><span class="o">.</span><span class="n">embed_query</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    <span class="n">similarity</span> <span class="o">=</span> <span class="n">cosine_similarity</span><span class="p">([</span><span class="n">query_embedding</span><span class="p">],</span> <span class="n">prompt_embeddings</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">most_similar</span> <span class="o">=</span> <span class="n">prompt_templates</span><span class="p">[</span><span class="n">similarity</span><span class="o">.</span><span class="n">argmax</span><span class="p">()]</span>
+    <span class="k">return</span> <span class="n">PromptTemplate</span><span class="o">.</span><span class="n">from_template</span><span class="p">(</span><span class="n">most_similar</span><span class="p">)</span>
+
+<span class="n">semantic_router</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">prompt_router</span>
+    <span class="o">|</span> <span class="n">llm</span>
+    <span class="o">|</span> <span class="n">StrOutputParser</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="n">semantic_router</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&quot;Question&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd>
@@ -990,9 +1287,11 @@ or fine-tuning</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#component-composition">Component Composition</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-manipulation">Data Manipulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rag">RAG</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-indexing">Data Indexing</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-optimisations">Indexing Optimisations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query-transformation">Query Transformation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query-routing">Query Routing</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prompting-basics">Prompting Basics</a><ul class="nav section-nav flex-column">
