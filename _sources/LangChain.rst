@@ -5,7 +5,8 @@ LangChain
 1. `Basics`_
 2. `Data Manipulation`_
 3. `RAG`_
-4. `Prompting Basics`_
+4. `LangGraph`_
+5. `Prompting Basics`_
 
 `back to top <#langchain>`_
 
@@ -176,6 +177,7 @@ RAG
 ===
 
 * `Data Indexing`_, `Indexing Optimisations`_, `Query Transformation`_, `Query Routing`_
+* `Query Construction`_
 
 Data Indexing
 -------------
@@ -674,6 +676,152 @@ Query Routing
    
            semantic_router.invoke("Question")
 
+
+
+Query Construction
+------------------
+    * convert natural language query into language of database or data source
+    * **Text-to-Metadata Filter**
+        - can attach metadata key-value pairs to vectors in an index during embedding process
+        - filter expressions will be used during query
+        - ``SelfQueryRetriever`` uses LLM to extract and execute relevant metadata filters based
+          on user's query and predefined metadata schema
+        - retriever will send query generation prompt, parse metadata filter and rewritten
+          query, convert the metadata filter for vector store, and run similarity search
+          against the vector store
+
+        .. code-block:: python
+
+           from langchain.chains.query_constructor.schema import AttributeInfo
+           from langchain.retrievers.self_query.base import SelfQueryRetriever
+   
+           fields = [
+               AttributeInfo(
+                   name="NAME",
+                   description="DESC",
+                   type="string or list[string]"
+               ),
+           ]
+   
+           description = "DESC"
+   
+           retriever = SelfQueryRetriever.from_llm(llm, db, description, fields)
+   
+           retriever.invoke("Question")
+
+
+    * **Text-to-SQL**
+        - Database description: provide LLM with accurate description of the database, such as
+          ``CREATE TABLE`` description for each table with column names and types, and can also
+          include example rows from the table
+        - Few-shot examples: append standard static examples in the prompt to guide the agent
+          on how it should build queries based on questions
+        - always run queries with a user with read-only permissions
+        - database user running the queries should have access only to the necessary tables
+        - add a time-out to the queries to protect from expensive query
+
+        .. code-block:: python
+
+           from langchain_community.tools.sql_database.tool import QuerySQLDatabaseTool
+           from langchain_community.utilities import SQLDatabase
+           from langchain.chains.sql_database.query import create_sql_query_chain
+   
+           db = SQLDatabase.from_uri(connection)
+   
+           write_query = create_sql_query_chain(llm, db)
+           execute_query = QuerySQLDatabaseTool(db=db)
+   
+           chain = write_query | execute_query
+           chain.invoke('Question')
+
+
+`back to top <#langchain>`_
+
+LangGraph
+=========
+
+* `Graph`_, `Memory`_, `Multiactor`_
+
+Graph
+-----
+    * LangGraph is an open source library by LangChain
+    * enable developers to implement multiactor, multistep, and stateful cognitive architectures
+      called graphs
+    * State: data received from outside, modified and produced by the app
+    * Node: Python or JavaScript functions, receiving current state and returning updated state
+    * Edge: connection between nodes, can be fixed path or conditional
+    * need to define the state of the graph first
+    * state keys without an annotation will be overwritten
+    * without explicit instruction, execution is stopped when there's no more nodes to run
+    * graph is compiled into a runnable object
+
+    .. code-block:: python
+
+       from typing import Annotated, TypedDict
+       from langchain_core.messages import HumanMessage
+       from langchain_openai import ChatOpenAI
+       from langgraph.graph import END, START, StateGraph
+       from langgraph.graph.message import add_messages
+   
+       class State(TypedDict):
+           messages: Annotated[list, add_messages]
+   
+       builder = StateGraph(State)
+       llm = ChatOpenAI(model="gpt-3.5-turbo")
+   
+       def chatbot(state: State):
+           answer = llm.invoke(state["messages"])
+           return {"messages": [answer]}
+   
+       builder.add_node("chatbot", chatbot)
+   
+       builder.add_edge(START, "chatbot")
+       builder.add_edge("chatbot", END)
+   
+       graph = builder.compile()
+   
+       input = {"messages": [HumanMessage('hi!')]}
+   
+       for chunk in graph.stream(input):
+           print(chunk)
+
+
+
+Memory
+------
+    * LLMs are stateless, with prior prompt or model response is lost with a new response
+    * including previous conversations and context in the final prompt can give memory
+    * chat history can be stored as a list of messages, append recent messages after each turn,
+      or append into prompt by inserting the messages into the prompt
+    * appending chat history in the prompt have scalability issues
+    * Checkpointer: storage adapter for in-memory, SQLite, Postgres, Redis, and MySQL
+    * Thread: also called interaction, auto created when first used
+
+    .. code-block:: python
+
+       from langgraph.checkpoint.memory import MemorySaver
+       from langchain_core.runnables.config import RunnableConfig
+   
+       # stores the state at the end of each step
+       graph = builder.compile(checkpointer=MemorySaver())
+   
+       thread_1 = RunnableConfig({"configurable": {"thread_id": "1"}})
+       result_1 = graph.invoke(
+           {"messages": [HumanMessage("hi, my name is Jack!")]}, thread_1
+       )
+   
+       result_2 = graph.invoke(
+           {"messages": [HumanMessage("what is my name?")]}, thread_1)
+
+
+
+Multiactor
+----------
+    * application with multiple actors needs a coordination layer to define actors, hand off
+      work, and schedule execution of each actor
+    * each actor should help update a single central state
+    * with a single  central state, a snapshot can be made, execution can be paused and
+      human-in-the-loop control can be implemented
 
 `back to top <#langchain>`_
 

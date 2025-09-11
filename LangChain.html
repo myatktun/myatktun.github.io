@@ -343,6 +343,13 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-optimisations">Indexing Optimisations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query-transformation">Query Transformation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query-routing">Query Routing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query-construction">Query Construction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langgraph">LangGraph</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph">Graph</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memory">Memory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiactor">Multiactor</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prompting-basics">Prompting Basics</a><ul class="nav section-nav flex-column">
@@ -366,8 +373,9 @@
 <h1>LangChain<a class="headerlink" href="#langchain" title="Link to this heading">#</a></h1>
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="#basics">Basics</a></p></li>
-<li><p><a href="#id4"><span class="problematic" id="id5">`Data Manipulation`_</span></a></p></li>
+<li><p><a href="#id5"><span class="problematic" id="id6">`Data Manipulation`_</span></a></p></li>
 <li><p><a class="reference internal" href="#rag">RAG</a></p></li>
+<li><p><a class="reference internal" href="#langgraph">LangGraph</a></p></li>
 <li><p><a class="reference internal" href="#prompting-basics">Prompting Basics</a></p></li>
 </ol>
 <p><a class="reference external" href="#langchain">back to top</a></p>
@@ -573,6 +581,7 @@ prediction as output</p></li>
 <h2>RAG<a class="headerlink" href="#rag" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#data-indexing">Data Indexing</a>, <a class="reference internal" href="#indexing-optimisations">Indexing Optimisations</a>, <a class="reference internal" href="#query-transformation">Query Transformation</a>, <a class="reference internal" href="#query-routing">Query Routing</a></p></li>
+<li><p><a class="reference internal" href="#query-construction">Query Construction</a></p></li>
 </ul>
 <section id="data-indexing">
 <h3>Data Indexing<a class="headerlink" href="#data-indexing" title="Link to this heading">#</a></h3>
@@ -1125,6 +1134,166 @@ similarity search for the most similar prompt</p></li>
 </li>
 </ul>
 </div></blockquote>
+</section>
+<section id="query-construction">
+<h3>Query Construction<a class="headerlink" href="#query-construction" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>convert natural language query into language of database or data source</p></li>
+<li><dl>
+<dt><strong>Text-to-Metadata Filter</strong></dt><dd><ul class="simple">
+<li><p>can attach metadata key-value pairs to vectors in an index during embedding process</p></li>
+<li><p>filter expressions will be used during query</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SelfQueryRetriever</span></code> uses LLM to extract and execute relevant metadata filters based
+on user’s query and predefined metadata schema</p></li>
+<li><p>retriever will send query generation prompt, parse metadata filter and rewritten
+query, convert the metadata filter for vector store, and run similarity search
+against the vector store</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain.chains.query_constructor.schema</span> <span class="kn">import</span> <span class="n">AttributeInfo</span>
+<span class="kn">from</span> <span class="nn">langchain.retrievers.self_query.base</span> <span class="kn">import</span> <span class="n">SelfQueryRetriever</span>
+
+<span class="n">fields</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">AttributeInfo</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;NAME&quot;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;DESC&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;string or list[string]&quot;</span>
+    <span class="p">),</span>
+<span class="p">]</span>
+
+<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;DESC&quot;</span>
+
+<span class="n">retriever</span> <span class="o">=</span> <span class="n">SelfQueryRetriever</span><span class="o">.</span><span class="n">from_llm</span><span class="p">(</span><span class="n">llm</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">fields</span><span class="p">)</span>
+
+<span class="n">retriever</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&quot;Question&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Text-to-SQL</strong></dt><dd><ul class="simple">
+<li><p>Database description: provide LLM with accurate description of the database, such as
+<code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span></code> description for each table with column names and types, and can also
+include example rows from the table</p></li>
+<li><p>Few-shot examples: append standard static examples in the prompt to guide the agent
+on how it should build queries based on questions</p></li>
+<li><p>always run queries with a user with read-only permissions</p></li>
+<li><p>database user running the queries should have access only to the necessary tables</p></li>
+<li><p>add a time-out to the queries to protect from expensive query</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_community.tools.sql_database.tool</span> <span class="kn">import</span> <span class="n">QuerySQLDatabaseTool</span>
+<span class="kn">from</span> <span class="nn">langchain_community.utilities</span> <span class="kn">import</span> <span class="n">SQLDatabase</span>
+<span class="kn">from</span> <span class="nn">langchain.chains.sql_database.query</span> <span class="kn">import</span> <span class="n">create_sql_query_chain</span>
+
+<span class="n">db</span> <span class="o">=</span> <span class="n">SQLDatabase</span><span class="o">.</span><span class="n">from_uri</span><span class="p">(</span><span class="n">connection</span><span class="p">)</span>
+
+<span class="n">write_query</span> <span class="o">=</span> <span class="n">create_sql_query_chain</span><span class="p">(</span><span class="n">llm</span><span class="p">,</span> <span class="n">db</span><span class="p">)</span>
+<span class="n">execute_query</span> <span class="o">=</span> <span class="n">QuerySQLDatabaseTool</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">)</span>
+
+<span class="n">chain</span> <span class="o">=</span> <span class="n">write_query</span> <span class="o">|</span> <span class="n">execute_query</span>
+<span class="n">chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s1">&#39;Question&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#langchain">back to top</a></p>
+</section>
+</section>
+<section id="langgraph">
+<h2>LangGraph<a class="headerlink" href="#langgraph" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#graph">Graph</a>, <a class="reference internal" href="#memory">Memory</a>, <a class="reference internal" href="#multiactor">Multiactor</a></p></li>
+</ul>
+<section id="graph">
+<h3>Graph<a class="headerlink" href="#graph" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>LangGraph is an open source library by LangChain</p></li>
+<li><p>enable developers to implement multiactor, multistep, and stateful cognitive architectures
+called graphs</p></li>
+<li><p>State: data received from outside, modified and produced by the app</p></li>
+<li><p>Node: Python or JavaScript functions, receiving current state and returning updated state</p></li>
+<li><p>Edge: connection between nodes, can be fixed path or conditional</p></li>
+<li><p>need to define the state of the graph first</p></li>
+<li><p>state keys without an annotation will be overwritten</p></li>
+<li><p>without explicit instruction, execution is stopped when there’s no more nodes to run</p></li>
+<li><p>graph is compiled into a runnable object</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Annotated</span><span class="p">,</span> <span class="n">TypedDict</span>
+<span class="kn">from</span> <span class="nn">langchain_core.messages</span> <span class="kn">import</span> <span class="n">HumanMessage</span>
+<span class="kn">from</span> <span class="nn">langchain_openai</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+<span class="kn">from</span> <span class="nn">langgraph.graph</span> <span class="kn">import</span> <span class="n">END</span><span class="p">,</span> <span class="n">START</span><span class="p">,</span> <span class="n">StateGraph</span>
+<span class="kn">from</span> <span class="nn">langgraph.graph.message</span> <span class="kn">import</span> <span class="n">add_messages</span>
+
+<span class="k">class</span> <span class="nc">State</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">messages</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="n">add_messages</span><span class="p">]</span>
+
+<span class="n">builder</span> <span class="o">=</span> <span class="n">StateGraph</span><span class="p">(</span><span class="n">State</span><span class="p">)</span>
+<span class="n">llm</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">chatbot</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">):</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;messages&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">answer</span><span class="p">]}</span>
+
+<span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;chatbot&quot;</span><span class="p">,</span> <span class="n">chatbot</span><span class="p">)</span>
+
+<span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">START</span><span class="p">,</span> <span class="s2">&quot;chatbot&quot;</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;chatbot&quot;</span><span class="p">,</span> <span class="n">END</span><span class="p">)</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">compile</span><span class="p">()</span>
+
+<span class="nb">input</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">HumanMessage</span><span class="p">(</span><span class="s1">&#39;hi!&#39;</span><span class="p">)]}</span>
+
+<span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="memory">
+<h3>Memory<a class="headerlink" href="#memory" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>LLMs are stateless, with prior prompt or model response is lost with a new response</p></li>
+<li><p>including previous conversations and context in the final prompt can give memory</p></li>
+<li><p>chat history can be stored as a list of messages, append recent messages after each turn,
+or append into prompt by inserting the messages into the prompt</p></li>
+<li><p>appending chat history in the prompt have scalability issues</p></li>
+<li><p>Checkpointer: storage adapter for in-memory, SQLite, Postgres, Redis, and MySQL</p></li>
+<li><p>Thread: also called interaction, auto created when first used</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langgraph.checkpoint.memory</span> <span class="kn">import</span> <span class="n">MemorySaver</span>
+<span class="kn">from</span> <span class="nn">langchain_core.runnables.config</span> <span class="kn">import</span> <span class="n">RunnableConfig</span>
+
+<span class="c1"># stores the state at the end of each step</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">checkpointer</span><span class="o">=</span><span class="n">MemorySaver</span><span class="p">())</span>
+
+<span class="n">thread_1</span> <span class="o">=</span> <span class="n">RunnableConfig</span><span class="p">({</span><span class="s2">&quot;configurable&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;thread_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">}})</span>
+<span class="n">result_1</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">HumanMessage</span><span class="p">(</span><span class="s2">&quot;hi, my name is Jack!&quot;</span><span class="p">)]},</span> <span class="n">thread_1</span>
+<span class="p">)</span>
+
+<span class="n">result_2</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">HumanMessage</span><span class="p">(</span><span class="s2">&quot;what is my name?&quot;</span><span class="p">)]},</span> <span class="n">thread_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="multiactor">
+<h3>Multiactor<a class="headerlink" href="#multiactor" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>application with multiple actors needs a coordination layer to define actors, hand off
+work, and schedule execution of each actor</p></li>
+<li><p>each actor should help update a single central state</p></li>
+<li><p>with a single  central state, a snapshot can be made, execution can be paused and
+human-in-the-loop control can be implemented</p></li>
+</ul>
+</div></blockquote>
 <p><a class="reference external" href="#langchain">back to top</a></p>
 </section>
 </section>
@@ -1292,6 +1461,13 @@ or fine-tuning</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-optimisations">Indexing Optimisations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query-transformation">Query Transformation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query-routing">Query Routing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query-construction">Query Construction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langgraph">LangGraph</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph">Graph</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memory">Memory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiactor">Multiactor</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prompting-basics">Prompting Basics</a><ul class="nav section-nav flex-column">
