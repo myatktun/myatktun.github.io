@@ -5,11 +5,12 @@ LangChain
 1. `Basics`_
 2. `RAG`_
 3. `LangGraph`_
-4. `Cognitive Architectures`_
-5. `Agent Architectures`_
-6. `LLM Patterns`_
-7. `Deployment`_
-8. `Prompting Basics`_
+4. `LangGraph Platform`_
+5. `Cognitive Architectures`_
+6. `Agent Architectures`_
+7. `LLM Patterns`_
+8. `Deployment`_
+9. `Prompting Basics`_
 
 `back to top <#langchain>`_
 
@@ -991,6 +992,64 @@ Subgraphs
            builder.add_node(node)
            graph = builder.compile()
 
+
+LangGraph Platform
+==================
+
+* `Data Models`_, `Features`_
+* managed service to deploy and host LangGraph agents
+* horizontally scales task queues, servers, and a Postgres checkpointer for efficiency
+* allows collaboration of deploying and monitoring agentic AI apps
+* LangGraph Studio: to debug, edit and test agents visually, can share agent with team members
+
+
+Data Models
+-----------
+    * **Assistants**
+        - configured instance of ``CompiledGraph``
+        - has instance-specific configuration and metadata
+        - multiple assistants can reference the same graph, but have different configuration
+          and metadata
+    * **Threads**
+        - contains state collection of a group of runs
+        - checkpoint: state of a thread at particular time
+        - state of the underlying graph of the assistant will be persisted to the thread
+        - current and historical state can be retrieved
+        - a thread needs to be created before executing a run to persist state
+    * **Runs**
+        - invocation of an assistant
+        - each run can have its own input, configuration and metadata
+        - can be executed on a thread
+    * **Cron Jobs**
+        - allow to run graphs on a schedule
+        - user must specify schedule, assistant, and input
+        - a new thread will be created and given the input to run
+
+Features
+--------
+    * **Streaming**
+        - streaming mode determines what data is streamed back to the client
+        - Values: stream full state of the graph after each super-step is executed
+        - Messages: stream complete messages and tokens, mostly for chat apps, and can only
+          use this mode if graph contains a ``messages`` key
+        - Updates: stream state updates of the graph after each node execution
+        - Events: stream all events during graph execution, can be used to do token-by-token
+          streaming for LLMs
+        - Debug: stream debug events during graph execution
+    * **Human-in-the-loop**
+        - LangGraph Platform allows human intervention to prevent unwanted outcomes
+    * **Double Texting**
+        - Reject: reject and does not allow double texting
+        - Enqueue: complete the first run, and sends the new input as separate run
+        - Interrupt: save and interrupt current execution, and continue to run with new input
+        - Rollback: roll back all work and run with new input
+    * **Stateless Runs**
+        - take the input, create a thread, runs the agent without checkpoints, and clean the
+          thread
+        - stateless runs are retried while keeping memory intact
+        - for background runs, entire run will be retried if the task worker dies halfway
+    * **Webhooks**
+        - LangGraph Platform supports completion webhooks
 
 `back to top <#langchain>`_
 

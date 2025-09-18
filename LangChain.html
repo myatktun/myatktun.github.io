@@ -354,6 +354,11 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subgraphs">Subgraphs</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langgraph-platform">LangGraph Platform</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-models">Data Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cognitive-architectures">Cognitive Architectures</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#degree-of-autonomy">Degree of Autonomy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#llm-call-architecture">LLM Call Architecture</a></li>
@@ -400,6 +405,7 @@
 <li><p><a class="reference internal" href="#basics">Basics</a></p></li>
 <li><p><a class="reference internal" href="#rag">RAG</a></p></li>
 <li><p><a class="reference internal" href="#langgraph">LangGraph</a></p></li>
+<li><p><a class="reference internal" href="#langgraph-platform">LangGraph Platform</a></p></li>
 <li><p><a class="reference internal" href="#cognitive-architectures">Cognitive Architectures</a></p></li>
 <li><p><a href="#id8"><span class="problematic" id="id9">`Agent Architectures`_</span></a></p></li>
 <li><p><a class="reference internal" href="#llm-patterns">LLM Patterns</a></p></li>
@@ -1505,6 +1511,117 @@ subgraph and transform the result back to the parent state before returning</p><
 </li>
 </ul>
 </div></blockquote>
+</section>
+</section>
+<section id="langgraph-platform">
+<h2>LangGraph Platform<a class="headerlink" href="#langgraph-platform" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#data-models">Data Models</a>, <a class="reference internal" href="#features">Features</a></p></li>
+<li><p>managed service to deploy and host LangGraph agents</p></li>
+<li><p>horizontally scales task queues, servers, and a Postgres checkpointer for efficiency</p></li>
+<li><p>allows collaboration of deploying and monitoring agentic AI apps</p></li>
+<li><p>LangGraph Studio: to debug, edit and test agents visually, can share agent with team members</p></li>
+</ul>
+<section id="data-models">
+<h3>Data Models<a class="headerlink" href="#data-models" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Assistants</strong></dt><dd><ul>
+<li><p>configured instance of <code class="docutils literal notranslate"><span class="pre">CompiledGraph</span></code></p></li>
+<li><p>has instance-specific configuration and metadata</p></li>
+<li><p>multiple assistants can reference the same graph, but have different configuration
+and metadata</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Threads</strong></dt><dd><ul>
+<li><p>contains state collection of a group of runs</p></li>
+<li><p>checkpoint: state of a thread at particular time</p></li>
+<li><p>state of the underlying graph of the assistant will be persisted to the thread</p></li>
+<li><p>current and historical state can be retrieved</p></li>
+<li><p>a thread needs to be created before executing a run to persist state</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Runs</strong></dt><dd><ul>
+<li><p>invocation of an assistant</p></li>
+<li><p>each run can have its own input, configuration and metadata</p></li>
+<li><p>can be executed on a thread</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Cron Jobs</strong></dt><dd><ul>
+<li><p>allow to run graphs on a schedule</p></li>
+<li><p>user must specify schedule, assistant, and input</p></li>
+<li><p>a new thread will be created and given the input to run</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="features">
+<h3>Features<a class="headerlink" href="#features" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Streaming</strong></dt><dd><ul>
+<li><p>streaming mode determines what data is streamed back to the client</p></li>
+<li><p>Values: stream full state of the graph after each super-step is executed</p></li>
+<li><p>Messages: stream complete messages and tokens, mostly for chat apps, and can only
+use this mode if graph contains a <code class="docutils literal notranslate"><span class="pre">messages</span></code> key</p></li>
+<li><p>Updates: stream state updates of the graph after each node execution</p></li>
+<li><p>Events: stream all events during graph execution, can be used to do token-by-token
+streaming for LLMs</p></li>
+<li><p>Debug: stream debug events during graph execution</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Human-in-the-loop</strong></dt><dd><ul>
+<li><p>LangGraph Platform allows human intervention to prevent unwanted outcomes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Double Texting</strong></dt><dd><ul>
+<li><p>Reject: reject and does not allow double texting</p></li>
+<li><p>Enqueue: complete the first run, and sends the new input as separate run</p></li>
+<li><p>Interrupt: save and interrupt current execution, and continue to run with new input</p></li>
+<li><p>Rollback: roll back all work and run with new input</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Stateless Runs</strong></dt><dd><ul>
+<li><p>take the input, create a thread, runs the agent without checkpoints, and clean the
+thread</p></li>
+<li><p>stateless runs are retried while keeping memory intact</p></li>
+<li><p>for background runs, entire run will be retried if the task worker dies halfway</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Webhooks</strong></dt><dd><ul>
+<li><p>LangGraph Platform supports completion webhooks</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
 <p><a class="reference external" href="#langchain">back to top</a></p>
 </section>
 </section>
@@ -2306,6 +2423,11 @@ or fine-tuning</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiactor">Multiactor</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chat-history">Chat History</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subgraphs">Subgraphs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langgraph-platform">LangGraph Platform</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-models">Data Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cognitive-architectures">Cognitive Architectures</a><ul class="nav section-nav flex-column">
