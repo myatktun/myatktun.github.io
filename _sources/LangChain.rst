@@ -3,10 +3,13 @@ LangChain
 =========
 
 1. `Basics`_
-2. `Data Manipulation`_
-3. `RAG`_
-4. `LangGraph`_
-5. `Prompting Basics`_
+2. `RAG`_
+3. `LangGraph`_
+4. `Cognitive Architectures`_
+5. `Agent Architectures`_
+6. `LLM Patterns`_
+7. `Deployment`_
+8. `Prompting Basics`_
 
 `back to top <#langchain>`_
 
@@ -18,6 +21,7 @@ Basics
   JavaScript for wrappers
 * has integrations with commercial and open source LLM providers
 * prompt templates enable to reuse prompts more than once, and store them in the LangChain Hub
+
 
 Interfaces
 ----------
@@ -178,6 +182,7 @@ RAG
 
 * `Data Indexing`_, `Indexing Optimisations`_, `Query Transformation`_, `Query Routing`_
 * `Query Construction`_
+
 
 Data Indexing
 -------------
@@ -740,13 +745,13 @@ Query Construction
 LangGraph
 =========
 
-* `Graph`_, `Memory`_, `Multiactor`_
+* `Graph`_, `Memory`_, `Multiactor`_, `Chat History`_, `Subgraphs`_
 
 Graph
 -----
     * LangGraph is an open source library by LangChain
-    * enable developers to implement multiactor, multistep, and stateful cognitive architectures
-      called graphs
+    * enable developers to implement multiactor, multistep, and stateful cognitive
+      architectures called graphs
     * State: data received from outside, modified and produced by the app
     * Node: Python or JavaScript functions, receiving current state and returning updated state
     * Edge: connection between nodes, can be fixed path or conditional
@@ -823,6 +828,692 @@ Multiactor
     * with a single  central state, a snapshot can be made, execution can be paused and
       human-in-the-loop control can be implemented
 
+Chat History
+------------
+    * chat history messages should be in a format to generate accurate response from the model
+    * **Trimming Messages**
+        - limit the number of messages that are retrieved from history and appended to the
+          prompt
+        - ideal to load and store the most recent messages
+        - ``trim_messages()``: can specify how many tokens to keep or remove from chat history,
+          and has different strategies
+
+        .. code-block:: python
+
+           from langchain_core.messages import (AIMessage, HumanMessage, SystemMessage,
+                                                trim_messages)
+           from langchain_openai import ChatOpenAI
+   
+           trimmer = trim_messages(
+               max_tokens=65,
+               strategy="last", # prioritise most recent
+               token_counter=ChatOpenAI(model="gpt-4o"), # use tokeniser appropriate to that model
+               include_system=True, # keep system message
+               allow_partial=False, # to cut the last message's content to fit or not
+               start_on="human" # never remove AIMessage without removing corresponding HumanMessage
+           )
+   
+           messages = [
+               SystemMessage(content="you're a good assistant"),
+               HumanMessage(content="hi! i'm bob"),
+               AIMessage(content="hi"),
+               HumanMessage(content="i like vanilla ice cream"),
+               AIMessage(content="nice"),
+               HumanMessage(content="what's 2 + 2?"),
+               AIMessage(content="4"),
+               HumanMessage(content="thanks"),
+               AIMessage(content="no problem!"),
+               HumanMessage(content="having fun?"),
+               AIMessage(content="yes"),
+           ]
+   
+           trimmer.invoke(messages)
+
+
+    * **Filtering Messages**
+        - ``filter_messages()``: filter by type, ID, or name
+        - can also be composed with other components in a chain
+
+        .. code-block:: python
+
+           from langchain_core.messages import filter_messages
+   
+           messages = [
+               SystemMessage(content="you're a good assistant", id="1"),
+               HumanMessage(content="hi! i'm bob", id="2"),
+               AIMessage(content="hi", id="3"),
+               HumanMessage(content="i like vanilla ice cream", name="bob", id="4"),
+               AIMessage(content="nice", id="5"),
+               HumanMessage(content="what's 2 + 2?", name="alice", id="6"),
+               AIMessage(content="4", id="7"),
+               HumanMessage(content="thanks", name="alice", id="8"),
+               AIMessage(content="no problem!", id="9"),
+               HumanMessage(content="having fun?", name="bob", id="10"),
+               AIMessage(content="yes", id="11"),
+           ]
+   
+           filter_messages(messages, include_types="human")
+   
+           filter_ = filter_messages(messages, include_types=[
+                           HumanMessage, AIMessage], exclude_ids=["3"])
+   
+           chain = filter_ | model
+
+
+    * **Merging Consecutive Messages**
+        - models such as Anthropic chat models do not support consecutive messages of the same
+          type
+        - ``merge_message_runs()``: allows to merge consecutive messages of the same type
+        - a list will be merged as a list
+        - can also be composed with other components in a chain
+
+        .. code-block:: python
+
+           from langchain_core.messages import merge_message_runs
+   
+           messages = [
+               SystemMessage(content="you're a good assistant"),
+               SystemMessage(content="you always respond with a joke"),
+               HumanMessage(
+                   [{"type": "text", "text": "hello"}]
+               ),
+               HumanMessage("world")
+           ]
+   
+           merger_ = merge_message_runs(messages)
+   
+           # SystemMessage(content="you're a good assistant\nyou always respond with a joke"),
+           # HumanMessage(content=[{"type": "text", "text": "hello"}, "world"]
+   
+           chain = merger_ | model
+
+
+
+Subgraphs
+---------
+    * graphs that are used as part of another graph
+    * to build multi-agent systems, reuse a set of nodes in multiple graphs, and let different
+      teams to work on different parts of the graph
+    * **Direct Subgraph Call**
+        - adding a node that calls the subgraph directly to the parent
+        - both should share state keys to communicate, and do not need to transform state
+        - passing extra keys to the subgraph node will be ignored
+        - extra keys from the subgraph will be ignored by the parent
+
+        .. code-block:: python
+
+           class State(TypedDict):
+               foo: str    # shared with subgraph
+   
+           class SubgraphState(TypedDict):
+               foo: str    # shared with parent
+               bar: str
+   
+           def subgraph_node(state: SubgraphState):
+               return {"foo": state["foo"] + "bar"}
+   
+           subgraph_builder = StateGraph(SubgraphState)
+           subgraph_builder.add_node(subgraph_node)
+           subgraph = subgraph_builder.compile()
+   
+           builder = StateGraph(State)
+           builder.add_node("subgraph", subgraph)
+           graph = builder.compile()
+
+
+    * **Function Subgraph Call**
+        - adding a node with a function that invokes the subgraph to the parent
+        - both with different state schemas
+        - function needs to transform parent state to the subgraph state before invoking the
+          subgraph and transform the result back to the parent state before returning
+
+        .. code-block:: python
+
+           class State(TypedDict):
+               foo: str
+   
+           class SubgraphState(TypedDict):
+               bar: str
+               baz: str
+   
+           def subgraph_node(state: SubgraphState):
+               return {"bar": state["bar"] + "baz"}
+   
+           def node(state: State):
+               response = subgraph.invoke({"bar": state["foo"]})
+               return {"foo": response["bar"]}
+   
+           subgraph_builder = StateGraph(SubgraphState)
+           subgraph_builder.add_node(subgraph_node)
+           subgraph = subgraph_builder.compile()
+   
+           builder = StateGraph(State)
+           builder.add_node(node)
+           graph = builder.compile()
+
+
+`back to top <#langchain>`_
+
+Cognitive Architectures
+=======================
+
+* `Degree of Autonomy`_, `LLM Call Architectures`_, `Chain Architecture`_, `Router Architecture`_
+* cognitive architectures can be called a recipe for the steps to be taken by an LLM app
+* Agency: capacity to act autonomously
+* Reliability: degree to which agency's outputs can be trusted
+* Major Architectures: Code (does not use LLMs, same as regular software), LLM Call, Chain,
+  Router, State Machine, Autonomous
+
+
+Degree of Autonomy
+------------------
+    * measure by evaluating how much of the app behaviour is determined by LLM
+    * check if LLM has decided the output of a step, the next step to take, and what steps
+      are available to take
+
+LLM Call Architecture
+---------------------
+    * one LLM call only, useful when a large app make use of LLM
+
+    .. code-block:: python
+
+       builder = StateGraph(State)
+   
+       builder.add_node("chatbot", lambda state: chatbot(
+           state, llm))
+       builder.add_edge(START, "chatbot")
+       builder.add_edge("chatbot", END)
+
+
+
+Chain Architecture
+------------------
+    * multiple LLM calls in a predefined sequence, also called flow engineering
+
+    .. code-block:: python
+
+       builder = StateGraph(State, input_schema=Input, output_schema=Output)
+   
+       builder.add_node("generate_sql", lambda state: generate_sql(
+           state, llm_low_temp, generate_prompt))  # type: ignore
+       builder.add_node("explain_sql", lambda state: explain_sql(
+           state, llm_high_temp, explain_prompt))  # type: ignore
+   
+       builder.add_edge(START, "generate_sql")
+       builder.add_edge("generate_sql", "explain_sql")
+       builder.add_edge("explain_sql", END)
+
+
+
+Router Architecture
+-------------------
+    * using LLM to define the sequence of steps to take
+
+    .. code-block:: python
+
+       def router_node(state: State, llm, prompt) -> State:
+           user_message = HumanMessage(state["user_query"])
+           messages = [prompt, *state["messages"], user_message]
+           res = llm.invoke(messages)
+           return {
+               "domain": res.content,
+               "messages": [user_message, res]
+           }
+   
+       def pick_retriever(state: State) -> Literal["retrieve_medical_records",
+                                                   "retrieve_insurance_faqs"]:
+           if state["domain"] == "records":
+               return "retrieve_medical_records"
+           else:
+               return "retrieve_insurance_faqs"
+   
+       builder = StateGraph(State, input_schema=Input, output_schema=Output)
+   
+       builder.add_node("router", lambda state: router_node(
+           state, llm_low_temp, router_prompt))
+   
+       builder.add_node("retrieve_medical_records",
+                        lambda state: retrieve_medical_records(
+                            state, medical_records_retriever))
+   
+       builder.add_node("retrieve_insurance_faqs",
+                        lambda state: retrieve_insurance_faqs(
+                            state, insurance_faqs_retriever))
+   
+       builder.add_node("generate_answer",
+                        lambda state: generate_answer(
+                            state, llm_high_temp,
+                            medical_records_prompt, insurance_faqs_prompt))
+   
+       builder.add_edge(START, "router")
+       builder.add_conditional_edges("router", pick_retriever)
+       builder.add_edge("retrieve_medical_records", "generate_answer")
+       builder.add_edge("retrieve_insurance_faqs", "generate_answer")
+       builder.add_edge("generate_answer", END)
+
+
+Agent Architecture
+==================
+
+* `Standard Agent`_, `Always Tool Calling First`_, `Managing Multiple Tools`_, `Reflection`_, `Multi-agent`_
+* Agent: something that acts
+* uses an LLM to pick from one or more possible courses of action, given context of current
+  or desired next state
+* implemented by combining Tool Calling and Chain-of-Thought prompting techniques
+* LLM-driven Loop: plan actions and execute, LLM will decide when to stop looping
+* use a conditional edge to implement a loop as it can end the graph
+
+
+Standard Agent
+--------------
+    - LLM is always called first to decide a tool, adapting the behaviour to each user
+      query
+    - but flexibility can also cause unpredictability
+
+    .. code-block:: python
+
+       import ast
+       from typing import Annotated, TypedDict
+       from langchain_community.tools import DuckDuckGoSearchRun
+       from langchain_core.messages import HumanMessage
+       from langchain_core.runnables import Runnable
+       from langchain_core.tools import tool
+       from langchain_openai import ChatOpenAI
+       from langgraph.graph import START, StateGraph
+       from langgraph.graph.message import add_messages
+       from langgraph.prebuilt import ToolNode, tools_condition
+   
+       class State(TypedDict):
+           messages: Annotated[list, add_messages]
+   
+   
+       @tool
+       def calculator(query: str) -> str:
+           """A simple calculator tool, Input should be a mathematical expression."""
+           return ast.literal_eval(query)
+   
+   
+       def llm_node(state: State, llm) -> State:
+           res = llm.invoke(state["messages"])
+           return {"messages": res}
+   
+       search = DuckDuckGoSearchRun()
+       tools = [search, calculator]
+   
+       llm: Runnable = ChatOpenAI(
+           model="gpt-4.1-mini", temperature=0).bind_tools(tools)
+   
+       builder = StateGraph(State)
+   
+       builder.add_node("llm", lambda state: llm_node(state, llm))  # type: ignore
+       builder.add_node("tools", ToolNode(tools))
+   
+       builder.add_edge(START, "llm")
+       builder.add_conditional_edges("llm", tools_condition)
+       builder.add_edge("tools", "llm")
+   
+       graph = builder.compile()
+   
+       input: State = {
+           "messages": [
+               HumanMessage("""Question""")
+           ]
+       }
+   
+       for c in graph.stream(input):
+           print(c)
+
+
+
+Always Tool Calling First
+-------------------------
+    * having a clear rule that certain tool should always be called first
+    * can reduce overall latency, and prevent erroneous LLM decision
+    * but it can also make worse if there is no clear rule
+
+    .. code-block:: python
+
+       # does not call LLM, only creates a tool for the search tool
+       def first_llm(state: State) -> State:
+           query = state["messages"][-1].content
+           search_tool_call = ToolCall(name="duckduckgo_search", args={
+                                       "query": query}, id=uuid4().hex)
+           return {
+               "messages": AIMessage(content="", tool_calls=[search_tool_call])
+           }
+   
+       builder.add_node("first_llm",
+                        lambda state: first_llm(state))  # type: ignore
+       builder.add_node("llm", lambda state: llm_node(state, llm))  # type: ignore
+       builder.add_node("tools", ToolNode(tools))
+   
+       builder.add_edge(START, "first_llm")
+       builder.add_edge("first_llm", "tools")
+       builder.add_conditional_edges("llm", tools_condition)
+       builder.add_edge("tools", "llm")
+
+
+
+Managing Multiple Tools
+-----------------------
+    * LLMs struggle to choose the right one when given many tools
+    * can use a RAG step to preselect the most relevant tools for current query
+    * giving LLM only a subset of tools can reduce cost, but RAG step adds latency
+
+    .. code-block:: python
+
+       def llm_node(state: State, llm, tools) -> State:
+           selected_tools = [
+               tool for tool in tools if tool.name in state["selected_tools"]]
+           res = llm.bind_tools(selected_tools).invoke(state["messages"])
+           return {"messages": res}
+   
+   
+       def select_tools(state: State, tools_retriever) -> State:
+           query = state["messages"][-1].content
+           tool_docs = tools_retriever.invoke(query)
+           return {
+               "selected_tools": [doc.metadata["name"] for doc in tool_docs]
+           }
+   
+       embeddings = OpenAIEmbeddings()
+       llm: Runnable = ChatOpenAI(model="gpt-4.1-mini", temperature=0)
+   
+       tools_retriever = InMemoryVectorStore.from_documents(
+           [Document(tool.description, metadata={
+                     "name": tool.name}) for tool in tools],
+           embeddings
+       ).as_retriever()
+   
+       builder = StateGraph(State)
+   
+       builder.add_node("select_tools", lambda state: select_tools(
+           state, tools_retriever))  # type: ignore
+       builder.add_node("llm", lambda state: llm_node(
+           state, llm, tools))  # type: ignore
+       builder.add_node("tools", ToolNode(tools))
+   
+       builder.add_edge(START, "select_tools")
+       builder.add_edge("select_tools", "llm")
+       builder.add_conditional_edges("llm", tools_condition)
+       builder.add_edge("tools", "llm")
+
+
+
+Reflection
+----------
+    * also called self-critique
+    * allowing LLM to analyse past output, including past reflections, and refine it
+    * need to have a loop between a creator prompt and a reviser prompt
+    * can be combined with other prompting techniques
+    * always cost higher latency, but likely to increase the quality of final output
+
+    .. code-block:: python
+
+       def generate(state: State, llm, prompt) -> State:
+           ans = llm.invoke([prompt] + state["messages"])
+           return {"messages": [ans]}
+   
+   
+       def reflect(state: State, llm, prompt) -> State:
+           # invert the messages
+           cls_map = {AIMessage: HumanMessage, HumanMessage: AIMessage}
+           translated = [prompt, state["messages"][0]] + [
+               cls_map[msg.__class__](content=msg.content) # calling a constructor
+               for msg in state["messages"][1:]
+           ]
+           ans = llm.invoke(translated)
+           # treat output as human feedback for generator
+           return {"messages": [HumanMessage(content=ans.content)]}
+   
+   
+       def should_continue(state: State):
+           if len(state["messages"]) > 6:
+               return END
+           else:
+               return "reflect"
+   
+       builder.add_node("generate", lambda state: generate(
+           state, llm, generate_prompt))
+       builder.add_node("reflect", lambda state: reflect(
+           state, llm, reflection_prompt))
+   
+       builder.add_edge(START, "generate")
+       builder.add_conditional_edges("generate", should_continue, {
+           "reflect": "reflect" # only explicit mapping shows on graph image
+       })
+       builder.add_edge("reflect", "generate")
+
+
+
+Multi-agent
+-----------
+    * composed of multiple smaller, independent agents
+    * prevents an agent with multiple tools to make poor decisions
+    * agents can be a simple prompt, LLM call or complex as ReAct agent
+    * **Network Strategy**
+        - agents can communicate, and any agent can decide which to call next
+    * **Hierarchical Strategy**
+        - system with a supervisor of supervisors
+        - for more complex control flows
+    * **Custom Multi-Agent Workflow**
+        - each communicate with only a subset of agents
+        - parts of the flow are deterministic
+        - only selected agents can decide which others to call next
+    * **Supervisor Strategy**
+        - each agents communicates with the supervisor agent
+        - supervisor decides which agent to call next
+        - supervisor agent can be an LLM call with tools
+        - subagent can be its own graph with internal state and only outputs summary of its
+          work
+        - can make each subagent to decide to return output directly to user or not
+
+`back to top <#langchain>`_
+
+LLM Patterns
+============
+
+* `Structured Output`_, `Streaming Output`_, `Human in the Loop`_, `Double Texting Modes`_
+* Agent: high agency, lower reliability
+* Chain: low agency, higher reliability
+* LLM apps should minimise latency (time to get final answer), autonomy (interruptions for
+  human input), or variance (variation between invocations)
+
+
+Structured Output
+-----------------
+    * LLM should produce output in a predefined format
+    * different models implement different strategies
+    * lower temperature is a good fit as it reduces the chance of LLM to produce invalid output
+    * **Prompting**
+        - asking LLM to return output in desired format
+        - not guaranteed for output to be in the format
+    * **Tool Calling**
+        - available for LLMs fine-tuned to pick from a list of output schemas
+        - need to give LLM a name, description, and schema for desired output format
+    * **JSON Mode**
+        - available in LLMs enforced to output a valid JSON document
+
+        .. code-block:: python
+
+           class Joke(BaseModel):
+               setup: str = Field(description="The setup of the joke")
+               punchline: str = Field(description="The punchline to the joke")
+   
+           llm = ChatOpenAI(model="gpt-4.1-mini")
+           llm = llm.with_structured_output(Joke)
+   
+           llm.invoke("Tell me a joke about cats")
+
+
+
+Streaming Output
+----------------
+    * higher latency is acceptable if there is progress/intermediate output while the app is
+      still running
+    * **Stream Modes in LangGraph**
+        - ``updates``: default mode
+        - ``values``: yield current state of the graph every time it changes, each set of nodes
+          finishes executing
+        - ``debug``: yields detailed events every time a graph changes
+        - ``checkpoint`` event: when a new checkpoint of current state is saved to the database
+        - ``task`` event: when a node is about to start running
+        - ``task_result`` events: when a node finishes running
+        - stream modes can be combined
+
+        .. code-block:: python
+
+           for c in graph.stream(input, stream_mode="updates"):
+               print(c)
+
+
+    * **Streaming Token-by-Token**
+        - useful for apps such as interactive chatbot
+
+        .. code-block:: python
+
+           output = app.astream_events(input, version="v2")
+   
+           async for event in output:
+               if event["event"] == "on_chat_model_stream":
+                   content = event["data"]["chunk"].content
+                   if content:
+                       print(content)
+
+
+
+Human in the Loop
+-----------------
+    * higher-agency architectures can have human intervention of interrupting, approving,
+      forking or undoing
+    * store the state at the end of each step and combine the new input with the previous state
+      by using check pointer in graph
+    * the graph remembering the previous state is the key to human-in-the-loop
+    * Control Modes: interrupt, authorise, resume, restart, edit state, fork
+    * combine different control modes to get better applications
+    * **Interrupt**
+        - using an event or signal allows to control interruption from outside of the running
+          app
+
+        .. code-block:: python
+
+           graph = builder.compile(checkpointer=MemorySaver())
+   
+           event = asyncio.Event()
+   
+           config = {"configurable": {"thread_id": "1"}}
+   
+           async with aclosing(graph.astream(input, config) as stream):
+               async for chunk in stream:
+                   if event.is_set():
+                       break
+                   else:
+                       pass
+   
+           event.set()
+
+
+    * **Authorise**
+        - defined to give control to the user every time a specific node is about to be
+          called, usually used for tool confirmation
+
+        .. code-block:: python
+
+           output = graph.astream(input, config, interrupt_before=["tools"])
+           async for c in output:
+               # process output
+
+
+    * **Resume**
+        - invoke the graph with null input to continue processing previous non-null input
+
+        .. code-block:: python
+
+           output = graph.astream(None, config, interrupt_before=["tools"])
+           async for c in output:
+               # process output
+
+
+    * **Restart**
+        - invoke with new input to start a graph from the first node
+        - will keep the current state, and merge it with new input
+        - just change ``thread_id`` to start a new interaction from a blank state
+
+        .. code-block:: python
+
+           config = {"configurable": {"thread_id": "1"}}
+           output = graph.astream(new_input, config)
+           async for c in output:
+               # process output
+
+
+    * **Edit State**
+        - update the state of the graph before resuming
+        - inspect the state first and update accordingly
+        - will create a new checkpoint with the update
+
+        .. code-block:: python
+
+           state = graph.get_state(config)
+           update = {}
+           graph.update_state(config, update)
+
+
+    * **Fork**
+        - use the past states to get alternative answer
+
+        .. code-block:: python
+
+           history = [
+               state for state in
+               graph.get_state_history(config)
+           ]
+   
+           graph.invoke(None, history[2].config)
+
+
+
+Double Texting Modes
+--------------------
+    * LLM may get new input before the previous one is processed
+    * also called multitasking LLMs
+    * **Refuse**
+        - simplest strategy to  reject concurrent inputs
+        - concurrency management is handed off to the caller
+    * **Handle Independently**
+        - treat new inputs as independent invocations, creating new threads and producing
+          output
+        - user will receive as separate invocations, but can be scaled to large sizes
+        - e.g. chatbot interacting with two different users concurrently
+    * **Queue**
+        - inputs are queued and handled when current one is finished
+        - can receive multiple concurrent requests, and will be handled sequentially
+        - may take time to process the queue, which may grow unbounded and inputs can be stale
+        - not useful when new inputs depend on previous answers
+    * **Interrupt**
+        - stop current one and restart with the new input
+        - previous input can be completely ignored
+        - the completed state is kept but discard any pending state updates
+        - keep the last completed step, along with current in-progress one
+        - wait for current node to finish, but not the subsequent ones, save and interrupt
+        - new input is handled quickly, reducing latency and stale outputs
+        - the state needs to be designed to be stored partially
+        - can have unpredictable final result as incomplete progress context might be used for
+          the new input
+    * **Fork & Merge**
+        - handle new input in parallel, forking the state of the thread, and merge the final
+          states
+        - state needs to be designed to be merged without conflicts
+        - e.g., use conflict-free replicated data types (CRDTs), conflict resolution
+          algorithms or manually resolve conflicts
+
+`back to top <#langchain>`_
+
+Deployment
+==========
+
+*
+
 `back to top <#langchain>`_
 
 Prompting Basics
@@ -856,8 +1547,8 @@ Zero-Shot Prompting
     * usually work for simple questions
     * will need to iterate on prompts and responses to get a reliable system
     * **Chain-of-Thought**
-        - instructing the model to take time to think
-        - prepending the prompt with instructions form the LLM to describe how it could arrive
+        - instructing the model to take time to think step by step
+        - prepending the prompt with instructions for the LLM to describe how it could arrive
           at the answer
     * **Retrieval-Augmented Generation**
         - RAG: finding relevant context, and including them in the prompt

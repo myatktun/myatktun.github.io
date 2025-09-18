@@ -350,8 +350,33 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph">Graph</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memory">Memory</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiactor">Multiactor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chat-history">Chat History</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subgraphs">Subgraphs</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cognitive-architectures">Cognitive Architectures</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#degree-of-autonomy">Degree of Autonomy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#llm-call-architecture">LLM Call Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chain-architecture">Chain Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#router-architecture">Router Architecture</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agent-architecture">Agent Architecture</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-agent">Standard Agent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#always-tool-calling-first">Always Tool Calling First</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-multiple-tools">Managing Multiple Tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection">Reflection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-agent">Multi-agent</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#llm-patterns">LLM Patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-output">Structured Output</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#streaming-output">Streaming Output</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#human-in-the-loop">Human in the Loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#double-texting-modes">Double Texting Modes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment">Deployment</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prompting-basics">Prompting Basics</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#llms">LLMs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-shot-prompting">Zero-Shot Prompting</a></li>
@@ -373,9 +398,12 @@
 <h1>LangChain<a class="headerlink" href="#langchain" title="Link to this heading">#</a></h1>
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="#basics">Basics</a></p></li>
-<li><p><a href="#id5"><span class="problematic" id="id6">`Data Manipulation`_</span></a></p></li>
 <li><p><a class="reference internal" href="#rag">RAG</a></p></li>
 <li><p><a class="reference internal" href="#langgraph">LangGraph</a></p></li>
+<li><p><a class="reference internal" href="#cognitive-architectures">Cognitive Architectures</a></p></li>
+<li><p><a href="#id8"><span class="problematic" id="id9">`Agent Architectures`_</span></a></p></li>
+<li><p><a class="reference internal" href="#llm-patterns">LLM Patterns</a></p></li>
+<li><p><a class="reference internal" href="#deployment">Deployment</a></p></li>
 <li><p><a class="reference internal" href="#prompting-basics">Prompting Basics</a></p></li>
 </ol>
 <p><a class="reference external" href="#langchain">back to top</a></p>
@@ -1206,15 +1234,15 @@ on how it should build queries based on questions</p></li>
 <section id="langgraph">
 <h2>LangGraph<a class="headerlink" href="#langgraph" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#graph">Graph</a>, <a class="reference internal" href="#memory">Memory</a>, <a class="reference internal" href="#multiactor">Multiactor</a></p></li>
+<li><p><a class="reference internal" href="#graph">Graph</a>, <a class="reference internal" href="#memory">Memory</a>, <a class="reference internal" href="#multiactor">Multiactor</a>, <a class="reference internal" href="#chat-history">Chat History</a>, <a class="reference internal" href="#subgraphs">Subgraphs</a></p></li>
 </ul>
 <section id="graph">
 <h3>Graph<a class="headerlink" href="#graph" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
 <li><p>LangGraph is an open source library by LangChain</p></li>
-<li><p>enable developers to implement multiactor, multistep, and stateful cognitive architectures
-called graphs</p></li>
+<li><p>enable developers to implement multiactor, multistep, and stateful cognitive
+architectures called graphs</p></li>
 <li><p>State: data received from outside, modified and produced by the app</p></li>
 <li><p>Node: Python or JavaScript functions, receiving current state and returning updated state</p></li>
 <li><p>Edge: connection between nodes, can be fixed path or conditional</p></li>
@@ -1294,8 +1322,816 @@ work, and schedule execution of each actor</p></li>
 human-in-the-loop control can be implemented</p></li>
 </ul>
 </div></blockquote>
+</section>
+<section id="chat-history">
+<h3>Chat History<a class="headerlink" href="#chat-history" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>chat history messages should be in a format to generate accurate response from the model</p></li>
+<li><dl>
+<dt><strong>Trimming Messages</strong></dt><dd><ul class="simple">
+<li><p>limit the number of messages that are retrieved from history and appended to the
+prompt</p></li>
+<li><p>ideal to load and store the most recent messages</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">trim_messages()</span></code>: can specify how many tokens to keep or remove from chat history,
+and has different strategies</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_core.messages</span> <span class="kn">import</span> <span class="p">(</span><span class="n">AIMessage</span><span class="p">,</span> <span class="n">HumanMessage</span><span class="p">,</span> <span class="n">SystemMessage</span><span class="p">,</span>
+                                     <span class="n">trim_messages</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">langchain_openai</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+
+<span class="n">trimmer</span> <span class="o">=</span> <span class="n">trim_messages</span><span class="p">(</span>
+    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">65</span><span class="p">,</span>
+    <span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;last&quot;</span><span class="p">,</span> <span class="c1"># prioritise most recent</span>
+    <span class="n">token_counter</span><span class="o">=</span><span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o&quot;</span><span class="p">),</span> <span class="c1"># use tokeniser appropriate to that model</span>
+    <span class="n">include_system</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># keep system message</span>
+    <span class="n">allow_partial</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># to cut the last message&#39;s content to fit or not</span>
+    <span class="n">start_on</span><span class="o">=</span><span class="s2">&quot;human&quot;</span> <span class="c1"># never remove AIMessage without removing corresponding HumanMessage</span>
+<span class="p">)</span>
+
+<span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">SystemMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;you&#39;re a good assistant&quot;</span><span class="p">),</span>
+    <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;hi! i&#39;m bob&quot;</span><span class="p">),</span>
+    <span class="n">AIMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;hi&quot;</span><span class="p">),</span>
+    <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;i like vanilla ice cream&quot;</span><span class="p">),</span>
+    <span class="n">AIMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;nice&quot;</span><span class="p">),</span>
+    <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;what&#39;s 2 + 2?&quot;</span><span class="p">),</span>
+    <span class="n">AIMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;4&quot;</span><span class="p">),</span>
+    <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;thanks&quot;</span><span class="p">),</span>
+    <span class="n">AIMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;no problem!&quot;</span><span class="p">),</span>
+    <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;having fun?&quot;</span><span class="p">),</span>
+    <span class="n">AIMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;yes&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="n">trimmer</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Filtering Messages</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">filter_messages()</span></code>: filter by type, ID, or name</p></li>
+<li><p>can also be composed with other components in a chain</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_core.messages</span> <span class="kn">import</span> <span class="n">filter_messages</span>
+
+<span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">SystemMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;you&#39;re a good assistant&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">),</span>
+    <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;hi! i&#39;m bob&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;2&quot;</span><span class="p">),</span>
+    <span class="n">AIMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;3&quot;</span><span class="p">),</span>
+    <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;i like vanilla ice cream&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;bob&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;4&quot;</span><span class="p">),</span>
+    <span class="n">AIMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;nice&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;5&quot;</span><span class="p">),</span>
+    <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;what&#39;s 2 + 2?&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;alice&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;6&quot;</span><span class="p">),</span>
+    <span class="n">AIMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;4&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;7&quot;</span><span class="p">),</span>
+    <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;thanks&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;alice&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;8&quot;</span><span class="p">),</span>
+    <span class="n">AIMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;no problem!&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;9&quot;</span><span class="p">),</span>
+    <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;having fun?&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;bob&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;10&quot;</span><span class="p">),</span>
+    <span class="n">AIMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;yes&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;11&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="n">filter_messages</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="n">include_types</span><span class="o">=</span><span class="s2">&quot;human&quot;</span><span class="p">)</span>
+
+<span class="n">filter_</span> <span class="o">=</span> <span class="n">filter_messages</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="n">include_types</span><span class="o">=</span><span class="p">[</span>
+                <span class="n">HumanMessage</span><span class="p">,</span> <span class="n">AIMessage</span><span class="p">],</span> <span class="n">exclude_ids</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;3&quot;</span><span class="p">])</span>
+
+<span class="n">chain</span> <span class="o">=</span> <span class="n">filter_</span> <span class="o">|</span> <span class="n">model</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Merging Consecutive Messages</strong></dt><dd><ul class="simple">
+<li><p>models such as Anthropic chat models do not support consecutive messages of the same
+type</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">merge_message_runs()</span></code>: allows to merge consecutive messages of the same type</p></li>
+<li><p>a list will be merged as a list</p></li>
+<li><p>can also be composed with other components in a chain</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_core.messages</span> <span class="kn">import</span> <span class="n">merge_message_runs</span>
+
+<span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">SystemMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;you&#39;re a good assistant&quot;</span><span class="p">),</span>
+    <span class="n">SystemMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;you always respond with a joke&quot;</span><span class="p">),</span>
+    <span class="n">HumanMessage</span><span class="p">(</span>
+        <span class="p">[{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;hello&quot;</span><span class="p">}]</span>
+    <span class="p">),</span>
+    <span class="n">HumanMessage</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">merger_</span> <span class="o">=</span> <span class="n">merge_message_runs</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span>
+
+<span class="c1"># SystemMessage(content=&quot;you&#39;re a good assistant\nyou always respond with a joke&quot;),</span>
+<span class="c1"># HumanMessage(content=[{&quot;type&quot;: &quot;text&quot;, &quot;text&quot;: &quot;hello&quot;}, &quot;world&quot;]</span>
+
+<span class="n">chain</span> <span class="o">=</span> <span class="n">merger_</span> <span class="o">|</span> <span class="n">model</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="subgraphs">
+<h3>Subgraphs<a class="headerlink" href="#subgraphs" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>graphs that are used as part of another graph</p></li>
+<li><p>to build multi-agent systems, reuse a set of nodes in multiple graphs, and let different
+teams to work on different parts of the graph</p></li>
+<li><dl>
+<dt><strong>Direct Subgraph Call</strong></dt><dd><ul class="simple">
+<li><p>adding a node that calls the subgraph directly to the parent</p></li>
+<li><p>both should share state keys to communicate, and do not need to transform state</p></li>
+<li><p>passing extra keys to the subgraph node will be ignored</p></li>
+<li><p>extra keys from the subgraph will be ignored by the parent</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">State</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">foo</span><span class="p">:</span> <span class="nb">str</span>    <span class="c1"># shared with subgraph</span>
+
+<span class="k">class</span> <span class="nc">SubgraphState</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">foo</span><span class="p">:</span> <span class="nb">str</span>    <span class="c1"># shared with parent</span>
+    <span class="n">bar</span><span class="p">:</span> <span class="nb">str</span>
+
+<span class="k">def</span> <span class="nf">subgraph_node</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">SubgraphState</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;foo&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;bar&quot;</span><span class="p">}</span>
+
+<span class="n">subgraph_builder</span> <span class="o">=</span> <span class="n">StateGraph</span><span class="p">(</span><span class="n">SubgraphState</span><span class="p">)</span>
+<span class="n">subgraph_builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">subgraph_node</span><span class="p">)</span>
+<span class="n">subgraph</span> <span class="o">=</span> <span class="n">subgraph_builder</span><span class="o">.</span><span class="n">compile</span><span class="p">()</span>
+
+<span class="n">builder</span> <span class="o">=</span> <span class="n">StateGraph</span><span class="p">(</span><span class="n">State</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;subgraph&quot;</span><span class="p">,</span> <span class="n">subgraph</span><span class="p">)</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">compile</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Function Subgraph Call</strong></dt><dd><ul class="simple">
+<li><p>adding a node with a function that invokes the subgraph to the parent</p></li>
+<li><p>both with different state schemas</p></li>
+<li><p>function needs to transform parent state to the subgraph state before invoking the
+subgraph and transform the result back to the parent state before returning</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">State</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">foo</span><span class="p">:</span> <span class="nb">str</span>
+
+<span class="k">class</span> <span class="nc">SubgraphState</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">bar</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">baz</span><span class="p">:</span> <span class="nb">str</span>
+
+<span class="k">def</span> <span class="nf">subgraph_node</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">SubgraphState</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;bar&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;baz&quot;</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">node</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">subgraph</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;foo&quot;</span><span class="p">]})</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;bar&quot;</span><span class="p">]}</span>
+
+<span class="n">subgraph_builder</span> <span class="o">=</span> <span class="n">StateGraph</span><span class="p">(</span><span class="n">SubgraphState</span><span class="p">)</span>
+<span class="n">subgraph_builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">subgraph_node</span><span class="p">)</span>
+<span class="n">subgraph</span> <span class="o">=</span> <span class="n">subgraph_builder</span><span class="o">.</span><span class="n">compile</span><span class="p">()</span>
+
+<span class="n">builder</span> <span class="o">=</span> <span class="n">StateGraph</span><span class="p">(</span><span class="n">State</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">compile</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
 <p><a class="reference external" href="#langchain">back to top</a></p>
 </section>
+</section>
+<section id="cognitive-architectures">
+<h2>Cognitive Architectures<a class="headerlink" href="#cognitive-architectures" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#degree-of-autonomy">Degree of Autonomy</a>, <a href="#id10"><span class="problematic" id="id11">`LLM Call Architectures`_</span></a>, <a class="reference internal" href="#chain-architecture">Chain Architecture</a>, <a class="reference internal" href="#router-architecture">Router Architecture</a></p></li>
+<li><p>cognitive architectures can be called a recipe for the steps to be taken by an LLM app</p></li>
+<li><p>Agency: capacity to act autonomously</p></li>
+<li><p>Reliability: degree to which agency’s outputs can be trusted</p></li>
+<li><p>Major Architectures: Code (does not use LLMs, same as regular software), LLM Call, Chain,
+Router, State Machine, Autonomous</p></li>
+</ul>
+<section id="degree-of-autonomy">
+<h3>Degree of Autonomy<a class="headerlink" href="#degree-of-autonomy" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>measure by evaluating how much of the app behaviour is determined by LLM</p></li>
+<li><p>check if LLM has decided the output of a step, the next step to take, and what steps
+are available to take</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="llm-call-architecture">
+<h3>LLM Call Architecture<a class="headerlink" href="#llm-call-architecture" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>one LLM call only, useful when a large app make use of LLM</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">builder</span> <span class="o">=</span> <span class="n">StateGraph</span><span class="p">(</span><span class="n">State</span><span class="p">)</span>
+
+<span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;chatbot&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">state</span><span class="p">:</span> <span class="n">chatbot</span><span class="p">(</span>
+    <span class="n">state</span><span class="p">,</span> <span class="n">llm</span><span class="p">))</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">START</span><span class="p">,</span> <span class="s2">&quot;chatbot&quot;</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;chatbot&quot;</span><span class="p">,</span> <span class="n">END</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="chain-architecture">
+<h3>Chain Architecture<a class="headerlink" href="#chain-architecture" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>multiple LLM calls in a predefined sequence, also called flow engineering</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">builder</span> <span class="o">=</span> <span class="n">StateGraph</span><span class="p">(</span><span class="n">State</span><span class="p">,</span> <span class="n">input_schema</span><span class="o">=</span><span class="n">Input</span><span class="p">,</span> <span class="n">output_schema</span><span class="o">=</span><span class="n">Output</span><span class="p">)</span>
+
+<span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;generate_sql&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">state</span><span class="p">:</span> <span class="n">generate_sql</span><span class="p">(</span>
+    <span class="n">state</span><span class="p">,</span> <span class="n">llm_low_temp</span><span class="p">,</span> <span class="n">generate_prompt</span><span class="p">))</span>  <span class="c1"># type: ignore</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;explain_sql&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">state</span><span class="p">:</span> <span class="n">explain_sql</span><span class="p">(</span>
+    <span class="n">state</span><span class="p">,</span> <span class="n">llm_high_temp</span><span class="p">,</span> <span class="n">explain_prompt</span><span class="p">))</span>  <span class="c1"># type: ignore</span>
+
+<span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">START</span><span class="p">,</span> <span class="s2">&quot;generate_sql&quot;</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;generate_sql&quot;</span><span class="p">,</span> <span class="s2">&quot;explain_sql&quot;</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;explain_sql&quot;</span><span class="p">,</span> <span class="n">END</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="router-architecture">
+<h3>Router Architecture<a class="headerlink" href="#router-architecture" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>using LLM to define the sequence of steps to take</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">router_node</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">llm</span><span class="p">,</span> <span class="n">prompt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">State</span><span class="p">:</span>
+    <span class="n">user_message</span> <span class="o">=</span> <span class="n">HumanMessage</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;user_query&quot;</span><span class="p">])</span>
+    <span class="n">messages</span> <span class="o">=</span> <span class="p">[</span><span class="n">prompt</span><span class="p">,</span> <span class="o">*</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;messages&quot;</span><span class="p">],</span> <span class="n">user_message</span><span class="p">]</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="n">res</span><span class="o">.</span><span class="n">content</span><span class="p">,</span>
+        <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">user_message</span><span class="p">,</span> <span class="n">res</span><span class="p">]</span>
+    <span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">pick_retriever</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;retrieve_medical_records&quot;</span><span class="p">,</span>
+                                            <span class="s2">&quot;retrieve_insurance_faqs&quot;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;domain&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;records&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;retrieve_medical_records&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;retrieve_insurance_faqs&quot;</span>
+
+<span class="n">builder</span> <span class="o">=</span> <span class="n">StateGraph</span><span class="p">(</span><span class="n">State</span><span class="p">,</span> <span class="n">input_schema</span><span class="o">=</span><span class="n">Input</span><span class="p">,</span> <span class="n">output_schema</span><span class="o">=</span><span class="n">Output</span><span class="p">)</span>
+
+<span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;router&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">state</span><span class="p">:</span> <span class="n">router_node</span><span class="p">(</span>
+    <span class="n">state</span><span class="p">,</span> <span class="n">llm_low_temp</span><span class="p">,</span> <span class="n">router_prompt</span><span class="p">))</span>
+
+<span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;retrieve_medical_records&quot;</span><span class="p">,</span>
+                 <span class="k">lambda</span> <span class="n">state</span><span class="p">:</span> <span class="n">retrieve_medical_records</span><span class="p">(</span>
+                     <span class="n">state</span><span class="p">,</span> <span class="n">medical_records_retriever</span><span class="p">))</span>
+
+<span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;retrieve_insurance_faqs&quot;</span><span class="p">,</span>
+                 <span class="k">lambda</span> <span class="n">state</span><span class="p">:</span> <span class="n">retrieve_insurance_faqs</span><span class="p">(</span>
+                     <span class="n">state</span><span class="p">,</span> <span class="n">insurance_faqs_retriever</span><span class="p">))</span>
+
+<span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;generate_answer&quot;</span><span class="p">,</span>
+                 <span class="k">lambda</span> <span class="n">state</span><span class="p">:</span> <span class="n">generate_answer</span><span class="p">(</span>
+                     <span class="n">state</span><span class="p">,</span> <span class="n">llm_high_temp</span><span class="p">,</span>
+                     <span class="n">medical_records_prompt</span><span class="p">,</span> <span class="n">insurance_faqs_prompt</span><span class="p">))</span>
+
+<span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">START</span><span class="p">,</span> <span class="s2">&quot;router&quot;</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_conditional_edges</span><span class="p">(</span><span class="s2">&quot;router&quot;</span><span class="p">,</span> <span class="n">pick_retriever</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;retrieve_medical_records&quot;</span><span class="p">,</span> <span class="s2">&quot;generate_answer&quot;</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;retrieve_insurance_faqs&quot;</span><span class="p">,</span> <span class="s2">&quot;generate_answer&quot;</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;generate_answer&quot;</span><span class="p">,</span> <span class="n">END</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+</section>
+<section id="agent-architecture">
+<h2>Agent Architecture<a class="headerlink" href="#agent-architecture" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#standard-agent">Standard Agent</a>, <a class="reference internal" href="#always-tool-calling-first">Always Tool Calling First</a>, <a class="reference internal" href="#managing-multiple-tools">Managing Multiple Tools</a>, <a class="reference internal" href="#reflection">Reflection</a>, <a class="reference internal" href="#multi-agent">Multi-agent</a></p></li>
+<li><p>Agent: something that acts</p></li>
+<li><p>uses an LLM to pick from one or more possible courses of action, given context of current
+or desired next state</p></li>
+<li><p>implemented by combining Tool Calling and Chain-of-Thought prompting techniques</p></li>
+<li><p>LLM-driven Loop: plan actions and execute, LLM will decide when to stop looping</p></li>
+<li><p>use a conditional edge to implement a loop as it can end the graph</p></li>
+</ul>
+<section id="standard-agent">
+<h3>Standard Agent<a class="headerlink" href="#standard-agent" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>LLM is always called first to decide a tool, adapting the behaviour to each user
+query</p></li>
+<li><p>but flexibility can also cause unpredictability</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ast</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Annotated</span><span class="p">,</span> <span class="n">TypedDict</span>
+<span class="kn">from</span> <span class="nn">langchain_community.tools</span> <span class="kn">import</span> <span class="n">DuckDuckGoSearchRun</span>
+<span class="kn">from</span> <span class="nn">langchain_core.messages</span> <span class="kn">import</span> <span class="n">HumanMessage</span>
+<span class="kn">from</span> <span class="nn">langchain_core.runnables</span> <span class="kn">import</span> <span class="n">Runnable</span>
+<span class="kn">from</span> <span class="nn">langchain_core.tools</span> <span class="kn">import</span> <span class="n">tool</span>
+<span class="kn">from</span> <span class="nn">langchain_openai</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+<span class="kn">from</span> <span class="nn">langgraph.graph</span> <span class="kn">import</span> <span class="n">START</span><span class="p">,</span> <span class="n">StateGraph</span>
+<span class="kn">from</span> <span class="nn">langgraph.graph.message</span> <span class="kn">import</span> <span class="n">add_messages</span>
+<span class="kn">from</span> <span class="nn">langgraph.prebuilt</span> <span class="kn">import</span> <span class="n">ToolNode</span><span class="p">,</span> <span class="n">tools_condition</span>
+
+<span class="k">class</span> <span class="nc">State</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">messages</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="n">add_messages</span><span class="p">]</span>
+
+
+<span class="nd">@tool</span>
+<span class="k">def</span> <span class="nf">calculator</span><span class="p">(</span><span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A simple calculator tool, Input should be a mathematical expression.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">ast</span><span class="o">.</span><span class="n">literal_eval</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">llm_node</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">llm</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">State</span><span class="p">:</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;messages&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">res</span><span class="p">}</span>
+
+<span class="n">search</span> <span class="o">=</span> <span class="n">DuckDuckGoSearchRun</span><span class="p">()</span>
+<span class="n">tools</span> <span class="o">=</span> <span class="p">[</span><span class="n">search</span><span class="p">,</span> <span class="n">calculator</span><span class="p">]</span>
+
+<span class="n">llm</span><span class="p">:</span> <span class="n">Runnable</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4.1-mini&quot;</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">bind_tools</span><span class="p">(</span><span class="n">tools</span><span class="p">)</span>
+
+<span class="n">builder</span> <span class="o">=</span> <span class="n">StateGraph</span><span class="p">(</span><span class="n">State</span><span class="p">)</span>
+
+<span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;llm&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">state</span><span class="p">:</span> <span class="n">llm_node</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">llm</span><span class="p">))</span>  <span class="c1"># type: ignore</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;tools&quot;</span><span class="p">,</span> <span class="n">ToolNode</span><span class="p">(</span><span class="n">tools</span><span class="p">))</span>
+
+<span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">START</span><span class="p">,</span> <span class="s2">&quot;llm&quot;</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_conditional_edges</span><span class="p">(</span><span class="s2">&quot;llm&quot;</span><span class="p">,</span> <span class="n">tools_condition</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;tools&quot;</span><span class="p">,</span> <span class="s2">&quot;llm&quot;</span><span class="p">)</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">compile</span><span class="p">()</span>
+
+<span class="nb">input</span><span class="p">:</span> <span class="n">State</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="n">HumanMessage</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;Question&quot;&quot;&quot;</span><span class="p">)</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="always-tool-calling-first">
+<h3>Always Tool Calling First<a class="headerlink" href="#always-tool-calling-first" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>having a clear rule that certain tool should always be called first</p></li>
+<li><p>can reduce overall latency, and prevent erroneous LLM decision</p></li>
+<li><p>but it can also make worse if there is no clear rule</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># does not call LLM, only creates a tool for the search tool</span>
+<span class="k">def</span> <span class="nf">first_llm</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">State</span><span class="p">:</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;messages&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">content</span>
+    <span class="n">search_tool_call</span> <span class="o">=</span> <span class="n">ToolCall</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;duckduckgo_search&quot;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">{</span>
+                                <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="n">query</span><span class="p">},</span> <span class="nb">id</span><span class="o">=</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">AIMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">tool_calls</span><span class="o">=</span><span class="p">[</span><span class="n">search_tool_call</span><span class="p">])</span>
+    <span class="p">}</span>
+
+<span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;first_llm&quot;</span><span class="p">,</span>
+                 <span class="k">lambda</span> <span class="n">state</span><span class="p">:</span> <span class="n">first_llm</span><span class="p">(</span><span class="n">state</span><span class="p">))</span>  <span class="c1"># type: ignore</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;llm&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">state</span><span class="p">:</span> <span class="n">llm_node</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">llm</span><span class="p">))</span>  <span class="c1"># type: ignore</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;tools&quot;</span><span class="p">,</span> <span class="n">ToolNode</span><span class="p">(</span><span class="n">tools</span><span class="p">))</span>
+
+<span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">START</span><span class="p">,</span> <span class="s2">&quot;first_llm&quot;</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;first_llm&quot;</span><span class="p">,</span> <span class="s2">&quot;tools&quot;</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_conditional_edges</span><span class="p">(</span><span class="s2">&quot;llm&quot;</span><span class="p">,</span> <span class="n">tools_condition</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;tools&quot;</span><span class="p">,</span> <span class="s2">&quot;llm&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="managing-multiple-tools">
+<h3>Managing Multiple Tools<a class="headerlink" href="#managing-multiple-tools" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>LLMs struggle to choose the right one when given many tools</p></li>
+<li><p>can use a RAG step to preselect the most relevant tools for current query</p></li>
+<li><p>giving LLM only a subset of tools can reduce cost, but RAG step adds latency</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">llm_node</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">llm</span><span class="p">,</span> <span class="n">tools</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">State</span><span class="p">:</span>
+    <span class="n">selected_tools</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">tool</span> <span class="k">for</span> <span class="n">tool</span> <span class="ow">in</span> <span class="n">tools</span> <span class="k">if</span> <span class="n">tool</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;selected_tools&quot;</span><span class="p">]]</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">bind_tools</span><span class="p">(</span><span class="n">selected_tools</span><span class="p">)</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;messages&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">res</span><span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">select_tools</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">tools_retriever</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">State</span><span class="p">:</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;messages&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">content</span>
+    <span class="n">tool_docs</span> <span class="o">=</span> <span class="n">tools_retriever</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;selected_tools&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">doc</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">tool_docs</span><span class="p">]</span>
+    <span class="p">}</span>
+
+<span class="n">embeddings</span> <span class="o">=</span> <span class="n">OpenAIEmbeddings</span><span class="p">()</span>
+<span class="n">llm</span><span class="p">:</span> <span class="n">Runnable</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4.1-mini&quot;</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">tools_retriever</span> <span class="o">=</span> <span class="n">InMemoryVectorStore</span><span class="o">.</span><span class="n">from_documents</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">Document</span><span class="p">(</span><span class="n">tool</span><span class="o">.</span><span class="n">description</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span>
+              <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">tool</span><span class="o">.</span><span class="n">name</span><span class="p">})</span> <span class="k">for</span> <span class="n">tool</span> <span class="ow">in</span> <span class="n">tools</span><span class="p">],</span>
+    <span class="n">embeddings</span>
+<span class="p">)</span><span class="o">.</span><span class="n">as_retriever</span><span class="p">()</span>
+
+<span class="n">builder</span> <span class="o">=</span> <span class="n">StateGraph</span><span class="p">(</span><span class="n">State</span><span class="p">)</span>
+
+<span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;select_tools&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">state</span><span class="p">:</span> <span class="n">select_tools</span><span class="p">(</span>
+    <span class="n">state</span><span class="p">,</span> <span class="n">tools_retriever</span><span class="p">))</span>  <span class="c1"># type: ignore</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;llm&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">state</span><span class="p">:</span> <span class="n">llm_node</span><span class="p">(</span>
+    <span class="n">state</span><span class="p">,</span> <span class="n">llm</span><span class="p">,</span> <span class="n">tools</span><span class="p">))</span>  <span class="c1"># type: ignore</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;tools&quot;</span><span class="p">,</span> <span class="n">ToolNode</span><span class="p">(</span><span class="n">tools</span><span class="p">))</span>
+
+<span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">START</span><span class="p">,</span> <span class="s2">&quot;select_tools&quot;</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;select_tools&quot;</span><span class="p">,</span> <span class="s2">&quot;llm&quot;</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_conditional_edges</span><span class="p">(</span><span class="s2">&quot;llm&quot;</span><span class="p">,</span> <span class="n">tools_condition</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;tools&quot;</span><span class="p">,</span> <span class="s2">&quot;llm&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="reflection">
+<h3>Reflection<a class="headerlink" href="#reflection" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>also called self-critique</p></li>
+<li><p>allowing LLM to analyse past output, including past reflections, and refine it</p></li>
+<li><p>need to have a loop between a creator prompt and a reviser prompt</p></li>
+<li><p>can be combined with other prompting techniques</p></li>
+<li><p>always cost higher latency, but likely to increase the quality of final output</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">llm</span><span class="p">,</span> <span class="n">prompt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">State</span><span class="p">:</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">([</span><span class="n">prompt</span><span class="p">]</span> <span class="o">+</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;messages&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">ans</span><span class="p">]}</span>
+
+
+<span class="k">def</span> <span class="nf">reflect</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">llm</span><span class="p">,</span> <span class="n">prompt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">State</span><span class="p">:</span>
+    <span class="c1"># invert the messages</span>
+    <span class="n">cls_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">AIMessage</span><span class="p">:</span> <span class="n">HumanMessage</span><span class="p">,</span> <span class="n">HumanMessage</span><span class="p">:</span> <span class="n">AIMessage</span><span class="p">}</span>
+    <span class="n">translated</span> <span class="o">=</span> <span class="p">[</span><span class="n">prompt</span><span class="p">,</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;messages&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+</span> <span class="p">[</span>
+        <span class="n">cls_map</span><span class="p">[</span><span class="n">msg</span><span class="o">.</span><span class="vm">__class__</span><span class="p">](</span><span class="n">content</span><span class="o">=</span><span class="n">msg</span><span class="o">.</span><span class="n">content</span><span class="p">)</span> <span class="c1"># calling a constructor</span>
+        <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;messages&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="p">]</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">translated</span><span class="p">)</span>
+    <span class="c1"># treat output as human feedback for generator</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">ans</span><span class="o">.</span><span class="n">content</span><span class="p">)]}</span>
+
+
+<span class="k">def</span> <span class="nf">should_continue</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;messages&quot;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">END</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;reflect&quot;</span>
+
+<span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;generate&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">state</span><span class="p">:</span> <span class="n">generate</span><span class="p">(</span>
+    <span class="n">state</span><span class="p">,</span> <span class="n">llm</span><span class="p">,</span> <span class="n">generate_prompt</span><span class="p">))</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;reflect&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">state</span><span class="p">:</span> <span class="n">reflect</span><span class="p">(</span>
+    <span class="n">state</span><span class="p">,</span> <span class="n">llm</span><span class="p">,</span> <span class="n">reflection_prompt</span><span class="p">))</span>
+
+<span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">START</span><span class="p">,</span> <span class="s2">&quot;generate&quot;</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_conditional_edges</span><span class="p">(</span><span class="s2">&quot;generate&quot;</span><span class="p">,</span> <span class="n">should_continue</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s2">&quot;reflect&quot;</span><span class="p">:</span> <span class="s2">&quot;reflect&quot;</span> <span class="c1"># only explicit mapping shows on graph image</span>
+<span class="p">})</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;reflect&quot;</span><span class="p">,</span> <span class="s2">&quot;generate&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="multi-agent">
+<h3>Multi-agent<a class="headerlink" href="#multi-agent" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>composed of multiple smaller, independent agents</p></li>
+<li><p>prevents an agent with multiple tools to make poor decisions</p></li>
+<li><p>agents can be a simple prompt, LLM call or complex as ReAct agent</p></li>
+<li><dl class="simple">
+<dt><strong>Network Strategy</strong></dt><dd><ul>
+<li><p>agents can communicate, and any agent can decide which to call next</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Hierarchical Strategy</strong></dt><dd><ul>
+<li><p>system with a supervisor of supervisors</p></li>
+<li><p>for more complex control flows</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Custom Multi-Agent Workflow</strong></dt><dd><ul>
+<li><p>each communicate with only a subset of agents</p></li>
+<li><p>parts of the flow are deterministic</p></li>
+<li><p>only selected agents can decide which others to call next</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Supervisor Strategy</strong></dt><dd><ul>
+<li><p>each agents communicates with the supervisor agent</p></li>
+<li><p>supervisor decides which agent to call next</p></li>
+<li><p>supervisor agent can be an LLM call with tools</p></li>
+<li><p>subagent can be its own graph with internal state and only outputs summary of its
+work</p></li>
+<li><p>can make each subagent to decide to return output directly to user or not</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#langchain">back to top</a></p>
+</section>
+</section>
+<section id="llm-patterns">
+<h2>LLM Patterns<a class="headerlink" href="#llm-patterns" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#structured-output">Structured Output</a>, <a class="reference internal" href="#streaming-output">Streaming Output</a>, <a class="reference internal" href="#human-in-the-loop">Human in the Loop</a>, <a class="reference internal" href="#double-texting-modes">Double Texting Modes</a></p></li>
+<li><p>Agent: high agency, lower reliability</p></li>
+<li><p>Chain: low agency, higher reliability</p></li>
+<li><p>LLM apps should minimise latency (time to get final answer), autonomy (interruptions for
+human input), or variance (variation between invocations)</p></li>
+</ul>
+<section id="structured-output">
+<h3>Structured Output<a class="headerlink" href="#structured-output" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>LLM should produce output in a predefined format</p></li>
+<li><p>different models implement different strategies</p></li>
+<li><p>lower temperature is a good fit as it reduces the chance of LLM to produce invalid output</p></li>
+<li><dl class="simple">
+<dt><strong>Prompting</strong></dt><dd><ul class="simple">
+<li><p>asking LLM to return output in desired format</p></li>
+<li><p>not guaranteed for output to be in the format</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Tool Calling</strong></dt><dd><ul class="simple">
+<li><p>available for LLMs fine-tuned to pick from a list of output schemas</p></li>
+<li><p>need to give LLM a name, description, and schema for desired output format</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>JSON Mode</strong></dt><dd><ul class="simple">
+<li><p>available in LLMs enforced to output a valid JSON document</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Joke</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">setup</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;The setup of the joke&quot;</span><span class="p">)</span>
+    <span class="n">punchline</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;The punchline to the joke&quot;</span><span class="p">)</span>
+
+<span class="n">llm</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4.1-mini&quot;</span><span class="p">)</span>
+<span class="n">llm</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">with_structured_output</span><span class="p">(</span><span class="n">Joke</span><span class="p">)</span>
+
+<span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&quot;Tell me a joke about cats&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="streaming-output">
+<h3>Streaming Output<a class="headerlink" href="#streaming-output" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>higher latency is acceptable if there is progress/intermediate output while the app is
+still running</p></li>
+<li><dl>
+<dt><strong>Stream Modes in LangGraph</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">updates</span></code>: default mode</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">values</span></code>: yield current state of the graph every time it changes, each set of nodes
+finishes executing</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">debug</span></code>: yields detailed events every time a graph changes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">checkpoint</span></code> event: when a new checkpoint of current state is saved to the database</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task</span></code> event: when a node is about to start running</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task_result</span></code> events: when a node finishes running</p></li>
+<li><p>stream modes can be combined</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">stream_mode</span><span class="o">=</span><span class="s2">&quot;updates&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Streaming Token-by-Token</strong></dt><dd><ul class="simple">
+<li><p>useful for apps such as interactive chatbot</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">astream_events</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;v2&quot;</span><span class="p">)</span>
+
+<span class="k">async</span> <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;event&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;on_chat_model_stream&quot;</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;chunk&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">content</span>
+        <span class="k">if</span> <span class="n">content</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="human-in-the-loop">
+<h3>Human in the Loop<a class="headerlink" href="#human-in-the-loop" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul>
+<li><p>higher-agency architectures can have human intervention of interrupting, approving,
+forking or undoing</p></li>
+<li><p>store the state at the end of each step and combine the new input with the previous state
+by using check pointer in graph</p></li>
+<li><p>the graph remembering the previous state is the key to human-in-the-loop</p></li>
+<li><p>Control Modes: interrupt, authorise, resume, restart, edit state, fork</p></li>
+<li><p>combine different control modes to get better applications</p></li>
+<li><dl>
+<dt><strong>Interrupt</strong></dt><dd><ul class="simple">
+<li><p>using an event or signal allows to control interruption from outside of the running
+app</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">graph</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">checkpointer</span><span class="o">=</span><span class="n">MemorySaver</span><span class="p">())</span>
+
+<span class="n">event</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Event</span><span class="p">()</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;configurable&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;thread_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">}}</span>
+
+<span class="k">async</span> <span class="k">with</span> <span class="n">aclosing</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">astream</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
+            <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+<span class="n">event</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Authorise</strong></dt><dd><ul class="simple">
+<li><p>defined to give control to the user every time a specific node is about to be
+called, usually used for tool confirmation</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">astream</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">interrupt_before</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;tools&quot;</span><span class="p">])</span>
+<span class="k">async</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
+    <span class="c1"># process output</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Resume</strong></dt><dd><ul class="simple">
+<li><p>invoke the graph with null input to continue processing previous non-null input</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">astream</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">interrupt_before</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;tools&quot;</span><span class="p">])</span>
+<span class="k">async</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
+    <span class="c1"># process output</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Restart</strong></dt><dd><ul class="simple">
+<li><p>invoke with new input to start a graph from the first node</p></li>
+<li><p>will keep the current state, and merge it with new input</p></li>
+<li><p>just change <code class="docutils literal notranslate"><span class="pre">thread_id</span></code> to start a new interaction from a blank state</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;configurable&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;thread_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">}}</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">astream</span><span class="p">(</span><span class="n">new_input</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
+    <span class="c1"># process output</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Edit State</strong></dt><dd><ul class="simple">
+<li><p>update the state of the graph before resuming</p></li>
+<li><p>inspect the state first and update accordingly</p></li>
+<li><p>will create a new checkpoint with the update</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">state</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">get_state</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="n">update</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">graph</span><span class="o">.</span><span class="n">update_state</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">update</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Fork</strong></dt><dd><ul class="simple">
+<li><p>use the past states to get alternative answer</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">state</span> <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">get_state_history</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">graph</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">history</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="double-texting-modes">
+<h3>Double Texting Modes<a class="headerlink" href="#double-texting-modes" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>LLM may get new input before the previous one is processed</p></li>
+<li><p>also called multitasking LLMs</p></li>
+<li><dl class="simple">
+<dt><strong>Refuse</strong></dt><dd><ul>
+<li><p>simplest strategy to  reject concurrent inputs</p></li>
+<li><p>concurrency management is handed off to the caller</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Handle Independently</strong></dt><dd><ul>
+<li><p>treat new inputs as independent invocations, creating new threads and producing
+output</p></li>
+<li><p>user will receive as separate invocations, but can be scaled to large sizes</p></li>
+<li><p>e.g. chatbot interacting with two different users concurrently</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Queue</strong></dt><dd><ul>
+<li><p>inputs are queued and handled when current one is finished</p></li>
+<li><p>can receive multiple concurrent requests, and will be handled sequentially</p></li>
+<li><p>may take time to process the queue, which may grow unbounded and inputs can be stale</p></li>
+<li><p>not useful when new inputs depend on previous answers</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Interrupt</strong></dt><dd><ul>
+<li><p>stop current one and restart with the new input</p></li>
+<li><p>previous input can be completely ignored</p></li>
+<li><p>the completed state is kept but discard any pending state updates</p></li>
+<li><p>keep the last completed step, along with current in-progress one</p></li>
+<li><p>wait for current node to finish, but not the subsequent ones, save and interrupt</p></li>
+<li><p>new input is handled quickly, reducing latency and stale outputs</p></li>
+<li><p>the state needs to be designed to be stored partially</p></li>
+<li><p>can have unpredictable final result as incomplete progress context might be used for
+the new input</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Fork &amp; Merge</strong></dt><dd><ul>
+<li><p>handle new input in parallel, forking the state of the thread, and merge the final
+states</p></li>
+<li><p>state needs to be designed to be merged without conflicts</p></li>
+<li><p>e.g., use conflict-free replicated data types (CRDTs), conflict resolution
+algorithms or manually resolve conflicts</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="#langchain">back to top</a></p>
+</section>
+</section>
+<section id="deployment">
+<h2>Deployment<a class="headerlink" href="#deployment" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li></li>
+</ul>
+<p><a class="reference external" href="#langchain">back to top</a></p>
 </section>
 <section id="prompting-basics">
 <h2>Prompting Basics<a class="headerlink" href="#prompting-basics" title="Link to this heading">#</a></h2>
@@ -1349,8 +2185,8 @@ specific task</p></li>
 <li><p>will need to iterate on prompts and responses to get a reliable system</p></li>
 <li><dl class="simple">
 <dt><strong>Chain-of-Thought</strong></dt><dd><ul>
-<li><p>instructing the model to take time to think</p></li>
-<li><p>prepending the prompt with instructions form the LLM to describe how it could arrive
+<li><p>instructing the model to take time to think step by step</p></li>
+<li><p>prepending the prompt with instructions for the LLM to describe how it could arrive
 at the answer</p></li>
 </ul>
 </dd>
@@ -1468,8 +2304,33 @@ or fine-tuning</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph">Graph</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memory">Memory</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiactor">Multiactor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chat-history">Chat History</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subgraphs">Subgraphs</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cognitive-architectures">Cognitive Architectures</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#degree-of-autonomy">Degree of Autonomy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#llm-call-architecture">LLM Call Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chain-architecture">Chain Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#router-architecture">Router Architecture</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agent-architecture">Agent Architecture</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-agent">Standard Agent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#always-tool-calling-first">Always Tool Calling First</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-multiple-tools">Managing Multiple Tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection">Reflection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-agent">Multi-agent</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#llm-patterns">LLM Patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-output">Structured Output</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#streaming-output">Streaming Output</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#human-in-the-loop">Human in the Loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#double-texting-modes">Double Texting Modes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment">Deployment</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prompting-basics">Prompting Basics</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#llms">LLMs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-shot-prompting">Zero-Shot Prompting</a></li>
