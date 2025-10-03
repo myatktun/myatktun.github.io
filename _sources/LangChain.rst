@@ -9,8 +9,8 @@ LangChain
 5. `Cognitive Architectures`_
 6. `Agent Architectures`_
 7. `LLM Patterns`_
-8. `Deployment`_
-9. `Prompting Basics`_
+8. `Prompting Basics`_
+9. `References & External Resources`_
 
 `back to top <#langchain>`_
 
@@ -1568,13 +1568,6 @@ Double Texting Modes
 
 `back to top <#langchain>`_
 
-Deployment
-==========
-
-*
-
-`back to top <#langchain>`_
-
 Prompting Basics
 ================
 
@@ -1626,5 +1619,13 @@ Few-Shot Prompting
         - include a predetermined list of a small number of examples in the prompt
     * **Dynamic**
         - from a dataset of many examples, choose the most relevant ones for each new query
+
+`back to top <#langchain>`_
+
+References & External Resources
+===============================
+
+* Oshin, M., Campos, N. (2025). Learning Langchain: Building AI and LLM Applications with
+  LangChain and LangGraph. Sebastopol, CA: O'Reilly Media, Inc.
 
 `back to top <#langchain>`_
