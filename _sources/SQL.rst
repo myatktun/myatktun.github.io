@@ -110,16 +110,32 @@ Commands & Queries
 
 DDL
 ---
+    * ``CREATE``, ``ALTER``, ``DROP``, ``TRUNCATE``, ``USE``, ``SHOW``
     * ``CREATE``
         - primary key is ``NOT NULL`` and ``UNIQUE`` by default
+        - ``NOT NULL`` must be explicitly specified, otherwise ``NULL`` by default
+        - can use ``DEFAULT`` values instead of ``NULL`` columns
         - some foreign keys must be set to ``NULL`` first, and then updates it, as the other table
           isn't created or populated yet
+        - some DBMSs need table location to be created
 
         .. code-block:: sql
 
            CREATE DATABASE db_name;
-           CREATE TABLE table_name (column_1 INT PRIMARY KEY, column_2 VARCHAR(50));
-           CREATE TABLE t1 (c1 INT, c2 VARCHAR(50), PRIMARY KEY(c1));
+   
+           CREATE TABLE table_name
+           (
+               column_1 INT PRIMARY KEY NOT NULL,
+               column_2 VARCHAR(50)     NULL
+           );
+   
+           CREATE TABLE table_name
+           (
+               column_1 INT PRIMARY KEY,
+               column_2 VARCHAR(50),
+               column_3 INT DEFAULT 1,
+               PRIMARY KEY(c1)
+           );
    
            -- set multiple attributes as primary, composite key
            CREATE TABLE t1(PRIMARY KEY(c1,c2));
@@ -133,16 +149,23 @@ DDL
 
 
     * ``ALTER``
-        - modify column
+        - update table definition by modifying columns
+        - if possible, avoid altering the table after data is added
+        - for complex changes, create a new table and copy old data with ``INSERT SELECT``
+        - always backup before making changes
+        - SQLite does not allow to alter primary and foreign keys
 
         .. code-block:: sql
 
            ALTER TABLE t1 ADD c3 DECIMAL;
            ALTER TABLE t1 DROP COLUMN c3;
            ALTER TABLE t1 ADD FOREIGN KEY(c1) REFERENCES t2(c1); -- add FK to existing table
+           ALTER TABLE t1 RENAME TO t2; -- rename table in SQLite
 
 
     * ``DROP``
+        - delete entire table
+        - most DBMSs prevent dropping of tables that are related to other tables
 
         .. code-block:: sql
 
@@ -170,37 +193,64 @@ DDL
 
 DML
 ---
+    * ``INSERT``, ``UPDATE``, ``DELETE``
     * ``INSERT``
+        - can insert a complete or partial row and the results of a query
+        - use ``NULL`` if a column has no value
+        - explicitly stating column names to insert is a safe way to write queries
+        - without column names, insert values order must be the same as in table definition
         - cannot insert values with duplicate primary key
+        - ``INSERT SELECT``: import data from existing table to another
+        - ``CREATE SELECT`` or ``SELECT INTO``: import data from existing table to a new one, not
+          supported by DB2
 
         .. code-block:: sql
 
-           INSERT INTO t1 VALUES(x, y); -- order matters
-           INSERT INTO t1(c1) VALUES(x); -- insert only specific attribute
+           INSERT INTO t1(c1) VALUES(x); -- insert only specific, safe way to write insert
+           INSERT INTO t1 VALUES(x, y, NULL); -- order matters, not safe!
+   
+           INSERT INTO t1(c1, c2) SELECT c1, c2 FROM t2;
+   
+           CREATE TABLE t3 AS SELECT * FROM t1; -- some DBMS can overwrite the table if exists
+           SELECT * INTO t3 FROM t1; -- syntax for SQL Server
 
 
     * ``UPDATE``
+        - update specific or all rows in a table
+        - never forget ``WHERE``, or all rows will be updated
+        - can use subqueries to update with data retrieved from ``SELECT``
+        - some DBMSs allow ``FROM`` to update rows with data from another table
+        - use ``NULL`` to delete column value, as empty string is still a value
 
         .. code-block:: sql
 
-           UPDATE t1 SET c1='new_value' WHERE c1='old_value';
-           UPDATE t1 SET c1='new_value' WHERE c1='x' OR c1='y';
-           UPDATE t1 SET c1='new_value',c2='new_value' WHERE c1='old_value';
+           UPDATE t1 SET c1='new_value' WHERE c2='x';
+           UPDATE t1 SET c1='new_value' WHERE c2='x' OR c2='y';
+           UPDATE t1 SET c1='new_value', c2='new_value' WHERE c3='x';
+   
            UPDATE t1 SET c1='new_value'; -- apply to every row
+   
+           UPDATE t1 SET c1=NULL WHERE c2='x'; -- delete column value
 
 
     * ``DELETE``
+        - can delete specific or all rows
+        - never forget ``WHERE``, or all rows will be deleted
+        - rows needed for a relationship are prevented deletion
+        - never delete the table itself
+        - ``TRUNCATE TABLE``: faster way to delete all rows as data changes are not logged
 
         .. code-block:: sql
 
-           DELETE FROM t1; -- delete every row
            DELETE FROM t1 WHERE c1='x';
+   
+           DELETE FROM t1; -- delete every row
 
 
 
 DQL
 ---
-    * ``SELECT``, ``DESCRIBE``
+    * ``SELECT``, ``DESCRIBE``, ``VIEW``
     * different DBMSs and clients display data differently
     * data formatting is a presentation issue, not a retrieval issue
     * avoid wildcards if possible, as they can reduce the performance of retrieval
@@ -306,6 +356,19 @@ DQL
            SELECT c1, COUNT(*) FROM t1 GROUP BY c1;
 
 
+    * **Views**
+        - virtual tables with queries that dynamically retrieve data when used
+        - SQLite only supports read-only views
+        - to simplify and reuse SQL statements, but complex views may reduce performance
+        - ``ORDER BY`` is not allowed in views
+        - use ``CREATE`` and ``DROP`` like tables, but must drop and recreate to update a view
+
+        .. code-block:: sql
+
+           CREATE VIEW v1 AS SELECT c1, c2 FROM t1 INNER JOIN t2 ON t1.c3 = t2.c3;
+           DROP VIEW v1;
+
+
 
 DCL
 ---
@@ -387,7 +450,7 @@ Nested Queries
 
 Joins
 -----
-    * join separate tables on specific common column
+    * join separate tables on specific common column horizontally
     * must specify all tables to be included, and use fully qualified column names
     * resource intensive as joins are processed at runtime
     * most DBMSs have restricted the maximum number of tables per join
@@ -440,7 +503,7 @@ Joins
    
            SELECT t1.c1, t1.c2, t1.c3
            FROM Table1 AS t1
-           INNER JOIN Table2 AS t2
+           INNER JOIN Table1 AS t2
            ON t1.c1 = t2.c1
            WHERE t2.c3 = 'x';
 
@@ -477,12 +540,30 @@ Joins
 
 Union
 -----
-    * combine columns from ``SELECT`` statements
-    * ``SELECT c1 FROM t1 UNION SELECT c2 FROM t2;`` result c1 and c2 in single column
-    * number of columns must be same to union, e.g cannot be ``c1,c2 FROM t1 UNION c2 FROM t2``
-    * columns must be of same or compatible data type to union, different data types will be
-      converted if possible
-    * ``SELECT c1 as new_name FROM t1 UNION SELECT c2 FROM t2;`` result column will be ``new_name``
+    * also called compound queries, combine columns from multiple ``SELECT`` statements as a
+      single query result
+    * used to get similarly structured data from different tables or multiple queries against a
+      single table in a single query
+    * combining two queries to the same table is the same as a single query with multiple ``WHERE``
+    * sometimes ``UNION`` query can be more complicated than using ``WHERE``
+    * duplicate rows are auto removed, and must use ``UNION ALL`` to include them
+    * **Rules**
+        - must have two or more ``SELECT``
+        - must have same columns, expressions, or aggregate functions
+        - columns must be of same or compatible data type, different data types will be
+          converted if possible
+        - if different column names, the first name is used
+        - can only use one ``ORDER BY``, and it must be after the final ``SELECT``
+    * **Additional UNION Types**
+        - ``EXCEPT`` or ``MINUS``: retrieve only rows that exist in the first table
+        - ``INTERSECT``: retrieve only rows that exist in both tables
+
+    .. code-block:: sql
+
+       SELECT c1 FROM t1 UNION SELECT c2 FROM t2; -- result c1 and c2 in single column
+   
+       SELECT c1 as new_name FROM t1 UNION SELECT c2 FROM t2; -- result column will be new_name
+
 
 Triggers
 --------

@@ -560,15 +560,31 @@ doesn’t uniquely identify each row</p></li>
 <h3>DDL<a class="headerlink" href="#ddl" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">CREATE</span></code>, <code class="docutils literal notranslate"><span class="pre">ALTER</span></code>, <code class="docutils literal notranslate"><span class="pre">DROP</span></code>, <code class="docutils literal notranslate"><span class="pre">TRUNCATE</span></code>, <code class="docutils literal notranslate"><span class="pre">USE</span></code>, <code class="docutils literal notranslate"><span class="pre">SHOW</span></code></p></li>
 <li><dl>
 <dt><code class="docutils literal notranslate"><span class="pre">CREATE</span></code></dt><dd><ul class="simple">
 <li><p>primary key is <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code> and <code class="docutils literal notranslate"><span class="pre">UNIQUE</span></code> by default</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code> must be explicitly specified, otherwise <code class="docutils literal notranslate"><span class="pre">NULL</span></code> by default</p></li>
+<li><p>can use <code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code> values instead of <code class="docutils literal notranslate"><span class="pre">NULL</span></code> columns</p></li>
 <li><p>some foreign keys must be set to <code class="docutils literal notranslate"><span class="pre">NULL</span></code> first, and then updates it, as the other table
 isn’t created or populated yet</p></li>
+<li><p>some DBMSs need table location to be created</p></li>
 </ul>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">db_name</span><span class="p">;</span>
-<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="p">(</span><span class="n">column_1</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"> </span><span class="n">column_2</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">));</span>
-<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">(</span><span class="n">c1</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">c1</span><span class="p">));</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span>
+<span class="p">(</span>
+<span class="w">    </span><span class="n">column_1</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">column_2</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w">     </span><span class="k">NULL</span>
+<span class="p">);</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span>
+<span class="p">(</span>
+<span class="w">    </span><span class="n">column_1</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">column_2</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+<span class="w">    </span><span class="n">column_3</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
+<span class="p">);</span>
 
 <span class="c1">-- set multiple attributes as primary, composite key</span>
 <span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span><span class="n">c2</span><span class="p">));</span>
@@ -586,22 +602,31 @@ isn’t created or populated yet</p></li>
 </li>
 <li><dl>
 <dt><code class="docutils literal notranslate"><span class="pre">ALTER</span></code></dt><dd><ul class="simple">
-<li><p>modify column</p></li>
+<li><p>update table definition by modifying columns</p></li>
+<li><p>if possible, avoid altering the table after data is added</p></li>
+<li><p>for complex changes, create a new table and copy old data with <code class="docutils literal notranslate"><span class="pre">INSERT</span> <span class="pre">SELECT</span></code></p></li>
+<li><p>always backup before making changes</p></li>
+<li><p>SQLite does not allow to alter primary and foreign keys</p></li>
 </ul>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="n">c3</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">;</span>
 <span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">c3</span><span class="p">;</span>
 <span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">t2</span><span class="p">(</span><span class="n">c1</span><span class="p">);</span><span class="w"> </span><span class="c1">-- add FK to existing table</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">RENAME</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">t2</span><span class="p">;</span><span class="w"> </span><span class="c1">-- rename table in SQLite</span>
 </pre></div>
 </div>
 </dd>
 </dl>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DROP</span></code></p>
-<blockquote>
-<div><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">DROP</span></code></dt><dd><ul class="simple">
+<li><p>delete entire table</p></li>
+<li><p>most DBMSs prevent dropping of tables that are related to other tables</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
 </pre></div>
 </div>
-</div></blockquote>
+</dd>
+</dl>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TRUNCATE</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">USE</span></code></p>
@@ -630,34 +655,65 @@ structure</p></li>
 <h3>DML<a class="headerlink" href="#dml" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">INSERT</span></code>, <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code>, <code class="docutils literal notranslate"><span class="pre">DELETE</span></code></p></li>
 <li><dl>
 <dt><code class="docutils literal notranslate"><span class="pre">INSERT</span></code></dt><dd><ul class="simple">
+<li><p>can insert a complete or partial row and the results of a query</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if a column has no value</p></li>
+<li><p>explicitly stating column names to insert is a safe way to write queries</p></li>
+<li><p>without column names, insert values order must be the same as in table definition</p></li>
 <li><p>cannot insert values with duplicate primary key</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INSERT</span> <span class="pre">SELECT</span></code>: import data from existing table to another</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">SELECT</span></code> or <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">INTO</span></code>: import data from existing table to a new one, not
+supported by DB2</p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w"> </span><span class="c1">-- order matters</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">-- insert only specific attribute</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">-- insert only specific, safe way to write insert</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">);</span><span class="w"> </span><span class="c1">-- order matters, not safe!</span>
+
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span><span class="w"> </span><span class="n">c2</span><span class="p">)</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">c1</span><span class="p">,</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t2</span><span class="p">;</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w"> </span><span class="c1">-- some DBMS can overwrite the table if exists</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w"> </span><span class="c1">-- syntax for SQL Server</span>
 </pre></div>
 </div>
 </dd>
 </dl>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UPDATE</span></code></p>
-<blockquote>
-<div><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">c1</span><span class="o">=</span><span class="s1">&#39;new_value&#39;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">c1</span><span class="o">=</span><span class="s1">&#39;old_value&#39;</span><span class="p">;</span>
-<span class="k">UPDATE</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">c1</span><span class="o">=</span><span class="s1">&#39;new_value&#39;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">c1</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">c1</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">;</span>
-<span class="k">UPDATE</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">c1</span><span class="o">=</span><span class="s1">&#39;new_value&#39;</span><span class="p">,</span><span class="n">c2</span><span class="o">=</span><span class="s1">&#39;new_value&#39;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">c1</span><span class="o">=</span><span class="s1">&#39;old_value&#39;</span><span class="p">;</span>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">UPDATE</span></code></dt><dd><ul class="simple">
+<li><p>update specific or all rows in a table</p></li>
+<li><p>never forget <code class="docutils literal notranslate"><span class="pre">WHERE</span></code>, or all rows will be updated</p></li>
+<li><p>can use subqueries to update with data retrieved from <code class="docutils literal notranslate"><span class="pre">SELECT</span></code></p></li>
+<li><p>some DBMSs allow <code class="docutils literal notranslate"><span class="pre">FROM</span></code> to update rows with data from another table</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">NULL</span></code> to delete column value, as empty string is still a value</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">c1</span><span class="o">=</span><span class="s1">&#39;new_value&#39;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">c2</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">;</span>
+<span class="k">UPDATE</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">c1</span><span class="o">=</span><span class="s1">&#39;new_value&#39;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">c2</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">c2</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">;</span>
+<span class="k">UPDATE</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">c1</span><span class="o">=</span><span class="s1">&#39;new_value&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">c2</span><span class="o">=</span><span class="s1">&#39;new_value&#39;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">c3</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">;</span>
+
 <span class="k">UPDATE</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">c1</span><span class="o">=</span><span class="s1">&#39;new_value&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- apply to every row</span>
+
+<span class="k">UPDATE</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">c1</span><span class="o">=</span><span class="k">NULL</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">c2</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- delete column value</span>
 </pre></div>
 </div>
-</div></blockquote>
+</dd>
+</dl>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code></p>
-<blockquote>
-<div><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w"> </span><span class="c1">-- delete every row</span>
-<span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">c1</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">;</span>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">DELETE</span></code></dt><dd><ul class="simple">
+<li><p>can delete specific or all rows</p></li>
+<li><p>never forget <code class="docutils literal notranslate"><span class="pre">WHERE</span></code>, or all rows will be deleted</p></li>
+<li><p>rows needed for a relationship are prevented deletion</p></li>
+<li><p>never delete the table itself</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TRUNCATE</span> <span class="pre">TABLE</span></code>: faster way to delete all rows as data changes are not logged</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">c1</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">;</span>
+
+<span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w"> </span><span class="c1">-- delete every row</span>
 </pre></div>
 </div>
-</div></blockquote>
+</dd>
+</dl>
 </li>
 </ul>
 </div></blockquote>
@@ -666,7 +722,7 @@ structure</p></li>
 <h3>DQL<a class="headerlink" href="#dql" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span></code>, <code class="docutils literal notranslate"><span class="pre">DESCRIBE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span></code>, <code class="docutils literal notranslate"><span class="pre">DESCRIBE</span></code>, <code class="docutils literal notranslate"><span class="pre">VIEW</span></code></p></li>
 <li><p>different DBMSs and clients display data differently</p></li>
 <li><p>data formatting is a presentation issue, not a retrieval issue</p></li>
 <li><p>avoid wildcards if possible, as they can reduce the performance of retrieval</p></li>
@@ -786,6 +842,21 @@ column cannot be aggregate function or aliases</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">HAVING</span></code>: filter groups instead of rows, allow all <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> options</p></li>
 </ul>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">c1</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">c1</span><span class="p">;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Views</strong></dt><dd><ul class="simple">
+<li><p>virtual tables with queries that dynamically retrieve data when used</p></li>
+<li><p>SQLite only supports read-only views</p></li>
+<li><p>to simplify and reuse SQL statements, but complex views may reduce performance</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ORDER</span> <span class="pre">BY</span></code> is not allowed in views</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">CREATE</span></code> and <code class="docutils literal notranslate"><span class="pre">DROP</span></code> like tables, but must drop and recreate to update a view</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">c1</span><span class="p">,</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">c3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">c3</span><span class="p">;</span>
+<span class="k">DROP</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">v1</span><span class="p">;</span>
 </pre></div>
 </div>
 </dd>
@@ -918,7 +989,7 @@ especially when using equal</p></li>
 <h3>Joins<a class="headerlink" href="#joins" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul>
-<li><p>join separate tables on specific common column</p></li>
+<li><p>join separate tables on specific common column horizontally</p></li>
 <li><p>must specify all tables to be included, and use fully qualified column names</p></li>
 <li><p>resource intensive as joins are processed at runtime</p></li>
 <li><p>most DBMSs have restricted the maximum number of tables per join</p></li>
@@ -975,7 +1046,7 @@ especially when using equal</p></li>
 </ul>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">c1</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">c2</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">c3</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">Table1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">t1</span>
-<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Table2</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">t2</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Table1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">t2</span>
 <span class="k">ON</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">c1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">c1</span>
 <span class="k">WHERE</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">c3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;x&#39;</span><span class="p">;</span>
 </pre></div>
@@ -1023,13 +1094,39 @@ right join combined</p></li>
 <h3>Union<a class="headerlink" href="#union" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>combine columns from <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statements</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">c1</span> <span class="pre">FROM</span> <span class="pre">t1</span> <span class="pre">UNION</span> <span class="pre">SELECT</span> <span class="pre">c2</span> <span class="pre">FROM</span> <span class="pre">t2;</span></code> result c1 and c2 in single column</p></li>
-<li><p>number of columns must be same to union, e.g cannot be <code class="docutils literal notranslate"><span class="pre">c1,c2</span> <span class="pre">FROM</span> <span class="pre">t1</span> <span class="pre">UNION</span> <span class="pre">c2</span> <span class="pre">FROM</span> <span class="pre">t2</span></code></p></li>
-<li><p>columns must be of same or compatible data type to union, different data types will be
+<li><p>also called compound queries, combine columns from multiple <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statements as a
+single query result</p></li>
+<li><p>used to get similarly structured data from different tables or multiple queries against a
+single table in a single query</p></li>
+<li><p>combining two queries to the same table is the same as a single query with multiple <code class="docutils literal notranslate"><span class="pre">WHERE</span></code></p></li>
+<li><p>sometimes <code class="docutils literal notranslate"><span class="pre">UNION</span></code> query can be more complicated than using <code class="docutils literal notranslate"><span class="pre">WHERE</span></code></p></li>
+<li><p>duplicate rows are auto removed, and must use <code class="docutils literal notranslate"><span class="pre">UNION</span> <span class="pre">ALL</span></code> to include them</p></li>
+<li><dl class="simple">
+<dt><strong>Rules</strong></dt><dd><ul>
+<li><p>must have two or more <code class="docutils literal notranslate"><span class="pre">SELECT</span></code></p></li>
+<li><p>must have same columns, expressions, or aggregate functions</p></li>
+<li><p>columns must be of same or compatible data type, different data types will be
 converted if possible</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">c1</span> <span class="pre">as</span> <span class="pre">new_name</span> <span class="pre">FROM</span> <span class="pre">t1</span> <span class="pre">UNION</span> <span class="pre">SELECT</span> <span class="pre">c2</span> <span class="pre">FROM</span> <span class="pre">t2;</span></code> result column will be <code class="docutils literal notranslate"><span class="pre">new_name</span></code></p></li>
+<li><p>if different column names, the first name is used</p></li>
+<li><p>can only use one <code class="docutils literal notranslate"><span class="pre">ORDER</span> <span class="pre">BY</span></code>, and it must be after the final <code class="docutils literal notranslate"><span class="pre">SELECT</span></code></p></li>
 </ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Additional UNION Types</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">EXCEPT</span></code> or <code class="docutils literal notranslate"><span class="pre">MINUS</span></code>: retrieve only rows that exist in the first table</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INTERSECT</span></code>: retrieve only rows that exist in both tables</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">UNION</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t2</span><span class="p">;</span><span class="w"> </span><span class="c1">-- result c1 and c2 in single column</span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">new_name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">UNION</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t2</span><span class="p">;</span><span class="w"> </span><span class="c1">-- result column will be new_name</span>
+</pre></div>
+</div>
 </div></blockquote>
 </section>
 <section id="triggers">
