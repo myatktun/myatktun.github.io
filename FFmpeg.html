@@ -334,6 +334,7 @@
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#video-conversion">Video Conversion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#video-editing">Video Editing</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>
@@ -358,7 +359,7 @@
 <section id="basics">
 <h2>Basics<a class="headerlink" href="#basics" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#video-conversion">Video Conversion</a></p></li>
+<li><p><a class="reference internal" href="#video-conversion">Video Conversion</a>, <a class="reference internal" href="#video-editing">Video Editing</a></p></li>
 <li><p>open-source command line tool for Linux, Windows, and OS-X</p></li>
 <li><dl class="simple">
 <dt>options are written before the file they refer to</dt><dd><ul>
@@ -374,23 +375,46 @@
 <div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ffmpeg</span> <span class="pre">-i</span> <span class="pre">anyinput.xx</span> <span class="pre">anyoutout.xx</span></code></p></li>
 <li><dl class="simple">
-<dt>MP4 to mov</dt><dd><ul>
+<dt><strong>MP4 to MOV</strong></dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">ffmpeg</span> <span class="pre">-i</span> <span class="pre">in.mp4</span> <span class="pre">-acodec</span> <span class="pre">copy</span> <span class="pre">-vcodec</span> <span class="pre">copy</span> <span class="pre">-f</span> <span class="pre">mov</span> <span class="pre">out.mov</span></code></p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>mov to MP4</dt><dd><ul>
+<dt><strong>MOV to MP4</strong></dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">ffmpeg</span> <span class="pre">-i</span> <span class="pre">in.mov</span> <span class="pre">-acodec</span> <span class="pre">copy</span> <span class="pre">-vcodec</span> <span class="pre">copy</span> <span class="pre">out.mp4</span></code>, or <code class="docutils literal notranslate"><span class="pre">ffmpeg</span> <span class="pre">-i</span> <span class="pre">input.mov</span> <span class="pre">-q:v</span> <span class="pre">0</span> <span class="pre">output.mp4</span></code></p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>mov to MP4 with h265 compression</dt><dd><ul>
+<dt><strong>MOV to MP4 with h265 Compression</strong></dt><dd><ul>
 <li><p>default medium preset, default 28 crf</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ffmpeg</span> <span class="pre">-i</span> <span class="pre">in.mov</span> <span class="pre">-c:v</span> <span class="pre">libx265</span> <span class="pre">-preset</span> <span class="pre">slow</span> <span class="pre">-crf</span> <span class="pre">25</span> <span class="pre">-acodec</span> <span class="pre">copy</span> <span class="pre">out.mp4</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="video-editing">
+<h3>Video Editing<a class="headerlink" href="#video-editing" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Cut using Start Time and Duration</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ffmpeg</span> <span class="pre">-i</span> <span class="pre">in.mp4</span> <span class="pre">-ss</span> <span class="pre">00:00:01</span> <span class="pre">-t</span> <span class="pre">00:01:00</span> <span class="pre">-c</span> <span class="pre">copy</span> <span class="pre">out.mp4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-c</span> <span class="pre">copy</span></code>: copy the video and audio streams without re-encoding, faster and maintain
+quality</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Cut using Start and End Time</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ffmpeg</span> <span class="pre">-i</span> <span class="pre">in.mp4</span> <span class="pre">-ss</span> <span class="pre">00:00:01</span> <span class="pre">-to</span> <span class="pre">00:01:00</span> <span class="pre">-c</span> <span class="pre">copy</span> <span class="pre">out.mp4</span></code></p></li>
 </ul>
 </dd>
 </dl>
@@ -461,6 +485,7 @@ Processing and Astronomy Software. Available at:
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#video-conversion">Video Conversion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#video-editing">Video Editing</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-external-resources">References &amp; External Resources</a></li>
